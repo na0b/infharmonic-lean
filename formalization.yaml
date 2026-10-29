@@ -105,14 +105,16 @@ fidelity:
     openness of Ω and continuity of u are part of the definition.
 
 review:
-  status: "agent-reviewed"
+  status: "author-verified"
   reviewers:
+    - "Juan J. Manfredi"
     - "Trellis verifier agents (soundness, paper-faithfulness and statement-correspondence checks on every node)"
   notes: >-
-    Every node of the development passed Trellis's automated soundness, paper-faithfulness
-    and Lean/natural-language correspondence reviews, and Cleanup ran four further audit
-    rounds. No human line-by-line review of the Lean statements against the paper has been
-    recorded; readers should compare Challenge.lean with the paper themselves.
+    Juan J. Manfredi read Challenge.lean (the definitions and the three theorem statements)
+    against the paper on 2026-10-29. In addition, every node of the development passed
+    Trellis's automated soundness, paper-faithfulness and Lean/natural-language
+    correspondence reviews, and Cleanup ran four further audit rounds. The proofs were not
+    reviewed line by line by a human; they are checked by the Lean kernel and by Comparator.
 
 alignment:
   namespace: "InfHarmonic"
