@@ -1,0 +1,241 @@
+\begin{lemma}[Path convexity of the quadratic envelopes]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$ be
+open, let $\Omega=\{(x,t):t\in I\}$, and let $f$ be a real function on space-time
+which is continuous on $\Omega$ and has subquadratic spatial growth on compact
+time intervals of $I$ in the sense of \noderef{SubquadraticGrowth},
+and let $T>0$.
+\begin{enumerate}
+\item If $f$ is a viscosity subsolution of $F[f]=0$ on $\Omega$ in the sense of
+\noderef{IsLimitSubOn}, then for every affine path $x(\ell)=x_0+d\ell$ with
+$x_0,d\in F$ and every $t$ with $t+\ell\in I$ for all $\ell\in[0,T]$, the
+function
+\begin{equation}\label{eq:path-envelope-convexity}
+  \ell\longmapsto\Penv_\ell f\bigl(x(\ell),t\bigr)+|d|^2\ell\log\ell
+\end{equation}
+is convex on $[0,T]$, with $\ell\log\ell$ given its continuous value $0$ at
+$\ell=0$ and $\Penv_0f=f$ as in \noderef{QuadEnvP}. In particular, taking
+$d=0$, $\ell\mapsto\Penv_\ell f(x,t)$ is convex on $[0,T]$.
+\item If $f$ is a viscosity supersolution of $F[f]=0$ on $\Omega$ in the sense of
+\noderef{IsLimitSuperOn}, then for every $x\in F$ and every $t$ with
+$t-\ell\in I$ for all $\ell\in[0,T]$, the function
+$\ell\mapsto\Menv_\ell f(x,t)$ is concave on $[0,T]$, with $\Menv_0f=f$ as in
+\noderef{QuadEnvM}.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{Part (1).}
+Assume $f$ is a viscosity subsolution of $F[f]=0$ on $\Omega$, fix $x_0,d\in F$
+and $t$ with $t+\ell\in I$ for all $\ell\in[0,T]$, and put
+\[
+  x(\ell)=x_0+\ell d,\qquad g(\ell)=\Penv_\ell f\bigl(x(\ell),t\bigr),
+  \qquad G(\ell)=g(\ell)+|d|^2\,\ell\log\ell\quad(\ell\in[0,T]),
+\]
+with $\ell\log\ell$ given its continuous value $0$ at $\ell=0$. Note that
+$g(0)=\Penv_0f(x_0,t)=f(x_0,t)$ by \noderef{QuadEnvP}, so $G(0)=f(x_0,t)$.
+
+\emph{Step 1: $G$ is continuous on $[0,T]$.}
+For $\ell\in(0,T]$ we have $t\in I$ and $t+\ell\in I$, so part (2) of
+\noderef{QuadEnvAttained} gives joint continuity of
+$(\sigma,\zeta)\mapsto\Penv_\sigma f(\zeta)$ at $(\ell,(x(\ell),t))$; composing
+with the continuous map $\sigma\mapsto(\sigma,(x(\sigma),t))$ shows that $g$ is
+continuous at $\ell$. Hence $g$, and therefore $G$, is continuous on $(0,T]$.
+
+For continuity at $0$, let $\eta>0$. The set
+$\mathcal K=\{(x(\sigma),t):\sigma\in[0,T]\}$ is compact (the image of $[0,T]$
+under a continuous map) and all its time coordinates equal $t\in I$, so part (3)
+of \noderef{QuadEnvAttained} provides $\delta>0$ with
+$|\Penv_\ell f(\zeta)-f(\zeta)|\le\eta$ for all $0<\ell<\delta$ and all
+$\zeta\in\mathcal K$; in particular
+$|g(\ell)-f(x(\ell),t)|\le\eta$ for $0<\ell<\min\{\delta,T\}$. Since $f$ is
+continuous on the open set $\Omega$ and $(x(\ell),t)\to(x_0,t)\in\Omega$ as
+$\ell\downarrow0$, we get $f(x(\ell),t)\to f(x_0,t)$, so
+$\limsup_{\ell\downarrow0}|g(\ell)-f(x_0,t)|\le\eta$. As $\eta>0$ was
+arbitrary, $g(\ell)\to f(x_0,t)=g(0)$. Finally $\ell\log\ell\to0$, so
+$G(\ell)\to G(0)$.
+
+\emph{Step 2: every quadratic upper test at an interior length has nonnegative
+leading coefficient.}
+Let $\ell_0\in(0,T)$ and $A,B,C\in\R$, and suppose that
+$\tau\mapsto G(\tau)-\bigl(A\tau^2+B\tau+C\bigr)$ has a local maximum on $[0,T]$ at
+$\ell_0$. We show $A\ge0$. Put
+\[
+  K=G(\ell_0)-\bigl(A\ell_0^2+B\ell_0+C\bigr),\qquad
+  \widetilde\psi(\ell)=A\ell^2+B\ell+C+K-|d|^2\,\ell\log\ell .
+\]
+Since $\ell_0>0$, the function $\widetilde\psi$ is $C^2$ on a neighbourhood of
+$\ell_0$ — the logarithm being smooth away from $0$ — with
+\begin{equation}\label{eq:qpc-second}
+  \widetilde\psi''(\ell)=2A-\frac{|d|^2}{\ell}.
+\end{equation}
+
+The local-maximum hypothesis says that for $\tau\in[0,T]$ near $\ell_0$,
+\[
+  G(\tau)-\bigl(A\tau^2+B\tau+C\bigr)\le G(\ell_0)-\bigl(A\ell_0^2+B\ell_0+C\bigr)=K,
+\]
+that is $G(\tau)\le A\tau^2+B\tau+C+K$. Subtracting $|d|^2\tau\log\tau$ from both
+sides and recalling $G=g+|d|^2\,\cdot\log(\cdot)$, this reads
+$g(\tau)\le\widetilde\psi(\tau)$. At $\tau=\ell_0$ the same computation is an
+equality, because $A\ell_0^2+B\ell_0+C+K=G(\ell_0)$ by the definition of $K$.
+Shrinking the neighbourhood so that it lies inside $(0,T)$ — possible because
+$(0,T)$ is open and $\ell_0\in(0,T)$ — we obtain
+\begin{equation}\label{eq:qpc-test}
+  g(\ell)\le\widetilde\psi(\ell)\ \text{ for all $\ell\in(0,T)$ near }\ell_0,
+  \qquad g(\ell_0)=\widetilde\psi(\ell_0).
+\end{equation}
+
+By part (1) of \noderef{QuadEnvAttained}, applied at the center
+$(x(\ell_0),t)$ and the length $\ell_0>0$, whose time arguments $t$ and
+$t+\ell_0$ lie in $I$, there is $y_0\in F$ with
+\begin{equation}\label{eq:qpc-opt}
+  g(\ell_0)=\Penv_{\ell_0}f\bigl(x(\ell_0),t\bigr)
+   =f\bigl(y_0,t+\ell_0\bigr)-\frac{|y_0-x(\ell_0)|^2}{2\ell_0}.
+\end{equation}
+Put
+\[
+  q=\frac{y_0-x(\ell_0)}{\ell_0},\qquad\text{so that}\qquad y_0-x(\ell_0)=\ell_0q,
+\]
+and define, for space-time points $\zeta=(y,s)$ with $s-t$ near $\ell_0$,
+\[
+  \widehat\Psi(y,s)=\widetilde\psi(s-t)+\frac{|y-x(s-t)|^2}{2(s-t)} .
+\]
+Since $\widetilde\psi$ is $C^2$ near $\ell_0$, since $\ell_0>0$ so that the
+denominator $2(s-t)$ does not vanish near $\zeta_0:=(y_0,t+\ell_0)$, and since
+$x(\cdot)$ is affine, $\widehat\Psi$ is $C^2$ near $\zeta_0$.
+
+\emph{The local maximum.}
+We claim that $f-\widehat\Psi$ has a local maximum on $\Omega$ at $\zeta_0$. At
+$\zeta_0$ its value is, by \eqref{eq:qpc-opt} and $g(\ell_0)=\widetilde\psi(\ell_0)$,
+\[
+  f(y_0,t+\ell_0)-\widetilde\psi(\ell_0)-\frac{|y_0-x(\ell_0)|^2}{2\ell_0}
+   =g(\ell_0)-\widetilde\psi(\ell_0)=0 .
+\]
+Now let $\zeta=(y,s)\in\Omega$ with $\ell:=s-t$ so close to $\ell_0$ that
+$\ell\in(0,T)$ and \eqref{eq:qpc-test} holds at $\ell$; note $t+\ell=s\in I$
+because $\zeta\in\Omega$, and $t\in I$ by the admissibility hypothesis taken at
+$\ell=0$. The number $f(y,t+\ell)-|y-x(\ell)|^2/(2\ell)$ is one element of the
+competitor set whose supremum defines $\Penv_\ell f(x(\ell),t)$ in
+\noderef{QuadEnvP}. A supremum dominates its elements only once the set is known to
+be nonempty and bounded above: $\Penv_\ell f$ is literally a supremum, and the
+supremum of a set that is empty or unbounded above is a junk value, so the
+domination has to be licensed rather than assumed. The licence is part (1) of
+\noderef{EnvelopeCompetitorBounds}, whose first clause is exactly the statement that
+$\Penv_\ell f(z)$ dominates every competitor value; we apply it at this length
+$\ell>0$ and this centre $z=(x(\ell),t)$, its hypotheses being the continuity and
+subquadratic growth of $f$ already assumed, together with $t\in I$ and
+$t+\ell\in I$, both just checked. Therefore
+\[
+  f(y,s)-\widehat\Psi(y,s)
+   =f(y,t+\ell)-\frac{|y-x(\ell)|^2}{2\ell}-\widetilde\psi(\ell)
+   \le\Penv_\ell f\bigl(x(\ell),t\bigr)-\widetilde\psi(\ell)
+   =g(\ell)-\widetilde\psi(\ell)\le0 ,
+\]
+the last step by \eqref{eq:qpc-test}. This proves the claim. Consequently, by
+\noderef{IsLimitSubOn},
+\begin{equation}\label{eq:qpc-visc}
+  F[\widehat\Psi](\zeta_0)\ge0 .
+\end{equation}
+
+\emph{The value of the operator.}
+By \noderef{LimitOp}, $F[\widehat\Psi](\zeta_0)$ is the second derivative of
+$\widehat\Psi$ at $\zeta_0$ on the pair $(\xi,\xi)$, where $\xi=(p,1)$ and $p$ is
+the spatial block of $\nabla\widehat\Psi(\zeta_0)$. Both the identification of $p$
+and the evaluation of the second derivative are instances of
+\noderef{SecondVariationAlongLine}, which computes the first and second variation of
+a $C^2$ function along a straight line from any one-variable function agreeing with
+the restriction near the base point.
+
+First, $p=q$. Indeed, fix $a\in F$ and restrict $\widehat\Psi$ to the purely spatial
+line $\tau\mapsto\zeta_0+\tau(a,0)$. The time coordinate is constant equal to
+$t+\ell_0$ along it, so, using $y_0-x(\ell_0)=\ell_0q$,
+\[
+  \widehat\Psi\bigl(\zeta_0+\tau(a,0)\bigr)
+   =\widetilde\psi(\ell_0)+\frac{|\ell_0q+\tau a|^2}{2\ell_0}
+   =\widetilde\psi(\ell_0)
+     +\frac{\ell_0^2|q|^2+2\tau\ell_0\langle q,a\rangle+\tau^2|a|^2}{2\ell_0},
+\]
+a quadratic polynomial in $\tau$ whose derivative at $\tau=0$ is $\langle q,a\rangle$.
+Hence $D\widehat\Psi(\zeta_0)[(a,0)]=\langle q,a\rangle$ for every $a\in F$. Since the
+inner product of space-time splits as
+$\langle(v,b),(a,c)\rangle=\langle v,a\rangle+bc$, testing
+$\nabla\widehat\Psi(\zeta_0)$ against $(a,0)$ sees only its spatial block, so that
+block is characterised by $\langle p,a\rangle=\langle q,a\rangle$ for all $a$, i.e.
+$p=q$.
+
+Second, restrict $\widehat\Psi$ to the line $\tau\mapsto\zeta_0+\tau\xi$ with
+$\xi=(q,1)$. Its space-time coordinates are $(y_0+\tau q,\ t+\ell_0+\tau)$, so the
+time offset is $\ell_0+\tau$ and, using $x(\ell)=x_0+\ell d$ together with
+$y_0-x(\ell_0)=\ell_0q$,
+\[
+  y_0+\tau q-x(\ell_0+\tau)=\ell_0q+\tau(q-d)=(\ell_0+\tau)(q-d)+\ell_0d .
+\]
+Expanding the square and dividing by $2(\ell_0+\tau)$, which is nonzero for $\tau$
+near $0$,
+\[
+  R(\tau):=\widehat\Psi\bigl(\zeta_0+\tau\xi\bigr)
+   =\widetilde\psi(\ell_0+\tau)+\frac{(\ell_0+\tau)|q-d|^2}{2}
+     +\ell_0\langle q-d,d\rangle+\frac{\ell_0^2|d|^2}{2(\ell_0+\tau)} .
+\]
+The second and third summands are respectively affine and constant in $\tau$, and
+\[
+  \frac{d^2}{d\tau^2}\,\frac{\ell_0^2|d|^2}{2(\ell_0+\tau)}
+   =\frac{\ell_0^2|d|^2}{(\ell_0+\tau)^3},
+  \qquad\text{which at }\tau=0\text{ equals }\frac{|d|^2}{\ell_0}.
+\]
+Therefore, by \eqref{eq:qpc-second},
+\[
+  R''(0)=\widetilde\psi''(\ell_0)+\frac{|d|^2}{\ell_0}
+   =\Bigl(2A-\frac{|d|^2}{\ell_0}\Bigr)+\frac{|d|^2}{\ell_0}=2A,
+\]
+and \noderef{SecondVariationAlongLine} gives
+$F[\widehat\Psi](\zeta_0)=R''(0)=2A$. With \eqref{eq:qpc-visc} this is $2A\ge0$,
+i.e. $A\ge0$, as claimed.
+
+\emph{Step 3: from the test criterion to convexity.}
+The hypotheses of \noderef{ViscosityConvexOnIcc} for $G$ on $[0,T]$ are exactly
+continuity of $G$ on $[0,T]$, which is Step 1, and the implication just proved in
+Step 2. That lemma therefore applies with this $T>0$ and this $G$, and gives that
+$G$ is convex on $[0,T]$, which is \eqref{eq:path-envelope-convexity}. Taking $d=0$
+makes the correction term vanish and $x(\ell)\equiv x_0$, so
+$\ell\mapsto\Penv_\ell f(x_0,t)$ is convex on $[0,T]$.
+
+
+\emph{Part (2).}
+Assume now that $f$ is a viscosity supersolution of $F[f]=0$ on $\Omega$, and let
+$x\in F$ and $t$ be such that $t-\ell\in I$ for all $\ell\in[0,T]$. Let
+$\widetilde f$ be the time reversal of \noderef{TimeFlip} and put
+$-I=\{-\sigma:\sigma\in I\}$, an open set, with
+$\widetilde\Omega=\{(y,\sigma):\sigma\in-I\}$.
+
+We check that the hypotheses of Part (1) hold for $\widetilde f$ on $-I$.
+\begin{itemize}
+\item By \noderef{TimeReversal}, part (1) applied with $\Omega$ there taken to be
+our $\Omega$, the function $\widetilde f$ is a viscosity subsolution of
+$F[\widetilde f]=0$ on the preimage of $\Omega$ under the reflection
+$(y,\sigma)\mapsto(y,-\sigma)$, which is exactly $\widetilde\Omega$.
+\item $\widetilde f$ is continuous on $\widetilde\Omega$: by \noderef{TimeFlip},
+$\widetilde f(\zeta)=-f(\widetilde\zeta)$, and $\zeta\mapsto\widetilde\zeta$ is a
+homeomorphism carrying $\widetilde\Omega$ onto $\Omega$, where $f$ is
+continuous.
+\item $\widetilde f$ has subquadratic spatial growth on compact time intervals of
+$-I$ in the sense of \noderef{SubquadraticGrowth}: let $J\subseteq-I$ be compact
+and $\varepsilon>0$. Then $-J\subseteq I$ is compact, so
+\noderef{SubquadraticGrowth} for $f$ provides $M>0$ with
+$|f(y,\sigma)|\le\varepsilon|y|^2$ whenever $|y|\ge M$ and $\sigma\in-J$. For
+$|y|\ge M$ and $\sigma\in J$ we have $-\sigma\in-J$, hence
+$|\widetilde f(y,\sigma)|=|f(y,-\sigma)|\le\varepsilon|y|^2$.
+\end{itemize}
+
+Apply Part (1) to $\widetilde f$ on $-I$ with $x_0=x$, $d=0$, base time $-t$ and
+the same $T$; the admissibility hypothesis requires $-t+\ell\in-I$ for all
+$\ell\in[0,T]$, which is precisely $t-\ell\in I$ for all $\ell\in[0,T]$. It
+gives that $\ell\mapsto\Penv_\ell\widetilde f(x,-t)$ is convex on $[0,T]$.
+
+By \noderef{TimeReversal}, part (2), applied at the space-time point
+$(x,-t)$, whose reflection is $(x,t)$,
+\[
+  \Penv_\ell\widetilde f(x,-t)=-\Menv_\ell f(x,t)\qquad(\ell\in\R).
+\]
+So $\ell\mapsto-\Menv_\ell f(x,t)$ is convex on $[0,T]$, i.e.
+$\ell\mapsto\Menv_\ell f(x,t)$ is concave on $[0,T]$, with
+$\Menv_0f=f$ as in \noderef{QuadEnvM}. This is Part (2).
+\end{proof}

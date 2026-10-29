@@ -1,0 +1,105 @@
+\begin{lemma}[Finite convex combinations and compactness of the convex hull]
+Let $F$ be a finite-dimensional real inner-product space and let $E\subseteq F$.
+Write $\operatorname{conv}E$ for the convex hull of $E$, that is, the smallest
+convex subset of $F$ containing $E$. Then:
+\begin{enumerate}
+\item every $x\in\operatorname{conv}E$ is the mean of a finite horizontal
+probability configuration supported in $E$: there are $n\ge1$, weights
+$\theta_i>0$ with $\sum_{i=1}^n\theta_i=1$ and points $y_1,\dots,y_n\in E$ with
+$\sum_{i=1}^n\theta_iy_i=x$, so that $(\theta,y)$ is a configuration with mean
+$x$ in the sense of \noderef{IsBaryConfig} and $y_i\in E$ for every $i$;
+\item if $E$ is compact then $\operatorname{conv}E$ is compact.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Let
+\[
+  W=\Bigl\{\sum_{i=1}^n\theta_iy_i:n\ge1,\ y_i\in E,\ \theta_i>0,\
+     \sum_{i=1}^n\theta_i=1\Bigr\}
+\]
+be the set of means of finite horizontal probability configurations supported in
+$E$, so that (1) asserts exactly $\operatorname{conv}E\subseteq W$.
+
+\emph{$E\subseteq W$.} For $y\in E$ take $n=1$, $\theta_1=1>0$ and $y_1=y$; then
+$\sum_i\theta_i=1$ and $\sum_i\theta_iy_i=y$.
+
+\emph{$W$ is convex.} Let $u=\sum_{i=1}^n\theta_iy_i$ and
+$u'=\sum_{j=1}^{n'}\theta'_jy'_j$ be two such combinations and let
+$\tau\in[0,1]$. If $\tau=0$ then $\tau u+(1-\tau)u'=u'\in W$, and if $\tau=1$
+then it is $u\in W$; so assume $0<\tau<1$. Then
+\[
+  \tau u+(1-\tau)u'=\sum_{i=1}^n(\tau\theta_i)y_i
+     +\sum_{j=1}^{n'}\bigl((1-\tau)\theta'_j\bigr)y'_j
+\]
+is a combination of the $n+n'\ge1$ points $y_1,\dots,y_n,y'_1,\dots,y'_{n'}$ of
+$E$ with weights $\tau\theta_i>0$ and $(1-\tau)\theta'_j>0$, which sum to
+$\tau\sum_i\theta_i+(1-\tau)\sum_j\theta'_j=\tau+(1-\tau)=1$. Hence
+$\tau u+(1-\tau)u'\in W$, and $W$ is convex.
+
+\emph{Proof of (1).} $W$ is a convex set containing $E$, and
+$\operatorname{conv}E$ is the smallest such set; therefore
+$\operatorname{conv}E\subseteq W$, which is (1).
+
+\emph{Every member of $\operatorname{conv}E$ is a combination of at most $m+1$
+points, where $m=\dim F$.} Let $u\in\operatorname{conv}E$. By (1) it has a
+representation $u=\sum_{i=1}^n\theta_iy_i$ as above; choose one with $n$ least,
+and suppose $n>m+1$. The $n-1$ vectors $y_i-y_n$, $1\le i\le n-1$, lie in the
+$m$-dimensional space $F$ and $n-1>m$, so they are linearly dependent: there are
+reals $\lambda_1,\dots,\lambda_{n-1}$, not all zero, with
+$\sum_{i<n}\lambda_i(y_i-y_n)=0$. Put $\lambda_n=-\sum_{i<n}\lambda_i$, so that
+\[
+  \sum_{i=1}^n\lambda_iy_i=0,\qquad\sum_{i=1}^n\lambda_i=0,
+\]
+with not all $\lambda_i$ zero. Were every $\lambda_i\le0$, the second identity
+would force them all to vanish; so $\lambda_i>0$ for some $i$. Put
+$\tau=\min\{\theta_i/\lambda_i:\lambda_i>0\}$, a minimum over a nonempty finite
+set, which is positive because every $\theta_i>0$; let $i_0$ attain it and put
+$\theta'_i=\theta_i-\tau\lambda_i$. Then $\theta'_i\ge0$ for every $i$: for
+$\lambda_i>0$ because $\tau\le\theta_i/\lambda_i$, and for $\lambda_i\le0$
+because $\theta_i>0$ and $-\tau\lambda_i\ge0$. Moreover
+$\sum_i\theta'_i=\sum_i\theta_i-\tau\sum_i\lambda_i=1$ and
+$\sum_i\theta'_iy_i=\sum_i\theta_iy_i-\tau\sum_i\lambda_iy_i=u$, while
+$\theta'_{i_0}=0$. Discarding the indices with $\theta'_i=0$ leaves a
+representation of $u$ with strictly positive weights summing to $1$ and with at
+least one term, since the weights sum to $1$; it has fewer than $n$ terms,
+contradicting minimality. Hence $n\le m+1$.
+
+Consequently, fixing any $y_\ast\in E$ — which exists whenever
+$\operatorname{conv}E\ne\emptyset$, since by (1) a member of
+$\operatorname{conv}E$ is a combination of points of $E$ and so $E\ne\emptyset$ —
+and padding a representation with $n\le m+1$ terms by the terms $\theta_i=0$,
+$y_i=y_\ast$ for $n<i\le m+1$,
+\begin{equation}\label{eq:bcch-hull}
+  \operatorname{conv}E=\Bigl\{\sum_{i=1}^{m+1}\theta_iy_i:
+     \theta\in\Delta,\ y_1,\dots,y_{m+1}\in E\Bigr\},
+  \qquad
+  \Delta=\Bigl\{\theta\in\R^{m+1}:\theta_i\ge0,\ \sum_i\theta_i=1\Bigr\}.
+\end{equation}
+The padding gives the inclusion from left to right. For the other inclusion, a
+sum $\sum_{i=1}^{m+1}\theta_iy_i$ with $\theta\in\Delta$ and $y_i\in E$ becomes,
+after discarding the indices with $\theta_i=0$, a combination with strictly
+positive weights summing to $1$ and with at least one term, hence lies in
+$W$; and $W\subseteq\operatorname{conv}E$ because $\operatorname{conv}E$ is convex
+and contains $E$, so it contains every finite convex combination of points of
+$E$, by induction on the number of terms: one term is a point of $E$, and a
+combination with $n+1$ terms and weights summing to $1$ equals
+$(1-\theta_{n+1})u+\theta_{n+1}y_{n+1}$ with $u$ a combination of $n$ terms when
+$\theta_{n+1}<1$, and equals $y_{n+1}\in E$ when $\theta_{n+1}=1$.
+
+\emph{Proof of (2).} Assume $E$ compact. If $E=\emptyset$ then
+$\operatorname{conv}E=\emptyset$, which is compact; so assume $E\ne\emptyset$.
+$\operatorname{conv}E$ is bounded: $E$ is bounded, say $|y|\le M_E$ for $y\in E$,
+and by \eqref{eq:bcch-hull} any member satisfies
+$|\sum_i\theta_iy_i|\le\sum_i\theta_i|y_i|\le M_E\sum_i\theta_i=M_E$. It is
+closed: let $u_k\in\operatorname{conv}E$ with $u_k\to u$ in $F$, and write
+$u_k=\sum_{i=1}^{m+1}\theta^k_iy^k_i$ as in \eqref{eq:bcch-hull}. The sequence
+$(\theta^k)$ lies in the bounded set $\Delta$ and each $(y^k_i)$ in the bounded
+set $E$, so applying Bolzano--Weierstrass (preamble) finitely many times in
+succession there is one subsequence along which $\theta^k\to\theta$ and
+$y^k_i\to y_i$ for every $i$; then $\theta\in\Delta$ and $y_i\in E$ because
+$\Delta$ and $E$ are closed, and
+$u=\lim_k\sum_i\theta^k_iy^k_i=\sum_i\theta_iy_i$ by continuity of the finitely
+many products and sums, so $u\in\operatorname{conv}E$ by
+\eqref{eq:bcch-hull}. Being closed and bounded in the finite-dimensional space
+$F$, the set $\operatorname{conv}E$ is compact (preamble). This is (2).
+\end{proof}

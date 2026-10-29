@@ -1,0 +1,78 @@
+\begin{lemma}[A constrained maximizer of the penalized three-point functional, strictly inside the constraint]
+Let $E$ be a finite-dimensional real inner-product space and write
+$\overline B_\rho$ for the closed ball of radius $\rho$ centred at the origin of
+$E$. Let $\Phi:E\times E\times E\to\R$, let $x_k,y_k,z_k\in E$ and let
+$\beta,C'\in\R$. Write
+\[
+  K=\bigl(\overline B_{3/4}\bigr)^3
+     \cap\Bigl\{(x',y',z'):\frac{\beta}{2C'}\le|x'-y'|\Bigr\}
+\]
+for the constrained set. Assume:
+\begin{enumerate}
+\item\label{it:ctpm-pos} $0<\beta$ and $0<C'$;
+\item\label{it:ctpm-adm} $x_k,y_k,z_k\in\overline B_{3/4}$;
+\item\label{it:ctpm-sep} $\dfrac{\beta}{2C'}\le|x_k-y_k|$;
+\item\label{it:ctpm-val} $\beta\le\Phi(x_k,y_k,z_k)$;
+\item\label{it:ctpm-cont} the function $(x',y',z')\mapsto\Phi(x',y',z')$ is
+continuous on $K$;
+\item\label{it:ctpm-ub} $\Phi(x',y',z')\le|x'-y'|\,C'$ for all
+$x',y',z'\in\overline B_{3/4}$ with $x'\ne y'$.
+\end{enumerate}
+Then there are $x,y,z\in\overline B_{3/4}$ with $x\ne y$ such that
+\begin{equation}\label{eq:ctpm-max}
+  \beta\le\Phi(x,y,z),
+  \qquad
+  \Phi(x',y',z')\le\Phi(x,y,z)\quad\text{for every }(x',y',z')\in K,
+\end{equation}
+and such that the separation at the maximizer satisfies the lower bound
+\begin{equation}\label{eq:ctpm-rlow}
+  \frac{\beta}{C'}\le|x-y| ,
+\end{equation}
+which is twice the radius $\beta/(2C')$ defining $K$.
+\end{lemma}
+\begin{proof}
+Throughout, \ref{it:ctpm-pos} gives $\beta/(2C')>0$, being a quotient of
+positive numbers.
+
+\emph{$K$ is compact and nonempty.} Since $E$ is finite-dimensional, each closed
+ball $\overline B_{3/4}$ is compact, hence so is the product
+$(\overline B_{3/4})^3$ inside $E\times E\times E$. The map
+$(x',y',z')\mapsto|x'-y'|$ is continuous, so
+$\{(x',y',z'):\beta/(2C')\le|x'-y'|\}$ is closed, being the set where a
+continuous function dominates a constant. Thus $K$ is the intersection of a
+compact set with a closed set and is compact. It is nonempty because
+$(x_k,y_k,z_k)\in K$ by \ref{it:ctpm-adm} and \ref{it:ctpm-sep}.
+
+\emph{The maximum is attained.} By \ref{it:ctpm-cont} the functional is
+continuous on the compact nonempty set $K$, so it attains a maximum there: there
+is $(x,y,z)\in K$ with
+\begin{equation}\label{eq:ctpm-ismax}
+  \Phi(x',y',z')\le\Phi(x,y,z)\qquad\text{for every }(x',y',z')\in K .
+\end{equation}
+Membership $(x,y,z)\in K$ unpacks to $x,y,z\in\overline B_{3/4}$ together with
+\begin{equation}\label{eq:ctpm-con}
+  \frac{\beta}{2C'}\le|x-y| .
+\end{equation}
+This is the second half of \eqref{eq:ctpm-max}.
+
+\emph{The maximum is at least $\beta$.} Applying \eqref{eq:ctpm-ismax} to the
+admissible triple $(x_k,y_k,z_k)\in K$ and then \ref{it:ctpm-val},
+\[
+  \beta\le\Phi(x_k,y_k,z_k)\le\Phi(x,y,z),
+\]
+which is the first half of \eqref{eq:ctpm-max}.
+
+\emph{The two endpoints are distinct.} If $x=y$ then $|x-y|=0$, and
+\eqref{eq:ctpm-con} would give $\beta/(2C')\le0$, contradicting
+$\beta/(2C')>0$. Hence $x\ne y$.
+
+\emph{The maximizer is strictly inside the constraint.} The triple $(x,y,z)$
+has all three entries in $\overline B_{3/4}$ and satisfies $x\ne y$, so
+\ref{it:ctpm-ub} applies to it and gives $\Phi(x,y,z)\le|x-y|\,C'$. Combining
+with $\beta\le\Phi(x,y,z)$ yields $\beta\le|x-y|\,C'$, and dividing by $C'>0$
+gives \eqref{eq:ctpm-rlow}. Since $\beta/C'=2\cdot\beta/(2C')$ is strictly
+larger than the radius $\beta/(2C')$ that defines $K$ --- the latter being
+positive --- the inequality \eqref{eq:ctpm-rlow} is strictly stronger than the
+constraint \eqref{eq:ctpm-con}, so the maximizer does not sit on the boundary
+imposed by the constraint.
+\end{proof}

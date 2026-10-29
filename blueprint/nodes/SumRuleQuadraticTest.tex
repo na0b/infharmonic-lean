@@ -1,0 +1,153 @@
+\begin{lemma}[Reduction of the theorem of sums to a quadratic test with a strict global maximum]
+Let $E$ be a finite-dimensional real inner-product space, let $N\ge1$ and write
+$V=\ell^2\bigl(\bigoplus_{j=1}^NE\bigr)$ for the $\ell^2$-product of $N$ copies
+of $E$, whose elements are written $Y=(y_j)_{j=1}^N$ and whose norm satisfies
+$|Y|^2=\sum_j|y_j|^2$. For each $j$ let $O_j\subseteq E$ be open and let
+$g_j:E\to\R$ be continuous on $O_j$. Let $\Psi:V\to\R$, let $\widehat Z\in V$
+with $\widehat z_j\in O_j$ for every $j$, assume that $\Psi$ is $C^2$ near
+$\widehat Z$, and assume that $Y\mapsto\sum_jg_j(y_j)-\Psi(Y)$ has a local
+maximum at $\widehat Z$. Write $A=D^2\Psi(\widehat Z)$ and
+$\widehat p_j=D_j\Psi(\widehat Z)$ for the $j$-th component of
+$\nabla\Psi(\widehat Z)$, and let $\tau>0$. Then there are $a>0$, $C\ge0$ and
+functions $G_j:E\to\R$ $(1\le j\le N)$ such that
+\begin{enumerate}
+\item[(G1)] each $G_j$ is continuous on $E$ and $G_j(w)\le C$ for every $w\in E$;
+\item[(G2)] $G_j(w)=g_j(\widehat z_j+w)-g_j(\widehat z_j)
+  -\langle\widehat p_j,w\rangle-|w|^4$ whenever $|w|\le a$;
+\item[(G3)] for every $W\in V$ with $W\ne0$,
+  \[
+    \sum_jG_j(w_j)-\tfrac12\bigl(A[W]+\tau|W|^2\bigr)\le-\sum_j|w_j|^4 ,
+  \]
+  where $A[W]=A(W,W)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Write $\widehat P=\nabla\Psi(\widehat Z)$, so that $\widehat P$ has components
+$\widehat p_j$ and
+\begin{equation}\label{eq:srqt-inner}
+  \langle\widehat P,W\rangle=\sum_j\langle\widehat p_j,w_j\rangle\qquad(W\in V),
+\end{equation}
+by the definition of the $\ell^2$-product inner product (preamble). Put
+\[
+  \widehat g_j(w)=g_j(\widehat z_j+w)-g_j(\widehat z_j)
+   -\langle\widehat p_j,w\rangle ,
+\]
+so $\widehat g_j(0)=0$. Let $\bar A:V\to V$ be the self-adjoint operator with
+$\langle\bar A\xi,\zeta\rangle=A(\xi,\zeta)$ (it exists and is unique because
+$A$ is a symmetric continuous bilinear form on the finite-dimensional
+inner-product space $V$, and self-adjointness is the symmetry of $A$), and set
+$B_\tau=\bar A+\tau\,\mathrm{id}$, again self-adjoint, so that
+\begin{equation}\label{eq:srqt-Btau}
+  \langle B_\tau W,W\rangle=A[W]+\tau|W|^2\qquad(W\in V).
+\end{equation}
+
+\emph{Step 1: a quadratic majorant near $0$.}
+By the second-order Taylor expansion of $\Psi$ at $\widehat Z$ (preamble),
+$\Psi(\widehat Z+W)=\Psi(\widehat Z)+\langle\widehat P,W\rangle
++\tfrac12A(W,W)+R(W)$ with $|R(W)|/|W|^2\to0$ as $W\to0$. The local maximum at
+$\widehat Z$ gives $\rho'>0$ with
+\[
+  \sum_jg_j(\widehat z_j+w_j)-\Psi(\widehat Z+W)
+   \le\sum_jg_j(\widehat z_j)-\Psi(\widehat Z)\qquad(|W|\le\rho').
+\]
+Using \eqref{eq:srqt-inner}, for $|W|\le\rho'$,
+\[
+  \sum_j\widehat g_j(w_j)
+   =\sum_jg_j(\widehat z_j+w_j)-\sum_jg_j(\widehat z_j)
+     -\langle\widehat P,W\rangle
+   \le\Psi(\widehat Z+W)-\Psi(\widehat Z)-\langle\widehat P,W\rangle
+   =\tfrac12A(W,W)+R(W).
+\]
+Since $|R(W)|/|W|^2\to0$, choose $\rho_\tau\in(0,\rho']$ with
+$|R(W)|\le(\tau/2)|W|^2$ for $|W|\le\rho_\tau$. Because
+$\tfrac12A(W,W)+(\tau/2)|W|^2=\tfrac12\langle B_\tau W,W\rangle$ by
+\eqref{eq:srqt-Btau}, we obtain
+\begin{equation}\label{eq:srqt-majorant}
+  \sum_j\widehat g_j(w_j)\le\tfrac12\langle B_\tau W,W\rangle
+  \qquad(|W|\le\rho_\tau),
+\end{equation}
+with equality at $W=0$, both sides vanishing because $\widehat g_j(0)=0$.
+
+\emph{Step 2: localization.}
+Each $O_j$ is open and $\widehat z_j\in O_j$, so for each $j$ there is
+$r_j>0$ with $\overline B(\widehat z_j,r_j)\subseteq O_j$; as there are finitely
+many $j$ and $N\ge1$, the number $\rho''=\min_jr_j>0$ satisfies
+$\overline B(\widehat z_j,\rho'')\subseteq O_j$ for every $j$. Put
+\[
+  a=\frac{\min(\rho_\tau,\rho'')}{1+\sqrt N}>0 .
+\]
+Then $a\le\rho''$, so $\widehat g_j$ is defined and continuous on
+$\overline B(0,a)$ (being built from $g_j$, which is continuous on $O_j\supseteq
+\overline B(\widehat z_j,\rho'')$, and from an affine function); and if
+$|w_j|\le a$ for every $j$ then $|W|\le a\sqrt N\le\rho_\tau$, so
+\eqref{eq:srqt-majorant} applies to $W$. Let
+$M_j=\max_{\overline B(0,a)}|\widehat g_j|$, which is finite by the continuity of
+$\widehat g_j$ on the compact set $\overline B(0,a)$ (preamble) and satisfies
+$M_j\ge|\widehat g_j(0)|=0$; put $C=\max_jM_j\ge0$.
+
+Let $\pi:E\to\overline B(0,a)$ be the radial retraction, $\pi(w)=w$ for
+$|w|\le a$ and $\pi(w)=aw/|w|$ for $|w|>a$; it is continuous, and
+$|\pi(w)|\le a$ for every $w$. Write $(s)_+=\max(s,0)$, put
+$K=\|B_\tau\|N(a+1)+1$ and define
+\[
+  G_j(w)=\widehat g_j(\pi(w))-K(|w|-a)_+-K(|w|-a)_+^2-|w|^4 .
+\]
+
+\emph{(G1).} Each $G_j$ is continuous on $E$, being a composition and
+combination of the continuous maps $\pi$, $\widehat g_j|_{\overline B(0,a)}$,
+$w\mapsto(|w|-a)_+$ and $w\mapsto|w|^4$. The three subtracted terms are
+nonnegative, so
+$G_j(w)\le\widehat g_j(\pi(w))\le M_j\le C$ for every $w$, using
+$|\pi(w)|\le a$.
+
+\emph{(G2).} If $|w|\le a$ then $\pi(w)=w$ and $(|w|-a)_+=0$, so
+$G_j(w)=\widehat g_j(w)-|w|^4$, which is the asserted identity by the definition
+of $\widehat g_j$.
+
+\emph{(G3).} Put $\Phi(W)=\sum_jG_j(w_j)-\tfrac12\langle B_\tau W,W\rangle$; by
+\eqref{eq:srqt-Btau} the assertion (G3) is exactly
+$\Phi(W)\le-\sum_j|w_j|^4$ for $W\ne0$. Let $W\ne0$, put
+$m=\max_j(|w_j|-a)_+\ge0$ and $\Pi W=(\pi(w_j))_j$.
+
+If $m=0$ then $|w_j|\le a$ for every $j$, so $\pi(w_j)=w_j$ and all penalty
+terms vanish; since $|W|\le a\sqrt N\le\rho_\tau$, \eqref{eq:srqt-majorant}
+gives $\sum_j\widehat g_j(w_j)\le\tfrac12\langle B_\tau W,W\rangle$ and hence
+$\Phi(W)\le-\sum_j|w_j|^4$.
+
+If $m>0$, then $|\pi(w_j)|\le a$ for every $j$ gives
+$|\Pi W|\le a\sqrt N\le\rho_\tau$, so \eqref{eq:srqt-majorant} applied to
+$\Pi W$ gives
+$\sum_j\widehat g_j(\pi(w_j))\le\tfrac12\langle B_\tau\Pi W,\Pi W\rangle$.
+Moreover $\sum_j(|w_j|-a)_+\ge m$ and $\sum_j(|w_j|-a)_+^2\ge m^2$, since every
+summand is nonnegative and one of them equals $m$, resp.\ $m^2$. Hence
+\[
+  \Phi(W)\le\tfrac12\bigl[\langle B_\tau\Pi W,\Pi W\rangle
+     -\langle B_\tau W,W\rangle\bigr]-Km-Km^2-\sum_j|w_j|^4 .
+\]
+Since $B_\tau$ is self-adjoint,
+\[
+  \langle B_\tau W,W\rangle-\langle B_\tau\Pi W,\Pi W\rangle
+   =\langle B_\tau(W-\Pi W),W+\Pi W\rangle .
+\]
+Here $|W-\Pi W|^2=\sum_j|w_j-\pi(w_j)|^2
+=\sum_j\bigl((|w_j|-a)_+\bigr)^2\le Nm^2$, because
+$|w_j-\pi(w_j)|=(|w_j|-a)_+$ by the definition of $\pi$ (it is $0$ for
+$|w_j|\le a$ and $|w_j|-a$ otherwise); so $|W-\Pi W|\le\sqrt Nm$, and
+$|W+\Pi W|\le|W|+|\Pi W|$. From $|w_j|\le a+m$ for every $j$ we get
+$|W|\le(a+m)\sqrt N$, and $|\Pi W|\le a\sqrt N$, so
+$|W+\Pi W|\le2a\sqrt N+\sqrt Nm$. By the Cauchy--Schwarz inequality and the
+definition of the operator norm,
+\[
+  \tfrac12\bigl|\langle B_\tau\Pi W,\Pi W\rangle-\langle B_\tau W,W\rangle\bigr|
+   \le\tfrac12\|B_\tau\|\sqrt Nm\bigl(2a\sqrt N+\sqrt Nm\bigr)
+   =\|B_\tau\|Nam+\tfrac12\|B_\tau\|Nm^2,
+\]
+and therefore
+\[
+  \Phi(W)\le m\bigl(\|B_\tau\|Na-K\bigr)+m^2\bigl(\tfrac12\|B_\tau\|N-K\bigr)
+     -\sum_j|w_j|^4\le-\sum_j|w_j|^4,
+\]
+because $K=\|B_\tau\|N(a+1)+1\ge\|B_\tau\|Na$ and
+$K\ge\|B_\tau\|N\ge\tfrac12\|B_\tau\|N$, while $m>0$ and $m^2>0$. This proves
+(G3) in both cases.
+\end{proof}

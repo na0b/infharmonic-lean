@@ -1,0 +1,180 @@
+\begin{theorem}[Uniform power decay]
+Fix an integer $d\ge1$, put $n=d+1$ and identify $\R^n$ with the space-time
+$\ell^2(\R^d\times\R)$. Let $b_d$ be the family flatness modulus of
+\noderef{FlatnessModulus}. Then there are $B\in(0,\infty)$,
+$\gamma\in(0,1]$ and $s_0\in(0,1/8]$ such that
+\begin{equation}\label{eq:power-decay}
+  b_d(s)\le Bs^\gamma\qquad(0<s\le s_0).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Write $E=\ell^2(\R^d\times\R)$ for the space-time, $e_b=(0,1)\in E$ for its
+added unit direction, and $\langle\cdot,\cdot\rangle$, $|\cdot|$ for the inner
+product and norm of $E$. Note $|e_b|^2=|0|^2+1^2=1$, so $e_b$ is a unit vector.
+
+\emph{Step 1: the negation is the hypothesis of the selection lemma.}
+Suppose, for contradiction, that no such triple $(B,\gamma,s_0)$ exists. Then
+for every $B>0$, every $\gamma$ with $0<\gamma\le1$ and every $s_0$ with
+$0<s_0\le1/8$, the implication in \eqref{eq:power-decay} fails for some $s$;
+that is, there is $s$ with $0<s\le s_0$ and $b_d(s)>Bs^\gamma$. This is exactly
+the hypothesis of \noderef{BadScales}, so that lemma provides real sequences
+$\gamma_i,s_i,r_i,\lambda_i$, functions $U_i$ on $E$ and centers $z_i\in E$ such
+that $(\gamma_i,s_i,r_i,\lambda_i,U_i,z_i)_{i\ge0}$ is selected bad-scale data
+in dimension $d$ in the sense of \noderef{IsBadScaleData}. By clauses 1 and 3 of
+\noderef{IsBadScaleData} we have, for every $i$,
+\begin{equation}\label{eq:pd-positivity}
+  \lambda_i>0,\qquad r_i>0 .
+\end{equation}
+
+\emph{Step 2: the slopes $P_i$ and the index $i_1$.}
+Apply clause 5 of \noderef{IsBadScaleData} with the fixed value $M=2$, which is
+admissible since $2\ge2$. It provides an index $i_0$ such that for every
+$i\ge i_0$, every center $w$ with $|w-z_i|\le2r_i$ and every radius
+$0<\rho\le2r_i$, the parameter $32\lambda_i$ is good for $U_i$ at $(w,\rho)$.
+Put $i_1=i_0$ and let $i\ge i_1$. The choice $w=z_i$ is admissible because
+$|z_i-z_i|=0\le2r_i$ by \eqref{eq:pd-positivity}, and the choice $\rho=r_i$ is
+admissible because $0<r_i\le2r_i$, again by \eqref{eq:pd-positivity}. Hence
+$32\lambda_i$ is good for $U_i$ at $(z_i,r_i)$: by \noderef{IsCylinderFit} there
+is a vector $P_i$ realizing the cylinder fit of parameter $32\lambda_i$ for
+$U_i$ at $(z_i,r_i)$. Fix one such $P_i$ for each $i\ge i_1$, and put $P_i=e_b$
+for $i<i_1$, a value never used below. By \noderef{IsCylinderFit} the realizing
+vector satisfies $P_i\ne0$, so
+\begin{equation}\label{eq:pd-slope-positive}
+  c_i=|P_i|>0\qquad(i\ge i_1).
+\end{equation}
+
+\emph{Step 3: the anisotropic frame $\Phi_i$, constructed explicitly.}
+Let $i\ge i_1$ and put
+\[
+  w_i=\frac{P_i}{c_i}=c_i^{-1}P_i\in E,
+\]
+which satisfies $|w_i|=c_i^{-1}|P_i|=1$ by \eqref{eq:pd-slope-positive}. We
+construct a linear isometry $\Phi_i$ of $E$ onto itself with
+$\Phi_i(e_b)=w_i$.
+
+If $w_i=e_b$, take $\Phi_i=\mathrm{id}_E$, which is a linear isometry onto $E$
+and satisfies $\Phi_i(e_b)=e_b=w_i$.
+
+Suppose $w_i\ne e_b$. Then $e_b-w_i\ne0$; put
+\[
+  \nu_i=|e_b-w_i|>0,\qquad
+  \varepsilon_i=\frac{e_b-w_i}{\nu_i},\qquad
+  \Phi_i(y)=y-2\langle\varepsilon_i,y\rangle\varepsilon_i\quad(y\in E).
+\]
+Note $|\varepsilon_i|=1$, hence
+$\langle\varepsilon_i,\varepsilon_i\rangle=1$. Four verifications, each a direct
+computation in the inner product of $E$.
+
+\emph{(a) Linearity.} The map $y\mapsto\langle\varepsilon_i,y\rangle$ is linear
+and $\Phi_i(y)=y-2\langle\varepsilon_i,y\rangle\varepsilon_i$ is a difference of
+the identity and a linear map composed with a fixed vector, so $\Phi_i$ is
+linear.
+
+\emph{(b) Isometry.} For every $y\in E$, expanding and using
+$\langle\varepsilon_i,\varepsilon_i\rangle=1$,
+\[
+  \bigl|\Phi_i(y)\bigr|^2
+   =\langle y,y\rangle-4\langle\varepsilon_i,y\rangle\langle y,\varepsilon_i\rangle
+     +4\langle\varepsilon_i,y\rangle^2\langle\varepsilon_i,\varepsilon_i\rangle
+   =|y|^2-4\langle\varepsilon_i,y\rangle^2+4\langle\varepsilon_i,y\rangle^2
+   =|y|^2 ,
+\]
+so $|\Phi_i(y)|=|y|$, both sides being nonnegative.
+
+\emph{(c) Involution, hence bijectivity.} For every $y$,
+$\langle\varepsilon_i,\Phi_i(y)\rangle
+ =\langle\varepsilon_i,y\rangle-2\langle\varepsilon_i,y\rangle
+   \langle\varepsilon_i,\varepsilon_i\rangle=-\langle\varepsilon_i,y\rangle$,
+hence
+\[
+  \Phi_i\bigl(\Phi_i(y)\bigr)
+   =\Phi_i(y)-2\langle\varepsilon_i,\Phi_i(y)\rangle\varepsilon_i
+   =y-2\langle\varepsilon_i,y\rangle\varepsilon_i
+      +2\langle\varepsilon_i,y\rangle\varepsilon_i=y .
+\]
+So $\Phi_i$ is its own inverse and is in particular a bijection of $E$ onto
+itself. With (a) and (b) it is a linear isometry of $E$ onto itself.
+
+\emph{(d) It carries $e_b$ to $w_i$.} Since $|e_b|=|w_i|=1$,
+\[
+  2\langle e_b,e_b-w_i\rangle
+   =2\langle e_b,e_b\rangle-2\langle e_b,w_i\rangle
+   =2-2\langle e_b,w_i\rangle ,
+\]
+while
+\[
+  \nu_i^2=|e_b-w_i|^2
+   =\langle e_b,e_b\rangle-2\langle e_b,w_i\rangle+\langle w_i,w_i\rangle
+   =2-2\langle e_b,w_i\rangle ,
+\]
+the cross terms combining by the symmetry of the real inner product. Hence
+$2\langle e_b,e_b-w_i\rangle=\nu_i^2$ and therefore
+\[
+  2\langle\varepsilon_i,e_b\rangle
+   =\frac{2\langle e_b-w_i,e_b\rangle}{\nu_i}=\frac{\nu_i^2}{\nu_i}=\nu_i ,
+\]
+so
+\[
+  \Phi_i(e_b)=e_b-2\langle\varepsilon_i,e_b\rangle\varepsilon_i
+   =e_b-\nu_i\cdot\frac{e_b-w_i}{\nu_i}=e_b-(e_b-w_i)=w_i .
+\]
+
+In both cases, then, $\Phi_i$ is a linear isometry of $E$ onto itself with
+\begin{equation}\label{eq:pd-frame}
+  \Phi_i(e_b)=\frac{P_i}{c_i}\qquad(i\ge i_1).
+\end{equation}
+For $i<i_1$ put $\Phi_i=\mathrm{id}_E$. No orthonormal-basis extension and no
+appeal to any unstated standard fact is used: (a)--(d) are the complete
+verification.
+
+\emph{Step 4: the normalized functions $v_i$, obtained by solving.}
+Let $i\ge i_1$. By \eqref{eq:pd-positivity} and \eqref{eq:pd-slope-positive} the
+three numbers $r_i$, $c_i$ and $\lambda_i$ are positive, so we may define, for
+every $(x,t)\in\R^d\times\R$,
+\begin{equation}\label{eq:pd-vdef}
+  v_i(x,t)=\frac{1}{\lambda_i}
+    \left[\frac{U_i\bigl(z_i+r_i\Phi_i(\sqrt{\lambda_i}\,x,t)\bigr)-U_i(z_i)}
+               {r_ic_i}-t\right],
+\end{equation}
+and put $v_i=0$ for $i<i_1$. Multiplying \eqref{eq:pd-vdef} by
+$r_ic_i\lambda_i>0$ gives
+\[
+  r_ic_i\lambda_iv_i(x,t)
+   =U_i\bigl(z_i+r_i\Phi_i(\sqrt{\lambda_i}\,x,t)\bigr)-U_i(z_i)-r_ic_it ,
+\]
+and adding $U_i(z_i)+r_ic_it$ to both sides yields, for every $(x,t)$ and every
+$i\ge i_1$,
+\begin{equation}\label{eq:pd-normalization}
+  U_i\bigl(z_i+r_i\Phi_i(\sqrt{\lambda_i}\,x,t)\bigr)
+   =U_i(z_i)+r_ic_i\bigl(t+\lambda_iv_i(x,t)\bigr),
+\end{equation}
+which is the anisotropic normalization required by \noderef{NonaffineLimit}.
+
+\emph{Step 5: the nonaffine entire solution.}
+All hypotheses of \noderef{NonaffineLimit} are now in place: $d\ge1$;
+$(\gamma_i,s_i,r_i,\lambda_i,U_i,z_i)_{i\ge0}$ is bad-scale data for $d$ in the
+sense of \noderef{IsBadScaleData}, by Step 1; the index $i_1$ and the vectors
+$P_i$ realize, for every $i\ge i_1$, a cylinder fit of parameter $32\lambda_i$
+for $U_i$ at $(z_i,r_i)$ in the sense of \noderef{IsCylinderFit}, by Step 2;
+$\Phi_i$ is a linear isometry of the space-time onto itself with
+$\Phi_i(e_b)=P_i/c_i$ for $i\ge i_1$, by \eqref{eq:pd-frame}; and the functions
+$v_i$ satisfy the normalization for every $(x,t)$ and every $i\ge i_1$, by
+\eqref{eq:pd-normalization}. Applying \noderef{NonaffineLimit} gives a constant
+$C_0$ with $0\le C_0<\infty$, a strictly increasing sequence of indices
+$j\mapsto\psi(j)$ with $\psi(j)\ge i_1$, and a continuous function $v$ on the
+space-time with $v_{\psi(j)}\to v$ uniformly on every compact set, such that
+$v\in\Aclass_{d,C_0}$ in the sense of \noderef{IsFitClass} and $v$ is not affine
+on space-time in the sense of \noderef{IsSpaceTimeAffine}.
+
+\emph{Step 6: the contradiction.}
+The function $v$ satisfies the hypotheses of \noderef{Liouville} with the
+constant $C_0$, since $0\le C_0<\infty$ and $v\in\Aclass_{d,C_0}$; here the
+ambient finite-dimensional real inner-product space is $\R^d$, of dimension $d$.
+Hence $v$ is affine on space-time in the sense of \noderef{IsSpaceTimeAffine}.
+This contradicts the conclusion of Step 5 that $v$ is not affine.
+
+Therefore the assumption of Step 1 is false: there are $B\in(0,\infty)$,
+$\gamma\in(0,1]$ and $s_0\in(0,1/8]$ for which \eqref{eq:power-decay} holds.
+Since $d$ was the only datum fixed before the argument began, these constants
+depend only on $d$.
+\end{proof}

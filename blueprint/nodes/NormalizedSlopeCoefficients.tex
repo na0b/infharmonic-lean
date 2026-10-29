@@ -1,0 +1,93 @@
+\begin{lemma}[Frame coordinates of a nearly aligned slope]
+Let $F$ be a finite-dimensional real inner-product space, let
+$\ell^2(F\times\R)$ be the associated space-time with added unit direction
+$e_b=(0,1)$, and let $\Phi$ be a linear isometry of $\ell^2(F\times\R)$ onto itself.
+Let $c>0$ and $\lambda>0$ be reals, let $Q\in\ell^2(F\times\R)$ satisfy $|Q|>0$, and
+let $\mathrm{dir}$ and $\mathrm{nrm}$ be reals with
+\[
+  \Bigl|\frac{Q}{|Q|}-\Phi(e_b)\Bigr|\le\mathrm{dir},
+  \qquad \bigl||Q|-c\bigr|\le\mathrm{nrm}.
+\]
+Then there are $p'\in F$ and $q'\in\R$ such that
+\[
+  Q=\Phi\bigl(c\sqrt\lambda\,p',\ c(1+\lambda q')\bigr)
+\]
+and
+\[
+  c\sqrt\lambda\,|p'|\le|Q|\,\mathrm{dir},
+  \qquad
+  c\lambda\,|q'|\le\mathrm{nrm}+\tfrac12|Q|\,\mathrm{dir}^2 .
+\]
+\end{lemma}
+\begin{proof}
+Write $e=\Phi(e_b)$ and $p=Q/|Q|$, which is legitimate because $|Q|>0$. Since $\Phi$
+is a linear isometry and $|e_b|=1$, we have $|e|=1$; also $|p|=1$. The first hypothesis
+reads $|p-e|\le\mathrm{dir}$, and in particular $0\le|p-e|\le\mathrm{dir}$.
+
+\emph{Step 1: the coordinates of $Q$ in the frame.}
+Put $Q^\flat=\Phi^{-1}Q$ and let $(Q_x,Q_t)\in F\times\R$ be its two components, so
+that $Q^\flat=(Q_x,Q_t)$ and $Q=\Phi(Q_x,Q_t)$. Two identities will be used.
+
+First, $Q_t=\langle Q,e\rangle$. Indeed $Q_t=\langle Q^\flat,e_b\rangle$, because in
+$\ell^2(F\times\R)$ the inner product of $(a,s)$ with $(0,1)$ is
+$\langle a,0\rangle+s\cdot1=s$; and $\langle Q^\flat,e_b\rangle=\langle\Phi
+Q^\flat,\Phi e_b\rangle=\langle Q,e\rangle$ because $\Phi$ is a linear isometry and
+$\Phi Q^\flat=Q$.
+
+Second, $|Q_x|^2+Q_t^2=|Q|^2$. Indeed $|Q^\flat|^2=|Q_x|^2+|Q_t|^2$ by the definition
+of the $\ell^2$ product norm, $|Q_t|^2=Q_t^2$ for a real number, and
+$|Q^\flat|=|\Phi^{-1}Q|=|Q|$ because $\Phi^{-1}$ is a linear isometry.
+
+\emph{Step 2: the quadratic angular identity.}
+Since $|p|=|e|=1$,
+\[
+  |p-e|^2=|p|^2-2\langle p,e\rangle+|e|^2=2-2\langle p,e\rangle,
+\]
+so $\langle p,e\rangle=1-|p-e|^2/2$. As $Q=|Q|p$ and the inner product is linear in its
+first argument, Step 1 gives
+\begin{equation}\label{eq:nsc-Qt}
+  Q_t=\langle Q,e\rangle=|Q|\,\langle p,e\rangle=|Q|\Bigl(1-\frac{|p-e|^2}2\Bigr).
+\end{equation}
+
+\emph{Step 3: the transverse estimate, from the direction bound alone.}
+Substituting \eqref{eq:nsc-Qt} into $|Q_x|^2=|Q|^2-Q_t^2$ and writing $w=|p-e|^2\ge0$,
+\[
+  |Q_x|^2=|Q|^2-|Q|^2\Bigl(1-\frac w2\Bigr)^2
+   =|Q|^2\Bigl(w-\frac{w^2}4\Bigr)\le|Q|^2w=\bigl(|Q|\,|p-e|\bigr)^2 ,
+\]
+the inequality because $|Q|^2w^2/4\ge0$. Both $|Q_x|$ and $|Q|\,|p-e|$ are
+nonnegative, and $|Q|\,|p-e|\le|Q|\,\mathrm{dir}$ because $|Q|\ge0$; hence
+\begin{equation}\label{eq:nsc-x}
+  |Q_x|\le|Q|\,|p-e|\le|Q|\,\mathrm{dir}.
+\end{equation}
+Note that only the direction bound has been used.
+
+\emph{Step 4: the longitudinal estimate, from the norm bound and the angular error.}
+By \eqref{eq:nsc-Qt},
+\[
+  Q_t-c=\bigl(|Q|-c\bigr)-\frac{|Q|\,|p-e|^2}2 .
+\]
+The subtracted term is nonnegative, and $|p-e|^2\le\mathrm{dir}^2$ because
+$0\le|p-e|\le\mathrm{dir}$, so $|Q|\,|p-e|^2/2\le|Q|\,\mathrm{dir}^2/2$ using
+$|Q|\ge0$. Combining these with $\bigl||Q|-c\bigr|\le\mathrm{nrm}$ gives both
+inequalities $-(\mathrm{nrm}+|Q|\mathrm{dir}^2/2)\le Q_t-c\le
+\mathrm{nrm}+|Q|\mathrm{dir}^2/2$, that is
+\begin{equation}\label{eq:nsc-t}
+  |Q_t-c|\le\mathrm{nrm}+\tfrac12|Q|\,\mathrm{dir}^2 .
+\end{equation}
+Here BOTH the norm bound and the quadratic angular error are used; the angular error is
+quadratic in $\mathrm{dir}$, which is why it does not spoil the estimate.
+
+\emph{Step 5: the coefficients.}
+Since $c>0$ and $\lambda>0$ we have $c\sqrt\lambda>0$ and $c\lambda>0$. Put
+\[
+  p'=\frac{Q_x}{c\sqrt\lambda},\qquad q'=\frac{Q_t-c}{c\lambda}.
+\]
+Then $c\sqrt\lambda\,p'=Q_x$ and $c(1+\lambda q')=c+(Q_t-c)=Q_t$, so
+\[
+  \Phi\bigl(c\sqrt\lambda\,p',\ c(1+\lambda q')\bigr)=\Phi(Q_x,Q_t)=\Phi Q^\flat=Q,
+\]
+which is the asserted identity. Moreover $c\sqrt\lambda\,|p'|=|Q_x|$ and
+$c\lambda\,|q'|=|Q_t-c|$, so \eqref{eq:nsc-x} and \eqref{eq:nsc-t} are exactly the two
+asserted inequalities.
+\end{proof}

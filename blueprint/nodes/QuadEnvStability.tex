@@ -1,0 +1,108 @@
+\begin{lemma}[Stability of the quadratic envelopes]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$ be
+open and let $\Omega=\{(x,t):t\in I\}$. Let $f$ and $f_1,f_2,\ldots$ be real
+functions on space-time, continuous on $\Omega$, with $f_j\to f$ uniformly on
+every compact subset of $\Omega$, with $f$ of subquadratic spatial growth on
+compact time intervals of $I$ in the sense of \noderef{SubquadraticGrowth} and
+with the sequence having the common growth control of
+\noderef{UnifSubquadraticGrowth} on $I$:
+\[
+  \lim_{M\to\infty}\sup_j\sup_{\substack{|y|\ge M\\t\in J}}
+      \frac{|f_j(y,t)|}{|y|^2}=0\qquad(J\Subset I).
+\]
+Let $\ell>0$. Then $\Penv_\ell f_j\to\Penv_\ell f$ uniformly on every compact
+set of centers $z=(x,t)$ with $t\in I$ and $t+\ell\in I$, and
+$\Menv_\ell f_j\to\Menv_\ell f$ uniformly on every compact set of centers with
+$t\in I$ and $t-\ell\in I$, the envelopes being those of \noderef{QuadEnvP} and
+\noderef{QuadEnvM}.
+\end{lemma}
+\begin{proof}
+Write $\Omega=\{(y,\sigma):\sigma\in I\}$, an open set on which $f$ and every
+$f_j$ are continuous.
+
+\emph{Step 1: uniform localization.}
+Let $\mathcal K$ be a compact set of centers $z=(x,t)$ with $t\in I$ and
+$t+\ell\in I$ for all $z\in\mathcal K$ (the case of the backward envelope is
+identical with $t-\ell$ in place of $t+\ell$, and we indicate the changes at the
+end). Put
+\[
+  R_0=\max\{|x|:(x,t)\in\mathcal K\},
+  \qquad
+  J=\{t:(x,t)\in\mathcal K\}\cup\{t+\ell:(x,t)\in\mathcal K\},
+\]
+so $R_0<\infty$ and $J$ is a compact subset of $I$, being the union of two
+continuous images of $\mathcal K$.
+
+Apply \noderef{UnifSubquadraticGrowth} with this $J$ and $\varepsilon=1/(8\ell)$:
+there is $M_1>0$ with
+\begin{equation}\label{eq:qes-growthj}
+  |f_j(y,\sigma)|\le\frac{|y|^2}{8\ell}
+  \qquad(j\in\mathbb N,\ |y|\ge M_1,\ \sigma\in J),
+\end{equation}
+and apply \noderef{SubquadraticGrowth} with the same $J$ and $\varepsilon$ to get
+$M_2>0$ with the same bound for $f$. Put
+$M_3=\max\{M_1,M_2,4R_0,1\}$.
+
+For $|y|>M_3$, any $x$ with $|x|\le R_0$ and any $\sigma\in J$ we have
+$|y-x|\ge|y|-R_0\ge\tfrac34|y|$, so, exactly as in the corresponding
+computation for a single function,
+\begin{equation}\label{eq:qes-far}
+  g(y,\sigma)-\frac{|y-x|^2}{2\ell}
+   \le\frac{|y|^2}{8\ell}-\frac{9|y|^2}{32\ell}=-\frac{5|y|^2}{32\ell}
+\end{equation}
+for $g=f$ and for every $g=f_j$.
+
+The set $\mathcal C_3=\{(y,\sigma):|y|\le M_3,\ \sigma\in J\}$ is a compact
+subset of $\Omega$. Since $f$ is continuous on $\Omega$, $N_f:=\max_{\mathcal
+C_3}|f|$ is finite; and since $f_j\to f$ uniformly on $\mathcal C_3$, there is
+$j_0$ with $\sup_{\mathcal C_3}|f_j-f|\le1$ for $j\ge j_0$, while for each of
+the finitely many $j<j_0$ the continuous $f_j$ is bounded on $\mathcal C_3$.
+Hence
+\begin{equation}\label{eq:qes-N}
+  N:=\sup_{j\in\mathbb N}\ \max_{\mathcal C_3}|f_j|\ \vee\ N_f<\infty .
+\end{equation}
+Put $M=\max\bigl\{M_3,\ \sqrt{\tfrac{32}{5}N\ell}+1\bigr\}$. For $|y|>M$,
+$|x|\le R_0$ and $\sigma\in J$ we have $\tfrac{5|y|^2}{32\ell}>N$, so
+\eqref{eq:qes-far} and \eqref{eq:qes-N} give, for $g=f$ and every $g=f_j$,
+\[
+  g(y,\sigma)-\frac{|y-x|^2}{2\ell}<-N\le g(x,\sigma),
+\]
+the last inequality because $|x|\le R_0\le M_3$. In particular no competitor
+with $|y|>M$ exceeds the competitor $y=x$.
+
+\emph{Step 2: both envelopes are maxima over one fixed compact ball.}
+Let $z=(x,t)\in\mathcal K$. By Step 1 applied with $\sigma=t+\ell\in J$, the set
+of competitor values in \noderef{QuadEnvP} for $g$ at $z$ and length $\ell$ is
+nonempty and bounded above, and its supremum equals the maximum over
+$\{|y|\le M\}$, which exists because $y\mapsto g(y,t+\ell)-|y-x|^2/(2\ell)$ is
+continuous on that compact ball. Hence
+\begin{equation}\label{eq:qes-max}
+  \Penv_\ell g(z)=\max_{|y|\le M}
+     \Bigl(g(y,t+\ell)-\frac{|y-x|^2}{2\ell}\Bigr)
+  \qquad(g=f\text{ or }g=f_j,\ z\in\mathcal K).
+\end{equation}
+
+\emph{Step 3: conclusion.}
+For bounded real functions $G,H$ on a nonempty set $Q$ one has
+$|\sup_QG-\sup_QH|\le\sup_Q|G-H|$. Applying this to
+\eqref{eq:qes-max} with $Q=\{|y|\le M\}$, the quadratic terms cancelling,
+\[
+  \bigl|\Penv_\ell f_j(z)-\Penv_\ell f(z)\bigr|
+   \le\max_{|y|\le M}\bigl|f_j(y,t+\ell)-f(y,t+\ell)\bigr|
+   \le\sup_{\mathcal C}\,|f_j-f| ,
+\]
+where $\mathcal C=\{(y,\sigma):|y|\le M,\ \sigma\in J\}$ is a compact subset of
+$\Omega$, and the bound is independent of $z\in\mathcal K$. By hypothesis
+$f_j\to f$ uniformly on $\mathcal C$, so the right side tends to $0$. Hence
+$\Penv_\ell f_j\to\Penv_\ell f$ uniformly on $\mathcal K$.
+
+For the backward envelope, repeat Steps 1--3 with $t-\ell$ in place of
+$t+\ell$ in the definition of $J$, with $-f$ and $-f_j$ in place of $f$ and
+$f_j$ in \eqref{eq:qes-far} — these satisfy the same hypotheses, the growth
+conditions of \noderef{SubquadraticGrowth} and
+\noderef{UnifSubquadraticGrowth} being invariant under a change of sign — and
+with infima and minima in place of suprema and maxima, using
+$\inf A=-\sup(-A)$ and \noderef{QuadEnvM}. This gives
+$\Menv_\ell f_j\to\Menv_\ell f$ uniformly on every compact set of centers
+$z=(x,t)$ with $t\in I$ and $t-\ell\in I$.
+\end{proof}

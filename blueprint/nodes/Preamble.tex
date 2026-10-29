@@ -1,0 +1,386 @@
+\begin{definition}[Second derivative in a direction]
+For a real function $\phi$ on a finite-dimensional real inner-product space $E$
+that is twice continuously differentiable near $z$, and for $\xi\in E$, we write
+$D^2\phi(z)[\xi]$ for the value of the second Fr\'echet derivative of $\phi$ at
+$z$ on the pair $(\xi,\xi)$. In Lean this is
+$\texttt{iteratedFDeriv}\ \R\ 2\ \phi\ z\ (\lambda\_,\xi)$, and the hypothesis
+``$\phi$ is $C^2$ near $z$'' is $\texttt{ContDiffAt}\ \R\ 2\ \phi\ z$.
+\end{definition}
+
+\begin{definition}[Gradient]
+For a real function $\phi$ on a finite-dimensional real inner-product space $E$,
+$\nabla\phi(z)\in E$ denotes the Riesz representative of the Fr\'echet derivative
+of $\phi$ at $z$; equivalently $\langle\nabla\phi(z),h\rangle=D\phi(z)h$ for all
+$h$. We write $\nabla g(z)$ for this gradient and, for a vector-valued statement,
+$\texttt{HasGradientAt}\ u\ g\ z$ for the assertion that $u$ is differentiable at
+$z$ with gradient $g$.
+\end{definition}
+
+\begin{definition}[Local extrema on a set]
+For $S\subseteq E$ and $z\in S$, we say that $\psi$ has a local maximum on $S$ at
+$z$ if $\psi(x)\le\psi(z)$ for all $x$ in some neighbourhood of $z$ intersected
+with $S$, and a local minimum on $S$ at $z$ if the reverse inequality holds.
+When $S=E$ these are the unrestricted local extrema.
+\end{definition}
+
+\begin{definition}[Suprema and infima of sets of reals]
+For $A\subseteq\R$, $\sup A$ and $\inf A$ denote the least upper bound and
+greatest lower bound when these exist. We use the convention that $\sup A=0$
+when $A$ is empty or unbounded above and $\inf A=0$ when $A$ is empty or
+unbounded below; consequently every statement about such a supremum or infimum
+in this development carries the matching boundedness hypothesis explicitly.
+\end{definition}
+
+\begin{definition}[Extended reals and upper semicontinuity]
+$\overline\R=[-\infty,+\infty]$ denotes the extended real line, a complete
+lattice; a real number is identified with its image in $\overline\R$, and
+$\bot=-\infty$. A function $g$ with values in $\overline\R$ is upper
+semicontinuous if $\{g<c\}$ is open for every $c$.
+\end{definition}
+
+\begin{definition}[Locally uniform convergence]
+For functions $g_i,g$ on $E$ and $S\subseteq E$, we say $g_i\to g$ uniformly on
+$S$ if $\sup_{x\in S}|g_i(x)-g(x)|\to0$, and locally uniformly if this holds on
+every compact $S$.
+\end{definition}
+
+\begin{definition}[Distance to a set]
+For $S\subseteq E$ and $z\in E$, $\operatorname{dist}(z,S)=\inf_{w\in S}|z-w|$.
+The frontier (topological boundary) of $S$ is written $\partial S$.
+\end{definition}
+
+\begin{definition}[Real powers, logarithm, square root]
+For $s>0$ and $\gamma\in\R$, $s^\gamma$ denotes the real power; $\log$ is the
+natural logarithm, and $\sqrt{\cdot}$ the nonnegative square root, extended by
+the value $0$ on negative arguments.
+\end{definition}
+
+\begin{definition}[The $L^2$ product and space-time]
+For finite-dimensional real inner-product spaces $F$ and $\R$, the space
+$F\times\R$ carries the Euclidean (Hilbert) product inner product, written
+$\ell^2(F\times\R)$; this is the ambient space-time $\R^m\times\R$ of
+Sections~3--7. We write $(h,\ell)$ for the element of $\ell^2(F\times\R)$ with
+spatial part $h$ and time part $\ell$, and $z=(z_x,z_t)$ for the two components
+of a space-time point. Likewise $\ell^2$-products of finitely many copies of one
+space $E$ carry the Euclidean product inner product.
+\end{definition}
+
+\begin{definition}[Lebesgue measure, null sets and ``almost every'']
+On a finite-dimensional real inner-product space $E$ we use the Borel
+$\sigma$-algebra and an additive Haar measure $\mu$, i.e.\ a nonzero regular
+translation-invariant Borel measure that is finite on compact sets; on
+$\R^n$ this is Lebesgue measure up to a positive factor. Any two additive Haar
+measures on $E$ are positive scalar multiples of one another
+(\texttt{Measure.isAddLeftInvariant\_eq\_smul\_of\_regular}), so the statements
+``$\mu(A)=0$'' (``$A$ is null''), ``$\mu(A)>0$'' and ``$\mu$-almost every''
+(abbreviated ``a.e.'') do not depend on the choice of $\mu$. A set of full
+measure (null complement) is dense, because a null set has empty interior.
+\end{definition}
+
+\begin{proposition}[Compactness, Weierstrass and uniform continuity]
+In a finite-dimensional real normed space, a closed bounded set is compact. A
+continuous real function on a nonempty compact set attains a maximum and a
+minimum there, and is uniformly continuous there: for every $\eta>0$ there is
+$\rho>0$ such that any two points of the set at distance at most $\rho$ have
+values differing by at most $\eta$.
+\end{proposition}
+
+\begin{proposition}[Convex functions are continuous and locally Lipschitz]
+Let $E$ be a finite-dimensional real normed space, let $U\subseteq E$ be open
+and let $g:E\to\R$ be convex on $U$ and real-valued. Then $g$ is continuous on
+$U$ (\texttt{ConvexOn.continuousOn}) and locally Lipschitz on $U$: every point
+of $U$ has a neighbourhood on which $g$ is Lipschitz
+(\texttt{ConvexOn.locallyLipschitzOn}).
+\end{proposition}
+
+\begin{proposition}[Affine minorant of a convex function]
+Let $E$ be a finite-dimensional real normed space and let $g:E\to\R$ be convex
+and continuous on $E$. Then $g$ has an affine minorant: there are $p_0\in E$ and
+$c_0\in\R$ with $g(x)\ge\langle p_0,x\rangle+c_0$ for all $x\in E$
+(\texttt{ConvexOn.exists\_affine\_le\_of\_lt}).
+\end{proposition}
+
+\begin{proposition}[Rademacher's theorem]
+Let $E,F$ be finite-dimensional real normed spaces, let $\mu$ be an additive
+Haar measure on $E$ and let $f:E\to F$ be Lipschitz. Then $f$ is differentiable
+at $\mu$-almost every point of $E$
+(\texttt{LipschitzWith.ae\_differentiableAt}). If instead $f$ is merely locally
+Lipschitz on an open set $U$, the same conclusion holds at almost every point of
+$U$: $U$ is a countable union of balls on each of which $f$ is Lipschitz
+(\texttt{LipschitzOnWith.ae\_differentiableWithinAt}), and within-differentiability
+on an open set is differentiability.
+\end{proposition}
+
+\begin{proposition}[Measure of a Lipschitz image]
+Let $E$ be a finite-dimensional real inner-product space with additive Haar
+measure $\mu$, put $n=\dim E$, let $A\subseteq E$, let $K\ge0$ and let
+$f:E\to E$ be $K$-Lipschitz on $A$, i.e.\ $|f(a)-f(a')|\le K|a-a'|$ for all
+$a,a'\in A$. Then
+\[
+  \mu\bigl(f(A)\bigr)\le K^{n}\,\mu(A).
+\]
+In particular, taking $A$ null, a map that is Lipschitz on a null set sends it
+to a null set; and a globally Lipschitz $f:E\to E$ sends null sets to null sets.
+
+Both the source and the target of $f$ are the same space $E$ here, and that is
+essential: no such bound holds for a Lipschitz map between spaces of different
+dimensions. For instance the $1$-Lipschitz coordinate projection
+$\R^2\to\R$, $(a_1,a_2)\mapsto a_1$, maps the null line $\{a_2=0\}$ onto all of
+$\R$.
+
+Justification: the $n$-dimensional Hausdorff measure $\mathcal H^{n}$ is an
+additive Haar measure on $E$
+(\texttt{isAddHaarMeasure\_hausdorffMeasure}), hence a positive scalar multiple
+of $\mu$ by the uniqueness recorded above, and
+$\mathcal H^{n}(f(A))\le K^{n}\mathcal H^{n}(A)$ for a map that is $K$-Lipschitz
+on $A$ (\texttt{LipschitzOnWith.hausdorffMeasure\_image\_le}). Rescaling by the
+same factor on both sides returns the statement for $\mu$.
+\end{proposition}
+
+\begin{proposition}[The area-formula inequality]
+Let $E$ be a finite-dimensional real inner-product space with additive Haar
+measure $\mu$, let $A\subseteq E$ be measurable, let $f:E\to E$ and let
+$f':E\to(E\to_{L}E)$ satisfy: $f$ has the derivative $f'(y)$ at $y$ within $A$,
+for every $y\in A$. Then
+\[
+  \mu\bigl(f(A)\bigr)\le\int_A\bigl|\det f'(y)\bigr|\,d\mu(y)
+\]
+(\texttt{MeasureTheory.addHaar\_image\_le\_lintegral\_abs\_det\_fderiv}).
+\end{proposition}
+
+\begin{proposition}[Measurability of the differentiability set and of the derivative]
+Let $E,F$ be finite-dimensional real normed spaces and let $f:E\to F$. The set
+$\{y\in E:f\text{ is differentiable at }y\}$ is Borel
+(\texttt{measurableSet\_of\_differentiableAt}) and the map $y\mapsto Df(y)$ is
+Borel measurable (\texttt{measurable\_fderiv}). The determinant
+$\det:(E\to_{L}E)\to\R$ is continuous, so for a continuous $f$ the set of points
+at which $f$ is differentiable with $\det Df=0$ is Borel.
+\end{proposition}
+
+\begin{proposition}[Integrating a continuous gradient along a segment]
+Let $E$ be a finite-dimensional real inner-product space and let $g:E\to\R$ be
+differentiable with continuous gradient $\nabla g$. Then for all $y,h\in E$
+\[
+  g(y+h)-g(y)=\int_0^1\langle\nabla g(y+th),h\rangle\,dt ,
+\]
+the integrand being a continuous function of $t$
+(\texttt{intervalIntegral.integral\_eq\_sub\_of\_hasDerivAt} applied to
+$t\mapsto g(y+th)$).
+\end{proposition}
+
+\begin{proposition}[Haar measure of balls]
+Let $E$ be a finite-dimensional real inner-product space with additive Haar
+measure $\mu$ and put $n=\dim E$. Then $0<\mu(B(0,1))<\infty$
+(\texttt{measure\_ball\_pos}, \texttt{measure\_closedBall\_lt\_top}), and for
+every $x\in E$ and every $r\ge0$
+\[
+  \mu\bigl(\overline B(x,r)\bigr)=r^{n}\,\mu(B(0,1))
+\]
+(\texttt{Measure.addHaar\_closedBall}). In particular
+$\mu(\overline B(x,r))>0$ for $r>0$.
+\end{proposition}
+
+\begin{proposition}[Bolzano--Weierstrass]
+In a finite-dimensional real normed space, every bounded sequence has a
+convergent subsequence.
+\end{proposition}
+
+\begin{proposition}[Determinant and invertibility]
+Let $E$ be a finite-dimensional real normed space and let $P:E\to E$ be a
+continuous linear map, with determinant $\det P$ (the determinant of the matrix
+of $P$ in any basis; \texttt{ContinuousLinearMap.det}). The map
+$P\mapsto\det P$ is continuous. Moreover $\det P\ne0$ if and only if $P$ is
+bijective (\texttt{LinearMap.det\_eq\_zero\_iff\_ker\_ne\_bot} together with the
+rank--nullity theorem), and in that case the inverse $P^{-1}$ is again a
+continuous linear map, so that there is a constant $c>0$, namely
+$c=1/\|P^{-1}\|$ when $P^{-1}\ne0$, with $|Ph|\ge c|h|$ for all $h\in E$.
+\end{proposition}
+
+\begin{proposition}[Second-order Taylor expansion with Peano remainder]
+Let $V$ be a finite-dimensional real inner-product space, let $U\subseteq V$ be
+open, let $\Psi:V\to\R$ be twice continuously differentiable on $U$ and let
+$\widehat Z\in U$. Write $\nabla\Psi(\widehat Z)$ for the gradient and
+$D^2\Psi(\widehat Z)$ for the second derivative, a bilinear form on $V$. Then
+$D^2\Psi(\widehat Z)$ is symmetric
+(\texttt{ContDiffAt.isSymmSndFDerivAt}, \texttt{second\_derivative\_symmetric}),
+and
+\[
+  \Psi(\widehat Z+W)=\Psi(\widehat Z)+\langle\nabla\Psi(\widehat Z),W\rangle
+    +\tfrac12D^2\Psi(\widehat Z)(W,W)+R(W),
+  \qquad \frac{|R(W)|}{|W|^2}\longrightarrow0\ \ (W\to0).
+\]
+Justification of the expansion: for small $|W|$ the segment from $\widehat Z$ to
+$\widehat Z+W$ lies in $U$, and the one-variable second-order Taylor theorem
+(\texttt{taylor\_isLittleO}; or the Lagrange form of the remainder) applied to
+$t\mapsto\Psi(\widehat Z+tW)$ on $[0,1]$ gives
+$\Psi(\widehat Z+W)=\Psi(\widehat Z)+\langle\nabla\Psi(\widehat Z),W\rangle
++\tfrac12D^2\Psi(\widehat Z+\theta W)(W,W)$ for some $\theta\in(0,1)$; the
+difference from the displayed expansion is at most
+$\tfrac12\|D^2\Psi(\widehat Z+\theta W)-D^2\Psi(\widehat Z)\|\,|W|^2$, which is
+$o(|W|^2)$ because $D^2\Psi$ is continuous at $\widehat Z$.
+\end{proposition}
+
+\begin{definition}[Probability spaces, conditional expectation and filtrations]
+A \emph{probability space} is a measurable space $(\Omega,\mathcal M)$ together
+with a measure $\mu$ with $\mu(\Omega)=1$ (\texttt{IsProbabilityMeasure}). We
+write $\mathbb E[X]=\int_\Omega X\,d\mu$ for the integral of an integrable
+function, in the Bochner sense for functions with values in a
+finite-dimensional real inner-product space $F$; \texttt{Integrable} is strong
+measurability together with finiteness of $\mathbb E\|X\|$. For a
+sub-$\sigma$-algebra $\mathcal N\subseteq\mathcal M$, the \emph{conditional
+expectation} $\mu[X\mid\mathcal N]$ (\texttt{condExp}, written
+$\mathbb E[X\mid\mathcal N]$ below) is the $\mathcal N$-measurable integrable
+function characterized a.e.\ by $\int_AX\,d\mu=\int_A\mu[X\mid\mathcal N]\,d\mu$
+for every $A\in\mathcal N$; it is set to $0$ when $X$ is not integrable. A
+\emph{filtration} indexed by $\mathbb N$ (\texttt{Filtration}) is a
+nondecreasing family $\mathcal G_0\subseteq\mathcal G_1\subseteq\cdots$ of
+sub-$\sigma$-algebras of $\mathcal M$, and a family $(X_n)$ is
+\emph{adapted} to it (\texttt{Adapted}, \texttt{StronglyAdapted}) if each $X_n$
+is $\mathcal G_n$-measurable.
+\end{definition}
+
+\begin{definition}[Martingales and submartingales]
+An adapted integrable family $(X_n)$ is a \emph{martingale} for
+$(\mathcal G_n)$ and $\mu$ (\texttt{Martingale}) if
+$\mathbb E[X_j\mid\mathcal G_i]=X_i$ a.e.\ whenever $i\le j$, and a
+\emph{submartingale} (\texttt{Submartingale}) if, for real-valued $X_n$,
+$X_i\le\mathbb E[X_j\mid\mathcal G_i]$ a.e.\ whenever $i\le j$. For
+$\mathbb N$-indexed families it suffices to verify the inequality for
+consecutive indices (\texttt{submartingale\_nat}).
+\end{definition}
+
+\begin{definition}[Stopping times, stopped values and hitting times]
+A map $\tau:\Omega\to\mathbb N\cup\{\infty\}$ is a \emph{stopping time} for
+$(\mathcal G_n)$ (\texttt{IsStoppingTime}) if $\{\tau\le n\}\in\mathcal G_n$ for
+every $n$. The \emph{stopped value} of a family $(X_n)$ at $\tau$ is
+$X_\tau(\omega)=X_{\tau(\omega)}(\omega)$ (\texttt{stoppedValue}). The
+\emph{hitting time} of a set $S$ in the index window $[n_1,n_2]$ is the least
+$n$ in that window with $X_n(\omega)\in S$, and $n_2$ if there is none
+(\texttt{hittingBtwn}); it is a stopping time when $(X_n)$ is adapted and $S$ is
+measurable (\texttt{Adapted.isStoppingTime\_hittingBtwn}).
+\end{definition}
+
+\begin{definition}[Weak convergence, tightness and infinite products]
+The space of probability measures on a metrizable space $\mathcal X$ carries the
+topology of weak convergence (\texttt{ProbabilityMeasure}), for which
+$\mu_j\to\mu$ means $\int\varphi\,d\mu_j\to\int\varphi\,d\mu$ for every bounded
+continuous $\varphi$. A set $S$ of measures is \emph{tight}
+(\texttt{IsTightMeasureSet}) if for every $\varepsilon>0$ there is a compact
+$K\subseteq\mathcal X$ with $\nu(\mathcal X\setminus K)\le\varepsilon$ for every
+$\nu\in S$ (\texttt{isTightMeasureSet\_iff\_exists\_isCompact\_measure\_compl\_le};
+the definition itself is the equivalent statement that $\sup_{\nu\in S}\nu$
+tends to $0$ along the small sets of the cocompact filter). Given measures
+$\nu_i$ on measurable spaces $X_i$, $i$ ranging over
+an arbitrary index set, there is a product measure $\bigotimes_i\nu_i$ on
+$\prod_iX_i$ (\texttt{Measure.infinitePi}), a probability measure when every
+$\nu_i$ is; the fair-sign sequence is the case
+$X_i=\{-1,1\}$ with each $\nu_i$ uniform.
+\end{definition}
+
+\begin{proposition}[Conditional Jensen for the norm and its powers]
+Let $F$ be a finite-dimensional real inner-product space, let
+$\mathcal N\subseteq\mathcal M$ be a sub-$\sigma$-algebra and let
+$X:\Omega\to F$. Then
+\[
+  \bigl\|\mathbb E[X\mid\mathcal N]\bigr\|
+    \le\mathbb E\bigl[\|X\|\mid\mathcal N\bigr]\quad\text{a.e.}
+\]
+(\texttt{norm\_condExp\_le}), and for every $p\ge1$ such that $\|X\|^p$ is
+integrable,
+\[
+  \bigl\|\mathbb E[X\mid\mathcal N]\bigr\|^p
+    \le\mathbb E\bigl[\|X\|^p\mid\mathcal N\bigr]\quad\text{a.e.}
+\]
+(\texttt{Integrable.norm\_condExp\_rpow\_le}).
+\end{proposition}
+
+\begin{proposition}[Doob's weak-type maximal inequality]
+Let $\mu$ be a finite measure, let $(\mathcal G_n)$ be a filtration and let
+$(f_n)$ be a nonnegative submartingale. Then for every $\varepsilon\ge0$ and
+every $n$,
+\[
+  \varepsilon\,\mu\Bigl\{\omega:\varepsilon\le\max_{k\le n}f_k(\omega)\Bigr\}
+   \le\int_{\{\varepsilon\le\max_{k\le n}f_k\}}f_n\,d\mu
+\]
+(\texttt{maximal\_ineq}). The right side is at most $\mathbb E[f_n]$ when
+$f_n\ge0$.
+\end{proposition}
+
+\begin{proposition}[Optional stopping and optional sampling]
+Let $\mu$ be a finite measure and $(f_n)$ a submartingale for $(\mathcal G_n)$.
+If $\tau\le\pi$ are stopping times bounded by a constant $N$, then
+$\mathbb E[f_\tau]\le\mathbb E[f_\pi]$
+(\texttt{Submartingale.expected\_stoppedValue\_mono}). Moreover, for every
+$\varepsilon\ge0$ and every $n$,
+\[
+  \varepsilon\,\mu\Bigl\{\omega:\varepsilon\le\max_{k\le n}f_k(\omega)\Bigr\}
+   \le\int_{\{\varepsilon\le\max_{k\le n}f_k\}}
+       f_{\sigma}\,d\mu,
+\]
+where $\sigma$ is the hitting time of $[\varepsilon,\infty)$ in the window
+$[0,n]$ (\texttt{smul\_le\_stoppedValue\_hittingBtwn}).
+\end{proposition}
+
+\begin{proposition}[The layer-cake identity]
+Let $(\Omega,\mathcal M,\mu)$ be a measure space and let $f:\Omega\to\R$ be
+almost everywhere nonnegative and almost everywhere measurable. Then
+\[
+  \int_\Omega f\,d\mu=\int_0^\infty\mu\{f>\lambda\}\,d\lambda,
+\]
+as an identity of integrals with values in $[0,\infty]$
+(\texttt{lintegral\_eq\_lintegral\_meas\_lt}). In particular $f$ is integrable
+if and only if the right side is finite, and then the two sides agree as real
+numbers.
+\end{proposition}
+
+\begin{proposition}[Portmanteau]
+Let $\mathcal X$ be a metrizable space and let $\mu_j\to\mu$ weakly in the space
+of probability measures on $\mathcal X$. Then
+\[
+  \limsup_j\mu_j(C)\le\mu(C)\quad\text{for every closed }C,\qquad
+  \mu(O)\le\liminf_j\mu_j(O)\quad\text{for every open }O
+\]
+(\texttt{ProbabilityMeasure.limsup\_measure\_closed\_le\_of\_tendsto} and
+\texttt{ProbabilityMeasure.le\_liminf\_measure\_open\_of\_tendsto}).
+\end{proposition}
+
+\begin{proposition}[Prokhorov's theorem]
+Let $\mathcal X$ be a complete separable metric space and let $S$ be a set of
+probability measures on $\mathcal X$ whose underlying set of measures is tight.
+Then the closure of $S$ in the topology of weak convergence is compact
+(\texttt{isCompact\_closure\_of\_isTightMeasureSet}). In particular every
+sequence in $S$ has a weakly convergent subsequence.
+\end{proposition}
+
+\begin{proposition}[Spectral theorem in finite dimensions]
+Let $F$ be a finite-dimensional real inner-product space of dimension $n$ and
+let $T:F\to F$ be linear and symmetric, i.e.\ $\langle Ta,b\rangle=\langle
+a,Tb\rangle$ for all $a,b$. Then $F$ has an orthonormal basis
+$(e_1,\dots,e_n)$ of eigenvectors of $T$, with real eigenvalues
+$\lambda_1,\dots,\lambda_n$, so that $Te_i=\lambda_ie_i$
+(\texttt{LinearMap.IsSymmetric.eigenvectorBasis} and
+\texttt{LinearMap.IsSymmetric.apply\_eigenvectorBasis}).
+\end{proposition}
+
+\begin{proposition}[Neumann series]
+Let $R$ be a normed ring in which geometric series are summable, for instance
+the ring of continuous linear endomorphisms of a finite-dimensional normed
+space. If $t\in R$ has $\|t\|<1$, then $1-t$ is invertible, with inverse
+$\sum_{k\ge0}t^k$ (\texttt{Units.oneSub} and
+\texttt{NormedRing.inverse\_one\_sub}).
+\end{proposition}
+
+\begin{proposition}[Pull-out property of the conditional expectation]
+Let $E,F$ be finite-dimensional real inner-product spaces, let
+$B:F\times E\to\R$ be a continuous bilinear map, let
+$\mathcal N\subseteq\mathcal M$ be a sub-$\sigma$-algebra, and let
+$X:\Omega\to F$ and $Y:\Omega\to E$ be such that $X$ and
+$\omega\mapsto B(X(\omega),Y(\omega))$ are integrable and $Y$ is
+$\mathcal N$-measurable. Then
+\[
+  \mathbb E\bigl[B(X,Y)\mid\mathcal N\bigr]
+    =B\bigl(\mathbb E[X\mid\mathcal N],\,Y\bigr)\quad\text{a.e.}
+\]
+(\texttt{condExp\_bilin\_of\_aestronglyMeasurable\_right}). The case
+$B(a,b)=\langle a,b\rangle$ with $E=F$ is the one used below.
+\end{proposition}

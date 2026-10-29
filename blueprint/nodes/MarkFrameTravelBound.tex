@@ -1,0 +1,155 @@
+\begin{lemma}[The frame travel bound on a mark's portion]
+Let $F$ be a finite-dimensional real inner-product space, let
+$(\Omega,\mathcal M,\mu)$ be a measure space, let $(\mathcal G_n)_{n\in\N}$ be a
+filtration of $\mathcal M$, let
+$z,z^+,z^-:\N\times\Omega\to\ell^2(F\times\R)$, let $Q_0:\N\times\Omega\to F$,
+let $S:\N\times\Omega\to\Z$, let $\sigma:\N\times\Omega\to\N$, let
+$p:\N\times\Omega\to F$, let $\varsigma,\tau:\Omega\to\N$, let $j,b\in\N$, let
+$\epsilon,\rho,C_p,B_0,C',C_M,C_2,L_K,\Lambda\in\R$ and let $u:\Z\to\R$. Write
+$z_n=(x_n,t_n)$ and, for a stopping time $\varrho$, a slope field $q$ and a
+scale $\rho$,
+\[
+  \mathcal T[\varrho,\varsigma,q]
+   =\sup_{\varrho\le n\le\varsigma}
+     \frac{\bigl|x_n-x_\varrho-(t_n-t_\varrho)\,q\bigr|}{\rho}
+\]
+for the running displacement in the sheared frame of slope $q$ and scale
+$\rho$. Assume:
+\begin{enumerate}
+\item\label{it:mftb-pkg} the travel package of
+\noderef{StoppedWalkTravel}: for all $(\mathcal G_n)$-stopping times
+$\varrho\le\varsigma'\le\tau$, every $\rho'>0$, every $C\in\R$ and every
+$q:\Omega\to F$ with $|q|\le C$ such that $\mathbf1_{\{\varrho\le n\}}q$ is
+$\mathcal G_n$-measurable for all $n$, the four functions
+\[
+  \mathcal T[\varrho,\varsigma',q],\qquad
+  \sum_{\varrho\le n<\varsigma'}\Bigl(\frac{\epsilon}{\rho'}\Bigr)^2|Q_0(n)-q|^2,
+  \qquad
+  \Bigl(\frac{\epsilon}{\rho'}\Bigr)^2(\varsigma'-\varrho),\qquad
+  \sum_{\varrho\le n<\varsigma'}\mathcal E_n
+\]
+are $\mu$-integrable, where
+$\mathcal E_n=|\epsilon^{-1}(x^+_n-x_n)-Q_0(n)|^2
++|\epsilon^{-1}(x_n-x^-_n)-Q_0(n)|^2$, and
+\[
+  \int\mathcal T[\varrho,\varsigma',q]\,d\mu
+  \le2\Bigl(\int\sum_{\varrho\le n<\varsigma'}
+      \tfrac{\epsilon^2}{\rho'^2}|Q_0(n)-q|^2d\mu\Bigr)^{1/2}
+   +\Bigl(\int\tfrac{\epsilon^2}{\rho'^2}(\varsigma'-\varrho)\,d\mu\Bigr)^{1/2}
+    \Bigl(\int\sum_{\varrho\le n<\varsigma'}\mathcal E_n\,d\mu\Bigr)^{1/2};
+\]
+\item\label{it:mftb-slope} $|p_j(\omega)|\le C_p$ for every $\omega$, and
+$\mathbf1_{\{\sigma_j\le n\}}p_j$ is $\mathcal G_n$-measurable for every $n$;
+\item\label{it:mftb-st} $\sigma_j$, $\varsigma$ and $\tau$ are
+$(\mathcal G_n)$-stopping times with $\sigma_j\le\varsigma\le\tau$ pointwise;
+\item\label{it:mftb-int} the portion length
+$\omega\mapsto\varsigma(\omega)-\sigma_j(\omega)$ and the portion weight sum
+$\omega\mapsto\sum_{\sigma_j\le m<\varsigma}u(S_m)$ are $\mu$-integrable, and
+$\displaystyle\int\sum_{\sigma_j\le m<\varsigma}u(S_m)\,d\mu\le4\Lambda$;
+\item\label{it:mftb-uw} $u(S_n(\omega))
+=\bigl(\tfrac{\epsilon}{\rho}\bigr)^2
+\bigl|\log\bigl(\tfrac{\epsilon}{\rho}S_n(\omega)\bigr)\bigr|^2$ whenever
+$\sigma_j(\omega)\le n<\varsigma(\omega)$;
+\item\label{it:mftb-Q} if $t_{\sigma_j(\omega)}(\omega)=\rho$ and
+$\sigma_j(\omega)\le n<\varsigma(\omega)$ then
+$|Q_0(n)(\omega)-p_j(\omega)|
+\le C_2\bigl(L_K+\bigl|\log\bigl(\tfrac{\epsilon}{\rho}S_n(\omega)\bigr)\bigr|\bigr)$;
+\item\label{it:mftb-off} if $t_{\sigma_j(\omega)}(\omega)\ne\rho$ then
+$\varsigma(\omega)=\sigma_j(\omega)$;
+\item\label{it:mftb-time} $\displaystyle
+\int\bigl(\varsigma-\sigma_j\bigr)d\mu\le\frac{b^2}{4}$;
+\item\label{it:mftb-budget} $\displaystyle
+\int\sum_{n<\tau}\mathcal E_n\,d\mu\le B_0$;
+\item\label{it:mftb-const} $0<\rho$, $\dfrac{\epsilon}{\rho}\,b=8$,
+$C_M=2C_2^2(16+4\Lambda)$, $0\le C_M$, $0<C_2$, $0\le\Lambda$,
+$2\sqrt{C_M}\le C'$, $4\le C'$ and $1\le L_K$.
+\end{enumerate}
+Then $\mathcal T[\sigma_j,\varsigma,p_j]$ is $\mu$-integrable and
+\begin{equation}\label{eq:mftb-travel}
+  \int\mathcal T[\sigma_j,\varsigma,p_j]\,d\mu
+  \le C'\bigl(L_K+\sqrt{B_0}\bigr).
+\end{equation}
+\end{lemma}
+\begin{proof}
+\emph{The two instantiations.} Apply \ref{it:mftb-pkg} at
+$\varrho=\sigma_j$, $\varsigma'=\varsigma$, $q=p_j$, $C=C_p$ and
+$\rho'=\rho$; its hypotheses are \ref{it:mftb-st}, \ref{it:mftb-slope} and
+$\rho>0$ from \ref{it:mftb-const}. This gives the four integrability facts for
+the portion --- the first of them is the integrability asserted in the
+conclusion --- and the travel inequality
+\begin{equation}\label{eq:mftb-cs}
+  \int\mathcal T[\sigma_j,\varsigma,p_j]\,d\mu
+  \le2\sqrt{V}+\sqrt{T}\,\sqrt{E},
+\end{equation}
+where $V$, $T$ and $E$ are the three integrals on its right at this
+instantiation. Apply \ref{it:mftb-pkg} a second time at
+$\varrho=0$, $\varsigma'=\tau$, $q=0$, $C=0$ and $\rho'=1$ --- the zero map is
+trivially bounded by $0$ and $\mathbf1_{\{0\le n\}}0$ is measurable --- and keep
+only its fourth integrability fact, the integrability of
+$\omega\mapsto\sum_{n<\tau}\mathcal E_n$.
+
+\emph{The velocity term: $V\le C_ML_K^2$.} Fix $\omega$. If
+$t_{\sigma_j(\omega)}(\omega)\ne\rho$ then $\varsigma(\omega)=\sigma_j(\omega)$
+by \ref{it:mftb-off}, the summation range is empty and the summand bound below
+holds trivially, both sides being $0$ on the left and nonnegative on the right.
+Otherwise, for $\sigma_j(\omega)\le m<\varsigma(\omega)$, \ref{it:mftb-Q} gives
+$|Q_0(m)-p_j|\le C_2(L_K+|\log(\tfrac\epsilon\rho S_m)|)$, so squaring and using
+$(a+b)^2\le2a^2+2b^2$,
+\[
+  |Q_0(m)-p_j|^2
+   \le C_2^2\Bigl(2L_K^2+2\bigl|\log\bigl(\tfrac\epsilon\rho S_m\bigr)\bigr|^2\Bigr),
+\]
+and multiplying by $(\epsilon/\rho)^2\ge0$ and using \ref{it:mftb-uw},
+\[
+  \Bigl(\frac\epsilon\rho\Bigr)^2|Q_0(m)-p_j|^2
+   \le2C_2^2L_K^2\Bigl(\frac\epsilon\rho\Bigr)^2+2C_2^2\,u(S_m).
+\]
+Summing over $\sigma_j(\omega)\le m<\varsigma(\omega)$ and splitting the
+constant term off,
+\[
+  \sum_{\sigma_j\le m<\varsigma}\Bigl(\frac\epsilon\rho\Bigr)^2|Q_0(m)-p_j|^2
+   \le2C_2^2L_K^2\Bigl(\frac\epsilon\rho\Bigr)^2(\varsigma-\sigma_j)
+     +2C_2^2\sum_{\sigma_j\le m<\varsigma}u(S_m).
+\]
+Both sides are integrable --- the left by the first instantiation, the right by
+\ref{it:mftb-int} --- so integrating preserves the inequality. For the first
+term, \ref{it:mftb-time} and $(\epsilon/\rho)^2\ge0$ give
+$(\epsilon/\rho)^2\int(\varsigma-\sigma_j)\,d\mu\le(\epsilon/\rho)^2b^2/4$,
+which is $16$ because $\bigl((\epsilon/\rho)b\bigr)^2=64$ by
+\ref{it:mftb-const}; for the second, \ref{it:mftb-int} gives at most
+$2C_2^2\cdot4\Lambda$. Hence, using $1\le L_K^2$ (from $1\le L_K$) to absorb the
+second term into a multiple of $L_K^2$ and $0\le8C_2^2\Lambda$,
+\[
+  V\le2C_2^2L_K^2\cdot16+8C_2^2\Lambda
+   \le2C_2^2(16+4\Lambda)L_K^2=C_ML_K^2
+\]
+by the definition of $C_M$ in \ref{it:mftb-const}.
+
+\emph{The error term: $E\le B_0$.} Pointwise, the portion's index range
+$[\sigma_j,\varsigma)$ is contained in $[0,\tau)$ by \ref{it:mftb-st}, and each
+summand $\mathcal E_n$ is nonnegative, so
+$\sum_{\sigma_j\le n<\varsigma}\mathcal E_n\le\sum_{n<\tau}\mathcal E_n$. Both
+sides are integrable --- the left by the first instantiation, the right by the
+second --- so $E\le\int\sum_{n<\tau}\mathcal E_n\,d\mu\le B_0$ by
+\ref{it:mftb-budget}.
+
+\emph{The time term: $T\le16$.} Since $\sigma_j\le\varsigma$ pointwise, the
+real-valued difference $\varsigma-\sigma_j$ agrees with the cast of the natural
+subtraction, so
+$T=(\epsilon/\rho)^2\int(\varsigma-\sigma_j)\,d\mu\le(\epsilon/\rho)^2b^2/4=16$
+exactly as in the velocity term.
+
+\emph{Assembly.} The square root is monotone, so
+$\sqrt V\le\sqrt{C_ML_K^2}=\sqrt{C_M}\,L_K$ --- using $L_K\ge1>0$ ---
+$\sqrt T\le\sqrt{16}=4$ and $\sqrt E\le\sqrt{B_0}$. Since
+$\sqrt T\ge0$ and $\sqrt E\ge0$, the product is bounded by
+$4\sqrt{B_0}$. Substituting into \eqref{eq:mftb-cs},
+\[
+  \int\mathcal T[\sigma_j,\varsigma,p_j]\,d\mu
+   \le2\sqrt{C_M}\,L_K+4\sqrt{B_0}
+   \le C'L_K+C'\sqrt{B_0}
+   =C'\bigl(L_K+\sqrt{B_0}\bigr),
+\]
+using $2\sqrt{C_M}\le C'$ with $L_K\ge0$ and $4\le C'$ with
+$\sqrt{B_0}\ge0$. This is \eqref{eq:mftb-travel}.
+\end{proof}

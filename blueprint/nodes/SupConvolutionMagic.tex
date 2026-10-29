@@ -1,0 +1,149 @@
+\begin{lemma}[The magic property of the sup-convolution]
+Let $E$ be a finite-dimensional real inner-product space, let $\varepsilon>0$,
+let $C\in\R$ and let $\phi:E\to\R$ be continuous with the linear growth bound
+\[
+  \phi(w)\le C+|w|\qquad(w\in E).
+\]
+Let $\phi^\varepsilon$ be the sup-convolution of \noderef{SupConvolution}, let
+$z\in E$, let $p\in E$, let $X$ be a continuous bilinear form on $E$ and assume
+$(p,X)\in J^{2,+}\phi^\varepsilon(z)$ in the sense of \noderef{Superjet}. Then
+the supremum defining $\phi^\varepsilon(z)$ is attained exactly at the point
+$z+\varepsilon p$:
+\[
+  \phi^\varepsilon(z)=\phi(z+\varepsilon p)-\frac{\varepsilon|p|^2}{2},
+\]
+and the jet transfers to $\phi$ at that point:
+\[
+  (p,X)\in J^{2,+}\phi(z+\varepsilon p).
+\]
+\end{lemma}
+\begin{proof}
+For $y\in E$ write
+$S_y=\{\phi(w)-|y-w|^2/(2\varepsilon):w\in E\}$, so that
+$\phi^\varepsilon(y)=\sup S_y$ by \noderef{SupConvolution}. Part (1) of
+\noderef{SupConvolutionSemiconvex}, applied with this $C$ and this
+$\varepsilon>0$, says that every $S_y$ is bounded above; each $S_y$ is nonempty
+because $w=y$ contributes $\phi(y)$. Hence for every $y$ the number
+$\phi^\varepsilon(y)$ is finite and
+\begin{equation}\label{eq:scm-ub}
+  \phi(w)-\frac{|y-w|^2}{2\varepsilon}\le\phi^\varepsilon(y)
+  \qquad(y,w\in E).
+\end{equation}
+
+\emph{Step 1: the supremum at $z$ is attained.}
+Define $\Theta:E\to\R$ by $\Theta(w)=\phi(w)-|z-w|^2/(2\varepsilon)$, which is
+continuous, so that $S_z=\Theta(E)$ and $\phi^\varepsilon(z)=\sup_E\Theta$. Note
+$\Theta(z)=\phi(z)$.
+
+For $w\in E$ put $s=|z-w|$. By the growth bound and $|w|\le|z|+s$,
+\begin{equation}\label{eq:scm-decay}
+  \Theta(w)\le C+|z|+s-\frac{s^2}{2\varepsilon}.
+\end{equation}
+Since $\varepsilon>0$, the right-hand side tends to $-\infty$ as
+$s\to+\infty$; choose therefore $S>0$ so large that
+\[
+  C+|z|+s-\frac{s^2}{2\varepsilon}<\phi(z)\qquad(s>S).
+\]
+By \eqref{eq:scm-decay}, $\Theta(w)<\phi(z)=\Theta(z)$ whenever $|z-w|>S$.
+Consequently
+\[
+  \sup_E\Theta=\sup_{\overline B(z,S)}\Theta,
+\]
+because every $w$ outside $\overline B(z,S)$ has $\Theta(w)<\Theta(z)$ and
+$z\in\overline B(z,S)$. The set $\overline B(z,S)$ is closed and bounded in the
+finite-dimensional space $E$, hence compact, and it is nonempty; $\Theta$ is
+continuous, so $\Theta$ attains a maximum on $\overline B(z,S)$ at some point
+$\hat w$. Then
+\begin{equation}\label{eq:scm-attained}
+  \phi^\varepsilon(z)=\Theta(\hat w)
+    =\phi(\hat w)-\frac{|z-\hat w|^2}{2\varepsilon}.
+\end{equation}
+
+\emph{Step 2: a one-sided comparison of increments.}
+Let $h\in E$ be arbitrary. Applying \eqref{eq:scm-ub} at the point $y=z+h$ with
+the test point $w=\hat w+h$, and noting
+$(z+h)-(\hat w+h)=z-\hat w$, we get
+\[
+  \phi(\hat w+h)-\frac{|z-\hat w|^2}{2\varepsilon}
+   \le\phi^\varepsilon(z+h).
+\]
+Subtracting \eqref{eq:scm-attained} from this gives
+\begin{equation}\label{eq:scm-increment}
+  \phi(\hat w+h)-\phi(\hat w)\le\phi^\varepsilon(z+h)-\phi^\varepsilon(z)
+  \qquad(h\in E).
+\end{equation}
+
+\emph{Step 3: $\hat w=z+\varepsilon p$.}
+Apply \eqref{eq:scm-ub} at the point $y=z+h$ with the test point $w=\hat w$:
+\[
+  \phi(\hat w)-\frac{|z+h-\hat w|^2}{2\varepsilon}\le\phi^\varepsilon(z+h).
+\]
+Expanding $|z+h-\hat w|^2=|z-\hat w|^2+2\langle z-\hat w,h\rangle+|h|^2$ and
+subtracting \eqref{eq:scm-attained} yields
+\begin{equation}\label{eq:scm-lower}
+  \phi^\varepsilon(z+h)-\phi^\varepsilon(z)
+   \ge-\Bigl\langle\frac{z-\hat w}{\varepsilon},h\Bigr\rangle
+       -\frac{|h|^2}{2\varepsilon}
+  \qquad(h\in E).
+\end{equation}
+On the other hand, $(p,X)\in J^{2,+}\phi^\varepsilon(z)$; applying the defining
+property of \noderef{Superjet} with the value $1$ for the parameter there, we
+obtain $\delta>0$ with
+\begin{equation}\label{eq:scm-upper}
+  \phi^\varepsilon(z+h)-\phi^\varepsilon(z)
+   \le\langle p,h\rangle+\tfrac12X(h,h)+|h|^2
+  \qquad(|h|<\delta).
+\end{equation}
+Put $u=p+(z-\hat w)/\varepsilon$. Let $v\in E$ with $|v|=1$ and let
+$t\in(0,\delta)$. Taking $h=tv$, so $|h|=t<\delta$, and combining
+\eqref{eq:scm-lower} with \eqref{eq:scm-upper},
+\[
+  -t\Bigl\langle\frac{z-\hat w}{\varepsilon},v\Bigr\rangle-\frac{t^2}{2\varepsilon}
+   \le t\langle p,v\rangle+\frac{t^2}{2}X(v,v)+t^2 .
+\]
+Dividing by $t>0$ gives
+\[
+  -\Bigl\langle\frac{z-\hat w}{\varepsilon},v\Bigr\rangle
+   \le\langle p,v\rangle+t\Bigl(\frac{X(v,v)}{2}+1+\frac{1}{2\varepsilon}\Bigr),
+\]
+and letting $t\downarrow0$ (the bracket does not depend on $t$) gives
+$0\le\langle u,v\rangle$. This holds for every unit vector $v$; applying it to
+$-v$ as well gives $\langle u,v\rangle=0$ for every unit vector $v$. If $u\ne0$
+then $v=u/|u|$ is a unit vector with $\langle u,v\rangle=|u|>0$, a
+contradiction. Hence $u=0$, that is,
+\[
+  \hat w=z+\varepsilon p .
+\]
+Substituting this into \eqref{eq:scm-attained} and using
+$|z-\hat w|=|\varepsilon p|=\varepsilon|p|$ (as $\varepsilon>0$), so that
+$|z-\hat w|^2/(2\varepsilon)=\varepsilon^2|p|^2/(2\varepsilon)=\varepsilon|p|^2/2$,
+we obtain the first assertion:
+\[
+  \phi^\varepsilon(z)=\phi(z+\varepsilon p)-\frac{\varepsilon|p|^2}{2}.
+\]
+
+\emph{Step 4: the jet transfers.}
+We verify the two clauses of \noderef{Superjet} for the pair $(p,X)$ at the
+point $\hat w=z+\varepsilon p$ with the function $\phi$.
+
+Symmetry of $X$ holds because it is already part of the hypothesis
+$(p,X)\in J^{2,+}\phi^\varepsilon(z)$.
+
+For the expansion, let $\varepsilon'>0$. By
+$(p,X)\in J^{2,+}\phi^\varepsilon(z)$ and \noderef{Superjet} applied with the
+parameter $\varepsilon'$ there is $\delta'>0$ with
+\[
+  \phi^\varepsilon(z+h)\le\phi^\varepsilon(z)+\langle p,h\rangle
+     +\tfrac12X(h,h)+\varepsilon'|h|^2
+  \qquad(|h|<\delta').
+\]
+Combining this with \eqref{eq:scm-increment} gives, for every $h$ with
+$|h|<\delta'$,
+\[
+  \phi(\hat w+h)\le\phi(\hat w)+\bigl(\phi^\varepsilon(z+h)-\phi^\varepsilon(z)\bigr)
+   \le\phi(\hat w)+\langle p,h\rangle+\tfrac12X(h,h)+\varepsilon'|h|^2 .
+\]
+Since $\varepsilon'>0$ was arbitrary, the defining condition of
+\noderef{Superjet} holds for $(p,X)$ at $\hat w$ with the function $\phi$, that
+is, $(p,X)\in J^{2,+}\phi(z+\varepsilon p)$.
+\end{proof}

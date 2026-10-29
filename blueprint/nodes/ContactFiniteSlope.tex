@@ -1,0 +1,280 @@
+\begin{lemma}[A finite slope at the extremal contact]
+Let $F$ be a finite-dimensional real inner-product space, let $1\le C_0<\infty$,
+let $\kappa>0$ and let $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass} be centered at $z_*=(0,1)$ with constant $C_0$ in the sense
+of \noderef{IsCenteredAt}, satisfy the horizontal Jensen bound with constant
+$\kappa$ at every time in the sense of \noderef{HasJensenBound}, and satisfy
+\[
+  \Cenv_1v(0,1)-v(0,1)=\frac{\kappa^2}{2}
+\]
+with the barycentric envelope of \noderef{BaryEnv}. Then the envelope
+Hamiltonian of \noderef{EnvHamiltonian} is finite at $z_*$:
+\[
+  H_v(z_*)>-\infty .
+\]
+\end{lemma}
+\begin{proof}
+Write $z_*=(0,1)$; by \noderef{IsCenteredAt} we have $v(z_*)=0$.
+
+\emph{Step 0: standing facts.}
+By \noderef{IsFitClass} the function $v$ is continuous on all of space-time and
+is a viscosity solution of $F[v]=0$ there; by \noderef{UniformSubquadratic},
+applied with the centering point $(0,1)$, it has subquadratic spatial growth on
+compact time intervals of $I=\R$ in the sense of \noderef{SubquadraticGrowth}.
+Hence \noderef{QuadEnvAttained}, \noderef{QuadEnvPathConvex},
+\noderef{EnvelopeCompetitorBounds},
+\noderef{EnvHamiltonianSolution} and \noderef{BaryEnvDuality} all apply to $v$
+with $I=\R$.
+
+We record the licence under which every supremum and infimum below is treated as
+a genuine least upper or greatest lower bound, since a supremum of a set that is
+empty or unbounded above carries a convention rather than that meaning. For
+$\ell>0$ and any centre $\zeta=(\xi,\tau)$, part (1) of
+\noderef{EnvelopeCompetitorBounds} applied to $v$ with $I=\R$ states both that
+\[
+  v(w,\tau+\ell)-\frac{|w-\xi|^2}{2\ell}\le\Penv_\ell v(\zeta)\qquad(w\in F)
+\]
+and that $\Penv_\ell v(\zeta)$ is at most every upper bound for those values;
+part (2) states the dual pair, that
+\[
+  \Menv_\ell v(\zeta)\le v(w,\tau-\ell)+\frac{|w-\xi|^2}{2\ell}\qquad(w\in F)
+\]
+and that $\Menv_\ell v(\zeta)$ is at least every lower bound for those values.
+Its admissibility requirements $\tau\in I$ and $\tau\pm\ell\in I$ hold for every
+$\zeta$ and every $\ell>0$ because $I=\R$. Each use below of "a competitor
+bounds the envelope" or "the envelope is the least upper bound" is an
+instance of these four clauses.
+
+\emph{Step 1: the attaining configuration is extremal.}
+By \noderef{BaryEnvDuality}, part (1), applied with $s=1>0$ and the center
+$z_*$, whose time $1$ lies in $\R$, there is a finite horizontal probability
+configuration $(\theta,y)$ with mean $0$, in the sense of
+\noderef{IsBaryConfig}, attaining the envelope:
+\[
+  \Cenv_1v(0,1)=\sum_i\theta_iv(y_i,1)-\frac{r^2}{2},
+  \qquad r=\Bigl(\sum_i\theta_i|y_i|^2\Bigr)^{1/2},
+\]
+with $r$ the radius of \noderef{BaryRadius} about the mean $0$. Put
+$D=\sum_i\theta_iv(y_i,1)-v(z_*)=\sum_i\theta_iv(y_i,1)$. The contact hypothesis
+reads $\Cenv_1v(0,1)-v(z_*)=\kappa^2/2$, i.e.
+\begin{equation}\label{eq:cfs-contact}
+  D-\frac{r^2}{2}=\frac{\kappa^2}{2}.
+\end{equation}
+By \noderef{HasJensenBound} at the time $1$ we have $D\le\kappa r$, so by the
+algebraic identity $\kappa r-r^2/2=\kappa^2/2-(r-\kappa)^2/2$,
+\[
+  \frac{\kappa^2}{2}=D-\frac{r^2}{2}\le\kappa r-\frac{r^2}{2}
+   =\frac{\kappa^2}{2}-\frac{(r-\kappa)^2}{2}.
+\]
+Hence $(r-\kappa)^2\le0$, so
+\begin{equation}\label{eq:contact-configuration}
+  r=\kappa,\qquad D=\kappa r=\kappa^2 ,
+\end{equation}
+the second equality from \eqref{eq:cfs-contact} and $r=\kappa$.
+
+\emph{Step 2: all $y_i$ are forward optimizers from one point.}
+By \noderef{BaryEnvDuality}, part (2), at $(s,z)=(1,z_*)$ there is $A\in F$ with
+\[
+  \Cenv_1v(0,1)-\frac{|0|^2}{2}
+   =\sup_{y\in F}\Bigl\{v(y,1)-\frac{|y|^2}{2}-\langle A,y-0\rangle\Bigr\}
+   =:\Gamma .
+\]
+Put $g(y)=v(y,1)-|y|^2/2$ and $b=-A$. Before using $\Gamma$ as an upper bound
+we check that the family it is the supremum of is nonempty and bounded above.
+Nonemptiness is witnessed by $y=0$. For the bound, the algebraic identity
+\begin{equation}\label{eq:cfs-square}
+  v(y,1)-\frac{|y|^2}{2}-\langle A,y-0\rangle
+   =\Bigl(v(y,1)-\frac{|y-b|^2}{2}\Bigr)+\frac{|A|^2}{2}
+   \qquad(y\in F),
+\end{equation}
+which holds because $|y-b|^2=|y+A|^2=|y|^2+2\langle A,y\rangle+|A|^2$, exhibits
+each member of that family as a member of the forward competitor family for
+$\Penv_1v(b,0)$ shifted by the constant $|A|^2/2$. By the first clause of
+part (1) of \noderef{EnvelopeCompetitorBounds}, recorded in Step 0, at the
+centre $(b,0)$ and the length $1$, every member of that competitor family is at
+most $\Penv_1v(b,0)$; hence every member of the $\Gamma$-family is at most
+$\Penv_1v(b,0)+|A|^2/2$. So the family is nonempty and bounded above, $\Gamma$
+is its least upper bound, and in particular
+\begin{equation}\label{eq:cfs-gammabound}
+  g(y)-\langle A,y\rangle\le\Gamma\qquad(y\in F).
+\end{equation}
+
+Since $\sum_i\theta_i|y_i|^2-|0|^2=r^2$, the
+attainment in Step 1 gives $\sum_i\theta_ig(y_i)=\Cenv_1v(0,1)=\Gamma$, while
+\eqref{eq:cfs-gammabound} gives $g(y_i)-\langle A,y_i\rangle\le\Gamma$ for every
+$i$, and
+$\sum_i\theta_i\langle A,y_i\rangle=\langle A,0\rangle=0$. Therefore
+\[
+  \sum_i\theta_i\Bigl(g(y_i)-\langle A,y_i\rangle\Bigr)=\Gamma,
+\]
+a weighted average with strictly positive weights of numbers each at most
+$\Gamma$; hence each equals $\Gamma$:
+\[
+  g(y_i)-\langle A,y_i\rangle=\Gamma\qquad\text{for every }i .
+\]
+Substituting \eqref{eq:cfs-square} into \eqref{eq:cfs-gammabound} and into the
+displayed equalities, and cancelling the constant $|A|^2/2$,
+\[
+  v(y,1)-\frac{|y-b|^2}{2}\le\Gamma-\frac{|A|^2}{2}\quad(y\in F),
+  \qquad
+  v(y_i,1)-\frac{|y_i-b|^2}{2}=\Gamma-\frac{|A|^2}{2}\quad\text{for every }i .
+\]
+The first display says that $\Gamma-|A|^2/2$ is an upper bound for the forward
+competitor family for $\Penv_1v(b,0)$ at the centre $(b,0)$ and the length $1$,
+whose time arguments are $0$ and $0+1=1$, so by the second clause of part (1) of
+\noderef{EnvelopeCompetitorBounds} we get $\Penv_1v(b,0)\le\Gamma-|A|^2/2$;
+the second display exhibits a member of that family equal to $\Gamma-|A|^2/2$,
+which by the first clause of the same part is at most $\Penv_1v(b,0)$. The two
+inequalities together give
+\begin{equation}\label{eq:cfs-h1}
+  h(1):=\Penv_1v(b,0)=\Gamma-\frac{|A|^2}{2},
+  \qquad
+  v(y_i,1)=h(1)+\frac{|y_i-b|^2}{2}\ \ \text{for every }i .
+\end{equation}
+
+\emph{Step 3: $h$ is finite and convex on $[0,1]$.}
+Put $h(\sigma)=\Penv_\sigma v(b,0)$ for $0\le\sigma\le1$. For $\sigma>0$ part (1)
+of \noderef{QuadEnvAttained} shows the defining supremum is attained, so
+$h(\sigma)\in\R$; and $h(0)=v(b,0)$ by \noderef{QuadEnvP}. By
+\noderef{QuadEnvPathConvex}, part (1), applied with $d=0$, $x_0=b$, base time
+$0$ and $T=1$ — the admissibility hypothesis being vacuous since $I=\R$ — the
+function $h$ is convex on $[0,1]$.
+
+\emph{Step 4: a lower bound for the backward slopes at the $y_i$.}
+Fix $i$ and let $0<\ell<1$. Consider the competitor
+$y_{i,\ell}^-=b+(1-\ell)(y_i-b)$ at the time $1-\ell$ for $\Menv_\ell v(y_i,1)$.
+Since $y_{i,\ell}^--y_i=-\ell(y_i-b)$, the first clause of part (2) of
+\noderef{EnvelopeCompetitorBounds}, at the centre $(y_i,1)$ and the length
+$\ell$, gives
+\begin{equation}\label{eq:cfs-Mcomp}
+  \Menv_\ell v(y_i,1)\le v\bigl(y_{i,\ell}^-,1-\ell\bigr)
+     +\frac{\ell\,|y_i-b|^2}{2}.
+\end{equation}
+On the other hand $y_{i,\ell}^-$ is a competitor at the time
+$0+(1-\ell)=1-\ell$ for $\Penv_{1-\ell}v(b,0)$, and
+$y_{i,\ell}^--b=(1-\ell)(y_i-b)$, so by the first clause of part (1) of
+\noderef{EnvelopeCompetitorBounds}, at the centre $(b,0)$ and the length
+$1-\ell>0$,
+\[
+  v\bigl(y_{i,\ell}^-,1-\ell\bigr)-\frac{(1-\ell)|y_i-b|^2}{2}
+   \le\Penv_{1-\ell}v(b,0)=h(1-\ell),
+\]
+i.e. $v(y_{i,\ell}^-,1-\ell)\le h(1-\ell)+(1-\ell)|y_i-b|^2/2$. Substituting
+into \eqref{eq:cfs-Mcomp}, the two quadratic costs add to $|y_i-b|^2/2$:
+\[
+  \Menv_\ell v(y_i,1)\le h(1-\ell)+\frac{|y_i-b|^2}{2}.
+\]
+Combining with the equality in \eqref{eq:cfs-h1} and \noderef{EnvSlopeM},
+\begin{equation}\label{eq:cfs-slopeM}
+  \Senv_\ell^-v(y_i,1)=\frac{v(y_i,1)-\Menv_\ell v(y_i,1)}{\ell}
+   \ge\frac{h(1)-h(1-\ell)}{\ell}\qquad(0<\ell<1).
+\end{equation}
+For a convex function on $[0,1]$ the chord slope from $\sigma$ to $1$,
+namely $\bigl(h(1)-h(\sigma)\bigr)/(1-\sigma)$, is nondecreasing in $\sigma$;
+taking $\sigma=1-\ell\ge0$ and comparing with $\sigma=0$ gives
+$\bigl(h(1)-h(1-\ell)\bigr)/\ell\ge h(1)-h(0)$. Hence, writing
+$\beta:=h(1)-h(0)\in\R$,
+\begin{equation}\label{eq:cfs-beta}
+  \Senv_\ell^-v(y_i,1)\ge\beta\qquad(0<\ell<1).
+\end{equation}
+For $\ell\ge1$, part (1) of \noderef{EnvHamiltonianSolution} applied at the
+center $(y_i,1)$ with the lengths $\tfrac12\le\ell$ — its admissibility
+hypothesis is vacuous since $I=\R$ — gives
+$\Senv_\ell^-v(y_i,1)\ge\Senv_{1/2}^-v(y_i,1)\ge\beta$. So
+$\Senv_\ell^-v(y_i,1)\ge\beta$ for every $\ell>0$, and therefore, by part (2) of
+\noderef{EnvHamiltonianSolution},
+\begin{equation}\label{eq:cfs-Hyi}
+  H_v(y_i,1)=\inf_{\ell>0}\Senv_\ell^-v(y_i,1)\ge\beta
+  \qquad\text{for every }i .
+\end{equation}
+In particular, since the forward slopes satisfy
+$\Senv_\ell^+v(y_i,1)\ge\inf_{\ell'>0}\Senv_{\ell'}^+v(y_i,1)=H_v(y_i,1)$ by
+\noderef{EnvHamiltonian} and part (2) of \noderef{EnvHamiltonianSolution},
+\begin{equation}\label{eq:cfs-fwdyi}
+  \Senv_\ell^+v(y_i,1)\ge\beta\qquad(\ell>0,\ \text{every }i).
+\end{equation}
+
+\emph{Step 5: transferring the bound to the barycenter.}
+Fix $\ell>0$. By part (1) of \noderef{QuadEnvAttained}, for each $i$ choose a
+maximizer $\widehat y_i$ for $\Penv_\ell v(y_i,1)$, so
+\begin{equation}\label{eq:cfs-hat}
+  \Penv_\ell v(y_i,1)=v\bigl(\widehat y_i,1+\ell\bigr)
+      -\frac{|\widehat y_i-y_i|^2}{2\ell}.
+\end{equation}
+Put $\widehat x=\sum_i\theta_i\widehat y_i$,
+$\widehat\xi_i=\widehat y_i-\widehat x$ and
+$r'=\bigl(\sum_i\theta_i|\widehat\xi_i|^2\bigr)^{1/2}$, and recall that the mean
+of $(\theta,y)$ is $0$, so $\sum_i\theta_iy_i=0$ and
+$\sum_i\theta_i|y_i|^2=r^2$.
+
+Since $\widehat y_i-y_i=(\widehat\xi_i-y_i)+\widehat x$ and
+$\sum_i\theta_i(\widehat\xi_i-y_i)=0-0=0$, expanding gives the exact orthogonal
+decomposition
+\[
+  \sum_i\theta_i|\widehat y_i-y_i|^2
+   =|\widehat x|^2+\sum_i\theta_i|\widehat\xi_i-y_i|^2 .
+\]
+The reverse triangle inequality in the weighted Euclidean space, i.e. in
+$L^2(\theta)$, gives
+$\bigl(\sum_i\theta_i|\widehat\xi_i-y_i|^2\bigr)^{1/2}\ge|r'-r|$, so
+\begin{equation}\label{eq:cfs-decomp}
+  \sum_i\theta_i|\widehat y_i-y_i|^2\ge|\widehat x|^2+(r'-r)^2 .
+\end{equation}
+
+The configuration $(\theta,\widehat y)$ has mean $\widehat x$ and radius $r'$, so
+\noderef{HasJensenBound} at the time $1+\ell$ gives
+$\sum_i\theta_iv(\widehat y_i,1+\ell)\le v(\widehat x,1+\ell)+\kappa r'$. Also
+$\widehat x$ is a competitor at the time $1+\ell$ for $\Penv_\ell v(0,1)$, so by
+the first clause of part (1) of \noderef{EnvelopeCompetitorBounds} at the centre
+$z_*$ and the length $\ell$,
+$v(\widehat x,1+\ell)\le\Penv_\ell v(z_*)+|\widehat x|^2/(2\ell)$. Averaging
+\eqref{eq:cfs-hat} with the weights $\theta_i$ and using
+\eqref{eq:cfs-decomp},
+\[
+\begin{aligned}
+  \sum_i\theta_i\Penv_\ell v(y_i,1)
+  &\le v(\widehat x,1+\ell)+\kappa r'
+     -\frac{|\widehat x|^2+(r'-r)^2}{2\ell}\\
+  &\le\Penv_\ell v(z_*)+\kappa r'-\frac{(r'-r)^2}{2\ell}.
+\end{aligned}
+\]
+By \eqref{eq:contact-configuration} we have $\kappa r=\kappa^2$, so
+$\kappa r'=\kappa^2+\kappa(r'-r)$, and for every real $u$
+$\kappa u-u^2/(2\ell)\le\kappa^2\ell/2$, as the identity
+$\kappa u-u^2/(2\ell)=\kappa^2\ell/2-(u-\kappa\ell)^2/(2\ell)$ shows. With
+$u=r'-r$,
+\begin{equation}\label{eq:cfs-key}
+  \sum_i\theta_i\Penv_\ell v(y_i,1)
+   \le\Penv_\ell v(z_*)+\kappa^2+\frac{\kappa^2\ell}{2}.
+\end{equation}
+
+Now subtract the values. By \noderef{EnvSlopeP} and
+\eqref{eq:contact-configuration},
+\[
+  \ell\sum_i\theta_i\Senv_\ell^+v(y_i,1)
+   =\sum_i\theta_i\Penv_\ell v(y_i,1)-\sum_i\theta_iv(y_i,1)
+   =\sum_i\theta_i\Penv_\ell v(y_i,1)-\kappa^2 ,
+\]
+while $\ell\,\Senv_\ell^+v(z_*)=\Penv_\ell v(z_*)-v(z_*)=\Penv_\ell v(z_*)$.
+Therefore \eqref{eq:cfs-key} reads
+\[
+  \ell\sum_i\theta_i\Senv_\ell^+v(y_i,1)
+   \le\ell\,\Senv_\ell^+v(z_*)+\frac{\kappa^2\ell}{2},
+\]
+and dividing by $\ell>0$,
+\begin{equation}\label{eq:cfs-final}
+  \Senv_\ell^+v(z_*)\ge\sum_i\theta_i\Senv_\ell^+v(y_i,1)-\frac{\kappa^2}{2}.
+\end{equation}
+
+\emph{Step 6: conclusion.}
+By \eqref{eq:cfs-fwdyi} and $\sum_i\theta_i=1$, the right side of
+\eqref{eq:cfs-final} is at least $\beta-\kappa^2/2$. Hence
+\[
+  \Senv_\ell^+v(z_*)\ge\beta-\frac{\kappa^2}{2}\qquad(\ell>0),
+\]
+and by \noderef{EnvHamiltonian}
+\[
+  H_v(z_*)=\inf_{\ell>0}\Senv_\ell^+v(z_*)\ge\beta-\frac{\kappa^2}{2}>-\infty .
+\]
+In particular $H_v(z_*)\ne-\infty$, which is the assertion.
+\end{proof}

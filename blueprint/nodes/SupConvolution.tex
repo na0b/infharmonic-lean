@@ -1,0 +1,20 @@
+\begin{definition}[Sup-convolution]
+Let $E$ be a finite-dimensional real inner-product space, let $\varepsilon\in\R$
+and let $\phi:E\to\R$. The \emph{sup-convolution of $\phi$ with parameter
+$\varepsilon$} is the function $\phi^\varepsilon:E\to\R$ given by
+\[
+  \phi^\varepsilon(z)
+    =\sup_{w\in E}\left(\phi(w)-\frac{|z-w|^2}{2\varepsilon}\right),
+\]
+the supremum of the set
+$\bigl\{\phi(w)-|z-w|^2/(2\varepsilon):w\in E\bigr\}$.
+
+This set is always nonempty, as the choice $w=z$ shows, but it need not be
+bounded above, and the preamble's convention assigns the value $0$ to the
+supremum of a set that is not bounded above. The definition therefore carries no
+implicit finiteness claim: every statement below that uses
+$\phi^\varepsilon$ as a genuine supremum supplies the required boundedness
+hypothesis explicitly, and the boundedness itself is established, under a
+linear growth bound on $\phi$ and for $\varepsilon>0$, in the node
+\texttt{SupConvolutionSemiconvex}, which imports this definition.
+\end{definition}

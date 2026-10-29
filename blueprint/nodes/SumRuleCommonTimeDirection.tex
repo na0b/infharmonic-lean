@@ -1,0 +1,112 @@
+\begin{lemma}[The sum rule in the common-time direction]
+Let $F$ be a finite-dimensional real inner-product space, let $N$ be a natural
+number, let $\Omega\subseteq\ell^2(F\times\R)$ and let $v$ be a viscosity
+subsolution of $F[v]=0$ on $\Omega$ in the sense of \noderef{IsLimitSubOn} (so
+in particular $\Omega$ is open and $v$ is continuous on $\Omega$). Let
+$\theta_i>0$ for $1\le i\le N$, write
+$P=\ell^2\bigl(\bigoplus_{i=1}^N\ell^2(F\times\R)\bigr)$ for the $\ell^2$-product
+of $N$ copies of space-time, with elements $W=(w_i)_{i=1}^N$, and let
+$\Psi:P\to\R$. Let $Z=(z_i)_{i=1}^N\in P$ with $z_i\in\Omega$ for every $i$,
+assume $\Psi$ is $C^2$ near $Z$, and assume that
+\[
+  W\longmapsto\sum_{i=1}^N\theta_i\,v(w_i)-\Psi(W)
+\]
+has a local maximum at $Z$. Put
+\[
+  q_i=\theta_i^{-1}\bigl(\nabla\Psi(Z)_i\bigr)_x\in F,
+  \qquad
+  \zeta=\bigl((q_i,1)\bigr)_{i=1}^N\in P,
+\]
+where $\nabla\Psi(Z)_i\in\ell^2(F\times\R)$ is the $i$-th block of
+$\nabla\Psi(Z)$ and $(\cdot)_x$ is its spatial part. Then
+\[
+  D^2\Psi(Z)[\zeta]\ge0 .
+\]
+\end{lemma}
+\begin{proof}
+Write $A=D^2\Psi(Z)$, regarded as a continuous bilinear form on $P$, and note
+that neither $A$ nor $\zeta$ depends on the parameter $\eta$ introduced below:
+both are determined by $\Psi$ and $Z$ alone.
+
+\emph{Step 1: the sum rule at a fixed $\eta$.}
+Fix $\eta>0$. The data
+\[
+  N,\qquad O_i=\Omega,\qquad g_i=\theta_i v,\qquad \Psi,\qquad Z,\qquad \eta
+\]
+satisfy every hypothesis of \noderef{SumRuleJets}: each $O_i=\Omega$ is open and
+each $g_i=\theta_i v$ is continuous on it, both by \noderef{IsLimitSubOn}
+(continuity of $\theta_i v$ being continuity of $v$ multiplied by the constant
+$\theta_i$); $z_i\in\Omega$ for every $i$ by hypothesis; $\Psi$ is $C^2$ near
+$Z$; the function $W\mapsto\sum_i g_i(w_i)-\Psi(W)$ has a local maximum at $Z$
+by hypothesis, since $g_i(w_i)=\theta_iv(w_i)$; and $\eta>0$. That lemma
+therefore supplies symmetric continuous bilinear forms $X_i$ on
+$\ell^2(F\times\R)$ with
+\begin{equation}\label{eq:srctd-jet}
+  \bigl(\nabla\Psi(Z)_i,\ X_i\bigr)
+   \in\overline J^{2,+}\bigl(\theta_i v\bigr)(z_i)
+  \qquad(1\le i\le N)
+\end{equation}
+and
+\begin{equation}\label{eq:srctd-matrix}
+  \sum_{i=1}^NX_i[\xi_i]\le A[\xi]+\eta\,\bigl|A\xi\bigr|^2
+  \qquad\bigl(\xi=(\xi_i)_i\in P\bigr),
+\end{equation}
+where $|A\xi|$ is the norm of the linear functional $A(\xi,\cdot)$.
+
+\emph{Step 2: dividing each jet by $\theta_i$.}
+Fix $i$. Since $\theta_i>0$, \noderef{ClosedSuperjetScale} applied with
+$\theta=\theta_i$, $g=v$, $z=z_i$, $p=\nabla\Psi(Z)_i$ and $X=X_i$ turns
+\eqref{eq:srctd-jet} into
+\begin{equation}\label{eq:srctd-vjet}
+  \bigl(\theta_i^{-1}\nabla\Psi(Z)_i,\ \theta_i^{-1}X_i\bigr)
+   \in\overline J^{2,+}v(z_i).
+\end{equation}
+The spatial part of $\theta_i^{-1}\nabla\Psi(Z)_i$ is
+$\theta_i^{-1}\bigl(\nabla\Psi(Z)_i\bigr)_x=q_i$, scalar multiplication on
+$\ell^2(F\times\R)$ being componentwise.
+
+\emph{Step 3: the viscosity inequality on each rescaled jet.}
+Since $z_i\in\Omega$ and \eqref{eq:srctd-vjet} is a closed superjet of $v$ at
+$z_i$, \noderef{LimitSubClosedSuperjet} applies to it and gives
+\[
+  0\le\bigl(\theta_i^{-1}X_i\bigr)\bigl[(q_i,1)\bigr],
+\]
+the direction being formed from the spatial part $q_i$ of the jet's gradient and
+the time component $1$, exactly as that lemma prescribes. Now
+$\bigl(\theta_i^{-1}X_i\bigr)[(q_i,1)]=\theta_i^{-1}X_i[(q_i,1)]$, so
+multiplying by $\theta_i>0$ gives
+\begin{equation}\label{eq:srctd-each}
+  X_i\bigl[(q_i,1)\bigr]\ge0\qquad(1\le i\le N).
+\end{equation}
+
+\emph{Step 4: evaluating the matrix inequality on $\zeta$.}
+The $i$-th block of $\zeta$ is $(q_i,1)$, so taking $\xi=\zeta$ in
+\eqref{eq:srctd-matrix} and summing \eqref{eq:srctd-each} over $i$ gives
+\begin{equation}\label{eq:srctd-eta}
+  0\le\sum_{i=1}^NX_i\bigl[(q_i,1)\bigr]\le A[\zeta]+\eta\,|A\zeta|^2 .
+\end{equation}
+
+\emph{Step 5: letting $\eta\downarrow0$.}
+Step 1 was carried out for an arbitrary $\eta>0$, and, as recorded at the start
+of the proof, neither $A$ nor $\zeta$ depends on $\eta$. So \eqref{eq:srctd-eta}
+says
+\[
+  0\le A[\zeta]+\eta\,|A\zeta|^2\qquad\text{for every }\eta>0 .
+\]
+Suppose, for contradiction, that $A[\zeta]<0$, and put
+\[
+  \eta_\star=\frac{-A[\zeta]}{2\bigl(|A\zeta|^2+1\bigr)}>0,
+\]
+which is positive because the numerator is positive and the denominator is at
+least $2$. Then
+\[
+  \eta_\star|A\zeta|^2\le\eta_\star\bigl(|A\zeta|^2+1\bigr)=\frac{-A[\zeta]}2,
+\]
+so
+\[
+  A[\zeta]+\eta_\star|A\zeta|^2\le A[\zeta]-\frac{A[\zeta]}2
+   =\frac{A[\zeta]}2<0,
+\]
+contradicting the displayed inequality at $\eta=\eta_\star$. Hence
+$A[\zeta]\ge0$, which is the assertion.
+\end{proof}

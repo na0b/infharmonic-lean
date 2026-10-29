@@ -1,0 +1,19 @@
+\begin{definition}[Semiconvexity]
+Let $E$ be a finite-dimensional real inner-product space, let $\lambda\in\R$, let
+$\Omega\subseteq E$ and let $\phi:E\to\R$. We say that $\phi$ is
+\emph{$\lambda$-semiconvex on $\Omega$} if the function
+\[
+  z\longmapsto\phi(z)+\frac{\lambda|z|^2}{2}
+\]
+is convex on $\Omega$. Here, as throughout, ``$g$ is convex on $\Omega$'' means
+that $\Omega$ is a convex subset of $E$ and that
+\[
+  g(t_1z_1+t_2z_2)\le t_1g(z_1)+t_2g(z_2)
+\]
+for all $z_1,z_2\in\Omega$ and all $t_1,t_2\ge0$ with $t_1+t_2=1$.
+
+Thus $0$-semiconvexity is convexity, and for $\lambda>0$ a
+$\lambda$-semiconvex function is one that is convex after the addition of the
+quadratic $\lambda|z|^2/2$; informally its second derivative, where it exists,
+is bounded below by $-\lambda$ times the identity.
+\end{definition}

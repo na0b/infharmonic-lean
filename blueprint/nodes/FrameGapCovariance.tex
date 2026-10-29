@@ -1,0 +1,87 @@
+\begin{lemma}[Covariance of the barycentric and contact gaps]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$ and $0\le\kappa<\infty$, let $v\in\Aclass_{m,C_0}$ in the sense
+of \noderef{IsFitClass} satisfy the horizontal Jensen bound with constant
+$\kappa$ at every time in the sense of \noderef{HasJensenBound}, let $r>0$, let
+$x_0\in F$, let $(p_0,a_0)$ be a fit for $v$ at $(x_0,r)$ of radius $r$ with
+constant $C_0$ in the sense of \noderef{IsFit}, and let $\bar v$ be the contact
+frame
+\[
+  \bar v(y,s)=\frac{v(x,t)-v(x_0,r)}{r}
+          -p_0\cdot y-\left(a_0+\frac{|p_0|^2}{2}\right)(s-1),
+  \qquad x=x_0+r\bigl(y+p_0(s-1)\bigr),\quad t=rs,
+\]
+that is, the change of frame of \noderef{FrameChange} based at $(x_0,r)$ with
+scale $r$ and parameters $(p_0,a_0)$, composed with the translation of the time
+coordinate by one unit. Put
+\[
+  \bar W(y,s)=\Cenv_s\bar v(y,s)-\frac{\kappa^2s}{2}\qquad(s>0),
+\]
+the contact envelope of \noderef{ContactEnv} for $\bar v$, while
+$W=\Cenv_tv-\kappa^2t/2$ is that for $v$. Then, at corresponding points
+$(y,s)\leftrightarrow(x,t)$ of the contact frame, i.e. with
+$x=x_0+r(y+p_0(s-1))$ and $t=rs$,
+\begin{equation}\label{eq:contact-W-covariance}
+\begin{split}
+  \Cenv_\sigma\bar v(y,s)-\bar v(y,s)
+       &=\frac{\Cenv_{r\sigma}v(x,t)-v(x,t)}{r}\qquad(\sigma>0),\\
+  \bar W(y,s)-\bar v(y,s)&=\frac{W(x,t)-v(x,t)}{r}
+       \qquad(s>0),
+\end{split}
+\end{equation}
+with the barycentric envelope of \noderef{BaryEnv}.
+\end{lemma}
+\begin{proof}
+Put
+\[
+  A(y,s)=\frac{v(x_0,r)}{r}+p_0\cdot y
+             +\left(a_0+\frac{|p_0|^2}{2}\right)(s-1),
+  \qquad \frac{v(x,t)}{r}=\bar v(y,s)+A(y,s),
+\]
+the second identity being the defining formula of the contact frame $\bar v$
+rearranged.
+
+\emph{The barycentric gap.} Fix $\sigma>0$ and corresponding points $(y,s)\leftrightarrow(x,t)$, i.e.
+$x=x_0+r(y+p_0(s-1))$ and $t=rs$. A finite horizontal probability
+configuration for $\bar v$ at $(y,s)$, with weights $\theta_i$, positions $y_i$
+and mean $y$ in the sense of \noderef{IsBaryConfig}, corresponds, at the fixed time $t=rs$, to the configuration with the
+same weights, positions $x_i=x_0+r(y_i+p_0(s-1))$ and mean $x$; this
+correspondence is a bijection between the configurations at the two points,
+since $y\mapsto x$ is an invertible affine map at fixed time with linear part
+$r\,\mathrm{Id}$. Under it the spatial offsets satisfy $x_i-x=r(y_i-y)$, so by
+\noderef{BaryRadius} the squared radius is multiplied by $r^2$, and the weighted
+values satisfy
+\[
+  \sum_i\theta_i\frac{v(x_i,t)}{r}
+    =\sum_i\theta_i\bar v(y_i,s)+\sum_i\theta_iA(y_i,s)
+    =\sum_i\theta_i\bar v(y_i,s)+A(y,s),
+\]
+because $A(\cdot,s)$ is affine in the spatial variable and the configuration has
+mean $y$, so the weighted average of the affine terms is the value at the mean.
+Hence, dividing the defining expression of \noderef{BaryEnv} at parameter
+$r\sigma$ by $r$,
+\[
+  \sum_i\theta_i\frac{v(x_i,t)}{r}-\frac{r^2\,\bar r^2}{2r\sigma r}
+   =\sum_i\theta_i\bar v(y_i,s)+A(y,s)-\frac{\bar r^2}{2\sigma},
+\]
+where $\bar r$ is the radius of the new configuration. Taking suprema over the
+corresponding configurations gives
+\[
+  \frac{\Cenv_{r\sigma}v(x,t)}{r}=\Cenv_\sigma\bar v(y,s)+A(y,s).
+\]
+Subtracting the displayed formula for $v(x,t)/r$ proves the first identity in
+\eqref{eq:contact-W-covariance}.
+
+\emph{The contact gap.} Let $s>0$, so $t=rs>0$. Take $\sigma=s$ in the first
+identity. The old time and the old barycentric parameter in $W$ are both
+$t=rs$, while the correction $\kappa^2t/(2r)=\kappa^2s/2$ matches the correction
+in $\bar W$. Hence, by \noderef{ContactEnv},
+\[
+  \frac{W(x,t)}{r}=\frac{\Cenv_tv(x,t)}{r}-\frac{\kappa^2t}{2r}
+   =\Cenv_s\bar v(y,s)+A(y,s)-\frac{\kappa^2s}{2}
+   =\bar W(y,s)+A(y,s),
+\]
+and subtracting the formula for $v(x,t)/r$ gives the second identity in
+\eqref{eq:contact-W-covariance}. This is why the frame uses $s=t/r$: it
+preserves the time-zero boundary in the definition of $W$.
+\end{proof}

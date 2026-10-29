@@ -1,0 +1,259 @@
+\begin{lemma}[From Jensen's lemma to a superjet of each summand]
+Let $E$ be a finite-dimensional real inner-product space equipped with its Borel
+$\sigma$-algebra, let $N$ be a natural number and write
+$V=\ell^2\bigl(\bigoplus_{j=1}^NE\bigr)$ for the $\ell^2$-product of $N$ copies
+of $E$. Let $C\ge0$ and let $G_j:E\to\R$ $(1\le j\le N)$ be continuous with
+$G_j(w)\le C$ for every $w$. Let $\varepsilon>0$, let $A_\varepsilon:V\to V$ be a
+self-adjoint continuous linear operator, write $\mathcal G(W)=\sum_jG_j(w_j)$,
+let $\mathcal G^\varepsilon$ and $G_j^\varepsilon$ be the sup-convolutions of
+\noderef{SupConvolution} with parameter $\varepsilon$ formed in $V$ and in $E$,
+and let $\Upsilon:V\to\R$ satisfy
+\[
+  \Upsilon(Z)=\mathcal G^\varepsilon(Z)
+    -\tfrac12\langle A_\varepsilon Z,Z\rangle\qquad(Z\in V),
+  \qquad
+  \mathcal G^\varepsilon(Z)=\sum_jG_j^\varepsilon(z_j)\qquad(Z\in V).
+\]
+Assume $\Upsilon(0)=0$, $\Upsilon(Z)<0$ for $Z\ne0$, that $\Upsilon$ is
+$\lambda$-semiconvex on $V$ in the sense of \noderef{SemiconvexOn} with
+$\lambda=\varepsilon^{-1}+\|A_\varepsilon\|$, and that $\Upsilon$ is continuous
+on $V$. Let $R>0$ and $\delta'>0$. Then there are $\widehat Z'\in V$, $\Pi\in V$
+and symmetric continuous bilinear forms $X_j$ on $E$ $(1\le j\le N)$ with
+\begin{enumerate}
+\item[(J1)] $|\widehat Z'|<R$ and $|\Pi|\le\delta'+\|A_\varepsilon\|R$;
+\item[(J2)] $\|X_j\|\le\varepsilon^{-1}+2\|A_\varepsilon\|$ for every $j$;
+\item[(J3)] $\bigl(\Pi_j,X_j\bigr)
+  \in J^{2,+}G_j\bigl(\widehat z'_j+\varepsilon\Pi_j\bigr)$ for every $j$, where
+  $J^{2,+}$ is the superjet of \noderef{Superjet};
+\item[(J4)] $\sum_jX_j[\zeta_j]\le\langle A_\varepsilon\zeta,\zeta\rangle$ for
+  every $\zeta\in V$, where $X[h]=X(h,h)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+For $a\in E$ and $1\le j\le N$ let $\iota_ja\in V$ be the vector with $j$-th
+component $a$ and all other components $0$; then $|\iota_ja|=|a|$ and
+$\langle\xi,\iota_ja\rangle=\langle\xi_j,a\rangle$ for every $\xi\in V$, by the
+definition of the $\ell^2$-product inner product (preamble). Fix an additive
+Haar measure $\mu_V$ on $V$.
+
+\emph{Step 1: a good point.}
+The ball $B(0,R)$ is open and convex, and $\Upsilon$ is $\lambda$-semiconvex on
+$V$, hence on the convex subset $B(0,R)$: the function
+$\Upsilon+\tfrac\lambda2|\cdot|^2$ is convex on $V$ and therefore convex on
+$B(0,R)$. Also $\Upsilon$ is continuous, hence continuous on
+$\overline B(0,R)$, and $0$ is a strict maximum point of $\Upsilon$ on
+$\overline B(0,R)$: for $Z\in\overline B(0,R)$ with $Z\ne0$ we have
+$\Upsilon(Z)<0=\Upsilon(0)$. Finally $\lambda>0$ because $\varepsilon>0$ and
+$\|A_\varepsilon\|\ge0$. By \noderef{JensenLemma}, applied in $V$ with this
+$\lambda$, the radius $R$, the centre $0$ and the parameter $\delta'$, the set
+\[
+  \mathcal K=\bigl\{Z\in B(0,R):\exists\,Q\in V,\ |Q|\le\delta',\
+    W\mapsto\Upsilon(W)+\langle Q,W\rangle\ \text{has a local maximum on}\
+    B(0,R)\ \text{at}\ Z\bigr\}
+\]
+satisfies $\mu_V(\mathcal K)>0$.
+
+By \noderef{SemiconvexSecondOrderAe}, applied in $V$ with this $\lambda\ge0$ and
+the open set $B(0,R)$, there is a $\mu_V$-null set $\mathcal N$ such that every
+$Z\in B(0,R)\setminus\mathcal N$ admits $q_\Upsilon\in V$ and a symmetric
+continuous bilinear form $A_\Upsilon$ on $V$ with
+$A_\Upsilon(\zeta,\zeta)\ge-\lambda|\zeta|^2$ for all $\zeta$ and, for every
+$\delta>0$, some $\rho(\delta)>0$ with
+\begin{equation}\label{eq:srjj-expansion}
+  \bigl|\Upsilon(Z+\zeta)-\Upsilon(Z)-\langle q_\Upsilon,\zeta\rangle
+    -\tfrac12A_\Upsilon(\zeta,\zeta)\bigr|\le\delta|\zeta|^2
+  \qquad(|\zeta|<\rho(\delta)).
+\end{equation}
+The set $\mathcal K\setminus\mathcal N$ is nonempty: were it empty we would
+have $\mathcal K\subseteq\mathcal N$, hence
+$\mu_V(\mathcal K)\le\mu_V(\mathcal N)=0$ by the monotonicity of $\mu_V$,
+contradicting $\mu_V(\mathcal K)>0$. So pick
+$\widehat Z'\in\mathcal K\setminus\mathcal N$, a multiplier $Q$ with
+$|Q|\le\delta'$ witnessing $\widehat Z'\in\mathcal K$, and expansion data
+$(q_\Upsilon,A_\Upsilon)$ at $\widehat Z'$. In particular
+$|\widehat Z'|<R$.
+
+\emph{Step 2: first- and second-order conditions.}
+As $B(0,R)$ is open and $\widehat Z'\in B(0,R)$, and the local maximum of
+$W\mapsto\Upsilon(W)+\langle Q,W\rangle$ on $B(0,R)$ at $\widehat Z'$ holds on
+some neighbourhood of $\widehat Z'$ inside $B(0,R)$, there is $\rho_1>0$ with
+$B(\widehat Z',\rho_1)\subseteq B(0,R)$ and
+\begin{equation}\label{eq:srjj-max}
+  \Upsilon(\widehat Z'+\zeta)-\Upsilon(\widehat Z')
+   \le-\langle Q,\zeta\rangle\qquad(|\zeta|<\rho_1).
+\end{equation}
+Let $\delta>0$ and $|\zeta|<\min(\rho_1,\rho(\delta))$. Adding
+\eqref{eq:srjj-expansion} (in the form
+$\langle q_\Upsilon,\zeta\rangle+\tfrac12A_\Upsilon(\zeta,\zeta)
+-\delta|\zeta|^2\le\Upsilon(\widehat Z'+\zeta)-\Upsilon(\widehat Z')$) to
+\eqref{eq:srjj-max} gives
+\begin{equation}\label{eq:srjj-combined}
+  \langle q_\Upsilon+Q,\zeta\rangle
+   \le-\tfrac12A_\Upsilon(\zeta,\zeta)+\delta|\zeta|^2
+   \qquad\bigl(|\zeta|<\min(\rho_1,\rho(\delta))\bigr).
+\end{equation}
+Fix a unit vector $v\in V$ and put $\zeta=tv$ with $t>0$ small, so that
+$|\zeta|=t<\min(\rho_1,\rho(\delta))$ once $t$ is small enough. Dividing
+\eqref{eq:srjj-combined} by $t$ gives
+$\langle q_\Upsilon+Q,v\rangle\le t\bigl(-\tfrac12A_\Upsilon(v,v)
++\delta\bigr)$, and letting $t\downarrow0$ gives
+$\langle q_\Upsilon+Q,v\rangle\le0$ for every unit $v$; applying this to $v$ and
+to $-v$ gives $\langle q_\Upsilon+Q,v\rangle=0$ for every unit $v$. Writing
+$u=q_\Upsilon+Q$, this says $\langle u,v\rangle=0$ for every unit $v$; if
+$u\ne0$ then $v=u/|u|$ is a unit vector with $\langle u,v\rangle=|u|>0$, a
+contradiction, so $u=0$. (If $V=\{0\}$ there are no unit vectors at all and the
+display above is vacuous, but then $u=0$ holds outright, $V$ having only the
+zero vector; the normalisation $v=u/|u|$ is legitimate precisely because it is
+performed only when $u\ne0$.) Hence
+\begin{equation}\label{eq:srjj-first}
+  q_\Upsilon=-Q .
+\end{equation}
+Substituting \eqref{eq:srjj-first} into \eqref{eq:srjj-combined} leaves
+$0\le-\tfrac12A_\Upsilon(\zeta,\zeta)+\delta|\zeta|^2$, i.e.\
+$\tfrac12A_\Upsilon(\zeta,\zeta)\le\delta|\zeta|^2$ for
+$|\zeta|<\min(\rho_1,\rho(\delta))$. Now fix $\zeta\in V$ and $\delta>0$. If
+$\zeta=0$ then $A_\Upsilon(\zeta,\zeta)=0$ by bilinearity and there is nothing
+to prove. If $\zeta\ne0$, put $v=\zeta/|\zeta|$, a unit vector, and apply the
+displayed inequality at $tv$ for $0<t<\min(\rho_1,\rho(\delta))$: since
+$A_\Upsilon(tv,tv)=t^2A_\Upsilon(v,v)$, dividing by $t^2>0$ gives
+$\tfrac12A_\Upsilon(v,v)\le\delta$, and $\delta>0$ was arbitrary, so
+$A_\Upsilon(v,v)\le0$; multiplying by $|\zeta|^2\ge0$ and using
+$A_\Upsilon(\zeta,\zeta)=|\zeta|^2A_\Upsilon(v,v)$ gives
+\begin{equation}\label{eq:srjj-second}
+  A_\Upsilon(\zeta,\zeta)\le0\qquad(\zeta\in V).
+\end{equation}
+(The normalisation $v=\zeta/|\zeta|$ is performed only when $\zeta\ne0$, which
+is what makes the argument correct when $V=\{0\}$: there every $\zeta$ is $0$
+and only the first case occurs.)
+
+\emph{Step 3: the expansion of $\mathcal G^\varepsilon$ and the forms $X_j$.}
+Since $\mathcal G^\varepsilon(Z)=\Upsilon(Z)
++\tfrac12\langle A_\varepsilon Z,Z\rangle$ and, exactly, using the
+self-adjointness of $A_\varepsilon$,
+\[
+  \tfrac12\bigl\langle A_\varepsilon(\widehat Z'+\zeta),
+    \widehat Z'+\zeta\bigr\rangle
+   =\tfrac12\langle A_\varepsilon\widehat Z',\widehat Z'\rangle
+     +\langle A_\varepsilon\widehat Z',\zeta\rangle
+     +\tfrac12\langle A_\varepsilon\zeta,\zeta\rangle,
+\]
+the estimate \eqref{eq:srjj-expansion} becomes, with
+\[
+  \Pi:=q_\Upsilon+A_\varepsilon\widehat Z'=-Q+A_\varepsilon\widehat Z',
+  \qquad
+  A':=A_\Upsilon+\langle A_\varepsilon\cdot,\cdot\rangle,
+\]
+a symmetric continuous bilinear form on $V$,
+\begin{equation}\label{eq:srjj-Gexp}
+  \bigl|\mathcal G^\varepsilon(\widehat Z'+\zeta)
+    -\mathcal G^\varepsilon(\widehat Z')-\langle\Pi,\zeta\rangle
+    -\tfrac12A'(\zeta,\zeta)\bigr|\le\delta|\zeta|^2
+  \qquad(|\zeta|<\rho(\delta)).
+\end{equation}
+Here $|\Pi|\le|Q|+|A_\varepsilon\widehat Z'|
+\le\delta'+\|A_\varepsilon\|\,|\widehat Z'|\le\delta'+\|A_\varepsilon\|R$, which
+together with $|\widehat Z'|<R$ proves (J1).
+
+Define $X_j(a,b)=A'(\iota_ja,\iota_jb)$ for $a,b\in E$; each $X_j$ is a
+continuous bilinear form on $E$, and it is symmetric because $A'$ is. Taking
+$\zeta=\iota_jh$ in \eqref{eq:srjj-Gexp}, and using the separability hypothesis
+$\mathcal G^\varepsilon(Z)=\sum_iG_i^\varepsilon(z_i)$ --- which shows that
+changing only the $j$-th component of the argument changes
+$\mathcal G^\varepsilon$ only through the single summand $G_j^\varepsilon$, all
+other summands being unchanged --- together with
+$\langle\Pi,\iota_jh\rangle=\langle\Pi_j,h\rangle$ and $|\iota_jh|=|h|$, we get
+\begin{equation}\label{eq:srjj-Gjexp}
+  \bigl|G_j^\varepsilon(\widehat z'_j+h)-G_j^\varepsilon(\widehat z'_j)
+   -\langle\Pi_j,h\rangle-\tfrac12X_j(h,h)\bigr|\le\delta|h|^2
+  \qquad(|h|<\rho(\delta)).
+\end{equation}
+In particular, given $\varepsilon'>0$, apply \eqref{eq:srjj-Gjexp} with
+$\delta=\varepsilon'$ and drop the absolute value on the favourable side: for
+$|h|<\rho(\varepsilon')$,
+\[
+  G_j^\varepsilon(\widehat z'_j+h)\le G_j^\varepsilon(\widehat z'_j)
+    +\langle\Pi_j,h\rangle+\tfrac12X_j(h,h)+\varepsilon'|h|^2 .
+\]
+Since $\varepsilon'>0$ was arbitrary and $X_j$ is symmetric, the defining
+condition of \noderef{Superjet} holds, so
+\begin{equation}\label{eq:srjj-jet}
+  \bigl(\Pi_j,X_j\bigr)\in J^{2,+}G_j^\varepsilon(\widehat z'_j)
+  \qquad(1\le j\le N).
+\end{equation}
+
+\emph{Step 4: the matrix inequality and the norm bound.}
+Let $\zeta\in V$ and $\delta>0$ with $|\zeta|<\rho(\delta)$. Then
+$|\zeta_j|\le|\zeta|<\rho(\delta)$ for every $j$, so summing
+\eqref{eq:srjj-Gjexp} over $j$ with $h=\zeta_j$ and using the separability
+hypothesis again, together with
+$\sum_j\langle\Pi_j,\zeta_j\rangle=\langle\Pi,\zeta\rangle$ and
+$\sum_j|\zeta_j|^2=|\zeta|^2$ (both instances of the definition of the
+$\ell^2$-product inner product, preamble), gives
+\[
+  \Bigl|\mathcal G^\varepsilon(\widehat Z'+\zeta)
+   -\mathcal G^\varepsilon(\widehat Z')-\langle\Pi,\zeta\rangle
+   -\tfrac12\sum_jX_j[\zeta_j]\Bigr|\le\sum_j\delta|\zeta_j|^2=\delta|\zeta|^2 .
+\]
+Comparing with \eqref{eq:srjj-Gexp} and using the triangle inequality gives
+$\bigl|\tfrac12A'(\zeta,\zeta)-\tfrac12\sum_jX_j[\zeta_j]\bigr|
+\le2\delta|\zeta|^2$ for $|\zeta|<\rho(\delta)$. Both
+$\zeta\mapsto A'(\zeta,\zeta)$ and $\zeta\mapsto\sum_jX_j[\zeta_j]$ are
+homogeneous of degree two, the second because $(t\zeta)_j=t\zeta_j$ for every
+$j$. Fix $\zeta\in V$ and $\delta>0$. If $\zeta=0$ then both forms vanish and
+the two sides of \eqref{eq:srjj-diag} below agree. If $\zeta\ne0$, put
+$v=\zeta/|\zeta|$, a unit vector, and apply the previous display at $tv$ with
+$t\in(0,\rho(\delta))$; dividing by $t^2$ shows
+$\bigl|\tfrac12A'(v,v)-\tfrac12\sum_jX_j[v_j]\bigr|\le2\delta$, and
+$\delta>0$ was arbitrary, so
+$\tfrac12A'(v,v)=\tfrac12\sum_jX_j[v_j]$. Multiplying by $|\zeta|^2$ and using
+the degree-two homogeneity of both forms,
+\begin{equation}\label{eq:srjj-diag}
+  \sum_jX_j[\zeta_j]=A'(\zeta,\zeta)
+   =A_\Upsilon(\zeta,\zeta)+\langle A_\varepsilon\zeta,\zeta\rangle
+  \qquad(\zeta\in V).
+\end{equation}
+By \eqref{eq:srjj-second} this gives
+$\sum_jX_j[\zeta_j]\le\langle A_\varepsilon\zeta,\zeta\rangle$, which is (J4);
+and together with $A_\Upsilon(\zeta,\zeta)\ge-\lambda|\zeta|^2$ and the
+two-sided Cauchy--Schwarz estimate
+\[
+  \bigl|\langle A_\varepsilon\zeta,\zeta\rangle\bigr|
+   \le|A_\varepsilon\zeta|\,|\zeta|\le\|A_\varepsilon\|\,|\zeta|^2,
+  \qquad\text{i.e.}\qquad
+  -\|A_\varepsilon\|\,|\zeta|^2\le\langle A_\varepsilon\zeta,\zeta\rangle
+   \le\|A_\varepsilon\|\,|\zeta|^2
+\]
+--- the lower bound being needed for the left-hand half of what follows --- it
+gives
+\begin{equation}\label{eq:srjj-bounds}
+  -\bigl(\lambda+\|A_\varepsilon\|\bigr)|\zeta|^2
+   \le\sum_jX_j[\zeta_j]\le\|A_\varepsilon\|\,|\zeta|^2\qquad(\zeta\in V).
+\end{equation}
+Taking $\zeta=\iota_ja$ in \eqref{eq:srjj-bounds}, so that $\zeta_j=a$ and
+$\zeta_i=0$ for $i\ne j$ and $|\zeta|=|a|$, yields the bound on the diagonal
+\[
+  \bigl|X_j[a]\bigr|\le\bigl(\lambda+\|A_\varepsilon\|\bigr)|a|^2
+  \qquad(a\in E).
+\]
+Each $X_j$ is a symmetric continuous bilinear form on $E$ and
+$\lambda+\|A_\varepsilon\|\ge0$, since $\lambda>0$; so
+\noderef{SymmetricFormNormFromDiagonal}, applied to $S=X_j$ with the constant
+$C=\lambda+\|A_\varepsilon\|$, converts this diagonal bound into the same
+bound on the operator norm:
+\[
+  \|X_j\|\le\lambda+\|A_\varepsilon\|
+   =\varepsilon^{-1}+2\|A_\varepsilon\| ,
+\]
+which is (J2).
+
+\emph{Step 5: transfer to $G_j$.}
+The function $G_j$ is continuous on $E$ and satisfies $G_j(w)\le C\le C+|w|$,
+and $\varepsilon>0$; so \noderef{SupConvolutionMagic} applies to the jet
+\eqref{eq:srjj-jet} at the point $\widehat z'_j$ with the vector $\Pi_j$ and the
+form $X_j$, and yields
+\[
+  \bigl(\Pi_j,X_j\bigr)
+   \in J^{2,+}G_j\bigl(\widehat z'_j+\varepsilon\Pi_j\bigr),
+\]
+which is (J3).
+\end{proof}

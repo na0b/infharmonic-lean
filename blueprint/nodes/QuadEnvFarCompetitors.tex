@@ -1,0 +1,104 @@
+\begin{lemma}[Localization of the quadratic envelopes: far competitors lose]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$, let
+$\Omega=\{(y,s):s\in I\}$, and let $f$ be a real function on space-time which is
+continuous on $\Omega$ and has subquadratic spatial growth on compact time
+intervals of $I$ in the sense of \noderef{SubquadraticGrowth}. Let $R_0\ge0$, let
+$J\subseteq I$ be nonempty and compact, and let $\ell_0>0$. Then there are real
+numbers $M\ge\max\{R_0,1\}$ and $N$ with
+\begin{enumerate}
+\item[(i)] $|f(y,s)|\le N$ whenever $|y|\le M$ and $s\in J$;
+\item[(ii)] for all $x\in F$ with $|x|\le R_0$, all $s\in J$, all $\ell$ with
+$0<\ell\le\ell_0$ and all $y\in F$ with $|y|>M$,
+\[
+  f(y,s)-\frac{|y-x|^2}{2\ell}<f(x,s),
+  \qquad
+  f(x,s)<f(y,s)+\frac{|y-x|^2}{2\ell}.
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{The growth radius.}
+Apply \noderef{SubquadraticGrowth} with the compact set $J\subseteq I$ and
+$\varepsilon=1/(8\ell_0)>0$: there is $M_0>0$ with
+\begin{equation}\label{eq:qefc-growth}
+  |f(y,s)|\le\frac{|y|^2}{8\ell_0}\qquad(|y|\ge M_0,\ s\in J).
+\end{equation}
+Set $M_1=\max\{M_0,\,4R_0,\,1\}$, so $M_1\ge1>0$.
+
+\emph{The far-competitor gap.}
+Let $|y|>M_1$, $|x|\le R_0$ and $0<\ell\le\ell_0$. From $4R_0\le M_1<|y|$ we get
+$R_0<\tfrac14|y|$, so by the triangle inequality
+\[
+  |y-x|\ge|y|-|x|\ge|y|-R_0>|y|-\tfrac14|y|=\tfrac34|y| .
+\]
+All three quantities $|y-x|$, $\tfrac34|y|$ are nonnegative, so squaring the
+strict inequality $|y-x|>\tfrac34|y|$ preserves it: $|y-x|^2>\tfrac9{16}|y|^2$.
+Dividing by $2\ell>0$,
+\begin{equation}\label{eq:qefc-cost}
+  \frac{|y-x|^2}{2\ell}>\frac{9|y|^2}{32\ell}.
+\end{equation}
+Also $|y|>M_1\ge M_0$ and $0<\ell\le\ell_0$, so \eqref{eq:qefc-growth} and
+$1/(8\ell_0)\le1/(8\ell)$ give
+\begin{equation}\label{eq:qefc-fbound}
+  -\frac{|y|^2}{8\ell}\le-\frac{|y|^2}{8\ell_0}\le f(y,s)\le\frac{|y|^2}{8\ell_0}
+  \le\frac{|y|^2}{8\ell}\qquad(s\in J).
+\end{equation}
+
+\emph{The two constants.}
+The set $\mathcal K_1=\{(y,s):|y|\le M_1,\ s\in J\}$ is compact: the closed ball
+$\{|y|\le M_1\}$ is a closed bounded subset of the finite-dimensional space $F$
+and hence compact, $J$ is compact, and the identification of $F\times\R$ with the
+$L^2$ product space of the preamble is a homeomorphism, so $\mathcal K_1$ is the
+image of a product of two compact sets under a homeomorphism. It is nonempty,
+because $J\ne\emptyset$ and $|0|=0\le M_1$, and it is contained in $\Omega$,
+because $J\subseteq I$. Since $f$ is continuous on $\Omega$, the continuous
+function $|f|$ attains a finite maximum on $\mathcal K_1$; call it $N_1$. Being a
+value of $|f|$, $N_1\ge0$, and
+\begin{equation}\label{eq:qefc-N1}
+  |f(x',s)|\le N_1\qquad(|x'|\le M_1,\ s\in J).
+\end{equation}
+Put
+\[
+  M=\max\Bigl\{M_1,\ \sqrt{\tfrac{32}{5}N_1\ell_0}+1\Bigr\},
+\]
+which satisfies $M\ge M_1\ge\max\{R_0,1\}$, and let $N$ be the finite maximum of
+$|f|$ on $\mathcal K_2=\{(y,s):|y|\le M,\ s\in J\}$, which is again a nonempty
+compact subset of $\Omega$ by the same argument with $M$ in place of $M_1$. Then
+(i) holds by construction.
+
+\emph{Proof of (ii).}
+Let $|y|>M$, $|x|\le R_0$, $s\in J$ and $0<\ell\le\ell_0$. Since $M\ge M_1$ we
+have $|y|>M_1$, so \eqref{eq:qefc-cost} and \eqref{eq:qefc-fbound} are available.
+Moreover
+$|y|>M\ge\sqrt{\tfrac{32}5N_1\ell_0}+1>\sqrt{\tfrac{32}5N_1\ell_0}\ge0$, so
+squaring gives $|y|^2>\tfrac{32}5N_1\ell_0\ge\tfrac{32}5N_1\ell$, the last step
+because $N_1\ge0$ and $\ell\le\ell_0$. Dividing by $\tfrac{32}5\ell>0$,
+\begin{equation}\label{eq:qefc-key}
+  \frac{5|y|^2}{32\ell}>N_1 .
+\end{equation}
+Finally $|x|\le R_0\le M_1$ and $s\in J$, so \eqref{eq:qefc-N1} gives
+$-N_1\le f(x,s)\le N_1$.
+
+For the first inequality of (ii), combine the upper bound of
+\eqref{eq:qefc-fbound} with \eqref{eq:qefc-cost}:
+\[
+  f(y,s)-\frac{|y-x|^2}{2\ell}
+  <\frac{|y|^2}{8\ell}-\frac{9|y|^2}{32\ell}
+  =\frac{4|y|^2-9|y|^2}{32\ell}
+  =-\frac{5|y|^2}{32\ell}
+  <-N_1\le f(x,s),
+\]
+the middle strict inequality being \eqref{eq:qefc-key} multiplied by $-1$.
+
+For the second inequality of (ii), combine the lower bound of
+\eqref{eq:qefc-fbound} with \eqref{eq:qefc-cost}:
+\[
+  f(y,s)+\frac{|y-x|^2}{2\ell}
+  >-\frac{|y|^2}{8\ell}+\frac{9|y|^2}{32\ell}
+  =\frac{-4|y|^2+9|y|^2}{32\ell}
+  =\frac{5|y|^2}{32\ell}
+  >N_1\ge f(x,s),
+\]
+using \eqref{eq:qefc-key} again. This is (ii), with the same $M$ and $N$ for both
+inequalities.
+\end{proof}

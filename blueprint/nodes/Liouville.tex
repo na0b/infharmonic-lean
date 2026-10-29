@@ -1,0 +1,349 @@
+\begin{theorem}[Liouville Theorem]
+Let $F$ be a finite-dimensional real inner-product space, write $m$ for its
+dimension, let $0\le C_0<\infty$ and let $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass}. Then $v$ is affine on space-time in the sense of
+\noderef{IsSpaceTimeAffine}.
+\end{theorem}
+\begin{proof}
+Suppose, for contradiction, that $v$ is not affine. Write $\delta_j=2^{-j}$ and
+$z_*=(0,1)$. Throughout, $\Penv_\ell$ and $\Menv_\ell$ are the quadratic
+envelopes of \noderef{QuadEnvP} and \noderef{QuadEnvM}, $\Senv^\pm_\ell$ the
+envelope slopes of \noderef{EnvSlopeP} and \noderef{EnvSlopeM}, $\Cenv_s$ the
+barycentric envelope of \noderef{BaryEnv}, and $H_f$ the envelope Hamiltonian of
+\noderef{EnvHamiltonian}.
+
+\emph{Step 0: we may assume the constant is at least one.}
+Put $C_1=\max\{C_0,1\}$, so $1\le C_1<\infty$ and $C_0\le C_1$. If $R>0$ and
+$(p,a)$ is a fit for $v$ at a center $z$ of radius $R$ with constant $C_0$ in
+the sense of \noderef{IsFit}, then for all admissible increments
+$|\ell|\le R$, $|h-\ell p|\le R$,
+\[
+  \Bigl|v\bigl(z+(h,\ell)\bigr)-v(z)-\langle p,h\rangle
+     -\Bigl(a-\frac{|p|^2}{2}\Bigr)\ell\Bigr|\le C_0R\le C_1R ,
+\]
+the last inequality because $C_0\le C_1$ and $R>0$; so $(p,a)$ is also a fit of
+radius $R$ with constant $C_1$. By \noderef{IsFitClass} the function $v$ is continuous on all of
+space-time and a viscosity solution of the limiting equation there, and it has a
+fit at every center and every positive radius with constant $C_0$, hence with
+constant $C_1$. Therefore $v\in\Aclass_{m,C_1}$, and $v$ is still not affine.
+So $\Aclass_{m,C_1}$ contains a member that is not affine, with $1\le C_1<\infty$.
+Everything below uses only this, and derives a contradiction; that contradiction
+refutes the assumption and proves the theorem.
+
+\emph{Step 1: the extremal contact pair.}
+By \noderef{EnvelopeContact}, applied with the constant $C_1$ and the nonaffine
+member $v$, there are $\kappa\in(0,\infty)$, a real number $H$ and a function
+$u\in\Aclass_{m,C_1}$ centered at $z_*$ with constant $C_1$ in the sense of
+\noderef{IsCenteredAt}, satisfying the horizontal Jensen bound with constant
+$\kappa$ at every time in the sense of \noderef{HasJensenBound} with $I=\R$,
+whose contact envelope $W=\Cenv_tu-\kappa^2t/2$ of \noderef{ContactEnv} has the
+six listed properties. We record the three we use:
+\begin{enumerate}
+\item[(E3)] $u(x,t)-\kappa^2t/2\le W(x,t)\le u(x,t)$ for $t>0$, and
+$W(z_*)=u(z_*)=0$;
+\item[(E5)] if $W(x,t)=u(x,t)$ and $t>0$ then
+$\bigl(\Cenv_tu(x,t)-u(x,t)\bigr)/t=\kappa^2/2$;
+\item[(E6)] $H_u(z_*)=H$ with
+$\Senv_\ell^+W(z_*)\to H$ as $\ell\downarrow0$, the Hamiltonian being that of
+\noderef{EnvHamiltonian} and the slope that of \noderef{EnvSlopeP}.
+\end{enumerate}
+The remaining three, continuity and subquadratic growth of $W$ on $\{t>0\}$ in
+the sense of \noderef{SubquadraticGrowth}, the subsolution property in the sense
+of \noderef{IsLimitSubOn}, and the concavity of
+$x\mapsto W(x,t)-|x|^2/(2t)$, are carried along unchanged.
+
+Since $u\in\Aclass_{m,C_1}$ is centered at $z_*$ with constant $C_1$, it is
+continuous on all of space-time and a viscosity solution of the limiting
+equation there by \noderef{IsFitClass}, and it has subquadratic spatial growth
+on compact time intervals of $\R$ by \noderef{UniformSubquadratic}, applied with
+the centering point $z_*$ and the constant $C_1$. Hence
+\noderef{QuadEnvAttained} and \noderef{EnvHamiltonianSolution} are available for
+$u$ with $I=\R$, every time and every shifted time being admissible there.
+
+\emph{Step 2: the terminal point, the levels, and the contacts with fits.}
+The thirteen hypotheses of \noderef{ContactPropagation} are exactly the data of
+Step 1: $1\le C_1$, $0<\kappa$, $u\in\Aclass_{m,C_1}$ centered at $z_*$ with
+constant $C_1$, the Jensen bound with constant $\kappa$, and the six properties
+of $W$. Applying it gives a constant $K\ge0$, a point $x_{\rm end}\in F$ and an
+infinite set $\mathcal J\subseteq\{1,2,3,\dots\}$ with
+\begin{equation}\label{eq:lv-finite-hamiltonian}
+  H_u(x_{\rm end},0)>-\infty ,
+\end{equation}
+and such that for every $j\in\mathcal J$ there are $x_j,p_j\in F$ and
+$a_j\in\R$ with $(p_j,a_j)$ a fit for $u$ at $(x_j,\delta_j)$ of radius
+$\delta_j$ with constant $C_1$ in the sense of \noderef{IsFit}, and
+\begin{equation}\label{eq:lv-contact-data}
+  W(x_j,\delta_j)=u(x_j,\delta_j),\qquad
+  \bigl|x_{\rm end}-x_j+\delta_jp_j\bigr|\le K\delta_j .
+\end{equation}
+Let $j_1<j_2<\cdots$ enumerate $\mathcal J$, which is possible because
+$\mathcal J$ is an infinite set of positive integers, and abbreviate
+\[
+  r_k=\delta_{j_k}=2^{-j_k},\qquad
+  \xi_k=x_{j_k},\qquad q_k=p_{j_k},\qquad \alpha_k=a_{j_k}.
+\]
+Then $r_k>0$ and, since $j_k\ge k$ for every $k$,
+\begin{equation}\label{eq:lv-scales}
+  0<r_k\le2^{-k}\longrightarrow0\qquad(k\to\infty).
+\end{equation}
+
+\emph{Step 3: the fitted frames.}
+Fix $k$. The pair $(q_k,\alpha_k)$ is a fit for $u$ at $(\xi_k,r_k)$ of radius
+$r_k$ with constant $C_1$, and $r_k>0$, so \noderef{FrameEnvelopeCovariance}
+applies with $r=r_k$, $x_0=\xi_k$ and $(p_0,a_0)=(q_k,\alpha_k)$; its hypotheses
+$1\le C_1<\infty$, $0\le\kappa<\infty$, $u\in\Aclass_{m,C_1}$ and the Jensen
+bound with constant $\kappa$ all hold by Step 1. Let $\bar v_k$ be the resulting
+contact frame,
+\begin{equation}\label{eq:lv-frame}
+\begin{gathered}
+  s=\frac{t}{r_k},\qquad y=\frac{x-\xi_k-q_k(t-r_k)}{r_k},\qquad
+  x=\xi_k+r_k\bigl(y+q_k(s-1)\bigr),\qquad t=r_ks,\\
+  \bar v_k(y,s)=\frac{u(x,t)-u(\xi_k,r_k)}{r_k}-q_k\cdot y
+     -\Bigl(\alpha_k+\frac{|q_k|^2}{2}\Bigr)(s-1).
+\end{gathered}
+\end{equation}
+By \noderef{FrameEnvelopeCovariance} we have $\bar v_k\in\Aclass_{m,C_1}$, it is
+centered at $(0,1)$ with constant $C_1$ in the sense of \noderef{IsCenteredAt},
+it satisfies the horizontal Jensen bound with the same constant $\kappa$, and
+\begin{equation}\label{eq:lv-slope-covariance}
+  \Senv_\ell^\pm\bar v_k(y,s)=\Senv_{r_k\ell}^\pm u(x,t)-\alpha_k
+  \qquad(\ell>0)
+\end{equation}
+at corresponding points, the slopes being those of \noderef{EnvSlopeP} and
+\noderef{EnvSlopeM}. In particular $\bar v_k(0,1)=0$ for every $k$.
+
+Put
+\[
+  b_k=\frac{x_{\rm end}-\xi_k+q_kr_k}{r_k}\in F .
+\]
+The point $(b_k,0)$ corresponds to $(x_{\rm end},0)$ under
+\eqref{eq:lv-frame}: taking $y=b_k$ and $s=0$ gives $t=r_k\cdot0=0$ and
+\[
+  x=\xi_k+r_k\bigl(b_k+q_k(0-1)\bigr)
+   =\xi_k+\bigl(x_{\rm end}-\xi_k+q_kr_k\bigr)-r_kq_k=x_{\rm end}.
+\]
+By the second part of \eqref{eq:lv-contact-data}, $|b_k|\le K$ for every $k$.
+
+\emph{Step 4: one limit function and one limit point.}
+The sequence $(b_k)$ lies in the closed ball of radius $K$ in the
+finite-dimensional space $F$, which is a closed bounded set and hence compact;
+a compact metric space is sequentially compact, so some subsequence of $(b_k)$
+converges; replacing the enumeration $(j_k)$ by the corresponding subsequence,
+we may and do assume
+\begin{equation}\label{eq:lv-base-limit}
+  b_k\longrightarrow b\in F .
+\end{equation}
+This replacement preserves everything established so far, since
+\eqref{eq:lv-scales}--\eqref{eq:lv-slope-covariance} hold for every $k$
+separately.
+
+Every $\bar v_k$ lies in $\Aclass_{m,C_1}$ and is centered at $(0,1)$ with
+constant $C_1$, so \noderef{ClassCompactness} with $z_c=(0,1)$ provides a
+strictly increasing $k\mapsto\iota(k)$ and a function $v_\infty$ with
+$\bar v_{\iota(k)}\to v_\infty$ uniformly on every compact set,
+$v_\infty\in\Aclass_{m,C_1}$, and $v_\infty$ centered at $(0,1)$ with constant
+$C_1$. Along this further subsequence $b_{\iota(k)}\to b$ still, a subsequence
+of a convergent sequence having the same limit, and $r_{\iota(k)}\to0$ by
+\eqref{eq:lv-scales}. To keep the notation light we rename, writing $k$ for
+$\iota(k)$; thus from now on
+\begin{equation}\label{eq:lv-limits}
+  \bar v_k\to v_\infty\ \text{locally uniformly},\qquad
+  b_k\to b,\qquad r_k\to0,\qquad
+  v_\infty\in\Aclass_{m,C_1}\ \text{centered at }(0,1).
+\end{equation}
+In particular $v_\infty(0,1)=0$, because a function centered at $(0,1)$ vanishes
+there by \noderef{IsCenteredAt}; $v_\infty$ is continuous by
+\noderef{IsFitClass}; and by
+\noderef{UniformSubquadratic} with centering point $(0,1)$ and constant $C_1$ it
+has subquadratic spatial growth on compact time intervals of $\R$ in the sense
+of \noderef{SubquadraticGrowth}.
+
+\emph{Step 5: the two growth hypotheses that the stability lemmas need.}
+We check once and for all the hypotheses of \noderef{QuadEnvStability} and
+\noderef{BaryEnvStability} for the sequence $(\bar v_k)$ and the limit
+$v_\infty$ with $I=\R$, so $\Omega$ is all of space-time. Each $\bar v_k$ and
+$v_\infty$ is continuous on $\Omega$ by \noderef{IsFitClass}; the convergence
+$\bar v_k\to v_\infty$ is uniform on every compact subset of $\Omega$ by
+\eqref{eq:lv-limits}; and $v_\infty$ has subquadratic spatial growth on compact
+time intervals of $\R$ by Step 4. For the remaining hypothesis, the common
+growth control of \noderef{UnifSubquadraticGrowth} on $I=\R$: let
+$J\subseteq\R$ be compact and let $\varepsilon>0$. Every $\bar v_k$ belongs to
+$\Aclass_{m,C_1}$ and is centered at $(0,1)$ with constant $C_1$, so
+\noderef{UniformSubquadratic} with $z_c=(0,1)$ supplies an $M>0$, depending only
+on $J$, $\varepsilon$, $C_1$ and $m$, with $|w(x,t)|\le\varepsilon|x|^2$ for
+every member $w$ of $\Aclass_{m,C_1}$ centered at $(0,1)$ and all $|x|\ge M$,
+$t\in J$. Applying this to each $\bar v_k$ gives
+$|\bar v_k(x,t)|\le\varepsilon|x|^2$ for every $k$ and all $|x|\ge M$, $t\in J$,
+with $M$ independent of $k$. That is exactly the condition of
+\noderef{UnifSubquadraticGrowth} for the sequence on $I=\R$.
+
+Consequently, for every fixed $\ell>0$, \noderef{QuadEnvStability} gives
+\begin{equation}\label{eq:lv-env-stability}
+  \Penv_\ell\bar v_k\to\Penv_\ell v_\infty\quad\text{and}\quad
+  \Menv_\ell\bar v_k\to\Menv_\ell v_\infty
+\end{equation}
+uniformly on every compact set of centers, all centers being admissible because
+$I=\R$; and for $s=1$, \noderef{BaryEnvStability} gives
+\begin{equation}\label{eq:lv-bary-stability}
+  \Cenv_1\bar v_k\to\Cenv_1v_\infty
+\end{equation}
+uniformly on every compact set of centers.
+
+\emph{Step 6: evaluation along the moving points.}
+Let $g_k,g$ be real functions on space-time with $g$ continuous and $g_k\to g$
+uniformly on every compact set. Then $g_k(b_k,0)\to g(b,0)$. Indeed, let
+$\mathcal C=\{(x,0):|x|\le K+1\}$, a compact set containing every $(b_k,0)$ and
+$(b,0)$ by Step 3 and \eqref{eq:lv-base-limit}; then
+\[
+  \bigl|g_k(b_k,0)-g(b,0)\bigr|
+   \le\sup_{\mathcal C}|g_k-g|+\bigl|g(b_k,0)-g(b,0)\bigr|,
+\]
+and both terms tend to $0$, the first by uniform convergence on $\mathcal C$ and
+the second by continuity of $g$ and \eqref{eq:lv-base-limit}.
+
+We apply this three times. First with $g_k=\bar v_k$ and $g=v_\infty$, using
+\eqref{eq:lv-limits} and the continuity of $v_\infty$:
+$\bar v_k(b_k,0)\to v_\infty(b,0)$. Second and third with
+$g_k=\Penv_\ell\bar v_k$, $g=\Penv_\ell v_\infty$ and with
+$g_k=\Menv_\ell\bar v_k$, $g=\Menv_\ell v_\infty$ at a fixed $\ell>0$, using
+\eqref{eq:lv-env-stability} and the continuity of $\Penv_\ell v_\infty$ and
+$\Menv_\ell v_\infty$, which is part (2) of \noderef{QuadEnvAttained} applied to
+$v_\infty$ with $I=\R$ — its hypotheses of continuity and subquadratic growth
+hold by Step 4. Hence
+$\Penv_\ell\bar v_k(b_k,0)\to\Penv_\ell v_\infty(b,0)$ and
+$\Menv_\ell\bar v_k(b_k,0)\to\Menv_\ell v_\infty(b,0)$. By
+\noderef{EnvSlopeP} and \noderef{EnvSlopeM}, which express the slopes as
+$\Senv_\ell^+f=(\Penv_\ell f-f)/\ell$ and
+$\Senv_\ell^-f=(f-\Menv_\ell f)/\ell$ with the fixed positive factor $\ell$,
+\begin{equation}\label{eq:lv-slope-convergence}
+  \Senv_\ell^\pm\bar v_k(b_k,0)\longrightarrow\Senv_\ell^\pm v_\infty(b,0)
+  \qquad(\ell>0\ \text{fixed}).
+\end{equation}
+
+\emph{Step 7: the shifts cancel and the limiting slopes are constant.}
+By \eqref{eq:lv-finite-hamiltonian} and part (3) of
+\noderef{EnvHamiltonianSolution} applied to $u$ with $I=\R$, which says that the
+Hamiltonian never takes the value $+\infty$, the value
+\[
+  H_\star=H_u(x_{\rm end},0)
+\]
+is a real number. By part (2) of \noderef{EnvHamiltonianSolution} for $u$ with
+$I=\R$, whose admissibility hypothesis $t+\sigma\in\R$ for all $\sigma\in\R$ is
+vacuous, the two monotone small-length limits exist and agree with the
+Hamiltonian:
+\[
+  \lim_{\lambda\downarrow0}\Senv_\lambda^+u(x_{\rm end},0)
+  =\lim_{\lambda\downarrow0}\Senv_\lambda^-u(x_{\rm end},0)
+  =H_\star\in\R .
+\]
+Both are limits of real numbers to a finite value: each
+$\Senv_\lambda^\pm u(x_{\rm end},0)$ is a real number because, by part (1) of
+\noderef{QuadEnvAttained} for $u$ with $I=\R$, the suprema and infima defining
+$\Penv_\lambda u$ and $\Menv_\lambda u$ are attained, and the two families are
+monotone in $\lambda$ by part (1) of \noderef{EnvHamiltonianSolution}.
+
+Fix $\ell>0$. Evaluating \eqref{eq:lv-slope-covariance} at the corresponding
+pair $(b_k,0)\leftrightarrow(x_{\rm end},0)$ of Step 3, once at the length
+$\ell$ with either sign and once at the length $1$ with the plus sign, and
+subtracting, the shift $\alpha_k$ cancels:
+\begin{equation}\label{eq:lv-subtraction}
+  \Senv_\ell^\pm\bar v_k(b_k,0)-\Senv_1^+\bar v_k(b_k,0)
+   =\Senv_{r_k\ell}^\pm u(x_{\rm end},0)-\Senv_{r_k}^+u(x_{\rm end},0).
+\end{equation}
+As $k\to\infty$ we have $r_k\to0$ by \eqref{eq:lv-limits}, hence $r_k\ell\to0$
+and $r_k\to0$ with $r_k\ell>0$ and $r_k>0$; so both terms on the right converge
+to $H_\star$ and the right-hand side tends to $0$. By
+\eqref{eq:lv-slope-convergence}, applied at the length $\ell$ with either sign
+and at the length $1$ with the plus sign, the left-hand side tends to
+$\Senv_\ell^\pm v_\infty(b,0)-\Senv_1^+v_\infty(b,0)$. A sequence has at most
+one limit, so
+\[
+  \Senv_\ell^\pm v_\infty(b,0)=\Senv_1^+v_\infty(b,0)\qquad(\ell>0).
+\]
+Note that this argument uses each fixed length $\ell$ along the one locally
+convergent subsequence fixed in Step 4, and that no convergence of the
+individual shifts $\alpha_k$ is required, only their cancellation in
+\eqref{eq:lv-subtraction}.
+
+Put $B=\Senv_1^+v_\infty(b,0)$, a real number, since $\Penv_1v_\infty(b,0)$ is
+a real number by part (1) of \noderef{QuadEnvAttained} for $v_\infty$ with
+$I=\R$, which asserts that the defining supremum is attained. Then
+\begin{equation}\label{eq:lv-constant-slopes}
+  \Senv_\ell^+v_\infty(b,0)=\Senv_\ell^-v_\infty(b,0)=B\qquad(\ell>0).
+\end{equation}
+
+\emph{Step 8: the limit is affine.}
+\noderef{SlopeRigidity}, applied with the constant $C_1\ge1$, the function
+$v_\infty\in\Aclass_{m,C_1}$, the point $(b,t_0)=(b,0)$ and the number $B$,
+whose hypothesis \eqref{eq:lv-constant-slopes} we have just verified, shows that
+$v_\infty$ is affine in the sense of \noderef{IsSpaceTimeAffine}: there are
+$\varrho\in F$ and $\beta,c\in\R$ with
+\begin{equation}\label{eq:lv-affine}
+  v_\infty(x,t)=\langle\varrho,x\rangle+\beta t+c\qquad\text{for all }(x,t).
+\end{equation}
+
+\emph{Step 9: the contacts keep a positive envelope gap in the limit.}
+Fix $k$. By the first part of \eqref{eq:lv-contact-data} at the level $j_k$ we
+have $W(\xi_k,r_k)=u(\xi_k,r_k)$, and $r_k>0$, so (E5) of Step 1 gives
+\begin{equation}\label{eq:lv-gap-prelimit}
+  \frac{\Cenv_{r_k}u(\xi_k,r_k)-u(\xi_k,r_k)}{r_k}=\frac{\kappa^2}{2}.
+\end{equation}
+The hypotheses of \noderef{FrameGapCovariance} are the same data as those of
+\noderef{FrameEnvelopeCovariance} in Step 3, namely $1\le C_1<\infty$,
+$0\le\kappa<\infty$, $u\in\Aclass_{m,C_1}$ with the Jensen bound at constant
+$\kappa$, $r=r_k>0$, $x_0=\xi_k$ and the fit $(q_k,\alpha_k)$ for $u$ at
+$(\xi_k,r_k)$ of radius $r_k$; and the frame $\bar v_k$ there is the same
+function \eqref{eq:lv-frame}. Its first identity, at the parameter $\sigma=1$
+and at the corresponding pair $(y,s)=(0,1)\leftrightarrow(x,t)=(\xi_k,r_k)$ —
+the correspondence holding because $x=\xi_k+r_k(0+q_k(1-1))=\xi_k$ and
+$t=r_k\cdot1=r_k$ — reads
+\[
+  \Cenv_1\bar v_k(0,1)-\bar v_k(0,1)
+   =\frac{\Cenv_{r_k}u(\xi_k,r_k)-u(\xi_k,r_k)}{r_k}=\frac{\kappa^2}{2},
+\]
+using \eqref{eq:lv-gap-prelimit}. Since $\bar v_k(0,1)=0$ by Step 3,
+\begin{equation}\label{eq:lv-gap-frame}
+  \Cenv_1\bar v_k(0,1)=\frac{\kappa^2}{2}\qquad\text{for every }k .
+\end{equation}
+By \eqref{eq:lv-bary-stability} the functions $\Cenv_1\bar v_k$ converge to
+$\Cenv_1v_\infty$ uniformly on every compact set of centers, in particular at
+the single center $(0,1)$, so letting $k\to\infty$ in
+\eqref{eq:lv-gap-frame} and using $v_\infty(0,1)=0$ from Step 4,
+\begin{equation}\label{eq:lv-gap-limit}
+  \Cenv_1v_\infty(0,1)-v_\infty(0,1)=\frac{\kappa^2}{2}>0 ,
+\end{equation}
+the strict positivity because $\kappa>0$.
+
+\emph{Step 10: an affine function has no barycentric gap, and the contradiction.}
+Fix a time $t$ and a point $x\in F$, and let $(\theta,y)$ be any finite
+horizontal probability configuration with mean $x$ in the sense of
+\noderef{IsBaryConfig}, so $\theta_i>0$, $\sum_i\theta_i=1$ and
+$\sum_i\theta_iy_i=x$. By \eqref{eq:lv-affine},
+\[
+  \sum_i\theta_iv_\infty(y_i,t)
+   =\Bigl\langle\varrho,\sum_i\theta_iy_i\Bigr\rangle
+     +(\beta t+c)\sum_i\theta_i
+   =\langle\varrho,x\rangle+\beta t+c=v_\infty(x,t),
+\]
+the spatial part being linear and the time part constant along the slice. Hence
+the competitor value appearing in \noderef{BaryEnv} at the parameter $s=1$ is
+\[
+  \sum_i\theta_iv_\infty(y_i,t)-\frac{\sum_i\theta_i|y_i-x|^2}{2}
+   =v_\infty(x,t)-\frac{\sum_i\theta_i|y_i-x|^2}{2}\le v_\infty(x,t),
+\]
+because $\sum_i\theta_i|y_i-x|^2$ is the square of the radius of
+\noderef{BaryRadius} and is therefore nonnegative. So the set of competitor
+values is bounded above by $v_\infty(x,t)$. It also contains $v_\infty(x,t)$:
+the single-point configuration $n=1$, $\theta_1=1$, $y_1=x$ is admissible by
+\noderef{IsBaryConfig} and its radius is $0$. A nonempty set of reals that is
+bounded above by one of its own elements has that element as supremum, so by
+\noderef{BaryEnv}
+\[
+  \Cenv_1v_\infty(x,t)=v_\infty(x,t)\qquad\text{for all }(x,t).
+\]
+Taking $(x,t)=(0,1)$ and comparing with \eqref{eq:lv-gap-limit} gives
+$0=\kappa^2/2>0$, which is absurd.
+
+This contradiction refutes the assumption of Step 0 that $v$ is not affine.
+Hence $v$ is affine in the sense of \noderef{IsSpaceTimeAffine}.
+\end{proof}

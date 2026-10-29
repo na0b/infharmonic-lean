@@ -1,0 +1,171 @@
+\begin{lemma}[The second variation of the three-point test is very negative]
+Let $E$ be a finite-dimensional real inner-product space and write
+$\ell^2(E^3)$ for the product $E\times E\times E$ with the Euclidean product
+norm. Let $L_c,L_d,L_h:\ell^2(E^3)\to E$ and $\alpha:\ell^2(E^3)\to\R$ be
+continuous linear maps, let $\Psi:\ell^2(E^3)\to\R$, let
+$Z,\sigma\in\ell^2(E^3)$, let $B:E\to\R$, let $f,f_1:\R\to\R$, let
+$c,h,e,p_1,p_2\in E$ and let
+$r,a,\delta,C,B_{\mathrm{out}},K_1,K_2,K_3,M\in\R$. Assume:
+\begin{enumerate}
+\item\label{it:tpsv-psi} $\Psi(Y)=\alpha(Y)+B(L_cY)\,f(\|L_dY\|)
++\|L_hY\|^2/\|L_dY\|^2$ for every $Y\in\ell^2(E^3)$;
+\item\label{it:tpsv-C2} $\Psi$ is twice continuously differentiable at $Z$;
+\item\label{it:tpsv-base} $L_cZ=c$, $L_dZ=r\,e$ and $L_hZ=h$;
+\item\label{it:tpsv-cdot} $L_c\sigma=\tfrac12(p_1+p_2)$;
+\item\label{it:tpsv-rdot} $L_d\sigma=(2a)\,e$;
+\item\label{it:tpsv-hdot} $L_h\sigma=-\tfrac12f(r)\,\nabla B(c)$;
+\item\label{it:tpsv-e} $\|e\|=1$;
+\item\label{it:tpsv-r} $0<r$ and $r\le3/2$;
+\item\label{it:tpsv-f} $0\le f(r)$ and $f(r)\le r$;
+\item\label{it:tpsv-fder} $f$ has derivative $f_1(\rho)$ at $\rho$ for every
+$\rho$ in some neighbourhood of $r$;
+\item\label{it:tpsv-f2} $f_1$ has derivative $-3/(32\sqrt r)$ at $r$;
+\item\label{it:tpsv-f1} $0\le f_1(r)$ and $f_1(r)\le1$;
+\item\label{it:tpsv-B} $B$ is twice continuously differentiable on $E$ and
+$\delta/2\le B(c)$;
+\item\label{it:tpsv-DB} $|DB(c)|\le K_1$ and $|D^2B(c)|\le K_2$ as operator
+norms, $|\nabla B(c)|\le K_1$, and $0\le K_1$, $0\le K_2$;
+\item\label{it:tpsv-K3} $\|\tfrac12(p_1+p_2)\|\le K_3$;
+\item\label{it:tpsv-a} $0<\delta$, $0<a$, $\delta/4\le a$ and
+$a\le B_{\mathrm{out}}$;
+\item\label{it:tpsv-h} $0<C$ and $\|h\|\le2Cr^2$;
+\item\label{it:tpsv-M} $M=\dfrac{K_1^2}{2}+16B_{\mathrm{out}}CK_1
++96B_{\mathrm{out}}^2C^2+\dfrac32K_2K_3^2+4B_{\mathrm{out}}K_1K_3$.
+\end{enumerate}
+Then
+\begin{equation}\label{eq:tpsv-neg}
+  D^2\Psi(Z)[\sigma,\sigma]\le M-\frac{3\delta^3}{256\sqrt r}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $\dot c=\tfrac12(p_1+p_2)$ and $\dot h=-\tfrac12f(r)\nabla B(c)$, so that
+$L_c\sigma=\dot c$ and $L_h\sigma=\dot h$ by \ref{it:tpsv-cdot} and
+\ref{it:tpsv-hdot}. These are the paper's exact velocities of the joint motion
+$\tau\mapsto Z+\tau\sigma$, together with $\dot r=2a$ from \ref{it:tpsv-rdot}
+and $\ddot r=0$, the motion being a straight line.
+
+\emph{The test along the motion.} By linearity of $L_d$ and
+\ref{it:tpsv-base}, \ref{it:tpsv-rdot},
+\[
+  L_d(Z+\tau\sigma)=L_dZ+\tau L_d\sigma=(r+2a\tau)\,e
+  \qquad(\tau\in\R),
+\]
+so $\|L_d(Z+\tau\sigma)\|=|r+2a\tau|\,\|e\|=r+2a\tau$ whenever
+$r+2a\tau\ge0$, using \ref{it:tpsv-e}. Likewise
+$L_c(Z+\tau\sigma)=c+\tau\dot c$, $L_h(Z+\tau\sigma)=h+\tau\dot h$ and
+$\alpha(Z+\tau\sigma)=\alpha(Z)+\tau\,\alpha(\sigma)$. Since $r>0$ by
+\ref{it:tpsv-r}, the function $\tau\mapsto r+2a\tau$ is continuous and positive
+at $\tau=0$, hence positive for all $\tau$ in a neighbourhood of $0$. Setting
+\[
+  \rho(\tau)=\bigl(\alpha(Z)+\tau\,\alpha(\sigma)\bigr)
+    +B(c+\tau\dot c)\,f(r+2a\tau)
+    +\frac{\|h+\tau\dot h\|^2}{(r+2a\tau)^2},
+\]
+hypothesis \ref{it:tpsv-psi} and the four displayed identities therefore give
+$\Psi(Z+\tau\sigma)=\rho(\tau)$ for every $\tau$ in a neighbourhood of $0$.
+
+\emph{The second derivative of $\rho$ at $0$.} Apply
+\noderef{ProfileProductSecondVariation} with the plateau $B$, the profiles
+$f,f_1$, the base point $c$, the velocity $\dot c$, the radius $r$, the speed
+$2a$ and the curvature $-3/(32\sqrt r)$: its hypotheses are exactly
+\ref{it:tpsv-B}, \ref{it:tpsv-fder} and \ref{it:tpsv-f2}, and it produces a
+function $G_B$ which is the derivative of
+$\tau\mapsto B(c+\tau\dot c)f(r+2a\tau)$ near $0$ and whose derivative at $0$
+is
+\[
+  T_1+T_2+T_3,\qquad
+  T_1=D^2B(c)[\dot c,\dot c]\,f(r),\quad
+  T_2=2\,DB(c)[\dot c]\,f_1(r)(2a),\quad
+  T_3=B(c)\Bigl(-\frac{3}{32\sqrt r}\Bigr)(2a)^2 .
+\]
+Apply \noderef{RadialQuotientSecondVariation} with $h$, $\dot h$, $r$, $2a$ and
+$r>0$: it produces a function $G_Q$ which is the derivative of
+$\tau\mapsto\|h+\tau\dot h\|^2/(r+2a\tau)^2$ near $0$ and whose derivative at
+$0$ is
+\[
+  T_4+T_5+T_6,\qquad
+  T_4=\frac{2\|\dot h\|^2}{r^2},\quad
+  T_5=-\frac{8(2a)\langle h,\dot h\rangle}{r^3},\quad
+  T_6=\frac{6(2a)^2\|h\|^2}{r^4}.
+\]
+The affine summand $\tau\mapsto\alpha(Z)+\tau\alpha(\sigma)$ has derivative the
+constant $\alpha(\sigma)$ everywhere, hence second derivative $0$ at $0$. So
+$\rho'=\alpha(\sigma)+G_B+G_Q$ near $0$ and
+$\rho''(0)=\sum_{k=1}^{6}T_k$. By \noderef{SecondVariationAlongLine}, applied to
+$\Psi$ at $Z$ in the direction $\sigma$ with \ref{it:tpsv-C2} and the three
+facts just established,
+\begin{equation}\label{eq:tpsv-hess}
+  D^2\Psi(Z)[\sigma,\sigma]=T_1+T_2+T_3+T_4+T_5+T_6 .
+\end{equation}
+
+\emph{Bounds on the two velocities.} First $\|\dot c\|\le K_3$ by
+\ref{it:tpsv-K3}. Next, by \ref{it:tpsv-f}, \ref{it:tpsv-r} and
+\ref{it:tpsv-DB},
+\begin{equation}\label{eq:tpsv-hdotbd}
+  \|\dot h\|=\tfrac12f(r)\,\|\nabla B(c)\|\le\tfrac12\,r\,K_1 ,
+\end{equation}
+where $\tfrac12f(r)\ge0$ lets us take it out of the norm and then
+$f(r)\le r$ and $\|\nabla B(c)\|\le K_1$ are multiplied, both factors being
+nonnegative. Also, from \ref{it:tpsv-DB} and $\|\dot c\|\le K_3$, two
+applications of the operator-norm inequality give
+\[
+  \bigl|D^2B(c)[\dot c,\dot c]\bigr|\le|D^2B(c)|\,\|\dot c\|^2\le K_2K_3^2,
+  \qquad
+  \bigl|DB(c)[\dot c]\bigr|\le|DB(c)|\,\|\dot c\|\le K_1K_3 .
+\]
+
+\emph{The two localizing terms.} Since $0\le f(r)\le r\le3/2$ by
+\ref{it:tpsv-f} and \ref{it:tpsv-r},
+\[
+  T_1\le\bigl|D^2B(c)[\dot c,\dot c]\bigr|\,f(r)\le K_2K_3^2\cdot\tfrac32 .
+\]
+Since $0<a$ gives $0<2a$, and $0\le f_1(r)\le1$ with $a\le B_{\mathrm{out}}$ by
+\ref{it:tpsv-f1} and \ref{it:tpsv-a}, we get
+$0\le f_1(r)(2a)\le2a\le2B_{\mathrm{out}}$, whence
+\[
+  T_2=2\,DB(c)[\dot c]\cdot f_1(r)(2a)
+   \le2\,K_1K_3\cdot2B_{\mathrm{out}}=4B_{\mathrm{out}}K_1K_3 .
+\]
+
+\emph{The dominant term.} Here $T_3=-\dfrac{3}{8\sqrt r}\,B(c)a^2$, which is
+the paper's $-3B(c)a^2/(8\sqrt r)$. By \ref{it:tpsv-a} we have
+$a\ge\delta/4>0$, so $a^2\ge\delta^2/16$, and $B(c)\ge\delta/2$ by
+\ref{it:tpsv-B}, so $B(c)a^2\ge\delta^3/32$. Multiplying by the nonnegative
+number $\tfrac38(\sqrt r)^{-1}$ gives
+\[
+  T_3=-\frac38\frac{B(c)a^2}{\sqrt r}
+    \le-\frac38\cdot\frac{\delta^3}{32\sqrt r}
+    =-\frac{3\delta^3}{256\sqrt r}.
+\]
+
+\emph{The three penalty terms.} By \eqref{eq:tpsv-hdotbd},
+$\|\dot h\|^2\le r^2K_1^2/4$, so $T_4=2\|\dot h\|^2/r^2\le K_1^2/2$. For
+$T_5$, Cauchy--Schwarz and \ref{it:tpsv-h} with \eqref{eq:tpsv-hdotbd} give
+\[
+  -\langle h,\dot h\rangle\le|\langle h,\dot h\rangle|
+   \le\|h\|\,\|\dot h\|\le2Cr^2\cdot\tfrac12rK_1=CK_1r^3 ,
+\]
+and the right-hand side is nonnegative, so, using $0<a\le B_{\mathrm{out}}$,
+\[
+  T_5=\frac{16a\bigl(-\langle h,\dot h\rangle\bigr)}{r^3}
+   \le\frac{16a\,CK_1r^3}{r^3}=16aCK_1\le16B_{\mathrm{out}}CK_1 .
+\]
+For $T_6$, $(2a)^2\le4B_{\mathrm{out}}^2$ and $\|h\|^2\le4C^2r^4$ by
+\ref{it:tpsv-a} and \ref{it:tpsv-h}, both bounds being between nonnegative
+quantities, so
+\[
+  T_6=\frac{(2a)^2\|h\|^2\cdot6}{r^4}
+   \le\frac{6\cdot4B_{\mathrm{out}}^2\cdot4C^2r^4}{r^4}
+   =96B_{\mathrm{out}}^2C^2 .
+\]
+
+\emph{Conclusion.} Adding the six bounds and comparing with the definition
+\ref{it:tpsv-M} of $M$,
+\[
+  \sum_{k=1}^{6}T_k
+   \le\frac{K_1^2}{2}+16B_{\mathrm{out}}CK_1+96B_{\mathrm{out}}^2C^2
+     +\frac32K_2K_3^2+4B_{\mathrm{out}}K_1K_3-\frac{3\delta^3}{256\sqrt r}
+   =M-\frac{3\delta^3}{256\sqrt r},
+\]
+which with \eqref{eq:tpsv-hess} is \eqref{eq:tpsv-neg}.
+\end{proof}

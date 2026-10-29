@@ -1,0 +1,115 @@
+\begin{lemma}[Upper bound for the propagation quantity]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$ and $0\le\kappa<\infty$, and let $v\in\Aclass_{m,C_0}$ in the
+sense of \noderef{IsFitClass} be centered at $(0,1)$ with constant $C_0$ in the
+sense of \noderef{IsCenteredAt} and satisfy the horizontal Jensen bound with
+constant $\kappa$ at every time in the sense of \noderef{HasJensenBound}. Let
+$W=\Cenv_tv-\kappa^2t/2$ be the contact envelope of \noderef{ContactEnv} and
+$J_\epsilon$ the propagation quantity of \noderef{JGap}. Then
+\begin{equation}\label{eq:dp-J-bounds}
+  J_\epsilon(z)\le
+  \frac12\bigl(\Senv^+_\epsilon v(z)+\Senv^-_\epsilon v(z)\bigr)
+\end{equation}
+for every $\epsilon>0$ and every $z=(x,t)$ with $t>0$, the slopes being those of
+\noderef{EnvSlopeP} and \noderef{EnvSlopeM}.
+\end{lemma}
+\begin{proof}
+Fix $\epsilon>0$ and $z=(x,t)$ with $t>0$.
+
+\emph{Step 1: $W\le v$ at time $t+\epsilon$.}
+By \noderef{BaryEnvSandwich}, applied with $I=\R$ at each positive parameter
+$s$, we have $\Cenv_sv(y,\sigma)-v(y,\sigma)\le\kappa^2s/2$ for every $y$,
+$\sigma$ and $s>0$; taking $s=\sigma>0$ and using \noderef{ContactEnv} gives
+$W(y,\sigma)\le v(y,\sigma)$ for every $y\in F$ and every $\sigma>0$. The
+hypotheses of \noderef{BaryEnvSandwich} hold: $v$ is continuous on all of
+space-time and satisfies the horizontal Jensen bound with constant $\kappa\ge0$
+at every time by \noderef{IsFitClass} and \noderef{HasJensenBound}, and $v$ has
+subquadratic spatial growth on compact time intervals by
+\noderef{UniformSubquadratic}, applied with the centering point $(0,1)$ and the
+constant $C_0$. In particular, since $t>0$ and $\epsilon>0$, we have
+$t+\epsilon>0$ and $W(y,t+\epsilon)\le v(y,t+\epsilon)$ for all $y\in F$.
+
+\emph{Step 2: monotonicity of the forward envelope.}
+By \noderef{QuadEnvP}, for $\epsilon\ne0$,
+\[
+  \Penv_\epsilon W(z)
+   =\sup_{y\in F}\left\{W(y,t+\epsilon)-\frac{|y-x|^2}{2\epsilon}\right\},
+  \qquad
+  \Penv_\epsilon v(z)
+   =\sup_{y\in F}\left\{v(y,t+\epsilon)-\frac{|y-x|^2}{2\epsilon}\right\}.
+\]
+Write
+\[
+  A_W=\left\{W(y,t+\epsilon)-\frac{|y-x|^2}{2\epsilon}:y\in F\right\},
+  \qquad
+  A_v=\left\{v(y,t+\epsilon)-\frac{|y-x|^2}{2\epsilon}:y\in F\right\}
+\]
+for the two competitor sets, so that $\Penv_\epsilon W(z)=\sup A_W$ and
+$\Penv_\epsilon v(z)=\sup A_v$.
+
+The lemma \noderef{QuadEnvAttained} applies to $v$ with $I=\R$: the interval
+$I=\R$ is open, and $v$ is continuous on $\Omega=\{(y,\sigma):\sigma\in\R\}$ and
+has subquadratic spatial growth on compact time intervals of $\R$ in the sense
+of \noderef{SubquadraticGrowth}, which are exactly the two facts verified in
+Step 1. Its part~(1) is used once, at the centre $z=(x,t)$ with the length
+$\epsilon>0$, where the admissibility conditions $t\in\R$ and $t-\epsilon\in\R$ are
+vacuous because $I=\R$ contains every real number; the \emph{backward} instance
+gives that the infimum defining $\Menv_\epsilon v(z)$ is attained, and that is the
+instance used in Step 3. The corresponding forward statement is not needed: what
+Step 2 requires of $\Penv_\epsilon v(z)$ is domination of the competitors, not
+attainment, and that is supplied below by \noderef{EnvelopeCompetitorBounds}
+instead.
+
+We now check that $\Penv_\epsilon W(z)$ is a genuine least upper bound, and
+compare the two suprema. First, taking the competitor $y=x$ shows that $A_W$
+contains the real number $W(x,t+\epsilon)-0=W(x,t+\epsilon)$, so $A_W$ is
+nonempty. Second, by Step 1 we have $W(y,t+\epsilon)\le v(y,t+\epsilon)$ for
+every $y\in F$, since $t+\epsilon>0$ was established there from $t>0$ and
+$\epsilon>0$; subtracting the common term $|y-x|^2/(2\epsilon)$, each element of
+$A_W$ is at most the corresponding element of $A_v$. Third, every element of $A_v$ is at
+most $\Penv_\epsilon v(z)$. This is NOT read off the attainment just named:
+attainment supplies one element of $A_v$ whose value equals $\Penv_\epsilon v(z)$,
+and since $\Penv_\epsilon v(z)$ is a supremum, which the preamble's convention sets
+to $0$ when the set is empty or unbounded above, an equality with one element does
+not by itself bound the others. The domination is instead part~(1) of
+\noderef{EnvelopeCompetitorBounds}, whose first clause states exactly that
+$\Penv_\ell v(z)$ dominates every competitor value; we apply it at this centre $z$
+and this length $\epsilon>0$, its hypotheses being the continuity and subquadratic
+growth of $v$ verified in Step 1 together with $t\in I$ and $t+\epsilon\in I$, both
+automatic since $I=\R$. In particular $A_v$ is nonempty and bounded above by
+$\Penv_\epsilon v(z)$. Fourth,
+chaining the second and third observations, every element of $A_W$ is at most
+the real number $\Penv_\epsilon v(z)$, so $A_W$ is bounded above by
+$\Penv_\epsilon v(z)$. Fifth, $A_W$ is therefore nonempty and bounded above, so
+$\sup A_W$ is the genuine least upper bound of $A_W$ and the convention of the
+preamble -- which sets $\sup A=0$ when $A$ is empty or unbounded above -- is not
+invoked: that branch is never entered, and $\Penv_\epsilon W(z)=\sup A_W$ is a
+real number. Being the least upper bound of a set bounded above by
+$\Penv_\epsilon v(z)$, it satisfies $\sup A_W\le\Penv_\epsilon v(z)$. Hence
+\[
+  \Penv_\epsilon W(z)\le\Penv_\epsilon v(z).
+\]
+
+\emph{Step 3: conclusion.}
+By \noderef{JGap},
+$J_\epsilon(z)=\bigl(\Penv_\epsilon W(z)-\Menv_\epsilon v(z)\bigr)/(2\epsilon)$.
+By the backward instance of part~(1) of \noderef{QuadEnvAttained} named in
+Step 2, the infimum defining $\Menv_\epsilon v(z)$ is attained, so
+$\Menv_\epsilon v(z)$ is a real number and the convention of the preamble is not
+invoked for it either. Subtracting that fixed real number from both sides of the
+inequality of Step 2 preserves it, and dividing by $2\epsilon$ preserves it
+because $\epsilon>0$. Hence
+\[
+  J_\epsilon(z)=\frac{\Penv_\epsilon W(z)-\Menv_\epsilon v(z)}{2\epsilon}
+   \le\frac{\Penv_\epsilon v(z)-\Menv_\epsilon v(z)}{2\epsilon}.
+\]
+Inserting $v(z)$ and splitting,
+\[
+  \frac{\Penv_\epsilon v(z)-\Menv_\epsilon v(z)}{2\epsilon}
+   =\frac12\left(\frac{\Penv_\epsilon v(z)-v(z)}{\epsilon}
+     +\frac{v(z)-\Menv_\epsilon v(z)}{\epsilon}\right)
+   =\frac12\bigl(\Senv_\epsilon^+v(z)+\Senv_\epsilon^-v(z)\bigr),
+\]
+by \noderef{EnvSlopeP} and \noderef{EnvSlopeM}. This is
+\eqref{eq:dp-J-bounds}.
+\end{proof}

@@ -1,0 +1,157 @@
+\begin{lemma}[Second-order Taylor expansion with Peano remainder, from a local hypothesis]
+Let $E$ be a finite-dimensional real inner-product space, let $\Psi:E\to\R$ and
+let $Z\in E$. Assume only that $\Psi$ is twice continuously differentiable NEAR
+$Z$, i.e.\ that $\Psi$ is $C^2$ at $Z$: some neighbourhood of $Z$ carries a
+$C^2$ structure for $\Psi$, and nothing whatsoever is assumed about $\Psi$
+outside such a neighbourhood. Write $\nabla\Psi(Z)\in E$ for the gradient of
+$\Psi$ at $Z$ and $D^2\Psi(Z)=D(D\Psi)(Z)$ for the second Fr\'echet derivative
+at $Z$, a continuous bilinear form on $E$. Then for every $\delta>0$ there is
+$\rho>0$ such that
+\[
+  \Bigl|\Psi(Z+W)-\Psi(Z)-\langle\nabla\Psi(Z),W\rangle
+    -\tfrac12D^2\Psi(Z)(W,W)\Bigr|\le\delta|W|^2\qquad(|W|<\rho).
+\]
+The estimate is two-sided, i.e.\ it bounds the absolute value of the remainder
+and not merely one of its signs.
+
+The hypothesis is local at the single point $Z$ --- no gradient map on $E$ and no
+global continuity is assumed --- and the quadratic term is the second Fr\'echet
+derivative read as a bilinear form rather than an inner product against the
+derivative of a gradient map.
+\end{lemma}
+\begin{proof}
+\emph{How this differs from \texttt{GradientDiffSecondOrder}, since the two
+conclusions look alike.} That lemma assumes a gradient map $w$ defined at EVERY
+point of $E$, with $w(z)$ a gradient of $F$ at $z$ for every $z$ and with $w$
+continuous on all of $E$, and its quadratic term is $\langle Qh,h\rangle$ for
+$Q$ the Fr\'echet derivative of that gradient MAP. The present statement assumes
+only $C^2$-ness at the single point $Z$, which supplies no gradient at all away
+from one neighbourhood of $Z$, so \texttt{GradientDiffSecondOrder} cannot be
+applied to a function that is merely $C^2$ near a point: its hypotheses are not
+available. Conversely the present statement says nothing about a function whose
+gradient exists globally but which is nowhere $C^2$, so it does not imply
+\texttt{GradientDiffSecondOrder} either. The two are genuinely different
+statements about different hypothesis classes, and the proof below uses the same
+tool --- the fundamental theorem of calculus along a segment --- restricted to a
+ball, which is the whole content of the localization.
+
+Throughout, $D\Psi(y)\in E^\ast$ denotes the Fr\'echet derivative of $\Psi$ at
+$y$ (a continuous linear functional), so that
+$\langle\nabla\Psi(Z),V\rangle=D\Psi(Z)[V]$ for every $V\in E$ by the definition
+of the gradient as the Riesz representative of $D\Psi(Z)$.
+
+\emph{Step 0: the elementary integral.}
+Since $\tau\mapsto\tau^2/2$ has derivative $\tau$ at every $\tau$ and
+$t\mapsto t$ is continuous, hence integrable on $[0,1]$, the fundamental theorem
+of calculus (preamble) gives
+\begin{equation}\label{eq:cdp-half}
+  \int_0^1t\,dt=\frac{1^2}{2}-\frac{0^2}{2}=\frac12 .
+\end{equation}
+
+\emph{Step 1: a ball on which $\Psi$ is $C^2$.}
+Being $C^2$ at a point is a property that propagates to nearby points: if
+$\Psi$ is $C^2$ at $Z$ then $\Psi$ is $C^2$ at every point of some neighbourhood
+of $Z$ (preamble; this is the standard fact that the $C^n$ property at a point,
+for finite $n$, holds on a whole neighbourhood). Fix therefore $r>0$ with
+\begin{equation}\label{eq:cdp-ball}
+  \Psi\ \text{is }C^2\text{ at every }y\text{ with }|y-Z|<r .
+\end{equation}
+Two consequences of \eqref{eq:cdp-ball} will be used.
+\begin{enumerate}
+\item[(1a)] For every $y$ with $|y-Z|<r$ the function $\Psi$ is differentiable
+  at $y$, with derivative $D\Psi(y)$; indeed $C^2$ at $y$ implies $C^1$ at $y$,
+  hence differentiable at $y$.
+\item[(1b)] For every $y$ with $|y-Z|<r$ the map $u\mapsto D\Psi(u)$ is
+  continuous at $y$; indeed $\Psi$ being $C^2$ at $y$ means precisely that
+  $u\mapsto D\Psi(u)$ is $C^1$ at $y$, hence continuous at $y$.
+\end{enumerate}
+Moreover, $\Psi$ being $C^2$ at $Z$ makes $u\mapsto D\Psi(u)$ be $C^1$ at $Z$,
+hence differentiable at $Z$; its derivative there is by definition
+$D^2\Psi(Z)$, so
+\begin{equation}\label{eq:cdp-second}
+  u\mapsto D\Psi(u)\ \text{is differentiable at }Z\text{ with derivative }
+  D^2\Psi(Z).
+\end{equation}
+
+\emph{Step 2: the little-o of the first derivative.}
+Let $\delta>0$. By \eqref{eq:cdp-second} and the definition of the Fr\'echet
+derivative, the difference quotient of $u\mapsto D\Psi(u)$ at $Z$ is $o(|V|)$;
+in particular, applying the definition with the parameter $\delta$, there is
+$\rho_1>0$ with
+\begin{equation}\label{eq:cdp-littleo}
+  \bigl\|D\Psi(Z+V)-D\Psi(Z)-D^2\Psi(Z)(V,\cdot)\bigr\|\le\delta|V|
+  \qquad(|V|<\rho_1),
+\end{equation}
+the norm being the dual norm on $E^\ast$.
+
+Put $\rho=\min(r,\rho_1)>0$ and fix $W\in E$ with $|W|<\rho$.
+
+\emph{Step 3: the segment stays in the ball, so the fundamental theorem applies.}
+For $t\in[0,1]$ we have $|(Z+tW)-Z|=|tW|=t|W|\le|W|<r$, so by
+\eqref{eq:cdp-ball} every point of the segment from $Z$ to $Z+W$ lies in the
+ball where (1a) and (1b) hold. Consequently:
+\begin{itemize}
+\item the function $\tau\mapsto\Psi(Z+\tau W)$ is differentiable at every
+  $t\in[0,1]$, with derivative $D\Psi(Z+tW)[W]$, by (1a) and the chain rule
+  applied to the affine curve $\tau\mapsto Z+\tau W$ (whose derivative is the
+  constant $W$);
+\item the function $t\mapsto D\Psi(Z+tW)[W]$ is continuous on $[0,1]$, being the
+  composition of the continuous curve $t\mapsto Z+tW$ with the map
+  $u\mapsto D\Psi(u)$, continuous on the ball by (1b), followed by the
+  evaluation $L\mapsto L[W]$, which is a continuous linear functional on
+  $E^\ast$; hence it is integrable on $[0,1]$.
+\end{itemize}
+The fundamental theorem of calculus (preamble) therefore gives
+\begin{equation}\label{eq:cdp-ftc}
+  \Psi(Z+W)-\Psi(Z)=\int_0^1D\Psi(Z+tW)[W]\,dt .
+\end{equation}
+
+\emph{Step 4: splitting the integrand.}
+For $t\in[0,1]$ set
+\[
+  R_t=D\Psi(Z+tW)-D\Psi(Z)-D^2\Psi(Z)(tW,\cdot)\in E^\ast .
+\]
+Since $D^2\Psi(Z)$ is bilinear, $D^2\Psi(Z)(tW,W)=t\,D^2\Psi(Z)(W,W)$, so by the
+definition of $R_t$,
+\begin{equation}\label{eq:cdp-split}
+  D\Psi(Z+tW)[W]=D\Psi(Z)[W]+t\,D^2\Psi(Z)(W,W)+R_t[W]\qquad(t\in[0,1]).
+\end{equation}
+The three summands on the right are each continuous in $t$ on $[0,1]$: the first
+is constant, the second is a constant multiple of $t$, and the third is the
+difference of the left-hand side (continuous by Step 3) and the first two; so
+each is integrable on $[0,1]$ and the integral of the sum is the sum of the
+integrals. Integrating \eqref{eq:cdp-split} over $[0,1]$ and using
+\eqref{eq:cdp-ftc}, $\int_0^1dt=1$ and \eqref{eq:cdp-half},
+\[
+  \Psi(Z+W)-\Psi(Z)
+   =D\Psi(Z)[W]+\tfrac12D^2\Psi(Z)(W,W)+\int_0^1R_t[W]\,dt,
+\]
+that is, using $D\Psi(Z)[W]=\langle\nabla\Psi(Z),W\rangle$,
+\begin{equation}\label{eq:cdp-err}
+  \Psi(Z+W)-\Psi(Z)-\langle\nabla\Psi(Z),W\rangle-\tfrac12D^2\Psi(Z)(W,W)
+   =\int_0^1R_t[W]\,dt .
+\end{equation}
+
+\emph{Step 5: bounding the remainder.}
+Let $t\in[0,1]$. Then $|tW|=t|W|\le|W|<\rho\le\rho_1$, so
+\eqref{eq:cdp-littleo} applies with $V=tW$ and gives
+$\|R_t\|\le\delta|tW|=\delta t|W|$. Since $R_t\in E^\ast$,
+\[
+  \bigl|R_t[W]\bigr|\le\|R_t\|\,|W|\le\delta t|W|^2\le\delta|W|^2 ,
+\]
+the last step because $t\le1$ and $\delta|W|^2\ge0$. Therefore, by
+\eqref{eq:cdp-err}, the triangle inequality for integrals and the monotonicity
+of the integral over $[0,1]$,
+\[
+  \Bigl|\Psi(Z+W)-\Psi(Z)-\langle\nabla\Psi(Z),W\rangle
+    -\tfrac12D^2\Psi(Z)(W,W)\Bigr|
+   =\Bigl|\int_0^1R_t[W]\,dt\Bigr|
+   \le\int_0^1\bigl|R_t[W]\bigr|\,dt
+   \le\int_0^1\delta|W|^2\,dt
+   =\delta|W|^2 ,
+\]
+where the integrand $t\mapsto|R_t[W]|$ is integrable because $t\mapsto R_t[W]$
+is (Step 4) and the absolute value of an integrable function is integrable. As
+$\delta>0$ was arbitrary and $\rho=\min(r,\rho_1)$ depends only on $\delta$ (and
+on $\Psi,Z$), this is the assertion.
+\end{proof}

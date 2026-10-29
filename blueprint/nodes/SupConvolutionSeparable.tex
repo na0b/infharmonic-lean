@@ -1,0 +1,99 @@
+\begin{lemma}[The sup-convolution of a separated sum separates]
+Let $E$ be a finite-dimensional real inner-product space, let $N$ be a natural
+number and write $V=\ell^2\bigl(\bigoplus_{j=1}^NE\bigr)$ for the
+$\ell^2$-product of $N$ copies of $E$, whose elements are written
+$Z=(z_j)_{j=1}^N$ and whose norm satisfies $|Z|^2=\sum_j|z_j|^2$. Let
+$\varepsilon>0$, let $C\in\R$, and for each $j$ let $G_j:E\to\R$ satisfy
+$G_j(w)\le C$ for every $w\in E$. Let $\mathcal G^\varepsilon$ and
+$G_j^\varepsilon$ denote the sup-convolutions of \noderef{SupConvolution} with
+parameter $\varepsilon$, formed in $V$ for $\mathcal G(W)=\sum_jG_j(w_j)$ and in
+$E$ for each $G_j$. Then
+\[
+  \mathcal G^\varepsilon(Z)=\sum_{j=1}^NG_j^\varepsilon(z_j)
+  \qquad(Z\in V).
+\]
+This is an identity between the two sup-convolutions and asserts nothing about
+finiteness, domination or semiconvexity of either side; the uniform bound $C$
+enters only to make each defining set bounded above, so that each supremum is a
+genuine least upper bound rather than the value the convention assigns to an
+unbounded set.
+\end{lemma}
+\begin{proof}
+By the defining formula of \noderef{SupConvolution},
+\[
+  \mathcal G^\varepsilon(Z)=\sup_{W\in V}f(W),
+  \qquad
+  G_j^\varepsilon(z_j)=\sup_{w\in E}f_j(w),
+\]
+where
+\[
+  f(W)=\sum_jG_j(w_j)-\frac{|Z-W|^2}{2\varepsilon},
+  \qquad
+  f_j(w)=G_j(w)-\frac{|z_j-w|^2}{2\varepsilon}.
+\]
+
+\emph{Step 1: the objective separates.}
+Since the $\ell^2$-product norm satisfies $|Y|^2=\sum_j|y_j|^2$ (preamble) and
+$(Z-W)_j=z_j-w_j$, we have $|Z-W|^2=\sum_j|z_j-w_j|^2$, so dividing by
+$2\varepsilon$ and splitting the finite sum,
+\begin{equation}\label{eq:scs-sep}
+  f(W)=\sum_jG_j(w_j)-\sum_j\frac{|z_j-w_j|^2}{2\varepsilon}
+   =\sum_jf_j(w_j)\qquad(W\in V).
+\end{equation}
+
+\emph{Step 2: every supremum here is genuine.}
+Since $\varepsilon>0$, each subtracted term $|z_j-w|^2/(2\varepsilon)$ is
+nonnegative, so $f_j(w)\le G_j(w)\le C$ for every $w$; thus
+$\{f_j(w):w\in E\}$ is bounded above by $C$, and it is nonempty (take $w=z_j$).
+Likewise, by \eqref{eq:scs-sep} and the same bound applied to each summand,
+$f(W)=\sum_jf_j(w_j)\le\sum_jC=NC$ for every $W$, so $\{f(W):W\in V\}$ is
+bounded above by $NC$ and is nonempty (take $W=0$). Hence all $N+1$ suprema
+appearing in the statement are least upper bounds of nonempty sets bounded
+above, and the junk-value convention of the preamble is not in play for any of
+them.
+
+\emph{Step 3: $\mathcal G^\varepsilon(Z)\le\sum_jG_j^\varepsilon(z_j)$.}
+Let $W\in V$. By \eqref{eq:scs-sep} and, for each $j$, the fact that $f_j(w_j)$
+is at most the supremum of $f_j$ (legitimate by Step 2),
+\[
+  f(W)=\sum_jf_j(w_j)\le\sum_jG_j^\varepsilon(z_j).
+\]
+As $W\in V$ was arbitrary and $\{f(W):W\in V\}$ is nonempty, its least upper
+bound satisfies $\mathcal G^\varepsilon(Z)\le\sum_jG_j^\varepsilon(z_j)$.
+
+\emph{Step 4: $\sum_jG_j^\varepsilon(z_j)\le\mathcal G^\varepsilon(Z)$.}
+It suffices to show that for every $\theta>0$,
+\begin{equation}\label{eq:scs-theta}
+  \sum_jG_j^\varepsilon(z_j)\le\mathcal G^\varepsilon(Z)+\theta ,
+\end{equation}
+since a real number that is at most $b+\theta$ for every $\theta>0$ is at most
+$b$.
+
+Suppose first $N=0$. Then $V=\{0\}$ is the zero space, so $Z=0$ and
+$f(0)=0-|0-0|^2/(2\varepsilon)=0$, whence
+$\mathcal G^\varepsilon(Z)=\sup\{0\}=0$; and the left-hand side of
+\eqref{eq:scs-theta} is an empty sum, also $0$. So \eqref{eq:scs-theta} reads
+$0\le0+\theta$, which holds.
+
+Now suppose $N\ge1$ and let $\theta>0$, so that $\theta/N>0$. Fix $j$. By Step 2
+the number $G_j^\varepsilon(z_j)$ is the least upper bound of the nonempty set
+$\{f_j(w):w\in E\}$, so $G_j^\varepsilon(z_j)-\theta/N$, being strictly smaller,
+is not an upper bound: there is $w_j\in E$ with
+\begin{equation}\label{eq:scs-pick}
+  G_j^\varepsilon(z_j)-\frac{\theta}{N}<f_j(w_j).
+\end{equation}
+Let $W=(w_j)_{j=1}^N\in V$. Summing the $N$ strict inequalities
+\eqref{eq:scs-pick} over $j$ --- legitimate because the index set is nonempty
+and finite --- and using $\sum_j\theta/N=\theta$,
+\[
+  \sum_jG_j^\varepsilon(z_j)-\theta
+   =\sum_j\Bigl(G_j^\varepsilon(z_j)-\frac{\theta}{N}\Bigr)
+   <\sum_jf_j(w_j)=f(W),
+\]
+the last equality by \eqref{eq:scs-sep}. Since $f(W)\le\mathcal
+G^\varepsilon(Z)$ by Step 2 (the supremum is an upper bound of its own set), we
+get $\sum_jG_j^\varepsilon(z_j)-\theta<\mathcal G^\varepsilon(Z)$, which is
+\eqref{eq:scs-theta}.
+
+Steps 3 and 4 give the two inequalities, hence the asserted equality.
+\end{proof}

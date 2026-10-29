@@ -1,0 +1,189 @@
+\begin{lemma}[The slow scales, the blow-up slope at $z_*$, and the small-scale limit]
+Let $d\in\N$ and work in $X=\ell^2(\R^d\times\R)$. Let
+$e_b\in X$ with $e_b=(0,1)$, let $L\in\R$ with $0\le L$ and assume
+\begin{equation}\label{eq:ssbl-lip}
+  |U(z)|\le L\quad\text{and}\quad|U(a)-U(b)|\le L|a-b|
+  \qquad\bigl(a,b,z\in\overline B_{7/8}\bigr)
+\end{equation}
+for every $U:X\to\R$ which is a member of a normalized inf-family in the sense
+of \noderef{NormalizedInfFamily} for this $d$. Let
+$U_i:X\to\R$, $z_i\in X$ and $r_i\in\R$ be given for $i\in\N$, and assume:
+\begin{enumerate}
+\item\label{it:ssbl-fam} each $U_i$ is a member of a normalized inf-family in
+the sense of \noderef{NormalizedInfFamily};
+\item\label{it:ssbl-ctr} $z_i\in B_{3/4}$ for every $i$;
+\item\label{it:ssbl-rad} $0<r_i$ for every $i$, and $r_i\to0$.
+\end{enumerate}
+Let $\iota:\N\to\N$ be strictly increasing, let $z_*\in X$ and let
+$U_\circ:X\to\R$, and assume:
+\begin{enumerate}\setcounter{enumi}{3}
+\item\label{it:ssbl-zs} $|z_*|\le3/4$ and $z_{\iota(k)}\to z_*$;
+\item\label{it:ssbl-unif} $U_{\iota(k)}\to U_\circ$ uniformly on
+$\overline B_{7/8}$;
+\item\label{it:ssbl-harm} $U_\circ$ is infinity-harmonic on $B_{7/8}$;
+\item\label{it:ssbl-inside} $z_*+RX\in\overline B_{7/8}$ whenever $0<R\le1/16$
+and $|X|\le1$.
+\end{enumerate}
+Then there are a strictly increasing $j:\N\to\N$, radii $R_k\in\R$, a function
+$W:X\to\R$ and a vector $P_0\in X$ such that
+\begin{enumerate}\setcounter{enumi}{7}
+\item\label{it:ssbl-R} $0<R_k$ and $R_k\le1/16$ for every $k$;
+\item\label{it:ssbl-slow} $\dfrac{|z_{\iota(j(k))}-z_*|+r_{\iota(j(k))}}{R_k}
+\longrightarrow0$;
+\item\label{it:ssbl-hat} for every $\epsilon'>0$ there is $k_0$ such that for
+all $k\ge k_0$ and all $X\in B_1$,
+\[
+  \Bigl|\frac{U_{\iota(j(k))}(z_*+R_kX)-U_{\iota(j(k))}(z_*)}{R_k}
+    -\langle P_0,X\rangle\Bigr|\le\epsilon' ;
+\]
+\item\label{it:ssbl-W} the rescalings
+$H\mapsto\dfrac{U_{\iota(j(k))}\bigl(z_{\iota(j(k))}+r_{\iota(j(k))}H\bigr)
+-U_{\iota(j(k))}\bigl(z_{\iota(j(k))}\bigr)}{r_{\iota(j(k))}}$
+converge to $W$ uniformly on $\overline B_2$;
+\item\label{it:ssbl-Wcont} $W$ is continuous on $\overline B_2$;
+\item\label{it:ssbl-Wnorm} $W(0)=0$ and $W(e_b)=1$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{The reference scales.} Put $R^0_n=\dfrac1{16}\cdot\dfrac1{n+1}$. Then
+$0<R^0_n$ and $R^0_n\le1/16$, because $1/(n+1)\le1$; and $R^0_n\to0$, being
+$1/16$ times the null sequence $1/(n+1)$.
+
+\emph{Step 4: a simultaneous extraction.} Three sequences tend to zero along
+$\iota$. First $r_{\iota(k)}\to0$, since $r_i\to0$ by \ref{it:ssbl-rad} and
+$\iota$ is strictly increasing, hence tends to infinity. Second
+$|z_{\iota(k)}-z_*|\to0$ by \ref{it:ssbl-zs} and continuity of the norm. Third
+$\sup_{\overline B_{7/8}}|U_{\iota(k)}-U_\circ|\to0$ by \ref{it:ssbl-unif}.
+Consequently, for each fixed $n$ the three conditions
+\begin{equation}\label{eq:ssbl-three}
+  \sup_{w\in\overline B_{7/8}}\bigl|U_{\iota(k)}(w)-U_\circ(w)\bigr|
+    \le\frac{R^0_n}{n+1},\qquad
+  |z_{\iota(k)}-z_*|+r_{\iota(k)}\le\frac{R^0_n}{n+1},\qquad
+  r_{\iota(k)}\le\frac1{16}
+\end{equation}
+hold for all sufficiently large $k$: the three thresholds
+$R^0_n/(n+1)>0$, $R^0_n/(n+1)>0$ and $1/16>0$ are positive, so each condition
+holds eventually, and a finite intersection of eventual conditions is eventual.
+A sequence of eventually-true conditions admits a simultaneous extraction:
+there is a strictly increasing $j_0:\N\to\N$ such that \eqref{eq:ssbl-three}
+holds at $k=j_0(n)$ for every $n$. Fix such a $j_0$.
+
+\emph{Step 5: the blow-up slope of $U_\circ$ at $z_*$.} Since $|z_*|\le3/4<7/8$
+we have $z_*\in B_{7/8}$, so \ref{it:ssbl-harm} lets us apply
+\noderef{AffineBlowups} to $U_\circ$ on $D=B_{7/8}$ at $z_*$. Its second
+assertion, applied to the positive null sequence $(R^0_n)$, gives a strictly
+increasing $\iota_5$ and a function $V$ such that
+\[
+  X\mapsto\frac{U_\circ\bigl(z_*+R^0_{\iota_5(i)}X\bigr)-U_\circ(z_*)}
+                {R^0_{\iota_5(i)}}
+  \longrightarrow V
+\]
+uniformly on every compact subset of $X$. Its first assertion, applied to the
+same subsequence of scales and the same $V$, gives a continuous linear
+functional $\Lambda$ with $V=\Lambda$ everywhere. Since $X$ is a
+finite-dimensional real inner-product space, the Riesz representation supplies
+$P_0\in X$ with $\langle P_0,\cdot\rangle=\Lambda$. Fix this $P_0$.
+
+\emph{Step 7: the small-scale rescalings.} For $n\in\N$ put
+\[
+  W_n(H)=\frac{U_{\iota(j_0(n))}\bigl(z_{\iota(j_0(n))}
+    +r_{\iota(j_0(n))}H\bigr)-U_{\iota(j_0(n))}\bigl(z_{\iota(j_0(n))}\bigr)}
+    {r_{\iota(j_0(n))}} .
+\]
+Write $z=z_{\iota(j_0(n))}$ and $r=r_{\iota(j_0(n))}$, so $0<r\le1/16$ by
+\ref{it:ssbl-rad} and the third condition of \eqref{eq:ssbl-three}, and
+$|z|<3/4$ by \ref{it:ssbl-ctr}. For $|H|\le2$,
+\[
+  |z+rH|\le|z|+r|H|\le\tfrac34+2r\le\tfrac34+\tfrac18=\tfrac78 ,
+\]
+so both $z+rH$ and $z$ lie in $\overline B_{7/8}$. Hence \eqref{eq:ssbl-lip},
+available for $U_{\iota(j_0(n))}$ by \ref{it:ssbl-fam}, gives for
+$H,H'\in\overline B_2$
+\[
+  |W_n(H)|=\frac{|U(z+rH)-U(z)|}{r}\le\frac{L\,r|H|}{r}\le2L,
+  \qquad
+  |W_n(H)-W_n(H')|=\frac{|U(z+rH)-U(z+rH')|}{r}\le\frac{L\,r|H-H'|}{r}
+   =L|H-H'| ,
+\]
+where the two displayed norms are computed from
+$\|rH\|=r|H|$ and $\|r(H-H')\|=r|H-H'|$, $r$ being positive. So the sequence
+$\bigl(W_{\iota_5(k)}\bigr)_k$ is uniformly bounded by $2L$ and uniformly
+$L$-Lipschitz on $\overline B_2$, and \noderef{EquiLipschitzUniformLimit} with
+centre $0$, radius $2$, bound $2L$ and Lipschitz constant $L$ gives a strictly
+increasing $\iota_7$ and a function $W$ with
+\begin{equation}\label{eq:ssbl-Wconv}
+  W_{\iota_5(\iota_7(k))}\longrightarrow W
+  \quad\text{uniformly on }\overline B_2 .
+\end{equation}
+
+\emph{Assembly.} Set $j=j_0\circ\iota_5\circ\iota_7$ and
+$R_k=R^0_{\iota_5(\iota_7(k))}$, and keep $W$ and $P_0$. Then $j$ is strictly
+increasing, being a composition of strictly increasing maps, and
+\ref{it:ssbl-R} holds because $0<R^0_n\le1/16$ for every $n$. Assertion
+\ref{it:ssbl-W} is \eqref{eq:ssbl-Wconv} written out, since
+$W_{\iota_5(\iota_7(k))}$ is exactly the rescaling at the index
+$j(k)=j_0(\iota_5(\iota_7(k)))$.
+
+\emph{\ref{it:ssbl-slow}.} Writing $n$ for an arbitrary index, the second
+condition of \eqref{eq:ssbl-three} at $k=j_0(n)$ gives
+\[
+  0\le\frac{|z_{\iota(j_0(n))}-z_*|+r_{\iota(j_0(n))}}{R^0_n}
+   \le\frac{R^0_n/(n+1)}{R^0_n}=\frac1{n+1},
+\]
+so that quotient tends to zero by comparison with $1/(n+1)$; composing with the
+strictly increasing $\iota_5\circ\iota_7$ preserves the limit, which is
+\ref{it:ssbl-slow}.
+
+\emph{\ref{it:ssbl-hat}.} Let $\epsilon'>0$. The uniform convergence of Step 5
+on the compact set $\overline B_1$ gives $i_0$ with
+\begin{equation}\label{eq:ssbl-V}
+  \Bigl|\frac{U_\circ\bigl(z_*+R^0_{\iota_5(i)}X\bigr)-U_\circ(z_*)}
+              {R^0_{\iota_5(i)}}-\Lambda X\Bigr|\le\frac{\epsilon'}2
+  \qquad\bigl(i\ge i_0,\ |X|\le1\bigr),
+\end{equation}
+and choosing a natural number $k_1>4/\epsilon'$ gives
+$2/(n+1)\le\epsilon'/2$ for every $n\ge k_1$. Put
+$k_0=\max(i_0,k_1)$ and let $k\ge k_0$ and $X\in B_1$, so $|X|\le1$. Write
+$n=\iota_5(\iota_7(k))$; since $\iota_5$ and $\iota_7$ are strictly increasing
+we have $k\le\iota_7(k)\le n$, hence $n\ge k_1$ and $\iota_7(k)\ge i_0$.
+By \ref{it:ssbl-inside} with $R=R^0_n\le1/16$ the point $z_*+R^0_nX$ lies in
+$\overline B_{7/8}$, and so does $z_*$ because $|z_*|\le3/4$. The first
+condition of \eqref{eq:ssbl-three} at $k=j_0(n)$ therefore applies at both
+points and gives
+\[
+  \Bigl|\frac{U_{\iota(j_0(n))}(z_*+R^0_nX)-U_{\iota(j_0(n))}(z_*)}{R^0_n}
+    -\frac{U_\circ(z_*+R^0_nX)-U_\circ(z_*)}{R^0_n}\Bigr|
+  \le\frac{2\,R^0_n/(n+1)}{R^0_n}=\frac2{n+1}\le\frac{\epsilon'}2 ,
+\]
+the numerator being bounded by the sum of the two pointwise gaps. Combining
+this with \eqref{eq:ssbl-V} at $i=\iota_7(k)$, where
+$R^0_{\iota_5(\iota_7(k))}=R^0_n=R_k$, and with
+$\Lambda X=\langle P_0,X\rangle$ from Step 5, the triangle inequality gives
+\[
+  \Bigl|\frac{U_{\iota(j(k))}(z_*+R_kX)-U_{\iota(j(k))}(z_*)}{R_k}
+    -\langle P_0,X\rangle\Bigr|
+  \le\frac{\epsilon'}2+\frac{\epsilon'}2=\epsilon' ,
+\]
+which is \ref{it:ssbl-hat}.
+
+\emph{\ref{it:ssbl-Wcont}.} Each $W_{\iota_5(\iota_7(k))}$ is $L$-Lipschitz on
+$\overline B_2$ by the estimate of Step 7, and a uniform limit of
+$L$-Lipschitz functions on a set is $L$-Lipschitz on that set; an
+$L$-Lipschitz function is continuous there.
+
+\emph{\ref{it:ssbl-Wnorm}.} Both normalizations are read off pointwise from
+\eqref{eq:ssbl-Wconv} and the uniqueness of limits. At $H=0$ we have
+$W_n(0)=\bigl(U(z+r\cdot0)-U(z)\bigr)/r=0$ for every $n$, so the constant
+sequence $0$ converges to $W(0)$ and $W(0)=0$. At $H=e_b$, note
+$|e_b|=1\le2$, so $e_b\in\overline B_2$ and the evaluation is legitimate; and by
+\noderef{NormalizedInfFamily} and \ref{it:ssbl-fam} there is
+$u:\R^d\to\R$ with $U_{\iota(j_0(n))}(z)=u(z_x)+z_t$ for every $z$, where
+$z=(z_x,z_t)$. Since $e_b=(0,1)$, adding $r\,e_b$ leaves the space coordinate
+unchanged and increases the time coordinate by $r$, so
+\[
+  W_n(e_b)=\frac{\bigl(u(z_x)+z_t+r\bigr)-\bigl(u(z_x)+z_t\bigr)}{r}
+   =\frac rr=1
+\]
+for every $n$, using $r>0$. Hence the constant sequence $1$ converges to
+$W(e_b)$ and $W(e_b)=1$.
+\end{proof}

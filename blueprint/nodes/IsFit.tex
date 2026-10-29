@@ -1,0 +1,16 @@
+\begin{definition}[Fit at a center of a given radius]
+Let $F$ be a finite-dimensional real inner-product space, let $v$ be a real
+function on the space-time $\ell^2(F\times\R)$, let $C_0,R\in\R$, let
+$z=(x,t)$ be a space-time point, let $p\in F$ and let $a\in\R$. We say that
+$(p,a)$ is a \emph{fit for $v$ at $z$ of radius $R$ with constant $C_0$} if
+\[
+  \left|v(x+h,t+\ell)-v(x,t)-p\cdot h
+       -\left(a-\frac{|p|^2}{2}\right)\ell\right|\le C_0R
+  \qquad\text{whenever }|\ell|\le R\text{ and }|h-p\ell|\le R .
+\]
+The set of increments appearing here is the sheared box
+$Q_R(z;p)=\{(x+h,t+\ell):|\ell|\le R,\ |h-p\ell|\le R\}$, and $q=a-|p|^2/2$ is
+the ordinary time coefficient of the fitted affine function. The parameters are
+$(p,a)$ rather than $(p,q)$ because a sheared change of frame then acts by
+subtracting the frame parameters.
+\end{definition}

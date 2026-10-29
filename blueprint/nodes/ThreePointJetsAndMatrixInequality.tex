@@ -1,0 +1,127 @@
+\begin{lemma}[The jet bounds and the matrix inequality at a maximizing triple]
+Let $E$ be a finite-dimensional real inner-product space and write
+$\ell^2(E^3)$ for $E\times E\times E$ with the Euclidean product norm. Let
+$\Psi:\ell^2(E^3)\to\R$, let $Z,\sigma\in\ell^2(E^3)$, let
+$g_0,g_1,g_2:E\to\R$, let $p_0,p_1,p_2,q,e,c,h\in E$, let $B:E\to\R$, let
+$f,f_1:\R\to\R$ and let $a,r,\delta,C,K_1,K_3,B_{\mathrm{out}}\in\R$. Assume:
+\begin{enumerate}
+\item\label{it:tpjm-a} $a=B(c)\,f_1(r)-\dfrac{2|h|^2}{r^3}$;
+\item\label{it:tpjm-p} $p_1=q+\tfrac12f(r)\,\nabla B(c)-\dfrac{h}{r^2}+a\,e$ and
+$p_2=q+\tfrac12f(r)\,\nabla B(c)-\dfrac{h}{r^2}-a\,e$;
+\item\label{it:tpjm-sig} the three coordinates of $\sigma$ are $p_1$, $p_2$ and
+$p_0$;
+\item\label{it:tpjm-jets} the three coordinate blocks of $\nabla\Psi(Z)$ are
+$p_1$, $p_2$ and $-2p_0$;
+\item\label{it:tpjm-sub} each $g_j$ is an infinity subsolution on the unit ball
+$B_1$ of $E$ (in particular continuous there);
+\item\label{it:tpjm-mem} every coordinate of $Z$ lies in $B_1$;
+\item\label{it:tpjm-C2} $\Psi$ is twice continuously differentiable at $Z$;
+\item\label{it:tpjm-max} $Z$ is a local maximum of
+$Y\mapsto\sum_jg_j(Y_j)-\Psi(Y)$ on $\ell^2(E^3)$;
+\item\label{it:tpjm-r} $0<r$ and $r\le3/2$;
+\item\label{it:tpjm-f1} $f_1(r)=1-\dfrac{3\sqrt r}{16}$ and $f_1(r)\le1$;
+\item\label{it:tpjm-small} $\dfrac3{16}\sqrt r\le\dfrac14$ and
+$8C^2r\le\dfrac\delta8$;
+\item\label{it:tpjm-h} $|h|\le2Cr^2$;
+\item\label{it:tpjm-B} $\dfrac\delta2\le B(c)\le B_{\mathrm{out}}$ and
+$0<\delta$;
+\item\label{it:tpjm-bd} $|\nabla B(c)|\le K_1$, $0\le f(r)\le r$, $|q|\le C$ and
+$K_3=C+\tfrac34K_1+2C$.
+\end{enumerate}
+Then
+\begin{equation}\label{eq:tpjm-bounds}
+  \frac\delta4\le a,\qquad a\le B_{\mathrm{out}},\qquad
+  \Bigl|\frac{p_1+p_2}{2}\Bigr|\le K_3,
+\end{equation}
+and the second variation of $\Psi$ at $Z$ in the direction $\sigma$ is
+nonnegative:
+\begin{equation}\label{eq:tpjm-Apos}
+  0\le D^2\Psi(Z)[\sigma,\sigma].
+\end{equation}
+\end{lemma}
+\begin{proof}
+\emph{The lower bound $a\ge\delta/4$.} By \ref{it:tpjm-f1} and the first half of
+\ref{it:tpjm-small}, $f_1(r)=1-\tfrac3{16}\sqrt r\ge1-\tfrac14=\tfrac34$. Next,
+$|h|^2\le(2Cr^2)^2$ by \ref{it:tpjm-h}, both sides being nonnegative, and
+$r^3>0$ by \ref{it:tpjm-r}, so
+\[
+  \frac{2|h|^2}{r^3}\le\frac{2(2Cr^2)^2}{r^3}=8C^2r\le\frac\delta8
+\]
+by the second half of \ref{it:tpjm-small}. Also
+$\tfrac\delta2\cdot\tfrac34\le\tfrac\delta2f_1(r)\le B(c)f_1(r)$: the first
+inequality multiplies $f_1(r)\ge3/4$ by $\delta/2\ge0$, the second multiplies
+$B(c)\ge\delta/2$ from \ref{it:tpjm-B} by $f_1(r)\ge3/4\ge0$. Substituting both
+into \ref{it:tpjm-a},
+\[
+  a=B(c)f_1(r)-\frac{2|h|^2}{r^3}
+   \ge\frac{3\delta}{8}-\frac\delta8=\frac\delta4 .
+\]
+
+\emph{The upper bound $a\le B_{\mathrm{out}}$.} From \ref{it:tpjm-B},
+$0<\delta$ gives $0\le\delta/2\le B(c)$, and $f_1(r)\le1$ by \ref{it:tpjm-f1},
+so $B(c)f_1(r)\le B(c)\le B_{\mathrm{out}}$. Since
+$2|h|^2/r^3\ge0$, \ref{it:tpjm-a} gives
+$a\le B(c)f_1(r)\le B_{\mathrm{out}}$.
+
+\emph{The mean endpoint velocity.} Subtracting the two identities of
+\ref{it:tpjm-p}, the radial parts $\pm a\,e$ cancel in the mean:
+\[
+  \frac{p_1+p_2}{2}=q+\tfrac12f(r)\,\nabla B(c)-\frac{h}{r^2},
+\]
+so no bound on $e$ is needed. Now
+$\bigl|\tfrac12f(r)\nabla B(c)\bigr|=\tfrac12f(r)\,|\nabla B(c)|
+\le\tfrac12\cdot\tfrac32\cdot K_1=\tfrac34K_1$, using $0\le f(r)\le r\le3/2$
+from \ref{it:tpjm-bd} and \ref{it:tpjm-r} and $|\nabla B(c)|\le K_1$; and
+$\bigl|h/r^2\bigr|=r^{-2}|h|\le r^{-2}\cdot2Cr^2=2C$ by \ref{it:tpjm-h} and
+$r^2>0$. Two applications of the triangle inequality and $|q|\le C$ give
+\[
+  \Bigl|\frac{p_1+p_2}{2}\Bigr|
+   \le|q|+\Bigl|\tfrac12f(r)\nabla B(c)\Bigr|+\Bigl|\frac{h}{r^2}\Bigr|
+   \le C+\tfrac34K_1+2C=K_3
+\]
+by the definition of $K_3$ in \ref{it:tpjm-bd}.
+
+\emph{The matrix inequality, for each regularization parameter.} Fix
+$\eta>0$. Apply \noderef{SumRuleJets} with $N=3$, the three open sets all equal
+to $B_1$, the functions $g_j$ --- continuous on $B_1$ by \ref{it:tpjm-sub} ---
+the test $\Psi$, the point $Z$, the memberships \ref{it:tpjm-mem}, the
+regularity \ref{it:tpjm-C2}, the local maximality \ref{it:tpjm-max}, and this
+$\eta$. It produces continuous symmetric bilinear forms
+$X_0,X_1,X_2$ on $E$ such that, for each $j$, the pair
+$\bigl((\nabla\Psi(Z))_j,X_j\bigr)$ lies in the closed superjet of $g_j$ at
+$Z_j$, and such that
+\begin{equation}\label{eq:tpjm-matrix}
+  \sum_jX_j[\xi_j,\xi_j]\le D^2\Psi(Z)[\xi,\xi]
+    +\eta\,\bigl|D^2\Psi(Z)\xi\bigr|^2
+  \qquad(\xi\in\ell^2(E^3)).
+\end{equation}
+By \ref{it:tpjm-jets} the three jet gradients are $p_1$, $p_2$ and $-2p_0$.
+Hence \noderef{InfSubsolutionClosedSuperjet}, applied to the infinity
+subsolution $g_j$ on $B_1$ at the point $Z_j\in B_1$, gives
+\[
+  0\le X_0[p_1,p_1],\qquad 0\le X_1[p_2,p_2],\qquad
+  0\le X_2[-2p_0,-2p_0] .
+\]
+The last one is $4X_2[p_0,p_0]$ by bilinearity, so $0\le X_2[p_0,p_0]$ as well.
+Evaluating \eqref{eq:tpjm-matrix} at $\xi=\sigma$ and using \ref{it:tpjm-sig} to
+read $\sum_jX_j[\sigma_j,\sigma_j]=X_0[p_1,p_1]+X_1[p_2,p_2]+X_2[p_0,p_0]\ge0$,
+we obtain
+\begin{equation}\label{eq:tpjm-eta}
+  0\le D^2\Psi(Z)[\sigma,\sigma]+\eta\,\bigl|D^2\Psi(Z)\sigma\bigr|^2
+  \qquad\text{for every }\eta>0 .
+\end{equation}
+
+\emph{Letting $\eta$ decrease to zero.} The point $Z$, the Hessian
+$D^2\Psi(Z)$ and the direction $\sigma$ in \eqref{eq:tpjm-eta} do not depend on
+$\eta$ --- only the forms $X_j$ supplied by the sum rule do, and they have
+already been eliminated --- so the inequality holds for a fixed pair of real
+numbers $A=D^2\Psi(Z)[\sigma,\sigma]$ and $M=|D^2\Psi(Z)\sigma|^2\ge0$ and every
+$\eta>0$. Suppose $A<0$. Choosing
+$\eta=\dfrac{-A}{2(M+1)}>0$, which is legitimate because $M+1>0$, gives
+\[
+  \eta M=\frac{-A\,M}{2(M+1)}\le\frac{-A}{2},
+\]
+since $M\le M+1$ and $-A>0$, and therefore $A+\eta M\le A-A/2=A/2<0$,
+contradicting \eqref{eq:tpjm-eta} at that $\eta$. Hence $A\ge0$, which is
+\eqref{eq:tpjm-Apos}.
+\end{proof}

@@ -1,0 +1,11 @@
+/.lake/
+/blueprint/*.aux
+/blueprint/*.log
+/blueprint/*.out
+/blueprint/*.toc
+.DS_Store
+*.swp
+*~
+/paper/*.aux
+/paper/*.log
+/paper/*.out

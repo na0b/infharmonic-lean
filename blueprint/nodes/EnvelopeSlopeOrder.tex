@@ -1,0 +1,141 @@
+\begin{lemma}[Envelope slopes of a subsolution]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$ be
+open, let $\Omega=\{(x,t):t\in I\}$, and let $f$ be a real function on space-time
+which is continuous on $\Omega$ and has subquadratic spatial growth on compact
+time intervals of $I$ in the sense of \noderef{SubquadraticGrowth},
+and assume in addition that $f$ is a viscosity subsolution of $F[f]=0$ on $\Omega$ in the
+sense of \noderef{IsLimitSubOn}. Then, with the slopes of \noderef{EnvSlopeP}
+and \noderef{EnvSlopeM}:
+\begin{enumerate}
+\item for every $z=(x,t)$ and all $0<\ell\le\ell'$ such that $t+\sigma\in I$ for
+all $\sigma\in[0,\ell']$,
+\[
+  \Senv_\ell^+f(z)\le\Senv_{\ell'}^+f(z);
+\]
+\item for every $z=(x,t)$, every $h>0$ with $t+\sigma\in I$ for all
+$\sigma\in[-h,h]$, and every $\varepsilon>0$, there is $\delta>0$ with
+\[
+  \Senv_\ell^-f(z)\le\Senv_h^+f(z)+\varepsilon\qquad(0<\ell<\delta).
+\]
+\end{enumerate}
+Equivalently, in the limit form: for every $z=(x,t)$ and every $h_0>0$ with
+$t+\sigma\in I$ for all $\sigma\in[-h_0,h_0]$, item (1) makes
+$h\mapsto\Senv_h^+f(z)$ nondecreasing on $(0,h_0]$, so that
+$\lim_{h\downarrow0}\Senv_h^+f(z)$ exists in $[-\infty,\infty)$, and item (2)
+gives
+\begin{equation}\label{eq:subsolution-slope-order}
+  \limsup_{\ell\downarrow0}\Senv_\ell^-f(z)
+       \le\lim_{h\downarrow0}\Senv_h^+f(z),
+\end{equation}
+the right side being allowed the value $-\infty$.
+\end{lemma}
+\begin{proof}
+\emph{(1).} Fix $z=(x,t)$ and $0<\ell\le\ell'$ with $t+\sigma\in I$ for all
+$\sigma\in[0,\ell']$. By \noderef{QuadEnvPathConvex} with $T=\ell'$, $d=0$ and
+$x_0=x$, the function $g(\sigma)=\Penv_\sigma f(x,t)$ is convex on
+$[0,\ell']$, and $g(0)=f(z)$ because $\Penv_0f=f$ in \noderef{QuadEnvP}. By
+\noderef{EnvSlopeP},
+\[
+  \Senv_\sigma^+f(z)=\frac{g(\sigma)-g(0)}{\sigma}\qquad(\sigma>0),
+\]
+which is the slope of the chord of $g$ from $0$ to $\sigma$. For a convex
+function the chord slope from a fixed left endpoint is nondecreasing in the right
+endpoint, so $\Senv_\ell^+f(z)\le\Senv_{\ell'}^+f(z)$.
+
+\emph{(2).} Fix $z=(x,t)$, $h>0$ with $t+\sigma\in I$ for all $\sigma\in[-h,h]$,
+and $\varepsilon>0$.
+
+For $0<\ell<h$, the time arguments $t$ and $t-\ell$ lie in $I$, so by part (1)
+of \noderef{QuadEnvAttained} the infimum defining $\Menv_\ell f(z)$ is attained
+at some $y_\ell\in F$; put $\widetilde z_\ell=(y_\ell,t-\ell)$. Attainment and
+the formula of \noderef{QuadEnvM} give
+$\Menv_\ell f(z)=f(\widetilde z_\ell)+|y_\ell-x|^2/(2\ell)$, so
+\[
+  f(z)-\Menv_\ell f(z)
+   =f(z)-f(\widetilde z_\ell)-\frac{|y_\ell-x|^2}{2\ell}.
+\]
+On the other hand $x$, at time $(t-\ell)+\ell=t$, is an admissible competitor in
+the supremum defining $\Penv_\ell f(\widetilde z_\ell)$ of \noderef{QuadEnvP}.
+That a competitor's value is at most the envelope is not automatic: the envelope
+is a supremum, and the supremum of a set that is empty or unbounded above is a
+junk value, so attainment at one competitor does not by itself license
+domination at the others. The licence is part (1) of
+\noderef{EnvelopeCompetitorBounds}, whose first clause states exactly that
+$\Penv_\ell f$ dominates every competitor value; we apply it at the center
+$\widetilde z_\ell$ and the length $\ell>0$, its hypotheses being the continuity
+and subquadratic growth of $f$ already assumed together with the memberships
+$t-\ell\in I$ and $(t-\ell)+\ell=t\in I$, both of which hold. This gives
+\[
+  \Penv_\ell f(\widetilde z_\ell)
+    \ge f(z)-\frac{|x-y_\ell|^2}{2\ell}.
+\]
+Subtracting $f(\widetilde z_\ell)$ from both sides and dividing by $\ell>0$,
+the two displays above give, by \noderef{EnvSlopeM} and \noderef{EnvSlopeP},
+\begin{equation}\label{eq:eso-cross}
+  \Senv_\ell^-f(z)\le\Senv_\ell^+f(\widetilde z_\ell).
+\end{equation}
+
+By part (4) of \noderef{QuadEnvAttained}, applied at $z$ with the tolerance
+$\eta$, every optimizer $y_\ell$ for $\Menv_\ell f(z)$ satisfies
+$|y_\ell-x|\le\eta$ once $\ell$ is small; since also $t-\ell\to t$, this gives
+$\widetilde z_\ell\to z$ as $\ell\downarrow0$.
+
+Fix $\ell$ with $0<\ell<h$, and apply part (1) at the center
+$\widetilde z_\ell=(y_\ell,t-\ell)$ with lengths $\ell\le h$. Its hypothesis
+requires $(t-\ell)+\sigma\in I$ for all $\sigma\in[0,h]$, which holds because
+$(t-\ell)+\sigma=t+(\sigma-\ell)$ and $\sigma-\ell\in[-h,h]$. Therefore
+\[
+  \Senv_\ell^+f(\widetilde z_\ell)\le\Senv_h^+f(\widetilde z_\ell).
+\]
+Combining with \eqref{eq:eso-cross},
+\[
+  \Senv_\ell^-f(z)\le\Senv_h^+f(\widetilde z_\ell)
+   =\frac{\Penv_hf(\widetilde z_\ell)-f(\widetilde z_\ell)}{h}
+   \qquad(0<\ell<h).
+\]
+Now $\zeta\mapsto\Penv_hf(\zeta)$ is continuous at $z$: part (2) of
+\noderef{QuadEnvAttained}, whose hypotheses $h>0$, $t\in I$ and $t+h\in I$ hold,
+gives joint continuity of $(\ell,\zeta)\mapsto\Penv_\ell f(\zeta)$ at
+$(h,z)$, and restricting to the slice $\ell=h$ gives continuity in the center.
+Also
+$f$ is continuous at $z$ because $z\in\Omega$ and $\Omega$ is open. Hence
+$\zeta\mapsto\Senv_h^+f(\zeta)$ is continuous at $z$, so there is $\delta_1>0$
+such that $|\zeta-z|<\delta_1$ implies
+$\Senv_h^+f(\zeta)\le\Senv_h^+f(z)+\varepsilon$. Choose $\delta\in(0,h)$ so
+small that $|\widetilde z_\ell-z|<\delta_1$ for all $0<\ell<\delta$, which is
+possible by the previous paragraph. Then
+\[
+  \Senv_\ell^-f(z)\le\Senv_h^+f(z)+\varepsilon\qquad(0<\ell<\delta),
+\]
+as required.
+
+Finally we derive \eqref{eq:subsolution-slope-order} from (1) and (2). Fix
+$z=(x,t)$ and $h_0>0$ with $t+\sigma\in I$ for all $\sigma\in[-h_0,h_0]$.
+
+For $0<h\le h'\le h_0$ the hypothesis of (1) at the center $z$ with the lengths
+$h\le h'$ asks that $t+\sigma\in I$ for all $\sigma\in[0,h']$, which holds
+because $[0,h']\subseteq[-h_0,h_0]$; so (1) gives
+$\Senv_h^+f(z)\le\Senv_{h'}^+f(z)$, i.e. $h\mapsto\Senv_h^+f(z)$ is a
+nondecreasing real-valued function on $(0,h_0]$. A nondecreasing real-valued
+function on $(0,h_0]$ converges as $h\downarrow0$, in $\overline\R$, to
+\[
+  L=\inf_{0<h\le h_0}\Senv_h^+f(z)\in[-\infty,\infty),
+\]
+the value $-\infty$ occurring exactly when it is unbounded below, and the value
+$+\infty$ being impossible because $L\le\Senv_{h_0}^+f(z)<+\infty$. Hence
+$\lim_{h\downarrow0}\Senv_h^+f(z)$ exists in $[-\infty,\infty)$ and equals $L$.
+
+Now fix $h\in(0,h_0]$ and $\varepsilon>0$. The hypothesis of (2) at $z$ with
+this $h$ asks that $t+\sigma\in I$ for all $\sigma\in[-h,h]$, which holds
+because $[-h,h]\subseteq[-h_0,h_0]$; so (2) supplies $\delta>0$ with
+$\Senv_\ell^-f(z)\le\Senv_h^+f(z)+\varepsilon$ for all $0<\ell<\delta$.
+Therefore $\limsup_{\ell\downarrow0}\Senv_\ell^-f(z)\le
+\Senv_h^+f(z)+\varepsilon$. Letting $\varepsilon\downarrow0$ gives
+$\limsup_{\ell\downarrow0}\Senv_\ell^-f(z)\le\Senv_h^+f(z)$ for every
+$h\in(0,h_0]$, and taking the infimum over $h\in(0,h_0]$ gives
+\[
+  \limsup_{\ell\downarrow0}\Senv_\ell^-f(z)\le L
+   =\lim_{h\downarrow0}\Senv_h^+f(z),
+\]
+which is \eqref{eq:subsolution-slope-order}.
+\end{proof}

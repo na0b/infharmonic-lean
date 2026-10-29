@@ -1,0 +1,265 @@
+\begin{lemma}[Changes of frame]
+Let $F$ be a finite-dimensional real inner-product space, let $0\le C_0<\infty$,
+let $v\in\Aclass_{m,C_0}$ in the sense of \noderef{IsFitClass}, let
+$z_0=(x_0,t_0)$ be a space-time point, let $R>0$ and let
+$(p_0,a_0)\in F\times\R$. Let $\bar v$ be the change of frame of
+\noderef{FrameChange},
+\[
+  \bar v(y,s)=
+  \frac{v\bigl(x_0+R(y+p_0s),\,t_0+Rs\bigr)-v(x_0,t_0)}{R}
+       -p_0\cdot y-\left(a_0+\frac{|p_0|^2}{2}\right)s .
+\]
+Then $\bar v\in\Aclass_{m,C_0}$. Moreover, writing $T(y,s)=(x_0+R(y+p_0s),
+t_0+Rs)$ for the corresponding old point, if $(p,a)$ is a fit for $v$ at
+$T(\zeta)$ of radius $R\rho$ with constant $C_0$, in the sense of
+\noderef{IsFit}, then $(p-p_0,a-a_0)$ is a fit for $\bar v$ at $\zeta$ of radius
+$\rho$ with constant $C_0$.
+\end{lemma}
+\begin{proof}
+\emph{Step 1: the equation.} Write $\zeta=(y,s)$ for a space-time point in the
+new frame, let
+\[
+  A(y,s)=-p_0\cdot y-\Bigl(a_0+\frac{|p_0|^2}2\Bigr)s
+\]
+be the affine part of the formula of \noderef{FrameChange}, and let $B$ be the
+linear map $B(h,\ell)=(h+p_0\ell,\ell)$ on $F\times\R$. Then
+$T(\zeta)=z_0+R\,B\zeta$, so the linear part of the affine map $T$ is $R\,B$, and
+the formula of \noderef{FrameChange} reads
+\begin{equation}\label{eq:fi-bar}
+  \bar v=\frac{v\circ T-v(z_0)}R+A .
+\end{equation}
+
+\emph{(1a) $T$ is an affine homeomorphism, and $\bar v$ is continuous.}
+The map $B$ is linear and invertible with $B^{-1}(h,\ell)=(h-p_0\ell,\ell)$,
+because $B(h-p_0\ell,\ell)=(h,\ell)$ and $B^{-1}(h+p_0\ell,\ell)=(h,\ell)$; both
+are continuous, being built from vector addition and scalar multiplication.
+Since $R>0$,
+the linear part $R\,B$ of $T$ is a linear homeomorphism of space-time onto
+itself, so $T$ is an affine homeomorphism of space-time onto itself with
+\[
+  T^{-1}(Z)=B^{-1}\bigl(R^{-1}(Z-z_0)\bigr).
+\]
+In particular $T$ and $T^{-1}$ are continuous, $T$ maps open sets to open sets,
+and $T$ carries every neighbourhood of a point $\zeta$ onto a neighbourhood of
+$T(\zeta)$.
+
+By clause (1) of \noderef{IsFitClass} the function $v$ is continuous on all of
+space-time. In \eqref{eq:fi-bar} the composite $v\circ T$ is therefore
+continuous, $v(z_0)$ is a constant, $R>0$, and $A$ is linear and hence
+continuous; so $\bar v$ is continuous on all of space-time. The whole space is
+open, which is the openness requirement that \noderef{IsLimitSubOn} and
+\noderef{IsLimitSuperOn} place on $\Omega$ when $\Omega$ is the whole space.
+
+\emph{(1b) The adjoint of $B$.}
+The space-time inner product is
+$\langle(h,\ell),(g,k)\rangle=\langle h,g\rangle+\ell k$, so for all $(h,\ell)$
+and $(g,k)$
+\[
+  \bigl\langle B(h,\ell),(g,k)\bigr\rangle
+   =\langle h+p_0\ell,g\rangle+\ell k
+   =\langle h,g\rangle+\ell\bigl(\langle p_0,g\rangle+k\bigr)
+   =\bigl\langle(h,\ell),\bigl(g,\ \langle p_0,g\rangle+k\bigr)\bigr\rangle ,
+\]
+whence
+\begin{equation}\label{eq:fi-adjoint}
+  B^{\mathsf T}(g,k)=\bigl(g,\ \langle p_0,g\rangle+k\bigr),
+\end{equation}
+which is the identity in the spatial slot. For a symmetric bilinear form $M$ on
+space-time write $B^{\mathsf T}MB$ for the pulled-back form
+$(\xi,\eta)\mapsto M[B\xi,B\eta]$; then, taking $\eta=\xi$,
+\begin{equation}\label{eq:fi-quadform}
+  \bigl(B^{\mathsf T}MB\bigr)[\xi]=M[B\xi]\qquad(\xi\in F\times\R).
+\end{equation}
+
+\emph{(1c) The frame change of a $C^2$ test, and the identity for $F$.}
+Let $Z_0$ be a space-time point, put $\zeta_0=T^{-1}(Z_0)$, and let $\psi$ be
+$C^2$ near $Z_0$. Define the frame change of $\psi$ by
+\begin{equation}\label{eq:fi-phi}
+  \phi=\frac{\psi\circ T-v(z_0)}R+A ,
+\end{equation}
+built from $\psi$ by the formula \eqref{eq:fi-bar}, with the additive constant
+kept as $v(z_0)$. If $\psi$ is $C^2$ on
+the open set $N\ni Z_0$, then $T^{-1}(N)$ is open and contains $\zeta_0$ by
+(1a), and $\psi\circ T$ is $C^2$ there because $T$ is affine; since $A$ is
+affine and $R>0$, the function $\phi$ is $C^2$ near $\zeta_0$.
+
+Write $\nabla\psi(Z_0)=(\nabla_x\psi,\psi_t)$ for the space-time gradient of
+$\psi$ at $Z_0$, split into spatial and time parts as in \noderef{LimitOp}, and
+note that $A$ is linear with
+$\nabla A=\bigl(-p_0,\,-(a_0+|p_0|^2/2)\bigr)$. Because $T$ is affine with
+linear part $R\,B$, and the second derivative of an affine map vanishes, the
+chain rule applied to \eqref{eq:fi-phi} gives, for all $\xi,\eta\in F\times\R$,
+\[
+  D\phi(\zeta_0)\xi=\frac{D\psi(Z_0)(R\,B\xi)}R+\langle\nabla A,\xi\rangle
+   =D\psi(Z_0)(B\xi)+\langle\nabla A,\xi\rangle,
+  \qquad
+  D^2\phi(\zeta_0)[\xi,\eta]
+   =\frac{D^2\psi(Z_0)[R\,B\xi,\,R\,B\eta]}R .
+\]
+The inner product identifies derivatives with gradients, so the first identity
+reads $\langle\nabla\phi(\zeta_0),\xi\rangle
+ =\langle\nabla\psi(Z_0),B\xi\rangle+\langle\nabla A,\xi\rangle
+ =\langle B^{\mathsf T}\nabla\psi(Z_0)+\nabla A,\xi\rangle$ for every $\xi$, so
+by \eqref{eq:fi-adjoint}
+\[
+  \nabla\phi(\zeta_0)=B^{\mathsf T}\nabla\psi(Z_0)+\nabla A
+   =\Bigl(\nabla_x\psi-p_0,\ \langle p_0,\nabla_x\psi\rangle+\psi_t
+      -a_0-\frac{|p_0|^2}2\Bigr) ,
+\]
+whose spatial part is
+\begin{equation}\label{eq:fi-grad}
+  \nabla_y\phi(\zeta_0)=\nabla_x\psi(Z_0)-p_0 .
+\end{equation}
+The second identity, since $R^{-1}R^2=R$, reads in the notation of
+\eqref{eq:fi-quadform}
+\begin{equation}\label{eq:fi-hess}
+  D^2\phi(\zeta_0)=R\,B^{\mathsf T}\,D^2\psi(Z_0)\,B .
+\end{equation}
+These are the two identities that the change of frame induces, now asserted for
+a $C^2$ test pair rather than for $v$ and $\bar v$, which by hypothesis are only
+continuous, so that neither $D^2v$ nor $D^2\bar v$ need exist. Adding a constant to $\psi$ changes neither $\nabla\psi(Z_0)$ nor
+$D^2\psi(Z_0)$, hence changes neither \eqref{eq:fi-grad} nor
+\eqref{eq:fi-hess}: the particular constant $-v(z_0)/R$ in \eqref{eq:fi-phi} is
+immaterial to what follows.
+
+By \eqref{eq:fi-grad} and the definition of $B$,
+\begin{equation}\label{eq:fi-Bxi}
+  B\bigl(\nabla_y\phi(\zeta_0),1\bigr)
+   =\bigl(\nabla_y\phi(\zeta_0)+p_0,\ 1\bigr)
+   =\bigl(\nabla_x\psi(Z_0),1\bigr),
+\end{equation}
+so by the definition of $F$ in \noderef{LimitOp}, then \eqref{eq:fi-hess},
+\eqref{eq:fi-quadform} and \eqref{eq:fi-Bxi},
+\begin{equation}\label{eq:fi-Fscale}
+  F[\phi](\zeta_0)=D^2\phi(\zeta_0)\bigl[(\nabla_y\phi(\zeta_0),1)\bigr]
+   =R\,D^2\psi(Z_0)\bigl[B(\nabla_y\phi(\zeta_0),1)\bigr]
+   =R\,D^2\psi(Z_0)\bigl[(\nabla_x\psi(Z_0),1)\bigr]
+   =R\,F[\psi](Z_0).
+\end{equation}
+
+\emph{(1d) The test transfer, both signs.}
+Let $\zeta_0$ be any space-time point and let $\phi$ be $C^2$ near $\zeta_0$
+such that $\zeta\mapsto\bar v(\zeta)-\phi(\zeta)$ has a local maximum at
+$\zeta_0$. Put $Z_0=T(\zeta_0)$ and
+\begin{equation}\label{eq:fi-psi}
+  \psi=R\,(\phi-A)\circ T^{-1}+v(z_0).
+\end{equation}
+If $\phi$ is $C^2$ on the open set $M\ni\zeta_0$, then $T(M)$ is open and
+contains $Z_0$ by (1a), and $\psi$ is $C^2$ there because $T^{-1}$ and $A$ are
+affine; so $\psi$ is $C^2$ near $Z_0$, and $T^{-1}(Z_0)=\zeta_0$.
+
+First, $\phi$ is the frame change of this $\psi$ in the sense of
+\eqref{eq:fi-phi}. Indeed, evaluating \eqref{eq:fi-psi} at $Z=T\zeta$, so that
+$T^{-1}Z=\zeta$, gives $\psi(T\zeta)=R\bigl(\phi(\zeta)-A(\zeta)\bigr)+v(z_0)$,
+whence
+\[
+  \frac{\psi(T\zeta)-v(z_0)}R+A(\zeta)
+   =\bigl(\phi(\zeta)-A(\zeta)\bigr)+A(\zeta)=\phi(\zeta)
+   \qquad(\zeta\in F\times\R).
+\]
+So (1c) applies to the pair $(\psi,\phi)$ at $Z_0$ and $\zeta_0$, and
+\eqref{eq:fi-Fscale} holds for them.
+
+Second, by \eqref{eq:fi-bar} evaluated at $\zeta=T^{-1}Z$ we have
+$v(Z)=R\bigl(\bar v(T^{-1}Z)-A(T^{-1}Z)\bigr)+v(z_0)$, while
+\eqref{eq:fi-psi} says $\psi(Z)=R\bigl(\phi(T^{-1}Z)-A(T^{-1}Z)\bigr)+v(z_0)$;
+subtracting, the two copies of $R\,A(T^{-1}Z)$ and of $v(z_0)$ cancel and
+\begin{equation}\label{eq:fi-diff}
+  v(Z)-\psi(Z)=R\Bigl(\bar v\bigl(T^{-1}Z\bigr)-\phi\bigl(T^{-1}Z\bigr)\Bigr)
+\end{equation}
+for every space-time point $Z$.
+
+Now transfer the local maximum. Let $N_0$ be a neighbourhood of $\zeta_0$ with
+$\bar v-\phi\le(\bar v-\phi)(\zeta_0)$ on $N_0$. By (1a) the set $T(N_0)$ is a
+neighbourhood of $Z_0$, and for $Z\in T(N_0)$ we have $T^{-1}Z\in N_0$, so by
+\eqref{eq:fi-diff} and $R>0$
+\[
+  v(Z)-\psi(Z)=R\,\bigl(\bar v-\phi\bigr)\bigl(T^{-1}Z\bigr)
+   \le R\,\bigl(\bar v-\phi\bigr)(\zeta_0)=v(Z_0)-\psi(Z_0),
+\]
+the last equality by \eqref{eq:fi-diff} at $Z=Z_0$. Hence
+$Z\mapsto v(Z)-\psi(Z)$ has a local maximum at $Z_0$. By clause (1) of
+\noderef{IsFitClass} and \noderef{IsLimitSolutionOn}, $v$ is a viscosity
+subsolution of $F[v]=0$ on the whole space in the sense of
+\noderef{IsLimitSubOn}; its subsolution inequality, applied at the point $Z_0$
+with the test $\psi$, which is $C^2$ near $Z_0$ and for which $v-\psi$ has a
+local maximum there, gives $F[\psi](Z_0)\ge0$. Since $R>0$,
+\eqref{eq:fi-Fscale} yields
+\[
+  F[\phi](\zeta_0)=R\,F[\psi](Z_0)\ge0 .
+\]
+
+If instead $\bar v-\phi$ has a local \emph{minimum} at $\zeta_0$, the same
+construction applies verbatim with the two inequalities reversed: $v-\psi$ has a
+local minimum at $Z_0$ by \eqref{eq:fi-diff} and $R>0$; by clause (1) of
+\noderef{IsFitClass} and \noderef{IsLimitSolutionOn}, $v$ is a viscosity
+supersolution of $F[v]=0$ on the whole space in the sense of
+\noderef{IsLimitSuperOn}, so its supersolution inequality at $Z_0$ with the test
+$\psi$ gives $F[\psi](Z_0)\le0$; and \eqref{eq:fi-Fscale} yields
+$F[\phi](\zeta_0)=R\,F[\psi](Z_0)\le0$.
+
+\emph{(1e) $\bar v$ solves the equation.}
+By (1a) the whole space is open and $\bar v$ is continuous on it. By (1d), for
+every space-time point $\zeta_0$ and every $\phi$ that is $C^2$ near $\zeta_0$:
+if $\bar v-\phi$ has a local maximum at $\zeta_0$ then $F[\phi](\zeta_0)\ge0$,
+and if $\bar v-\phi$ has a local minimum at $\zeta_0$ then
+$F[\phi](\zeta_0)\le0$. With $\Omega$ the whole space, a local maximum of
+$\bar v-\phi$ on $\Omega$ at $\zeta_0$, as \noderef{IsLimitSubOn} requires, is
+an ordinary local maximum at $\zeta_0$, and likewise for local minima in
+\noderef{IsLimitSuperOn}. So the three conditions of each of those two
+definitions hold, and $\bar v$ is a viscosity subsolution and a viscosity
+supersolution of
+$F[\bar v]=0$ on all of space-time, that is, by \noderef{IsLimitSolutionOn}, a
+viscosity solution of $F[\bar v]=0$ there. Together with the continuity of
+$\bar v$ this is clause (1) of \noderef{IsFitClass} for $\bar v$.
+
+\emph{Step 2: the fits.}
+Let $(p,a)$ be a fit for $v$ at $Z=T(\zeta)$ of radius $R\rho$. Let $h\in F$ and
+$\ell\in\R$ with
+\begin{equation}\label{eq:fi-newbox}
+  |\ell|\le\rho,\qquad |h-(p-p_0)\ell|\le\rho .
+\end{equation}
+The increment $(h,\ell)$ in the new variables corresponds to the old increment
+$R\,B(h,\ell)=\bigl(R(h+p_0\ell),R\ell\bigr)$, and
+\[
+  T(\zeta+(h,\ell))=Z+\bigl(R(h+p_0\ell),R\ell\bigr).
+\]
+The old box conditions for the fit $(p,a)$ at radius $R\rho$ are
+$|R\ell|\le R\rho$ and $|R(h+p_0\ell)-pR\ell|\le R\rho$, i.e. $|\ell|\le\rho$
+and $|h-(p-p_0)\ell|\le\rho$; these are exactly \eqref{eq:fi-newbox}. So
+\noderef{IsFit} for $v$ gives
+\begin{equation}\label{eq:fi-old}
+  \Bigl|\,v\bigl(T(\zeta+(h,\ell))\bigr)-v(Z)
+    -p\cdot R(h+p_0\ell)-\Bigl(a-\frac{|p|^2}2\Bigr)R\ell\,\Bigr|
+  \le C_0R\rho .
+\end{equation}
+By the formula of \noderef{FrameChange},
+\[
+  \bar v(\zeta+(h,\ell))-\bar v(\zeta)
+   =\frac{v\bigl(T(\zeta+(h,\ell))\bigr)-v(Z)}{R}
+      -p_0\cdot h-\Bigl(a_0+\frac{|p_0|^2}2\Bigr)\ell .
+\]
+Subtracting the new affine increment
+$(p-p_0)\cdot h+\bigl(a-a_0-|p-p_0|^2/2\bigr)\ell$ and using the identity
+\[
+  \Bigl(a_0+\frac{|p_0|^2}2\Bigr)+\Bigl(a-a_0-\frac{|p-p_0|^2}2\Bigr)
+   =a-\frac{|p|^2}2+p\cdot p_0,
+\]
+which holds because
+$|p-p_0|^2=|p|^2-2p\cdot p_0+|p_0|^2$, we obtain
+\[
+  \bar v(\zeta+(h,\ell))-\bar v(\zeta)-(p-p_0)\cdot h
+     -\Bigl(a-a_0-\frac{|p-p_0|^2}2\Bigr)\ell
+  =\frac1R\Bigl[\,v\bigl(T(\zeta+(h,\ell))\bigr)-v(Z)
+     -p\cdot R(h+p_0\ell)-\Bigl(a-\frac{|p|^2}2\Bigr)R\ell\,\Bigr].
+\]
+Its absolute value is therefore at most $C_0R\rho/R=C_0\rho$ by
+\eqref{eq:fi-old}. By \noderef{IsFit} this says that $(p-p_0,a-a_0)$ is a fit
+for $\bar v$ at $\zeta$ of radius $\rho$ with constant $C_0$.
+
+\emph{Step 3: $\bar v$ has fits at every center and radius.}
+Let $\zeta$ be any space-time point and $\rho>0$. Since $v\in\Aclass_{m,C_0}$,
+\noderef{IsFitClass} provides a fit $(p,a)$ for $v$ at $T(\zeta)$ of radius
+$R\rho>0$. By Step 2, $(p-p_0,a-a_0)$ is a fit for $\bar v$ at $\zeta$ of radius
+$\rho$. Together with Step 1 this shows $\bar v\in\Aclass_{m,C_0}$.
+\end{proof}

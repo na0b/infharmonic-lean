@@ -1,0 +1,333 @@
+\begin{lemma}[Composition of quadratic envelopes]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$ be
+open, let $\Omega=\{(x,t):t\in I\}$, and let $f$ be a real function on space-time
+which is continuous on $\Omega$ and has subquadratic spatial growth on compact
+time intervals of $I$ in the sense of \noderef{SubquadraticGrowth}. Then,
+whenever $\ell,h>0$ and the time arguments $t$, $t+h$, $t+\ell+h$ all lie in
+$I$,
+\begin{equation}\label{eq:envelope-composition}
+  \Penv_\ell\bigl(\Penv_hf\bigr)(x,t)=\Penv_{\ell+h}f(x,t),
+\end{equation}
+and likewise, whenever $\ell,h>0$ and $t$, $t-h$, $t-\ell-h$ all lie in $I$,
+\[
+  \Menv_\ell\bigl(\Menv_hf\bigr)(x,t)=\Menv_{\ell+h}f(x,t),
+\]
+with the envelopes of \noderef{QuadEnvP} and \noderef{QuadEnvM}. Here
+$\Penv_hf$ and $\Menv_hf$ are regarded as functions of their center and time,
+the time being shifted by $h$ in the respective direction.
+\end{lemma}
+\begin{proof}
+Throughout, $z=(x,t)$ is a space-time point with $x\in F$ and $t\in\R$, and
+$\ell,h>0$ are fixed. For a fixed pair $(x,w)\in F\times F$ we write
+\[
+  Q(y)=\frac{|y-x|^2}{2\ell}+\frac{|w-y|^2}{2h}\qquad(y\in F)
+\]
+for the combined cost. By the convention of the preamble a supremum over a set
+which is empty or unbounded above, and an infimum over a set which is empty or
+unbounded below, take the junk value $0$; accordingly every extremum occurring
+below is shown to be over a nonempty set carrying the relevant one-sided bound
+\emph{before} that extremum is used. Steps 1--5 prove
+\eqref{eq:envelope-composition} and Step 6 proves the backward identity; Step 6
+also explains why the backward identity is not the forward one applied to $-f$.
+
+\emph{Step 1: the parallel-axis identity.}
+Fix $x,w\in F$ and set
+\[
+  a=\frac1{2\ell},\qquad b=\frac1{2h},\qquad
+  y_*=\frac{a\,x+b\,w}{a+b} .
+\]
+Since $a+b=\dfrac{\ell+h}{2\ell h}$, we have $\dfrac{a}{a+b}=\dfrac{h}{\ell+h}$
+and $\dfrac{b}{a+b}=\dfrac{\ell}{\ell+h}$, so
+$y_*=\dfrac{h\,x+\ell\,w}{\ell+h}$ is the convex combination of $x$ and $w$
+with weights $h/(\ell+h)$ and $\ell/(\ell+h)$. Now $Q(y)=a|y-x|^2+b|y-w|^2$,
+and expanding both squares by bilinearity and symmetry of the inner product,
+\[
+  Q(y)=(a+b)|y|^2-2\langle y,\,a\,x+b\,w\rangle+a|x|^2+b|w|^2 .
+\]
+Because $a+b>0$ we may complete the square, obtaining
+\[
+  Q(y)=(a+b)\Bigl|y-\frac{a\,x+b\,w}{a+b}\Bigr|^2
+    -\frac{|a\,x+b\,w|^2}{a+b}+a|x|^2+b|w|^2 .
+\]
+For the constant term, $|a\,x+b\,w|^2=a^2|x|^2+2ab\langle x,w\rangle+b^2|w|^2$,
+so
+\[
+  (a+b)\bigl(a|x|^2+b|w|^2\bigr)-|a\,x+b\,w|^2
+   =ab|x|^2-2ab\langle x,w\rangle+ab|w|^2
+   =ab\,|w-x|^2 ,
+\]
+the $a^2|x|^2$ and $b^2|w|^2$ terms cancelling, and hence
+\[
+  a|x|^2+b|w|^2-\frac{|a\,x+b\,w|^2}{a+b}=\frac{ab}{a+b}\,|w-x|^2 .
+\]
+Finally $\dfrac{ab}{a+b}=\dfrac{1}{4\ell h}\cdot\dfrac{2\ell h}{\ell+h}
+=\dfrac1{2(\ell+h)}$. Substituting the last two displays and
+$a+b=\frac{\ell+h}{2\ell h}$ into the completed square gives, for every
+$y\in F$,
+\begin{equation}\label{eq:parallel-axis}
+  \frac{|y-x|^2}{2\ell}+\frac{|w-y|^2}{2h}
+   =\frac{|w-x|^2}{2(\ell+h)}+\frac{\ell+h}{2\ell h}\,|y-y_*|^2 .
+\end{equation}
+Three consequences are used below, each immediate from
+\eqref{eq:parallel-axis}.
+
+(1a) Since $\frac{\ell+h}{2\ell h}>0$ and $|y-y_*|^2\ge0$, for \emph{every}
+$y\in F$
+\[
+  \frac{|y-x|^2}{2\ell}+\frac{|w-y|^2}{2h}\ \ge\ \frac{|w-x|^2}{2(\ell+h)} .
+\]
+
+(1b) Taking $y=y_*$ in \eqref{eq:parallel-axis} gives
+$Q(y_*)=\frac{|w-x|^2}{2(\ell+h)}$. Hence $\{Q(y):y\in F\}$ is nonempty and,
+by (1a), bounded below by $\frac{|w-x|^2}{2(\ell+h)}$, which is one of its
+elements; therefore
+\[
+  \inf_{y\in F}Q(y)=\frac{|w-x|^2}{2(\ell+h)} ,
+\]
+the infimum being attained at $y_*$ and, since $\frac{\ell+h}{2\ell h}>0$
+forces $|y-y_*|^2=0$ for any other minimizer, only there.
+
+(1c) Consistently with (1b), $y_*-x=\frac{\ell}{\ell+h}(w-x)$ and
+$w-y_*=\frac{h}{\ell+h}(w-x)$ by direct computation from
+$y_*=\frac{h x+\ell w}{\ell+h}$, and substituting these two into $Q$ gives
+$\frac1{2\ell}\frac{\ell^2|w-x|^2}{(\ell+h)^2}
+ +\frac1{2h}\frac{h^2|w-x|^2}{(\ell+h)^2}
+ =\frac{|w-x|^2}{2(\ell+h)^2}(\ell+h)=\frac{|w-x|^2}{2(\ell+h)}$.
+
+\emph{Step 2: the single-cost family is nonempty and bounded above.}
+Assume from here to the end of Step 5 that $t$, $t+h$ and $t+\ell+h$ lie in
+$I$. Put $s=t+\ell+h$ and define
+\[
+  G(w)=f(w,s)-\frac{|w-x|^2}{2(\ell+h)}\qquad(w\in F).
+\]
+We claim there is $B\in\R$ with $G(w)\le B$ for all $w\in F$. The singleton
+$J=\{s\}$ is compact and $J\subseteq I$ because $s=t+\ell+h\in I$ by
+hypothesis, so \noderef{SubquadraticGrowth} applies to $J$ with
+$\varepsilon=\frac1{8(\ell+h)}>0$ and yields $M>0$ such that
+\[
+  |f(w,s)|\le\frac{|w|^2}{8(\ell+h)}\qquad(|w|\ge M).
+\]
+Set $R=\max\{M,2|x|\}$. If $|w|\ge R$ then $|x|\le|w|/2$, so by the triangle
+inequality $|w-x|\ge|w|-|x|\ge|w|/2\ge0$ and hence $|w-x|^2\ge|w|^2/4$;
+combining,
+\[
+  \frac{|w-x|^2}{2(\ell+h)}\ \ge\ \frac{|w|^2}{8(\ell+h)}\ \ge\ f(w,s),
+\]
+so $G(w)\le0$. If $|w|\le R$, note that $F$ is finite dimensional and
+$\overline B_R=\{w\in F:|w|\le R\}$ is closed and bounded, hence compact, and
+nonempty because $R\ge M>0$ gives $0\in\overline B_R$; the map
+$w\mapsto(w,s)$ is continuous and takes $\overline B_R$ into
+$\Omega=\{(y,\sigma):\sigma\in I\}$ because $s\in I$, so $w\mapsto f(w,s)$ is
+continuous on $\overline B_R$ by the continuity hypothesis on $f$, and
+$w\mapsto\frac{|w-x|^2}{2(\ell+h)}$ is continuous. Thus $G$ is continuous on
+the nonempty compact set $\overline B_R$ and attains a finite maximum $B_0$
+there. With
+$B=\max\{B_0,0\}$ we get $G(w)\le B$ for every $w\in F$. The family is also
+nonempty, $F$ containing $x$.
+
+\emph{Step 3: every extremum in the iterated envelope is legitimate.}
+Define
+\[
+  H(y,w)=f(w,s)-\frac{|w-y|^2}{2h}-\frac{|y-x|^2}{2\ell}
+  \qquad(y,w\in F).
+\]
+Applying (1a) at the pair $(x,w)$, we have for every $y\in F$
+\[
+  \frac{|y-x|^2}{2\ell}+\frac{|w-y|^2}{2h}\ \ge\ \frac{|w-x|^2}{2(\ell+h)} ,
+\]
+so for all $y,w\in F$
+\begin{equation}\label{eq:two-cost-dominated}
+  H(y,w)\ \le\ f(w,s)-\frac{|w-x|^2}{2(\ell+h)}=G(w)\ \le\ B .
+\end{equation}
+Consequently:
+\begin{itemize}
+\item for each fixed $y\in F$ the set
+$\bigl\{f(w,s)-\frac{|w-y|^2}{2h}:w\in F\bigr\}$ is nonempty (take $w=y$) and
+bounded above by $B+\frac{|y-x|^2}{2\ell}$, by \eqref{eq:two-cost-dominated};
+\item the set $\{H(y,w):(y,w)\in F\times F\}$ is nonempty (take $y=w=x$) and
+bounded above by $B$;
+\item for each fixed $w\in F$ the set $\{H(y,w):y\in F\}$ is nonempty (take
+$y=x$) and bounded above by $B$;
+\item the set $\bigl\{f(w,s)-\frac{|w-x|^2}{2(\ell+h)}:w\in F\bigr\}$ is
+nonempty and bounded above by $B$, by Step 2.
+\end{itemize}
+By \noderef{QuadEnvP} with length $h\ne0$, at the center $y$ and time
+$t+\ell$, the envelope $\Penv_hf(y,t+\ell)$ is the supremum of the first of
+these sets, since the time argument of $f$ is $(t+\ell)+h=s$; the first bullet
+makes it a genuine supremum, in particular finite. Note that $f$ is evaluated
+only at time $s=t+\ell+h$, so no information about $t+\ell$ is required here or
+anywhere below. By \noderef{QuadEnvP} with length $\ell\ne0$ at the center
+$(x,t)$,
+\begin{equation}\label{eq:outer-envelope}
+  \Penv_\ell\bigl(\Penv_hf\bigr)(x,t)
+   =\sup_{y\in F}\left\{\Penv_hf(y,t+\ell)-\frac{|y-x|^2}{2\ell}\right\},
+\end{equation}
+and this outer set is nonempty and bounded above by $B$: for each $y$,
+subtracting the constant $\frac{|y-x|^2}{2\ell}$ from the first bullet's upper
+bound gives $\Penv_hf(y,t+\ell)-\frac{|y-x|^2}{2\ell}\le B$.
+
+\emph{Step 4: the interchange, in three separate moves.}
+
+\emph{(4i) Translating the inner supremum by a $w$-independent constant.} Fix
+$y\in F$. For a nonempty set $S\subseteq\R$ bounded above and $c\in\R$ one has
+$\sup\{u-c:u\in S\}=\sup S-c$, since $u\le\sup S$ for all $u\in S$ gives
+$\le$, and $\sup S\le\sup\{u-c:u\in S\}+c$ follows because
+$\sup\{u-c:u\in S\}+c$ is an upper bound for $S$. Applying this with $S$ the
+first bullet's set and $c=\frac{|y-x|^2}{2\ell}$,
+\[
+  \Penv_hf(y,t+\ell)-\frac{|y-x|^2}{2\ell}
+   =\sup_{w\in F}\left\{f(w,s)-\frac{|w-y|^2}{2h}
+     -\frac{|y-x|^2}{2\ell}\right\}
+   =\sup_{w\in F}H(y,w).
+\]
+
+\emph{(4ii) Iterated supremum equals supremum over the product.} All three
+families in the second and third bullets are nonempty and bounded above, so
+$S^*=\sup_{(y,w)\in F\times F}H(y,w)$, $\sup_{w}H(y,w)$ for each $y$, and
+$\sup_{y}H(y,w)$ for each $w$ all exist in $\R$. For each $y$ and each $w$,
+$H(y,w)\le S^*$, so $\sup_wH(y,w)\le S^*$; the set
+$\{\sup_wH(y,w):y\in F\}$ is therefore nonempty and bounded above by $S^*$,
+giving $\sup_y\sup_wH(y,w)\le S^*$. Conversely, for any $(y,w)$,
+$H(y,w)\le\sup_{w'}H(y,w')\le\sup_{y'}\sup_{w'}H(y',w')$, so
+$\sup_{y'}\sup_{w'}H(y',w')$ is an upper bound for the product family and
+$S^*\le\sup_y\sup_wH(y,w)$. Hence
+$\sup_y\sup_wH(y,w)=S^*$, and the identical argument with the roles of the two
+coordinates exchanged gives $\sup_w\sup_yH(y,w)=S^*$. Combining with
+\eqref{eq:outer-envelope} and (4i),
+\[
+  \Penv_\ell\bigl(\Penv_hf\bigr)(x,t)
+   =\sup_{y\in F}\sup_{w\in F}H(y,w)=S^*=\sup_{w\in F}\sup_{y\in F}H(y,w).
+\]
+
+\emph{(4iii) Pulling out the $y$-independent term and passing to the
+infimum.} Fix $w\in F$. The quantity $f(w,s)$ does not depend on $y$, and
+$H(y,w)=f(w,s)-Q(y)$ with $Q$ as in Step 1. By (1b) the set $\{Q(y):y\in F\}$
+is nonempty and bounded below, so for a nonempty $T\subseteq\R$ bounded below
+we may use $\sup\{-v:v\in T\}=-\inf T$: indeed $-v\le-\inf T$ for every
+$v\in T$ gives $\le$, and any upper bound $\beta$ for $\{-v:v\in T\}$ makes
+$-\beta$ a lower bound for $T$, so $-\beta\le\inf T$, i.e.
+$-\inf T\le\beta$; as $\sup\{-v:v\in T\}$ is the least upper bound, the two
+halves give equality. Applying this with $T=\{Q(y):y\in F\}$, which is nonempty
+and bounded below by (1b),
+\[
+  \sup_{y\in F}\bigl(-Q(y)\bigr)=-\inf_{y\in F}Q(y)
+   =-\frac{|w-x|^2}{2(\ell+h)} ,
+\]
+the second equality by (1b). In particular $\{-Q(y):y\in F\}$ is nonempty and
+bounded above, so the translation rule of (4i) applies to it with
+$c=-f(w,s)$; since $H(y,w)=\bigl(-Q(y)\bigr)-\bigl(-f(w,s)\bigr)$, that rule
+gives
+\[
+  \sup_{y\in F}H(y,w)=\sup_{y\in F}\bigl(-Q(y)\bigr)+f(w,s)
+   =f(w,s)-\frac{|w-x|^2}{2(\ell+h)}=G(w).
+\]
+
+\emph{Step 5: conclusion of the forward identity.}
+Combining (4ii) and (4iii),
+\[
+  \Penv_\ell\bigl(\Penv_hf\bigr)(x,t)
+   =\sup_{w\in F}G(w)
+   =\sup_{w\in F}\left\{f(w,t+\ell+h)-\frac{|w-x|^2}{2(\ell+h)}\right\},
+\]
+a supremum over a nonempty set bounded above by Step 2. On the other hand
+$\ell+h>0$, so by \noderef{QuadEnvP} with length $\ell+h\ne0$ at the center
+$(x,t)$,
+\[
+  \Penv_{\ell+h}f(x,t)
+   =\sup_{w\in F}\left\{f\bigl(w,t+(\ell+h)\bigr)
+      -\frac{|w-x|^2}{2(\ell+h)}\right\},
+\]
+and $t+(\ell+h)=t+\ell+h=s$, so the two right-hand sides are suprema of the
+same set. This is \eqref{eq:envelope-composition}. (The argument used only
+$t+\ell+h\in I$; the hypotheses $t\in I$ and $t+h\in I$ belong to the
+statement's admissibility convention and are not needed for this identity.)
+
+\emph{Step 6: the backward identity, written out.}
+Assume now $\ell,h>0$ and $t$, $t-h$, $t-\ell-h\in I$, and put
+$\sigma=t-\ell-h$. This is \emph{not} the forward case applied to $-f$:
+unwinding \noderef{QuadEnvP} for $-f$ gives
+$-\Penv_\ell(-f)(x,t)=\inf_{y}\{f(y,t+\ell)+\frac{|y-x|^2}{2\ell}\}$, whose
+time argument is $t+\ell$, whereas \noderef{QuadEnvM} shifts time by $-\ell$;
+reducing one to the other would additionally require reflecting the time
+variable about a base point, which replaces $I$ by its reflection and so is
+unavailable under hypotheses stated for the fixed set $I$. Note also that the
+cost signs are \emph{not} reversed below: the two cost terms are added, exactly
+as in $Q$, and the same infimum (1b) is used, with no appeal to
+$\sup(-T)=-\inf T$.
+
+By \noderef{QuadEnvM} with length $h\ne0$ at the center $y$ and time
+$t-\ell$, the time argument of $f$ is $(t-\ell)-h=\sigma$, so
+\[
+  \Menv_hf(y,t-\ell)
+   =\inf_{w\in F}\left\{f(w,\sigma)+\frac{|w-y|^2}{2h}\right\},
+\]
+and by \noderef{QuadEnvM} with length $\ell\ne0$ at $(x,t)$,
+\[
+  \Menv_\ell\bigl(\Menv_hf\bigr)(x,t)
+   =\inf_{y\in F}\left\{\Menv_hf(y,t-\ell)+\frac{|y-x|^2}{2\ell}\right\}.
+\]
+Set $\widetilde G(w)=f(w,\sigma)+\frac{|w-x|^2}{2(\ell+h)}$ and
+$\widetilde H(y,w)=f(w,\sigma)+\frac{|w-y|^2}{2h}+\frac{|y-x|^2}{2\ell}$.
+Because an infimum over a set unbounded below is likewise the junk value $0$,
+this direction needs its own \emph{lower} bound, which is the mirror of Step 2.
+The singleton $\{\sigma\}$ is compact and contained in $I$ since
+$\sigma=t-\ell-h\in I$ by hypothesis, so \noderef{SubquadraticGrowth} with
+$\varepsilon=\frac1{8(\ell+h)}>0$ gives $M>0$ with
+$|f(w,\sigma)|\le\frac{|w|^2}{8(\ell+h)}$ for $|w|\ge M$. With
+$R=\max\{M,2|x|\}$, if $|w|\ge R$ then as in Step 2
+$|w-x|^2\ge|w|^2/4$, hence
+\[
+  \frac{|w-x|^2}{2(\ell+h)}\ \ge\ \frac{|w|^2}{8(\ell+h)}\ \ge\ -f(w,\sigma),
+\]
+so $\widetilde G(w)\ge0$; and on $\overline B_R=\{w\in F:|w|\le R\}$, which is
+closed, bounded and nonempty exactly as in Step 2, hence compact and nonempty,
+the function $\widetilde G$ is continuous, because $\sigma\in I$ puts
+$(w,\sigma)$ in $\Omega$ for every such $w$, so $\widetilde G$ attains a finite
+minimum $b_0$ there. With
+$b=\min\{b_0,0\}$ we get $\widetilde G(w)\ge b$ for all $w\in F$. By (1a),
+$\frac{|y-x|^2}{2\ell}+\frac{|w-y|^2}{2h}\ge\frac{|w-x|^2}{2(\ell+h)}$, so
+\[
+  \widetilde H(y,w)\ \ge\ \widetilde G(w)\ \ge\ b\qquad(y,w\in F).
+\]
+Hence, mirroring Step 3: for each fixed $y$ the set
+$\{f(w,\sigma)+\frac{|w-y|^2}{2h}:w\in F\}$ is nonempty ($w=y$) and bounded
+below by $b-\frac{|y-x|^2}{2\ell}$, so $\Menv_hf(y,t-\ell)$ is a genuine
+infimum; the families $\{\widetilde H(y,w):(y,w)\in F\times F\}$,
+$\{\widetilde H(y,w):y\in F\}$ for fixed $w$, and
+$\{\widetilde G(w):w\in F\}$ are nonempty and bounded below by $b$; and the
+outer set $\{\Menv_hf(y,t-\ell)+\frac{|y-x|^2}{2\ell}:y\in F\}$ is nonempty
+and bounded below by $b$.
+
+The three moves of Step 4 now run with every supremum replaced by an infimum
+and each inequality reversed, the corresponding elementary facts being
+$\inf\{u+c:u\in S\}=\inf S+c$ for nonempty $S$ bounded below and $c\in\R$, and
+the equality of the iterated infimum with the infimum over the product for a
+nonempty family bounded below (same two-inequality argument as in (4ii), with
+lower bounds in place of upper bounds). This gives
+\[
+  \Menv_\ell\bigl(\Menv_hf\bigr)(x,t)
+   =\inf_{y\in F}\inf_{w\in F}\widetilde H(y,w)
+   =\inf_{w\in F}\inf_{y\in F}\widetilde H(y,w),
+\]
+and for fixed $w$, since $f(w,\sigma)$ does not depend on $y$ and
+$\widetilde H(y,w)=f(w,\sigma)+Q(y)$,
+\[
+  \inf_{y\in F}\widetilde H(y,w)=f(w,\sigma)+\inf_{y\in F}Q(y)
+   =f(w,\sigma)+\frac{|w-x|^2}{2(\ell+h)}=\widetilde G(w),
+\]
+by the translation rule and (1b) -- the same infimum as in the forward case,
+with no sign change. Therefore
+\[
+  \Menv_\ell\bigl(\Menv_hf\bigr)(x,t)
+   =\inf_{w\in F}\left\{f(w,t-\ell-h)+\frac{|w-x|^2}{2(\ell+h)}\right\},
+\]
+an infimum over a nonempty set bounded below. Finally $\ell+h>0$, so by
+\noderef{QuadEnvM} with length $\ell+h\ne0$ at $(x,t)$,
+\[
+  \Menv_{\ell+h}f(x,t)
+   =\inf_{w\in F}\left\{f\bigl(w,t-(\ell+h)\bigr)
+      +\frac{|w-x|^2}{2(\ell+h)}\right\},
+\]
+and $t-(\ell+h)=t-\ell-h=\sigma$, so the two infima are over the same set and
+$\Menv_\ell(\Menv_hf)(x,t)=\Menv_{\ell+h}f(x,t)$.
+\end{proof}

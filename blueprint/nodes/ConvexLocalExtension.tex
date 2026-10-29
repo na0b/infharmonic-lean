@@ -1,0 +1,74 @@
+\begin{lemma}[Local extension of a convex function to a globally convex one]
+Let $E$ be a finite-dimensional real inner-product space, let $\Omega\subseteq E$
+be open, let $\psi:E\to\R$ be convex on $\Omega$ (so in particular $\Omega$ is
+convex), let $x_0\in E$ and let $r>0$ satisfy
+$\overline B(x_0,2r)\subseteq\Omega$. Then there is $\psi':E\to\R$ which is
+convex on all of $E$ and satisfies
+\[
+  \psi'(x)=\psi(x)\qquad\bigl(x\in B(x_0,r)\bigr).
+\]
+\end{lemma}
+\begin{proof}
+\emph{Step 1: a bound for $\psi$ and for its subgradients on the inner ball.}
+The set $\overline B(x_0,2r)$ is closed and bounded in the finite-dimensional
+space $E$, hence compact, and it is contained in $\Omega$, on which $\psi$ is
+continuous (preamble). So
+\[
+  M:=\max_{\overline B(x_0,2r)}|\psi|
+\]
+is a finite nonnegative real number (preamble).
+
+For each $w\in B(x_0,r)$ we have $w\in\Omega$, so by
+\noderef{ConvexSubgradientExists} there is $q_w\in E$ with
+\begin{equation}\label{eq:cle-sub}
+  \psi(w)+\langle q_w,x-w\rangle\le\psi(x)\qquad(x\in\Omega).
+\end{equation}
+Fix one such $q_w$ for each $w\in B(x_0,r)$. These vectors are bounded: let
+$e\in E$ with $|e|=1$ and put $x=w+re$. Then
+$|x-x_0|\le|w-x_0|+r<r+r=2r$, so $x\in\overline B(x_0,2r)\subseteq\Omega$, and
+\eqref{eq:cle-sub} gives
+\[
+  r\langle q_w,e\rangle\le\psi(w+re)-\psi(w)\le M-(-M)=2M .
+\]
+Dividing by $r>0$ gives $\langle q_w,e\rangle\le2M/r$ for every unit vector $e$,
+hence
+\begin{equation}\label{eq:cle-qbound}
+  |q_w|\le\frac{2M}{r}\qquad\bigl(w\in B(x_0,r)\bigr)
+\end{equation}
+(take $e=q_w/|q_w|$ when $q_w\ne0$; the bound is trivial otherwise).
+
+\emph{Step 2: the extension.}
+For $w\in B(x_0,r)$ let $a_w:E\to\R$ be the affine function
+$a_w(x)=\psi(w)+\langle q_w,x-w\rangle$, and define
+\[
+  \psi'(x)=\sup\bigl\{a_w(x):w\in B(x_0,r)\bigr\}\qquad(x\in E).
+\]
+The index set is nonempty, since $r>0$ gives $x_0\in B(x_0,r)$. The supremum is
+finite for every $x$: by $|\psi(w)|\le M$ and \eqref{eq:cle-qbound},
+\[
+  a_w(x)\le M+\frac{2M}{r}|x-w|\le M+\frac{2M}{r}\bigl(|x-x_0|+r\bigr)
+  \qquad\bigl(w\in B(x_0,r)\bigr),
+\]
+a bound independent of $w$. Hence $\psi'(x)$ is a real number, it is an upper
+bound for every $a_w(x)$, and it is the least such.
+
+\emph{Step 3: $\psi'$ is convex on $E$.}
+The set $E$ is convex. Let $x_1,x_2\in E$ and $t_1,t_2\ge0$ with $t_1+t_2=1$, and
+let $w\in B(x_0,r)$. Since $a_w$ is affine,
+\[
+  a_w(t_1x_1+t_2x_2)=t_1a_w(x_1)+t_2a_w(x_2)\le t_1\psi'(x_1)+t_2\psi'(x_2),
+\]
+using $a_w(x_i)\le\psi'(x_i)$ and $t_i\ge0$. The right-hand side does not depend
+on $w$, so it is an upper bound for $\{a_w(t_1x_1+t_2x_2):w\in B(x_0,r)\}$, whose
+least upper bound is $\psi'(t_1x_1+t_2x_2)$. Therefore
+$\psi'(t_1x_1+t_2x_2)\le t_1\psi'(x_1)+t_2\psi'(x_2)$, i.e. $\psi'$ is convex on
+$E$.
+
+\emph{Step 4: $\psi'=\psi$ on $B(x_0,r)$.}
+Let $x\in B(x_0,r)$; then $x\in\Omega$. For every $w\in B(x_0,r)$,
+\eqref{eq:cle-sub} applied at this $x$ gives $a_w(x)\le\psi(x)$, so $\psi(x)$ is
+an upper bound for the set defining $\psi'(x)$ and therefore
+$\psi'(x)\le\psi(x)$. Conversely the choice $w=x$ is admissible and gives
+$a_x(x)=\psi(x)$, an element of that set, so $\psi'(x)\ge\psi(x)$. Hence
+$\psi'(x)=\psi(x)$.
+\end{proof}

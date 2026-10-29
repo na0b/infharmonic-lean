@@ -1,0 +1,83 @@
+\begin{lemma}[Uniform subquadratic growth of the centered class]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$, and let $z_c$ be either $(0,0)$ or $(0,1)$. Then, for every
+compact $J\subseteq\R$,
+\begin{equation}\label{eq:uniform-subquadratic-growth}
+  \lim_{M\to\infty}\
+  \sup_{\substack{v\in\Aclass_{m,C_0}\text{ centered at }z_c\\
+                  |x|\ge M,\ t\in J}}
+       \frac{|v(x,t)|}{|x|^2}=0 ,
+\end{equation}
+where $\Aclass_{m,C_0}$ is the class of \noderef{IsFitClass} and ``centered at
+$z_c$'' is meant with constant $C_0$ in the sense of \noderef{IsCenteredAt}.
+Explicitly: for every compact $J\subseteq\R$ and every $\varepsilon>0$ there is
+$M>0$ such that $|v(x,t)|\le\varepsilon|x|^2$ for every such $v$ and whenever
+$|x|\ge M$ and $t\in J$.
+\end{lemma}
+\begin{proof}
+Let $C_1>0$ be the constant of \noderef{CenteredGrowth} for this $C_0$. Let
+$J\subseteq\R$ be compact and let $\varepsilon>0$.
+
+Since $J$ is compact it is bounded, so there is $T\ge2$ with $|t|\le T$ for all
+$t\in J$. For $M\ge T$ and a point $z=(x,t)$ with $|x|\ge M$ and $t\in J$, set
+$K=|x|$. Then $K\ge M\ge T\ge2$, $|x|\le K$ and $|t|\le T\le K$, so
+$z\in\mathcal B_K$ and \noderef{CenteredGrowth} applies to any
+$v\in\Aclass_{m,C_0}$ centered at $z_c$ — its hypothesis is that $v$ be centered
+at $(0,0)$ or at $(0,1)$, and $z_c$ is one of those two points by assumption, so
+that disjunction holds in either case — giving
+\[
+  |v(x,t)|\le C_1K\bigl(1+\log K\bigr)^2 .
+\]
+Dividing by $|x|^2=K^2$,
+\[
+  \frac{|v(x,t)|}{|x|^2}\le C_1\frac{(1+\log K)^2}{K}.
+\]
+The function $K\mapsto C_1(1+\log K)^2/K$ tends to $0$ as $K\to\infty$. Indeed,
+for $K\ge1$ we have $\log K\ge0$ and $(\log K-1)^2\ge0$, so
+$2\log K\le1+(\log K)^2$ and therefore
+\[
+  (1+\log K)^2=1+2\log K+(\log K)^2\le2+2(\log K)^2,
+  \qquad\text{whence}\qquad
+  C_1\frac{(1+\log K)^2}{K}\le2C_1\Bigl(\frac1K+\frac{(\log K)^2}{K}\Bigr),
+\]
+and both $1/K$ and $(\log K)^2/K$ tend to $0$ as $K\to\infty$. Hence there is
+$M_0\ge2$ with
+$C_1(1+\log K)^2/K\le\varepsilon$ for all $K\ge M_0$. Taking
+$M=\max\{T,M_0\}>0$ gives $|v(x,t)|\le\varepsilon|x|^2$ for every centered
+member $v$ of the class and all $|x|\ge M$, $t\in J$. The constant $M$ depends
+only on $C_0$, $\dim F$, $J$ and $\varepsilon$, not on $v$, which is the
+asserted uniformity. This is the explicit form of the statement.
+
+\emph{The displayed limit.} It remains to read the display
+\eqref{eq:uniform-subquadratic-growth} off that form. This step is not
+formality: the display is a statement about a supremum, and by the convention of
+the preamble a supremum carries the value $0$ when its set is empty or unbounded
+above, so the boundedness has to be exhibited. Write
+\[
+  S(M)=\Bigl\{\frac{|v(x,t)|}{|x|^2}\ :\
+      v\in\Aclass_{m,C_0}\text{ centered at }z_c\text{ with constant }C_0,\
+      |x|\ge M,\ t\in J\Bigr\},
+\]
+the set over which the supremum in \eqref{eq:uniform-subquadratic-growth} is
+taken, so that the display asserts $\sup S(M)\to0$ as $M\to\infty$.
+
+Fix $\varepsilon>0$ and write $M_\varepsilon=\max\{T,M_0\}$ for the radius
+produced above for this $\varepsilon$, which the previous paragraph called $M$;
+in the present paragraph the letter $M$ is free again and ranges over the
+argument of the supremum. Let $M\ge M_\varepsilon$. Every element of $S(M)$
+is of the form $|v(x,t)|/|x|^2$ with $v$ centered, $t\in J$ and
+$|x|\ge M\ge M_\varepsilon$, so the bound of the previous paragraph applies at
+that very point and gives $|v(x,t)|\le\varepsilon|x|^2$; since $|x|\ge M>0$ we
+may divide, and $|v(x,t)|/|x|^2\le\varepsilon$. Also
+$|v(x,t)|/|x|^2\ge0$. Hence
+\[
+  S(M)\subseteq[0,\varepsilon]\qquad(M\ge M_\varepsilon).
+\]
+In particular $S(M)$ is bounded above, so $\sup S(M)$ is a genuine least upper
+bound rather than the convention value whenever $S(M)\ne\emptyset$, and then
+$0\le\sup S(M)\le\varepsilon$; and if $S(M)=\emptyset$ then $\sup S(M)=0$ by the
+convention, so $0\le\sup S(M)\le\varepsilon$ in that case too. Thus
+$0\le\sup S(M)\le\varepsilon$ for every $M\ge M_\varepsilon$. As $\varepsilon>0$
+was arbitrary, $\sup S(M)\to0$ as $M\to\infty$, which is
+\eqref{eq:uniform-subquadratic-growth}.
+\end{proof}

@@ -1,0 +1,54 @@
+\begin{lemma}[Completing the square across a two-leg quadratic cost]
+Let $F$ be a finite-dimensional real inner-product space and let $t,\ell>0$. Then for all
+$y,x\in F$, writing $s=t+\ell$,
+\[
+  \frac{|y|^2}{2s}-\frac{|y-x|^2}{2\ell}-\frac{|x|^2}{2t}
+    =-\frac{t}{2\ell s}\Bigl|y-\frac stx\Bigr|^2 .
+\]
+\end{lemma}
+\begin{proof}
+Since $t>0$ and $\ell>0$ we have $s=t+\ell>0$, so each of $t$, $\ell$ and $s$ is nonzero
+and every division below is legitimate.
+
+Both sides are quadratic in $(y,x)$, so it suffices to expand each in the three
+quantities $|y|^2$, $\langle y,x\rangle$ and $|x|^2$ and compare coefficients. In an inner
+product space $|u-w|^2=|u|^2-2\langle u,w\rangle+|w|^2$, so
+\[
+  |y-x|^2=|y|^2-2\langle y,x\rangle+|x|^2,
+\]
+and, applying the same identity with $w=(s/t)x$ and using
+$\langle y,(s/t)x\rangle=(s/t)\langle y,x\rangle$ together with
+$|(s/t)x|^2=(s/t)^2|x|^2$,
+\[
+  \Bigl|y-\frac stx\Bigr|^2
+   =|y|^2-2\,\frac st\langle y,x\rangle+\frac{s^2}{t^2}|x|^2 .
+\]
+
+Substituting these two expansions, the left-hand side becomes
+\[
+  \Bigl(\frac1{2s}-\frac1{2\ell}\Bigr)|y|^2
+   +\frac1\ell\langle y,x\rangle
+   +\Bigl(-\frac1{2\ell}-\frac1{2t}\Bigr)|x|^2 ,
+\]
+and the right-hand side becomes
+\[
+  -\frac{t}{2\ell s}|y|^2
+   +\frac{t}{2\ell s}\cdot\frac{2s}{t}\langle y,x\rangle
+   -\frac{t}{2\ell s}\cdot\frac{s^2}{t^2}|x|^2 .
+\]
+We compare the three coefficients.
+
+For $|y|^2$: on the left $\dfrac1{2s}-\dfrac1{2\ell}=\dfrac{\ell-s}{2\ell s}
+=\dfrac{-t}{2\ell s}$, using $s=t+\ell$ so that $\ell-s=-t$; this is the coefficient on
+the right.
+
+For $\langle y,x\rangle$: on the left it is $\dfrac1\ell$, and on the right
+$\dfrac{t}{2\ell s}\cdot\dfrac{2s}{t}=\dfrac1\ell$.
+
+For $|x|^2$: on the left
+$-\dfrac1{2\ell}-\dfrac1{2t}=-\dfrac{t+\ell}{2\ell t}=-\dfrac{s}{2\ell t}$, again by
+$s=t+\ell$; on the right
+$-\dfrac{t}{2\ell s}\cdot\dfrac{s^2}{t^2}=-\dfrac{s}{2\ell t}$.
+
+All three coefficients agree, so the two sides are equal for all $y,x\in F$.
+\end{proof}

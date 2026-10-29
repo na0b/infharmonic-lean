@@ -1,0 +1,62 @@
+\begin{helper}[The walk's time coordinate stays in the box]
+Let $F$ be a finite-dimensional real inner-product space, let $\kappa,H\in\R$,
+let $v$ be a real function on space-time, let $T\in\mathbb N$, $R\in\R$,
+$N\in\mathbb N$ and $\epsilon\in\R$, and let $(\Omega,\mathcal M,\mu)$ be a
+measure space with a filtration $(\mathcal G_n)_{n\in\mathbb N}$ carrying
+functions $\xi_n$, $z_n$, $z^+_n$, $z^-_n$, $Q_0(n)$ and $\tau$ which form a
+stopped contact walk for $(\kappa,H,T,R,v,N,\epsilon)$ in the sense of
+\noderef{IsContactWalk}. Write $\delta_N=2^{-N}$ and $z_n=(x_n,t_n)$, and
+assume $N\ge1$ and $T\ge1$. Then
+\[
+  \delta_N\le t_n(\omega)\le T\qquad\text{for every }n\in\mathbb N
+  \text{ and every }\omega\in\Omega .
+\]
+\end{helper}
+\begin{proof}
+Clause numbers refer to \noderef{IsContactWalk}.
+
+\emph{(G1) The grid.} By clause 2 there is an integer $k\ge0$ with
+$\epsilon=2^{-k}$, and $0<\epsilon\le\delta_N/4=2^{-N-2}$; since $i\mapsto2^{-i}$
+is decreasing, $k\ge N+2$. Consequently $2^{-i}=2^{\,k-i}\epsilon$ is an integer
+multiple of $\epsilon$ for every $i\le k$, because $2^{\,k-i}2^{i}=2^{k}$ and
+$2^{-i}2^{i}=1$. In particular $\delta_N=2^{\,k-N}\epsilon$ and
+$1=2^{k}\epsilon$ are integer multiples of $\epsilon$, using $N\le k$, and so is
+$T=(T2^{k})\epsilon$.
+
+\emph{(G2) The time coordinate moves by $0$ or $\pm\epsilon$.} Let $n$ and
+$\omega$ be given. If $n\ge\tau(\omega)$ then clause 7 gives $z_{n+1}=z_n$, so
+$t_{n+1}=t_n$. If $n<\tau(\omega)$ then clause 6 makes $(z^+_n,z^-_n)$ an
+optimizing step pair of size $\epsilon$ at $z_n$, so by \noderef{IsStepPair} the
+time coordinates of $z^+_n$ and $z^-_n$ are $t_n+\epsilon$ and $t_n-\epsilon$;
+clause 7 says $z_{n+1}$ is one of the two. In all cases
+$t_{n+1}\in\{t_n,\;t_n+\epsilon,\;t_n-\epsilon\}$.
+
+\emph{(G3) Every time coordinate is an integer multiple of $\epsilon$.} By
+induction on $n$: clause 5 gives $t_0=1$, an integer multiple of $\epsilon$ by
+(G1), and the inductive step is (G2), since $m\epsilon\pm\epsilon$ is again an
+integer multiple of $\epsilon$.
+
+\emph{A strict inequality between multiples of $\epsilon$ leaves a gap
+$\epsilon$.} If $x=m_1\epsilon$ and $c=m_2\epsilon$ with $m_1,m_2\in\mathbb Z$
+and $x<c$, then dividing by $\epsilon>0$ gives $m_1<m_2$ in $\R$, hence in
+$\mathbb Z$, hence $m_1+1\le m_2$; multiplying by $\epsilon>0$ gives
+$x+\epsilon\le c$.
+
+\emph{(G4) The conclusion.} We induct on $n$. For $n=0$ clause 5 gives $t_0=1$,
+and $\delta_N\le2^{-1}=\tfrac12\le1\le T$ by $N\ge1$ and $T\ge1$.
+
+For the step assume $\delta_N\le t_n(\omega)\le T$. If $n\ge\tau(\omega)$ then
+clause 7 gives $t_{n+1}(\omega)=t_n(\omega)$ and the bounds persist. If
+$n<\tau(\omega)$ then clause 10 gives the strict inequalities
+$\delta_N<t_n(\omega)<T$. By (G1), (G3) and the gap statement just proved,
+applied once to $\delta_N<t_n(\omega)$ and once to $t_n(\omega)<T$,
+\[
+  \delta_N+\epsilon\le t_n(\omega),\qquad t_n(\omega)+\epsilon\le T .
+\]
+Now examine the three cases of (G2). If $t_{n+1}(\omega)=t_n(\omega)$ the bounds
+are the inductive hypothesis. If $t_{n+1}(\omega)=t_n(\omega)+\epsilon$ then
+$t_{n+1}(\omega)\le T$ by the second display, and
+$t_{n+1}(\omega)\ge t_n(\omega)\ge\delta_N$ because $\epsilon>0$ by clause 2. If
+$t_{n+1}(\omega)=t_n(\omega)-\epsilon$ then $t_{n+1}(\omega)\ge\delta_N$ by the
+first display, and $t_{n+1}(\omega)\le t_n(\omega)\le T$ because $\epsilon>0$.
+In every case $\delta_N\le t_{n+1}(\omega)\le T$. \end{proof}

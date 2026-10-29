@@ -1,0 +1,107 @@
+\begin{lemma}[Second-order expansion along the proximal curve]
+Let $E$ be a finite-dimensional real inner-product space, let $\psi:E\to\R$ be
+convex on $E$, and let $u:E\to E$ be a proximal map for $\psi$ in the sense of
+\noderef{IsMoreauProx}. Let $y\in E$ be a point at which $u$ is differentiable
+with derivative the continuous linear map $P:E\to E$, and write
+$Q=\mathrm{id}-P$. Then for every $\delta>0$ there is $\rho>0$ such that, with
+$x_h=u(y+h)$,
+\[
+  \Bigl|\psi(x_h)-\psi(u(y))-\langle y-u(y),x_h-u(y)\rangle
+     -\tfrac12\langle Qh,Ph\rangle\Bigr|\le\delta|h|^2\qquad(|h|<\rho).
+\]
+\end{lemma}
+\begin{proof}
+Write $x=u(y)$, $v(z)=z-u(z)$, $p=v(y)=y-x$, and
+\[
+  \psi_1(z)=\psi(u(z))+\frac{|u(z)-z|^2}{2}=\psi(u(z))+\frac{|v(z)|^2}{2} .
+\]
+
+\emph{The hypotheses of the gradient lemma hold for $\psi_1$ and $v$.}
+By \noderef{MoreauEnvelopeGradient}, for all $z,z'\in E$
+\[
+  \bigl|\psi_1(z')-\psi_1(z)-\langle z-u(z),z'-z\rangle\bigr|
+    \le\tfrac32|z'-z|^2 ,
+\]
+and the right-hand side is $o(|z'-z|)$ as $z'\to z$; hence $v(z)=z-u(z)$ is the
+gradient of $\psi_1$ at $z$, for every $z\in E$. Next, for any $z_1,z_2\in E$
+the points $u(z_1)$ and $u(z_2)$ minimize $x'\mapsto\psi(x')+|x'-z_1|^2/2$ and
+$x'\mapsto\psi(x')+|x'-z_2|^2/2$ respectively, by \noderef{IsMoreauProx}, so
+\noderef{MoreauProxMonotone} applied with these data gives
+\begin{equation}\label{eq:mce-firm}
+  |u(z_1)-u(z_2)|^2+|v(z_1)-v(z_2)|^2\le|z_1-z_2|^2 .
+\end{equation}
+In particular $|v(z_1)-v(z_2)|\le|z_1-z_2|$, so $v$ is $1$-Lipschitz and hence
+continuous on $E$. Finally, $v=\mathrm{id}-u$ and $u$ is differentiable at $y$
+with derivative $P$, so $v$ is differentiable at $y$ with derivative
+$Q=\mathrm{id}-P$, a continuous linear map.
+
+\emph{The expansion of $\psi_1$.}
+The three facts just established are exactly the hypotheses of
+\noderef{GradientDiffSecondOrder} with $F=\psi_1$, $w=v$ and this $Q$. That
+lemma therefore provides, for every $\delta'>0$, a $\rho'>0$ with
+\begin{equation}\label{eq:mce-psi1}
+  \bigl|\psi_1(y+h)-\psi_1(y)-\langle p,h\rangle-\tfrac12\langle Qh,h\rangle\bigr|
+   \le\delta'|h|^2\qquad(|h|<\rho') .
+\end{equation}
+
+\emph{The exact identity for $v(y+h)$.}
+Put $\varrho(h)=x_h-x-Ph$, so that $|\varrho(h)|/|h|\to0$ as $h\to0$ by the
+differentiability of $u$ at $y$, and $\varrho(0)=0$. Since $Ph+Qh=h$ and
+$y-x=p$,
+\begin{equation}\label{eq:mce-vexact}
+  v(y+h)=(y+h)-x_h=(y-x)+h-(x_h-x)=p+h-Ph-\varrho(h)=p+Qh-\varrho(h).
+\end{equation}
+
+\emph{Assembling.}
+By \noderef{IsMoreauProx} the proximal point of the base point $y+h$ is
+$x_h=u(y+h)$, so by the definition of $\psi_1$,
+$\psi(x_h)=\psi_1(y+h)-\tfrac12|v(y+h)|^2$; likewise
+$\psi_1(y)=\psi(x)+\tfrac12|p|^2$. Expanding the square using
+\eqref{eq:mce-vexact} and the bilinearity of the inner product,
+\[
+  \tfrac12|v(y+h)|^2
+   =\tfrac12|p|^2+\langle p,Qh-\varrho(h)\rangle+\tfrac12|Qh-\varrho(h)|^2,
+\]
+\[
+  \tfrac12|Qh-\varrho(h)|^2
+   =\tfrac12|Qh|^2-\langle Qh,\varrho(h)\rangle+\tfrac12|\varrho(h)|^2 .
+\]
+Writing $e_1(h)$ for the error in \eqref{eq:mce-psi1}, that is
+$e_1(h)=\psi_1(y+h)-\psi_1(y)-\langle p,h\rangle-\tfrac12\langle Qh,h\rangle$,
+and $e_2(h)=\langle Qh,\varrho(h)\rangle-\tfrac12|\varrho(h)|^2$, we get
+\[
+\begin{aligned}
+  \psi(x_h)&=\Bigl[\psi(x)+\tfrac12|p|^2+\langle p,h\rangle
+     +\tfrac12\langle Qh,h\rangle+e_1(h)\Bigr]\\
+   &\quad-\Bigl[\tfrac12|p|^2+\langle p,Qh\rangle-\langle p,\varrho(h)\rangle
+     +\tfrac12|Qh|^2-\langle Qh,\varrho(h)\rangle+\tfrac12|\varrho(h)|^2\Bigr]\\
+   &=\psi(x)+\langle p,h-Qh+\varrho(h)\rangle
+     +\tfrac12\langle Qh,h-Qh\rangle+e_1(h)+e_2(h)\\
+   &=\psi(x)+\langle p,x_h-x\rangle+\tfrac12\langle Qh,Ph\rangle+e_1(h)+e_2(h),
+\end{aligned}
+\]
+where the last line uses $h-Qh=Ph$, hence
+$h-Qh+\varrho(h)=Ph+\varrho(h)=x_h-x$ and
+$\langle Qh,h-Qh\rangle=\langle Qh,Ph\rangle$. Therefore
+\begin{equation}\label{eq:mce-total}
+  \psi(x_h)-\psi(x)-\langle p,x_h-x\rangle-\tfrac12\langle Qh,Ph\rangle
+   =e_1(h)+e_2(h).
+\end{equation}
+
+\emph{Choice of $\rho$.}
+Let $\delta>0$. Choose $\delta'>0$ so small that
+$\|Q\|\delta'+\tfrac12\delta'^2\le\delta/2$; this is possible because the
+left-hand side tends to $0$ as $\delta'\downarrow0$. By the differentiability of
+$u$ at $y$ there is $\rho''>0$ with $|\varrho(h)|\le\delta'|h|$ for $|h|<\rho''$.
+For such $h$, the Cauchy--Schwarz inequality and $|Qh|\le\|Q\|\,|h|$ give
+\[
+  |e_2(h)|\le|Qh|\,|\varrho(h)|+\tfrac12|\varrho(h)|^2
+   \le\|Q\|\,|h|\cdot\delta'|h|+\tfrac12\delta'^2|h|^2
+   \le\frac{\delta}{2}|h|^2 .
+\]
+Apply \eqref{eq:mce-psi1} with $\delta/2$ in place of $\delta'$ to obtain
+$\rho'>0$ with $|e_1(h)|\le(\delta/2)|h|^2$ for $|h|<\rho'$. Put
+$\rho=\min(\rho',\rho'')>0$. For $|h|<\rho$ both bounds apply, so by
+\eqref{eq:mce-total} the left-hand side of the assertion is at most
+$|e_1(h)|+|e_2(h)|\le\delta|h|^2$, as required.
+\end{proof}

@@ -1,0 +1,85 @@
+\begin{lemma}[Penalization converges to the strict constrained maximum]
+Let $Z$ be a metric space, let $K\subseteq Z$ be compact, and let
+$\Theta,\chi:Z\to\R$ be continuous on $K$ with $\chi\ge0$ on $K$. Let $k_0\in K$
+satisfy $\chi(k_0)=0$, and assume that $k_0$ is a \emph{strict} maximum point of
+$\Theta$ among the points of $K$ at which $\chi$ vanishes:
+\[
+  \Theta(k)<\Theta(k_0)\qquad
+  \bigl(k\in K,\ \chi(k)=0,\ k\ne k_0\bigr).
+\]
+Let $(\lambda_m)_{m\ge0}$ be positive reals with $\lambda_m\to\infty$, and let
+$(k_m)_{m\ge0}$ be points of $K$ with
+\[
+  \Theta(k)-\lambda_m\chi(k)\le\Theta(k_m)-\lambda_m\chi(k_m)
+  \qquad(k\in K,\ m\ge0),
+\]
+that is, $k_m$ maximizes $\Theta-\lambda_m\chi$ over $K$. Then $k_m\to k_0$.
+\end{lemma}
+\begin{proof}
+\emph{Step 1: two consequences of maximality, taking $k=k_0$.}
+The function $\Theta$ is continuous on the nonempty compact set $K$, so it
+attains a maximum there (preamble), say at $k_\star\in K$; thus
+$\Theta(k)\le\Theta(k_\star)$ for every $k\in K$. Taking $k=k_0$ in the
+maximality hypothesis and using $\chi(k_0)=0$ gives
+\begin{equation}\label{eq:pmc-base}
+  \Theta(k_0)\le\Theta(k_m)-\lambda_m\chi(k_m)\qquad(m\ge0).
+\end{equation}
+From \eqref{eq:pmc-base} we read off two facts. First, since $\lambda_m>0$ and
+$\chi(k_m)\ge0$ (as $k_m\in K$), the subtracted term is nonnegative, so
+\begin{equation}\label{eq:pmc-value}
+  \Theta(k_0)\le\Theta(k_m)\qquad(m\ge0).
+\end{equation}
+Second, since $\Theta(k_m)\le\Theta(k_\star)$,
+\begin{equation}\label{eq:pmc-penalty}
+  \lambda_m\chi(k_m)\le\Theta(k_\star)-\Theta(k_0)=:C_0\qquad(m\ge0),
+\end{equation}
+and $C_0\ge0$ because $k_0\in K$ gives $\Theta(k_0)\le\Theta(k_\star)$.
+
+\emph{Step 2: the penalty vanishes.}
+Dividing \eqref{eq:pmc-penalty} by $\lambda_m>0$,
+\[
+  0\le\chi(k_m)\le\frac{C_0}{\lambda_m}\qquad(m\ge0),
+\]
+the left inequality because $k_m\in K$. Since $\lambda_m\to\infty$ and $C_0$ is
+a fixed real number, $C_0/\lambda_m\to0$; by the squeeze principle,
+\begin{equation}\label{eq:pmc-chi}
+  \chi(k_m)\longrightarrow0\qquad(m\to\infty).
+\end{equation}
+
+\emph{Step 3: every subsequence has a sub-subsequence converging to $k_0$.}
+It suffices to prove this: a sequence in a metric space converges to $k_0$ as
+soon as every subsequence admits a further subsequence converging to $k_0$.
+
+So let $(n_j)_j$ be indices with $n_j\to\infty$. The points $k_{n_j}$ all lie in
+the compact set $K$, so by sequential compactness of a compact metric space
+(preamble) there are a strictly increasing $(m_j)_j$ and a point $\hat k\in K$
+with $k_{n_{m_j}}\to\hat k$. We claim $\hat k=k_0$.
+
+Since every $k_{n_{m_j}}$ lies in $K$ and $k_{n_{m_j}}\to\hat k$ with $\hat k\in
+K$, the convergence also holds within $K$; as $\chi$ and $\Theta$ are continuous
+on $K$, this gives
+\[
+  \chi\bigl(k_{n_{m_j}}\bigr)\longrightarrow\chi(\hat k),
+  \qquad
+  \Theta\bigl(k_{n_{m_j}}\bigr)\longrightarrow\Theta(\hat k).
+\]
+On the other hand $(n_{m_j})_j\to\infty$, because $n_j\to\infty$ and
+$(m_j)_j$ is strictly increasing, so \eqref{eq:pmc-chi} applies along this
+subsequence and gives $\chi(k_{n_{m_j}})\to0$. Limits in a metric space are
+unique, hence
+\[
+  \chi(\hat k)=0 .
+\]
+Likewise \eqref{eq:pmc-value} holds for every index, so passing to the limit in
+$\Theta(k_0)\le\Theta(k_{n_{m_j}})$ gives
+\[
+  \Theta(k_0)\le\Theta(\hat k).
+\]
+Now suppose $\hat k\ne k_0$. Then $\hat k\in K$ with $\chi(\hat k)=0$ and
+$\hat k\ne k_0$, so the strict-maximum hypothesis gives
+$\Theta(\hat k)<\Theta(k_0)$, contradicting the previous display. Therefore
+$\hat k=k_0$, and $k_{n_{m_j}}\to k_0$.
+
+As $(n_j)_j$ was an arbitrary sequence of indices tending to infinity, the
+criterion quoted at the start of this step applies and gives $k_m\to k_0$.
+\end{proof}

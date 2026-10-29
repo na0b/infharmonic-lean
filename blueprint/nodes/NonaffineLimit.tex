@@ -1,0 +1,726 @@
+\begin{theorem}[The normalized nonaffine limit]
+Let $d\ge1$ be an integer, put $n=d+1$ and identify $\R^n$ with the space-time
+$\ell^2(\R^d\times\R)$, whose added unit direction is written $e_b=(0,1)$. Let
+\[
+  (\gamma_i,s_i,r_i,\lambda_i,U_i,z_i)_{i\ge0}
+\]
+be bad-scale data for $d$ in the sense of \noderef{IsBadScaleData}. Let $i_1$ be
+an index and suppose that for every $i\ge i_1$ the vector $P_i$ realizes a
+cylinder fit of parameter $32\lambda_i$ for $U_i$ at $(z_i,r_i)$ in the sense of
+\noderef{IsCylinderFit}. Put $c_i=|P_i|$, let $\Phi_i$ be a linear isometry of
+the space-time onto itself with
+\[
+  \Phi_i(e_b)=P_i/c_i\qquad(i\ge i_1),
+\]
+and let $v_i$ be given by the anisotropic normalization
+\begin{equation}\label{eq:nl-normalization}
+  U_i\bigl(z_i+r_i\Phi_i(\sqrt{\lambda_i}\,x,t)\bigr)
+     =U_i(z_i)+r_ic_i\bigl(t+\lambda_iv_i(x,t)\bigr)
+\end{equation}
+for every $(x,t)$ and every $i\ge i_1$. Then there are a constant
+$C_0$ with $0\le C_0<\infty$, a strictly increasing sequence of indices
+$j\mapsto\psi(j)$ with $\psi(j)\ge i_1$ for every $j$, and a continuous function
+$v$ on the space-time, such that $v_{\psi(j)}\to v$ uniformly on every compact
+set, $v\in\Aclass_{d,C_0}$ in the sense of \noderef{IsFitClass}, and $v$ is not
+affine on space-time in the sense of \noderef{IsSpaceTimeAffine}.
+\end{theorem}
+\begin{proof}
+Write $\Lambda=32$, $\theta_i=\sqrt{\Lambda\lambda_i}$, $G=B_{3/4}$ for the open
+ball of radius $3/4$ about the origin of the space-time and
+$D(w)=\operatorname{dist}(w,\partial G)$. For $(x,t)$ and $i\ge i_1$ put
+\[
+  Z_i(x,t)=z_i+r_i\Phi_i(\sqrt{\lambda_i}\,x,t),
+\]
+so that \eqref{eq:nl-normalization} reads
+$U_i(Z_i(x,t))=U_i(z_i)+r_ic_i(t+\lambda_iv_i(x,t))$, and write
+$\mathcal B_K=\{(x,t):|x|\le K,\ |t|\le K\}$ for $K\ge1$.
+
+Three symbols are reused below with different meanings in different steps, and each
+is redefined where it is used, so that no step relies on another step's meaning:
+$Q$ denotes an arbitrary vector of the space-time in Steps 5 and 6, while the base
+slope of the radius chain in Step 5 is written $Q_m$ and no step writes a chain slope
+as a bare $Q$; and $(p,q)$ denotes the limit coefficients of Step 11 and the affine
+coefficients of Step 12. The letter $N$ is no longer among the reused ones: Step 8's
+normalizing length left this proof together with the shear computation it belonged to,
+so the only occurrences are $N_i$ in Step 12 and the neighbourhood $N'$ in Step 10,
+which are distinct symbols. One further clash is deliberate and
+harmless: the constant $C_1$ of Step 2 is a comparison constant of this proof, whereas
+the symbols $c_1$ and $C_1$ appearing in the citations of
+\noderef{CylinderFitDoublingChain} in Steps 3 and 5 are that node's OWN two parameters,
+instantiated there at $(c_1,C_1)=(1/2,L+1)$; they are unrelated.
+
+\emph{Step 0: the standing data.}
+By \noderef{IsBadScaleData} we have: $\lambda_i>0$ and $\lambda_i\to0$;
+$r_i>0$; $z_i\in G$; each $U_i$ lies in the normalized family of
+\noderef{NormalizedInfFamily}; no vector realizes a cylinder fit of parameter
+$\lambda_i$ for $U_i$ at $(z_i,r_i)$; and, for every $M\ge2$, there is $i_0(M)$
+such that for every $i\ge i_0(M)$, every $w$ with $|w-z_i|\le Mr_i$ and every
+$\rho$ with $0<\rho\le Mr_i$,
+\begin{equation}\label{eq:nl-good}
+  w\in G,\qquad \rho\le D(w)/8,\qquad
+  \text{some }P\text{ realizes a cylinder fit of parameter }
+  \Lambda\lambda_i\text{ for }U_i\text{ at }(w,\rho).
+\end{equation}
+Call a pair $(w,\rho)$ \emph{admissible} when $w\in G$ and $0<\rho\le D(w)/8$.
+Let $L\ge0$ be the constant of \noderef{NormalizedFamilyLipschitz}, so that
+every member of the normalized family satisfies
+$|U(a)-U(b)|\le L|a-b|$ for $a,b\in\overline B_{7/8}$.
+Since $\lambda_i\to0$ we may fix $i_2\ge\max\{i_1,i_0(2)\}$ such that
+\begin{equation}\label{eq:nl-tail}
+  \Lambda\lambda_i\le1,\qquad \theta_i\le1/2\qquad(i\ge i_2);
+\end{equation}
+in particular $0<\theta_i<1$ for $i\ge i_2$. Taking $M=2$, $w=z_i$ and
+$\rho=r_i$ in \eqref{eq:nl-good} shows that $(z_i,r_i)$ is admissible for
+$i\ge i_2$.
+Finally, putting $(x,t)=(0,0)$ in \eqref{eq:nl-normalization} gives
+$U_i(z_i)=U_i(z_i)+r_ic_i\lambda_iv_i(0,0)$ with $r_ic_i\lambda_i>0$, so
+\begin{equation}\label{eq:nl-origin}
+  v_i(0,0)=0\qquad(i\ge i_1).
+\end{equation}
+
+\emph{Step 1: two-sided slope bounds.}
+Let $i\ge i_2$, let $(w,\rho)$ be admissible and let $P$ realize a cylinder fit
+of parameter $\Lambda\lambda_i$ for $U_i$ at $(w,\rho)$. Then
+\begin{equation}\label{eq:nl-slope}
+  \tfrac12\le|P|\le L+1 .
+\end{equation}
+Indeed $w\in G$ and $\rho\le D(w)/8\le(3/4)/8=3/32$, so $|h|\le\rho$ implies
+$w+h\in B_{3/4+3/32}\subseteq\overline B_{7/8}$ and therefore
+$|U_i(w+h)-U_i(w)|\le L|h|$ by \noderef{NormalizedFamilyLipschitz}. With
+$\Lambda\lambda_i\in(0,1]$ by \eqref{eq:nl-tail},
+\noderef{CylinderFitSlopeBounds} applies and gives
+\[
+  |P|\le L+\sqrt{\Lambda\lambda_i}=L+\theta_i\le L+1,
+  \qquad |P\cdot e_b-1|\le\theta_i\le\tfrac12,
+\]
+so also $|P|\ge|P\cdot e_b|\ge1-\theta_i\ge1/2$. Applying this to $P_i$ at the
+admissible pair $(z_i,r_i)$ gives
+\begin{equation}\label{eq:nl-base-norm}
+  \tfrac12\le c_i\le L+1\qquad(i\ge i_2).
+\end{equation}
+
+\emph{Step 2: one comparison constant.}
+Apply \noderef{CylinderComparisonSameCenter} and
+\noderef{CylinderComparisonShifted} with $c_*=1/2$ and $C_*=L+1$, and let
+$C_1\ge1$ be the larger of the two constants they supply. By
+\eqref{eq:nl-slope} and \eqref{eq:nl-tail}, for $i\ge i_2$ and
+$\theta=\theta_i\in(0,1)$ their hypotheses on the slope norms hold for every
+cylinder fit of parameter $\Lambda\lambda_i=\theta_i^2$ at an admissible pair.
+Thus, writing $n=P/|P|$ and $n'=P'/|P'|$:
+\begin{enumerate}
+\item[(a)] if $P,P'$ realize fits of parameter $\Lambda\lambda_i$ for $U_i$ at
+$(w,H)$ and $(w,H')$ with $0<H\le H'\le2H$, both pairs admissible, then
+$|P-P'|+|n-n'|\le C_1\theta_i$ and $\bigl||P|-|P'|\bigr|\le C_1\theta_i^2$;
+\item[(b)] if $P,P'$ realize fits of parameter $\Lambda\lambda_i$ for $U_i$ at
+$(w,H)$ and $(w',H)$, both pairs admissible, with
+$|(w'-w)\cdot n|\le H/4$ and $|(w'-w)-((w'-w)\cdot n)n|\le\theta_iH/4$, then the
+same two bounds hold.
+\end{enumerate}
+
+\emph{Step 3: the chain of doublings at $z_i$.}
+Apply \noderef{CylinderFitDoublingChain} with $c_1=1/2$ and $C_1=L+1$, legitimate
+because $0<1/2\le L+1$ by $L\ge0$, and let $C_2\ge0$ be the constant it supplies; it
+depends only on $L$. Fix $R\ge2$, let $M\ge\max\{2,R\}$ and let
+$i\ge\max\{i_2,i_0(M)\}$.
+
+The hypotheses of that node hold for $u=U_i$, $z=z_i$, $r=r_i$, $\theta=\theta_i$,
+this $R$ and the base slope $P=P_i$. Indeed $r_i>0$; $0<\theta_i<1$ by
+\eqref{eq:nl-tail}; $R\ge2$; $1/2\le|P_i|=c_i\le L+1$ by \eqref{eq:nl-base-norm};
+$P_i$ realizes a cylinder fit of parameter $\Lambda\lambda_i=\theta_i^2$ for $U_i$ at
+$(z_i,r_i)$ by the hypothesis of the present theorem; and for every $\rho$ with
+$0<\rho\le Rr_i$ we have $\rho\le Mr_i$ because $R\le M$ and $r_i>0$, so
+\eqref{eq:nl-good} makes $(z_i,\rho)$ admissible and supplies a slope realizing a
+cylinder fit of parameter $\Lambda\lambda_i=\theta_i^2$ for $U_i$ at $(z_i,\rho)$,
+whose norm lies in $[1/2,L+1]$ by \eqref{eq:nl-slope}.
+
+Write $P_R$ for the slope the conclusion supplies at $(z_i,Rr_i)$, so that $P_R$
+realizes a cylinder fit of parameter $\Lambda\lambda_i$ there with
+$1/2\le|P_R|\le L+1$, and put $n_R=P_R/|P_R|$. Using $c_i=|P_i|$, that conclusion is
+\begin{equation}\label{eq:nl-base-chain}
+  |n_R-P_i/c_i|\le C_2(1+\log R)\,\theta_i,\qquad
+  \bigl||P_R|-c_i\bigr|\le C_2(1+\log R)\,\theta_i^2 .
+\end{equation}
+The factor $1+\log R$ is not a constant, and Steps 4 and 5 use that it grows only
+logarithmically in $R$.
+
+\emph{Step 4: a box and its enclosing fit.}
+Fix $K\ge1$ and $S>0$. We may fix $R\ge2$ with
+\begin{equation}\label{eq:nl-R}
+  R>16K,\qquad
+  K\bigl(\Lambda^{-1/2}+C_2(1+\log R)\bigr)<R/4 ;
+\end{equation}
+here is the derivation, since the second inequality is what Step 4 and Claim 4a both
+rest on. First, for every $x\ge1$,
+\begin{equation}\label{eq:nl-logsqrt}
+  \log x\le2\sqrt x ,
+\end{equation}
+as follows. For $y>0$ one has $\log y\le y-1$: the function $\log$ is concave on
+$(0,\infty)$, with $\log1=0$ and derivative $1$ at $y=1$, so its graph lies below its
+tangent line at $1$, which is $y\mapsto y-1$. Taking $y=\sqrt x>0$ gives
+$\log\sqrt x\le\sqrt x-1$, and $\log\sqrt x=\tfrac12\log x$, so
+$\log x\le2\sqrt x-2\le2\sqrt x$. Put
+\[
+  B=4K\bigl(\Lambda^{-1/2}+C_2\bigr),\qquad A=8KC_2 ,
+\]
+both nonnegative because $K\ge1$, $C_2\ge0$ and $\Lambda^{-1/2}>0$. For $R\ge1$,
+multiplying the second inequality of \eqref{eq:nl-R} by $4$ and using
+\eqref{eq:nl-logsqrt},
+\[
+  4K\bigl(\Lambda^{-1/2}+C_2(1+\log R)\bigr)=B+4KC_2\log R
+    \le B+8KC_2\sqrt R=B+A\sqrt R ,
+\]
+so it suffices to have $R>B+A\sqrt R$. That holds as soon as
+$\sqrt R>A+\sqrt B+1$: then
+$R=\sqrt R\cdot\sqrt R>(A+\sqrt B+1)\sqrt R\ge A\sqrt R+\sqrt B\cdot\sqrt R
+\ge A\sqrt R+B$, the last step because $\sqrt R>\sqrt B$. Hence any
+\[
+  R>\max\bigl\{2,\ 16K,\ (A+\sqrt B+1)^2\bigr\}
+\]
+satisfies both parts of \eqref{eq:nl-R}, and such an $R$ exists. It depends on $K$
+alone, since $C_2$ depends only on $L$ and $\Lambda=32$ is fixed; that is what
+Step 7 uses,
+and then fix $M=2\max\{2,2K,R,S\}+1$, which is past $R$, past $2K$ and past
+$2\max\{R,S\}$ -- the last because the radius chain of Step 5 overshoots
+$\max\{R,S\}r_i$ by at most one doubling. Let $i_3=i_3(K,S)\ge\max\{i_2,i_0(M)\}$;
+it will be enlarged finitely often below, always by conditions depending only on
+$K$ and $S$. Because $\Phi_i$ is a linear isometry and $\lambda_i\le1$,
+\begin{equation}\label{eq:nl-disp}
+  |Z_i(x,t)-z_i|=r_i\bigl|(\sqrt{\lambda_i}x,t)\bigr|
+     \le r_i\bigl(\sqrt{\lambda_i}|x|+|t|\bigr)\le2Kr_i\le Mr_i
+\end{equation}
+for $(x,t)\in\mathcal B_K$. Hence by \eqref{eq:nl-disp} and \eqref{eq:nl-good}, for
+$i\ge i_3$ and $(x,t)\in\mathcal B_K$, the point $Z_i(x,t)$ lies in $G$ and every pair
+$(Z_i(x,t),\rho)$ with $0<\rho\le Mr_i$ is admissible and carries a fit of
+parameter $\Lambda\lambda_i$ for $U_i$.
+
+\emph{Claim 4a.} For $i\ge i_3$ and $(x,t)\in\mathcal B_K$ the point
+$Z_i(x,t)$ satisfies
+\[
+  |(Z_i(x,t)-z_i)\cdot n_R|\le Rr_i/4,\qquad
+  \bigl|(Z_i(x,t)-z_i)-((Z_i(x,t)-z_i)\cdot n_R)n_R\bigr|\le\theta_iRr_i/4 .
+\]
+This is \noderef{AnisotropicBoxOffsets} applied with the isometry $\Phi_i$, the
+base radius $r_i$, the anisotropy $s=\sqrt{\lambda_i}$, the scale
+$\theta=\theta_i$, the constant $C=C_2(1+\log R)$, the box radius $K$, the outer
+radius $R$, the direction $n=n_R$, and $(x,t)$ the point of $\mathcal B_K$; its
+conclusion is about $h=r_i\Phi_i(\sqrt{\lambda_i}x,t)$, which is $Z_i(x,t)-z_i$ by
+the definition of $Z_i$. Its hypotheses hold: $r_i>0$ and $\theta_i\ge0$;
+$0\le\sqrt{\lambda_i}\le1$ because $\lambda_i>0$ and $\Lambda\lambda_i\le1$ with
+$\Lambda=32\ge1$ by \eqref{eq:nl-tail};
+$s\sqrt\Lambda=\sqrt{\lambda_i}\sqrt{32}=\sqrt{32\lambda_i}=\theta_i$ since
+$\Lambda=32$; $K\ge1$; $C\ge0$ because $C_2\ge0$ and $\log R\ge0$ for $R\ge2$;
+$|n_R|=1$ by construction; the direction bound
+$|\Phi_i(e_b)-n_R|=|P_i/c_i-n_R|\le C\theta_i$ is \eqref{eq:nl-base-chain},
+using $\Phi_i(e_b)=P_i/c_i$; the two inequalities $16K<R$ and
+$K(\Lambda^{-1/2}+C)<R/4$ are exactly \eqref{eq:nl-R}; and $|x|\le K$, $|t|\le K$
+because $(x,t)\in\mathcal B_K$.
+
+\emph{Step 5: normalized coefficients of the nearby fits.}
+Let $i\ge i_3$ and $(x,t)\in\mathcal B_K$, and put $w=Z_i(x,t)$. We construct a
+fit at $(w,Sr_i)$ and bound its slope. We pass between the radii $Sr_i$ and $Rr_i$
+at the centre $w$ by two applications of
+\noderef{CylinderFitDoublingChain}, both run \emph{out of the common base radius}
+$mr_i$ with $m=\min\{S,R\}$. Put
+\[
+  \rho_S=\max\{2,S/m\},\qquad \rho_R=\max\{2,R/m\} .
+\]
+Because $0<m\le S$ and $0<m\le R$, each clamped ratio satisfies
+$a\le\rho_a m\le2a$ for $a\in\{S,R\}$: if $a/m\ge2$ then $\rho_am=a$, and if
+$a/m<2$ then $a\le 2m=\rho_am\le2a$. Both $\rho_S\ge2$ and $\rho_R\ge2$, as the
+cited node requires, and $\rho_am\le2\max\{R,S\}\le M$, so by \eqref{eq:nl-good}
+every radius in $(0,\rho_amr_i]$ is admissible at $w$ and carries a fit of
+parameter $\Lambda\lambda_i$ with slope in $[1/2,L+1]$ by \eqref{eq:nl-slope}. The
+node's two remaining hypotheses also hold: $mr_i>0$, and $0<\theta_i<1$ by
+\eqref{eq:nl-tail}, which is the scale in which it states its conclusion since
+$\theta_i^2=\Lambda\lambda_i$. Let $Q_m$ be a slope at $(w,mr_i)$ realizing a cylinder fit of parameter
+$\Lambda\lambda_i$ there with $1/2\le|Q_m|\le L+1$, which the previous sentence
+supplies at the radius $mr_i\in(0,\rho_amr_i]$; the norm bounds are the cited node's
+requirement on its base slope, at its parameters $(c_1,C_1)=(1/2,L+1)$, the same
+instantiation as in Step 3. The node applied at base $mr_i$ with ratio $\rho_S$ gives
+a slope at $(w,\rho_Smr_i)$ whose direction and length differ from those of $Q_m$ by
+at most $C_2(1+\log\rho_S)\theta_i$ and $C_2(1+\log\rho_S)\theta_i^2$ respectively,
+with the same constant $C_2$ that Step 3 obtained from this node --- it depends only
+on $L$, and in particular not on the radius, the centre or the ratio. Since
+$Sr_i\le\rho_Smr_i\le2Sr_i$, Step 2(a) at the pair $(Sr_i,\rho_Smr_i)$ transfers
+those bounds to a slope $P$ at $(w,Sr_i)$. The same with $\rho_R$ in place of
+$\rho_S$ transfers them to a slope $P'$ at $(w,Rr_i)$. Both target radii are at
+least $mr_i$, so the two applications are the same argument and no case distinction
+between $S\le R$ and $S>R$ is needed; the clamp at $2$ costs exactly the one extra
+same-centre comparison per leg accounted for above. The quantities $m$, $\rho_S$ and
+$\rho_R$ are built from $S$ and $R$ alone, and $R$ was fixed from $K$ alone in
+Step 4, so all three depend only on $K$ and $S$.
+
+Finally the centre offsets of $P'$ relative to the enclosing fit $P_R$ at
+$(z_i,Rr_i)$ are at most a quarter of $Rr_i$ and of $\theta_iRr_i$ by Claim 4a, so
+Step 2(b) applies to the pair $(P_R,P')$ at the common radius $H=Rr_i$.
+
+The chain from $P$ back to $P_i$ therefore has exactly SIX legs, and we sum them
+rather than leaving the sum to the reader. Each leg is a pair of inequalities, one of
+the form $|\,\cdot\,|\le\kappa\theta_i$ for the normalized directions and one of the
+form $|\,\cdot\,|\le\kappa\theta_i^2$ for the lengths, with $\kappa$ as listed:
+\begin{enumerate}
+\item[(1)] $P$ at $(w,Sr_i)$ against the first chain's outer slope at
+$(w,\rho_Smr_i)$, by Step 2(a): $\kappa=C_1$;
+\item[(2)] that outer slope against $Q_m$ at $(w,mr_i)$, by
+\noderef{CylinderFitDoublingChain}: $\kappa=C_2(1+\log\rho_S)$;
+\item[(3)] $P'$ at $(w,Rr_i)$ against the second chain's outer slope at
+$(w,\rho_Rmr_i)$, by Step 2(a): $\kappa=C_1$;
+\item[(4)] that outer slope against the same $Q_m$, by
+\noderef{CylinderFitDoublingChain}: $\kappa=C_2(1+\log\rho_R)$;
+\item[(5)] $P'$ against $P_R$ at the common radius $Rr_i$, by Step 2(b):
+$\kappa=C_1$;
+\item[(6)] $P_R$ against $P_i$, by \eqref{eq:nl-base-chain}:
+$\kappa=C_2(1+\log R)$.
+\end{enumerate}
+Legs (1) and (2) join $P$ to $Q_m$ and legs (3) and (4) join $P'$ to $Q_m$, so
+(1)--(4) join $P$ to $P'$ through the common base; legs (5) and (6) then carry $P'$
+on to $P_i$. Adding the six, and using the triangle inequality for the directions and
+for the lengths separately, gives a constant $C_{K,S}$ independent of $i$, of
+$(x,t)$ and of the choices, namely
+\[
+  C_{K,S}=3C_1+C_2\bigl(1+\log\rho_S\bigr)+C_2\bigl(1+\log\rho_R\bigr)
+     +C_2\bigl(1+\log R\bigr),
+\]
+independent of $i$ because $C_1$ and $C_2$ are and because $\rho_S$, $\rho_R$ and
+$R$ depend only on $K$ and $S$, with
+\begin{equation}\label{eq:nl-cmp}
+  \bigl|P/|P|-P_i/c_i\bigr|\le C_{K,S}\theta_i,\qquad
+  \bigl||P|-c_i\bigr|\le C_{K,S}\theta_i^2 .
+\end{equation}
+The same bounds hold for the enclosing slope $P_R$ at $(z_i,Rr_i)$ by
+\eqref{eq:nl-base-chain} alone, after enlarging $C_{K,S}$.
+
+Write $e=P_i/c_i=\Phi_i(e_b)$ and, for a vector $Q$, let $(Q_x,Q_t)$ be its
+coordinates in the frame $\Phi_i$, that is $\Phi_i^{-1}Q=(Q_x,Q_t)$. The normalized
+coefficients
+\begin{equation}\label{eq:nl-coeff}
+  p_i'=\frac{P_x}{c_i\sqrt{\lambda_i}},\qquad
+  q_i'=\frac{P_t/c_i-1}{\lambda_i}
+\end{equation}
+of the slope $P$ at $(w,Sr_i)$ are well defined. Indeed $\Phi_i$ is a linear isometry
+of the space-time onto itself, hence a bijection, so $\Phi_i^{-1}P$ exists and is
+unique and the pair $(P_x,P_t)$ of its two components is determined by $P$; and the
+two divisions are legitimate because $c_i\ge1/2>0$ by \eqref{eq:nl-base-norm} and
+$\lambda_i>0$, so $c_i\sqrt{\lambda_i}>0$ and $c_i\lambda_i>0$. Conversely, and this
+is the form the next step uses,
+\[
+  P=\Phi_i\bigl(c_i\sqrt{\lambda_i}\,p_i',\ c_i(1+\lambda_iq_i')\bigr),
+\]
+because $c_i\sqrt{\lambda_i}\,p_i'=P_x$ and $c_i(1+\lambda_iq_i')=c_i+(P_t-c_i)=P_t$
+by \eqref{eq:nl-coeff}, so that the argument of $\Phi_i$ is $\Phi_i^{-1}P$. The pair
+$(p_i',q_i')$ is the UNIQUE one satisfying this identity: if
+$\Phi_i(c_i\sqrt{\lambda_i}\,a,c_i(1+\lambda_ib))=P$ then applying $\Phi_i^{-1}$ and
+comparing components gives $c_i\sqrt{\lambda_i}\,a=P_x$ and
+$c_i(1+\lambda_ib)=P_t$, and dividing by the two positive scalars gives $a=p_i'$ and
+$b=q_i'$.
+
+Nothing in \eqref{eq:nl-coeff} or in this paragraph is particular to $P$. For ANY
+vector $Q$ of the space-time the same two quotients, formed from the frame
+coordinates $(Q_x,Q_t)$ of $Q$, define its normalized coefficients; they are well
+defined for the same two reasons, namely that $\Phi_i$ is a bijection and that
+$c_i\sqrt{\lambda_i}>0$ and $c_i\lambda_i>0$; and they are the unique pair $(a,b)$
+with $Q=\Phi_i\bigl(c_i\sqrt{\lambda_i}\,a,\ c_i(1+\lambda_ib)\bigr)$, by the same
+comparison of components. Steps 7, 8 and 12 use \eqref{eq:nl-coeff} at the slopes
+$P_R$, $P$ and $\widetilde P_i$ respectively, and this sentence is what licenses
+that.
+
+Apply \noderef{NormalizedSlopeCoefficients} with the isometry $\Phi_i$, with
+$c=c_i$, $\lambda=\lambda_i$, with the vector $Q=P$, and with
+$\mathrm{dir}=C_{K,S}\theta_i$ and $\mathrm{nrm}=C_{K,S}\theta_i^2$. Its hypotheses
+hold: $c_i>0$ and $\lambda_i>0$; $|P|\ge1/2>0$ by \eqref{eq:nl-slope}; and its two
+displayed hypotheses $\bigl|P/|P|-\Phi_i(e_b)\bigr|\le\mathrm{dir}$ and
+$\bigl||P|-c_i\bigr|\le\mathrm{nrm}$ are exactly the two halves of
+\eqref{eq:nl-cmp}, because $\Phi_i(e_b)=P_i/c_i=e$. Its conclusion produces
+coefficients satisfying the identity of the previous display, hence equal to
+$(p_i',q_i')$, and bounds them by
+\[
+  c_i\sqrt{\lambda_i}\,|p_i'|\le|P|\,C_{K,S}\theta_i,
+  \qquad
+  c_i\lambda_i\,|q_i'|\le C_{K,S}\theta_i^2
+     +\tfrac12|P|\,C_{K,S}^2\theta_i^2 .
+\]
+The first bound draws ONLY on the direction half of \eqref{eq:nl-cmp}; the second
+draws on the norm half TOGETHER WITH the quadratic angular error
+$\tfrac12|P|\,\bigl|P/|P|-e\bigr|^2$, which is why the two coefficients are
+controlled by different estimates. Dividing the two bounds by $c_i\sqrt{\lambda_i}$
+and by $c_i\lambda_i$, both positive, and using $c_i\ge1/2$ and $|P|\le L+1$ from
+\eqref{eq:nl-slope}, $\theta_i=\sqrt\Lambda\sqrt{\lambda_i}$ and
+$\theta_i^2=\Lambda\lambda_i$, we obtain
+\begin{equation}\label{eq:nl-coeff-bound}
+  |p_i'|+|q_i'|\le C_3,\qquad
+  C_3=C_3(K,S)=2\sqrt\Lambda(L+1)C_{K,S}
+      +2\Lambda\Bigl(C_{K,S}+\frac{(L+1)C_{K,S}^2}2\Bigr),
+\end{equation}
+a bound independent of $i\ge i_3$, of $(x,t)\in\mathcal B_K$ and of the chosen
+fits.
+
+\emph{Step 6: the exact increment identity.}
+Let $i\ge i_1$, let $Q$ be any vector with coordinates $(Q_x,Q_t)$ in the frame
+$\Phi_i$ and normalized coefficients $(p',q')$ as in \eqref{eq:nl-coeff}, so
+$Q_x=c_i\sqrt{\lambda_i}\,p'$ and $Q_t=c_i(1+\lambda_iq')$. For any
+$(x,t)$ and $(h,\ell)$ put $w=Z_i(x,t)$ and $Z=Z_i(x+h,t+\ell)$. Then
+$Z-w=r_i\Phi_i(\sqrt{\lambda_i}h,\ell)$, so
+\[
+  Q\cdot(Z-w)=r_i\bigl(\sqrt{\lambda_i}\,Q_x\cdot h+\ell Q_t\bigr)
+    =r_ic_i\bigl(\lambda_i\,p'\cdot h+\ell+\lambda_iq'\ell\bigr),
+\]
+while \eqref{eq:nl-normalization} gives
+$U_i(Z)-U_i(w)=r_ic_i(\ell+\lambda_i(v_i(x+h,t+\ell)-v_i(x,t)))$. Subtracting,
+\begin{equation}\label{eq:nl-increment}
+  U_i(Z)-U_i(w)-Q\cdot(Z-w)
+   =r_ic_i\lambda_i\bigl(v_i(x+h,t+\ell)-v_i(x,t)-p'\cdot h-q'\ell\bigr).
+\end{equation}
+With $(x,t)=(0,0)$, so that $w=z_i$, and \eqref{eq:nl-origin}, this reads
+\begin{equation}\label{eq:nl-increment-base}
+  U_i(Z_i(h,\ell))-U_i(z_i)-Q\cdot(Z_i(h,\ell)-z_i)
+   =r_ic_i\lambda_i\bigl(v_i(h,\ell)-p'\cdot h-q'\ell\bigr).
+\end{equation}
+
+\emph{Step 7: a uniform bound on each box.}
+Let $K\ge1$ and let $R,M,i_3$ be as in Step 4 for this $K$ and $S=R$. Let
+$(p'_{i,R},q'_{i,R})$ be the normalized coefficients of the ENCLOSING slope
+$P_R$ at $(z_i,Rr_i)$, which \eqref{eq:nl-coeff} defines at any slope, as the
+paragraph following it records. The sentence after \eqref{eq:nl-cmp} says that the
+two inequalities of \eqref{eq:nl-cmp} hold for $P_R$ as well, by
+\eqref{eq:nl-base-chain} alone and after enlarging $C_{K,S}$; so
+\noderef{NormalizedSlopeCoefficients}, applied to $P_R$ with those same
+$(\mathrm{dir},\mathrm{nrm})$ exactly as in Step 5, gives
+$|p'_{i,R}|+|q'_{i,R}|\le C_3(K,R)$ at $S=R$. By
+Claim 4a every $Z_i(x,t)$ with $(x,t)\in\mathcal B_K$ lies in the cylinder of
+that fit, so \noderef{IsCylinderFit} bounds the left side of
+\eqref{eq:nl-increment-base} by $\Lambda\lambda_i\,Rr_i$. Taking
+$Q=P_R$ and $(p',q')=(p'_{i,R},q'_{i,R})$ in \eqref{eq:nl-increment-base}, which is
+legitimate because those are the normalized coefficients of $P_R$, and taking
+$(h,\ell)=(x,t)$ there, that left side equals
+$r_ic_i\lambda_i\bigl|v_i(x,t)-p'_{i,R}\cdot x-q'_{i,R}t\bigr|$ in absolute value.
+Dividing by $r_ic_i\lambda_i$, which is positive because $r_i>0$, $c_i\ge1/2$ by
+\eqref{eq:nl-base-norm} and $\lambda_i>0$,
+\[
+  \bigl|v_i(x,t)-p'_{i,R}\cdot x-q'_{i,R}t\bigr|
+     \le\frac{\Lambda\lambda_i\,Rr_i}{r_ic_i\lambda_i}=\frac{\Lambda R}{c_i}
+     \le2\Lambda R\qquad\bigl((x,t)\in\mathcal B_K,\ i\ge i_3\bigr),
+\]
+the final step because $c_i\ge1/2$ gives $1/c_i\le2$,
+using \eqref{eq:nl-base-norm}. Consequently
+\begin{equation}\label{eq:nl-bound}
+  \sup_{\mathcal B_K}|v_i|\le A_K:=2\Lambda R+C_3(K,R)K\qquad(i\ge i_3),
+\end{equation}
+a bound depending only on $K$, since $R$ was chosen from $K$ alone.
+
+\emph{Step 8: the increment estimate.}
+Fix $K\ge1$ and $S>0$ and let $R,M,i_3,C_3$ be as in Steps 4 and 5. Enlarge
+$i_3$ so that
+\begin{equation}\label{eq:nl-small}
+  \lambda_i\bigl(C_3^2+C_3+1\bigr)\le\tfrac1{100}\qquad(i\ge i_3),
+\end{equation}
+which is possible because $\lambda_i\to0$ by \noderef{IsBadScaleData} while
+$C_3=C_3(K,S)$ does not depend on $i$. Let $i\ge i_3$ and
+$(x,t)\in\mathcal B_K$, put $w=Z_i(x,t)$, let $P$ be the fit at $(w,Sr_i)$ of
+Step 5 with normalized coefficients $(p_i',q_i')$, and set $A=1+\lambda_iq_i'$.
+By \eqref{eq:nl-coeff-bound} we have $|q_i'|\le C_3$, so
+$|\lambda_iq_i'|\le\lambda_iC_3\le1/100$ by \eqref{eq:nl-small} and hence
+\begin{equation}\label{eq:nl-A}
+  \tfrac12\le A\le\tfrac32 .
+\end{equation}
+
+\emph{Claim 8a.} If $|\ell|\le S/2$ and $|h-(p_i'/A)\ell|\le S$, then
+$Z=Z_i(x+h,t+\ell)$ lies in the cylinder of the fit $P$ at $(w,Sr_i)$, in the
+sense of \noderef{FitCylinder}.
+
+This is \noderef{ShearedBoxInFitCylinder}, applied with the isometry $\Phi_i$, the
+centre $z=w$, the scales $c=c_i$, $\lambda=\lambda_i$, this $S$ and $r=r_i$, the
+coefficients $p'=p_i'$ and $q'=q_i'$, the coefficient bound $C=C_3$, and the
+increment $(h,\ell)$. Its hypotheses hold: $c_i\ge1/2>0$ by
+\eqref{eq:nl-base-norm}; $\lambda_i>0$; $S>0$ and $r_i>0$;
+$|p_i'|+|q_i'|\le C_3$ by \eqref{eq:nl-coeff-bound};
+$1/2\le1+\lambda_iq_i'=A$ by \eqref{eq:nl-A};
+$\lambda_i(C_3^2+C_3+1)\le1/100$ by \eqref{eq:nl-small}; and the two domain
+conditions $|\ell|\le S/2$ and $|h-(p_i'/A)\ell|\le S$ are the hypotheses of the
+claim. Its conclusion places the point
+$w+r_i\Phi_i\bigl(\sqrt{\lambda_i}h,\ell\bigr)$ in the cylinder
+$Z_{32\lambda_i}\bigl(w,\ Sr_i;\ \Phi_i(c_i\sqrt{\lambda_i}p_i',\ c_iA)\bigr)$.
+That point is $Z$, because
+\[
+  Z_i(x+h,t+\ell)=z_i+r_i\Phi_i\bigl(\sqrt{\lambda_i}(x+h),t+\ell\bigr)
+   =Z_i(x,t)+r_i\Phi_i\bigl(\sqrt{\lambda_i}h,\ell\bigr)
+\]
+by the linearity of $\Phi_i$; that slope is $P$, by the identity displayed after
+\eqref{eq:nl-coeff}; and that parameter is $\Lambda\lambda_i$, because
+$\Lambda=32$. This proves Claim 8a.
+
+Combining Claim 8a with \noderef{IsCylinderFit} and
+\eqref{eq:nl-increment} we obtain, for $i\ge i_3$, $(x,t)\in\mathcal B_K$ and
+all $(h,\ell)$ with $|\ell|\le S/2$ and $|h-(p_i'/A)\ell|\le S$,
+\begin{equation}\label{eq:nl-fit}
+  \bigl|v_i(x+h,t+\ell)-v_i(x,t)-p_i'\cdot h-q_i'\ell\bigr|
+     \le\frac{\Lambda\lambda_iSr_i}{r_ic_i\lambda_i}=\frac{\Lambda S}{c_i}
+     \le2\Lambda S .
+\end{equation}
+The coefficient $2\Lambda$ of $S$ does not depend on $K$ or $S$.
+
+\emph{Step 9: equicontinuity, and the convergent subsequence.}
+Fix $K\ge1$ and $\varepsilon>0$. Choose $S>0$ with $2\Lambda S<\varepsilon/3$,
+let $R,M,i_3=i_3(K,S)$ and $C_3=C_3(K,S)$ be as in Step 8, and put
+\[
+  \eta=\min\Bigl\{\frac S2,\ \frac S{2(1+2C_3)},\
+                   \frac{\varepsilon}{6(1+C_3)}\Bigr\}>0 .
+\]
+If $(x,t)\in\mathcal B_K$, $|h|\le\eta$ and $|\ell|\le\eta$, then
+$|\ell|\le S/2$ and, since $A\ge1/2$ and $|p_i'|\le C_3$,
+$|h-(p_i'/A)\ell|\le|h|+2C_3|\ell|\le\eta(1+2C_3)\le S$; moreover
+$|p_i'\cdot h+q_i'\ell|\le C_3(|h|+|\ell|)\le2C_3\eta\le\varepsilon/3$. Hence
+\eqref{eq:nl-fit} gives
+\begin{equation}\label{eq:nl-equicont}
+  \bigl|v_i(x+h,t+\ell)-v_i(x,t)\bigr|
+    \le\frac\varepsilon3+\frac\varepsilon3<\varepsilon
+    \qquad(i\ge i_3(K,S)).
+\end{equation}
+
+\emph{The extraction.} Let $\rho>0$ and let $K\ge1$ be an integer with
+$K\ge\rho$. If $|(x,t)|\le\rho$ then $|x|\le|(x,t)|\le\rho\le K$ and
+$|t|\le|(x,t)|\le\rho\le K$, so
+\begin{equation}\label{eq:nl-ballbox}
+  \{a:|a|\le\rho\}\subseteq\mathcal B_K
+  \qquad(K\ \text{an integer},\ K\ge\max\{\rho,1\}).
+\end{equation}
+We verify the three hypotheses of
+\noderef{AsymptEquicontOriginNormalizedLimit} for the family $(v_j)_{j\ge0}$ on the
+space-time, which is a finite-dimensional real inner-product space, with starting
+index $i_1$.
+
+Hypothesis (i). Let $\rho>0$, take an integer $K\ge\max\{\rho,1\}$ and put
+$A=A_K$ as in \eqref{eq:nl-bound} and $j_0=i_4(K):=i_3(K,R(K))$. If $j\ge j_0$
+and $|w|\le\rho$ then $w\in\mathcal B_K$ by \eqref{eq:nl-ballbox}, so
+$|v_j(w)|\le A_K$ by \eqref{eq:nl-bound}.
+
+Hypothesis (ii). Let $\rho>0$ and $\varepsilon>0$, take an integer
+$K\ge\max\{\rho,1\}$, and let $S$, $\eta$ and $i_3(K,S)$ be the quantities
+produced in the FIRST paragraph of this step for this $K$ and this $\varepsilon$
+(the paragraph establishing \eqref{eq:nl-equicont}, not the preceding one), so that
+\eqref{eq:nl-equicont} holds with them. Put $j_0=i_3(K,S)$ and let $j\ge j_0$.
+Let $w=(x,t)$ and $w'=(x',t')$ satisfy $|w|\le\rho$, $|w'|\le\rho$ and
+$|w-w'|\le\eta$, and put $h=x'-x$, $\ell=t'-t$. Then $|h|\le|w-w'|\le\eta$ and
+$|\ell|\le|w-w'|\le\eta$, and $(x,t)\in\mathcal B_K$ by \eqref{eq:nl-ballbox}, so
+\eqref{eq:nl-equicont} applies and gives
+\[
+  |v_j(w)-v_j(w')|
+   =\bigl|v_j(x,t)-v_j(x+h,t+\ell)\bigr|\le\varepsilon .
+\]
+The two index thresholds are independent of each other: hypothesis (i) of the cited
+node carries its own, here $i_4(K)$, and hypothesis (ii) carries a separate one
+inside its $\varepsilon$ quantifier, here $i_3(K,S)$ with $S$ chosen from
+$\varepsilon$; the node nowhere requires a common threshold, so the
+$(K,S)$-dependence of $i_3$ costs nothing.
+
+Hypothesis (iii). $v_i(0,0)=0$ for every $i\ge i_1$, which is
+\eqref{eq:nl-origin}.
+
+All three hypotheses hold, so \noderef{AsymptEquicontOriginNormalizedLimit}
+provides a strictly increasing sequence of indices $j\mapsto\psi(j)$ and a real
+function $v$ on the space-time such that $\psi(j)\ge i_1$ for every $j$, the
+function $v$ is CONTINUOUS, $v_{\psi(j)}\to v$ uniformly on every compact subset of
+the space-time, and
+\begin{equation}\label{eq:nl-v0}
+  v(0,0)=0 .
+\end{equation}
+Those are exactly the five properties of the pair $(\psi,v)$ that Steps 10 to 12
+use. In particular the continuity of $v$ and the normalization \eqref{eq:nl-v0} are
+part of the cited node's conclusion and need no separate argument here; local
+uniform convergence alone would not give either.
+
+\emph{Step 10: the limiting equation.}
+By \noderef{NormalizedInfFamily} each $U_i$ has the form
+$U_i(y,b)=u_i(y)+b$ with $u_i$ infinity-harmonic on the unit ball $B_1^d$ of
+$\R^d$ in the sense of \noderef{IsInfHarmonicOn}; by \noderef{LinearLift},
+$U_i$ is infinity-harmonic on $\Omega=\{(y,b):y\in B_1^d\}$. Hence
+\noderef{RescaledEquation}, applied for $i\ge i_2$ with $z_0=z_i$, $r=r_i$,
+$c=c_i$ --- which is positive because $c_i\ge1/2$ by \eqref{eq:nl-base-norm}, and
+this is the only place the restriction $i\ge i_2$ is needed here ---
+$\lambda=\lambda_i>0$, the isometry $\Phi_i$ and the function $v_i$ --- whose
+hypothesis is precisely \eqref{eq:nl-normalization} --- shows that $v_i$ is a
+viscosity solution of $D^2\phi[(\nabla_x\phi,1+\lambda_i\phi_t)]=0$ on the open
+set $\Omega_i=Z_i^{-1}(\Omega)$, in the sense of
+\noderef{IsRescaledSolutionOn}. By Step 4, $Z_i(\mathcal B_K)\subseteq G$ for
+$i\ge i_4(K)$, and the spatial part of a point of $G=B_{3/4}$ lies in
+$B_{3/4}^d\subseteq B_1^d$; hence
+\begin{equation}\label{eq:nl-domains}
+  \mathcal B_K\subseteq\Omega_i\qquad(i\ge i_4(K)).
+\end{equation}
+
+We show that $v$ is a viscosity solution of $F[v]=D^2v[(\nabla_xv,1)]=0$ on the
+whole space-time, in the sense of \noderef{IsLimitSolutionOn}, where
+$F[\phi](z)=D^2\phi(z)[(\nabla_x\phi(z),1)]$ is the limiting operator of
+\noderef{LimitOp}; $v$ is continuous by Step 9.
+
+Fix a point $\hat z$ of the space-time, let $K_1\ge1$ be an integer with
+$K_1>|\hat z|$, and let $W=W(\hat z)$ be the interior of $\mathcal B_{K_1}$,
+that is $W=\{(x,t):|x|<K_1,\ |t|<K_1\}$. This set is open, being the intersection
+of the preimages of the open sets $\{|x|<K_1\}$ and $\{|t|<K_1\}$ under the two
+coordinate projections of the space-time, which are continuous. It contains $\hat z$,
+because the two coordinates of $\hat z$ are each at most $|\hat z|<K_1$ in norm,
+and $W\subseteq\mathcal B_{K_1}$. Since $\psi$ is strictly increasing we have
+$\psi(j)\ge j$, so there is $j_1$ with $\psi(j)\ge i_4(K_1)$ for every $j\ge j_1$;
+then by \eqref{eq:nl-domains}
+\begin{equation}\label{eq:nl-Wdom}
+  W\subseteq\mathcal B_{K_1}\subseteq\Omega_{\psi(j)}\qquad(j\ge j_1).
+\end{equation}
+
+\emph{Restriction to $W$.} For $j\ge j_1$ the function $v_{\psi(j)}$ is a
+viscosity solution of the rescaled equation with parameter $\lambda_{\psi(j)}$ on
+$W$, in the sense of \noderef{IsRescaledSolutionOn}. Indeed $W$ is open;
+$v_{\psi(j)}$ is continuous on $\Omega_{\psi(j)}$ by
+\noderef{IsRescaledSolutionOn} and hence on $W$ by \eqref{eq:nl-Wdom}; and if
+$\zeta\in W$, if $\phi$ is twice continuously differentiable at $\zeta$ and if
+$v_{\psi(j)}-\phi$ has a local maximum on $W$ at $\zeta$, say
+$v_{\psi(j)}(a)-\phi(a)\le v_{\psi(j)}(\zeta)-\phi(\zeta)$ for all
+$a\in N'\cap W$ with $N'$ a neighbourhood of $\zeta$, then $N'\cap W$ is itself a
+neighbourhood of $\zeta$ because $W$ is open, and $N'\cap W\subseteq
+\Omega_{\psi(j)}$ by \eqref{eq:nl-Wdom}; so $v_{\psi(j)}-\phi$ has a local
+maximum on $\Omega_{\psi(j)}$ at $\zeta$, and the subsolution clause of
+\noderef{IsRescaledSolutionOn} on $\Omega_{\psi(j)}$ gives
+$D^2\phi(\zeta)\bigl[\bigl(\nabla_x\phi(\zeta),
+1+\lambda_{\psi(j)}\partial_t\phi(\zeta)\bigr)\bigr]\ge0$, which is exactly the
+required inequality on $W$.
+Local minima and the supersolution clause transfer in exactly the same way.
+
+\emph{The limit on $W$.} Put $g_j=v_{\psi(j_1+j)}$ and
+$\mu_j=\lambda_{\psi(j_1+j)}$ for $j\ge0$. By the previous paragraph each $g_j$
+is a viscosity solution of the rescaled equation with parameter $\mu_j$ on $W$
+in the sense of \noderef{IsRescaledSolutionOn}. By \noderef{IsBadScaleData},
+$\lambda_i\to0$, and $j\mapsto\psi(j_1+j)$ is strictly increasing, so
+$\mu_j\to0$. By Step 9, $v_{\psi(j)}\to v$ uniformly on every compact set, and
+$(g_j)_j$ is the tail $j\mapsto v_{\psi(j_1+j)}$ of that sequence, so
+$g_j\to v$ uniformly on every compact set, in particular on every compact subset
+of $W$. Hence \noderef{RescaledLimitStability}, applied with $\Omega=W$, the
+parameters $\mu_j$, the solutions $g_j$ and the limit $v$, shows that $v$ is a
+viscosity solution of $F[v]=0$ on $W$ in the sense of
+\noderef{IsLimitSolutionOn}.
+
+\emph{Gluing.} The previous two paragraphs give, for \emph{every} point $\hat z$
+of the space-time, an open set $W(\hat z)$ containing $\hat z$ on which $v$
+solves $F[v]=0$ in the sense of \noderef{IsLimitSolutionOn}. Apply
+\noderef{LimitSolutionLocalToGlobal} with $\Omega$ the whole space-time, with the
+family $\bigl(W(\hat z)\bigr)_{\hat z}$ indexed by the points of the space-time, and
+with this $v$. Its hypotheses hold: the space-time is open; each $W(\hat z)$ is a
+subset of it; every point $\hat z$ of it lies in the member $W(\hat z)$ of the
+family, as noted when $W(\hat z)$ was constructed; $v$ is continuous on it by
+Step 9; and $v$ solves $F[v]=0$ on each member by the previous two paragraphs. Its
+conclusion is that $v$ solves the limiting equation on the whole space-time.
+
+This gluing step cannot be avoided by invoking
+\noderef{RescaledLimitStability} on the whole space-time directly: that node's
+hypothesis asks for a family $(g_j)$ each member of which solves the rescaled
+equation on the SAME set $\Omega$, whereas the sets $\Omega_i$ on which $v_i$
+solves it only exhaust the space-time as $i$ grows, by \eqref{eq:nl-domains}.
+
+\emph{Step 11: the fits.}
+Fix a centre $\hat z=(\hat x,\hat t)$ and a radius $R'>0$. Put
+$K=\max\{|\hat x|,|\hat t|,1\}$ and $S=4R'$, and let $R,M,i_3,C_3$ be as in
+Step 8 for this pair $(K,S)$. For each $j$ with $\psi(j)\ge i_3$, Step 5
+provides a fit at $(Z_{\psi(j)}(\hat x,\hat t),Sr_{\psi(j)})$ whose normalized
+coefficients $(p_j',q_j')$ satisfy $|p_j'|+|q_j'|\le C_3$ by
+\eqref{eq:nl-coeff-bound}. By Bolzano--Weierstrass there is a subsequence
+$l\mapsto j_l$ along which $p'_{j_l}\to p$ and $q'_{j_l}\to q$ for some
+$p\in\R^d$, $q\in\R$. Since $\lambda_{\psi(j)}\to0$ and $|q_j'|\le C_3$, the
+quantities $A_{j}=1+\lambda_{\psi(j)}q_j'$ tend to $1$, so
+$p'_{j_l}/A_{j_l}\to p$.
+
+Let $(h,\ell)$ satisfy $|\ell|\le R'$ and $|h-\ell p|\le R'$. Then
+$|\ell|\le R'\le S/2$ and
+\[
+  \Bigl|h-\frac{p'_{j_l}}{A_{j_l}}\ell\Bigr|
+   \le|h-\ell p|+|\ell|\,\Bigl|p-\frac{p'_{j_l}}{A_{j_l}}\Bigr|
+   \le R'+R'\Bigl|p-\frac{p'_{j_l}}{A_{j_l}}\Bigr|\le 2R'\le S
+\]
+for all large $l$, uniformly in such $(h,\ell)$. So \eqref{eq:nl-fit} applies at
+the centre $(\hat x,\hat t)\in\mathcal B_K$ and gives
+\[
+  \bigl|v_{\psi(j_l)}(\hat x+h,\hat t+\ell)-v_{\psi(j_l)}(\hat x,\hat t)
+     -p'_{j_l}\cdot h-q'_{j_l}\ell\bigr|\le2\Lambda S=8\Lambda R' .
+\]
+The set $\{(\hat x+h,\hat t+\ell):|\ell|\le R',\ |h-\ell p|\le R'\}$ is closed
+and bounded, hence compact, so $v_{\psi(j_l)}\to v$ uniformly on it. Letting
+$l\to\infty$,
+\[
+  \bigl|v(\hat x+h,\hat t+\ell)-v(\hat x,\hat t)-p\cdot h-q\ell\bigr|
+    \le C_0R',\qquad C_0:=8\Lambda=256,
+\]
+whenever $|\ell|\le R'$ and $|h-\ell p|\le R'$. Putting $a=q+|p|^2/2$, so that
+$q=a-|p|^2/2$, this is exactly the statement that $(p,a)$ is a fit for $v$ at
+$\hat z$ of radius $R'$ with constant $C_0$, in the sense of \noderef{IsFit}.
+Since $\hat z$ and $R'$ were arbitrary and $v$ solves the limiting equation by
+Step 10, $v\in\Aclass_{d,C_0}$ in the sense of \noderef{IsFitClass}, with
+$0\le C_0=256<\infty$. The auxiliary subsequence $l\mapsto j_l$ depends on
+$\hat z$ and $R'$; the function $v$ does not, and \noderef{IsFit} is asserted
+separately for each centre and radius.
+
+\emph{Step 12: $v$ is not affine.}
+Suppose it were. By \noderef{IsSpaceTimeAffine} there are $p\in\R^d$ and
+$q,c\in\R$ with $v(x,t)=p\cdot x+qt+c$ for all $(x,t)$, and
+\eqref{eq:nl-v0} forces $c=0$. Put, for $i\ge i_2$,
+\[
+  \widetilde P_i=c_i\Phi_i\bigl(\sqrt{\lambda_i}\,p,\ 1+\lambda_iq\bigr),
+  \qquad N_i=\bigl(\lambda_i|p|^2+(1+\lambda_iq)^2\bigr)^{1/2},
+\]
+so that $|\widetilde P_i|=c_iN_i$ and the coordinates of $\widetilde P_i$ in the
+frame $\Phi_i$ are $(c_i\sqrt{\lambda_i}p,\ c_i(1+\lambda_iq))$; by
+\eqref{eq:nl-coeff} its normalized coefficients are exactly $p_i'=p$ and
+$q_i'=q$. Since $\lambda_i\to0$ we may enlarge $i_2$ so that
+$\lambda_i(1+|q|+|p|^2)\le1/2$ for $i\ge i_2$; then $1+\lambda_iq\ge1/2$,
+$1/2\le N_i\le2$ and $\widetilde P_i\ne0$.
+
+Let $Z$ lie in the cylinder $Z_{\lambda_i}(z_i,r_i;\widetilde P_i)$ of
+\noderef{FitCylinder} and let $(x,t)$ be its normalized coordinates, that is
+$Z=Z_i(x,t)$, which determines $(x,t)$ uniquely because $\Phi_i$ is invertible
+and $r_i\sqrt{\lambda_i}>0$. Then
+\[
+  |x|\le2|p|+1,\qquad |t|\le1+\sqrt{\lambda_i}\le2 .
+\]
+The first two bounds are \noderef{FitCylinderToNormalizedBox}, applied with the
+isometry $\Phi_i$, the centre $z=z_i$, the scales $c=c_i$, $\lambda=\lambda_i$ and
+$r=r_i$, the coefficients $p$ and $q$, and the normalized coordinates $(x,t)$ of
+$Z$. Its hypotheses hold: $c_i\ge1/2>0$ by \eqref{eq:nl-base-norm}; $\lambda_i>0$
+and $r_i>0$ by \noderef{IsBadScaleData}; its lower bound
+$\bigl(\lambda_i|p|^2+(1+\lambda_iq)^2\bigr)^{1/2}\ge1/2$ is exactly $N_i\ge1/2$,
+established in the previous paragraph; and its membership hypothesis asks that
+$z_i+r_i\Phi_i\bigl(\sqrt{\lambda_i}\,x,\ t\bigr)$ lie in
+$Z_{\lambda_i}\bigl(z_i,\ r_i;\ \Phi_i(c_i\sqrt{\lambda_i}\,p,\
+c_i(1+\lambda_iq))\bigr)$, which is the assumption on $Z$ once $Z=Z_i(x,t)$ and
+$\widetilde P_i=\Phi_i\bigl(c_i\sqrt{\lambda_i}\,p,\ c_i(1+\lambda_iq)\bigr)$ are
+written out. The cited node's two bounds rest on two SEPARATE uses of $N_i$: the
+time bound needs only $N_i\ge|1+\lambda_iq|$, which
+$N_i^2=\lambda_i|p|^2+(1+\lambda_iq)^2\ge(1+\lambda_iq)^2$ gives at once, whereas
+the spatial bound is where $N_i\ge1/2$ enters, through $|p|/N_i\le2|p|$; the
+over-estimate $2|p|$ in place of the sharper $|p|/N_i$ is deliberate and costs
+nothing here. The last step $1+\sqrt{\lambda_i}\le2$ uses $\lambda_i\le1$, which
+follows from $\Lambda\lambda_i\le1$ by \eqref{eq:nl-tail} and $\Lambda=32\ge1$.
+Thus every point of every such cylinder has normalized coordinates in the fixed
+box $\mathcal B_{K_0}$ with $K_0$ any integer $\ge2|p|+2$, independently of $i$.
+
+By \eqref{eq:nl-increment-base} applied with $Q=\widetilde P_i$, whose
+normalized coefficients are $(p,q)$,
+\[
+  \bigl|U_i(Z)-U_i(z_i)-\widetilde P_i\cdot(Z-z_i)\bigr|
+   =r_ic_i\lambda_i\bigl|v_i(x,t)-p\cdot x-qt\bigr|
+   =r_ic_i\lambda_i\bigl|v_i(x,t)-v(x,t)\bigr| .
+\]
+Hence, using \eqref{eq:nl-base-norm} and the previous paragraph, for every
+index $j$ with $\psi(j)\ge i_2$,
+\[
+  \sup\bigl\{\bigl|U_{\psi(j)}(Z)-U_{\psi(j)}(z_{\psi(j)})
+     -\widetilde P_{\psi(j)}\cdot(Z-z_{\psi(j)})\bigr|:
+     Z\in Z_{\lambda_{\psi(j)}}(z_{\psi(j)},r_{\psi(j)};
+        \widetilde P_{\psi(j)})\bigr\}
+\]
+is at most
+$r_{\psi(j)}\lambda_{\psi(j)}(L+1)\sup_{\mathcal B_{K_0}}
+  |v_{\psi(j)}-v|$,
+and the last supremum tends to $0$ by Step 9. For all large $j$ it is therefore
+at most $\lambda_{\psi(j)}r_{\psi(j)}$, which together with
+$\widetilde P_{\psi(j)}\ne0$ says precisely that $\widetilde P_{\psi(j)}$
+realizes a cylinder fit of parameter $\lambda_{\psi(j)}$ for $U_{\psi(j)}$ at
+$(z_{\psi(j)},r_{\psi(j)})$ in the sense of \noderef{IsCylinderFit}. This
+contradicts \noderef{IsBadScaleData}, by which no vector realizes such a fit at
+any index. Hence $v$ is not affine, and $C_0=256$, $\psi$ and $v$ have all the
+asserted properties.
+\end{proof}

@@ -1,0 +1,105 @@
+\begin{lemma}[Step 11: the limit is a fit of class $256$ at every centre and scale]
+Let $d\in\N$ and write $\mathcal H=\ell^2(\R^d\times\R)$. Let
+$\lambda:\N\to\R$, let $v_i:\mathcal H\to\R$ for each $i\in\N$, let
+$\mathcal B:\R\to\mathcal P(\mathcal H)$, let $C_3:\R\times\R\to\R$, let
+$i_5:\R\times\R\to\N$, let $\psi:\N\to\N$ and let $w:\mathcal H\to\R$. Assume:
+\begin{enumerate}
+\item\label{it:lifes-lam} $\lambda_i>0$ for every $i$, and $\lambda_i\to0$ as
+$i\to\infty$;
+\item\label{it:lifes-box} the boxes are the coordinate boxes,
+$\mathcal B_K=\{y\in\mathcal H:|y_x|\le K\text{ and }|y_t|\le K\}$, where
+$y=(y_x,y_t)$;
+\item\label{it:lifes-C3} $C_3(K,S)\ge0$ for all $K,S$;
+\item\label{it:lifes-psi} $\psi$ is strictly monotone;
+\item\label{it:lifes-conv} $v_{\psi(j)}\to w$ uniformly on every compact subset
+of $\mathcal H$ as $j\to\infty$;
+\item\label{it:lifes-fit} (the uniform bound on each box) for every $K\ge1$,
+every $S>0$, every $i\ge i_5(K,S)$ and every $y\in\mathcal B_K$ there are
+$p'\in\R^d$ and $q'\in\R$ with
+\[
+  |p'|+|q'|\le C_3(K,S),\qquad \tfrac12\le1+\lambda_iq' ,
+\]
+such that for all $h\in\R^d$ and $\ell\in\R$ with $|\ell|\le S/2$ and
+$\bigl|h-\bigl(\ell/(1+\lambda_iq')\bigr)p'\bigr|\le S$,
+\[
+  \bigl|v_i(y+(h,\ell))-v_i(y)-p'\cdot h-q'\ell\bigr|\le 64\,S .
+\]
+\end{enumerate}
+Then for every centre $\hat z\in\mathcal H$ and every radius $R'>0$ there are
+$p\in\R^d$ and $a\in\R$ such that $(p,a)$ is a fit for $w$ at $\hat z$ of
+radius $R'$ with constant $256$, in the sense of \noderef{IsFit}.
+\end{lemma}
+\begin{proof}
+Fix a centre $\hat z=(\hat x,\hat t)\in\mathcal H$ and a radius $R'>0$. Put
+\[
+  K=\max\bigl\{1,|\hat x|,|\hat t|\bigr\},\qquad S=4R' ,
+\]
+so $K\ge1$ and $S>0$, and $\hat z\in\mathcal B_K$ by \ref{it:lifes-box},
+because $|\hat x|\le K$ and $|\hat t|\le K$ by the definition of $K$.
+
+\emph{The per-index coefficients.} For every $j$ with $\psi(j)\ge i_5(K,S)$,
+hypothesis \ref{it:lifes-fit} applied at the index $i=\psi(j)$ and the point
+$y=\hat z$ supplies $p'_j\in\R^d$ and $q'_j\in\R$ with
+\begin{equation}\label{eq:lifes-bd}
+  |p'_j|+|q'_j|\le C_3(K,S),\qquad \tfrac12\le A_j:=1+\lambda_{\psi(j)}q'_j ,
+\end{equation}
+and with the increment bound of \ref{it:lifes-fit}. Since $\psi$ is strictly
+monotone by \ref{it:lifes-psi} we have $\psi(j)\ge j$, so all $j\ge i_5(K,S)$
+qualify; discard the finitely many smaller indices.
+
+\emph{Extraction.} By \eqref{eq:lifes-bd} the sequences $(p'_j)$ and $(q'_j)$
+are bounded, the first in $\R^d$ and the second in $\R$, so by
+Bolzano--Weierstrass --- available because $\R^d$ is finite-dimensional, hence
+its closed balls are compact --- there are $p\in\R^d$, $q\in\R$ and a strictly
+monotone $l\mapsto j_l$ with $p'_{j_l}\to p$ and $q'_{j_l}\to q$. Because
+$\lambda_i\to0$ by \ref{it:lifes-lam} and $|q'_j|\le C_3(K,S)$ uniformly,
+$\lambda_{\psi(j)}q'_j\to0$ and therefore
+\begin{equation}\label{eq:lifes-A}
+  A_{j_l}\to1,\qquad\text{hence}\qquad \frac{p'_{j_l}}{A_{j_l}}\to p ,
+\end{equation}
+the quotient being legitimate throughout since $A_j\ge\tfrac12>0$.
+
+\emph{The admissible increments.} Let $h\in\R^d$ and $\ell\in\R$ satisfy
+$|\ell|\le R'$ and $|h-\ell p|\le R'$. Then $|\ell|\le R'=S/4\le S/2$, and by
+the triangle inequality
+\[
+  \Bigl|h-\frac{p'_{j_l}}{A_{j_l}}\,\ell\Bigr|
+   \le|h-\ell p|+|\ell|\,\Bigl|p-\frac{p'_{j_l}}{A_{j_l}}\Bigr|
+   \le R'+R'\Bigl|p-\frac{p'_{j_l}}{A_{j_l}}\Bigr| .
+\]
+By \eqref{eq:lifes-A} the last factor is at most $1$ for all large $l$, and the
+threshold depends only on the sequence, not on $(h,\ell)$; for such $l$ the
+left side is at most $2R'\le S$. Hypothesis \ref{it:lifes-fit} therefore applies
+at the index $\psi(j_l)$, the centre $\hat z\in\mathcal B_K$ and this pair
+$(h,\ell)$, giving
+\begin{equation}\label{eq:lifes-pre}
+  \bigl|v_{\psi(j_l)}(\hat z+(h,\ell))-v_{\psi(j_l)}(\hat z)
+    -p'_{j_l}\cdot h-q'_{j_l}\ell\bigr|\le 64\,S=256\,R' .
+\end{equation}
+
+\emph{Passing to the limit.} The set
+\[
+  \mathcal K=\bigl\{\hat z+(h,\ell):|\ell|\le R',\ |h-\ell p|\le R'\bigr\}
+\]
+is closed and bounded in $\mathcal H$, hence compact: boundedness holds because
+$|\ell|\le R'$ and $|h|\le|h-\ell p|+|\ell||p|\le R'(1+|p|)$. By
+\ref{it:lifes-conv}, $v_{\psi(j_l)}\to w$ uniformly on $\mathcal K$, and in
+particular pointwise at the two points $\hat z+(h,\ell)$ and $\hat z$, both of
+which lie in $\mathcal K$ (the second by taking $h=0$, $\ell=0$). Since also
+$p'_{j_l}\to p$ and $q'_{j_l}\to q$, the quantity inside the absolute value in
+\eqref{eq:lifes-pre} converges to
+$w(\hat z+(h,\ell))-w(\hat z)-p\cdot h-q\ell$, and a non-strict inequality is
+preserved in the limit:
+\begin{equation}\label{eq:lifes-post}
+  \bigl|w(\hat z+(h,\ell))-w(\hat z)-p\cdot h-q\ell\bigr|\le256\,R'
+\end{equation}
+whenever $|\ell|\le R'$ and $|h-\ell p|\le R'$.
+
+\emph{Conclusion.} Put $a=q+|p|^2/2$, so that $q=a-|p|^2/2$. Then
+\eqref{eq:lifes-post} is exactly the assertion that $(p,a)$ is a fit for $w$ at
+$\hat z$ of radius $R'$ with constant $256$ in the sense of \noderef{IsFit}.
+As $\hat z$ and $R'$ were arbitrary, this proves the lemma. The auxiliary
+subsequence $l\mapsto j_l$ depends on $\hat z$ and $R'$, which is harmless:
+\noderef{IsFit} is asserted separately for each centre and each radius, and
+$w$ itself does not depend on the extraction.
+\end{proof}

@@ -1,0 +1,36 @@
+\begin{lemma}[Normalization of an infinity-harmonic function]
+Let $E$ be a finite-dimensional real inner-product space, let $\Omega\subseteq E$
+and let $u:E\to\R$ be infinity-harmonic on $\Omega$ in the sense of
+\noderef{IsInfHarmonicOn}. Let $c\in\R$ and $M>0$. Then $(u-c)/M$ is
+infinity-harmonic on $\Omega$.
+\end{lemma}
+\begin{proof}
+Write $\widetilde u=(u-c)/M$. The set $\Omega$ is open and $u$ is continuous on
+$\Omega$ by \noderef{IsInfHarmonicOn}, hence so is $\widetilde u$.
+
+\emph{Upper tests.} Let $z\in\Omega$ and let $\psi$ be $C^2$ near $z$ with
+$y\mapsto\widetilde u(y)-\psi(y)$ having a local maximum on $\Omega$ at $z$. Put
+$\phi=M\psi+c$, which is $C^2$ near $z$. Then
+\[
+  u(y)-\phi(y)=M\bigl(\widetilde u(y)-\psi(y)\bigr)
+\]
+and $M>0$, so $y\mapsto u(y)-\phi(y)$ has a local maximum on $\Omega$ at $z$.
+The subsolution inequality of \noderef{IsInfHarmonicOn} gives
+$\Dinf\phi(z)\ge0$.
+
+Since $\phi=M\psi+c$ with $M$ and $c$ constants, $\nabla\phi=M\nabla\psi$ and
+$D^2\phi=M\,D^2\psi$. Hence, by the definition of $\Dinf$ in \noderef{InfLap}
+and bilinearity,
+\[
+  \Dinf\phi(z)=D^2\phi(z)\bigl[M\nabla\psi(z)\bigr]
+    =M\cdot M^2\,D^2\psi(z)\bigl[\nabla\psi(z)\bigr]
+    =M^3\,\Dinf\psi(z).
+\]
+As $M>0$ this gives $\Dinf\psi(z)\ge0$.
+
+\emph{Lower tests.} The same computation with local minima and reversed
+inequalities gives $\Dinf\phi(z)\le0$ from the supersolution inequality of
+\noderef{IsInfHarmonicOn}, hence $\Dinf\psi(z)=M^{-3}\Dinf\phi(z)\le0$.
+
+Thus $\widetilde u$ is infinity-harmonic on $\Omega$.
+\end{proof}

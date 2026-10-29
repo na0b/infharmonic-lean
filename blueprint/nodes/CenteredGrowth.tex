@@ -1,0 +1,155 @@
+\begin{lemma}[Growth of a centered member]
+Let $F$ be a finite-dimensional real inner-product space and let
+$1\le C_0<\infty$. Write $L(K)=1+\log K$ for $K\ge2$ and
+$\mathcal B_K=\{(x,t):|x|\le K,\ |t|\le K\}$. There is $C>0$, depending only on
+$C_0$ and $\dim F$, such that for every $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass} which is centered, in the sense of \noderef{IsCenteredAt}
+with constant $C_0$, at $(0,0)$ or at $(0,1)$,
+\begin{equation}\label{eq:centered-growth}
+  |v(x,t)|\le C\,K\,L(K)^2\qquad\bigl((x,t)\in\mathcal B_K,\ K\ge2\bigr).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $L(K)=1+\log K$, so $L(K)\ge1+\log2>1$ for $K\ge2$. Let $C_1^0>0$ be the
+constant of \noderef{FitComparisonSameCenter} for this $C_0$ and put
+$C_1=\max\{C_1^0,1\}$. The conclusion of \noderef{FitComparisonSameCenter} is an
+upper bound, so it continues to hold with $C_1\ge C_1^0$ in place of $C_1^0$;
+we therefore work throughout with a constant $C_1\ge1$ which still depends only
+on $C_0$. We fix $C_1$ now, before any other constant is chosen, because the
+choice of $A$ in Step 1 below depends on it. We first record
+the consequence we shall use: if $w\in\Aclass_{m,C_0}$ is centered at the origin
+with constant $C_0$, then for every $r>0$ and every fit $(p,a)$ for $w$ at the
+origin of radius $r$ with constant $C_0$,
+\begin{equation}\label{eq:cg-ofb}
+  |p|+|a|\le C_1\bigl(1+|\log r|\bigr).
+\end{equation}
+Indeed, by \noderef{IsFitClass} the function $w$ admits a fit at the origin of
+every positive radius with constant $C_0$, and by \noderef{IsCenteredAt} the
+pair $(0,0)$ is such a fit of radius $1$. Applying
+\noderef{FitComparisonSameCenter} at the center $z=0$ with the two radii $r$ and
+$R'=1$ and the fits $(p,a)$ and $(0,0)$ gives
+$|p-0|+|a-0|\le C_1\bigl(1+|\log(1/r)|\bigr)=C_1\bigl(1+|\log r|\bigr)$, since
+$\log(1/r)=-\log r$.
+
+\emph{Step 1: choice of the constant $A$.}
+Because $(\log\sigma)/\sigma\to0$ as $\sigma\to\infty$, also
+$(3+\log A)/A\to0$ as $A\to\infty$. Since $C_1\ge1$, the number $1/(8C_1)$ is
+positive, so there is $A_0>0$ with
+\[
+  \frac{3+\log A}{A}\le\frac1{8C_1}\qquad(A\ge A_0).
+\]
+Fix once and for all
+\[
+  A=\max\{4,\,A_0\},
+\]
+so that $A\ge4$ and, applying the displayed bound at this $A\ge A_0$,
+\begin{equation}\label{eq:cg-Achoice}
+  A\ge8\,C_1(3+\log A).
+\end{equation}
+The choice depends only on $C_1$, hence only on $C_0$ and $\dim F$, and it is
+made once, for all $v$ and all $K$. Put
+\[
+  C_2=C_1(3+\log A),
+\]
+so that \eqref{eq:cg-Achoice} reads $A\ge8C_2$, and
+$C_2\ge C_1\ge1$ because $3+\log A\ge3+\log4>1$.
+
+\emph{Step 2: the case of centering at the origin.}
+Let $w\in\Aclass_{m,C_0}$ be centered at $(0,0)$ with constant $C_0$ in the
+sense of \noderef{IsCenteredAt}, so $w(0,0)=0$, and let $K\ge2$. Put
+\[
+  R=A\,K\,L(K)\ \ (\ge A\cdot2\cdot1\ge8>1).
+\]
+By \noderef{IsFitClass} there is a fit $(p_R,a_R)$ for $w$ at the origin of
+radius $R$ with constant $C_0$. Since $R>1$ we have $|\log R|=\log R$, and
+\[
+  \log R=\log A+\log K+\log L(K)\le\log A+L(K)+L(K)=\log A+2L(K),
+\]
+using $\log K\le1+\log K=L(K)$ and $\log L(K)\le L(K)$ (valid because
+$\log\sigma\le\sigma$ for $\sigma>0$). Hence by \eqref{eq:cg-ofb} and
+$L(K)\ge1$,
+\begin{equation}\label{eq:cg-param}
+  |p_R|+|a_R|\le C_1\bigl(1+\log A+2L(K)\bigr)
+   \le C_1(3+\log A)L(K)=C_2L(K).
+\end{equation}
+The middle inequality holds because
+\[
+  (3+\log A)L(K)=2L(K)+L(K)+(\log A)L(K)
+   \ge2L(K)+1+\log A ,
+\]
+where the second summand is bounded below using $L(K)\ge1$ and the third using
+$(\log A)L(K)\ge\log A$, which needs $\log A\ge0$ and holds since $A\ge4$.
+
+Now let $z=(x,t)$ with $|x|\le K$ and $|t|\le K$. We check that the increment
+$(x,t)$ from the origin lies in the sheared box of the fit $(p_R,a_R)$ of radius
+$R$, i.e. that $|t|\le R$ and $|x-p_Rt|\le R$. First,
+\[
+  |t|\le K\le\frac{A\,K\,L(K)}{4}=\frac R4\le R,
+\]
+because $AL(K)\ge4$ by $A\ge4$ and $L(K)\ge1$. Second, by
+\eqref{eq:cg-param} and $|t|\le K$,
+\[
+  |x-p_Rt|\le|x|+|p_R||t|\le K+C_2L(K)K\le2C_2KL(K),
+\]
+using $1\le C_2L(K)$; and $2C_2KL(K)\le\frac{A}{4}KL(K)=\frac R4\le R$ because
+$A\ge8C_2$. So both box conditions hold, and \noderef{IsFit} applied with
+$h=x$, $\ell=t$ at the center $(0,0)$ gives, using $w(0,0)=0$,
+\[
+  \Bigl|w(x,t)-p_R\cdot x-\Bigl(a_R-\frac{|p_R|^2}{2}\Bigr)t\Bigr|\le C_0R .
+\]
+Therefore, by Cauchy--Schwarz, $|x|\le K$, $|t|\le K$ and
+\eqref{eq:cg-param},
+\[
+  |w(x,t)|\le C_0R+|p_R|\,K+\Bigl(|a_R|+\frac{|p_R|^2}{2}\Bigr)K
+   \le C_0AKL(K)+C_2L(K)K+C_2L(K)K+\frac{C_2^2L(K)^2}{2}K .
+\]
+Since $L(K)\ge1$ we have $L(K)\le L(K)^2$, so with
+\[
+  C_3=C_0A+2C_2+\tfrac12C_2^2
+\]
+we obtain
+\begin{equation}\label{eq:cg-origin}
+  |w(x,t)|\le C_3\,K\,L(K)^2\qquad(|x|\le K,\ |t|\le K,\ K\ge2).
+\end{equation}
+
+\emph{Step 3: the case of centering at $(0,1)$.}
+Let $v\in\Aclass_{m,C_0}$ be centered at $(0,1)$ with constant $C_0$. Apply
+\noderef{FrameInvariance} with $z_0=(0,1)$, $R=1$, $p_0=0$ and $a_0=0$. By
+\noderef{FrameChange}, and using $v(0,1)=0$ from \noderef{IsCenteredAt}, the
+resulting function is
+\[
+  \bar v(y,s)=\frac{v\bigl(0+1\cdot(y+0\cdot s),\,1+1\cdot s\bigr)-v(0,1)}{1}
+     -0\cdot y-\Bigl(0+\frac{|0|^2}{2}\Bigr)s=v(y,1+s),
+\]
+and \noderef{FrameInvariance} gives $\bar v\in\Aclass_{m,C_0}$.
+
+We check that $\bar v$ is centered at the origin with constant $C_0$. First
+$\bar v(0,0)=v(0,1)=0$. Second, by \noderef{IsCenteredAt} the pair $(0,0)$ is a
+fit for $v$ at $(0,1)$ of radius $1$ with constant $C_0$, so by
+\noderef{IsFit}, for all $h$ with $|h|\le1$ and all $\ell$ with $|\ell|\le1$,
+\[
+  \bigl|v(0+h,1+\ell)-v(0,1)-0\cdot h-(0-0)\ell\bigr|\le C_0\cdot1,
+\]
+that is $|\bar v(h,\ell)|=|v(h,1+\ell)|\le C_0$. Since $\bar v(0,0)=0$, this is
+exactly the statement of \noderef{IsFit} saying that $(0,0)$ is a fit for
+$\bar v$ at the origin of radius $1$ with constant $C_0$. By
+\noderef{IsCenteredAt}, $\bar v$ is centered at the origin with constant $C_0$.
+
+Let now $|x|\le K$ and $|t|\le K$ with $K\ge2$, and put $s=t-1$, so
+$v(x,t)=\bar v(x,s)$. Then $|x|\le K\le2K$ and $|s|\le|t|+1\le K+1\le2K$, and
+$2K\ge2$, so \eqref{eq:cg-origin} applied to $\bar v$ at the box size $2K$
+gives
+\[
+  |v(x,t)|=|\bar v(x,s)|\le C_3\,(2K)\,L(2K)^2 .
+\]
+Finally $L(2K)=1+\log2+\log K\le(1+\log2)(1+\log K)=(1+\log2)L(K)$, because
+$1+\log2+\log K\le(1+\log2)+(1+\log2)\log K$ and $\log K\ge0$. Hence
+\[
+  |v(x,t)|\le 2(1+\log2)^2\,C_3\,K\,L(K)^2 .
+\]
+
+\emph{Conclusion.} Taking
+$C=\max\{C_3,\ 2(1+\log2)^2C_3\}+1=2(1+\log2)^2C_3+1>0$, which depends only on
+$C_0$ and $\dim F$, both cases give
+\eqref{eq:centered-growth}.
+\end{proof}

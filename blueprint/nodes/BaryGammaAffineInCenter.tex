@@ -1,0 +1,52 @@
+\begin{lemma}[The slope functional is affine in the center]
+Let $F$ be a finite-dimensional real inner-product space, let $f$ be a real
+function on space-time, let $s>0$ and let $t\in\R$. Write
+$g(y)=f(y,t)-|y|^2/(2s)$, and assume that for every $A\in F$ the set
+$\{g(y)-A\cdot y:y\in F\}$ is bounded above. Then there is a function
+$c:F\to\R$ such that
+\[
+  \sup_{y\in F}\bigl\{g(y)-A\cdot(y-x)\bigr\}=c(A)+A\cdot x
+  \qquad(A,x\in F).
+\]
+\end{lemma}
+\begin{proof}
+Fix $A\in F$ and put
+\[
+  \mathcal C(A)=\bigl\{g(y)-A\cdot y:y\in F\bigr\},
+  \qquad
+  \mathcal G(A;x)=\bigl\{g(y)-A\cdot(y-x):y\in F\bigr\}\quad(x\in F).
+\]
+The set $\mathcal C(A)$ is nonempty, containing $g(0)-A\cdot0=g(0)$ at $y=0$, and
+it is bounded above by hypothesis. Hence, by the convention of the preamble
+being satisfied in the only case it needs to be, $c(A):=\sup\mathcal C(A)$ is a
+genuine finite least upper bound, and
+\begin{equation}\label{eq:bgac-lub}
+  g(y)-A\cdot y\le c(A)\quad(y\in F),
+  \qquad\text{and}\qquad
+  c(A)\le b\ \text{ whenever }g(y)-A\cdot y\le b\text{ for all }y\in F .
+\end{equation}
+Define $c:F\to\R$ this way for every $A\in F$.
+
+Now fix $x\in F$ as well. By bilinearity of the inner product,
+\[
+  g(y)-A\cdot(y-x)=\bigl(g(y)-A\cdot y\bigr)+A\cdot x\qquad(y\in F),
+\]
+so $\mathcal G(A;x)$ is the translate of $\mathcal C(A)$ by the constant
+$A\cdot x$: every element of $\mathcal G(A;x)$ is an element of $\mathcal C(A)$
+plus $A\cdot x$, and conversely. We check that $c(A)+A\cdot x$ is the least upper
+bound of $\mathcal G(A;x)$.
+
+It is an upper bound: for $y\in F$, the first part of \eqref{eq:bgac-lub} gives
+$g(y)-A\cdot(y-x)=\bigl(g(y)-A\cdot y\bigr)+A\cdot x\le c(A)+A\cdot x$.
+
+It is the least one: let $b$ be any upper bound of $\mathcal G(A;x)$, so
+$\bigl(g(y)-A\cdot y\bigr)+A\cdot x\le b$, i.e. $g(y)-A\cdot y\le b-A\cdot x$,
+for every $y\in F$. By the second part of \eqref{eq:bgac-lub},
+$c(A)\le b-A\cdot x$, i.e. $c(A)+A\cdot x\le b$.
+
+Moreover $\mathcal G(A;x)$ is nonempty, containing $g(x)$ at $y=x$, and bounded
+above by the real number $c(A)+A\cdot x$ just exhibited; so its supremum is a
+genuine least upper bound rather than the convention value $0$, and being the
+least upper bound it equals $c(A)+A\cdot x$. As $A$ and $x$ were arbitrary, this
+is the displayed identity.
+\end{proof}

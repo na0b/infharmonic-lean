@@ -1,0 +1,86 @@
+\begin{lemma}[Translating the base point and subtracting an affine function]
+Let $E$ be a finite-dimensional real inner-product space, let $g:E\to\R$ and let
+$z,p\in E$. Define the normalized function
+\[
+  \widehat g(w)=g(z+w)-g(z)-\langle p,w\rangle\qquad(w\in E),
+\]
+so that $\widehat g(0)=0$. Then for every $q\in E$ and every continuous bilinear
+form $X$ on $E$,
+\[
+  (q,X)\in\overline J^{2,+}\widehat g(0)
+  \iff
+  (q+p,X)\in\overline J^{2,+}g(z),
+\]
+where $\overline J^{2,+}$ is the closed superjet of \noderef{ClosedSuperjet}.
+\end{lemma}
+\begin{proof}
+\emph{Step 1: the corresponding statement for superjets, at an arbitrary point.}
+We first show that for every $w_0\in E$, every $q'\in E$ and every continuous
+bilinear form $X$ on $E$,
+\begin{equation}\label{eq:csas-jet}
+  (q',X)\in J^{2,+}\widehat g(w_0)
+  \iff
+  (q'+p,X)\in J^{2,+}g(z+w_0),
+\end{equation}
+where $J^{2,+}$ is the superjet of \noderef{Superjet}. Both memberships require
+the same condition on $X$, namely symmetry, so only the inequalities have to be
+compared. Fix $\varepsilon'>0$ and $\delta>0$ and let $h\in E$ with
+$|h|<\delta$. Substituting the definition of $\widehat g$ at the two points
+$w_0+h$ and $w_0$, the inequality of \noderef{Superjet} for $\widehat g$ at
+$w_0$,
+\[
+  \widehat g(w_0+h)\le\widehat g(w_0)+\langle q',h\rangle+\tfrac12X(h,h)
+    +\varepsilon'|h|^2,
+\]
+reads
+\[
+  g(z+w_0+h)-g(z)-\langle p,w_0+h\rangle
+   \le g(z+w_0)-g(z)-\langle p,w_0\rangle+\langle q',h\rangle+\tfrac12X(h,h)
+     +\varepsilon'|h|^2 .
+\]
+The terms $-g(z)$ cancel, and
+$-\langle p,w_0+h\rangle+\langle p,w_0\rangle=-\langle p,h\rangle$ by the
+additivity of the inner product in its second argument, so after moving
+$-\langle p,h\rangle$ to the right-hand side the inequality becomes
+\[
+  g\bigl((z+w_0)+h\bigr)\le g(z+w_0)+\langle q'+p,h\rangle+\tfrac12X(h,h)
+    +\varepsilon'|h|^2 .
+\]
+Every step was an equivalence valid for each individual $h$, so for each pair
+$(\varepsilon',\delta)$ the first inequality holds for all $|h|<\delta$ if and
+only if the last one does. Since the condition of \noderef{Superjet} asserts, for
+every $\varepsilon'>0$, the existence of some $\delta>0$ for which the
+inequality holds on $|h|<\delta$, and the two inequalities have the same
+$(\varepsilon',\delta)$ ranges of validity, the two memberships in
+\eqref{eq:csas-jet} are equivalent.
+
+\emph{Step 2: passing to closed superjets, from left to right.}
+Let $(q,X)\in\overline J^{2,+}\widehat g(0)$ and pick defining sequences
+$(w_k,q_k,X_k)$ as in \noderef{ClosedSuperjet}: $(q_k,X_k)\in
+J^{2,+}\widehat g(w_k)$, $w_k\to0$, $\widehat g(w_k)\to\widehat g(0)=0$,
+$q_k\to q$ and $X_k\to X$. Put $z_k=z+w_k$ and $q'_k=q_k+p$. Then:
+\begin{enumerate}
+\item[(i)] $(q'_k,X_k)\in J^{2,+}g(z_k)$ for every $k$, by \eqref{eq:csas-jet}
+with $w_0=w_k$ and $q'=q_k$.
+\item[(ii)] $z_k=z+w_k\to z+0=z$, by the continuity of translation.
+\item[(iii)] $g(z_k)=\widehat g(w_k)+g(z)+\langle p,w_k\rangle$ by the
+definition of $\widehat g$; here $\widehat g(w_k)\to0$ and
+$\langle p,w_k\rangle\to0$ by the continuity of the inner product in its second
+argument, so $g(z_k)\to g(z)$.
+\item[(iv)] $q'_k=q_k+p\to q+p$ and $X_k\to X$.
+\end{enumerate}
+By \noderef{ClosedSuperjet} these four facts give
+$(q+p,X)\in\overline J^{2,+}g(z)$.
+
+\emph{Step 3: passing to closed superjets, from right to left.}
+Conversely let $(q+p,X)\in\overline J^{2,+}g(z)$ with defining sequences
+$(z_k,\pi_k,X_k)$: $(\pi_k,X_k)\in J^{2,+}g(z_k)$, $z_k\to z$, $g(z_k)\to g(z)$,
+$\pi_k\to q+p$ and $X_k\to X$. Put $w_k=z_k-z$ and $q_k=\pi_k-p$. Then
+$z_k=z+w_k$, so by \eqref{eq:csas-jet} with $w_0=w_k$ and $q'=q_k$ (note
+$q_k+p=\pi_k$) we get $(q_k,X_k)\in J^{2,+}\widehat g(w_k)$. Moreover
+$w_k=z_k-z\to0$; and
+$\widehat g(w_k)=g(z_k)-g(z)-\langle p,w_k\rangle\to g(z)-g(z)-0=0
+=\widehat g(0)$, again by the continuity of the inner product; and
+$q_k=\pi_k-p\to q$ and $X_k\to X$. By \noderef{ClosedSuperjet},
+$(q,X)\in\overline J^{2,+}\widehat g(0)$.
+\end{proof}

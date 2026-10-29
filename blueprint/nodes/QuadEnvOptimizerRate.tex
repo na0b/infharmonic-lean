@@ -1,0 +1,99 @@
+\begin{lemma}[Rate of collapse of the envelope optimizers]
+Let $F$ be a finite-dimensional real inner-product space, let $f$ be a real
+function on space-time, let $\ell>0$, let $z=(x,t)$ be a space-time point and let
+$M,N\in\R$ satisfy $|x|\le M$ and $N\ge0$. Assume
+\begin{enumerate}
+\item[(a)] $|f(y,t+\ell)|\le N$ and $|f(y,t-\ell)|\le N$ for every $y\in F$ with
+$|y|\le M$;
+\item[(b)] for every $y\in F$ with $|y|>M$,
+\[
+  f(y,t+\ell)-\frac{|y-x|^2}{2\ell}<f(x,t+\ell),
+  \qquad
+  f(x,t-\ell)<f(y,t-\ell)+\frac{|y-x|^2}{2\ell}.
+\]
+\end{enumerate}
+Then, with the envelopes of \noderef{QuadEnvP} and \noderef{QuadEnvM}:
+\begin{enumerate}
+\item $f(x,t+\ell)\le\Penv_\ell f(z)$, and every $y\in F$ with
+$\Penv_\ell f(z)=f(y,t+\ell)-|y-x|^2/(2\ell)$ satisfies $|y|\le M$ and
+$|y-x|\le2\sqrt{N\ell}$;
+\item $\Menv_\ell f(z)\le f(x,t-\ell)$, and every $y\in F$ with
+$\Menv_\ell f(z)=f(y,t-\ell)+|y-x|^2/(2\ell)$ satisfies $|y|\le M$ and
+$|y-x|\le2\sqrt{N\ell}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{(1).} Write $G(y)=f(y,t+\ell)-|y-x|^2/(2\ell)$ for $y\in F$, so that by
+\noderef{QuadEnvP} and $\ell\ne0$ the envelope $\Penv_\ell f(z)$ is the supremum
+of $\mathcal V=\{G(y):y\in F\}$.
+
+The set $\mathcal V$ is bounded above by $N$. Indeed, if $|y|\le M$ then
+$|y-x|^2/(2\ell)\ge0$ and (a) give
+$G(y)\le f(y,t+\ell)\le|f(y,t+\ell)|\le N$; and if $|y|>M$ then the first
+inequality of (b) together with (a) applied at $x$ — legitimate because
+$|x|\le M$ — gives $G(y)<f(x,t+\ell)\le|f(x,t+\ell)|\le N$. The set $\mathcal V$
+is also nonempty, since $G(x)\in\mathcal V$. Hence $\sup\mathcal V$ is a genuine
+least upper bound rather than the value $0$ that the convention of the preamble
+assigns to an empty or unbounded-above set, and being an upper bound of
+$\mathcal V$ it dominates the element $G(x)$:
+\begin{equation}\label{eq:qeor-lowerP}
+  f(x,t+\ell)=G(x)\le\sup\mathcal V=\Penv_\ell f(z),
+\end{equation}
+which is the first claim of (1).
+
+Now let $y\in F$ satisfy $\Penv_\ell f(z)=G(y)$. If $|y|>M$, the first inequality
+of (b) and \eqref{eq:qeor-lowerP} would give
+\[
+  G(y)<f(x,t+\ell)\le\Penv_\ell f(z)=G(y),
+\]
+which is impossible; hence $|y|\le M$. Consequently, using the defining equation
+of $y$, then \eqref{eq:qeor-lowerP}, then (a) at $y$ and at $x$ (both of norm
+$\le M$),
+\begin{equation}\label{eq:qeor-collapseP}
+  \frac{|y-x|^2}{2\ell}
+  =f(y,t+\ell)-G(y)
+  =f(y,t+\ell)-\Penv_\ell f(z)
+  \le f(y,t+\ell)-f(x,t+\ell)
+  \le N+N=2N .
+\end{equation}
+Multiplying by $2\ell>0$ gives $|y-x|^2\le4N\ell$. Since $|y-x|\ge0$ and
+$4N\ell\ge0$ (because $N\ge0$ and $\ell>0$), taking nonnegative square roots
+preserves the inequality:
+$|y-x|\le\sqrt{4N\ell}=2\sqrt{N\ell}$. This completes (1).
+
+\emph{(2).} This is the mirror computation, with the time argument $t-\ell$ in
+place of $t+\ell$ and an infimum in place of the supremum; it is not the forward
+statement applied to $-f$. Write $G(y)=f(y,t-\ell)+|y-x|^2/(2\ell)$ for $y\in F$,
+so that by \noderef{QuadEnvM} and $\ell\ne0$ the envelope $\Menv_\ell f(z)$ is
+the infimum of $\mathcal V=\{G(y):y\in F\}$.
+
+The set $\mathcal V$ is bounded below by $-N$. Indeed, if $|y|\le M$ then
+$|y-x|^2/(2\ell)\ge0$ and (a) give
+$G(y)\ge f(y,t-\ell)\ge-|f(y,t-\ell)|\ge-N$; and if $|y|>M$ then the second
+inequality of (b) together with (a) applied at $x$ gives
+$G(y)>f(x,t-\ell)\ge-|f(x,t-\ell)|\ge-N$. The set $\mathcal V$ is nonempty,
+containing $G(x)$. Hence $\inf\mathcal V$ is a genuine greatest lower bound
+rather than the preamble's convention value, and being a lower bound of
+$\mathcal V$ it is dominated by the element $G(x)$:
+\begin{equation}\label{eq:qeor-upperM}
+  \Menv_\ell f(z)=\inf\mathcal V\le G(x)=f(x,t-\ell),
+\end{equation}
+which is the first claim of (2).
+
+Now let $y\in F$ satisfy $\Menv_\ell f(z)=G(y)$. If $|y|>M$, the second
+inequality of (b) and \eqref{eq:qeor-upperM} would give
+\[
+  G(y)>f(x,t-\ell)\ge\Menv_\ell f(z)=G(y),
+\]
+which is impossible; hence $|y|\le M$. Consequently, using the defining equation
+of $y$, then \eqref{eq:qeor-upperM}, then (a) at $y$ and at $x$,
+\begin{equation}\label{eq:qeor-collapseM}
+  \frac{|y-x|^2}{2\ell}
+  =G(y)-f(y,t-\ell)
+  =\Menv_\ell f(z)-f(y,t-\ell)
+  \le f(x,t-\ell)-f(y,t-\ell)
+  \le N+N=2N ,
+\end{equation}
+so $|y-x|^2\le4N\ell$ and, as before, $|y-x|\le2\sqrt{N\ell}$. This completes
+(2).
+\end{proof}

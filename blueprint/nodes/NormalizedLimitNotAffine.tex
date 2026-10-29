@@ -1,0 +1,135 @@
+\begin{lemma}[Step 12: the limit of a normalized blow-up family is not space-time affine]
+Let $d\in\N$ and write $\mathcal H=\ell^2(\R^d\times\R)$ for the space-time of the
+preamble. Let $r,\lambda:\N\to\R$, let $U_i:\mathcal H\to\R$ and
+$v_i:\mathcal H\to\R$ for each $i\in\N$, let $z_i\in\mathcal H$, let $\Phi_i$ be a
+surjective linear isometry of $\mathcal H$ onto itself, let
+$Z_i:\mathcal H\to\mathcal H$, let $c:\N\to\R$, let $L\in\R$ with $L\ge0$, let
+$i_1\le i_2$ be natural numbers, let $\psi:\N\to\N$ and let $v:\mathcal H\to\R$.
+Assume:
+\begin{enumerate}
+\item\label{it:nlna-lam} $\lambda_i>0$ for every $i$, and $\lambda_i\to0$ as
+$i\to\infty$;
+\item\label{it:nlna-r} $r_i>0$ for every $i$;
+\item\label{it:nlna-bad} for every $i$ there is \emph{no} $P$ realizing a
+cylinder fit of parameter $\lambda_i$ for $U_i$ at $(z_i,r_i)$ in the sense of
+\noderef{IsCylinderFit};
+\item\label{it:nlna-Z} the normalization map is
+$Z_i(w)=z_i+r_i\,\Phi_i\bigl(\sqrt{\lambda_i}\,x,\ s\bigr)$ for every $i$ and
+every $w\in\mathcal H$ with coordinates $w=(x,s)$;
+\item\label{it:nlna-norm} $\tfrac12\le c_i\le L+1$ for every $i\ge i_2$;
+\item\label{it:nlna-tail} $32\lambda_i\le1$ for every $i\ge i_2$;
+\item\label{it:nlna-origin} $v_i(0)=0$ for every $i\ge i_1$;
+\item\label{it:nlna-incr} for every $i\ge i_1$, every $w\in\mathcal H$, every
+$h\in\R^d$ and $l\in\R$, every $p'\in\R^d$ and $q'\in\R$, and every
+$Q\in\mathcal H$ with
+$Q=\Phi_i\bigl(c_i\sqrt{\lambda_i}\,p',\ c_i(1+\lambda_iq')\bigr)$,
+\[
+  U_i\bigl(Z_i(w+(h,l))\bigr)-U_i\bigl(Z_i(w)\bigr)
+    -Q\cdot\bigl(Z_i(w+(h,l))-Z_i(w)\bigr)
+  =r_ic_i\lambda_i\bigl(v_i(w+(h,l))-v_i(w)-p'\cdot h-q'l\bigr);
+\]
+\item\label{it:nlna-mono} $\psi$ is strictly monotone;
+\item\label{it:nlna-conv} $v_{\psi(j)}\to v$ uniformly on every compact subset of
+$\mathcal H$ as $j\to\infty$;
+\item\label{it:nlna-v0} $v(0)=0$.
+\end{enumerate}
+Then $v$ is not space-time affine in the sense of \noderef{IsSpaceTimeAffine}.
+\end{lemma}
+\begin{proof}
+Suppose $v$ were space-time affine. By \noderef{IsSpaceTimeAffine} there are
+$p\in\R^d$ and $q,c\in\R$ with $v(x,t)=p\cdot x+qt+c$ for all $(x,t)$. Taking
+$(x,t)=0$ and using \ref{it:nlna-v0} gives $0=v(0)=p\cdot0+q\cdot0+c=c$, so
+$c=0$ and
+\begin{equation}\label{eq:nlna-aff}
+  v(x,t)=p\cdot x+qt\qquad\bigl((x,t)\in\mathcal H\bigr).
+\end{equation}
+
+\emph{The candidate slopes.} Put, for $i\ge i_2$,
+\[
+  \widetilde P_i=\Phi_i\bigl(c_i\sqrt{\lambda_i}\,p,\ c_i(1+\lambda_iq)\bigr),
+  \qquad N_i=\bigl(\lambda_i|p|^2+(1+\lambda_iq)^2\bigr)^{1/2},
+\]
+so that $|\widetilde P_i|=c_iN_i$, because $\Phi_i$ is an isometry and the
+coordinate vector $\bigl(c_i\sqrt{\lambda_i}p,\ c_i(1+\lambda_iq)\bigr)$ has norm
+$c_iN_i$ by $(\sqrt{\lambda_i})^2=\lambda_i$, which uses $\lambda_i>0$ from
+\ref{it:nlna-lam}. Since $\lambda_i\to0$ by \ref{it:nlna-lam} we may fix
+$i_3\ge i_2$ with $\lambda_i<\tfrac1{2(|q|+1)}$ for $i\ge i_3$; then
+$\lambda_i|q|<\tfrac12$, hence $1+\lambda_iq\ge\tfrac12$ and therefore
+$N_i^2\ge(1+\lambda_iq)^2\ge\tfrac14$, i.e.\ $N_i\ge\tfrac12$. With
+$c_i\ge\tfrac12$ from \ref{it:nlna-norm} this gives
+$|\widetilde P_i|=c_iN_i\ge\tfrac14>0$, so
+\begin{equation}\label{eq:nlna-Pne}
+  \widetilde P_i\ne0\qquad(i\ge i_3).
+\end{equation}
+
+\emph{The fixed box.} Fix $i\ge i_3$, let $Z$ lie in the cylinder
+$Z_{\lambda_i}(z_i,r_i;\widetilde P_i)$ of \noderef{FitCylinder}, and let
+$(x,t)$ be the normalized coordinates of $Z$, that is $Z=Z_i(x,t)$. Such $(x,t)$
+exists and is unique because $\Phi_i$ is a surjective isometry and
+$r_i\sqrt{\lambda_i}>0$ by \ref{it:nlna-r} and \ref{it:nlna-lam}; concretely,
+$(x,t)$ is recovered from \ref{it:nlna-Z} by applying $\Phi_i^{-1}$ and dividing
+by $r_i$ and $\sqrt{\lambda_i}$. Then
+\begin{equation}\label{eq:nlna-box}
+  |x|\le2|p|+1,\qquad |t|\le1+\sqrt{\lambda_i}\le2 .
+\end{equation}
+The first two bounds are \noderef{FitCylinderToNormalizedBox}, applied with the
+isometry $\Phi_i$, the centre $z_i$, the scales $c_i$, $\lambda_i$ and $r_i$, the
+coefficients $p$ and $q$, and the normalized coordinates $(x,t)$ of $Z$. Its
+hypotheses hold: $c_i\ge\tfrac12>0$ by \ref{it:nlna-norm}; $\lambda_i>0$ and
+$r_i>0$ by \ref{it:nlna-lam} and \ref{it:nlna-r}; its lower bound
+$\bigl(\lambda_i|p|^2+(1+\lambda_iq)^2\bigr)^{1/2}\ge\tfrac12$ is exactly
+$N_i\ge\tfrac12$, established above; and its membership hypothesis asks that
+$z_i+r_i\Phi_i\bigl(\sqrt{\lambda_i}\,x,\ t\bigr)$ lie in
+$Z_{\lambda_i}\bigl(z_i,\ r_i;\ \Phi_i(c_i\sqrt{\lambda_i}\,p,\
+c_i(1+\lambda_iq))\bigr)$, which is the assumption on $Z$ once $Z=Z_i(x,t)$ is
+written out using \ref{it:nlna-Z} and $\widetilde P_i$ is substituted. The cited
+node's two bounds rest on two separate uses of $N_i$: the time bound needs only
+$N_i\ge|1+\lambda_iq|$, which $N_i^2=\lambda_i|p|^2+(1+\lambda_iq)^2\ge
+(1+\lambda_iq)^2$ gives at once, whereas the spatial bound is where
+$N_i\ge\tfrac12$ enters, through $|p|/N_i\le2|p|$. The last step
+$1+\sqrt{\lambda_i}\le2$ uses $\lambda_i\le1$, which follows from
+$32\lambda_i\le1$ by \ref{it:nlna-tail} and $32\ge1$. Thus, with $K_0=2|p|+3$,
+every point of every such cylinder has normalized coordinates in the closed ball
+of radius $K_0$ about the origin, independently of $i$.
+
+\emph{The residual is an identity.} Apply \ref{it:nlna-incr} at the index $i$
+(legitimate since $i\ge i_3\ge i_2\ge i_1$), at $w=0$, with $(h,l)=(x,t)$, with
+$p'=p$ and $q'=q$, and with $Q=\widetilde P_i$, which is exactly the required
+form. Using $Z_i(0+(x,t))=Z_i(x,t)=Z$, $Z_i(0)=z_i$ (immediate from
+\ref{it:nlna-Z}, since $\sqrt{\lambda_i}\cdot0=0$ and $\Phi_i$ is linear) and
+$v_i(0)=0$ from \ref{it:nlna-origin}, this reads
+\[
+  U_i(Z)-U_i(z_i)-\widetilde P_i\cdot(Z-z_i)
+   =r_ic_i\lambda_i\bigl(v_i(x,t)-p\cdot x-qt\bigr)
+   =r_ic_i\lambda_i\bigl(v_i(x,t)-v(x,t)\bigr),
+\]
+the last equality by \eqref{eq:nlna-aff}. Note that this is an identity, not an
+estimate. Taking absolute values and using $c_i\le L+1$ from
+\ref{it:nlna-norm} together with $r_i,\lambda_i>0$,
+\begin{equation}\label{eq:nlna-resid}
+  \bigl|U_i(Z)-U_i(z_i)-\widetilde P_i\cdot(Z-z_i)\bigr|
+   \le r_i\lambda_i\,(L+1)\,\bigl|v_i(x,t)-v(x,t)\bigr| .
+\end{equation}
+
+\emph{Passing to the subsequence.} The closed ball of radius $K_0$ about the
+origin is compact, so by \ref{it:nlna-conv} there is $j_0$ such that for every
+$j\ge j_0$,
+\[
+  \sup\bigl\{|v_{\psi(j)}(y)-v(y)|:|y|\le K_0\bigr\}<\frac1{L+1},
+\]
+the right side being positive because $L\ge0$. Since $\psi$ is strictly
+monotone by \ref{it:nlna-mono}, $\psi(j)\ge j$ for every $j$, so we may fix a
+single index $j$ with $j\ge j_0$ and $\psi(j)\ge i_3$, and put
+$i=\psi(j)$. For every $Z\in Z_{\lambda_i}(z_i,r_i;\widetilde P_i)$ the
+normalized coordinates $(x,t)$ of $Z$ satisfy $|(x,t)|\le K_0$ by
+\eqref{eq:nlna-box}, so \eqref{eq:nlna-resid} gives
+\[
+  \bigl|U_i(Z)-U_i(z_i)-\widetilde P_i\cdot(Z-z_i)\bigr|
+   \le r_i\lambda_i\,(L+1)\cdot\frac1{L+1}=\lambda_ir_i .
+\]
+Together with $\widetilde P_i\ne0$ from \eqref{eq:nlna-Pne}, this says precisely
+that $\widetilde P_i$ realizes a cylinder fit of parameter $\lambda_i$ --- not
+$32\lambda_i$ --- for $U_i$ at $(z_i,r_i)$, in the sense of
+\noderef{IsCylinderFit}. That contradicts \ref{it:nlna-bad}, which denies such a
+fit at every index. Hence $v$ is not space-time affine.
+\end{proof}

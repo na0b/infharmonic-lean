@@ -1,0 +1,61 @@
+\begin{lemma}[Second-order expansion from a differentiable gradient]
+Let $E$ be a finite-dimensional real inner-product space, let $F:E\to\R$ and let
+$w:E\to E$. Assume that for every $z\in E$ the vector $w(z)$ is the gradient of
+$F$ at $z$, that $w$ is continuous on $E$, and that $w$ is differentiable at a
+point $y\in E$ with derivative the continuous linear map $Q:E\to E$. Then for
+every $\delta>0$ there is $\rho>0$ such that
+\[
+  \Bigl|F(y+h)-F(y)-\langle w(y),h\rangle-\tfrac12\langle Qh,h\rangle\Bigr|
+    \le\delta|h|^2\qquad(|h|<\rho).
+\]
+\end{lemma}
+\begin{proof}
+Write $p=w(y)$ and
+\[
+  r(k)=w(y+k)-w(y)-Qk\qquad(k\in E),
+\]
+so that $r(0)=0$ and, by the assumed differentiability of $w$ at $y$ with
+derivative $Q$, $|r(k)|/|k|\to0$ as $k\to0$.
+
+Since $w$ is the gradient of $F$ at every point and $w$ is continuous, $F$ is
+$C^1$ on $E$, so integrating the gradient along the segment from $y$ to $y+h$
+(preamble) gives, for every $h\in E$,
+\[
+  F(y+h)-F(y)=\int_0^1\langle w(y+th),h\rangle\,dt .
+\]
+The integrand is continuous in $t$ because $w$ is continuous and the inner
+product is, so the integral exists. By the definition of $r$ applied with
+$k=th$,
+\[
+  \langle w(y+th),h\rangle
+   =\langle p,h\rangle+\langle Q(th),h\rangle+\langle r(th),h\rangle
+   =\langle p,h\rangle+t\langle Qh,h\rangle+\langle r(th),h\rangle,
+\]
+using the linearity of $Q$ and of the inner product in its first argument. Since
+$\int_0^1dt=1$ and $\int_0^1t\,dt=\tfrac12$, integrating termwise over
+$t\in[0,1]$ gives
+\begin{equation}\label{eq:gdso-split}
+  F(y+h)-F(y)
+   =\langle p,h\rangle+\tfrac12\langle Qh,h\rangle
+     +\int_0^1\langle r(th),h\rangle\,dt .
+\end{equation}
+By the Cauchy--Schwarz inequality the last integrand is bounded in absolute
+value by $|r(th)|\,|h|$, so
+\begin{equation}\label{eq:gdso-err}
+  \Bigl|\int_0^1\langle r(th),h\rangle\,dt\Bigr|
+   \le|h|\sup_{0\le t\le1}|r(th)| .
+\end{equation}
+
+Now let $\delta>0$. Because $|r(k)|/|k|\to0$ as $k\to0$ and $r(0)=0$, there is
+$\rho>0$ such that $|r(k)|\le\delta|k|$ whenever $|k|<\rho$; the case $k=0$ is
+included since $r(0)=0$. Let $|h|<\rho$ and $t\in[0,1]$. Then
+$|th|=t|h|\le|h|<\rho$, so $|r(th)|\le\delta|th|=\delta t|h|\le\delta|h|$.
+Hence $\sup_{0\le t\le1}|r(th)|\le\delta|h|$, and \eqref{eq:gdso-err} bounds the
+error term in \eqref{eq:gdso-split} by $\delta|h|^2$. Rearranging
+\eqref{eq:gdso-split} gives
+\[
+  \Bigl|F(y+h)-F(y)-\langle p,h\rangle-\tfrac12\langle Qh,h\rangle\Bigr|
+   \le\delta|h|^2\qquad(|h|<\rho),
+\]
+which is the assertion since $p=w(y)$.
+\end{proof}

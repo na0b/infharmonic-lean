@@ -1,0 +1,123 @@
+\begin{lemma}[The rescaled equation]
+Let $F$ be a finite-dimensional real inner-product space, let $\Omega$ be a
+subset of the space-time $\ell^2(F\times\R)$ and let $U$ be infinity-harmonic on
+$\Omega$ in the sense of \noderef{IsInfHarmonicOn}. Let $z_0$ be a space-time
+point, let $r,c,\lambda>0$, let $\Phi$ be a linear isometry of
+$\ell^2(F\times\R)$ onto itself, and define $T$ by
+\[
+  T(x,t)=z_0+r\,\Phi\bigl(\sqrt\lambda\,x,\ t\bigr).
+\]
+Suppose $v$ is a real function on space-time with
+\begin{equation}\label{eq:anisotropic-rescaling}
+  U\bigl(T(x,t)\bigr)=U(z_0)+rc\bigl(t+\lambda v(x,t)\bigr)
+  \qquad\text{for all }(x,t).
+\end{equation}
+Then $v$ is a viscosity solution of
+\[
+  D^2v\bigl[(\nabla_xv,\ 1+\lambda v_t)\bigr]=0
+\]
+on $T^{-1}(\Omega)$, in the sense of \noderef{IsRescaledSolutionOn}.
+\end{lemma}
+\begin{proof}
+Write $S(x,t)=(\sqrt\lambda\,x,\,t)$ for the anisotropic stretch and
+$L=r\,\Phi\circ S$, so that $T(\zeta)=z_0+L\zeta$ is affine with linear part
+$L$. Let $e_t=(0,1)$ denote the unit time direction, so that the time
+coordinate of a space-time point $\zeta$ is $\pi_t(\zeta)=\langle e_t,\zeta\rangle$.
+
+\emph{Step 0: $T$ is an affine homeomorphism, $T^{-1}(\Omega)$ is open and $v$ is
+continuous there.}
+The map $S$ is linear and invertible, with
+$S^{-1}(x,t)=(\lambda^{-1/2}x,t)$, because $\lambda>0$; $\Phi$ is a linear
+isometric bijection; and $r>0$. Hence $L$ is a linear homeomorphism of
+space-time and $T$ is an affine homeomorphism with
+$T^{-1}(Z)=L^{-1}(Z-z_0)$. By \noderef{IsInfHarmonicOn} the set $\Omega$ is open
+and $U$ is continuous on $\Omega$, so $T^{-1}(\Omega)$ is open. Solving
+\eqref{eq:anisotropic-rescaling} for $v$, using $rc\lambda>0$,
+\[
+  v(\zeta)=\frac{U(T\zeta)-U(z_0)}{rc\lambda}-\frac{\pi_t(\zeta)}{\lambda},
+\]
+which is continuous on $T^{-1}(\Omega)$ since $U$ is continuous on $\Omega$ and
+$T$ is continuous.
+
+\emph{Step 1: adjoint identities for $L$.}
+The inner product on space-time is
+$\langle(x,t),(x',t')\rangle=\langle x,x'\rangle+tt'$, so $S$ is self-adjoint:
+$\langle S(x,t),(x',t')\rangle=\sqrt\lambda\langle x,x'\rangle+tt'
+ =\langle(x,t),S(x',t')\rangle$. Also $S^2(x,t)=(\lambda x,t)$. Since $\Phi$ is a
+surjective linear isometry, $\Phi^*\Phi$ is the identity. Therefore
+\begin{equation}\label{eq:re-adjoint}
+  L^*L=r^2S^*\Phi^*\Phi S=r^2S^2,
+  \qquad\text{so}\qquad
+  (L^*L)^{-1}(x,t)=\Bigl(\frac{x}{r^2\lambda},\,\frac{t}{r^2}\Bigr).
+\end{equation}
+
+\emph{Step 2: the transformed test.}
+Let $\zeta_0\in T^{-1}(\Omega)$, let $\phi$ be $C^2$ near $\zeta_0$, and suppose
+that $\zeta\mapsto v(\zeta)-\phi(\zeta)$ has a local maximum on $T^{-1}(\Omega)$
+at $\zeta_0$. Put $Z_0=T\zeta_0\in\Omega$ and
+\[
+  \Psi(Z)=U(z_0)+rc\Bigl(\pi_t\bigl(T^{-1}Z\bigr)
+      +\lambda\,\phi\bigl(T^{-1}Z\bigr)\Bigr).
+\]
+Since $T^{-1}$ is affine and $\pi_t$ is linear, $\Psi$ is $C^2$ near $Z_0$.
+By \eqref{eq:anisotropic-rescaling} applied at $\zeta=T^{-1}Z$,
+\[
+  U(Z)-\Psi(Z)=rc\lambda\Bigl(v\bigl(T^{-1}Z\bigr)-\phi\bigl(T^{-1}Z\bigr)\Bigr)
+  \qquad(Z\in\text{space-time}),
+\]
+and $rc\lambda>0$. As $T$ is a homeomorphism carrying $T^{-1}(\Omega)$ onto
+$\Omega$ and $\zeta_0$ to $Z_0$, the function $U-\Psi$ therefore has a local
+maximum on $\Omega$ at $Z_0$. By \noderef{IsInfHarmonicOn} the subsolution
+inequality gives
+\begin{equation}\label{eq:re-visc}
+  \Dinf\Psi(Z_0)\ge0 .
+\end{equation}
+
+\emph{Step 3: computing $\Dinf\Psi(Z_0)$.}
+Write $\nabla\phi(\zeta_0)=(\nabla_x\phi,\phi_t)$ for the space-time gradient of
+$\phi$ at $\zeta_0$. Since $\pi_t\circ T^{-1}$ is affine with linear part
+$\pi_t\circ L^{-1}$, and since the second derivative of an affine map vanishes,
+the chain rule gives for every $\xi$
+\[
+  D\Psi(Z_0)\xi=rc\Bigl(\langle e_t,L^{-1}\xi\rangle
+     +\lambda\,\langle\nabla\phi(\zeta_0),L^{-1}\xi\rangle\Bigr),
+  \qquad
+  D^2\Psi(Z_0)[\xi,\xi]=rc\lambda\,D^2\phi(\zeta_0)\bigl[L^{-1}\xi,L^{-1}\xi\bigr].
+\]
+Let $G=\nabla\Psi(Z_0)$, the Riesz representative of $D\Psi(Z_0)$. Substituting
+$\xi=L\eta$ in the first display,
+\[
+  \langle L^*G,\eta\rangle=\langle G,L\eta\rangle
+   =rc\,\bigl\langle e_t+\lambda\nabla\phi(\zeta_0),\,\eta\bigr\rangle
+   \qquad(\eta\in\text{space-time}),
+\]
+so $L^*G=rc\bigl(e_t+\lambda\nabla\phi(\zeta_0)\bigr)$ and hence, by
+\eqref{eq:re-adjoint},
+\[
+  L^{-1}G=(L^*L)^{-1}L^*G
+   =rc\,(L^*L)^{-1}\bigl(\lambda\nabla_x\phi,\ 1+\lambda\phi_t\bigr)
+   =rc\Bigl(\frac{\lambda\nabla_x\phi}{r^2\lambda},\ \frac{1+\lambda\phi_t}{r^2}\Bigr)
+   =\frac cr\bigl(\nabla_x\phi,\ 1+\lambda\phi_t\bigr),
+\]
+where we used
+$e_t+\lambda\nabla\phi(\zeta_0)=(\lambda\nabla_x\phi,\ 1+\lambda\phi_t)$.
+Therefore, by the definition of $\Dinf$ in \noderef{InfLap}, bilinearity of
+$D^2\Psi(Z_0)$, and the definition of $F_\lambda$ in \noderef{RescaledOp},
+\begin{equation}\label{eq:re-factor}
+  \Dinf\Psi(Z_0)=D^2\Psi(Z_0)[G,G]
+   =rc\lambda\,D^2\phi(\zeta_0)\bigl[L^{-1}G,L^{-1}G\bigr]
+   =\frac{\lambda c^3}{r}\,F_\lambda[\phi](\zeta_0).
+\end{equation}
+
+\emph{Step 4: conclusion.}
+The factor $\lambda c^3/r$ is strictly positive, so \eqref{eq:re-visc} and
+\eqref{eq:re-factor} give $F_\lambda[\phi](\zeta_0)\ge0$. If instead
+$v-\phi$ has a local \emph{minimum} on $T^{-1}(\Omega)$ at $\zeta_0$, the same
+computation applies verbatim: $U-\Psi$ then has a local minimum on $\Omega$ at
+$Z_0$, the supersolution inequality of \noderef{IsInfHarmonicOn} gives
+$\Dinf\Psi(Z_0)\le0$, and \eqref{eq:re-factor} yields
+$F_\lambda[\phi](\zeta_0)\le0$.
+
+Together with Step 0 this verifies every clause of
+\noderef{IsRescaledSolutionOn} for $v$ on $T^{-1}(\Omega)$.
+\end{proof}

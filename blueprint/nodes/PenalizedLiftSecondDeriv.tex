@@ -1,0 +1,60 @@
+\begin{lemma}[Second derivative of a penalised lift in a direction the penalty misses]
+Let $P$ and $Q$ be real normed spaces, let $R$ be a real inner product space, let
+$L:P\to Q$ and $M:P\to R$ be continuous linear maps, let $\lambda\in\R$, let $W\in P$,
+and let $g:Q\to\R$ be $C^2$ near $L(W)$. Define
+\[
+  \Psi(U)=g\bigl(L(U)\bigr)+\lambda\,\frac{\|M(U)\|^2}{2}.
+\]
+Then for every $\zeta\in P$ with $M\zeta=0$,
+\[
+  D^2\Psi(W)[\zeta,\zeta]=D^2g\bigl(L(W)\bigr)\bigl[L\zeta,\ L\zeta\bigr].
+\]
+\end{lemma}
+\begin{proof}
+Write $q(u)=\|u\|^2/2$ for $u\in R$, so that the penalty is $\lambda\,(q\circ M)$. The
+function $q$ is $C^2$ on all of $R$, because $u\mapsto\|u\|^2$ is a smooth function on an
+inner product space; hence $q\circ M$ is $C^2$ on all of $P$, being the composition of a
+$C^2$ function with a continuous linear map. Likewise $g\circ L$ is $C^2$ near $W$,
+since $g$ is $C^2$ near $L(W)$ and $L$ is continuous linear.
+
+\emph{Step 1: the first derivative splits on a neighbourhood of $W$.}
+For every $U$ in a neighbourhood of $W$ both $g\circ L$ and $q\circ M$ are
+differentiable at $U$; by the sum rule and the rule for a constant multiple,
+\[
+  D\Psi(U)=D(g\circ L)(U)+\lambda\,D(q\circ M)(U).
+\]
+Thus the two maps $U\mapsto D\Psi(U)$ and
+$U\mapsto D(g\circ L)(U)+\lambda\,D(q\circ M)(U)$, both with values in the space of
+continuous linear functionals on $P$, agree on a neighbourhood of $W$.
+
+\emph{Step 2: differentiating once more.}
+Because $g\circ L$ and $q\circ M$ are $C^2$ near $W$, their first derivatives are
+differentiable at $W$, with derivatives $D^2(g\circ L)(W)$ and $D^2(q\circ M)(W)$. Two
+maps that agree on a neighbourhood of $W$ have the same derivative at $W$, so by Step 1
+\[
+  D^2\Psi(W)=D^2(g\circ L)(W)+\lambda\,D^2(q\circ M)(W).
+\]
+Evaluating at the pair $(\zeta,\zeta)$,
+\begin{equation}\label{eq:plsd-split}
+  D^2\Psi(W)[\zeta,\zeta]
+    =D^2(g\circ L)(W)[\zeta,\zeta]+\lambda\,D^2(q\circ M)(W)[\zeta,\zeta].
+\end{equation}
+
+\emph{Step 3: the penalty term vanishes.}
+By the formula for the second derivative of a composition with a continuous linear map
+on the right, applied to $q$ and $M$,
+\[
+  D^2(q\circ M)(W)[\zeta,\zeta]=D^2q\bigl(M(W)\bigr)\bigl[M\zeta,\ M\zeta\bigr].
+\]
+By hypothesis $M\zeta=0$, and $D^2q(M(W))$ is a bilinear map, hence vanishes as soon as
+one of its arguments is $0$. Therefore $D^2(q\circ M)(W)[\zeta,\zeta]=0$.
+
+\emph{Step 4: conclusion.}
+Applying the same composition formula to $g$ and $L$ gives
+$D^2(g\circ L)(W)[\zeta,\zeta]=D^2g(L(W))[L\zeta,L\zeta]$. Substituting this and
+Step 3 into \eqref{eq:plsd-split} leaves
+\[
+  D^2\Psi(W)[\zeta,\zeta]=D^2g\bigl(L(W)\bigr)\bigl[L\zeta,\ L\zeta\bigr],
+\]
+as asserted.
+\end{proof}

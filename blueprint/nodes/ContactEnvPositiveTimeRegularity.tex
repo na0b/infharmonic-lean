@@ -1,0 +1,120 @@
+\begin{lemma}[Continuity and subquadratic growth of the contact envelope on positive times]
+Let $F$ be a finite-dimensional real inner-product space, let $1\le C_0<\infty$ and
+$0\le\kappa<\infty$, and let $v$ belong to the class $\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass}, be centered at $(0,1)$ with constant $C_0$ in the sense of
+\noderef{IsCenteredAt}, and satisfy the horizontal Jensen bound with constant $\kappa$ at
+every time in the sense of \noderef{HasJensenBound}. Let
+$W=\Cenv_tv-\kappa^2t/2$ be the contact envelope of \noderef{ContactEnv}. Then $W$ is
+continuous on $\{z:z_t>0\}$, $W$ has subquadratic spatial growth on compact
+subintervals of $(0,\infty)$ in the sense of \noderef{SubquadraticGrowth}, and for every
+$\sigma>0$ the function
+\[
+  y\longmapsto W(y,\sigma)-\frac{|y|^2}{2\sigma}
+\]
+is concave on $F$.
+\end{lemma}
+\begin{proof}
+Throughout, $z=(z_x,z_t)$ denotes a point of the space-time $\ell^2(F\times\R)$.
+
+\emph{Step 1: $v$ is continuous and subquadratic on all of space-time.}
+By \noderef{IsFitClass}, $v$ is a viscosity solution of $F[v]=0$ on all of space-time in
+the sense of \noderef{IsLimitSolutionOn}, whose first component is the subsolution
+property of \noderef{IsLimitSubOn}; the second clause of that property is precisely that
+$v$ is continuous on all of space-time. For the growth, let $J\subseteq\R$ be compact and
+let $\varepsilon>0$. Apply \noderef{UniformSubquadratic} with the constant $C_0$ and the
+centering point $(0,1)$ --- which is one of the two admissible centering points in that
+statement --- at this $J$ and this $\varepsilon$: it yields $M>0$ such that every member
+of the class centered at $(0,1)$ with constant $C_0$, in particular our $v$, satisfies
+$|v(z)|\le\varepsilon|z_x|^2$ whenever $|z_x|\ge M$ and $z_t\in J$. As $J$ and
+$\varepsilon$ were arbitrary and every $J$ is contained in $\R$, this is
+\noderef{SubquadraticGrowth} for $v$ with the time set $\R$.
+
+\emph{Step 2: the sandwich at the running time.}
+The hypotheses of \noderef{BaryEnvSandwich} hold for $v$ with the time set $I=\R$, the
+constant $\kappa\ge0$, the continuity of Step 1 and the Jensen bound assumed. It gives,
+for every parameter $\sigma>0$ and every $z$,
+\[
+  v(z)\le\Cenv_\sigma v(z)\le v(z)+\frac{\kappa^2\sigma}{2}.
+\]
+Specialising the parameter to $\sigma=z_t$ at any $z$ with $z_t>0$, and subtracting
+$\kappa^2z_t/2$, the definition of $W$ in \noderef{ContactEnv} gives
+\begin{equation}\label{eq:cept-sandwich}
+  v(z)-\frac{\kappa^2z_t}{2}\le W(z)\le v(z)\qquad(z_t>0).
+\end{equation}
+
+\emph{Step 3: continuity on positive times.}
+The hypotheses of \noderef{BaryEnvDuality} hold for $v$ with the open time set $I=\R$, by
+Step 1. Its third part says that the map $(\sigma,\zeta)\mapsto\Cenv_\sigma v(\zeta)$ is
+continuous at $(\sigma,\zeta)$ whenever $\sigma>0$ and $\zeta_t\in\R$, the latter being
+automatic. Fix $z_0$ with $(z_0)_t>0$. The map $\zeta\mapsto(\zeta_t,\zeta)$ is
+continuous, being the pair of the continuous time coordinate and the identity, and it
+sends $z_0$ to $((z_0)_t,z_0)$ with $(z_0)_t>0$; so the composite
+$\zeta\mapsto\Cenv_{\zeta_t}v(\zeta)$ is continuous at $z_0$. The map
+$\zeta\mapsto\kappa^2\zeta_t/2$ is continuous, so the difference, which is $W$ by
+\noderef{ContactEnv}, is continuous at $z_0$. As $z_0$ was an arbitrary point with
+positive time, $W$ is continuous on $\{z:z_t>0\}$.
+
+\emph{Step 4: subquadratic growth on compact subintervals of $(0,\infty)$.}
+Let $J\subseteq(0,\infty)$ be compact and let $\varepsilon>0$. If $J=\emptyset$ the
+conclusion holds with $M'=1$, there being no admissible $z$. So assume $J\ne\emptyset$.
+Then $J$ is a nonempty compact subset of $\R$, so it has a greatest element
+$\tau_{\max}\in J$, and $\tau_{\max}>0$ because $J\subseteq(0,\infty)$.
+
+Apply Step 1 with this $J$ and with $\varepsilon/2>0$ to get $M>0$ such that
+\begin{equation}\label{eq:cept-vbound}
+  |v(z)|\le\frac\varepsilon2|z_x|^2\qquad(|z_x|\ge M,\ z_t\in J).
+\end{equation}
+Put $A=\kappa^2\tau_{\max}/\varepsilon\ge0$ and
+$M'=\max\bigl(M,\ \sqrt A+1\bigr)$, so that $M'\ge M$ and $M'>0$. Since
+$M'\ge\sqrt A+1\ge0$ we get $M'^2\ge(\sqrt A+1)^2=A+2\sqrt A+1\ge A$, hence
+\begin{equation}\label{eq:cept-absorb}
+  \frac{\kappa^2\tau_{\max}}{2}=\frac\varepsilon2\,A\le\frac\varepsilon2M'^2 .
+\end{equation}
+
+Now let $z$ satisfy $|z_x|\ge M'$ and $z_t\in J$. Then $|z_x|\ge M$, so
+\eqref{eq:cept-vbound} applies; and $z_t>0$ because $J\subseteq(0,\infty)$, so
+\eqref{eq:cept-sandwich} applies. From \eqref{eq:cept-sandwich},
+\[
+  W(z)\le v(z)\le|v(z)|,\qquad
+  -W(z)\le-v(z)+\frac{\kappa^2z_t}{2}\le|v(z)|+\frac{\kappa^2\tau_{\max}}{2},
+\]
+the last step using $z_t\le\tau_{\max}$ and $\kappa^2\ge0$. Hence
+\[
+  |W(z)|\le|v(z)|+\frac{\kappa^2\tau_{\max}}{2}
+   \le\frac\varepsilon2|z_x|^2+\frac\varepsilon2M'^2
+   \le\frac\varepsilon2|z_x|^2+\frac\varepsilon2|z_x|^2
+   =\varepsilon|z_x|^2 ,
+\]
+using \eqref{eq:cept-vbound}, then \eqref{eq:cept-absorb}, then $M'\le|z_x|$ together
+with $\varepsilon>0$. As $J$ and $\varepsilon$ were arbitrary, this is
+\noderef{SubquadraticGrowth} for $W$ with the time set $(0,\infty)$.
+
+\emph{Step 5: concavity after the quadratic correction.}
+Let $\sigma>0$. The fourth part of \noderef{BaryEnvDuality}, whose hypotheses were
+checked in Step 3, says that for every parameter $\sigma>0$ and every time $\tau\in I=\R$
+the function
+\[
+  y\longmapsto\Cenv_\sigma v(y,\tau)-\frac{|y|^2}{2\sigma}
+\]
+is concave on $F$. Apply it with this parameter $\sigma$ and the time $\tau=\sigma$,
+which lies in $\R$.
+
+By \noderef{ContactEnv}, $W(y,\sigma)=\Cenv_\sigma v(y,\sigma)-\kappa^2\sigma/2$, so for
+every $y\in F$
+\[
+  W(y,\sigma)-\frac{|y|^2}{2\sigma}
+   =\Bigl(\Cenv_\sigma v(y,\sigma)-\frac{|y|^2}{2\sigma}\Bigr)-\frac{\kappa^2\sigma}{2}.
+\]
+The two functions therefore differ by the constant $\kappa^2\sigma/2$, which does not
+depend on $y$. Subtracting a constant preserves concavity: if $y_0,y_1\in F$ and
+$\alpha,\beta\ge0$ with $\alpha+\beta=1$, then writing $G$ for the concave function above
+and $c=\kappa^2\sigma/2$,
+\[
+  \alpha\bigl(G(y_0)-c\bigr)+\beta\bigl(G(y_1)-c\bigr)
+   =\alpha G(y_0)+\beta G(y_1)-c
+   \le G(\alpha y_0+\beta y_1)-c,
+\]
+where the first equality uses $\alpha c+\beta c=(\alpha+\beta)c=c$ and the inequality is
+the concavity of $G$. Hence $y\mapsto W(y,\sigma)-|y|^2/(2\sigma)$ is concave on $F$,
+which is the third assertion.
+\end{proof}

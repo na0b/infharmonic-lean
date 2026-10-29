@@ -1,0 +1,340 @@
+\begin{lemma}[The one-step drift]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$ and $0\le\kappa<\infty$, and let $v\in\Aclass_{m,C_0}$ in the
+sense of \noderef{IsFitClass} be centered at $(0,1)$ with constant $C_0$ in the
+sense of \noderef{IsCenteredAt} and satisfy the horizontal Jensen bound with
+constant $\kappa$ at every time in the sense of \noderef{HasJensenBound}. Write
+$f=W$ for the contact envelope of \noderef{ContactEnv}, $f^\ell=\Penv_\ell f$
+for the forward envelope of \noderef{QuadEnvP}, $g_\epsilon=\Menv_\epsilon v$
+for the backward envelope of \noderef{QuadEnvM}, and $J_\epsilon$ for the
+quantity of \noderef{JGap}. Let $\epsilon>0$, let $z=(x,t)$ with
+$t>\epsilon$, and let $(z^+,z^-)$ be an optimizing step pair of size $\epsilon$
+at $z$ in the sense of \noderef{IsStepPair}, with $z^\pm=(x^\pm,t\pm\epsilon)$.
+Put
+\[
+  Q_+=\frac{x^+-x}{\epsilon},\qquad
+  Q_-=\frac{x-x^-}{\epsilon},
+\]
+and let $Q_0\in F$ be the reference velocity of
+\noderef{DPSpatialRegularity} at $z$ and length $\epsilon$, i.e.\ a vector at
+which $f^\epsilon(\cdot,t)$ has gradient $Q_0$ at $x$:
+\[
+  Q_0=\nabla_xf^\epsilon(x,t).
+\]
+Define
+\begin{align*}
+  D&=f(z)+f^{2\epsilon}(z)-2f^\epsilon(z),\\
+  e&=f^\epsilon(z^-)+\frac{\epsilon}{2}|Q_-|^2-f(z),\\
+  \widetilde D&=2g_\epsilon(z)-v(z)-\Menv_{2\epsilon}v(z),\\
+  \widetilde e&=v(z)+\frac{\epsilon}{2}|Q_+|^2-g_\epsilon(z^+).
+\end{align*}
+Then all four quantities are nonnegative, and
+\begin{equation}\label{eq:dp-drift}
+\begin{split}
+  \frac{J_\epsilon(z^+)+J_\epsilon(z^-)}{2}-J_\epsilon(z)
+  &=\frac{D+e+\widetilde D+\widetilde e}{4\epsilon}\\
+  &\ge\frac{D+e}{4\epsilon}\\
+  &\ge c\bigl(|Q_+-Q_0|^2+|Q_--Q_0|^2\bigr),
+  \qquad c=\frac{1}{16(1+\log2)}.
+\end{split}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Throughout, $z=(x,t)$ with $t>\epsilon>0$, $x^\pm$ are the spatial parts of
+$z^\pm$, and $f=W$ denotes the contact envelope of \noderef{ContactEnv}, so
+that $f(y,\tau)=\Cenv_\tau v(y,\tau)-\kappa^2\tau/2$ for $\tau>0$. Note
+$t-\epsilon>0$ and $t+\epsilon>0$, so every value of $f$ written below is taken
+at a positive time, and $v$ is defined at every time.
+
+\emph{Step 0: standing facts about $v$ and $f$.}
+By \noderef{IsFitClass} the function $v$ is continuous on all of space-time and
+is a viscosity solution of $F[v]=0$ there; in particular it is a viscosity
+supersolution on all of space-time in the sense of \noderef{IsLimitSuperOn} and
+a subsolution in the sense of \noderef{IsLimitSubOn}, by
+\noderef{IsLimitSolutionOn}. By \noderef{UniformSubquadratic}, applied with the
+centering point $(0,1)$, $v$ has subquadratic spatial growth on compact time
+intervals of $\R$ in the sense of \noderef{SubquadraticGrowth}; the same
+property with $I=(0,\infty)$ follows, since shrinking $I$ only shrinks the
+family of compact subintervals tested. By \noderef{BaryEnvSandwich}, applied
+with $I=\R$, $f=v$ and the constant $\kappa$, we have for every $\sigma>0$ and
+every $(y,\tau)$
+\begin{equation}\label{eq:dpd-sandwich}
+  0\le\Cenv_\sigma v(y,\tau)-v(y,\tau)\le\frac{\kappa^2\sigma}{2},
+\end{equation}
+and taking $\sigma=\tau>0$ with \noderef{ContactEnv} gives
+\begin{equation}\label{eq:dpd-fsandwich}
+  v(y,\tau)-\frac{\kappa^2\tau}{2}\le f(y,\tau)\le v(y,\tau)\qquad(\tau>0).
+\end{equation}
+Consequently $f$ has subquadratic spatial growth on compact subintervals of
+$(0,\infty)$: given $J\subseteq(0,\infty)$ compact and $\varepsilon'>0$, put
+$\tau_{\max}=\max J$, apply \noderef{SubquadraticGrowth} for $v$ with $J$ and
+$\varepsilon'/2$ to obtain $M'>0$, and enlarge $M'$ so that
+$\kappa^2\tau_{\max}/2\le(\varepsilon'/2)M'^2$; then
+\eqref{eq:dpd-fsandwich} gives $|f(y,\tau)|\le\varepsilon'|y|^2$ for
+$|y|\ge M'$ and $\tau\in J$. Moreover $f$ is continuous on
+$\{(y,\tau):\tau>0\}$: by \noderef{BaryEnvDuality}, part (3), applied to $v$
+with $I=\R$, the map $(\sigma,\zeta)\mapsto\Cenv_\sigma v(\zeta)$ is continuous
+at every pair with $\sigma>0$; composing with the continuous map
+$\zeta\mapsto(\tau,\zeta)$, where $\tau$ is the time coordinate of $\zeta$, and
+subtracting the continuous function $\kappa^2\tau/2$ gives the claim. Finally
+$v$ is a viscosity subsolution on the open set $\{\tau>0\}$: if $\phi$ is twice
+continuously differentiable at a point $\zeta$ of positive time and $v-\phi$ has
+a local maximum at $\zeta$ relative to $\{\tau>0\}$, then, $\{\tau>0\}$ being
+open and containing $\zeta$, a neighbourhood witnessing that relative maximum
+may be intersected with $\{\tau>0\}$ and is then a neighbourhood of $\zeta$ in
+the whole space on which the inequality holds, so $v-\phi$ has a local maximum
+at $\zeta$ in the whole space and $0\le F[\phi](\zeta)$ follows. Hence
+\noderef{BarycentricSubsolution}, applied to $v$ with this subsolution
+property, with the subquadratic growth on $(0,\infty)$ and with
+$c=\kappa^2/2$, shows that
+\begin{equation}\label{eq:dpd-fsub}
+  f\text{ is a viscosity subsolution of }F[\cdot]=0\text{ on }\{\tau>0\},
+\end{equation}
+since $\Cenv_\tau v(\zeta)-(\kappa^2/2)\tau$ is exactly $f$ by
+\noderef{ContactEnv}.
+
+\emph{Claim B: the envelopes are genuine suprema and infima.}
+Let $I\subseteq\R$, let $g$ be continuous on $\{(y,\tau):\tau\in I\}$ with
+subquadratic spatial growth on compact subintervals of $I$ in the sense of
+\noderef{SubquadraticGrowth}, let $\ell>0$ and let $\zeta=(\xi,\tau)$ with
+$\tau\in I$.
+\begin{enumerate}
+\item[(i)] If $\tau+\ell\in I$, the set
+$\{g(y,\tau+\ell)-|y-\xi|^2/(2\ell):y\in F\}$ of \noderef{QuadEnvP} is nonempty
+and bounded above, so $\Penv_\ell g(\zeta)$ is finite, is at least every member
+of that set, and is at most every upper bound for it.
+\item[(ii)] If $\tau-\ell\in I$, the set
+$\{g(y,\tau-\ell)+|y-\xi|^2/(2\ell):y\in F\}$ of \noderef{QuadEnvM} is nonempty
+and bounded below, so $\Menv_\ell g(\zeta)$ is finite, is at most every member,
+and is at least every lower bound.
+\end{enumerate}
+\emph{Proof.} (i) The choice $y=\xi$ shows the set is nonempty. Apply
+\noderef{SubquadraticGrowth} with the compact set $J=\{\tau+\ell\}\subseteq I$
+and $\varepsilon'=1/(4\ell)>0$ to get $M>0$ with
+$|g(y,\tau+\ell)|\le|y|^2/(4\ell)$ for $|y|\ge M$; and $g(\cdot,\tau+\ell)$ is
+continuous, hence bounded in absolute value by some $C_M$ on the closed ball of
+radius $M$. From $|y|^2\le2|y-\xi|^2+2|\xi|^2$ we get
+$|y-\xi|^2\ge|y|^2/2-|\xi|^2$, so for every $y$
+\[
+  g(y,\tau+\ell)-\frac{|y-\xi|^2}{2\ell}
+   \le C_M+\frac{|y|^2}{4\ell}-\frac{|y|^2}{4\ell}+\frac{|\xi|^2}{2\ell}
+   =C_M+\frac{|\xi|^2}{2\ell},
+\]
+an upper bound independent of $y$. (ii) Apply (i) to $-g$, which is continuous
+with the same growth property, at the time $\tau-\ell$, and multiply the
+resulting bound by $-1$. This proves Claim B.
+
+By Step 0, Claim B applies to $g=f$ with $I=(0,\infty)$ at every center of
+positive time whose shifted time is also positive, and to $g=v$ with $I=\R$ at
+every center and length.
+
+\emph{Step 1: $D\ge0$.}
+Apply \noderef{QuadEnvPathConvex}, part (1), to $f$ with $I=(0,\infty)$,
+$T=2\epsilon>0$, the subsolution property \eqref{eq:dpd-fsub}, the continuity
+and growth of Step 0, the base point $x_0=x$, the velocity $d'=0$ and the time
+$t$; its hypothesis $t+\ell\in(0,\infty)$ for $\ell\in[0,2\epsilon]$ holds since
+$t>0$. Since $\|d'\|=0$, the conclusion is that
+$\ell\mapsto\Penv_\ell f(x,t)$ is convex on $[0,2\epsilon]$. The midpoint
+inequality at $\ell=0$ and $\ell=2\epsilon$, whose midpoint is $\epsilon$,
+gives
+\[
+  \Penv_\epsilon f(x,t)
+   \le\tfrac12\Penv_0f(x,t)+\tfrac12\Penv_{2\epsilon}f(x,t),
+\]
+and $\Penv_0f(x,t)=f(z)$ by \noderef{QuadEnvP}. Multiplying by $2$ and
+rearranging gives $f(z)+f^{2\epsilon}(z)-2f^\epsilon(z)\ge0$, i.e.\ $D\ge0$.
+
+\emph{Step 2: $\widetilde D\ge0$.}
+Apply \noderef{QuadEnvPathConvex}, part (2), to $v$ with $I=\R$,
+$T=2\epsilon>0$, the supersolution property of Step 0, and the continuity and
+growth of Step 0, at the point $(x,t)$; its hypothesis $t-\ell\in\R$ is
+vacuous. The conclusion is that $\ell\mapsto\Menv_\ell v(x,t)$ is concave on
+$[0,2\epsilon]$, so the midpoint inequality gives
+\[
+  \Menv_\epsilon v(x,t)
+   \ge\tfrac12\Menv_0v(x,t)+\tfrac12\Menv_{2\epsilon}v(x,t),
+\]
+and $\Menv_0v(x,t)=v(z)$ by \noderef{QuadEnvM}. Multiplying by $2$ and
+rearranging gives $2g_\epsilon(z)-v(z)-\Menv_{2\epsilon}v(z)\ge0$, i.e.\
+$\widetilde D\ge0$.
+
+\emph{Step 3: $e\ge0$, and a competitor bound used later.}
+The center $z^-=(x^-,t-\epsilon)$ has positive time and
+$(t-\epsilon)+\epsilon=t>0$, so Claim B(i) applies to $f$ at $z^-$ with length
+$\epsilon$. For every $y\in F$ the point $y$ is a member of the set of
+\noderef{QuadEnvP} for $f^\epsilon(z^-)$, whose time argument is $t$; hence
+\begin{equation}\label{eq:dpd-competitor}
+  f^\epsilon(z^-)\ge f(y,t)-\frac{|y-x^-|^2}{2\epsilon}\qquad(y\in F).
+\end{equation}
+Taking $y=x$ and using $x-x^-=\epsilon Q_-$, so that
+$|x-x^-|^2/(2\epsilon)=\epsilon|Q_-|^2/2$, gives
+$f^\epsilon(z^-)\ge f(z)-\epsilon|Q_-|^2/2$, i.e.\ $e\ge0$.
+
+\emph{Step 4: $\widetilde e\ge0$.}
+The center $z^+=(x^+,t+\epsilon)$ has $(t+\epsilon)-\epsilon=t$, and Claim
+B(ii) applies to $v$ at $z^+$ with length $\epsilon$ and $I=\R$. The point
+$y=x$ is a member of the set of \noderef{QuadEnvM} for $g_\epsilon(z^+)$, whose
+time argument is $t$, so
+\[
+  g_\epsilon(z^+)\le v(z)+\frac{|x-x^+|^2}{2\epsilon}
+   =v(z)+\frac{\epsilon|Q_+|^2}{2},
+\]
+using $x^+-x=\epsilon Q_+$. This is exactly $\widetilde e\ge0$.
+
+\emph{Step 5: the drift identity.}
+By \noderef{DPStepIdentities}, applied with the present data, the two half-step
+identities hold:
+\begin{equation}\label{eq:dpd-half}
+  f^{2\epsilon}(z)=f^\epsilon(z^+)-\frac{\epsilon}{2}|Q_+|^2,\qquad
+  \Menv_{2\epsilon}v(z)=g_\epsilon(z^-)+\frac{\epsilon}{2}|Q_-|^2 .
+\end{equation}
+The first gives
+$f^\epsilon(z^+)=f^{2\epsilon}(z)+\epsilon|Q_+|^2/2$, and the definition of
+$e$ gives $f^\epsilon(z^-)=f(z)+e-\epsilon|Q_-|^2/2$. Adding and subtracting
+$2f^\epsilon(z)$,
+\begin{equation}\label{eq:dpd-fsum}
+  f^\epsilon(z^+)+f^\epsilon(z^-)-2f^\epsilon(z)
+   =D+e+\frac{\epsilon}{2}\bigl(|Q_+|^2-|Q_-|^2\bigr).
+\end{equation}
+Likewise the second identity in \eqref{eq:dpd-half} gives
+$g_\epsilon(z^-)=\Menv_{2\epsilon}v(z)-\epsilon|Q_-|^2/2$, and the definition
+of $\widetilde e$ gives
+$g_\epsilon(z^+)=v(z)+\epsilon|Q_+|^2/2-\widetilde e$. Adding and subtracting
+$2g_\epsilon(z)$,
+\begin{equation}\label{eq:dpd-gsum}
+  g_\epsilon(z^+)+g_\epsilon(z^-)-2g_\epsilon(z)
+   =-\widetilde D-\widetilde e
+     +\frac{\epsilon}{2}\bigl(|Q_+|^2-|Q_-|^2\bigr),
+\end{equation}
+because $-\widetilde D=v(z)+\Menv_{2\epsilon}v(z)-2g_\epsilon(z)$. The half-step
+cost difference $\epsilon(|Q_+|^2-|Q_-|^2)/2$ is the same in
+\eqref{eq:dpd-fsum} and \eqref{eq:dpd-gsum}, so subtracting the second from the
+first cancels it:
+\[
+  \bigl(f^\epsilon-g_\epsilon\bigr)(z^+)
+   +\bigl(f^\epsilon-g_\epsilon\bigr)(z^-)
+   -2\bigl(f^\epsilon-g_\epsilon\bigr)(z)
+   =D+e+\widetilde D+\widetilde e .
+\]
+By \noderef{JGap}, $J_\epsilon=(f^\epsilon-g_\epsilon)/(2\epsilon)$, so
+dividing by $4\epsilon$ turns the left side into
+$\bigl(J_\epsilon(z^+)+J_\epsilon(z^-)\bigr)/2-J_\epsilon(z)$ and proves the
+first line of \eqref{eq:dp-drift}. Since $\widetilde D\ge0$ and
+$\widetilde e\ge0$ by Steps 2 and 4, and $4\epsilon>0$, the second line
+follows.
+
+\emph{Step 6: the velocity estimate.}
+Let $b,d\in F$ be arbitrary. Apply \noderef{QuadEnvPathConvex}, part (1), to
+$f$ with $I=(0,\infty)$, $T=2\epsilon$, the base point $x_0=x+d$, the velocity
+$d'=(b-d)/(2\epsilon)$ and the time $t$; the hypotheses are those of Step 1.
+Writing
+\[
+  \Phi(\ell)=\Penv_\ell f\bigl(x+d+\ell d',t\bigr)
+     +\frac{|b-d|^2}{4\epsilon^2}\,\ell\log\ell
+   \qquad(0\le\ell\le2\epsilon),
+\]
+where $\|d'\|^2=|b-d|^2/(4\epsilon^2)$ and $\ell\log\ell$ takes the value $0$
+at $\ell=0$, the conclusion is that $\Phi$ is convex on $[0,2\epsilon]$. Now
+$x+d+0\cdot d'=x+d$, $x+d+2\epsilon d'=x+b$ and
+$x+d+\epsilon d'=x+(b+d)/2$, and $\Penv_0f=f$ by \noderef{QuadEnvP}, so
+\[
+  \Phi(0)=f(x+d,t),\qquad
+  \Phi(2\epsilon)=f^{2\epsilon}(x+b,t)+\frac{|b-d|^2}{2\epsilon}\log(2\epsilon),
+\]
+\[
+  \Phi(\epsilon)=f^\epsilon\Bigl(x+\frac{b+d}{2},t\Bigr)
+     +\frac{|b-d|^2}{4\epsilon}\log\epsilon .
+\]
+The midpoint inequality $2\Phi(\epsilon)\le\Phi(0)+\Phi(2\epsilon)$ and
+$\log(2\epsilon)-\log\epsilon=\log2$ therefore give
+\begin{equation}\label{eq:dp-path-midpoint}
+  f(x+d,t)+f^{2\epsilon}(x+b,t)
+    -2f^\epsilon\Bigl(x+\frac{b+d}{2},t\Bigr)
+  \ge-\frac{\log2}{2\epsilon}|b-d|^2 .
+\end{equation}
+
+We bound the left side of \eqref{eq:dp-path-midpoint} from above by three
+inequalities. First, \eqref{eq:dpd-competitor} with $y=x+d$, together with
+$x+d-x^-=d+\epsilon Q_-$ and
+\[
+  \frac{|d+\epsilon Q_-|^2}{2\epsilon}
+   =\frac{|d|^2}{2\epsilon}+Q_-\cdot d+\frac{\epsilon}{2}|Q_-|^2,
+\]
+and with $f^\epsilon(z^-)=f(z)+e-\epsilon|Q_-|^2/2$ from the definition of $e$,
+gives
+\begin{equation}\label{eq:dpd-first}
+  f(x+d,t)\le f(z)+e+Q_-\cdot d+\frac{|d|^2}{2\epsilon}.
+\end{equation}
+Second, \noderef{DPSpatialRegularity}, applied at the time $t>0$, the length
+$2\epsilon>0$ and the center $x$, provides the unique maximizer $y_{2\epsilon}$
+with $\nabla_xf^{2\epsilon}(x,t)=(2\epsilon)^{-1}(y_{2\epsilon}-x)$ and the two
+supporting inequalities at that gradient. By \noderef{DPStepIdentities} the
+same function has gradient $Q_+$ at $x$, and a function has at most one
+gradient at a point, so $(2\epsilon)^{-1}(y_{2\epsilon}-x)=Q_+$. The upper
+supporting inequality with $h=b$ is therefore
+\begin{equation}\label{eq:dpd-second}
+  f^{2\epsilon}(x+b,t)\le f^{2\epsilon}(z)+Q_+\cdot b+\frac{|b|^2}{2t}.
+\end{equation}
+Third, \noderef{DPSpatialRegularity} at the time $t$, the length
+$\epsilon>0$ and the center $x$ provides the unique maximizer $y_\epsilon$ with
+$\nabla_xf^\epsilon(x,t)=\epsilon^{-1}(y_\epsilon-x)$ and the same two
+inequalities; by hypothesis $f^\epsilon(\cdot,t)$ has gradient $Q_0$ at $x$, so
+again by uniqueness of the gradient $\epsilon^{-1}(y_\epsilon-x)=Q_0$. The
+lower supporting inequality with $h=(b+d)/2$ is
+\[
+  f^\epsilon(z)+Q_0\cdot\frac{b+d}{2}-\frac{|b+d|^2}{8\epsilon}
+   \le f^\epsilon\Bigl(x+\frac{b+d}{2},t\Bigr),
+\]
+that is, after multiplying by $-2$,
+\begin{equation}\label{eq:dpd-third}
+  -2f^\epsilon\Bigl(x+\frac{b+d}{2},t\Bigr)
+   \le-2f^\epsilon(z)-Q_0\cdot(b+d)+\frac{|b+d|^2}{4\epsilon}.
+\end{equation}
+Adding \eqref{eq:dpd-first}, \eqref{eq:dpd-second} and \eqref{eq:dpd-third},
+and using $D=f(z)+f^{2\epsilon}(z)-2f^\epsilon(z)$, the left side of
+\eqref{eq:dp-path-midpoint} is at most
+\[
+  D+e+(Q_+-Q_0)\cdot b+(Q_--Q_0)\cdot d
+       +\frac{|b|^2}{2t}+\frac{|d|^2}{2\epsilon}
+       +\frac{|b+d|^2}{4\epsilon}.
+\]
+Combining with \eqref{eq:dp-path-midpoint} and rearranging,
+\[
+  D+e\ge(Q_0-Q_+)\cdot b+(Q_0-Q_-)\cdot d
+    -\frac{|b|^2}{2t}-\frac{|d|^2}{2\epsilon}
+    -\frac{|b+d|^2}{4\epsilon}-\frac{\log2}{2\epsilon}|b-d|^2 .
+\]
+Since $t>\epsilon$ we have $|b|^2/(2t)\le|b|^2/(2\epsilon)$, and
+$|b\pm d|^2\le2(|b|^2+|d|^2)$ gives
+$|b+d|^2/(4\epsilon)\le(|b|^2+|d|^2)/(2\epsilon)$ and
+$(\log2/(2\epsilon))|b-d|^2\le(\log2/\epsilon)(|b|^2+|d|^2)$. The four
+subtracted terms therefore total at most
+\[
+  \Bigl(\frac{1}{2\epsilon}+\frac{1}{2\epsilon}+\frac{\log2}{\epsilon}\Bigr)
+     \bigl(|b|^2+|d|^2\bigr)
+  =\frac{1+\log2}{\epsilon}\bigl(|b|^2+|d|^2\bigr),
+\]
+so that
+\begin{equation}\label{eq:dpd-free}
+  D+e\ge(Q_0-Q_+)\cdot b+(Q_0-Q_-)\cdot d
+     -\frac{1+\log2}{\epsilon}\bigl(|b|^2+|d|^2\bigr)
+\end{equation}
+for all $b,d\in F$. Put $A=Q_0-Q_+$, $B=Q_0-Q_-$,
+$\mu=\epsilon/(2(1+\log2))>0$, and choose $b=\mu A$, $d=\mu B$ in
+\eqref{eq:dpd-free}. Then
+\[
+  D+e\ge\mu\bigl(|A|^2+|B|^2\bigr)
+     -\frac{1+\log2}{\epsilon}\mu^2\bigl(|A|^2+|B|^2\bigr)
+   =\Bigl(\mu-\frac{\mu}{2}\Bigr)\bigl(|A|^2+|B|^2\bigr)
+   =\frac{\epsilon}{4(1+\log2)}\bigl(|A|^2+|B|^2\bigr),
+\]
+where the middle equality uses
+$((1+\log2)/\epsilon)\mu^2=\mu/2$. Dividing by $4\epsilon>0$ and recalling
+$|A|=|Q_+-Q_0|$, $|B|=|Q_--Q_0|$,
+\[
+  \frac{D+e}{4\epsilon}
+   \ge\frac{1}{16(1+\log2)}\bigl(|Q_+-Q_0|^2+|Q_--Q_0|^2\bigr),
+\]
+which is the last line of \eqref{eq:dp-drift} with $c=1/(16(1+\log2))$. This
+completes the proof.
+\end{proof}

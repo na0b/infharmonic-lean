@@ -1,0 +1,179 @@
+\begin{lemma}[Claim T$'$: the supersolution bound along a stopped lattice portion]
+Let $(\Omega,\mathcal M,\mu)$ be a probability space, let
+$(\mathcal G_n)_{n\in\N}$ be a filtration of $\mathcal M$, let
+$\xi:\N\times\Omega\to\R$, let $\Xi:\N\times\Omega\to\Z$, let
+$S:\N\times\Omega\to\Z$, let $\tau,\sigma,\varsigma:\Omega\to\N$ and let
+$a,b,q\in\N$. Assume:
+\begin{enumerate}
+\item\label{it:slsb-pm} $\xi_n(\omega)=1$ or $\xi_n(\omega)=-1$ for all
+$n,\omega$;
+\item\label{it:slsb-ximeas} $\xi_n$ is $\mathcal G_{n+1}$-measurable for every
+$n$;
+\item\label{it:slsb-xicond} $\mathbb E[\xi_n\mid\mathcal G_n]=0$ $\mu$-almost
+everywhere, for every $n$;
+\item\label{it:slsb-Xi} $\Xi_n(\omega)=1$ if $\xi_n(\omega)=1$ and
+$\Xi_n(\omega)=-1$ otherwise;
+\item\label{it:slsb-step} $S_{n+1}=S_n+\Xi_n$ on $\{n<\tau\}$ and
+$S_{n+1}=S_n$ on $\{n\ge\tau\}$;
+\item\label{it:slsb-range} $a\le S_n(\omega)\le q$ for all $n,\omega$;
+\item\label{it:slsb-st} $\sigma$ and $\varsigma$ are $(\mathcal G_n)$-stopping
+times and both are $\mathcal M$-measurable as maps $\Omega\to\N$;
+\item\label{it:slsb-order} $\sigma\le\varsigma$ and $\varsigma\le\tau$
+pointwise;
+\item\label{it:slsb-stG} for every $(\mathcal G_n)$-stopping time
+$\zeta:\Omega\to\N$ and every $n$, $\{\zeta\le n\}\in\mathcal G_n$;
+\item\label{it:slsb-idx} if $\zeta,\eta:\Omega\to\N$ are measurable and
+$G_{n,m}:\Omega\to\R$ is measurable for all $n,m$, then
+$\omega\mapsto G_{\zeta(\omega),\eta(\omega)}(\omega)$ is measurable;
+\item\label{it:slsb-bdd} every $g:\Z\to\R$ is bounded on
+$\{i\in\Z:a\le i\le q\}$;
+\item\label{it:slsb-meas} for every $g:\Z\to\R$ and every $k\le n$, the
+function $\omega\mapsto g(S_k(\omega))$ is $\mathcal G_n$-measurable, and for
+every $g$ and $k$ it is $\mathcal M$-measurable;
+\item\label{it:slsb-win} $a<S_n(\omega)<b$ whenever
+$\sigma(\omega)\le n<\varsigma(\omega)$.
+\end{enumerate}
+Let $h,u:\Z\to\R$ and $A\subseteq\Omega$ satisfy $u(i)\ge0$ for every
+$i\in\Z$, the discrete supersolution inequality
+\begin{equation}\label{eq:slsb-super}
+  \frac{h(i+1)+h(i-1)}{2}-h(i)\le-u(i)\qquad(a<i<b),
+\end{equation}
+$A\in\mathcal M$, and $A\cap\{\sigma\le n\}\in\mathcal G_n$ for every $n$. Then
+for every $n\in\N$,
+\begin{equation}\label{eq:slsb-bound}
+  \int\mathbf1_A(\omega)
+     \Bigl(h\bigl(S_{(\sigma(\omega)\vee n)\wedge\varsigma(\omega)}(\omega)\bigr)
+       +\sum_{\sigma(\omega)\le m<n\wedge\varsigma(\omega)}
+          u\bigl(S_m(\omega)\bigr)\Bigr)d\mu(\omega)
+  \le\int\mathbf1_A(\omega)\,h\bigl(S_{\sigma(\omega)}(\omega)\bigr)d\mu(\omega).
+\end{equation}
+\end{lemma}
+\begin{proof}
+By \ref{it:slsb-bdd} choose $C_h$, $C_h^+$, $C_h^-$ and $C_u$ bounding
+$|h(i)|$, $|h(i+1)|$, $|h(i-1)|$ and $|u(i)|$ respectively for $a\le i\le q$;
+by \ref{it:slsb-range} every value $S_m(\omega)$ lies in that range, so all four
+bounds apply at every $S_m(\omega)$. Write $\iota=\mathbf1_A$, which is
+measurable because $A\in\mathcal M$, satisfies $0\le\iota\le1$ and in particular
+$|\iota|\le1$. For $n\in\N$ set
+\[
+  Y_n(\omega)=\iota(\omega)\Bigl(
+    h\bigl(S_{(\sigma(\omega)\vee n)\wedge\varsigma(\omega)}(\omega)\bigr)
+    +\sum_{\sigma(\omega)\le m<n\wedge\varsigma(\omega)}u\bigl(S_m(\omega)\bigr)
+  \Bigr),
+\]
+so that \eqref{eq:slsb-bound} asserts $\int Y_n\,d\mu\le\int\iota\,h(S_\sigma)\,d\mu$.
+
+\emph{Each $Y_n$ is integrable.} The clipped index
+$(\sigma\vee n)\wedge\varsigma$ is a measurable $\N$-valued function of $\omega$
+built from the measurable $\sigma,\varsigma$ of \ref{it:slsb-st}, so
+$\omega\mapsto h(S_{(\sigma\vee n)\wedge\varsigma(\omega)}(\omega))$ is
+measurable by \ref{it:slsb-idx} applied to the doubly-indexed measurable family
+$(i,m,\omega)\mapsto h(S_{(i\vee n)\wedge m}(\omega))$, each member of which is
+measurable by \ref{it:slsb-meas}. The sum is a finite sum, over the
+$\sigma,\varsigma$-determined range, of the measurable functions
+$\omega\mapsto u(S_m(\omega))$, hence measurable by the same two hypotheses.
+So $Y_n$ is measurable; it is bounded by $C_h+n\,C_u$, since the sum has at
+most $n$ terms and each is at most $C_u$ in absolute value; and a bounded
+measurable function is integrable because $\mu$ is a probability measure.
+
+\emph{The value at $n=0$.} Here $(\sigma\vee0)\wedge\varsigma
+=\sigma\wedge\varsigma=\sigma$ by \ref{it:slsb-order}, and the summation range
+$[\sigma,0\wedge\varsigma)=[\sigma,0)$ is empty. Hence
+\begin{equation}\label{eq:slsb-Y0}
+  \int Y_0\,d\mu=\int\iota\,h(S_\sigma)\,d\mu .
+\end{equation}
+
+\emph{The one-step identity.} Fix $n$. We claim that pointwise
+\begin{equation}\label{eq:slsb-split}
+  Y_{n+1}-Y_n
+   =\iota\cdot D_n+\iota\cdot c_n\,\xi_n ,
+\end{equation}
+where, writing $P_n=\{\sigma\le n<\varsigma\}$,
+\[
+  D_n=\mathbf1_{P_n}\Bigl(\frac{h(S_n+1)+h(S_n-1)}{2}-h(S_n)+u(S_n)\Bigr),
+  \qquad
+  c_n=\mathbf1_{P_n}\,\frac{h(S_n+1)-h(S_n-1)}{2}.
+\]
+We check this in three cases, which exhaust $\Omega$.
+
+On $\{\sigma>n\}$ we have $\sigma\ge n+1$, so
+$(\sigma\vee n)\wedge\varsigma=\sigma\wedge\varsigma=\sigma$ and
+$(\sigma\vee(n+1))\wedge\varsigma=\sigma\wedge\varsigma=\sigma$, using
+$\sigma\le\varsigma$; and both summation ranges are empty because
+$n\wedge\varsigma\le n<\sigma$ and $(n+1)\wedge\varsigma\le n+1\le\sigma$.
+Hence $Y_{n+1}=Y_n$, and $P_n$ does not occur, so both terms on the right of
+\eqref{eq:slsb-split} vanish.
+
+On $\{\sigma\le n\}\cap\{\varsigma\le n\}$ we have
+$(\sigma\vee n)\wedge\varsigma=n\wedge\varsigma=\varsigma$ and likewise
+$(\sigma\vee(n+1))\wedge\varsigma=\varsigma$, and both summation ranges equal
+$[\sigma,\varsigma)$. Hence $Y_{n+1}=Y_n$, and again $P_n$ does not occur.
+
+On $P_n$ we have $(\sigma\vee n)\wedge\varsigma=n$ and
+$(\sigma\vee(n+1))\wedge\varsigma=n+1$, and the summation range gains exactly
+the top index $n$, contributing the single term $u(S_n)$. Also $n<\varsigma\le\tau$
+by \ref{it:slsb-order}, so \ref{it:slsb-step} gives $S_{n+1}=S_n+\Xi_n$. By
+\ref{it:slsb-pm} and \ref{it:slsb-Xi} there are two subcases: if $\xi_n=1$ then
+$\Xi_n=1$ and $S_{n+1}=S_n+1$, and
+\[
+  h(S_n+1)=\frac{h(S_n+1)+h(S_n-1)}{2}
+    +\frac{h(S_n+1)-h(S_n-1)}{2}\cdot1 ;
+\]
+if $\xi_n=-1$ then $\Xi_n=-1$ and $S_{n+1}=S_n-1$, and
+\[
+  h(S_n-1)=\frac{h(S_n+1)+h(S_n-1)}{2}
+    +\frac{h(S_n+1)-h(S_n-1)}{2}\cdot(-1) .
+\]
+In both subcases
+$h(S_{n+1})=\frac{h(S_n+1)+h(S_n-1)}{2}+c_n\xi_n$, whence
+$Y_{n+1}-Y_n=\iota(h(S_{n+1})-h(S_n)+u(S_n))=\iota D_n+\iota c_n\xi_n$. This
+proves \eqref{eq:slsb-split}.
+
+\emph{The martingale term integrates to zero.} The factor $\iota c_n$ is
+$\mathcal G_n$-measurable: $\iota\mathbf1_{\{\sigma\le n\}}$ is, because
+$A\cap\{\sigma\le n\}\in\mathcal G_n$ by hypothesis; $\mathbf1_{\{n<\varsigma\}}$
+is, because $\{n<\varsigma\}$ is the complement of
+$\{\varsigma\le n\}\in\mathcal G_n$ by \ref{it:slsb-stG}; and
+$\omega\mapsto h(S_n(\omega)\pm1)$ is $\mathcal G_n$-measurable by
+\ref{it:slsb-meas} applied to $g=h(\cdot\pm1)$ with $k=n$. It is bounded in
+absolute value by $(C_h^++C_h^-)/2$, using $|\iota|\le1$ and the bounds fixed at
+the start. The variable $\xi_n$ is bounded by $1$ in absolute value by
+\ref{it:slsb-pm}, hence integrable, and
+$\mathbb E[\xi_n\mid\mathcal G_n]=0$ almost everywhere by \ref{it:slsb-xicond}.
+The pull-out property of the conditional expectation for a bounded
+$\mathcal G_n$-measurable factor therefore gives
+$\mathbb E[\iota c_n\xi_n\mid\mathcal G_n]=\iota c_n\,
+\mathbb E[\xi_n\mid\mathcal G_n]=0$ almost everywhere, and since
+$\iota c_n\xi_n$ is integrable (bounded and measurable, $\mu$ being a
+probability measure),
+\begin{equation}\label{eq:slsb-mart}
+  \int\iota\,c_n\,\xi_n\,d\mu
+   =\int\mathbb E[\iota c_n\xi_n\mid\mathcal G_n]\,d\mu=0 .
+\end{equation}
+
+\emph{The drift term is nonpositive.} Pointwise, $\iota D_n\le0$. Indeed off
+$P_n$ we have $D_n=0$; and on $P_n$ hypothesis \ref{it:slsb-win} gives
+$a<S_n<b$, so \eqref{eq:slsb-super} at $i=S_n$ reads
+$\frac{h(S_n+1)+h(S_n-1)}{2}-h(S_n)\le-u(S_n)$, i.e.
+$\frac{h(S_n+1)+h(S_n-1)}{2}-h(S_n)+u(S_n)\le0$; multiplying by
+$\iota\ge0$ preserves the inequality. The function $\iota D_n$ is measurable and
+bounded, hence integrable, so by monotonicity of the integral
+\begin{equation}\label{eq:slsb-drift}
+  \int\iota\,D_n\,d\mu\le0 .
+\end{equation}
+
+\emph{The decrease.} Both $\iota D_n$ and $\iota c_n\xi_n$ are integrable, so by
+additivity of the integral, \eqref{eq:slsb-split}, \eqref{eq:slsb-drift} and
+\eqref{eq:slsb-mart},
+\[
+  \int Y_{n+1}\,d\mu-\int Y_n\,d\mu
+   =\int\iota D_n\,d\mu+\int\iota c_n\xi_n\,d\mu\le0 ,
+\]
+that is, $\int Y_{n+1}\,d\mu\le\int Y_n\,d\mu$ for every $n$.
+
+\emph{Conclusion.} We prove \eqref{eq:slsb-bound} by induction on $n$. For
+$n=0$ it is the equality \eqref{eq:slsb-Y0}. If it holds for $n$, then
+$\int Y_{n+1}\,d\mu\le\int Y_n\,d\mu\le\int\iota\,h(S_\sigma)\,d\mu$ by the
+previous paragraph and the inductive hypothesis. This proves
+\eqref{eq:slsb-bound} for every $n$.
+\end{proof}

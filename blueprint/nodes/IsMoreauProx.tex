@@ -1,0 +1,16 @@
+\begin{definition}[Proximal map]
+Let $E$ be a finite-dimensional real inner-product space, let $\psi:E\to\R$ and
+let $u:E\to E$. We say that $u$ is a \emph{proximal map for $\psi$} if for every
+$y\in E$ the point $u(y)$ minimizes $x\mapsto\psi(x)+|x-y|^2/2$ over all of $E$,
+that is,
+\[
+  \psi(u(y))+\frac{|u(y)-y|^2}{2}\le\psi(x)+\frac{|x-y|^2}{2}
+  \qquad(y,x\in E).
+\]
+The associated \emph{Moreau envelope} of $\psi$ is then the function
+$y\mapsto\psi(u(y))+|u(y)-y|^2/2$, whose value is the minimum itself.
+
+The definition imposes no convexity and asserts no existence: convexity of
+$\psi$ is what makes such a $u$ exist and makes $u(y)$ unique, and those are
+separate statements.
+\end{definition}

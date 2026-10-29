@@ -1,0 +1,93 @@
+\begin{lemma}[Time fit modulus]
+Let $F$ be a finite-dimensional real inner-product space and let
+$1\le C_0<\infty$. Write $L(K)=1+\log K$ for $K\ge2$ and
+$\mathcal B_K=\{(x,t):|x|\le K,\ |t|\le K\}$. There is $C>0$, depending only on
+$C_0$ and $\dim F$, such that for every $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass} which is centered at $(0,0)$ or at $(0,1)$ with constant
+$C_0$ in the sense of \noderef{IsCenteredAt}, every $K\ge2$, every
+$(x,t)\in\mathcal B_K$ and every $\tau$ with $0<|\tau|\le1/2$,
+\begin{equation}\label{eq:time-fit-modulus}
+  |v(x,t+\tau)-v(x,t)|
+    \le C|\tau|\bigl(L(K)+|\log|\tau||\bigr)^2 .
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $L(K)=1+\log K\ge1$ for $K\ge2$. Let $C_1>0$ be the constant of
+\noderef{FitParamBound} for this $C_0$, so that for every $v\in\Aclass_{m,C_0}$
+centered at $(0,0)$ or $(0,1)$ with constant $C_0$, every $K\ge2$, every
+$z\in\mathcal B_K$, every $\varrho>0$ and every fit $(p,a)$ for $v$ at $z$ of
+radius $\varrho$ with constant $C_0$,
+\begin{equation}\label{eq:tfm-fpb}
+  |p|+|a|\le C_1\bigl(L(K)+|\log\varrho|\bigr).
+\end{equation}
+
+\emph{Step 1: choice of the auxiliary constant $A'$.}
+Since $(3+\log A')/A'\to0$ as $A'\to\infty$, we may fix once and for all a real
+number $A'\ge1$ with
+\begin{equation}\label{eq:tfm-Aprime}
+  A'\ge C_1\bigl(3+\log A'\bigr),
+\end{equation}
+and this choice depends only on $C_1$, hence only on $C_0$ and $\dim F$. It is
+made before $K$ and $\tau$ vary.
+
+\emph{Step 2: the fit radius.}
+Let $v$, $z=(x,t)\in\mathcal B_K$ and $\tau$ with $0<|\tau|\le1/2$ be as in the
+statement. Put
+\[
+  B=L(K)+\bigl|\log|\tau|\bigr|,\qquad \varrho=A'\,|\tau|\,B .
+\]
+Since $L(K)\ge1$ we have $B\ge1$, and $\varrho>0$ because $A'\ge1$, $|\tau|>0$
+and $B\ge1$. By \noderef{IsFitClass} choose a fit $(p,a)$ for $v$ at $z$ of
+radius $\varrho$ with constant $C_0$.
+
+We estimate $|\log\varrho|$. We have
+$\log\varrho=\log A'+\log|\tau|+\log B$, so
+\[
+  |\log\varrho|\le\log A'+\bigl|\log|\tau|\bigr|+\log B
+   \le\log A'+B+B=\log A'+2B ,
+\]
+using $\bigl|\log|\tau|\bigr|\le B$ and $\log B\le B$ (valid since
+$\log\sigma\le\sigma$ for $\sigma>0$). Hence by \eqref{eq:tfm-fpb}, and using
+$L(K)\le B$ and $B\ge1$,
+\begin{equation}\label{eq:tfm-param}
+  |p|+|a|\le C_1\bigl(L(K)+\log A'+2B\bigr)
+   \le C_1\bigl(3+\log A'\bigr)B\le A'B ,
+\end{equation}
+the last step by \eqref{eq:tfm-Aprime}.
+
+\emph{Step 3: the vertical increment lies in the fitted box.}
+Consider the increment $(h,\ell)=(0,\tau)$ from $z$. Its box conditions in
+\noderef{IsFit} at radius $\varrho$ are $|\tau|\le\varrho$ and
+$|0-\tau p|\le\varrho$. The first holds because $A'B\ge1$ gives
+$\varrho=A'|\tau|B\ge|\tau|$. The second holds because, by
+\eqref{eq:tfm-param},
+\[
+  |\tau p|=|\tau|\,|p|\le|\tau|\,A'B=\varrho .
+\]
+
+\emph{Step 4: conclusion.}
+By \noderef{IsFit} at the increment $(0,\tau)$,
+\[
+  \Bigl|v(x,t+\tau)-v(x,t)-\Bigl(a-\frac{|p|^2}{2}\Bigr)\tau\Bigr|
+   \le C_0\varrho ,
+\]
+the spatial term vanishing because $h=0$. Hence
+\[
+  |v(x,t+\tau)-v(x,t)|
+   \le\Bigl(|a|+\frac{|p|^2}{2}\Bigr)|\tau|+C_0\varrho .
+\]
+By \eqref{eq:tfm-param} we have $|a|\le A'B$ and $|p|^2\le(A'B)^2$, so, using
+$B\ge1$ and hence $B\le B^2$,
+\[
+  \Bigl(|a|+\frac{|p|^2}{2}\Bigr)|\tau|
+   \le\Bigl(A'B+\frac{(A')^2B^2}{2}\Bigr)|\tau|
+   \le\Bigl(A'+\frac{(A')^2}{2}\Bigr)|\tau|\,B^2 ,
+\]
+while $C_0\varrho=C_0A'|\tau|B\le C_0A'|\tau|B^2$. Adding,
+\[
+  |v(x,t+\tau)-v(x,t)|\le C\,|\tau|\,B^2
+   =C\,|\tau|\,\bigl(L(K)+|\log|\tau||\bigr)^2
+\]
+with $C=A'+\tfrac12(A')^2+C_0A'>0$, which depends only on $C_0$ and $\dim F$.
+This is \eqref{eq:time-fit-modulus}.
+\end{proof}

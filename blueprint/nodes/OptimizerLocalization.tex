@@ -1,0 +1,139 @@
+\begin{helper}[Uniform localization of the envelope optimizers]
+Let $F$ be a finite-dimensional real inner-product space and let
+$v,W$ be real functions on space-time $F\times\R$ such that
+\begin{enumerate}
+\item $v$ is continuous on all of space-time and has subquadratic spatial growth
+on compact time intervals of $\R$ in the sense of \noderef{SubquadraticGrowth};
+\item $W$ is continuous on $\{(x,t):t>0\}$ and has subquadratic spatial growth on
+compact time subintervals of $(0,\infty)$, again in the sense of
+\noderef{SubquadraticGrowth}.
+\end{enumerate}
+Let $T\in\R$, let $R\ge2$, let $N\ge1$ be an integer and write
+$\delta_N=2^{-N}$. Then there is $A\ge1$ such that for every $\ell$ with
+$0<\ell\le\min\{1,\delta_N/2\}$, every $(x,t)$ with $|x|\le R$ and
+$\delta_N\le t\le T$, and every $y\in F$, both implications
+\[
+  \Penv_\ell W(x,t)=W(y,t+\ell)-\frac{|y-x|^2}{2\ell}
+    \ \Longrightarrow\ |y-x|\le2\sqrt{A\ell},
+\]
+\[
+  \Menv_\ell v(x,t)=v(y,t-\ell)+\frac{|y-x|^2}{2\ell}
+    \ \Longrightarrow\ |y-x|\le2\sqrt{A\ell}
+\]
+hold, with $\Penv$ the forward quadratic envelope of \noderef{QuadEnvP} and
+$\Menv$ the backward quadratic envelope of \noderef{QuadEnvM}.
+\end{helper}
+\begin{proof}
+Put $J=[\delta_N/2,\,T+1]$, a compact subset of $\R$, and note that every
+$s\in J$ satisfies $s\ge\delta_N/2>0$, so $J$ is also a compact subset of
+$(0,\infty)$. For $r\ge0$ the set
+$\mathcal B_r=\{(y,s):|y|\le r,\ s\in J\}$ is compact, being the image of the
+compact product of a closed ball and $J$ under the (continuous) identification of
+$F\times\R$ with space-time, and every point of $\mathcal B_r$ has positive time
+coordinate, so $W$ is continuous on $\mathcal B_r$ by hypothesis (2) and $v$ is
+continuous on $\mathcal B_r$ by hypothesis (1). Consequently $|W|$ and $|v|$ are
+bounded on each $\mathcal B_r$, a continuous function on a compact set being
+bounded.
+
+The two implications are proved separately, the first with a constant
+$A^+\ge1$ and the second with a constant $A^-\ge1$; we then set
+$A=\max\{A^+,A^-\}\ge1$, which serves both, because $A^\pm\le A$ and $\ell>0$
+give $2\sqrt{A^\pm\ell}\le2\sqrt{A\ell}$.
+
+Fix $\ell$ with $0<\ell\le\min\{1,\delta_N/2\}$ and $(x,t)$ with $|x|\le R$ and
+$\delta_N\le t\le T$. Then
+\begin{equation}\label{eq:ol-window}
+  t+\ell\in J,\qquad t-\ell\in J,
+\end{equation}
+because $t+\ell\le T+1$ and $t+\ell\ge t\ge\delta_N\ge\delta_N/2$ for the first,
+and $t-\ell\le t\le T\le T+1$ and $t-\ell\ge\delta_N-\delta_N/2=\delta_N/2$ for
+the second. We also record the elementary inequality
+\begin{equation}\label{eq:ol-quad}
+  \frac{|y|^2}{2}-|x|^2\le|y-x|^2\qquad(x,y\in F),
+\end{equation}
+which follows from $|y|\le|y-x|+|x|$ and $(|y-x|-|x|)^2\ge0$.
+
+\emph{The forward implication.}
+Apply hypothesis (2) with the compact set $J\subseteq(0,\infty)$ and the accuracy
+$1/8$: there is $M^+_1>0$ with
+\begin{equation}\label{eq:ol-far}
+  |W(y,s)|\le\frac{|y|^2}{8}\qquad(|y|\ge M^+_1,\ s\in J).
+\end{equation}
+Let $A^+_1\ge1$ bound $|W|$ on $\mathcal B_{\max\{M^+_1,R\}}$ and put
+\[
+  M^+_2=\max\bigl\{M^+_1,\ \sqrt{8A^+_1+4R^2},\ R\bigr\},
+\]
+and let $A^+\ge1$ bound $|W|$ on $\mathcal B_{M^+_2}$.
+
+Let $y$ satisfy $\Penv_\ell W(x,t)=W(y,t+\ell)-|y-x|^2/(2\ell)$. By the
+domination half of part (1) of \noderef{EnvelopeCompetitorBounds}, applied to
+$W$ with $I=(0,\infty)$ at the center $(x,t)$ and the length $\ell$ --- its
+hypotheses hold: $\ell>0$, and $t\in I$ and $t+\ell\in I$ because
+$t\ge\delta_N>0$ and $\ell>0$, while the continuity and growth hypotheses are
+hypothesis (2) --- the competitor $y'=x$ gives
+$W(x,t+\ell)-|x-x|^2/(2\ell)=W(x,t+\ell)\le\Penv_\ell W(x,t)$, so
+\begin{equation}\label{eq:ol-compare}
+  \frac{|y-x|^2}{2\ell}\le W(y,t+\ell)-W(x,t+\ell).
+\end{equation}
+We first show $|y|\le M^+_2$. If $|y|\le M^+_1$ this is immediate from the
+definition of $M^+_2$. Suppose $|y|>M^+_1$. Since $0<\ell\le1$ and
+$|y-x|^2\ge0$ we have $|y-x|^2/2\le|y-x|^2/(2\ell)$, so \eqref{eq:ol-quad},
+\eqref{eq:ol-compare}, \eqref{eq:ol-far} at $(y,t+\ell)$ --- legitimate by
+\eqref{eq:ol-window} --- and the bound $W(x,t+\ell)\ge-A^+_1$ --- legitimate
+because $|x|\le R\le\max\{M^+_1,R\}$ and $t+\ell\in J$ --- give
+\[
+  \frac{|y|^2}{4}-\frac{|x|^2}{2}
+   \le\frac{|y-x|^2}{2}
+   \le\frac{|y-x|^2}{2\ell}
+   \le W(y,t+\ell)-W(x,t+\ell)
+   \le\frac{|y|^2}{8}+A^+_1 .
+\]
+With $|x|\le R$ this yields $|y|^2/8\le A^+_1+R^2/2$, i.e.
+$|y|^2\le8A^+_1+4R^2$, hence $|y|\le\sqrt{8A^+_1+4R^2}\le M^+_2$.
+
+Now $|y|\le M^+_2$ and $|x|\le R\le M^+_2$ and $t+\ell\in J$, so both
+$|W(y,t+\ell)|\le A^+$ and $|W(x,t+\ell)|\le A^+$, and \eqref{eq:ol-compare}
+gives $|y-x|^2/(2\ell)\le2A^+$, that is $|y-x|^2\le4A^+\ell$. Since
+$A^+\le A$ and $\ell>0$ this gives $|y-x|^2\le4A\ell$ and therefore
+$|y-x|=\sqrt{|y-x|^2}\le\sqrt{4A\ell}=2\sqrt{A\ell}$, as claimed.
+
+\emph{The backward implication.} This is not a substitution instance of the
+forward one: it uses part (2) of \noderef{EnvelopeCompetitorBounds} rather than
+part (1), and the continuity and growth of $v$ on all of space-time rather than
+those of $W$ on $\{t>0\}$. Apply hypothesis (1) with the compact set
+$J\subseteq\R$ and the accuracy $1/8$: there is $M^-_1>0$ with
+\begin{equation}\label{eq:ol-far-v}
+  |v(y,s)|\le\frac{|y|^2}{8}\qquad(|y|\ge M^-_1,\ s\in J).
+\end{equation}
+Let $A^-_1\ge1$ bound $|v|$ on $\mathcal B_{\max\{M^-_1,R\}}$, put
+$M^-_2=\max\{M^-_1,\sqrt{8A^-_1+4R^2},R\}$ and let $A^-\ge1$ bound $|v|$ on
+$\mathcal B_{M^-_2}$.
+
+Let $y$ satisfy $\Menv_\ell v(x,t)=v(y,t-\ell)+|y-x|^2/(2\ell)$. By the
+domination half of part (2) of \noderef{EnvelopeCompetitorBounds}, applied to
+$v$ with $I=\R$ at the center $(x,t)$ and the length $\ell$ --- its hypotheses
+hold: $\ell>0$, the conditions $t\in I$ and $t-\ell\in I$ are vacuous for
+$I=\R$, and the continuity and growth hypotheses are hypothesis (1) --- the
+competitor $y'=x$ gives
+$\Menv_\ell v(x,t)\le v(x,t-\ell)+|x-x|^2/(2\ell)=v(x,t-\ell)$, so
+\begin{equation}\label{eq:ol-compare-v}
+  \frac{|y-x|^2}{2\ell}\le v(x,t-\ell)-v(y,t-\ell).
+\end{equation}
+Exactly as before, if $|y|>M^-_1$ then $0<\ell\le1$, \eqref{eq:ol-quad},
+\eqref{eq:ol-compare-v}, \eqref{eq:ol-far-v} at $(y,t-\ell)$ --- legitimate by
+\eqref{eq:ol-window} --- and $v(x,t-\ell)\le A^-_1$ give
+\[
+  \frac{|y|^2}{4}-\frac{|x|^2}{2}
+   \le\frac{|y-x|^2}{2}
+   \le\frac{|y-x|^2}{2\ell}
+   \le v(x,t-\ell)-v(y,t-\ell)
+   \le A^-_1+\frac{|y|^2}{8},
+\]
+whence $|y|^2\le8A^-_1+4R^2$ and $|y|\le M^-_2$; and if $|y|\le M^-_1$ then
+$|y|\le M^-_2$ outright. With $|y|\le M^-_2$, $|x|\le R\le M^-_2$ and
+$t-\ell\in J$ both $|v(y,t-\ell)|\le A^-$ and $|v(x,t-\ell)|\le A^-$, so
+\eqref{eq:ol-compare-v} gives $|y-x|^2\le4A^-\ell\le4A\ell$ and therefore
+$|y-x|\le2\sqrt{A\ell}$.
+
+Setting $A=\max\{A^+,A^-\}\ge1$, both implications hold with this single $A$,
+which depends only on $N$, $R$, $T$ and the data $v$, $W$. \end{proof}

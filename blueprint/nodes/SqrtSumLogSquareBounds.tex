@@ -1,0 +1,95 @@
+\begin{lemma}[A telescoping square-root sum bound and a logarithmic square bound]
+The following two elementary inequalities hold.
+\begin{enumerate}
+\item For every real $a>0$ and every integer $M\ge 0$,
+\begin{equation}\label{eq:sslsb-harm}
+  \sum_{m=0}^{M-1}\frac{1}{\sqrt{a(m+1)}}\le\frac{2\sqrt{aM}}{a}.
+\end{equation}
+\item For every real $s$ with $0<s\le 8$,
+\begin{equation}\label{eq:sslsb-log}
+  |\log s|^2\le\frac{16}{\sqrt{s}}+(\log 8)^2 .
+\end{equation}
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{Part 1: the telescoping comparison.}
+Fix $a>0$ and $M\ge 0$. We first prove the termwise estimate
+\begin{equation}\label{eq:sslsb-term}
+  \frac{1}{\sqrt{a(m+1)}}\le\frac{2\bigl(\sqrt{a(m+1)}-\sqrt{am}\bigr)}{a}
+  \qquad(m\ge 0\text{ an integer}).
+\end{equation}
+Write $u=\sqrt{a(m+1)}$ and $w=\sqrt{am}$. Since $a>0$ and $m+1\ge 1>0$ we have
+$a(m+1)>0$, so $u>0$ and $u^2=a(m+1)$; since $m\ge 0$ we have $am\ge 0$, so
+$w\ge 0$ and $w^2=am$. Consequently
+\begin{equation}\label{eq:sslsb-diff}
+  u^2-w^2=a(m+1)-am=a ,
+\end{equation}
+and $w\le u$ because $am\le a(m+1)$ and the square root is monotone on
+$[0,\infty)$. Both $u>0$ and $a>0$, so \eqref{eq:sslsb-term} is equivalent, after
+multiplying both sides by the positive number $ua$, to
+\[
+  a\le 2u(u-w),
+\]
+and by \eqref{eq:sslsb-diff} this is in turn equivalent to
+$u^2-w^2\le 2u^2-2uw$, i.e.\ to $0\le u^2-2uw+w^2=(u-w)^2$, which holds. This
+proves \eqref{eq:sslsb-term}.
+
+Next we evaluate the sum of the right-hand sides of \eqref{eq:sslsb-term}. Put
+$g(k)=\sqrt{ak}$ for integers $k\ge 0$. For each integer $m\ge 0$,
+\[
+  \frac{2\bigl(\sqrt{a(m+1)}-\sqrt{am}\bigr)}{a}
+   =\frac{2}{a}\bigl(g(m+1)-g(m)\bigr),
+\]
+so by the telescoping identity
+$\sum_{m=0}^{M-1}\bigl(g(m+1)-g(m)\bigr)=g(M)-g(0)$ and by $g(0)=\sqrt{0}=0$,
+\begin{equation}\label{eq:sslsb-tele}
+  \sum_{m=0}^{M-1}\frac{2\bigl(\sqrt{a(m+1)}-\sqrt{am}\bigr)}{a}
+   =\frac{2}{a}\bigl(g(M)-g(0)\bigr)=\frac{2\sqrt{aM}}{a}.
+\end{equation}
+Summing \eqref{eq:sslsb-term} over $m=0,\dots,M-1$ and using monotonicity of
+finite sums together with \eqref{eq:sslsb-tele} gives
+\[
+  \sum_{m=0}^{M-1}\frac{1}{\sqrt{a(m+1)}}
+   \le\sum_{m=0}^{M-1}\frac{2\bigl(\sqrt{a(m+1)}-\sqrt{am}\bigr)}{a}
+   =\frac{2\sqrt{aM}}{a},
+\]
+which is \eqref{eq:sslsb-harm}.
+
+\emph{Part 2: the logarithmic square bound.}
+Fix $s$ with $0<s\le 8$. Since $8\ge 1$ we have $\log 8\ge 0$. We distinguish
+two cases.
+
+\emph{Case $s\le 1$.} Set $u=\sqrt{\sqrt{s}}$. As $s>0$ we have $\sqrt{s}>0$ and
+hence $u>0$, and $u^2=\sqrt{s}$. From $\log\sqrt{x}=\tfrac12\log x$ for $x\ge 0$,
+applied twice,
+\begin{equation}\label{eq:sslsb-logu}
+  \log u=\tfrac12\log\sqrt{s}=\tfrac14\log s .
+\end{equation}
+The inequality $\log x\le x-1$, valid for all $x>0$, applied to $x=u^{-1}>0$
+gives $\log(u^{-1})\le u^{-1}-1$, i.e.\ $-\log u\le \frac{1}{u}-1\le\frac1u$.
+Combining this with \eqref{eq:sslsb-logu} and multiplying by $4>0$,
+\begin{equation}\label{eq:sslsb-logs}
+  -\log s\le\frac{4}{u}.
+\end{equation}
+Because $0<s\le 1$ we have $\log s\le 0$, so $|\log s|=-\log s$ and
+$-\log s\ge 0$. Both sides of \eqref{eq:sslsb-logs} are therefore nonnegative,
+and squaring a valid inequality between nonnegative reals preserves it:
+\[
+  (-\log s)^2\le\Bigl(\frac{4}{u}\Bigr)^2=\frac{16}{u^2}=\frac{16}{\sqrt{s}},
+\]
+the last step by $u^2=\sqrt s$. Since $(\log 8)^2\ge 0$, we conclude
+\[
+  |\log s|^2=(-\log s)^2\le\frac{16}{\sqrt{s}}\le\frac{16}{\sqrt{s}}+(\log 8)^2 ,
+\]
+which is \eqref{eq:sslsb-log} in this case.
+
+\emph{Case $s>1$.} Then $\log s\ge 0$, so $|\log s|=\log s$, and $s\le 8$ with
+$s>0$ gives $\log s\le\log 8$ by monotonicity of the logarithm on $(0,\infty)$.
+Both $\log s$ and $\log 8$ are nonnegative with $\log s\le\log 8$, so
+$(\log s)^2\le(\log 8)^2$. Finally $16/\sqrt{s}\ge 0$ because $s>0$, whence
+\[
+  |\log s|^2=(\log s)^2\le(\log 8)^2\le\frac{16}{\sqrt{s}}+(\log 8)^2 .
+\]
+This is \eqref{eq:sslsb-log} in the remaining case, and the two cases exhaust
+$0<s\le 8$.
+\end{proof}

@@ -1,0 +1,85 @@
+\begin{helper}[The marks sit on their own time level]
+Let $F$ be a finite-dimensional real inner-product space, let
+$C_0,\kappa,H\in\R$, let $v$ be a real function on space-time, let
+$T\in\mathbb N$, $R\in\R$, $N\in\mathbb N$ and $\epsilon\in\R$, and let
+$(\Omega,\mathcal M,\mu)$ be a measure space with a filtration
+$(\mathcal G_n)_{n\in\mathbb N}$ carrying functions $\xi_n$, $z_n$, $z^+_n$,
+$z^-_n$, $Q_0(n)$ and $\tau$ which form a stopped contact walk for
+$(\kappa,H,T,R,v,N,\epsilon)$ in the sense of \noderef{IsContactWalk}, together
+with functions $\sigma_j$, $p_j$, $a_j$ which are mark data for
+$(C_0,v,N,\mathcal G,z,\tau)$ in the sense of \noderef{IsMarkData}. Write
+$\delta_i=2^{-i}$ and $z_n=(x_n,t_n)$. Then for every $j$ with $1\le j\le N$:
+\begin{enumerate}
+\item[(i)] $t_{\sigma_j}\ge\delta_j$ everywhere on $\Omega$;
+\item[(ii)] $t_{\sigma_j}=\delta_j$ at every point where $t_\tau=\delta_N$.
+\end{enumerate}
+\end{helper}
+\begin{proof}
+Clause numbers refer to \noderef{IsContactWalk} unless \noderef{IsMarkData} is
+named. Fix $j$ with $1\le j\le N$.
+
+\emph{(G1) The grid.} By clause 2 there is an integer $k\ge0$ with
+$\epsilon=2^{-k}$, and $0<\epsilon\le\delta_N/4=2^{-N-2}$; since $i\mapsto2^{-i}$
+is decreasing, $k\ge N+2$. Consequently, for every $i\le k$ the number
+$\delta_i=2^{-i}$ is an integer multiple of $\epsilon$, namely
+$\delta_i=2^{\,k-i}\epsilon$, because $2^{\,k-i}2^{i}=2^k$ and
+$2^{-i}2^{i}=1$. In particular $1=\delta_0=2^k\epsilon$ and
+$\delta_j=2^{\,k-j}\epsilon$ are integer multiples of $\epsilon$, using
+$j\le N\le k$.
+
+\emph{(G2) The time coordinate moves by $0$ or $\pm\epsilon$.} Let $n$ and
+$\omega$ be given. If $n\ge\tau(\omega)$ then clause 7 gives
+$z_{n+1}=z_n$, so $t_{n+1}=t_n$. If $n<\tau(\omega)$ then clause 6 makes
+$(z^+_n,z^-_n)$ an optimizing step pair of size $\epsilon$ at $z_n$, so by
+\noderef{IsStepPair} the time coordinates of $z^+_n$ and $z^-_n$ are
+$t_n+\epsilon$ and $t_n-\epsilon$; clause 7 says that $z_{n+1}$ is one of the
+two, so $t_{n+1}\in\{t_n+\epsilon,\;t_n-\epsilon\}$. In all cases
+$t_{n+1}\in\{t_n,\;t_n+\epsilon,\;t_n-\epsilon\}$.
+
+\emph{(G3) Every time coordinate is an integer multiple of $\epsilon$.} By
+induction on $n$. For $n=0$, clause 5 gives $z_0=(0,1)$, so $t_0=1$, which is an
+integer multiple of $\epsilon$ by (G1). If $t_n=m\epsilon$ with $m\in\mathbb Z$
+then by (G2) $t_{n+1}$ is one of $m\epsilon$, $(m+1)\epsilon$, $(m-1)\epsilon$.
+
+\emph{(G4) Two multiples of $\epsilon$ in a half-open interval of length
+$\epsilon$ coincide.} Let $x=m_1\epsilon$ and $c=m_2\epsilon$ with
+$m_1,m_2\in\mathbb Z$ and $c-\epsilon<x\le c$. Dividing by $\epsilon>0$ gives
+$m_2-1<m_1\le m_2$ in $\R$, hence in $\mathbb Z$, so $m_1=m_2$ and $x=c$.
+
+\emph{(G5) A discrete intermediate value property.} Let $\omega\in\Omega$, let
+$c$ be an integer multiple of $\epsilon$, let $b\in\mathbb N$ and suppose
+$t_b(\omega)\le c\le t_0(\omega)$. Then $t_n(\omega)=c$ for some $n\le b$. We
+induct on $b$. For $b=0$ we have $t_0(\omega)\le c\le t_0(\omega)$, so
+$t_0(\omega)=c$. For the step, suppose the claim holds for $b$ and let
+$t_{b+1}(\omega)\le c\le t_0(\omega)$. If $t_b(\omega)\le c$ the inductive
+hypothesis gives $n\le b\le b+1$ with $t_n(\omega)=c$. Otherwise
+$t_{b+1}(\omega)\le c<t_b(\omega)$; of the three possibilities of (G2) only
+$t_{b+1}(\omega)=t_b(\omega)-\epsilon$ is compatible with
+$t_{b+1}(\omega)\le c<t_b(\omega)$, so
+$t_{b+1}(\omega)=t_b(\omega)-\epsilon>c-\epsilon$. Thus $t_{b+1}(\omega)$ and
+$c$ are integer multiples of $\epsilon$ --- by (G3) and the hypothesis on $c$ ---
+lying in $(c-\epsilon,c]$, so $t_{b+1}(\omega)=c$ by (G4), and $n=b+1$ serves.
+
+\emph{(i).} Note $\delta_j\le\delta_0=1=t_0(\omega)$ for every $\omega$, by
+clause 5. Suppose $t_{\sigma_j}(\omega)<\delta_j$ for some $\omega$. Since
+$\delta_j$ is an integer multiple of $\epsilon$ by (G1) and
+$t_{\sigma_j(\omega)}(\omega)\le\delta_j\le t_0(\omega)$, (G5) applied with
+$b=\sigma_j(\omega)$ and $c=\delta_j$ gives an $n\le\sigma_j(\omega)$ with
+$t_n(\omega)=\delta_j$. As $t_{\sigma_j}(\omega)<\delta_j$ we have
+$n\ne\sigma_j(\omega)$, so $n<\sigma_j(\omega)$; but then clause 3 of
+\noderef{IsMarkData} gives $t_n(\omega)\ne\delta_j$, a contradiction. Hence
+$t_{\sigma_j}\ge\delta_j$ everywhere.
+
+\emph{(ii).} Let $\omega$ satisfy $t_\tau(\omega)=\delta_N$. Since $j\le N$ we
+have $\delta_N\le\delta_j$, so
+$t_{\tau(\omega)}(\omega)=\delta_N\le\delta_j\le1=t_0(\omega)$, and (G5) with
+$b=\tau(\omega)$ and $c=\delta_j$ gives an $n\le\tau(\omega)$ with
+$t_n(\omega)=\delta_j$. Let $n_0$ be the least index with
+$t_{n_0}(\omega)=\delta_j$; then $n_0\le n\le\tau(\omega)$. If
+$n_0<\sigma_j(\omega)$ then clause 3 of \noderef{IsMarkData} applied at $n_0$
+would give $t_{n_0}(\omega)\ne\delta_j$; hence $\sigma_j(\omega)\le n_0$. By
+clause 4 of \noderef{IsMarkData} either $t_{\sigma_j}(\omega)=\delta_j$, which
+is the claim, or $\sigma_j(\omega)=\tau(\omega)$, in which case
+$n_0\le\tau(\omega)=\sigma_j(\omega)\le n_0$ forces
+$\sigma_j(\omega)=n_0$ and therefore $t_{\sigma_j}(\omega)=\delta_j$ again.
+\end{proof}

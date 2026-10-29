@@ -1,0 +1,65 @@
+\begin{lemma}[A $C^2$ radial plateau between two radii]
+Let $E$ be a finite-dimensional real inner-product space and let
+$m,M,\rho_1,\rho_2\in\R$ with $0<\rho_1<\rho_2$ and $m\le M$. Then there is a
+function $B:E\to\R$ of class $C^2$ on $E$ such that
+\[
+  m\le B(c)\le M\quad(c\in E),\qquad
+  B(c)=m\ \text{ whenever }|c|\le\rho_1,\qquad
+  B(c)=M\ \text{ whenever }|c|\ge\rho_2 .
+\]
+\end{lemma}
+\begin{proof}
+Define $P:\R\to\R$ by
+\[
+  P(\tau)=\begin{cases}0,&\tau\le0,\\
+    6\tau^5-15\tau^4+10\tau^3,&0\le\tau\le1,\\
+    1,&\tau\ge1.\end{cases}
+\]
+
+\emph{$P$ is well defined, $C^2$, and takes values in $[0,1]$.} The three
+branches agree where they overlap: at $\tau=0$ the middle formula gives
+$6\cdot0-15\cdot0+10\cdot0=0$, which is the value of the first branch, and at
+$\tau=1$ it gives $6-15+10=1$, the value of the third. On $(0,1)$ the middle
+formula is a polynomial, hence $C^\infty$ there, with
+\[
+  P'(\tau)=30\tau^4-60\tau^3+30\tau^2=30\tau^2(\tau-1)^2,\qquad
+  P''(\tau)=120\tau^3-180\tau^2+60\tau=60\tau(2\tau-1)(\tau-1).
+\]
+Both formulas vanish at $\tau=0$ and at $\tau=1$: $P'(0)=0$, $P''(0)=0$,
+$P'(1)=30\cdot1\cdot0=0$, $P''(1)=60\cdot1\cdot1\cdot0=0$. The constant branches
+have $P'=P''=0$ identically. Hence the one-sided limits of $P$, $P'$ and $P''$
+at the two junction points $\tau=0$ and $\tau=1$ agree from both sides, so $P$
+is twice differentiable on all of $\R$ with continuous second derivative, i.e.
+$P$ is $C^2$ on $\R$. Moreover $P'(\tau)=30\tau^2(\tau-1)^2\ge0$ on $[0,1]$, so
+$P$ is nondecreasing there, whence $0=P(0)\le P(\tau)\le P(1)=1$ for
+$\tau\in[0,1]$; together with the two constant branches this gives
+$0\le P\le1$ on $\R$.
+
+\emph{The plateau.} Since $0<\rho_1<\rho_2$ we have
+$\rho_2^2-\rho_1^2>0$, so we may define
+\[
+  B(c)=m+(M-m)\,P\!\left(\frac{|c|^2-\rho_1^2}{\rho_2^2-\rho_1^2}\right)
+  \qquad(c\in E).
+\]
+
+\emph{$B$ is $C^2$.} The map $c\mapsto|c|^2=\langle c,c\rangle$ is a continuous
+quadratic form on $E$, hence $C^\infty$; composing with the affine map
+$s\mapsto(s-\rho_1^2)/(\rho_2^2-\rho_1^2)$ of $\R$ keeps it $C^\infty$. Thus
+$c\mapsto(|c|^2-\rho_1^2)/(\rho_2^2-\rho_1^2)$ is $C^\infty$ from $E$ to $\R$,
+and composing it with the $C^2$ function $P$ gives a $C^2$ function; finally
+multiplying by the constant $M-m$ and adding the constant $m$ preserves
+$C^2$.
+
+\emph{The three displayed properties.} Let $c\in E$ and write
+$\tau(c)=(|c|^2-\rho_1^2)/(\rho_2^2-\rho_1^2)$.
+\begin{itemize}
+\item Since $0\le P\le1$ and $M-m\ge0$, we get
+  $m=m+(M-m)\cdot0\le B(c)\le m+(M-m)\cdot1=M$.
+\item If $|c|\le\rho_1$ then $|c|^2\le\rho_1^2$, so $\tau(c)\le0$ and hence
+  $P(\tau(c))=0$ by the first branch; therefore $B(c)=m$.
+\item If $|c|\ge\rho_2$ then $|c|^2\ge\rho_2^2$, so
+  $|c|^2-\rho_1^2\ge\rho_2^2-\rho_1^2>0$ and hence $\tau(c)\ge1$, so
+  $P(\tau(c))=1$ by the third branch; therefore $B(c)=m+(M-m)=M$.
+\end{itemize}
+This is the required function.
+\end{proof}

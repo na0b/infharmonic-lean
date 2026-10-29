@@ -1,0 +1,59 @@
+\begin{lemma}[Second derivative of a composition with a linear map]
+Let $P$ and $Q$ be real normed spaces, let $L:P\to Q$ be a continuous linear
+map, let $f:Q\to\R$, let $W\in P$, and assume that $f$ is $C^2$ near $L(W)$.
+Then for all $\xi,\eta\in P$,
+\[
+  D^2(f\circ L)(W)[\xi,\eta]=D^2f\bigl(L(W)\bigr)\bigl[L\xi,\ L\eta\bigr].
+\]
+\end{lemma}
+\begin{proof}
+Write $CL$ for the map $g\mapsto g\circ L$ sending a continuous linear
+functional on $Q$ to one on $P$. It is linear in $g$, and it is continuous
+because $\|g\circ L\|\le\|g\|\,\|L\|$; so $CL$ is itself a continuous linear map
+from the space of continuous linear functionals on $Q$ to that on $P$.
+
+\emph{Step 1: the first derivative of $f\circ L$ near $W$.}
+Since $f$ is $C^2$ near $L(W)$, it is in particular $C^1$, hence differentiable,
+at every point of some neighbourhood $U$ of $L(W)$. As $L$ is continuous, the
+preimage of $U$ is a neighbourhood of $W$; so for every $U'$ in a neighbourhood
+of $W$ the function $f$ is differentiable at $L(U')$. For such $U'$ the chain
+rule for the composition of the differentiable $f$ at $L(U')$ with the
+continuous linear $L$ --- whose derivative at any point is $L$ itself --- gives
+\[
+  D(f\circ L)(U')=Df\bigl(L(U')\bigr)\circ L=CL\Bigl(Df\bigl(L(U')\bigr)\Bigr).
+\]
+Thus the two functions $U'\mapsto D(f\circ L)(U')$ and
+$U'\mapsto CL\bigl(Df(L(U'))\bigr)$ agree on a neighbourhood of $W$, and
+therefore have the same derivative at $W$:
+\begin{equation}\label{eq:sfcl-same}
+  D^2(f\circ L)(W)=D\Bigl(U'\mapsto CL\bigl(Df(L(U'))\bigr)\Bigr)(W).
+\end{equation}
+
+\emph{Step 2: differentiating once more.}
+Because $f$ is $C^2$ near $L(W)$, the map $Df$ is differentiable at $L(W)$, with
+derivative $D^2f(L(W))$; that is,
+\[
+  y\longmapsto Df(y)\quad\text{has derivative}\quad D^2f\bigl(L(W)\bigr)
+  \quad\text{at }L(W).
+\]
+Composing with the continuous linear $L$ on the right, the map
+$U'\mapsto Df(L(U'))$ has derivative $D^2f(L(W))\circ L$ at $W$. Composing with
+the continuous linear $CL$ on the left, the map
+$U'\mapsto CL\bigl(Df(L(U'))\bigr)$ has derivative
+$CL\circ\bigl(D^2f(L(W))\circ L\bigr)$ at $W$. With \eqref{eq:sfcl-same} this
+gives
+\[
+  D^2(f\circ L)(W)=CL\circ\Bigl(D^2f\bigl(L(W)\bigr)\circ L\Bigr).
+\]
+
+\emph{Step 3: evaluating.}
+Apply the displayed identity to $\xi\in P$ and then to $\eta\in P$. The inner
+composition sends $\xi$ to $D^2f(L(W))(L\xi)$, a continuous linear functional on
+$Q$; applying $CL$ to it gives $D^2f(L(W))(L\xi)\circ L$, a continuous linear
+functional on $P$; and evaluating that at $\eta$ gives
+$D^2f(L(W))(L\xi)(L\eta)$, i.e.
+\[
+  D^2(f\circ L)(W)[\xi,\eta]=D^2f\bigl(L(W)\bigr)\bigl[L\xi,\ L\eta\bigr],
+\]
+which is the assertion.
+\end{proof}

@@ -1,0 +1,117 @@
+\begin{lemma}[The radial test is $C^2$ off the diagonal, with its first derivative]
+Let $V$ be a real normed space and $E$ a real inner-product space. Let
+$A:V\to\R$ be a continuous linear functional, let $L_c,L_d,L_h:V\to E$ be
+continuous linear maps, and let $B:E\to\R$ and $f:\R\to\R$ be functions. Define
+\[
+  \Theta(U)=A(U)+B(L_cU)\,f\bigl(|L_dU|\bigr)+\frac{|L_hU|^2}{|L_dU|^2}
+  \qquad(U\in V).
+\]
+Let $W\in V$ with $L_dW\ne0$, and write
+\[
+  r=|L_dW|>0,\qquad c=L_cW,\qquad h=L_hW,\qquad e=r^{-1}L_dW .
+\]
+Assume that $B$ is $C^2$ at $c$, that $f$ is $C^2$ at $r$, and that $f$ is
+differentiable at $r$ with $f'(r)=a_0$. Then
+\begin{enumerate}
+\item $\Theta$ is $C^2$ at $W$, and
+\item for every $\zeta\in V$,
+\[
+  D\Theta(W)[\zeta]
+   =A(\zeta)+f(r)\,DB(c)[L_c\zeta]
+     +\Bigl(B(c)\,a_0-\frac{2|h|^2}{r^3}\Bigr)\langle e,L_d\zeta\rangle
+     +\frac{2\langle h,L_h\zeta\rangle}{r^2}.
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Since $L_dW\ne0$ we have $r=|L_dW|>0$, so $r\ne0$ and $r^2\ne0$; these
+nonvanishing facts are used at every division below.
+
+\emph{Step 1: the squared norms and their derivatives.} For any continuous
+linear $L:V\to E$ the map $U\mapsto L U$ is $C^\infty$, and $x\mapsto|x|^2
+=\langle x,x\rangle$ is a continuous quadratic form on $E$, hence $C^\infty$,
+with derivative $D(|\cdot|^2)(x)[v]=2\langle x,v\rangle$ by bilinearity and
+symmetry of the real inner product. Composing with $L$ (chain rule for a
+composition with a continuous linear map) shows that $U\mapsto|LU|^2$ is
+$C^\infty$ with
+\begin{equation}\label{eq:rtfd-sqnorm}
+  D\bigl(|L\cdot|^2\bigr)(W)[\zeta]=2\langle LW,L\zeta\rangle .
+\end{equation}
+Applying this to $L=L_d$ and to $L=L_h$ gives both squared-norm blocks.
+
+\emph{Step 2: the radius is $C^2$ at $W$, with derivative $\langle e,L_d\cdot
+\rangle$.} The square root is $C^\infty$ on $(0,\infty)$, and
+$|L_dW|^2=r^2>0$, so the composition $U\mapsto\sqrt{|L_dU|^2}$ is $C^2$ at $W$
+by Step 1 and the chain rule. Since $|x|\ge0$, we have
+$\sqrt{|L_dU|^2}=|L_dU|$ for every $U$; the two functions therefore coincide on
+$V$, so $U\mapsto|L_dU|$ is $C^2$ at $W$ and has the same derivative. The
+derivative of $\sqrt{\cdot}$ at $s=r^2$ is $1/(2\sqrt{r^2})=1/(2r)$, so by
+\eqref{eq:rtfd-sqnorm} with $L=L_d$,
+\begin{equation}\label{eq:rtfd-radius}
+  D\bigl(|L_d\cdot|\bigr)(W)[\zeta]
+   =\frac1{2r}\cdot2\langle L_dW,L_d\zeta\rangle
+   =\frac{\langle L_dW,L_d\zeta\rangle}{r}
+   =\langle e,L_d\zeta\rangle,
+\end{equation}
+the last equality because $e=r^{-1}L_dW$ and the inner product is linear in its
+first argument over $\R$. Note also, for later use, that \eqref{eq:rtfd-radius}
+gives
+\begin{equation}\label{eq:rtfd-flip}
+  \langle L_dW,L_d\zeta\rangle=r\,\langle e,L_d\zeta\rangle .
+\end{equation}
+
+\emph{Step 3: the three summands are $C^2$ at $W$.} $A$ is continuous linear,
+hence $C^\infty$. The map $U\mapsto B(L_cU)$ is $C^2$ at $W$: it is the
+composition of the $C^\infty$ map $U\mapsto L_cU$ with $B$, which is $C^2$ at
+$L_cW=c$. The map $U\mapsto f(|L_dU|)$ is $C^2$ at $W$: it is the composition of
+the map of Step 2, which is $C^2$ at $W$ with value $r$, with $f$, which is
+$C^2$ at $r$. A product of two functions that are $C^2$ at a point is $C^2$
+there, so $U\mapsto B(L_cU)f(|L_dU|)$ is $C^2$ at $W$. Finally
+$U\mapsto|L_hU|^2$ and $U\mapsto|L_dU|^2$ are $C^\infty$ by Step 1 and the
+second has the nonzero value $r^2$ at $W$, so their quotient is $C^2$ at $W$. A
+sum of functions that are $C^2$ at a point is $C^2$ there, which proves (1).
+
+\emph{Step 4: the derivative of the localizing product.} By the chain rule for a
+composition with a continuous linear map, $U\mapsto B(L_cU)$ has derivative
+$\zeta\mapsto DB(c)[L_c\zeta]$ at $W$. By Step 2 and the one-dimensional chain
+rule, $U\mapsto f(|L_dU|)$ has derivative
+$\zeta\mapsto a_0\langle e,L_d\zeta\rangle$ at $W$, where $a_0=f'(r)$. The
+product rule therefore gives
+\begin{equation}\label{eq:rtfd-prod}
+  D\bigl(B(L_c\cdot)f(|L_d\cdot|)\bigr)(W)[\zeta]
+   =B(c)\,a_0\,\langle e,L_d\zeta\rangle+f(r)\,DB(c)[L_c\zeta].
+\end{equation}
+
+\emph{Step 5: the derivative of the penalty.} Write $N(U)=|L_hU|^2$ and
+$D(U)=|L_dU|^2$, so $N(W)=|h|^2$, $D(W)=r^2\ne0$, and by
+\eqref{eq:rtfd-sqnorm}
+\[
+  DN(W)[\zeta]=2\langle h,L_h\zeta\rangle,\qquad
+  DD(W)[\zeta]=2\langle L_dW,L_d\zeta\rangle .
+\]
+The quotient rule gives
+\[
+  D\Bigl(\frac ND\Bigr)(W)[\zeta]
+   =\frac{DN(W)[\zeta]\,D(W)-N(W)\,DD(W)[\zeta]}{D(W)^2}
+   =\frac{2\langle h,L_h\zeta\rangle\,r^2
+      -|h|^2\cdot2\langle L_dW,L_d\zeta\rangle}{r^4},
+\]
+and substituting \eqref{eq:rtfd-flip} and simplifying,
+\begin{equation}\label{eq:rtfd-pen}
+  D\Bigl(\frac{|L_h\cdot|^2}{|L_d\cdot|^2}\Bigr)(W)[\zeta]
+   =\frac{2\langle h,L_h\zeta\rangle}{r^2}
+     -\frac{2|h|^2}{r^3}\langle e,L_d\zeta\rangle .
+\end{equation}
+
+\emph{Step 6: conclusion.} The derivative of the continuous linear functional
+$A$ at any point is $A$ itself. Adding this to \eqref{eq:rtfd-prod} and
+\eqref{eq:rtfd-pen}, and collecting the two terms proportional to
+$\langle e,L_d\zeta\rangle$, gives for every $\zeta\in V$
+\[
+  D\Theta(W)[\zeta]
+   =A(\zeta)+f(r)\,DB(c)[L_c\zeta]
+     +\Bigl(B(c)\,a_0-\frac{2|h|^2}{r^3}\Bigr)\langle e,L_d\zeta\rangle
+     +\frac{2\langle h,L_h\zeta\rangle}{r^2},
+\]
+which is (2).
+\end{proof}

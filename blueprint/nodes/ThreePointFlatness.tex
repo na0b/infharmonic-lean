@@ -1,0 +1,520 @@
+\begin{theorem}[Three-point flatness]
+Let $E$ be a finite-dimensional real inner-product space, write $B_\rho=B(0,\rho)$
+for the open ball of radius $\rho$ about the origin, and let $L\in\R$. Let
+$U_i:E\to\R$, $i\in\N$, be infinity-harmonic on $B_1$ in the sense of
+\noderef{IsInfHarmonicOn} and satisfy the common Lipschitz bound
+\[
+  |U_i(x)-U_i(y)|\le L|x-y|\qquad(x,y\in B_1,\ i\in\N).
+\]
+Let $q_i\in E$ and $b_i\in\R$, and write $\ell_i(x)=\langle q_i,x\rangle+b_i$ for
+the corresponding affine functions. Assume that $U_i-\ell_i\to0$ uniformly on
+$B_1$, that is,
+\[
+  \text{for every }\varepsilon>0\text{ there is }i_0\text{ with }
+  |U_i(x)-\ell_i(x)|\le\varepsilon
+  \quad(i\ge i_0,\ x\in B_1).
+\]
+Then the midpoint defect of $U_i$, divided by the endpoint separation, tends to
+zero uniformly on $B_{1/4}$: for every $\varepsilon>0$ there is $i_0$ such that
+\[
+  \Bigl|U_i(x)+U_i(y)-2U_i\bigl(\tfrac12(x+y)\bigr)\Bigr|\le\varepsilon|x-y|
+  \qquad\bigl(i\ge i_0,\ x,y\in B_{1/4},\ x\ne y\bigr).
+\]
+\end{theorem}
+\begin{proof}
+\emph{Step 0: the degenerate case and the normalizations.}
+If every element of $E$ is $0$ then there are no points $x,y$ with $x\ne y$ and
+the conclusion holds vacuously with $i_0=0$. So assume $E\ne\{0\}$. Then $B_1$
+contains two distinct points $x\ne y$, and the Lipschitz hypothesis applied to
+them gives $0\le|U_i(x)-U_i(y)|\le L|x-y|$ with $|x-y|>0$, so
+\[
+  L\ge0 .
+\]
+
+Write $w_i=U_i-\ell_i$. For $\varepsilon>0$ let $\mathcal E(\varepsilon)$ denote
+an index $i_0$ supplied by the flatness hypothesis for that $\varepsilon$, so
+that
+\[
+  |w_i(x)|\le\varepsilon\qquad\bigl(i\ge\mathcal E(\varepsilon),\ x\in B_1\bigr).
+\]
+
+\emph{The slopes $q_i$ are bounded.} Let $i\ge\mathcal E(1)$ and let $e\in E$
+with $|e|=1$. The points $\pm e/2$ lie in $B_1$, and
+$\ell_i(e/2)-\ell_i(-e/2)=\langle q_i,e\rangle$, so
+\[
+  |\langle q_i,e\rangle|
+   \le\bigl|U_i(e/2)-U_i(-e/2)\bigr|+|w_i(e/2)|+|w_i(-e/2)|
+   \le L|e|+2=L+2 .
+\]
+Taking $e=q_i/|q_i|$ when $q_i\ne0$ gives $|q_i|\le L+2$ (the bound being
+trivial otherwise). Consequently, for $i\ge\mathcal E(1)$ and $x,y\in B_1$,
+\[
+  |w_i(x)-w_i(y)|\le|U_i(x)-U_i(y)|+|\langle q_i,x-y\rangle|
+   \le\bigl(L+(L+2)\bigr)|x-y|,
+\]
+so with
+\[
+  C:=2L+2\ge2>0
+\]
+every $w_i$ with $i\ge\mathcal E(1)$ is $C$-Lipschitz on $B_1$, and
+$|q_i|\le L+2\le C$.
+
+\emph{Negation is admissible.} We record, for use below, the following scaling
+property. Let $\Omega\subseteq E$ be open, let $u:E\to\R$ and let $t<0$. First,
+for any $C^2$ function $\phi$ near a point $z$ and any $s\in\R$,
+\begin{equation}\label{eq:tpf-scale}
+  \Dinf(s\phi)(z)=s^3\,\Dinf\phi(z),
+\end{equation}
+because $\nabla(s\phi)(z)=s\nabla\phi(z)$ and $D^2(s\phi)(z)=sD^2\phi(z)$, so
+that $D^2(s\phi)(z)[\nabla(s\phi)(z)]
+=s\,D^2\phi(z)\bigl(s\nabla\phi(z),s\nabla\phi(z)\bigr)=s^3D^2\phi(z)[\nabla\phi(z)]$,
+using the definition of $\Dinf$ in \noderef{InfLap} and the bilinearity of the
+second derivative. Now suppose $u$ is an infinity supersolution on $\Omega$ in
+the sense of \noderef{IsInfSupersolutionOn}, and let $\phi$ be $C^2$ near
+$z\in\Omega$ with $tu-\phi$ having a local maximum on $\Omega$ at $z$. Dividing
+the inequality $tu(x)-\phi(x)\le tu(z)-\phi(z)$ by $t<0$ reverses it and gives
+$u(x)-\phi(x)/t\ge u(z)-\phi(z)/t$ for $x$ near $z$ in $\Omega$; that is,
+$\phi/t$ is a $C^2$ lower test for $u$ at $z$, so $\Dinf(\phi/t)(z)\le0$ by
+\noderef{IsInfSupersolutionOn}. By \eqref{eq:tpf-scale} with $s=1/t$ this reads
+$t^{-3}\Dinf\phi(z)\le0$, and $t^{-3}<0$, so $\Dinf\phi(z)\ge0$. As $\Omega$ is
+open and $tu$ is continuous on $\Omega$, this says that $tu$ is an infinity
+subsolution on $\Omega$ in the sense of \noderef{IsInfSubsolutionOn}. The
+symmetric argument, starting from $u$ an infinity subsolution and a lower test
+for $tu$, shows that $tu$ is then an infinity supersolution. In particular, if
+$u$ is infinity-harmonic on $\Omega$ then so is $-u$, and if $u$ is
+infinity-harmonic on $\Omega$ then $-2u$ is an infinity subsolution on $\Omega$.
+
+\emph{Step 1: the contradiction hypothesis.}
+Suppose the conclusion fails. Then there is $\delta>0$ such that for every
+$i_0$ there are $i\ge i_0$ and $x,y\in B_{1/4}$ with $x\ne y$ and
+\[
+  \Bigl|U_i(x)+U_i(y)-2U_i\bigl(\tfrac12(x+y)\bigr)\Bigr|>\delta|x-y| .
+\]
+Since $\ell_i$ is affine and $\tfrac12(x+y)$ is the midpoint,
+$\ell_i(x)+\ell_i(y)-2\ell_i(\tfrac12(x+y))=0$, so the displayed quantity is
+unchanged when $U_i$ is replaced by $w_i$. Choosing $i_0=1,2,\dots$ in turn and
+discarding repetitions produces a strictly increasing sequence of indices
+$i_1<i_2<\cdots$ and points $x_k,y_k\in B_{1/4}$, $x_k\ne y_k$, with
+\begin{equation}\label{eq:tpf-violate}
+  \bigl|w_{i_k}(x_k)+w_{i_k}(y_k)-2w_{i_k}(c_k)\bigr|>\delta|x_k-y_k|,
+  \qquad c_k=\tfrac12(x_k+y_k).
+\end{equation}
+Passing to a further subsequence we may assume that the sign of
+$w_{i_k}(x_k)+w_{i_k}(y_k)-2w_{i_k}(c_k)$ is the same for every $k$. If that
+sign is negative, replace the whole family $(U_i,q_i,b_i)$ by
+$(-U_i,-q_i,-b_i)$: by the scaling property of Step 0 each $-U_i$ is again
+infinity-harmonic on $B_1$, the Lipschitz bound with the same $L$ is unchanged,
+the flatness hypothesis is unchanged, $w_i$ is replaced by $-w_i$, and the
+quantity in \eqref{eq:tpf-violate} changes sign. We may therefore assume
+\begin{equation}\label{eq:tpf-positive}
+  w_{i_k}(x_k)+w_{i_k}(y_k)-2w_{i_k}(c_k)>\delta|x_k-y_k|\qquad(k\ge1).
+\end{equation}
+Note also that, by the $C$-Lipschitz bound and $|x_k-c_k|=|y_k-c_k|=\tfrac12
+|x_k-y_k|$, the left side of \eqref{eq:tpf-positive} is at most
+\[
+  \bigl(w_{i_k}(x_k)-w_{i_k}(c_k)\bigr)+\bigl(w_{i_k}(y_k)-w_{i_k}(c_k)\bigr)
+   \le C\cdot\tfrac12|x_k-y_k|+C\cdot\tfrac12|x_k-y_k|=C|x_k-y_k|
+\]
+whenever $i_k\ge\mathcal E(1)$. Choosing one such $k$ --- possible because
+$i_k\to\infty$ --- and dividing by $|x_k-y_k|>0$ gives
+\begin{equation}\label{eq:tpf-deltaC}
+  \delta\le C .
+\end{equation}
+
+\emph{Step 2: the two auxiliary profiles.}
+For $0<r\le3/2$ set
+\[
+  f(r)=r-\tfrac18r^{3/2},\qquad
+  f'(r)=1-\tfrac3{16}\sqrt r,\qquad
+  f''(r)=-\frac3{32\sqrt r},
+\]
+so $f$ is $C^2$ on $(0,\infty)$. Since $\sqrt r\le\sqrt{3/2}$ on $(0,3/2]$,
+\begin{equation}\label{eq:tpf-f}
+  \nu r\le f(r)\le r,\qquad \nu:=1-\tfrac18\sqrt{3/2}>0,
+  \qquad 0<f'(r)\le1 .
+\end{equation}
+
+Next we build the localizing factor. Let
+\[
+  P(\tau)=\begin{cases}0,&\tau\le0,\\
+    6\tau^5-15\tau^4+10\tau^3,&0\le\tau\le1,\\ 1,&\tau\ge1,\end{cases}
+\]
+a $C^2$ function on $\R$: on $[0,1]$ one computes $P(0)=0$, $P(1)=1$,
+$P'(\tau)=30\tau^2(\tau-1)^2$ and $P''(\tau)=60\tau(2\tau-1)(\tau-1)$, so
+$P,P',P''$ all match the constant branches in value at $\tau=0$ and $\tau=1$;
+moreover $P'\ge0$, so $0\le P\le1$. Fix
+\[
+  B_{\mathrm{out}}:=\frac{C+\tfrac32C^2}{\nu}+\frac{\delta}{2}+1
+\]
+and define $B:E\to\R$ by
+\[
+  B(c)=\frac\delta2+\Bigl(B_{\mathrm{out}}-\frac\delta2\Bigr)
+        P\Bigl(\frac{16|c|^2-1}{3}\Bigr).
+\]
+Since $c\mapsto|c|^2$ is a continuous quadratic form, hence $C^\infty$, and $P$
+is $C^2$, the function $B$ is $C^2$ on $E$. Moreover
+$B_{\mathrm{out}}-\delta/2>0$ and $0\le P\le1$ give
+\begin{equation}\label{eq:tpf-B}
+  \frac\delta2\le B\le B_{\mathrm{out}},\qquad
+  B\equiv\frac\delta2\ \text{on }\overline B(0,1/4),\qquad
+  B\equiv B_{\mathrm{out}}\ \text{where }|c|\ge\tfrac12,
+\end{equation}
+because $|c|\le1/4$ makes the argument of $P$ at most $0$ and $|c|\ge1/2$ makes
+it at least $1$. Finally put
+\[
+  K_1=\max_{\overline B(0,3/4)}|DB|,\qquad
+  K_2=\max_{\overline B(0,3/4)}\|D^2B\| ,
+\]
+finite because $DB$ and $D^2B$ are continuous on the compact set
+$\overline B(0,3/4)$ (preamble).
+
+\emph{Step 3: the maximization.}
+Fix $k$, write $i=i_k$ and assume $i\ge\mathcal E(1)$. For a triple
+$(x,y,z)\in\bigl(\overline B(0,3/4)\bigr)^3$ with $x\ne y$ put
+\[
+  c=\tfrac12(x+y),\qquad h=z-c,\qquad r=|x-y|\in(0,3/2],
+\]
+and
+\[
+  \Phi_i(x,y,z)=w_i(x)+w_i(y)-2w_i(z)-B(c)f(r)-\frac{|h|^2}{r^2} .
+\]
+Note $c\in\overline B(0,3/4)$ by convexity, and all three points lie in $B_1$.
+
+\emph{(3a) An upper bound.} Writing
+$w_i(x)+w_i(y)-2w_i(z)=\bigl(w_i(x)-w_i(c)\bigr)+\bigl(w_i(y)-w_i(c)\bigr)
++2\bigl(w_i(c)-w_i(z)\bigr)$ and using the $C$-Lipschitz bound together with
+$|x-c|=|y-c|=r/2$ and $|c-z|=|h|$,
+\[
+  w_i(x)+w_i(y)-2w_i(z)\le Cr+2C|h| .
+\]
+Since $2C|h|-|h|^2/r^2\le C^2r^2$ (the quadratic $s\mapsto2Cs-s^2/r^2$ is
+maximal at $s=Cr^2$ with value $C^2r^2$), we get
+\begin{equation}\label{eq:tpf-upper}
+  \Phi_i(x,y,z)\le Cr+C^2r^2-B(c)f(r)
+   \le Cr+C^2r^2=:rC',\qquad C':=C+\tfrac32C^2,
+\end{equation}
+using $B\ge0$, $f\ge0$ and $r\le3/2$ in the last step.
+
+\emph{(3b) The supremum is positive.} Take $x=x_k$, $y=y_k$, $z=c_k$, so that
+$h=0$ and $r=r_k:=|x_k-y_k|>0$. Then $c=c_k\in\overline B(0,1/4)$, since
+$x_k,y_k\in B_{1/4}$, so $B(c_k)=\delta/2$ by \eqref{eq:tpf-B}, and by
+\eqref{eq:tpf-positive} and $f(r)\le r$,
+\[
+  \Phi_i(x_k,y_k,c_k)>\delta r_k-\frac\delta2 f(r_k)
+   \ge\delta r_k-\frac\delta2 r_k=\frac{\delta r_k}{2}=:\beta_k>0 .
+\]
+Hence
+\[
+  M_i:=\sup\bigl\{\Phi_i(x,y,z):x,y,z\in\overline B(0,3/4),\ x\ne y\bigr\}
+\]
+satisfies $M_i\ge\beta_k>0$, and $M_i\le\tfrac32C'<\infty$ by
+\eqref{eq:tpf-upper}.
+
+\emph{(3c) The supremum is attained, at a triple with $r$ bounded below.} Put
+\[
+  \mathcal K=\Bigl\{(x,y,z)\in\bigl(\overline B(0,3/4)\bigr)^3:
+    |x-y|\ge\frac{\beta_k}{2C'}\Bigr\},
+\]
+a closed and bounded, hence compact, subset of $E^3$ (preamble). Any admissible
+triple with $r<\beta_k/(2C')$ has $\Phi_i\le rC'<\beta_k/2<\beta_k\le M_i$ by
+\eqref{eq:tpf-upper}, so such triples do not affect the supremum: $M_i$ equals
+the supremum of $\Phi_i$ over $\mathcal K$, which is nonempty because
+$\beta_k/(2C')=\delta r_k/(4C')\le r_k$ by \eqref{eq:tpf-deltaC} and
+$C'\ge C\ge\delta$, so $(x_k,y_k,c_k)\in\mathcal K$. On $\mathcal K$ we have
+$|x-y|>0$, so $\Phi_i$ is continuous there, and a continuous function on a
+nonempty compact set attains its maximum (preamble). Let $(x,y,z)$ be a
+maximizing triple, so
+\begin{equation}\label{eq:tpf-max}
+  \Phi_i(x,y,z)=M_i\ge\beta_k>0 .
+\end{equation}
+By \eqref{eq:tpf-upper} and \eqref{eq:tpf-max}, $rC'\ge\beta_k$, i.e.
+$r\ge\beta_k/C'>\beta_k/(2C')$: the maximizing triple is strictly inside the
+constraint defining $\mathcal K$.
+
+\emph{Step 4: the geometry at the maximizer.}
+Keep the maximizing triple $(x,y,z)$ of Step 3 and its $c,h,r$.
+
+\emph{(4a) $r$ is small when $i$ is large.} Let $\varepsilon>0$ and suppose
+$i\ge\mathcal E(\varepsilon)$, so $|w_i|\le\varepsilon$ on $B_1$. From
+\eqref{eq:tpf-max}, $B\ge\delta/2$ and $f(r)\ge\nu r$,
+\[
+  0<\Phi_i(x,y,z)\le4\varepsilon-B(c)f(r)\le4\varepsilon-\frac{\delta\nu r}{2},
+\]
+whence
+\begin{equation}\label{eq:tpf-rsmall}
+  r<\frac{8\varepsilon}{\delta\nu} .
+\end{equation}
+
+\emph{(4b) $|h|\le2Cr^2$.} The triple $(x,y,c)$ is admissible and lies in
+$\mathcal K$ (it has the same $x,y$), so $\Phi_i(x,y,z)\ge\Phi_i(x,y,c)$. The
+terms $w_i(x)+w_i(y)$ and $B(c)f(r)$ are identical in the two, and the penalty
+vanishes at $z=c$, so
+\[
+  -2w_i(z)-\frac{|h|^2}{r^2}\ge-2w_i(c),
+  \qquad\text{i.e.}\qquad
+  \frac{|h|^2}{r^2}\le2\bigl(w_i(c)-w_i(z)\bigr)\le2C|h| .
+\]
+Hence $|h|^2\le2C|h|r^2$, and therefore
+\begin{equation}\label{eq:tpf-h}
+  |h|\le2Cr^2
+\end{equation}
+(trivially if $h=0$, and after dividing by $|h|>0$ otherwise).
+
+\emph{(4c) $|c|<1/2$.} If $|c|\ge1/2$ then $B(c)=B_{\mathrm{out}}$ by
+\eqref{eq:tpf-B}, so \eqref{eq:tpf-upper}, $f(r)\ge\nu r$ and $r\le3/2$ give
+\[
+  \Phi_i(x,y,z)\le Cr+C^2r^2-B_{\mathrm{out}}\nu r
+   \le r\Bigl(C+\tfrac32C^2-B_{\mathrm{out}}\nu\Bigr)<0
+\]
+by the choice of $B_{\mathrm{out}}$, contradicting \eqref{eq:tpf-max}. So
+$|c|<1/2$.
+
+\emph{(4d) The maximizer is interior.} Assume in addition
+\begin{equation}\label{eq:tpf-r1}
+  r<\tfrac12\qquad\text{and}\qquad 2Cr^2<\tfrac14 .
+\end{equation}
+Then $|x|\le|c|+\tfrac12r<\tfrac12+\tfrac14=\tfrac34$ and likewise
+$|y|<3/4$, while $|z|\le|c|+|h|<\tfrac12+\tfrac14=\tfrac34$ by
+\eqref{eq:tpf-h}. So $(x,y,z)$ lies in the open set $\bigl(B_{3/4}\bigr)^3$.
+Together with $r>\beta_k/(2C')$ and the continuity of $(x',y',z')\mapsto|x'-y'|$,
+there is a neighbourhood $\mathcal N$ of $(x,y,z)$ in $E^3$ contained in
+$\bigl(B_{3/4}\bigr)^3\cap\{|x'-y'|>\beta_k/(2C')\}\subseteq\mathcal K$. Hence
+\begin{equation}\label{eq:tpf-localmax}
+  \Phi_i\le\Phi_i(x,y,z)\quad\text{on }\mathcal N:
+  \qquad(x,y,z)\ \text{is a local maximum of}\ \Phi_i\ \text{on}\ E^3 .
+\end{equation}
+
+\emph{Step 5: the sum rule.}
+Set $e=(x-y)/r$, a unit vector, $q=q_i$, and
+\[
+  \Psi_0(x',y',z')=\ell_i(x')+\ell_i(y')-2\ell_i(z')
+    +B(c')f(r')+\frac{|h'|^2}{(r')^2},
+\]
+where $c'=\tfrac12(x'+y')$, $h'=z'-c'$, $r'=|x'-y'|$. This formula defines
+$\Psi_0$ on the open set $\mathcal O=\{(x',y',z')\in E^3:x'\ne y'\}$ only, since
+$f(r')$ and $|h'|^2/(r')^2$ are undefined at $r'=0$. On $\mathcal O$ the maps
+$(x',y')\mapsto c'$ and
+$(x',y',z')\mapsto h'$ are linear, $r'$ is $C^\infty$ (being the norm away from
+$0$), $f$ is $C^2$ on $(0,\infty)$ and $B$ is $C^2$; so $\Psi_0$ is $C^2$ on
+$\mathcal O$, and $(x,y,z)\in\mathcal O$ because $r>\beta_k/(2C')>0$.
+
+\emph{The total test.} \noderef{SumRuleJets} takes a test defined on all of
+$V=\ell^2(E\oplus E\oplus E)$, so $\Psi_0$ must be extended; we name one
+extension rather than leave it implicit. Put $\rho=\beta_k/(4C')>0$, so that
+$r>\beta_k/(2C')=2\rho$ and, by (4d),
+\begin{equation}\label{eq:tpf-cutoff-nbhd}
+  \mathcal N\subseteq\bigl\{(x',y',z'):|x'-y'|>2\rho\bigr\}\subseteq\mathcal O .
+\end{equation}
+Define $\Psi:V\to\R$ by truncation outside that slab:
+\[
+  \Psi(x',y',z')=\begin{cases}
+    \Psi_0(x',y',z')&|x'-y'|>2\rho,\\
+    0&|x'-y'|\le2\rho .
+  \end{cases}
+\]
+This is defined on all of $V$ --- the first branch is legitimate because
+$|x'-y'|>2\rho>0$ forces $x'\ne y'$, so $(x',y',z')\in\mathcal O$ --- and
+\begin{equation}\label{eq:tpf-psi-agrees}
+  \Psi=\Psi_0\quad\text{on the open set}\quad
+  \bigl\{(x',y',z'):|x'-y'|>2\rho\bigr\}\supseteq\mathcal N ,
+\end{equation}
+which contains $(x,y,z)$ because $r>2\rho$. Hence $\Psi$ is $C^2$ near
+$(x,y,z)$, and $D\Psi(x,y,z)=D\Psi_0(x,y,z)$ and
+$D^2\Psi(x,y,z)=D^2\Psi_0(x,y,z)$, two functions agreeing on a neighbourhood of
+a point having the same derivatives there. So every derivative computation below
+may be carried out on the formula for $\Psi_0$, and we write $\Psi$ for both
+from here on.
+
+Two remarks on why this suffices, and why nothing smoother is wanted. First,
+\noderef{SumRuleJets} imposes no regularity on its test away from the point: its
+two hypotheses involving $\Psi$ are that $\Psi$ be $C^2$ \emph{near}
+$\widehat Z$ and that $\sum_jg_j-\Psi$ have a \emph{local} maximum at
+$\widehat Z$, both local conditions, and its conclusion involves $\Psi$ only
+through $D_j\Psi(\widehat Z)$ and $A=D^2\Psi(\widehat Z)$. The truncation above
+is therefore enough even though it is discontinuous across
+$\{|x'-y'|=2\rho\}$, and in particular no smooth cutoff and no existence
+statement for one is needed. Second, for the same reason nothing depends on the
+choice: any map $V\to\R$ agreeing with $\Psi_0$ on some neighbourhood of
+$(x,y,z)$ would serve equally, and this one is named only so that no extension
+has to be invented later.
+
+With
+\[
+  g_1=g_2=U_i,\qquad g_3=-2U_i,
+\]
+each continuous on the open set $B_1$ (by \noderef{IsInfHarmonicOn}, which
+includes continuity on $B_1$), we have, on $\mathcal N$,
+\[
+  g_1(x')+g_2(y')+g_3(z')-\Psi(x',y',z')=\Phi_i(x',y',z'),
+\]
+since $U_i-\ell_i=w_i$ and, by \eqref{eq:tpf-psi-agrees}, $\Psi=\Psi_0$ there;
+the right-hand side is defined on $\mathcal N$ because
+$\mathcal N\subseteq\bigl(B_{3/4}\bigr)^3$ and $x'\ne y'$ on $\mathcal N$ by
+\eqref{eq:tpf-cutoff-nbhd}. By \eqref{eq:tpf-localmax} the right-hand side is
+$\le\Phi_i(x,y,z)$ on $\mathcal N$, so $\sum_jg_j-\Psi$ has a local maximum at
+$(x,y,z)$ on $V$, whose components lie in $B_{3/4}\subseteq B_1$.
+
+Differentiating $\Psi$ at $(x,y,z)$ gives, with $\partial c'/\partial
+x'=\partial c'/\partial y'=\tfrac12\mathrm{id}$, $\partial h'/\partial
+z'=\mathrm{id}$, $\partial h'/\partial x'=\partial h'/\partial
+y'=-\tfrac12\mathrm{id}$, $\partial r'/\partial x'=e$ and $\partial
+r'/\partial y'=-e$,
+\begin{equation}\label{eq:tpf-grads}
+\begin{gathered}
+  p_1:=D_{x}\Psi=q+\tfrac12f(r)DB(c)-\frac{h}{r^2}+ae,\qquad
+  p_2:=D_{y}\Psi=q+\tfrac12f(r)DB(c)-\frac{h}{r^2}-ae,\\
+  D_{z}\Psi=-2p_0\ \text{with}\ p_0:=q-\frac{h}{r^2},
+  \qquad a:=B(c)f'(r)-\frac{2|h|^2}{r^3}.
+\end{gathered}
+\end{equation}
+Indeed $D_z\Psi=-2q+2h/r^2=-2p_0$; and in the $x'$ variable the three pieces
+contribute $q$, then
+$\tfrac12f(r)DB(c)+B(c)f'(r)e$, then
+$-h/r^2+|h|^2\cdot(-2r^{-3})e$, whose sum is the stated $p_1$; the $y'$
+computation is identical with $e$ replaced by $-e$, giving $p_2$.
+
+\emph{(5a) Bounds on the data.} By \eqref{eq:tpf-f}, \eqref{eq:tpf-B},
+\eqref{eq:tpf-h}, $f(r)\le r\le3/2$ and $|q|\le C$,
+\begin{equation}\label{eq:tpf-bounds}
+  0<a\le B_{\mathrm{out}},\qquad
+  \Bigl|\tfrac12(p_1+p_2)\Bigr|=\Bigl|q+\tfrac12f(r)DB(c)-\frac h{r^2}\Bigr|
+   \le C+\tfrac34K_1+2C=:K_3,
+\end{equation}
+where $a\le B(c)f'(r)\le B_{\mathrm{out}}$ because $2|h|^2/r^3\ge0$ and
+$f'\le1$; the positivity of $a$ is part of (5b).
+
+\emph{(5b) $a\ge\delta/4$ for small $r$.} Assume in addition
+\begin{equation}\label{eq:tpf-r2}
+  \tfrac3{16}\sqrt r\le\tfrac14\qquad\text{and}\qquad 8C^2r\le\frac\delta8 .
+\end{equation}
+Then $f'(r)\ge3/4$, and $2|h|^2/r^3\le2(2Cr^2)^2/r^3=8C^2r\le\delta/8$ by
+\eqref{eq:tpf-h}, so
+\[
+  a\ge\frac\delta2\cdot\frac34-\frac\delta8=\frac{3\delta}8-\frac\delta8
+   =\frac\delta4>0 .
+\]
+
+\emph{(5c) The matrix inequality.} Let $\eta>0$. Apply \noderef{SumRuleJets}
+with $N=3$, the open sets $O_1=O_2=O_3=B_1$, the functions $g_1,g_2,g_3$, the
+test $\Psi$, the point $(x,y,z)$ and this $\eta$: all its hypotheses have just
+been verified. It supplies symmetric continuous bilinear forms $X_1,X_2,X_3$ on
+$E$ with, $\overline J^{2,+}$ denoting throughout the closed superjet of
+\noderef{ClosedSuperjet}, as in the statements of both \noderef{SumRuleJets} and
+\noderef{InfSubsolutionClosedSuperjet},
+\begin{equation}\label{eq:tpf-jets}
+  (p_1,X_1)\in\overline J^{2,+}U_i(x),\quad
+  (p_2,X_2)\in\overline J^{2,+}U_i(y),\quad
+  (-2p_0,X_3)\in\overline J^{2,+}(-2U_i)(z),
+\end{equation}
+and, writing $A=D^2\Psi(x,y,z)$ and $\bar A$ for the associated self-adjoint
+operator,
+\begin{equation}\label{eq:tpf-matrix}
+  X_1[\xi_1]+X_2[\xi_2]+X_3[\xi_3]\le A[\xi]+\eta|\bar A\xi|^2
+  \qquad\bigl(\xi=(\xi_1,\xi_2,\xi_3)\bigr).
+\end{equation}
+By Step 0 the function $U_i$ is an infinity subsolution on $B_1$ and $-2U_i$ is
+an infinity subsolution on $B_1$. Therefore
+\noderef{InfSubsolutionClosedSuperjet}, applied three times --- to $U_i$ at
+$x\in B_1$ with $(p_1,X_1)$, to $U_i$ at $y\in B_1$ with $(p_2,X_2)$, and to
+$-2U_i$ at $z\in B_1$ with $(-2p_0,X_3)$ --- gives
+\[
+  X_1[p_1]\ge0,\qquad X_2[p_2]\ge0,\qquad X_3[-2p_0]\ge0 .
+\]
+The last reads $4X_3[p_0]\ge0$ by bilinearity, so $X_3[p_0]\ge0$. Taking
+$\xi=\sigma:=(p_1,p_2,p_0)$ in \eqref{eq:tpf-matrix},
+\[
+  0\le X_1[p_1]+X_2[p_2]+X_3[p_0]\le A[\sigma]+\eta|\bar A\sigma|^2 .
+\]
+Neither $A$ nor $\sigma$ depends on $\eta$, so letting $\eta\downarrow0$ yields
+\begin{equation}\label{eq:tpf-Apos}
+  A[\sigma]\ge0 .
+\end{equation}
+
+\emph{Step 6: the second variation is very negative.}
+Because $\Psi$ is $C^2$ near $(x,y,z)$,
+\[
+  A[\sigma]=\frac{d^2}{d\tau^2}
+   \Psi\bigl(x+\tau p_1,\ y+\tau p_2,\ z+\tau p_0\bigr)\Big|_{\tau=0}.
+\]
+Write $c(\tau),h(\tau),r(\tau)$ for the quantities induced by that line. Since
+$p_1-p_2=2ae$ by \eqref{eq:tpf-grads},
+\[
+  (x+\tau p_1)-(y+\tau p_2)=re+2a\tau e=(r+2a\tau)e,
+\]
+so $r(\tau)=r+2a\tau$ for $|\tau|$ small (here $a>0$ and $r>0$), giving
+$\dot r=2a$ and $\ddot r=0$. Also $c(\tau)=c+\tau\dot c$ with
+$\dot c=\tfrac12(p_1+p_2)$, and $h(\tau)=h+\tau\dot h$ with
+\[
+  \dot h=p_0-\dot c
+   =\Bigl(q-\frac h{r^2}\Bigr)-\Bigl(q+\tfrac12f(r)DB(c)-\frac h{r^2}\Bigr)
+   =-\tfrac12f(r)DB(c),
+  \qquad|\dot h|\le\tfrac12rK_1 ,
+\]
+using $f(r)\le r$ and $c\in\overline B(0,3/4)$. The affine part
+$\ell_i(x+\tau p_1)+\ell_i(y+\tau p_2)-2\ell_i(z+\tau p_0)$ is affine in $\tau$
+and contributes $0$.
+
+\emph{(6a) The penalty term.} With $u(\tau)=|h(\tau)|^2$ and
+$v(\tau)=r(\tau)^{-2}$ we have $u(0)=|h|^2$, $\dot u(0)=2\langle h,\dot
+h\rangle$, $\ddot u(0)=2|\dot h|^2$, $v(0)=r^{-2}$, $\dot v(0)=-2\dot r r^{-3}$,
+$\ddot v(0)=6\dot r^2r^{-4}$, so
+\[
+  \frac{d^2}{d\tau^2}\frac{|h(\tau)|^2}{r(\tau)^2}\Big|_{\tau=0}
+   =\frac{2|\dot h|^2}{r^2}-\frac{8\dot r\langle h,\dot h\rangle}{r^3}
+     +\frac{6\dot r^{\,2}|h|^2}{r^4}.
+\]
+By $|\dot h|\le rK_1/2$, $|h|\le2Cr^2$, $\dot r=2a\le2B_{\mathrm{out}}$, the
+three terms are bounded in absolute value by $K_1^2/2$, $16B_{\mathrm{out}}CK_1$
+and $96B_{\mathrm{out}}^2C^2$ respectively.
+
+\emph{(6b) The localizing term.} Since $c(\tau)$ and $r(\tau)$ are affine in
+$\tau$,
+\[
+  \frac{d^2}{d\tau^2}\bigl(B(c(\tau))f(r(\tau))\bigr)\Big|_{\tau=0}
+   =f(r)D^2B(c)[\dot c]+2f'(r)\dot r\,\langle DB(c),\dot c\rangle
+     +B(c)f''(r)\dot r^{\,2}.
+\]
+The first two terms are bounded in absolute value by $\tfrac32K_2K_3^2$ and
+$4B_{\mathrm{out}}K_1K_3$ by \eqref{eq:tpf-f} and \eqref{eq:tpf-bounds}. The
+third is
+\[
+  B(c)\cdot\Bigl(-\frac3{32\sqrt r}\Bigr)\cdot4a^2
+   =-\frac{3B(c)a^2}{8\sqrt r}\le-\frac{3}{8\sqrt r}\cdot\frac\delta2
+      \cdot\frac{\delta^2}{16}=-\frac{3\delta^3}{256\sqrt r},
+\]
+using $B(c)\ge\delta/2$ and $a\ge\delta/4$ from (5b).
+
+Collecting, with
+\[
+  M:=\frac{K_1^2}2+16B_{\mathrm{out}}CK_1+96B_{\mathrm{out}}^2C^2
+    +\tfrac32K_2K_3^2+4B_{\mathrm{out}}K_1K_3 ,
+\]
+a constant depending only on $C$, $\delta$, $K_1$, $K_2$, $K_3$ and
+$B_{\mathrm{out}}$ --- and so on nothing that varies with $k$ --- we obtain
+\begin{equation}\label{eq:tpf-neg}
+  A[\sigma]\le M-\frac{3\delta^3}{256\sqrt r} .
+\end{equation}
+
+\emph{Step 7: the contradiction.}
+Let
+\[
+  r_0=\min\Bigl\{\frac14,\ \frac1{16C},\ \frac{16}{9},\
+    \frac{\delta}{64C^2},\
+    \Bigl(\frac{3\delta^3}{256(M+1)}\Bigr)^{2}\Bigr\}>0 ,
+\]
+a positive number independent of $k$. If $r<r_0$ then: $r<1/2$ and
+$2Cr^2<2C\cdot\frac1{16C}\cdot r<\frac14$, so \eqref{eq:tpf-r1} holds;
+$\tfrac3{16}\sqrt r\le\tfrac3{16}\cdot\tfrac43=\tfrac14$ and
+$8C^2r\le8C^2\delta/(64C^2)=\delta/8$, so \eqref{eq:tpf-r2} holds; and
+$\sqrt r<3\delta^3/(256(M+1))$, so
+$3\delta^3/(256\sqrt r)>M+1$ and \eqref{eq:tpf-neg} gives $A[\sigma]<-1<0$,
+contradicting \eqref{eq:tpf-Apos}.
+
+So it remains to produce one index $k$ whose maximizing triple has $r<r_0$. Put
+$\varepsilon_0=\delta\nu r_0/8>0$ and choose $k$ with
+$i_k\ge\max\bigl(\mathcal E(1),\mathcal E(\varepsilon_0)\bigr)$, which is
+possible because $i_k\to\infty$. For this $k$ all the hypotheses used in Steps
+3--6 hold, and \eqref{eq:tpf-rsmall} with $\varepsilon=\varepsilon_0$ gives
+$r<8\varepsilon_0/(\delta\nu)=r_0$. This is the required contradiction, so the
+conclusion cannot fail.
+\end{proof}

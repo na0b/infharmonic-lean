@@ -1,0 +1,102 @@
+\begin{lemma}[The sup-convolution is finite, dominant and semiconvex]
+Let $E$ be a finite-dimensional real inner-product space, let
+$\varepsilon>0$, let $C\in\R$ and let $\phi:E\to\R$ satisfy the linear growth
+bound
+\[
+  \phi(w)\le C+|w|\qquad(w\in E).
+\]
+Let $\phi^\varepsilon$ be the sup-convolution of \noderef{SupConvolution}. Then:
+\begin{enumerate}
+\item for every $z\in E$ the set
+$\bigl\{\phi(w)-|z-w|^2/(2\varepsilon):w\in E\bigr\}$ is bounded above, so that
+$\phi^\varepsilon(z)$ is a genuine finite supremum;
+\item $\phi(z)\le\phi^\varepsilon(z)$ for every $z\in E$;
+\item $\phi^\varepsilon$ is $(1/\varepsilon)$-semiconvex on $E$ in the sense of
+\noderef{SemiconvexOn}.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Throughout, fix $\varepsilon>0$, and for $z\in E$ write
+\[
+  S_z=\Bigl\{\phi(w)-\frac{|z-w|^2}{2\varepsilon}:w\in E\Bigr\},
+\]
+so that $\phi^\varepsilon(z)=\sup S_z$ by \noderef{SupConvolution}. Each $S_z$ is
+nonempty, since the choice $w=z$ contributes the element $\phi(z)$.
+
+We shall use repeatedly the elementary identity
+\begin{equation}\label{eq:scs-elem}
+  s-\frac{s^2}{2\varepsilon}
+   =\frac{\varepsilon}{2}-\frac{(s-\varepsilon)^2}{2\varepsilon}
+   \le\frac{\varepsilon}{2}
+  \qquad(s\in\R),
+\end{equation}
+which is the expansion of the square and holds for every real $s$.
+
+\emph{(1) Boundedness above.}
+Fix $z\in E$ and let $w\in E$. Put $s=|z-w|\ge0$. The triangle inequality gives
+$|w|\le|z|+|z-w|=|z|+s$, so the growth bound yields
+\[
+  \phi(w)-\frac{|z-w|^2}{2\varepsilon}
+   \le C+|z|+s-\frac{s^2}{2\varepsilon}
+   \le C+|z|+\frac{\varepsilon}{2},
+\]
+by \eqref{eq:scs-elem}. Thus $C+|z|+\varepsilon/2$ is an upper bound for $S_z$,
+which proves (1). In particular $\phi^\varepsilon(z)=\sup S_z$ is a finite real
+number, it is an upper bound for $S_z$, and it is the least such.
+
+\emph{(2) Domination.}
+Fix $z\in E$. As noted, $\phi(z)\in S_z$ (take $w=z$, so that
+$|z-w|=0$). Since $\phi^\varepsilon(z)=\sup S_z$ is an upper bound for $S_z$ by
+(1), we get $\phi(z)\le\phi^\varepsilon(z)$.
+
+\emph{(3) Semiconvexity.}
+Set $\lambda=1/\varepsilon>0$ and
+\[
+  G(z)=\phi^\varepsilon(z)+\frac{\lambda|z|^2}{2}
+      =\phi^\varepsilon(z)+\frac{|z|^2}{2\varepsilon}.
+\]
+By \noderef{SemiconvexOn} we must show that $G$ is convex on $E$; the set
+$E$ is of course convex.
+
+First an algebraic identity. For all $z,w\in E$,
+\[
+  -\frac{|z-w|^2}{2\varepsilon}+\frac{|z|^2}{2\varepsilon}
+   =\frac{-|z|^2+2\langle z,w\rangle-|w|^2+|z|^2}{2\varepsilon}
+   =\Bigl\langle \frac{w}{\varepsilon},z\Bigr\rangle-\frac{|w|^2}{2\varepsilon}.
+\]
+Hence, setting
+\[
+  a_w(z)=\Bigl\langle\frac{w}{\varepsilon},z\Bigr\rangle
+          +\Bigl(\phi(w)-\frac{|w|^2}{2\varepsilon}\Bigr),
+\]
+an affine function of $z$ for each fixed $w$, we have
+\begin{equation}\label{eq:scs-affine}
+  a_w(z)=\phi(w)-\frac{|z-w|^2}{2\varepsilon}+\frac{|z|^2}{2\varepsilon}
+  \qquad(z,w\in E).
+\end{equation}
+Consequently the set $\{a_w(z):w\in E\}$ is obtained from $S_z$ by adding the
+constant $|z|^2/(2\varepsilon)$. A nonempty set of reals that is bounded above
+stays bounded above after the addition of a constant, and its supremum is
+shifted by that constant; so by (1),
+\begin{equation}\label{eq:scs-G}
+  G(z)=\sup_{w\in E}a_w(z)\qquad(z\in E),
+\end{equation}
+and this supremum is finite and is an upper bound for every $a_w(z)$.
+
+Now let $z_1,z_2\in E$ and let $t_1,t_2\ge0$ with $t_1+t_2=1$; put
+$z=t_1z_1+t_2z_2$. Fix $w\in E$. Since $a_w$ is affine,
+\[
+  a_w(z)=t_1a_w(z_1)+t_2a_w(z_2).
+\]
+By \eqref{eq:scs-G} applied at $z_1$ and at $z_2$ we have $a_w(z_1)\le G(z_1)$
+and $a_w(z_2)\le G(z_2)$, and $t_1,t_2\ge0$, so
+\[
+  a_w(z)\le t_1G(z_1)+t_2G(z_2).
+\]
+The right-hand side does not depend on $w$, so it is an upper bound for the set
+$\{a_w(z):w\in E\}$, whose supremum is $G(z)$ by \eqref{eq:scs-G}. Therefore
+\[
+  G(t_1z_1+t_2z_2)=G(z)\le t_1G(z_1)+t_2G(z_2).
+\]
+As $z_1,z_2,t_1,t_2$ were arbitrary, $G$ is convex on $E$, which is (3).
+\end{proof}

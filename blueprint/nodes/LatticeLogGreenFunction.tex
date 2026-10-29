@@ -1,0 +1,160 @@
+\begin{lemma}[A lattice Green function dominating the logarithmic weight]
+Let $\epsilon\in\R$, let $q,j_0\in\N$ and let $\Lambda_0\in\R$. Assume
+\begin{enumerate}
+\item\label{it:llgf-eps} $\epsilon>0$;
+\item\label{it:llgf-j0} $\epsilon\,j_0=1$;
+\item\label{it:llgf-q} $\epsilon\,q=8$;
+\item\label{it:llgf-Lam} $\Lambda_0=32\sqrt8+8(\log8)^2$.
+\end{enumerate}
+Then there is a function $G:\Z\to\R$ such that
+\begin{enumerate}\setcounter{enumi}{4}
+\item\label{it:llgf-nn} $0\le G(j)$ whenever $0<j\le q$;
+\item\label{it:llgf-poi} for every integer $j$ with $0<j<q$,
+\begin{equation}\label{eq:llgf-poi}
+  \frac{G(j+1)+G(j-1)}{2}-G(j)
+  \le-\epsilon^2\bigl|\log(\epsilon j)\bigr|^2 ;
+\end{equation}
+\item\label{it:llgf-val} $G(j_0)\le2\Lambda_0$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Throughout write $u(m)=\epsilon^2|\log(\epsilon m)|^2$ for $m\in\N$, the
+logarithm being the one of the formalization, which takes the value $0$ at $0$;
+the term $m=0$ of the sums below is therefore $\epsilon^2|\log0|^2=0$. Nothing
+in the statement evaluates the weight at $0$ --- \eqref{eq:llgf-poi} is
+asserted only for $j\ge1$, where $\epsilon j>0$ --- so this convention and the
+division convention $1/\sqrt0=0$ affect only the bookkeeping of the sums.
+
+\emph{$q$ is positive.} If $q=0$ then $\epsilon q=0$, contradicting
+\ref{it:llgf-q}. So $0<q$ as a natural number and $0<q$ as a real number.
+
+\emph{Step 1: the weight sum.} We claim
+\begin{equation}\label{eq:llgf-sum}
+  \sum_{m=0}^{q-1}u(m)\le\epsilon\Lambda_0 .
+\end{equation}
+Fix $m$ with $0\le m\le q-1$. If $m=0$ then $u(0)=0$ and the right-hand side of
+the termwise bound below is nonnegative, so the bound holds. If $m\ge1$ then
+$\epsilon m>0$ because $\epsilon>0$ and $m\ge1$, and
+\[
+  \epsilon m\le\epsilon(q-1)=\epsilon q-\epsilon=8-\epsilon\le8
+\]
+using \ref{it:llgf-q} and $\epsilon>0$. Hence part 2 of
+\noderef{SqrtSumLogSquareBounds} applies at $s=\epsilon m$ and gives
+$|\log(\epsilon m)|^2\le16/\sqrt{\epsilon m}+(\log8)^2$; multiplying by
+$\epsilon^2\ge0$,
+\begin{equation}\label{eq:llgf-term}
+  u(m)\le16\epsilon^2\cdot\frac1{\sqrt{\epsilon m}}+\epsilon^2(\log8)^2
+  \qquad(0\le m\le q-1).
+\end{equation}
+Summing \eqref{eq:llgf-term} over $0\le m\le q-1$ and splitting the constant
+term off,
+\begin{equation}\label{eq:llgf-split}
+  \sum_{m=0}^{q-1}u(m)
+  \le16\epsilon^2\sum_{m=0}^{q-1}\frac1{\sqrt{\epsilon m}}
+    +q\,\epsilon^2(\log8)^2 .
+\end{equation}
+Write $q=q'+1$, which is legitimate since $q\ge1$. The $m=0$ term of
+$\sum_{m=0}^{q-1}1/\sqrt{\epsilon m}$ vanishes, and reindexing the remaining
+terms by $m\mapsto m+1$ turns the sum into
+$\sum_{m=0}^{q'-1}1/\sqrt{\epsilon(m+1)}$, to which part 1 of
+\noderef{SqrtSumLogSquareBounds} applies with $a=\epsilon$ and $M=q'$:
+\begin{equation}\label{eq:llgf-harm}
+  \sum_{m=0}^{q-1}\frac1{\sqrt{\epsilon m}}
+   \le\frac{2\sqrt{\epsilon q'}}{\epsilon} .
+\end{equation}
+Now $q'\le q$, so $\epsilon q'\le\epsilon q=8$ and hence
+$\sqrt{\epsilon q'}\le\sqrt8$ by monotonicity of the square root. Therefore,
+using $\epsilon>0$ to simplify $16\epsilon^2\cdot2\sqrt{\epsilon q'}/\epsilon
+=32\epsilon\sqrt{\epsilon q'}$,
+\[
+  16\epsilon^2\sum_{m=0}^{q-1}\frac1{\sqrt{\epsilon m}}
+   \le32\epsilon\sqrt{\epsilon q'}\le32\epsilon\sqrt8 ,
+\]
+while by \ref{it:llgf-q}
+\[
+  q\,\epsilon^2(\log8)^2=(q\epsilon)\cdot\epsilon(\log8)^2
+   =8\epsilon(\log8)^2 .
+\]
+Adding the two and using \ref{it:llgf-Lam},
+$32\epsilon\sqrt8+8\epsilon(\log8)^2
+=\epsilon\bigl(32\sqrt8+8(\log8)^2\bigr)=\epsilon\Lambda_0$, which with
+\eqref{eq:llgf-split} proves \eqref{eq:llgf-sum}.
+
+\emph{Step 2: the lattice Green kernel.} For $j,m\in\Z$ put
+\[
+  K(j,m)=\frac{(j\wedge m)\bigl(q-(j\vee m)\bigr)}{q},
+\]
+which is well defined because $q\ne0$. Two properties are needed.
+
+First, $K(j,m)\ge0$ whenever $0\le j\le q$ and $0\le m\le q$: then
+$j\wedge m\ge0$, since both arguments are, and $j\vee m\le q$, since both
+arguments are, so $q-(j\vee m)\ge0$; the quotient of the product of two
+nonnegative numbers by the positive $q$ is nonnegative.
+
+Second, for every integer $j$ with $0<j<q$ and every $m\in\Z$,
+\begin{equation}\label{eq:llgf-lap}
+  \frac{K(j+1,m)+K(j-1,m)}{2}-K(j,m)
+  =\begin{cases}-\tfrac12,&m=j,\\[2pt]0,&m\ne j.\end{cases}
+\end{equation}
+We check the three cases of the trichotomy between $m$ and $j$; in each the
+minima and maxima occurring in the three terms are determined, after which the
+identity is an algebraic computation with $q\ne0$.
+
+If $m<j$ then $m\le j-1$, so $m$ is the minimum and $j+1$, $j-1$, $j$ are
+respectively the maxima in the three terms, and the left side of
+\eqref{eq:llgf-lap} equals
+\[
+  \frac{m\bigl[(q-(j+1))+(q-(j-1))-2(q-j)\bigr]}{2q}=\frac{m\cdot0}{2q}=0 .
+\]
+If $m>j$ then $j+1\le m$, so $j+1$, $j-1$, $j$ are the minima and $m$ is the
+maximum in all three terms, and the left side equals
+\[
+  \frac{\bigl[(j+1)+(j-1)-2j\bigr](q-m)}{2q}=0 .
+\]
+If $m=j$ then $K(j+1,j)=j(q-j-1)/q$, $K(j-1,j)=(j-1)(q-j)/q$ and
+$K(j,j)=j(q-j)/q$, so the left side equals
+\[
+  \frac{j(q-j-1)+(j-1)(q-j)-2j(q-j)}{2q}
+   =\frac{-j-(q-j)}{2q}=\frac{-q}{2q}=-\frac12 .
+\]
+
+\emph{Step 3: the Green function.} Define
+\[
+  G(j)=\sum_{m=0}^{q-1}2\,u(m)\,K(j,m)\qquad(j\in\Z),
+\]
+the summation index $m$ being read as an integer inside $K$.
+
+\emph{\ref{it:llgf-nn}.} Let $0<j\le q$. For each $m$ in the range
+$0\le m\le q-1$ we have $0\le m\le q$ as integers, so $K(j,m)\ge0$ by the first
+property of Step 2, while $2u(m)\ge0$ because $u(m)=\epsilon^2|\log(\epsilon
+m)|^2$ is a product of squares. Each summand is therefore nonnegative, hence so
+is $G(j)$.
+
+\emph{\ref{it:llgf-poi}.} Let $0<j<q$. By linearity of the finite sum,
+\[
+  \frac{G(j+1)+G(j-1)}{2}-G(j)
+  =\sum_{m=0}^{q-1}2\,u(m)
+     \Bigl(\frac{K(j+1,m)+K(j-1,m)}{2}-K(j,m)\Bigr),
+\]
+and by \eqref{eq:llgf-lap} the $m$-th summand is $-u(m)$ when $m=j$ and $0$
+otherwise. Since $0<j<q$, the integer $j$ equals exactly one index of the
+summation range $\{0,\ldots,q-1\}$, so the sum collapses to $-u(j)$, that is to
+$-\epsilon^2|\log(\epsilon j)|^2$. This is \eqref{eq:llgf-poi}, with equality.
+
+\emph{\ref{it:llgf-val}.} For $0\le m\le q-1$ we have $j_0\wedge m\le j_0$ and
+$0\le q-(j_0\vee m)\le q$, the latter because $j_0\vee m\ge0$; also
+$j_0\wedge m\ge0$. Hence
+\[
+  K(j_0,m)=\frac{(j_0\wedge m)\bigl(q-(j_0\vee m)\bigr)}{q}
+   \le\frac{j_0\cdot q}{q}=j_0 .
+\]
+Multiplying by $2u(m)\ge0$ and summing,
+\[
+  G(j_0)\le\sum_{m=0}^{q-1}2\,u(m)\,j_0
+   =2j_0\sum_{m=0}^{q-1}u(m)
+   \le2j_0\cdot\epsilon\Lambda_0
+   =2\Lambda_0\,(\epsilon j_0)=2\Lambda_0 ,
+\]
+where the middle inequality is \eqref{eq:llgf-sum} multiplied by the
+nonnegative number $2j_0$, and the last step is \ref{it:llgf-j0}.
+\end{proof}

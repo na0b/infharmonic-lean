@@ -1,0 +1,58 @@
+\begin{lemma}[Slope bounds for a cylinder fit]
+Fix an integer $d\ge1$, put $n=d+1$ and write $e_b=(0,1)$ for the added unit
+direction. Let $U\in\mathcal U$ be in the normalized family of
+\noderef{NormalizedInfFamily}, let $L\in\R$, let $z$ be a space-time point and
+let $r>0$ and $0<\lambda\le1$. Assume the Lipschitz estimate
+\[
+  |U(z+h)-U(z)|\le L|h|\qquad(|h|\le r),
+\]
+and let $P$ realize the cylinder fit of parameter $\lambda$ for $U$ at $(z,r)$
+in the sense of \noderef{IsCylinderFit}. Then
+\begin{equation}\label{eq:physical-slope-bounds}
+  |P|\le L+\sqrt\lambda,\qquad
+  |P\cdot e_b-1|\le\sqrt\lambda .
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $N=P/|P|$ for the axis direction; note $P\ne0$ by
+\noderef{IsCylinderFit}. Put $\rho=\sqrt\lambda\,r$; since $0<\lambda\le1$ we
+have $0<\rho\le r$.
+
+\emph{Step 1: the cylinder contains $\overline B_\rho(z)$.}
+Let $|h|\le\rho$. Then $|h\cdot N|\le|h|\le\rho\le r$ and
+$|h-(h\cdot N)N|\le|h|\le\rho=\sqrt\lambda\,r$, the first inequality by
+Cauchy--Schwarz with $|N|=1$ and the second because orthogonal projection does
+not increase length. By \noderef{FitCylinder}, $z+h\in Z_\lambda(z,r;P)$. Hence
+by \noderef{IsCylinderFit}
+\begin{equation}\label{eq:cfsb-ball}
+  |U(z+h)-U(z)-P\cdot h|\le\lambda r\qquad(|h|\le\rho).
+\end{equation}
+
+\emph{Step 2: the norm bound.}
+Take $h=\rho N$ in \eqref{eq:cfsb-ball}, which is admissible since
+$|\rho N|=\rho$, and also $|h|\le r$ so the Lipschitz hypothesis applies. Then
+$P\cdot h=\rho|P|$, so
+\[
+  \rho|P|\le|U(z+h)-U(z)|+\lambda r\le L\rho+\lambda r .
+\]
+Dividing by $\rho=\sqrt\lambda\,r>0$ and using $\lambda r/\rho=\sqrt\lambda$
+gives $|P|\le L+\sqrt\lambda$, the first bound in
+\eqref{eq:physical-slope-bounds}.
+
+\emph{Step 3: the exact increment in the direction $e_b$.}
+Write $z=(y_0,b_0)$. By \noderef{NormalizedInfFamily} there is $u$ with
+$U(y,b)=u(y)+b$ for all $(y,b)$. Taking $h=\rho e_b=(0,\rho)$, which satisfies
+$|h|=\rho\le r$, we get exactly
+\[
+  U(z+h)-U(z)=\bigl(u(y_0)+b_0+\rho\bigr)-\bigl(u(y_0)+b_0\bigr)=\rho,
+\]
+so the increment of $U$ in the direction $e_b$ equals the increment length.
+Substituting into \eqref{eq:cfsb-ball} with this $h$, and using
+$P\cdot h=\rho\,(P\cdot e_b)$,
+\[
+  \rho\,|1-P\cdot e_b|=|\rho-P\cdot h|
+     =|U(z+h)-U(z)-P\cdot h|\le\lambda r .
+\]
+Dividing by $\rho=\sqrt\lambda\,r>0$ gives $|P\cdot e_b-1|\le\sqrt\lambda$, the
+second bound in \eqref{eq:physical-slope-bounds}.
+\end{proof}

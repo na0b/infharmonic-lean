@@ -1,0 +1,90 @@
+\begin{lemma}[Equality of the small-radius slope limits]
+Let $E$ be a finite-dimensional real inner-product space, let $D\subseteq E$ and
+let $w:E\to\R$ be infinity-harmonic on $D$ in the sense of
+\noderef{IsInfHarmonicOn}. Let $z\in D$. Then there is $L_*\in\R$ with
+$L_*\ge0$ such that
+\[
+  \lim_{r\downarrow0}L_r^+(w;z)=\lim_{r\downarrow0}L_r^-(w;z)=L_* ,
+\]
+with the cone slopes of \noderef{ConeSlopeUpper} and
+\noderef{ConeSlopeLower}.
+\end{lemma}
+\begin{proof}
+By \noderef{IsInfHarmonicOn}, $D$ is open, so there is $r_0>0$ with
+$\overline B_{2r_0}(z)\subseteq D$.
+
+\emph{Step 1: both limits exist.}
+Fix $0<r\le r'\le r_0$. Then $\overline B_{r'}(z)\subseteq D$ and
+$\overline B_r(z)\subseteq D$, so \noderef{ConeComparison}, applied at the center
+$z$ with radius $r$ and comparison radius $r'$, gives
+\[
+  L_r^+(w;z)\le L_{r'}^+(w;z),\qquad L_r^-(w;z)\le L_{r'}^-(w;z).
+\]
+Thus $r\mapsto L_r^\pm(w;z)$ is nondecreasing on $(0,r_0]$. Each value is
+nonnegative, because the competitor $h=0$ in \noderef{ConeSlopeUpper} and
+\noderef{ConeSlopeLower} contributes the quotient $0$, and each value is finite
+because $w$ is continuous on the compact set $\overline B_{r_0}(z)\subseteq D$.
+A bounded monotone function has a limit at the left endpoint, so
+\[
+  L_*^\pm:=\lim_{r\downarrow0}L_r^\pm(w;z)
+       =\inf_{0<r\le r_0}L_r^\pm(w;z)
+\]
+exist in $\R$ and satisfy $L_*^\pm\ge0$.
+
+\emph{Step 2: $L_*^+\le L_*^-$.}
+Fix $R$ with $0<R\le r_0$. Let $0<r\le R/2$. Since $w$ is continuous on the
+compact set $\overline B_r(z)$, the supremum defining $L_r^+(w;z)$ is attained:
+there is $h_r$ with $|h_r|\le r$ and
+\[
+  L_r^+(w;z)=\frac{w(z+h_r)-w(z)}{r}.
+\]
+The vector $-h_r$ satisfies $|-h_r|\le r$, so it is an admissible competitor in
+the supremum of \noderef{ConeSlopeLower} at the center $z+h_r$ and radius $r$,
+and contributes the quotient
+\[
+  \frac{-\bigl(w\bigl((z+h_r)+(-h_r)\bigr)-w(z+h_r)\bigr)}{r}
+   =\frac{w(z+h_r)-w(z)}{r}=L_r^+(w;z).
+\]
+Hence
+\begin{equation}\label{eq:slopelim-cross}
+  L_r^+(w;z)\le L_r^-(w;z+h_r).
+\end{equation}
+Also $|z+h_r-z|\le r\le R/2$, so
+$\overline B_R(z+h_r)\subseteq\overline B_{2r_0}(z)\subseteq D$ and
+$\overline B_r(z+h_r)\subseteq D$. Applying \noderef{ConeComparison} at the
+center $z+h_r$ with radius $r$ and comparison radius $R\ge r$ gives
+$L_r^-(w;z+h_r)\le L_R^-(w;z+h_r)$. Combined with
+\eqref{eq:slopelim-cross},
+\begin{equation}\label{eq:slopelim-cross2}
+  L_r^+(w;z)\le L_R^-(w;z+h_r)\qquad(0<r\le R/2).
+\end{equation}
+Now let $r\downarrow0$. The left side tends to $L_*^+$ by Step 1. On the right,
+$|h_r|\le r\to0$, so $z+h_r\to z$; since $\overline B_R(z)\subseteq D$, the
+function $\zeta\mapsto L_R^-(w;\zeta)$ is continuous at $z$ by
+\noderef{ConeSlopeContinuousInCenter}, so $L_R^-(w;z+h_r)\to L_R^-(w;z)$.
+Passing to the limit in \eqref{eq:slopelim-cross2} gives
+\[
+  L_*^+\le L_R^-(w;z)\qquad(0<R\le r_0).
+\]
+Letting $R\downarrow0$ and using Step 1 gives $L_*^+\le L_*^-$.
+
+\emph{Step 3: $L_*^-\le L_*^+$.}
+The function $-w$ is infinity-harmonic on $D$. Indeed, $-w$ is continuous on the
+open set $D$; and if $\phi$ is $C^2$ near $Z_0\in D$ and $(-w)-\phi$ has a local
+maximum on $D$ at $Z_0$, then $w-(-\phi)$ has a local minimum on $D$ at $Z_0$, so
+the supersolution inequality of \noderef{IsInfHarmonicOn} gives
+$\Dinf(-\phi)(Z_0)\le0$; by \noderef{InfLap} and
+$A[-\xi]=A[\xi]$ for a bilinear form $A$ we have
+$\Dinf(-\phi)=-\Dinf\phi$, so $\Dinf\phi(Z_0)\ge0$, and the symmetric
+computation with local minima gives the other inequality. Directly from
+\noderef{ConeSlopeUpper} and
+\noderef{ConeSlopeLower},
+\[
+  L_\rho^+(-w;z)=L_\rho^-(w;z),\qquad L_\rho^-(-w;z)=L_\rho^+(w;z)
+\]
+for every $\rho$, because the two defining sets of quotients are exchanged.
+Applying Step 2 to $-w$ therefore gives $L_*^-\le L_*^+$.
+
+\emph{Conclusion.} Steps 2 and 3 give $L_*^+=L_*^-$; call the common value
+$L_*$, which is nonnegative by Step 1.
+\end{proof}

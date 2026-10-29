@@ -1,0 +1,169 @@
+\begin{lemma}[The envelopes are genuine suprema and infima]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$,
+let $f$ be a real function on the space-time $\ell^2(F\times\R)$ which is
+continuous on $\Omega_I=\{(y,\tau):\tau\in I\}$ and has subquadratic spatial
+growth on compact time subintervals of $I$ in the sense of
+\noderef{SubquadraticGrowth}. Let $z=(x,t)$ with $t\in I$. Then:
+\begin{enumerate}
+\item for every $\ell>0$ with $t+\ell\in I$, the forward envelope
+$\Penv_\ell f(z)$ of \noderef{QuadEnvP} dominates every competitor and is the
+least such bound:
+\[
+  f(y,t+\ell)-\frac{|y-x|^2}{2\ell}\le\Penv_\ell f(z)\quad(y\in F),
+  \qquad
+  \Bigl(\forall y\ \ f(y,t+\ell)-\frac{|y-x|^2}{2\ell}\le b\Bigr)
+     \Longrightarrow \Penv_\ell f(z)\le b;
+\]
+\item for every $\ell>0$ with $t-\ell\in I$, the backward envelope
+$\Menv_\ell f(z)$ of \noderef{QuadEnvM} is dominated by every competitor and is
+the greatest such bound:
+\[
+  \Menv_\ell f(z)\le f(y,t-\ell)+\frac{|y-x|^2}{2\ell}\quad(y\in F),
+  \qquad
+  \Bigl(\forall y\ \ b\le f(y,t-\ell)+\frac{|y-x|^2}{2\ell}\Bigr)
+     \Longrightarrow b\le\Menv_\ell f(z);
+\]
+\item for every $s>0$, the barycentric envelope $\Cenv_sf(z)$ of
+\noderef{BaryEnv} dominates the value of every finite horizontal probability
+configuration $(\theta_i,y_i)$ with mean $x$ in the sense of
+\noderef{IsBaryConfig}, with radius $\rho$ the root mean square radius of
+\noderef{BaryRadius}, and is the least such bound:
+\[
+  \sum_i\theta_if(y_i,t)-\frac{\rho^2}{2s}\le\Cenv_sf(z),
+  \qquad
+  \Bigl(\forall\ \text{configurations}\ \
+     \sum_i\theta_if(y_i,t)-\frac{\rho^2}{2s}\le b\Bigr)
+     \Longrightarrow \Cenv_sf(z)\le b .
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The three envelopes of \noderef{QuadEnvP}, \noderef{QuadEnvM} and
+\noderef{BaryEnv} are, for the parameters considered here, the supremum, the
+infimum and the supremum of the three sets
+\begin{align*}
+  \mathcal P&=\Bigl\{f(y,t+\ell)-\frac{|y-x|^2}{2\ell}:y\in F\Bigr\},\\
+  \mathcal M&=\Bigl\{f(y,t-\ell)+\frac{|y-x|^2}{2\ell}:y\in F\Bigr\},\\
+  \mathcal C&=\Bigl\{\sum_i\theta_if(y_i,t)-\frac{\rho^2}{2s}:
+      (\theta_i,y_i)\ \text{a configuration with mean }x
+      \text{ and radius }\rho\Bigr\},
+\end{align*}
+respectively. By the preamble's convention a supremum is the least upper bound
+and an infimum the greatest lower bound exactly when the set is nonempty and
+bounded on the relevant side, and otherwise the value is $0$ and carries no
+information. So each of the three assertions is precisely the statement that the
+corresponding set is nonempty and bounded above, respectively below; once that
+is known, the two displayed properties are the defining properties of the least
+upper bound and the greatest lower bound. We prove the three boundedness
+statements. Note that in each case the time argument of $f$ lies in $I$, by the
+hypotheses $t+\ell\in I$, $t-\ell\in I$ and $t\in I$, so $f$ is continuous at
+the points used.
+
+\emph{A remark on why this is not a restatement of attainment.} The assertions
+above quantify over \emph{all} competitors. A statement that the supremum is
+\emph{attained} at some single $y$ --- as in the node
+\texttt{QuadEnvAttained}, part (1), or in the uniqueness clause of the node
+\texttt{DPSpatialRegularity} --- names one
+optimizer and does not, under the preamble's convention, entail that the value
+$\Penv_\ell f(z)$ dominates the competitor at any other point: if $\mathcal P$
+were unbounded above then $\Penv_\ell f(z)$ would be $0$, which may coincide
+with the value at some particular $y$ while failing the first display. Nor does
+boundedness entail attainment, since a bounded set need not contain its
+supremum. The two statements are therefore independent, and only the present
+one licenses a comparison of the envelope with a chosen competitor.
+
+\emph{Part (1).} The set $\mathcal P$ is nonempty: the choice $y=x$ contributes
+$f(x,t+\ell)$. For the upper bound, apply \noderef{SubquadraticGrowth} with the
+compact set $J=\{t+\ell\}\subseteq I$ and the accuracy
+$\varepsilon=\dfrac{1}{4\ell}>0$: there is $M>0$ with
+\begin{equation}\label{eq:ecb-far}
+  |f(y,t+\ell)|\le\frac{|y|^2}{4\ell}\qquad(|y|\ge M).
+\end{equation}
+The function $f(\cdot,t+\ell)$ is continuous on the closed ball
+$\overline B_M(0)$ of $F$, because every point $(y,t+\ell)$ with $y$ in that
+ball lies in $\Omega_I$; that ball is compact, so there is $C_M<\infty$ with
+\begin{equation}\label{eq:ecb-near}
+  |f(y,t+\ell)|\le C_M\qquad(|y|\le M).
+\end{equation}
+Enlarging $C_M$ we may assume $C_M\ge0$. From
+$|y|^2\le2|y-x|^2+2|x|^2$ we get
+\begin{equation}\label{eq:ecb-quad}
+  |y-x|^2\ge\frac{|y|^2}{2}-|x|^2\qquad(y\in F).
+\end{equation}
+Now let $y\in F$. If $|y|\ge M$ then by \eqref{eq:ecb-far} and
+\eqref{eq:ecb-quad}
+\[
+  f(y,t+\ell)-\frac{|y-x|^2}{2\ell}
+   \le\frac{|y|^2}{4\ell}
+       -\frac{1}{2\ell}\Bigl(\frac{|y|^2}{2}-|x|^2\Bigr)
+   =\frac{|x|^2}{2\ell},
+\]
+since $\dfrac{|y|^2}{4\ell}-\dfrac{|y|^2}{4\ell}=0$. If $|y|\le M$ then by
+\eqref{eq:ecb-near} and $|y-x|^2\ge0$,
+\[
+  f(y,t+\ell)-\frac{|y-x|^2}{2\ell}\le C_M .
+\]
+In both cases the value is at most $C_M+\dfrac{|x|^2}{2\ell}$, a bound
+independent of $y$. Hence $\mathcal P$ is bounded above, which proves part (1).
+
+\emph{Part (2).} Apply part (1) to the function $-f$ and the time $t-\ell$. The
+function $-f$ is continuous on $\Omega_I$ and satisfies the hypothesis of
+\noderef{SubquadraticGrowth} with the same data, because $|-f|=|f|$. Part (1)'s
+boundedness argument, run with $t-\ell\in I$ in place of $t+\ell$, shows that
+\[
+  \Bigl\{-f(y,t-\ell)-\frac{|y-x|^2}{2\ell}:y\in F\Bigr\}
+\]
+is nonempty and bounded above, by $C'_M+\dfrac{|x|^2}{2\ell}$ where $C'_M$
+bounds $|f(\cdot,t-\ell)|$ on $\overline B_M(0)$ for the $M$ supplied by
+\noderef{SubquadraticGrowth} at $J=\{t-\ell\}$ and
+$\varepsilon=1/(4\ell)$. Multiplying by $-1$ reverses the inequalities and shows
+that $\mathcal M$ is nonempty and bounded below, by
+$-C'_M-\dfrac{|x|^2}{2\ell}$. This proves part (2).
+
+\emph{Part (3).} The set $\mathcal C$ is nonempty: by \noderef{IsBaryConfig} the
+one-point configuration $n=1$, $\theta_1=1$, $y_1=x$ is admissible, since its
+weight is positive, the weights sum to $1$ and its weighted mean is $x$; by
+\noderef{BaryRadius} its radius is $\rho=0$, so it contributes $f(x,t)$. For the
+upper bound, apply \noderef{SubquadraticGrowth} with the compact set
+$J=\{t\}\subseteq I$ and the accuracy $\varepsilon=\dfrac{1}{4s}>0$ to get
+$M>0$ with
+\begin{equation}\label{eq:ecb-bary-far}
+  |f(y,t)|\le\frac{|y|^2}{4s}\qquad(|y|\ge M),
+\end{equation}
+and let $C_M\ge0$ bound the continuous $|f(\cdot,t)|$ on the compact ball
+$\overline B_M(0)$. Let $(\theta_i,y_i)_{i\le n}$ be a configuration with mean
+$x$ and radius $\rho$, so that $\theta_i>0$, $\sum_i\theta_i=1$ and
+$\sum_i\theta_iy_i=x$ by \noderef{IsBaryConfig}, and
+$\rho^2=\sum_i\theta_i|y_i-x|^2$ by \noderef{BaryRadius}. Expanding the squared
+norms and using these two identities,
+\[
+  \sum_i\theta_i|y_i-x|^2
+   =\sum_i\theta_i|y_i|^2
+      -2\Bigl\langle\sum_i\theta_iy_i,\,x\Bigr\rangle
+      +\Bigl(\sum_i\theta_i\Bigr)|x|^2
+   =\sum_i\theta_i|y_i|^2-|x|^2,
+\]
+that is
+\begin{equation}\label{eq:ecb-variance}
+  \sum_i\theta_i|y_i|^2=\rho^2+|x|^2 .
+\end{equation}
+For each index $i$, \eqref{eq:ecb-bary-far} in the case $|y_i|\ge M$ and the
+bound $C_M$ in the case $|y_i|\le M$ give
+\[
+  f(y_i,t)\le C_M+\frac{|y_i|^2}{4s},
+\]
+since both terms on the right are nonnegative. Multiplying by $\theta_i>0$,
+summing, and using $\sum_i\theta_i=1$ together with \eqref{eq:ecb-variance},
+\[
+  \sum_i\theta_if(y_i,t)\le C_M+\frac{\rho^2+|x|^2}{4s}.
+\]
+Therefore the configuration value satisfies
+\[
+  \sum_i\theta_if(y_i,t)-\frac{\rho^2}{2s}
+   \le C_M+\frac{|x|^2}{4s}+\rho^2\Bigl(\frac{1}{4s}-\frac{1}{2s}\Bigr)
+   \le C_M+\frac{|x|^2}{4s},
+\]
+because $\dfrac1{4s}-\dfrac1{2s}=-\dfrac1{4s}<0$ and $\rho^2\ge0$. This bound is
+independent of the configuration, so $\mathcal C$ is bounded above, which proves
+part (3).
+\end{proof}

@@ -1,0 +1,332 @@
+\begin{lemma}[Covariance of the step velocities in a fitted frame]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$ and $0\le\kappa<\infty$, and let $v\in\Aclass_{m,C_0}$ in the
+sense of \noderef{IsFitClass} be centered at $(0,1)$ with constant $C_0$ in the
+sense of \noderef{IsCenteredAt} and satisfy the horizontal Jensen bound with
+constant $\kappa$ at every time in the sense of \noderef{HasJensenBound}. Write
+$f=W$ for the contact envelope of \noderef{ContactEnv}. Let $r>0$, let
+$x_0,p_0\in F$ and $a_0\in\R$, and let $(p_0,a_0)$ be a fit for $v$ at
+$(x_0,r)$ of radius $r$ in the sense of \noderef{IsFit}. Let $\bar v$ be the
+contact frame of \noderef{FrameChange} based at $(x_0,r)$ with scale $r$ and
+parameters $(p_0,a_0)$, preceded by the translation by $(0,1)$, that is
+\[
+  \bar v(y,s)=\frac{v(x,t)-v(x_0,r)}{r}
+          -p_0\cdot y-\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)(s-1),
+  \qquad x=x_0+r\bigl(y+p_0(s-1)\bigr),\quad t=rs,
+\]
+and write $\bar W$ for the contact envelope of \noderef{ContactEnv} formed from
+$\bar v$ and the same $\kappa$.
+
+Let $\epsilon>0$, let $z=(x,t)$ with $t>\epsilon$, let $(z^+,z^-)$ be an
+optimizing step pair of size $\epsilon$ at $z$ for $v$ and $\kappa$ in the sense
+of \noderef{IsStepPair}, with $z^\pm=(x^\pm,t\pm\epsilon)$, and let $Q_0\in F$
+be the reference velocity of \noderef{DPSpatialRegularity} at $z$ and length
+$\epsilon$, i.e.\ a vector at which $\Penv_\epsilon W(\cdot,t)$ has gradient
+$Q_0$ at $x$. Put $\epsilon'=\epsilon/r$ and let
+$\zeta=(y,s)$, $\zeta^+=(y^+,s^+)$, $\zeta^-=(y^-,s^-)$ be the images of
+$z,z^+,z^-$ under the inverse frame map
+\[
+  (x',t')\longmapsto
+    \Bigl(\frac{x'-x_0-(t'-r)p_0}{r},\ \frac{t'}{r}\Bigr).
+\]
+Then $(\zeta^+,\zeta^-)$ is an optimizing step pair of size $\epsilon'$ at
+$\zeta$ for $\bar v$ and $\kappa$ in the sense of \noderef{IsStepPair}, and the
+velocities satisfy
+\begin{equation}\label{eq:contact-velocity-covariance}
+\begin{gathered}
+  Q'_+=\frac{y^+-y}{\epsilon'}=Q_+-p_0,\qquad
+  Q'_-=\frac{y-y^-}{\epsilon'}=Q_--p_0,\\
+  Q'_0=\nabla_y\Penv_{\epsilon'}\bar W(y,s)=Q_0-p_0,\\
+  Q'_+-Q'_0=Q_+-Q_0,\qquad Q'_--Q'_0=Q_--Q_0,
+\end{gathered}
+\end{equation}
+where $Q_+=(x^+-x)/\epsilon$ and $Q_-=(x-x^-)/\epsilon$. These identities hold
+at corresponding states globally, with the stated positive-time restriction for
+$W$ and $\bar W$; the states need not lie in the fitting box, and no contact at
+$(x_0,r)$ is assumed.
+\end{lemma}
+\begin{proof}
+Throughout, $z_0=(x_0,r)$, $z=(x,t)$ with $t>\epsilon>0$, $x^\pm$ are the
+spatial parts of $z^\pm$, and $f=W$ is the contact envelope of
+\noderef{ContactEnv}, so $W(y',\tau)=\Cenv_\tau v(y',\tau)-\kappa^2\tau/2$ for
+$\tau>0$. Put $\epsilon'=\epsilon/r>0$.
+
+\emph{Step 0: standing facts about $v$ and $W$.}
+By \noderef{IsFitClass} the function $v$ is continuous on all of space-time; by
+\noderef{UniformSubquadratic}, applied with the centering point $(0,1)$, it has
+subquadratic spatial growth on compact time intervals of $\R$ in the sense of
+\noderef{SubquadraticGrowth}. By \noderef{BaryEnvSandwich} with $I=\R$, $f=v$
+and the constant $\kappa$, for every $\sigma>0$ and every $(y',\tau)$,
+\[
+  0\le\Cenv_\sigma v(y',\tau)-v(y',\tau)\le\frac{\kappa^2\sigma}{2},
+\]
+and taking $\sigma=\tau>0$ with \noderef{ContactEnv} gives
+\begin{equation}\label{eq:fvc-sandwich}
+  v(y',\tau)-\frac{\kappa^2\tau}{2}\le W(y',\tau)\le v(y',\tau)
+  \qquad(\tau>0).
+\end{equation}
+Hence $W$ has subquadratic spatial growth on compact subintervals of
+$(0,\infty)$: for $J\subseteq(0,\infty)$ compact and $\varepsilon_1>0$, put
+$\tau_{\max}=\max J$, apply \noderef{SubquadraticGrowth} for $v$ with $J$ and
+$\varepsilon_1/2$ to get $M'>0$, and enlarge $M'$ so that
+$\kappa^2\tau_{\max}/2\le(\varepsilon_1/2)M'^2$; then \eqref{eq:fvc-sandwich}
+gives $|W(y',\tau)|\le\varepsilon_1|y'|^2$ for $|y'|\ge M'$, $\tau\in J$.
+Moreover $W$ is continuous on $\{(y',\tau):\tau>0\}$: by
+\noderef{BaryEnvDuality}, part (3), applied to $v$ with $I=\R$, the map
+$(\sigma,\xi)\mapsto\Cenv_\sigma v(\xi)$ is continuous at every pair with
+$\sigma>0$; composing with the continuous map $\xi\mapsto(\tau,\xi)$, where
+$\tau$ is the time coordinate of $\xi$, and subtracting the continuous
+$\kappa^2\tau/2$, gives the claim.
+
+\emph{Claim B: the envelopes are genuine suprema and infima.}
+Let $I\subseteq\R$, let $g$ be continuous on $\{(y',\tau):\tau\in I\}$ with
+subquadratic spatial growth on compact subintervals of $I$ in the sense of
+\noderef{SubquadraticGrowth}, let $\ell>0$ and let $\xi=(\xi_1,\tau)$ with
+$\tau\in I$.
+\begin{enumerate}
+\item[(i)] If $\tau+\ell\in I$, the set
+$\{g(y',\tau+\ell)-|y'-\xi_1|^2/(2\ell):y'\in F\}$ of \noderef{QuadEnvP} is
+nonempty and bounded above, so $\Penv_\ell g(\xi)$ is finite, is at least every
+member of that set, and is at most every upper bound for it.
+\item[(ii)] If $\tau-\ell\in I$, the set
+$\{g(y',\tau-\ell)+|y'-\xi_1|^2/(2\ell):y'\in F\}$ of \noderef{QuadEnvM} is
+nonempty and bounded below, so $\Menv_\ell g(\xi)$ is finite, is at most every
+member, and is at least every lower bound.
+\end{enumerate}
+\emph{Proof.} (i) The choice $y'=\xi_1$ shows the set is nonempty. Apply
+\noderef{SubquadraticGrowth} with the compact set $J=\{\tau+\ell\}\subseteq I$
+and $\varepsilon_1=1/(4\ell)>0$ to get $M>0$ with
+$|g(y',\tau+\ell)|\le|y'|^2/(4\ell)$ for $|y'|\ge M$, and let $C_M$ bound the
+continuous $|g(\cdot,\tau+\ell)|$ on the closed ball of radius $M$. From
+$|y'|^2\le2|y'-\xi_1|^2+2|\xi_1|^2$ we get
+$|y'-\xi_1|^2\ge|y'|^2/2-|\xi_1|^2$, so for every $y'$
+\[
+  g(y',\tau+\ell)-\frac{|y'-\xi_1|^2}{2\ell}
+   \le C_M+\frac{|y'|^2}{4\ell}-\frac{|y'|^2}{4\ell}
+       +\frac{|\xi_1|^2}{2\ell}
+   =C_M+\frac{|\xi_1|^2}{2\ell}.
+\]
+(ii) Apply (i) to $-g$ at the time $\tau-\ell$ and multiply by $-1$. This
+proves Claim B. By Step 0 it applies to $g=W$ with $I=(0,\infty)$ and to $g=v$
+with $I=\R$.
+
+\emph{Step 1: the frame map and the corresponding states.}
+For $(y',s')$ put
+\[
+  \Theta(y',s')=\bigl(x_0+r(y'+(s'-1)p_0),\ rs'\bigr),\qquad
+  \Psi(x',t')=\Bigl(\frac{x'-x_0-(t'-r)p_0}{r},\ \frac{t'}{r}\Bigr).
+\]
+Both are affine maps of space-time, and they are mutually inverse: with
+$(y',s')=\Psi(x',t')$ one has $rs'=t'$ and
+$x_0+r(y'+(s'-1)p_0)=x_0+(x'-x_0-(t'-r)p_0)+(t'-r)p_0=x'$, and the computation
+in the other order is the same read backwards. In particular $\Theta$ carries
+the time $s'$ to $rs'$, so, $r$ being positive, it carries positive times to
+positive times and conversely. For each fixed $s'$ the spatial part
+\[
+  T_{s'}(y')=x_0+r\bigl(y'+(s'-1)p_0\bigr)
+\]
+is an affine bijection of $F$ with $T_{s'}(y')-T_{s'}(y'')=r(y'-y'')$, and
+$T_{s'}$ has derivative $r\,\mathrm{id}$ at every point.
+
+By hypothesis $\zeta=\Psi(z)$, $\zeta^+=\Psi(z^+)$ and $\zeta^-=\Psi(z^-)$, so
+$\Theta(\zeta)=z$, $\Theta(\zeta^\pm)=z^\pm$ and
+\begin{equation}\label{eq:fvc-times}
+  s=\frac tr>\frac\epsilon r=\epsilon'>0,\qquad
+  s^+=\frac{t+\epsilon}{r}=s+\epsilon',\qquad
+  s^-=\frac{t-\epsilon}{r}=s-\epsilon'>0 .
+\end{equation}
+Writing $y=(x-x_0-(t-r)p_0)/r$ we have $T_s(y)=x$.
+
+\emph{Step 2: $\bar W$ is the same frame change applied to $W$.}
+By \noderef{FrameChange} and the definition of $\bar v$,
+\begin{equation}\label{eq:fvc-vbar}
+  \bar v(y',s')=\frac{v(\Theta(y',s'))-v(z_0)}{r}
+     -p_0\cdot y'-\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)(s'-1).
+\end{equation}
+By \noderef{FrameGapCovariance}, second part, applied with this $C_0$, $\kappa$,
+$v$, $r$, $x_0$, $p_0$, $a_0$ and the fit $(p_0,a_0)$ at $(x_0,r)$ of radius
+$r$, we have for every $(y',s')$ with $s'>0$
+\[
+  \bar W(y',s')-\bar v(y',s')
+   =\frac{W(\Theta(y',s'))-v(\Theta(y',s'))}{r}.
+\]
+Adding \eqref{eq:fvc-vbar} and cancelling $v(\Theta(y',s'))/r$,
+\begin{equation}\label{eq:fvc-Wbar}
+  \bar W(y',s')=\frac{W(\Theta(y',s'))-v(z_0)}{r}
+     -p_0\cdot y'-\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)(s'-1)
+  \qquad(s'>0),
+\end{equation}
+i.e.\ $\bar W$ is obtained from $W$ by the same frame formula that produces
+$\bar v$ from $v$.
+
+\emph{Step 3: the competitor correspondence and the envelope laws.}
+Fix $(y',s')$ with $s'>0$, let $\sigma>0$ and put $\ell=r\sigma>0$ and
+$(x',t')=\Theta(y',s')$, so $t'=rs'>0$. For $y''\in F$ put
+$X''=T_{s'+\sigma}(y'')$, the spatial part of $\Theta(y'',s'+\sigma)$, whose
+time is $r(s'+\sigma)=t'+\ell$; by Step 1 the map $y''\mapsto X''$ is a
+bijection of $F$, and
+\begin{equation}\label{eq:fvc-shift}
+  X''-x'=r(y''-y')+r\sigma p_0,\qquad
+  y''-y'=\frac{X''-x'}{r}-\sigma p_0 .
+\end{equation}
+Using \eqref{eq:fvc-shift},
+\[
+  \frac{|y''-y'|^2}{2\sigma}
+   =\frac{|X''-x'|^2}{2\sigma r^2}-\frac{(X''-x')\cdot p_0}{r}
+      +\frac{\sigma|p_0|^2}{2}
+   =\frac{|X''-x'|^2}{2\ell r}-\frac{(X''-x')\cdot p_0}{r}
+      +\frac{\sigma|p_0|^2}{2},
+\]
+since $\sigma r^2=\ell r$, and
+$p_0\cdot y''=p_0\cdot y'+(X''-x')\cdot p_0/r-\sigma|p_0|^2$. Substituting both
+into \eqref{eq:fvc-Wbar} at $(y'',s'+\sigma)$, the two terms
+$\pm(X''-x')\cdot p_0/r$ cancel and
+\[
+  -\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)(s'+\sigma-1)+\sigma|p_0|^2
+     -\frac{\sigma|p_0|^2}{2}
+  =-\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)(s'-1)-a_0\sigma,
+\]
+so that, with
+$K_+=-v(z_0)/r-p_0\cdot y'-(a_0+|p_0|^2/2)(s'-1)-a_0\sigma$,
+\begin{equation}\label{eq:fvc-fwd-term}
+  \bar W(y'',s'+\sigma)-\frac{|y''-y'|^2}{2\sigma}
+   =\frac1r\Bigl(W(X'',t'+\ell)-\frac{|X''-x'|^2}{2\ell}\Bigr)+K_+ .
+\end{equation}
+Thus the set of competitor values in \noderef{QuadEnvP} for
+$\Penv_\sigma\bar W(y',s')$ is the image of the corresponding set for
+$\Penv_\ell W(x',t')$ under the increasing affine bijection
+$w\mapsto w/r+K_+$ of $\R$. The latter set is nonempty and bounded above by
+Claim B(i) applied to $W$ with $I=(0,\infty)$, since $t'>0$ and
+$t'+\ell>0$; hence so is the former, and the two suprema correspond:
+\begin{equation}\label{eq:fvc-fwd}
+  \Penv_\sigma\bar W(y',s')
+   =\frac{\Penv_\ell W(x',t')}{r}+K_+\qquad(\ell=r\sigma).
+\end{equation}
+Moreover, by \eqref{eq:fvc-fwd-term} and \eqref{eq:fvc-fwd}, a point $y''$
+attains the supremum defining $\Penv_\sigma\bar W(y',s')$ if and only if the
+corresponding $X''$ attains the one defining $\Penv_\ell W(x',t')$.
+
+The same computation with $s'-\sigma$ in place of $s'+\sigma$ and $v$ in place
+of $W$ gives, for $X''=T_{s'-\sigma}(y'')$ at time $t'-\ell$,
+\begin{equation}\label{eq:fvc-bwd-term}
+  \bar v(y'',s'-\sigma)+\frac{|y''-y'|^2}{2\sigma}
+   =\frac1r\Bigl(v(X'',t'-\ell)+\frac{|X''-x'|^2}{2\ell}\Bigr)+K_-,
+\end{equation}
+with $K_-=-v(z_0)/r-p_0\cdot y'-(a_0+|p_0|^2/2)(s'-1)+a_0\sigma$. Here
+\eqref{eq:fvc-shift} is replaced by $X''-x'=r(y''-y')-r\sigma p_0$, so the
+signs of the two $(X''-x')\cdot p_0/r$ terms are reversed and again cancel,
+while
+$-\sigma|p_0|^2+(a_0+|p_0|^2/2)\sigma+\sigma|p_0|^2/2=a_0\sigma$; note that
+\eqref{eq:fvc-vbar} holds at every time, so no positivity is needed on this
+side. By Claim B(ii) applied to $v$ with $I=\R$, the set for
+$\Menv_\ell v(x',t')$ is nonempty and bounded below, hence so is the one for
+$\Menv_\sigma\bar v(y',s')$, the correspondence $w\mapsto w/r+K_-$ is again an
+increasing affine bijection, and
+\begin{equation}\label{eq:fvc-bwd}
+  \Menv_\sigma\bar v(y',s')=\frac{\Menv_\ell v(x',t')}{r}+K_-
+  \qquad(\ell=r\sigma),
+\end{equation}
+with the same equivalence of attaining points.
+
+\emph{Step 4: the images are an optimizing step pair of size $\epsilon'$.}
+By \noderef{IsStepPair}, applied to the hypothesis that $(z^+,z^-)$ is an
+optimizing step pair of size $\epsilon$ at $z$ for $v$ and $\kappa$, there are
+$Y^+,Y^-\in F$ with
+\[
+  \Penv_{2\epsilon}W(z)=W(Y^+,t+2\epsilon)-\frac{|Y^+-x|^2}{2\cdot2\epsilon},
+  \qquad
+  \Menv_{2\epsilon}v(z)=v(Y^-,t-2\epsilon)+\frac{|Y^--x|^2}{2\cdot2\epsilon},
+\]
+\[
+  x^+=\tfrac12(x+Y^+),\qquad x^-=\tfrac12(x+Y^-).
+\]
+Apply Step 3 at $(y',s')=\zeta=(y,s)$, which has $s>0$ by
+\eqref{eq:fvc-times}, with $\sigma=2\epsilon'$, so $\ell=2\epsilon$ and
+$(x',t')=\Theta(\zeta)=z$. Put
+\[
+  Y'^+=\frac{Y^+-x_0-(t+2\epsilon-r)p_0}{r},
+  \qquad
+  Y'^-=\frac{Y^--x_0-(t-2\epsilon-r)p_0}{r},
+\]
+so that $T_{s+2\epsilon'}(Y'^+)=Y^+$ and $T_{s-2\epsilon'}(Y'^-)=Y^-$ by
+Step 1; equivalently $Y'^\pm$ are the spatial parts of
+$\Psi(Y^\pm,t\pm2\epsilon)$, the times $t\pm2\epsilon$ corresponding to
+$s\pm2\epsilon'$. Since $Y^+$ attains the supremum defining
+$\Penv_{2\epsilon}W(z)$, the last sentence of Step 3 shows that $Y'^+$ attains
+the supremum defining $\Penv_{2\epsilon'}\bar W(\zeta)$, that is
+\[
+  \Penv_{2\epsilon'}\bar W(\zeta)
+   =\bar W\bigl(Y'^+,s+2\epsilon'\bigr)
+     -\frac{|Y'^+-y|^2}{2\cdot2\epsilon'} ,
+\]
+and likewise, by \eqref{eq:fvc-bwd-term} and \eqref{eq:fvc-bwd} with
+$\sigma=2\epsilon'$, that $Y'^-$ attains the infimum defining
+$\Menv_{2\epsilon'}\bar v(\zeta)$:
+\[
+  \Menv_{2\epsilon'}\bar v(\zeta)
+   =\bar v\bigl(Y'^-,s-2\epsilon'\bigr)
+     +\frac{|Y'^--y|^2}{2\cdot2\epsilon'} .
+\]
+It remains to identify the midpoints. Using
+$y=(x-x_0-(t-r)p_0)/r$,
+\[
+  \frac{y+Y'^+}{2}
+   =\frac{1}{r}\Bigl(\frac{x+Y^+}{2}-x_0
+       -\frac{(t-r)+(t+2\epsilon-r)}{2}p_0\Bigr)
+   =\frac{x^+-x_0-\bigl((t+\epsilon)-r\bigr)p_0}{r},
+\]
+which is the spatial part of $\Psi(z^+)=\zeta^+$, whose time is
+$(t+\epsilon)/r=s+\epsilon'$ by \eqref{eq:fvc-times}. The same computation with
+$Y^-$ and $-2\epsilon$ gives
+$(y+Y'^-)/2=\bigl(x^--x_0-((t-\epsilon)-r)p_0\bigr)/r$, the spatial part of
+$\Psi(z^-)=\zeta^-$, whose time is $s-\epsilon'$. Hence
+$\zeta^+=\bigl(\tfrac12(y+Y'^+),\,s+\epsilon'\bigr)$ and
+$\zeta^-=\bigl(\tfrac12(y+Y'^-),\,s-\epsilon'\bigr)$, and $Y'^+,Y'^-$ witness
+\noderef{IsStepPair} for $\bar v$, $\kappa$, $\epsilon'$ at $\zeta$ with the
+pair $(\zeta^+,\zeta^-)$.
+
+\emph{Step 5: the velocity identities.}
+By Step 4, $y^\pm$ are the spatial parts of $\Psi(z^\pm)$, so
+\[
+  y^+-y=\frac{(x^+-x_0-(t+\epsilon-r)p_0)-(x-x_0-(t-r)p_0)}{r}
+       =\frac{x^+-x-\epsilon p_0}{r},
+\]
+and dividing by $\epsilon'=\epsilon/r$, i.e.\ multiplying by $r/\epsilon$,
+\[
+  Q'_+=\frac{y^+-y}{\epsilon'}=\frac{x^+-x}{\epsilon}-p_0=Q_+-p_0 .
+\]
+Likewise $y-y^-=\bigl(x-x^--\epsilon p_0\bigr)/r$, so
+$Q'_-=(y-y^-)/\epsilon'=(x-x^-)/\epsilon-p_0=Q_--p_0$.
+
+For the reference velocity, apply \eqref{eq:fvc-fwd} with $\sigma=\epsilon'$,
+hence $\ell=\epsilon$, at the variable center $(y',s)$ with $s$ fixed: since
+$\Theta(y',s)=(T_s(y'),t)$ with $t=rs$ independent of $y'$, and since $K_+$
+depends on $y'$ only through the term $-p_0\cdot y'$,
+\[
+  \Penv_{\epsilon'}\bar W(y',s)
+   =\frac{\Penv_\epsilon W\bigl(T_s(y'),t\bigr)}{r}
+     -\frac{v(z_0)}{r}-p_0\cdot y'
+     -\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)(s-1)-a_0\epsilon'
+\]
+for every $y'\in F$. By hypothesis the function
+$x'\mapsto\Penv_\epsilon W(x',t)$ has gradient $Q_0$ at $x=T_s(y)$. The map
+$T_s$ is affine with derivative $r\,\mathrm{id}$, which is self-adjoint, so by
+the chain rule the function $y'\mapsto\Penv_\epsilon W(T_s(y'),t)$ is
+differentiable at $y$ with gradient $rQ_0$, and dividing by $r$ gives gradient
+$Q_0$. The term $-p_0\cdot y'$ has gradient $-p_0$ everywhere and the remaining
+terms are constant in $y'$. Adding the gradients,
+\[
+  Q'_0=\nabla_y\Penv_{\epsilon'}\bar W(y,s)=Q_0-p_0 .
+\]
+
+\emph{Step 6: the discrepancies.}
+Subtracting the identity for $Q'_0$ from those for $Q'_\pm$ gives
+\[
+  Q'_+-Q'_0=(Q_+-p_0)-(Q_0-p_0)=Q_+-Q_0,\qquad
+  Q'_--Q'_0=Q_--Q_0 ,
+\]
+which is the last line of \eqref{eq:contact-velocity-covariance}. No hypothesis
+beyond $r>0$, the fit at $(x_0,r)$ of radius $r$, and $t>\epsilon$ was used: in
+particular no containment of the states in a fitting box and no contact of $W$
+with $v$ at $(x_0,r)$.
+\end{proof}

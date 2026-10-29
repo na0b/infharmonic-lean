@@ -1,0 +1,57 @@
+\begin{lemma}[Affine rescaling of an infinity-harmonic function]
+Let $E$ be a finite-dimensional real inner-product space, let $\Omega\subseteq E$
+and let $u:E\to\R$ be infinity-harmonic on $\Omega$ in the sense of
+\noderef{IsInfHarmonicOn}. Let $x_0\in E$ and $A>0$, and put $T(y)=x_0+Ay$.
+Then $u\circ T$ is infinity-harmonic on $T^{-1}(\Omega)$.
+\end{lemma}
+\begin{proof}
+Write $\widetilde u=u\circ T$ and $\widetilde\Omega=T^{-1}(\Omega)$. The map $T$
+is an affine homeomorphism of $E$ with inverse $T^{-1}(x)=A^{-1}(x-x_0)$, so
+$\widetilde\Omega$ is open because $\Omega$ is open by
+\noderef{IsInfHarmonicOn}, and $\widetilde u$ is continuous on
+$\widetilde\Omega$ because $u$ is continuous on $\Omega$.
+
+\emph{Upper tests.} Let $y_0\in\widetilde\Omega$ and let $\psi$ be $C^2$ near
+$y_0$ with $y\mapsto\widetilde u(y)-\psi(y)$ having a local maximum on
+$\widetilde\Omega$ at $y_0$. Put $x_0'=T(y_0)\in\Omega$ and
+\[
+  \phi=\psi\circ T^{-1},
+\]
+which is $C^2$ near $x_0'$ since $T^{-1}$ is affine. For $x$ near $x_0'$ with
+$x\in\Omega$ we have $T^{-1}(x)\in\widetilde\Omega$ near $y_0$, and
+\[
+  u(x)-\phi(x)=\widetilde u(T^{-1}x)-\psi(T^{-1}x)
+    \le\widetilde u(y_0)-\psi(y_0)=u(x_0')-\phi(x_0'),
+\]
+so $x\mapsto u(x)-\phi(x)$ has a local maximum on $\Omega$ at $x_0'$. The
+subsolution inequality of \noderef{IsInfHarmonicOn} therefore gives
+$\Dinf\phi(x_0')\ge0$.
+
+We relate $\Dinf\psi(y_0)$ to $\Dinf\phi(x_0')$. Since $\psi=\phi\circ T$ and
+$T$ is affine with linear part $A\,\mathrm{Id}$, the chain rule gives
+$D\psi(y_0)v=A\,D\phi(x_0')v$ for every $v$, hence, as the inner product
+identifies derivatives with gradients,
+\[
+  \nabla\psi(y_0)=A\,\nabla\phi(x_0'),
+\]
+and, the second derivative of an affine map being zero,
+\[
+  D^2\psi(y_0)[v,v]=A^2D^2\phi(x_0')[v,v]\qquad(v\in E).
+\]
+Consequently, by the definition of $\Dinf$ in \noderef{InfLap} and bilinearity,
+\[
+  \Dinf\psi(y_0)=D^2\psi(y_0)\bigl[A\nabla\phi(x_0')\bigr]
+    =A^2\cdot A^2\,D^2\phi(x_0')\bigl[\nabla\phi(x_0')\bigr]
+    =A^4\,\Dinf\phi(x_0').
+\]
+Since $A>0$, we get $\Dinf\psi(y_0)\ge0$.
+
+\emph{Lower tests.} The same computation applies with local maxima replaced by
+local minima and the inequalities reversed: $\phi=\psi\circ T^{-1}$ is a local
+lower test for $u$ at $x_0'$, the supersolution inequality of
+\noderef{IsInfHarmonicOn} gives $\Dinf\phi(x_0')\le0$, and
+$\Dinf\psi(y_0)=A^4\Dinf\phi(x_0')\le0$.
+
+Thus $\widetilde u$ satisfies both viscosity inequalities on
+$\widetilde\Omega$ and is infinity-harmonic there.
+\end{proof}

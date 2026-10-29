@@ -1,0 +1,65 @@
+\begin{lemma}[The subdifferential is a singleton above an invertible derivative]
+Let $E$ be a finite-dimensional real inner-product space, let $\psi:E\to\R$ be
+convex on $E$, and let $u:E\to E$ be a proximal map for $\psi$ in the sense of
+\noderef{IsMoreauProx}. Let $y\in E$ be a point at which $u$ is differentiable
+with derivative the continuous linear map $P$, and suppose $\det P\ne0$. If
+$s\in E$ satisfies
+\[
+  \psi(u(y))+\langle s,x-u(y)\rangle\le\psi(x)\qquad(x\in E),
+\]
+then $s=y-u(y)$.
+\end{lemma}
+\begin{proof}
+Write $x=u(y)$ and $p=y-x$, and put $d=s-p$.
+
+\emph{$p$ itself satisfies the hypothesis.}
+By \noderef{IsMoreauProx} the point $x=u(y)$ minimizes
+$x'\mapsto\psi(x')+|x'-y|^2/2$ over $E$. That is the left-hand clause of
+\noderef{MoreauProxSubgradient} with base point $y$ and $x_0=x$, so the
+right-hand clause holds:
+\begin{equation}\label{eq:psds-p}
+  \psi(x)+\langle y-x,x'-x\rangle\le\psi(x')\qquad(x'\in E),
+\end{equation}
+i.e. $p=y-x$ satisfies the same inequality as $s$.
+
+\emph{Every point of the segment from $p$ to $s$ satisfies it too.}
+Let $t\in[0,1]$. Multiplying the hypothesis on $s$ by $t\ge0$, multiplying
+\eqref{eq:psds-p} by $1-t\ge0$, and adding, we get for every $x'\in E$
+\[
+  \psi(x)+\langle (1-t)p+ts,\,x'-x\rangle\le\psi(x'),
+\]
+because the two left-hand sides combine by linearity of the inner product in its
+first argument and the two copies of $\psi(x)$ and of $\psi(x')$ combine with
+coefficients summing to $1$. Since $(1-t)p+ts=p+td$, this reads
+\begin{equation}\label{eq:psds-seg}
+  \psi(x)+\langle p+td,\,x'-x\rangle\le\psi(x')\qquad(x'\in E,\ t\in[0,1]).
+\end{equation}
+
+\emph{The proximal map is constant along that segment.}
+Fix $t\in[0,1]$ and put $y_t=x+p+td=y+td$, so that $y_t-x=p+td$. Then
+\eqref{eq:psds-seg} is exactly the right-hand clause of
+\noderef{MoreauProxSubgradient} with base point $y_t$ and $x_0=x$, so the
+left-hand clause holds: $x$ minimizes $x'\mapsto\psi(x')+|x'-y_t|^2/2$ over $E$.
+By \noderef{IsMoreauProx} the point $u(y_t)$ minimizes the same function. Apply
+\noderef{MoreauProxMonotone} with $y_1=y_2=y_t$, $x_1=x$ and $x_2=u(y_t)$: its
+two hypotheses are the two minimality statements just obtained, and its
+conclusion gives
+\[
+  |x-u(y_t)|^2+\bigl|(y_t-x)-(y_t-u(y_t))\bigr|^2\le|y_t-y_t|^2=0 ,
+\]
+whence $u(y_t)=x$. Thus
+\begin{equation}\label{eq:psds-const}
+  u(y+td)-u(y)=x-x=0\qquad(t\in[0,1]).
+\end{equation}
+
+\emph{Conclusion.}
+Suppose $d\ne0$. Dividing \eqref{eq:psds-const} by $t>0$ and letting
+$t\downarrow0$, the differentiability of $u$ at $y$ with derivative $P$ gives
+\[
+  Pd=\lim_{t\downarrow0}\frac{u(y+td)-u(y)}{t}=0 .
+\]
+Since $d\ne0$, the linear map $P$ is then not injective, hence not bijective, so
+$\det P=0$ (preamble: for a linear endomorphism of a finite-dimensional space,
+$\det P\ne0$ if and only if $P$ is bijective). This contradicts the hypothesis
+$\det P\ne0$. Therefore $d=0$, that is $s=p=y-u(y)$.
+\end{proof}

@@ -1,0 +1,67 @@
+\begin{lemma}[Negative scaling of infinity-harmonic functions]
+Let $E$ be a finite-dimensional real inner-product space, let $\Omega\subseteq E$,
+let $u:E\to\R$ be infinity-harmonic on $\Omega$ in the sense of
+\noderef{IsInfHarmonicOn}, and let $t<0$. Then the function $x\mapsto tu(x)$ is
+again infinity-harmonic on $\Omega$ in the sense of \noderef{IsInfHarmonicOn}.
+\end{lemma}
+\begin{proof}
+By \noderef{IsInfHarmonicOn} the hypothesis says that $u$ is both an infinity
+subsolution on $\Omega$ in the sense of \noderef{IsInfSubsolutionOn} and an
+infinity supersolution on $\Omega$ in the sense of
+\noderef{IsInfSupersolutionOn}, and the conclusion to be proved is the
+conjunction of the same two properties for $tu$. Unwinding
+\noderef{IsInfSubsolutionOn} and \noderef{IsInfSupersolutionOn}, each of those
+two properties consists of three clauses: that $\Omega$ be open, that the
+function be continuous on $\Omega$, and a one-sided inequality at every $C^2$
+test. The first clause is part of the hypothesis and is unchanged. For the
+second, $u$ is continuous on $\Omega$ by the hypothesis, hence so is the
+multiple $tu$ of it by a constant. There remain the two test inequalities.
+
+\emph{The scaling identity.} Let $s\in\R$, let $z\in E$ and let $\varphi$ be a
+$C^2$ function near $z$. Then
+\begin{equation}\label{eq:ihns-scale}
+  \Dinf(s\varphi)(z)=s^3\,\Dinf\varphi(z).
+\end{equation}
+Indeed $\nabla(s\varphi)(z)=s\nabla\varphi(z)$ and
+$D^2(s\varphi)(z)=sD^2\varphi(z)$, these being the first and second derivatives
+of a constant multiple; so, by the definition of $\Dinf$ in \noderef{InfLap} and
+the bilinearity of the second derivative,
+\[
+  \Dinf(s\varphi)(z)=D^2(s\varphi)(z)\bigl[\nabla(s\varphi)(z)\bigr]
+   =s\,D^2\varphi(z)\bigl(s\nabla\varphi(z),s\nabla\varphi(z)\bigr)
+   =s^3D^2\varphi(z)\bigl[\nabla\varphi(z)\bigr]
+   =s^3\Dinf\varphi(z).
+\]
+
+\emph{$tu$ is a subsolution.} Let $z\in\Omega$ and let $\varphi$ be $C^2$ at $z$
+with $tu-\varphi$ having a local maximum on $\Omega$ at $z$, i.e.
+$tu(x)-\varphi(x)\le tu(z)-\varphi(z)$ for all $x$ in $\Omega$ near $z$.
+Multiplying this inequality by $t^{-1}<0$ reverses it:
+\[
+  u(z)-t^{-1}\varphi(z)\le u(x)-t^{-1}\varphi(x)
+\]
+for all such $x$, since $t^{-1}(tu(w)-\varphi(w))=u(w)-t^{-1}\varphi(w)$ for
+every $w$. Thus $t^{-1}\varphi$, which is again $C^2$ at $z$, is a lower $C^2$
+test for $u$ at $z$: $u-t^{-1}\varphi$ has a local minimum on $\Omega$ at $z$.
+As $u$ is an infinity supersolution on $\Omega$,
+\noderef{IsInfSupersolutionOn} gives $\Dinf(t^{-1}\varphi)(z)\le0$. By
+\eqref{eq:ihns-scale} with $s=t^{-1}$ this reads $t^{-3}\Dinf\varphi(z)\le0$.
+Since $t<0$ we have $t^{-1}<0$ and hence $t^{-3}=t^{-1}(t^{-1})^2<0$; dividing
+by $t^{-3}$ reverses the inequality and yields $\Dinf\varphi(z)\ge0$. As $z$ and
+$\varphi$ were arbitrary, $tu$ is an infinity subsolution on $\Omega$ in the
+sense of \noderef{IsInfSubsolutionOn}.
+
+\emph{$tu$ is a supersolution.} Symmetrically, let $z\in\Omega$ and let
+$\varphi$ be $C^2$ at $z$ with $tu-\varphi$ having a local minimum on $\Omega$
+at $z$. Multiplying $tu(z)-\varphi(z)\le tu(x)-\varphi(x)$ by $t^{-1}<0$ gives
+$u(x)-t^{-1}\varphi(x)\le u(z)-t^{-1}\varphi(z)$ for $x$ in $\Omega$ near $z$,
+so $t^{-1}\varphi$ is an upper $C^2$ test for $u$ at $z$. As $u$ is an infinity
+subsolution on $\Omega$, \noderef{IsInfSubsolutionOn} gives
+$0\le\Dinf(t^{-1}\varphi)(z)=t^{-3}\Dinf\varphi(z)$ by
+\eqref{eq:ihns-scale}, and dividing by $t^{-3}<0$ yields
+$\Dinf\varphi(z)\le0$. Hence $tu$ is an infinity supersolution on $\Omega$ in
+the sense of \noderef{IsInfSupersolutionOn}.
+
+The two displayed properties together are exactly infinity-harmonicity of $tu$
+on $\Omega$ in the sense of \noderef{IsInfHarmonicOn}.
+\end{proof}

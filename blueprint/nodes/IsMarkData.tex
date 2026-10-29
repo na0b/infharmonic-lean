@@ -1,0 +1,33 @@
+\begin{definition}[The marks of a stopped contact walk]
+Let $F$ be a finite-dimensional real inner-product space, let $C_0\in\R$, let
+$v$ be a real function on the space-time $\ell^2(F\times\R)$, let $N$ be a
+nonnegative integer, let $(\Omega,\mathcal M)$ be a measurable space with a
+filtration $(\mathcal G_n)_{n\ge0}$, let $z_n:\Omega\to\ell^2(F\times\R)$, let
+$\tau:\Omega\to\mathbb N$, and let $\sigma_j:\Omega\to\mathbb N$,
+$p_j:\Omega\to F$ and $a_j:\Omega\to\R$ be given for every nonnegative integer
+$j$. Write $z_n=(x_n,t_n)$ and $\delta_j=2^{-j}$.
+
+We say that $(\sigma_j,p_j,a_j)$ are \emph{marks with fits} for
+$(C_0,v,N,\mathcal G,z,\tau)$ if for every $j$ with $1\le j\le N$ all of the
+following hold.
+\begin{enumerate}
+\item $\sigma_j$ is a stopping time for $(\mathcal G_n)$.
+\item $\sigma_j\le\tau$ pointwise.
+\item $\sigma_j$ is not preceded by a stop or by a visit to the level
+$\delta_j$: if $n<\sigma_j(\omega)$ then $n<\tau(\omega)$ and
+$t_n(\omega)\ne\delta_j$.
+\item At $\sigma_j$ either the walk stops or the level $\delta_j$ is reached:
+$\sigma_j(\omega)=\tau(\omega)$ or $t_{\sigma_j(\omega)}(\omega)=\delta_j$.
+\item For every $n$ the functions $\mathbf1_{\{\sigma_j\le n\}}p_j$ and
+$\mathbf1_{\{\sigma_j\le n\}}a_j$ are $\mathcal G_n$-measurable.
+\item On the event $\{t_{\sigma_j}=\delta_j\}$ the pair $(p_j,a_j)$ is a fit for
+$v$ at $z_{\sigma_j}$ of radius $\delta_j$ with constant $C_0$, in the sense of
+\noderef{IsFit}.
+\item Off that event $p_j=0$ and $a_j=0$.
+\end{enumerate}
+Clauses 3 and 4 say exactly that $\sigma_j$ is the smaller of $\tau$ and the
+first index at which the time coordinate equals $\delta_j$, so a mark is the
+first point on its time level, or the terminal point if the walk stops before
+that level. Clause 5 is the measurability of the choices with respect to the
+stopped $\sigma$-algebra at the marking time.
+\end{definition}

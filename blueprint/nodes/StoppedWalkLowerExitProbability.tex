@@ -1,0 +1,122 @@
+\begin{lemma}[The stopped walk reaches the lower time level with probability at least $3/4$]
+Let $F$ be a finite-dimensional real inner-product space, let
+$(\Omega,\mathcal M,\mu)$ be a probability space, let
+$z:\N\times\Omega\to\ell^2(F\times\R)$, let $S:\N\times\Omega\to\Z$, let
+$\tau:\Omega\to\N$, let $\epsilon,m,R\in\R$ and let $q,N\in\N$. Write
+$z_n=(x_n,t_n)$. Assume:
+\begin{enumerate}
+\item\label{it:swle-eps} $\epsilon>0$, $\epsilon q=8$ and $R>0$;
+\item\label{it:swle-lat} $t_n(\omega)=\epsilon S_n(\omega)$ for every $n$ and
+every $\omega$;
+\item\label{it:swle-x0} $x_0(\omega)=0$ for every $\omega$;
+\item\label{it:swle-range} $0\le S_n(\omega)\le q$ for every $n$ and every
+$\omega$;
+\item\label{it:swle-froz} $S_n(\omega)=S_{\tau(\omega)}(\omega)$ whenever
+$\tau(\omega)\le n$;
+\item\label{it:swle-meas} $\omega\mapsto S_n(\omega)$ and
+$\omega\mapsto|x_n(\omega)|$ are $\mathcal M$-measurable for every $n$, and so
+is $\tau$;
+\item\label{it:swle-idx} if $\zeta:\Omega\to\N$ is measurable and
+$G_k:\Omega\to\R$ is measurable for every $k$, then
+$\omega\mapsto G_{\zeta(\omega)}(\omega)$ is measurable;
+\item\label{it:swle-upper} $\displaystyle\int\frac{S_n(\omega)}{q}\,d\mu(\omega)
+\le\frac18$ for every $n\in\N$;
+\item\label{it:swle-exit} for every $\omega$, at least one of
+$t_{\tau(\omega)}(\omega)=2^{-N}$, $t_{\tau(\omega)}(\omega)=8$ and
+$R\le|x_{\tau(\omega)}(\omega)|$ holds;
+\item\label{it:swle-travel} the function
+$\omega\mapsto\max_{0\le n\le\tau(\omega)}|x_n(\omega)-x_0(\omega)|$ is
+$\mu$-integrable and
+$\displaystyle\int\max_{0\le n\le\tau(\omega)}|x_n(\omega)-x_0(\omega)|
+\,d\mu(\omega)\le m$;
+\item\label{it:swle-cut} $8m\le R$.
+\end{enumerate}
+Then the set $\{\omega:t_{\tau(\omega)}(\omega)=2^{-N}\}$ belongs to
+$\mathcal M$ and
+\begin{equation}\label{eq:swle-bound}
+  \mu\bigl(\{\omega:t_{\tau(\omega)}(\omega)=2^{-N}\}\bigr)\ge\frac34 .
+\end{equation}
+\end{lemma}
+\begin{proof}
+Throughout write
+$B=\{t_\tau=2^{-N}\}$, $E=\{t_\tau=8\}$ and $A=\{R\le|x_\tau|\}$, and write
+$\Sigma(\omega)=\max_{0\le n\le\tau(\omega)}|x_n(\omega)-x_0(\omega)|$, the
+maximum being over the nonempty finite index set $\{0,1,\ldots,\tau(\omega)\}$.
+Note first that $q>0$: if $q=0$ then $\epsilon q=0\ne8$, contradicting
+\ref{it:swle-eps}.
+
+\emph{The three terminal sets are measurable.} By \ref{it:swle-meas} the map
+$\tau$ is measurable and each $\omega\mapsto S_n(\omega)$ is measurable, so
+\ref{it:swle-idx} applied to $\zeta=\tau$ and
+$G_n(\omega)=S_n(\omega)$ makes $\omega\mapsto S_{\tau(\omega)}(\omega)$
+measurable. By \ref{it:swle-lat} at $n=\tau(\omega)$ we have
+$t_{\tau(\omega)}(\omega)=\epsilon S_{\tau(\omega)}(\omega)$, so
+$\omega\mapsto t_{\tau(\omega)}(\omega)$ is measurable as a constant multiple
+of a measurable function; hence $B$ and $E$, being preimages of the single
+points $2^{-N}$ and $8$, lie in $\mathcal M$. This proves the first assertion.
+Likewise \ref{it:swle-idx} applied to $\zeta=\tau$ and
+$G_n(\omega)=|x_n(\omega)|$, measurable by \ref{it:swle-meas}, makes
+$\omega\mapsto|x_{\tau(\omega)}(\omega)|$ measurable, so $A$, the preimage of
+$[R,\infty)$, lies in $\mathcal M$.
+
+\emph{Markov's inequality.} We use the following form. Let $A'\in\mathcal M$,
+let $f:\Omega\to\R$ be $\mu$-integrable with $f\ge0$ everywhere, and let $c>0$
+satisfy $f\ge c$ on $A'$. Then $\mathbf1_{A'}c\le f$ pointwise --- on $A'$ this
+is the hypothesis $f\ge c$ and off $A'$ it is $0\le f$ --- and
+$\mathbf1_{A'}c$ is integrable because $A'\in\mathcal M$ and $\mu$ is finite,
+so monotonicity of the integral gives
+$\mu(A')\,c=\int\mathbf1_{A'}c\,d\mu\le\int f\,d\mu$.
+
+\emph{The mean terminal lattice height.} We claim
+\begin{equation}\label{eq:swle-mean}
+  \int\frac{S_{\tau(\omega)}(\omega)}{q}\,d\mu(\omega)\le\frac18 .
+\end{equation}
+Consider the functions $f_n(\omega)=S_n(\omega)/q$. Each is measurable by
+\ref{it:swle-meas}, and \ref{it:swle-range} together with $q>0$ gives
+$0\le f_n\le1$, so $|f_n|\le1$ with the constant $1$ integrable, $\mu$ being a
+probability measure. For each fixed $\omega$ we have $f_n(\omega)
+=S_{\tau(\omega)}(\omega)/q$ for every $n\ge\tau(\omega)$ by
+\ref{it:swle-froz}, so $f_n(\omega)\to S_{\tau(\omega)}(\omega)/q$ as
+$n\to\infty$, the sequence being eventually constant. By the dominated
+convergence theorem $\int f_n\,d\mu\to\int S_\tau/q\,d\mu$, and
+\ref{it:swle-upper} says $\int f_n\,d\mu\le1/8$ for every $n$; passing to the
+limit gives \eqref{eq:swle-mean}.
+
+\emph{The upper time level has probability at most $1/8$.} Apply Markov's
+inequality with $A'=E$, $f=S_\tau/q$ and $c=1$. The function $f$ is measurable
+(previous paragraph), nonnegative and bounded by $1$ by \ref{it:swle-range} and
+$q>0$, hence integrable. On $E$ we have $t_\tau=8=\epsilon q$ by
+\ref{it:swle-eps}, while $t_\tau=\epsilon S_\tau$ by \ref{it:swle-lat}; since
+$\epsilon\ne0$ we may cancel it and obtain $S_\tau=q$ there, so $f=1=c$ on $E$.
+Markov's inequality and \eqref{eq:swle-mean} therefore give
+\begin{equation}\label{eq:swle-P8}
+  \mu(E)=\mu(E)\cdot1\le\int\frac{S_\tau}{q}\,d\mu\le\frac18 .
+\end{equation}
+
+\emph{The horizontal cutoff has probability at most $1/8$.} For every $\omega$
+the index $\tau(\omega)$ lies in $\{0,\ldots,\tau(\omega)\}$, so
+$|x_{\tau(\omega)}(\omega)-x_0(\omega)|\le\Sigma(\omega)$; by \ref{it:swle-x0}
+the left-hand side is $|x_{\tau(\omega)}(\omega)|$, whence
+\begin{equation}\label{eq:swle-dom}
+  |x_{\tau(\omega)}(\omega)|\le\Sigma(\omega)\qquad(\omega\in\Omega),
+\end{equation}
+and in particular $\Sigma\ge0$ everywhere. On $A$ we have
+$R\le|x_\tau|\le\Sigma$ by \eqref{eq:swle-dom}. So Markov's inequality applies
+with $A'=A$, $f=\Sigma$ and $c=R>0$ --- $\Sigma$ being integrable by
+\ref{it:swle-travel} --- and together with the bound in \ref{it:swle-travel} it
+gives $\mu(A)\,R\le\int\Sigma\,d\mu\le m$. By \ref{it:swle-cut} we have
+$m\le R/8$, so $\mu(A)\,R\le R/8$, and dividing by $R>0$ yields
+\begin{equation}\label{eq:swle-PR}
+  \mu(A)\le\frac18 .
+\end{equation}
+
+\emph{The union bound.} If $\omega\notin B$ then the first alternative of
+\ref{it:swle-exit} fails at $\omega$, so one of the other two holds, i.e.
+$\omega\in E\cup A$. Hence $\Omega\setminus B\subseteq E\cup A$, and
+monotonicity and subadditivity of $\mu$ give
+$\mu(\Omega\setminus B)\le\mu(E)+\mu(A)\le1/8+1/8=1/4$ by
+\eqref{eq:swle-P8} and \eqref{eq:swle-PR}. Since $B\in\mathcal M$ and
+$\mu(\Omega)=1$, additivity gives $\mu(B)+\mu(\Omega\setminus B)=1$, so
+$\mu(B)=1-\mu(\Omega\setminus B)\ge1-1/4=3/4$, which is
+\eqref{eq:swle-bound}.
+\end{proof}

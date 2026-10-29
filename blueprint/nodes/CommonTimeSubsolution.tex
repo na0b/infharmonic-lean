@@ -1,0 +1,247 @@
+\begin{lemma}[Common-time subsolutions]
+Let $F$ be a finite-dimensional real inner-product space, let $N\ge1$, let
+$I\subseteq\R$, and let $v$ be a viscosity subsolution of $F[v]=0$ on the
+space-time slab $\{z:z_t\in I\}\subseteq\ell^2(F\times\R)$ in the sense of
+\noderef{IsLimitSubOn} (so in particular that slab is open, equivalently $I$ is
+open, and $v$ is continuous on it). Fix weights $\theta_i>0$ with
+$\sum_{i=1}^N\theta_i=1$, write
+$G=\ell^2\bigl(\bigoplus_{i=1}^NF\bigr)$ for the $\ell^2$-product of $N$ copies
+of $F$ with elements $Y=(y_i)_{i=1}^N$, and define
+\[
+  V(Y,t)=\sum_{i=1}^N\theta_i\,v(y_i,t)
+  \qquad\bigl((Y,t)\in\ell^2(G\times\R)\bigr).
+\]
+Let $\Phi:\ell^2(G\times\R)\to\R$, let $Y_0\in G$ and $t_0\in I$, assume $\Phi$
+is $C^2$ near $(Y_0,t_0)$, and assume $\Phi$ touches $V$ from above at
+$(Y_0,t_0)$, i.e.\ that $V-\Phi$ has a local maximum on $\{(Y,t):t\in I\}$ at
+$(Y_0,t_0)$. Then
+\[
+  D^2\Phi(Y_0,t_0)
+   \Bigl[\Bigl(\bigl(\theta_i^{-1}\nabla_{y_i}\Phi(Y_0,t_0)\bigr)_{i=1}^N,\
+     1\Bigr)\Bigr]\ge0,
+\]
+where $\nabla_{y_i}\Phi(Y_0,t_0)\in F$ is the $i$-th spatial block of
+$\nabla\Phi(Y_0,t_0)$.
+\end{lemma}
+\begin{proof}
+Throughout, $Z_0=(Y_0,t_0)$, and for $z\in\ell^2(F\times\R)$ we write $z_x\in F$
+and $z_t\in\R$ for its spatial and time parts. Put
+\[
+  \Omega=\{z\in\ell^2(F\times\R):z_t\in I\},\qquad
+  \mathcal D=\{(Y,t)\in\ell^2(G\times\R):t\in I\},
+\]
+both open, the second because it is the preimage of the open set $I$ under the
+continuous time projection. Write
+$P=\ell^2\bigl(\bigoplus_{i=1}^N\ell^2(F\times\R)\bigr)$ for the $\ell^2$-product
+of $N$ copies of space-time, with elements $W=\bigl((y_i,t_i)\bigr)_{i=1}^N$;
+this is the product space the sum rule works in. A point of $P$ may equally be
+written as a pair $(Y,T)\in\ell^2(G\times\R^N)$ with $Y=(y_i)_i$ and
+$T=(t_i)_i$; the map exchanging the two groupings is linear and preserves the
+norm, since both squared norms equal $\sum_i\bigl(|y_i|^2+t_i^2\bigr)$, and we
+use the two descriptions interchangeably.
+
+\emph{Step 1: making the maximum strict.}
+Set
+\[
+  \Phi^\sharp(Y,t)=\Phi(Y,t)+|Y-Y_0|^4+|t-t_0|^4 .
+\]
+The added function $\kappa(Y,t)=|Y-Y_0|^4+|t-t_0|^4$ is $C^\infty$, vanishes at
+$Z_0$ together with its first and second derivatives there --- indeed
+$|W|^4=(\langle W,W\rangle)^2$ has gradient $4|W|^2W$ and second derivative
+$(a,b)\mapsto4|W|^2\langle a,b\rangle+8\langle W,a\rangle\langle W,b\rangle$,
+both vanishing at $W=0$, and the same for $|t-t_0|^4$ --- so
+\begin{equation}\label{eq:cts-sharp}
+  \Phi^\sharp(Z_0)=\Phi(Z_0),\qquad
+  \nabla\Phi^\sharp(Z_0)=\nabla\Phi(Z_0),\qquad
+  D^2\Phi^\sharp(Z_0)=D^2\Phi(Z_0),
+\end{equation}
+and $\Phi^\sharp$ is $C^2$ wherever $\Phi$ is. Moreover $\kappa\ge0$ with
+$\kappa(Z)>0$ for $Z\ne Z_0$, so $V-\Phi^\sharp=(V-\Phi)-\kappa$ has a
+\emph{strict} local maximum on $\mathcal D$ at $Z_0$: there is $\rho_0>0$ such
+that $\overline B(Z_0,\rho_0)\subseteq\mathcal D$, $\Phi$ is $C^2$ on a
+neighbourhood of $\overline B(Z_0,\rho_0)$, $V-\Phi\le(V-\Phi)(Z_0)$ on
+$\overline B(Z_0,\rho_0)$, and consequently
+\begin{equation}\label{eq:cts-strict}
+  \bigl(V-\Phi^\sharp\bigr)(Z)<\bigl(V-\Phi^\sharp\bigr)(Z_0)
+  \qquad\bigl(Z\in\overline B(Z_0,\rho_0),\ Z\ne Z_0\bigr).
+\end{equation}
+
+Fix once and for all a radius $\rho\in(0,\rho_0/4)$ so small that
+\begin{equation}\label{eq:cts-box}
+  \overline K:=\Bigl\{\bigl((y_i,t_i)\bigr)_{i=1}^N:
+     |y_i-y_i^0|\le\rho\ \text{and}\ |t_i-t_0|\le\rho\ \text{for all }i\Bigr\}
+\end{equation}
+satisfies $(y_i,t_i)\in\Omega$ for every $i$ and every point of $\overline K$,
+and such that every diagonal point $((y_i,t)\bigr)_i$ of $\overline K$ has
+$(Y,t)\in\overline B(Z_0,\rho_0)$. Both are possible: $t_0\in I$ with $I$ open
+gives $[t_0-\rho,t_0+\rho]\subseteq I$ for small $\rho$, which yields the first;
+and for a diagonal point $|(Y,t)-Z_0|^2=\sum_i|y_i-y_i^0|^2+|t-t_0|^2
+\le(N+1)\rho^2$, so $\rho\le\rho_0/\sqrt{N+1}$ yields the second. The set
+$\overline K$ is closed and bounded, hence compact (preamble), and it is
+nonempty because it contains the diagonal point
+$D_0=\bigl((y_i^0,t_0)\bigr)_i$.
+
+\emph{Step 2: separating the time variables.}
+For $T=(t_1,\dots,t_N)\in\R^N$ put
+\[
+  \bar t=\frac1N\sum_{i=1}^Nt_i,\qquad
+  \chi(T)=\frac12\sum_{i=1}^N(t_i-\bar t)^2\ \ge0,
+\]
+and, for $\lambda>0$,
+\[
+  \Psi_\lambda(Y,T)=\Phi^\sharp(Y,\bar t)+\lambda\chi(T),
+  \qquad
+  \Theta\bigl((y_i,t_i)_i\bigr)=\sum_i\theta_i\,v(y_i,t_i)-\Phi^\sharp(Y,\bar t),
+\]
+so that $\Theta-\lambda\chi$ is the function
+$W\mapsto\sum_i\theta_iv(y_i,t_i)-\Psi_\lambda(Y,T)$ on $P$.
+
+\emph{(2a) $\Theta$ and $\chi$ are continuous on $\overline K$.}
+Each $v(y_i,t_i)$ is continuous on $\overline K$ because $(y_i,t_i)\in\Omega$
+there by Step 1 and $v$ is continuous on $\Omega$ by \noderef{IsLimitSubOn};
+the map $(Y,T)\mapsto(Y,\bar t)$ is linear, hence continuous, and it carries
+$\overline K$ into $\overline B(Z_0,\rho_0)$ --- indeed
+$|\bar t-t_0|\le\max_i|t_i-t_0|\le\rho$, so $(Y,\bar t)$ is a diagonal point of
+$\overline K$ in the sense of Step 1 --- where $\Phi^\sharp$ is $C^2$ and in
+particular continuous. So $\Theta$ is continuous on $\overline K$, and $\chi$ is
+a polynomial in $T$, hence continuous, and nonnegative by its definition as a
+sum of squares.
+
+\emph{(2b) $D_0$ is a strict maximum of $\Theta$ on the zero set of $\chi$.}
+First $\chi$ vanishes at $D_0$, all of whose time coordinates equal $t_0$.
+Now let $W=\bigl((y_i,t_i)\bigr)_i\in\overline K$ with $\chi(W)=0$ and
+$W\ne D_0$. From $\chi(W)=\tfrac12\sum_i(t_i-\bar t)^2=0$ we get $t_i=\bar t$
+for every $i$; write $t$ for this common value and $Y=(y_i)_i$, so that $W$ is
+the diagonal point $\bigl((y_i,t)\bigr)_i$ and
+\[
+  \Theta(W)=\sum_i\theta_iv(y_i,t)-\Phi^\sharp(Y,t)
+   =\bigl(V-\Phi^\sharp\bigr)(Y,t),
+\]
+by the definition of $V$ in the statement. By Step 1 the point $(Y,t)$ lies in
+$\overline B(Z_0,\rho_0)$. Moreover $(Y,t)\ne Z_0$: a diagonal point of
+$\overline K$ is determined by the pair $(Y,t)$, so $(Y,t)=Z_0=(Y_0,t_0)$ would
+force $W=\bigl((y_i^0,t_0)\bigr)_i=D_0$, which is excluded. Hence
+\eqref{eq:cts-strict} applies and gives
+\[
+  \Theta(W)=\bigl(V-\Phi^\sharp\bigr)(Y,t)
+   <\bigl(V-\Phi^\sharp\bigr)(Z_0)=\Theta(D_0),
+\]
+the last equality because $D_0$ is the diagonal point with $Y=Y_0$, $t=t_0$.
+
+\emph{(2c) The penalized maximizers and their limit.}
+Put $\lambda_m=m+1$ for $m\ge0$; these are positive and tend to $\infty$. For
+each $m$ the function $\Theta-\lambda_m\chi$ is continuous on the nonempty
+compact set $\overline K$, so it attains a maximum there (preamble), at a point
+$W^{(m)}=\bigl((y_i^{(m)},t_i^{(m)})\bigr)_i\in\overline K$; write $Y_m$, $T_m$,
+$\bar t_m$ for the associated data. Thus
+\[
+  \Theta(W)-\lambda_m\chi(W)\le\Theta\bigl(W^{(m)}\bigr)
+    -\lambda_m\chi\bigl(W^{(m)}\bigr)\qquad\bigl(W\in\overline K\bigr).
+\]
+The data $\overline K$ (compact), $\Theta$ and $\chi$ (continuous on
+$\overline K$ by (2a), with $\chi\ge0$ there), $D_0\in\overline K$ with
+$\chi(D_0)=0$ and the strict-maximum property (2b), the weights $\lambda_m>0$
+with $\lambda_m\to\infty$, and the maximizers $W^{(m)}$ are exactly the
+hypotheses of \noderef{PenalizedMaxConvergence}, applied in the metric space
+$P$. That lemma gives
+\begin{equation}\label{eq:cts-conv}
+  W^{(m)}\longrightarrow D_0\qquad(m\to\infty),
+\end{equation}
+and hence also $(Y_m,\bar t_m)\to Z_0$, because $(Y,T)\mapsto(Y,\bar t)$ is
+linear and continuous and sends $D_0$ to $Z_0$. In particular there is $m_0$
+such that for $m\ge m_0$ the maximizer lies in the interior of $\overline K$,
+i.e.\ $|y_i^{(m)}-y_i^0|<\rho$ and $|t_i^{(m)}-t_0|<\rho$ for every $i$.
+
+\emph{Step 3: the sum rule at a fixed large $\lambda$.}
+Fix $m\ge m_0$ and write $\lambda=\lambda_m$. Since $W^{(m)}$ is interior to
+$\overline K$ and $\Theta-\lambda\chi$ is the restriction to $\overline K$ of
+the globally defined function
+$W\mapsto\sum_i\theta_iv(y_i,t_i)-\Psi_\lambda(Y,T)$ on $P$, the point
+$W^{(m)}$ is a local maximum of that global function on all of $P$.
+
+The test $\Psi_\lambda$ is $C^2$ near $W^{(m)}$: it is the sum of
+$\lambda\chi$, a quadratic polynomial in $T$, and the composition of
+$\Phi^\sharp$ --- which is $C^2$ near $(Y_m,\bar t_m)$ by Step 1 and
+\eqref{eq:cts-conv} --- with the linear map $L(Y,T)=(Y,\bar t)$.
+
+Put
+\[
+  q_i=\theta_i^{-1}\bigl(\nabla\Psi_\lambda(W^{(m)})_i\bigr)_x,\qquad
+  \zeta_\lambda=\bigl((q_i,1)\bigr)_{i=1}^N\in P,\qquad
+  A_\lambda=D^2\Psi_\lambda\bigl(W^{(m)}\bigr),
+\]
+the last written in the separate variables $\bigl((y_i,t_i)\bigr)_i$. The data
+$N$, $\Omega$, $v$, the weights $\theta_i>0$, the test $\Psi_\lambda$ and the
+base point $W^{(m)}$ --- whose $i$-th component $(y_i^{(m)},t_i^{(m)})$ lies in
+$\Omega$ by Step 1 --- satisfy every hypothesis of
+\noderef{SumRuleCommonTimeDirection}: $v$ is a subsolution on $\Omega$ by
+hypothesis, $\Psi_\lambda$ is $C^2$ near $W^{(m)}$ as just shown, and
+$W\mapsto\sum_i\theta_iv(y_i,t_i)-\Psi_\lambda(W)$ has a local maximum at
+$W^{(m)}$ as just shown. That lemma therefore gives
+\begin{equation}\label{eq:cts-Alambda}
+  A_\lambda[\zeta_\lambda]\ge0 .
+\end{equation}
+
+Finally we identify $q_i$. The $i$-th block of $\nabla\Psi_\lambda(W^{(m)})$ has
+spatial part $\nabla_{y_i}\Psi_\lambda(Y_m,T_m)$, and
+$\nabla_{y_i}\Psi_\lambda(Y_m,T_m)=\nabla_{y_i}\Phi^\sharp(Y_m,\bar t_m)$
+because $\lambda\chi$ does not involve $Y$ and the linear map $L$ is the
+identity in the $Y$ variables; so
+\begin{equation}\label{eq:cts-qi}
+  q_i=\theta_i^{-1}\nabla_{y_i}\Phi^\sharp(Y_m,\bar t_m).
+\end{equation}
+
+\emph{Step 4: removing the penalty.}
+With $L(Y,T)=(Y,\bar t)$, a linear map from $\ell^2(G\times\R^N)$ to
+$\ell^2(G\times\R)$, we have $\Psi_\lambda=\Phi^\sharp\circ L+\lambda\chi$, so by
+the chain rule for a composition with a linear map and the bilinearity of second
+derivatives,
+\[
+  A_\lambda[\xi]=D^2\Phi^\sharp(Y_m,\bar t_m)\bigl[L\xi\bigr]
+    +\lambda D^2\chi\bigl[\xi_T\bigr]
+  \qquad\bigl(\xi=(\xi_Y,\xi_T)\bigr),
+\]
+where $\xi_T\in\R^N$ collects the time components of $\xi$ and $\chi$ is a
+quadratic form in $T$ alone.
+
+The time components of $\zeta_\lambda=((q_i,1))_i$ form the vector
+$(1,1,\dots,1)\in\R^N$. For this vector $\bar t=\tfrac1N\sum_i1=1$ and each
+$t_i-\bar t=0$, so $\chi$ vanishes at it; being a quadratic form,
+$\chi(T)=\tfrac12 D^2\chi[T]$, hence
+$D^2\chi[(1,\dots,1)]=2\chi(1,\dots,1)=0$. Also
+$L\zeta_\lambda=\bigl((q_i)_i,\ \tfrac1N\sum_i1\bigr)=\bigl((q_i)_i,1\bigr)$.
+Therefore \eqref{eq:cts-Alambda} reads
+\begin{equation}\label{eq:cts-sharpineq}
+  D^2\Phi^\sharp(Y_m,\bar t_m)
+    \Bigl[\bigl((q_i)_{i=1}^N,\ 1\bigr)\Bigr]\ge0 .
+\end{equation}
+
+\emph{Step 5: letting $\lambda\to\infty$.}
+By \eqref{eq:cts-conv}, $(Y_m,\bar t_m)\to Z_0$ as $m\to\infty$. Since
+$\Phi^\sharp$ is $C^2$ on a neighbourhood of $Z_0$, the maps
+$Z\mapsto\nabla\Phi^\sharp(Z)$ and $Z\mapsto D^2\Phi^\sharp(Z)$ are continuous
+there. Hence, by \eqref{eq:cts-qi},
+\[
+  q_i=\theta_i^{-1}\nabla_{y_i}\Phi^\sharp(Y_m,\bar t_m)
+   \longrightarrow\theta_i^{-1}\nabla_{y_i}\Phi^\sharp(Z_0)
+   =\theta_i^{-1}\nabla_{y_i}\Phi(Z_0)=:q_i^0
+\]
+for each $i$, using \eqref{eq:cts-sharp} and $\theta_i>0$, and
+$D^2\Phi^\sharp(Y_m,\bar t_m)\to D^2\Phi^\sharp(Z_0)=D^2\Phi(Z_0)$
+in the norm of bilinear forms, again by \eqref{eq:cts-sharp}. The map
+$\bigl(A,\xi\bigr)\mapsto A[\xi]$ is continuous in the pair, because
+\[
+  \bigl|A[\xi]-A_0[\xi_0]\bigr|
+   \le\|A-A_0\|\,|\xi|^2+\|A_0\|\,|\xi-\xi_0|\bigl(|\xi|+|\xi_0|\bigr),
+\]
+so passing to the limit in \eqref{eq:cts-sharpineq} along $m\to\infty$,
+with $\xi_m=\bigl((q_i)_i,1\bigr)\to\bigl((q_i^0)_i,1\bigr)$, gives
+\[
+  D^2\Phi(Z_0)\Bigl[\Bigl(\bigl(\theta_i^{-1}\nabla_{y_i}\Phi(Z_0)\bigr)_{i=1}^N,
+    \ 1\Bigr)\Bigr]\ge0 ,
+\]
+which is the assertion. (No bound on the time components of
+$\nabla\Psi_\lambda(W^{(m)})$ was needed: those components never entered the
+direction $\zeta_\lambda$, whose time entries are the constant $1$ prescribed by
+\noderef{SumRuleCommonTimeDirection}.)
+\end{proof}

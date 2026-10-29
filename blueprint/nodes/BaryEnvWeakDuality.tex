@@ -1,0 +1,122 @@
+\begin{lemma}[Barycentric weak duality and the configuration-radius identity]
+Let $F$ be a finite-dimensional real inner-product space, let $f$ be a real
+function on space-time, let $s>0$ and let $z=(x,t)$ be a space-time point. Write
+\[
+  g(y)=f(y,t)-\frac{|y|^2}{2s},
+  \qquad
+  \mathcal G(A;x)=\bigl\{g(y)-A\cdot(y-x):y\in F\bigr\}\quad(A\in F),
+\]
+and assume that $\mathcal G(A;x)$ is bounded above for every $A\in F$. Then, with
+$\Cenv$ the barycentric envelope of \noderef{BaryEnv}, $r$ the radius of
+\noderef{BaryRadius} and ``configuration of mean $x$'' meaning a finite
+horizontal probability configuration with mean $x$ in the sense of
+\noderef{IsBaryConfig}:
+\begin{enumerate}
+\item for every configuration $(\theta,y)$ of mean $x$,
+\[
+  \sum_i\theta_if(y_i,t)-\frac{r(\theta,y)^2}{2s}-\frac{|x|^2}{2s}
+   =\sum_i\theta_i\Bigl(f(y_i,t)-\frac{|y_i|^2}{2s}\Bigr);
+\]
+\item for every configuration $(\theta,y)$ of mean $x$,
+\[
+  \sum_i\theta_if(y_i,t)-\frac{r(\theta,y)^2}{2s}\le\Cenv_sf(x,t);
+\]
+\item for every $A\in F$,
+\[
+  \Cenv_sf(x,t)-\frac{|x|^2}{2s}\le\sup\mathcal G(A;x).
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{Step 0: the configuration-radius identity, i.e. (1).}
+Let $(\theta,y)$ be a configuration of mean $x$, so by \noderef{IsBaryConfig}
+$\theta_i>0$ for every $i$, $\sum_i\theta_i=1$ and $\sum_i\theta_iy_i=x$.
+Expanding the square in the inner product of $F$,
+\[
+  |y_i-x|^2=|y_i|^2-2\,y_i\cdot x+|x|^2 .
+\]
+Multiplying by $\theta_i$ and summing over the finitely many indices, and using
+the two identities $\sum_i\theta_iy_i=x$ and $\sum_i\theta_i=1$,
+\begin{equation}\label{eq:bewd-radius}
+  \sum_i\theta_i|y_i-x|^2
+   =\sum_i\theta_i|y_i|^2-2\Bigl(\sum_i\theta_iy_i\Bigr)\cdot x
+      +\Bigl(\sum_i\theta_i\Bigr)|x|^2
+   =\sum_i\theta_i|y_i|^2-2\,x\cdot x+|x|^2
+   =\sum_i\theta_i|y_i|^2-|x|^2 .
+\end{equation}
+The left-hand side of \eqref{eq:bewd-radius} is nonnegative, being a sum of
+products of the positive numbers $\theta_i$ with the nonnegative numbers
+$|y_i-x|^2$. By \noderef{BaryRadius} the radius is
+$r(\theta,y)=\sqrt{\sum_i\theta_i|y_i-x|^2}$, and the square root of a
+nonnegative real squares back to it, so
+\[
+  r(\theta,y)^2=\sum_i\theta_i|y_i-x|^2=\sum_i\theta_i|y_i|^2-|x|^2 ,
+\]
+that is $r(\theta,y)^2+|x|^2=\sum_i\theta_i|y_i|^2$. Dividing by $2s>0$ and
+subtracting from $\sum_i\theta_if(y_i,t)$,
+\[
+  \sum_i\theta_if(y_i,t)-\frac{r(\theta,y)^2}{2s}-\frac{|x|^2}{2s}
+   =\sum_i\theta_if(y_i,t)-\frac{\sum_i\theta_i|y_i|^2}{2s}
+   =\sum_i\theta_i\Bigl(f(y_i,t)-\frac{|y_i|^2}{2s}\Bigr),
+\]
+the last step by distributing the finite sum. This is (1), and the right-hand
+side is $\sum_i\theta_ig(y_i)$.
+
+\emph{Step 1: weak duality on elements.}
+Fix $A\in F$. The set $\mathcal G(A;x)$ is nonempty: taking $y=x$ gives the
+element $g(x)-A\cdot(x-x)=g(x)$. By hypothesis it is bounded above. Both facts
+are needed before the supremum may be used at all, because by the convention of
+the preamble a supremum takes the value $0$ when its set is empty or unbounded
+above; with them, $\Gamma(A;x):=\sup\mathcal G(A;x)$ is a genuine finite least
+upper bound, and in particular
+\begin{equation}\label{eq:bewd-lub}
+  g(y)-A\cdot(y-x)\le\Gamma(A;x)\qquad(y\in F).
+\end{equation}
+Let $(\theta,y)$ be a configuration of mean $x$. By \eqref{eq:bewd-lub} at
+$y=y_i$, rearranged, $g(y_i)\le\Gamma(A;x)+A\cdot(y_i-x)$ for every $i$.
+Multiplying by $\theta_i>0$ and summing,
+\[
+  \sum_i\theta_ig(y_i)
+   \le\Bigl(\sum_i\theta_i\Bigr)\Gamma(A;x)
+      +A\cdot\Bigl(\sum_i\theta_i(y_i-x)\Bigr),
+\]
+where the inner product was taken out of the finite sum by linearity in its
+second argument. Now $\sum_i\theta_i=1$ and
+$\sum_i\theta_i(y_i-x)=\sum_i\theta_iy_i-\bigl(\sum_i\theta_i\bigr)x=x-x=0$, so
+\begin{equation}\label{eq:bewd-weak}
+  \sum_i\theta_ig(y_i)\le\Gamma(A;x)
+  \qquad\bigl((\theta,y)\text{ of mean }x,\ A\in F\bigr).
+\end{equation}
+
+\emph{The barycentric supremum is a genuine least upper bound, i.e. (2).}
+By \noderef{BaryEnv} the number $\Cenv_sf(x,t)$ is the supremum of the set
+\[
+  \mathcal B(x)=\Bigl\{\sum_i\theta_if(y_i,t)-\frac{r(\theta,y)^2}{2s}
+     :(\theta,y)\text{ a configuration of mean }x\Bigr\}.
+\]
+This set is nonempty: $n=1$, $\theta_1=1$, $y_1=x$ is a configuration of mean $x$
+in the sense of \noderef{IsBaryConfig}, since $\theta_1=1>0$, $\sum_i\theta_i=1$
+and $1\cdot x=x$; its radius is $r=\sqrt{1\cdot|x-x|^2}=0$, so it contributes the
+element $f(x,t)$.
+It is bounded above: by (1), each element of $\mathcal B(x)$ equals
+$\sum_i\theta_ig(y_i)+|x|^2/(2s)$ for the corresponding configuration, and by
+\eqref{eq:bewd-weak} with $A=0$ this is at most the real number
+$\Gamma(0;x)+|x|^2/(2s)$.
+Hence $\sup\mathcal B(x)=\Cenv_sf(x,t)$ is a genuine finite least upper bound,
+not the convention value, and being an upper bound of $\mathcal B(x)$ it
+dominates each of its elements. That is exactly (2).
+
+\emph{Weak duality on the supremum, i.e. (3).}
+Fix $A\in F$ and let $(\theta,y)$ be any configuration of mean $x$. By (1) and
+\eqref{eq:bewd-weak},
+\[
+  \sum_i\theta_if(y_i,t)-\frac{r(\theta,y)^2}{2s}
+   =\sum_i\theta_ig(y_i)+\frac{|x|^2}{2s}
+   \le\Gamma(A;x)+\frac{|x|^2}{2s}.
+\]
+So the real number $\Gamma(A;x)+|x|^2/(2s)$ is an upper bound for
+$\mathcal B(x)$. Since $\Cenv_sf(x,t)=\sup\mathcal B(x)$ is the \emph{least}
+upper bound of that nonempty bounded-above set, as just established,
+$\Cenv_sf(x,t)\le\Gamma(A;x)+|x|^2/(2s)$, i.e.
+$\Cenv_sf(x,t)-|x|^2/(2s)\le\Gamma(A;x)$. This is (3).
+\end{proof}

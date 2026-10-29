@@ -1,0 +1,119 @@
+\begin{lemma}[Continuity of the slope functional and attainment of its infimum]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$, let
+$\Omega=\{(y,\sigma):\sigma\in I\}$, and let $f$ be a real function on space-time
+continuous on $\Omega$. Let $S\subseteq F\times\R\times\R$ be a nonempty compact
+set of triples $(x,t,s)$ with $s>0$ and $t\in I$, and for such a triple write
+\[
+  g(y)=f(y,t)-\frac{|y|^2}{2s},
+  \qquad
+  \mathcal G(A;x,t,s)=\bigl\{g(y)-A\cdot(y-x):y\in F\bigr\},
+  \qquad
+  \Gamma(A;x,t,s)=\sup\mathcal G(A;x,t,s).
+\]
+Let $\Lambda_0\ge0$ and $M>0$ and assume that for every $(x,t,s)\in S$:
+\begin{enumerate}
+\item[(i)] $\mathcal G(A;x,t,s)$ is bounded above for every $A\in F$;
+\item[(ii)] every $A\in F$ with $\Gamma(A;x,t,s)\le\Gamma(0;x,t,s)+1$ satisfies
+$|A|\le\Lambda_0$;
+\item[(iii)] $\Gamma(A;x,t,s)=\sup_{|y|\le M}\{g(y)-A\cdot(y-x)\}$ for every
+$A\in F$ with $|A|\le\Lambda_0+1$.
+\end{enumerate}
+Then $(A,x,t,s)\mapsto\Gamma(A;x,t,s)$ is continuous on
+$\{|A|\le\Lambda_0+1\}\times S$, and there is a function
+$G:F\times\R\times\R\to\R$, continuous on $S$, such that for every
+$(x,t,s)\in S$
+\[
+  G(x,t,s)\le\Gamma(A;x,t,s)\quad(A\in F),
+  \qquad\text{and}\qquad
+  G(x,t,s)=\Gamma(A_0;x,t,s)\ \text{for some }A_0\text{ with }|A_0|\le\Lambda_0 .
+\]
+\end{lemma}
+\begin{proof}
+\emph{A parametric-maximum fact.}
+We first record that the maximum of a continuous function over a fixed nonempty
+compact set is a continuous function of the remaining parameters. Let $P$ be a
+metric space, let $Q$ be a nonempty compact metric space and let $H$ be
+real-valued and continuous on $P\times Q$. For each $\pi\in P$ the function
+$H(\pi,\cdot)$ is continuous on the nonempty compact $Q$, so
+$\max_{q\in Q}H(\pi,q)$ exists (preamble). Let $\pi_k\to\pi$ in $P$. Testing
+against a fixed $q\in Q$ gives $\max_{q'}H(\pi_k,q')\ge H(\pi_k,q)$, and
+$H(\pi_k,q)\to H(\pi,q)$ by continuity of $H$, so
+$\liminf_k\max_{q'}H(\pi_k,q')\ge H(\pi,q)$ for every $q\in Q$ and therefore
+$\liminf_k\max_{q'}H(\pi_k,q')\ge\max_qH(\pi,q)$. Conversely choose for each $k$
+a maximizer $q_k\in Q$ of $H(\pi_k,\cdot)$ and let a subsequence be given; by
+compactness of $Q$ it has a further subsequence along which $q_k\to\bar q\in Q$
+(Bolzano--Weierstrass, preamble). Along it $(\pi_k,q_k)\to(\pi,\bar q)$, so by
+continuity of $H$,
+\[
+  \max_{q'}H(\pi_k,q')=H(\pi_k,q_k)\longrightarrow H(\pi,\bar q)
+   \le\max_qH(\pi,q).
+\]
+Write $a_k=\max_{q'}H(\pi_k,q')$ and $L=\max_qH(\pi,q)$. Every subsequence of
+$(a_k)$ thus has a further subsequence converging to a real number at most $L$;
+by the first bound every subsequential limit of $(a_k)$ is also at least $L$, so
+every subsequence of $(a_k)$ has a further subsequence converging to $L$ exactly.
+In particular no subsequence of $(a_k)$ diverges, so $(a_k)$ is bounded; and a
+bounded real sequence all of whose subsequences have a further subsequence
+converging to $L$ converges to $L$, since otherwise some $\varepsilon>0$ would
+admit infinitely many $k$ with $|a_k-L|\ge\varepsilon$, and that subsequence
+would have no further subsequence converging to $L$. Hence $a_k\to L$. As $P$ is
+a metric space, sequential continuity is continuity, so
+$\pi\mapsto\max_{q\in Q}H(\pi,q)$ is continuous on $P$. Applying this to $-H$ and
+using $\min_qH(\pi,q)=-\max_q(-H)(\pi,q)$, the map
+$\pi\mapsto\min_{q\in Q}H(\pi,q)$ is continuous on $P$ as well.
+
+\emph{Continuity of $\Gamma$.}
+Put $P=\{A\in F:|A|\le\Lambda_0+1\}\times S$ and $Q=\{y\in F:|y|\le M\}$, each
+with the metric induced from the ambient finite-dimensional space, and
+\[
+  H\bigl((A,x,t,s),y\bigr)=f(y,t)-\frac{|y|^2}{2s}-A\cdot(y-x).
+\]
+$Q$ is nonempty and compact, being a closed bounded subset of the
+finite-dimensional space $F$ (preamble). $H$ is continuous on $P\times Q$:
+the map $((A,x,t,s),y)\mapsto(y,t)$ is continuous and sends $P\times Q$ into
+$\Omega$, because every triple of $S$ has $t\in I$, and $f$ is continuous on
+$\Omega$; the map $((A,x,t,s),y)\mapsto|y|^2/(2s)$ is continuous on $P\times Q$
+because $s>0$ on $S$, which is a compact set of triples with positive third
+coordinate, so $s$ does not vanish there; and
+$((A,x,t,s),y)\mapsto A\cdot(y-x)$ is continuous, the inner product being
+continuous in both arguments. By hypothesis (iii),
+$\Gamma(A;x,t,s)=\max_{y\in Q}H((A,x,t,s),y)$ for every $(A,x,t,s)\in P$ — the
+supremum over $Q$ in (iii) being a maximum because $H((A,x,t,s),\cdot)$ is
+continuous on the nonempty compact $Q$. So by the recorded fact
+$(A,x,t,s)\mapsto\Gamma(A;x,t,s)$ is continuous on $P$, which is the first
+assertion.
+
+\emph{The infimum over all slopes is a minimum over a ball.}
+Let $(x,t,s)\in S$. By hypothesis (i) the number $\Gamma(A;x,t,s)$ is a real
+number for every $A\in F$, so the family $\{\Gamma(A;x,t,s):A\in F\}$ is a
+nonempty set of reals, containing $\Gamma(0;x,t,s)$. Put
+$Q_0=\{A\in F:|A|\le\Lambda_0\}$, a nonempty compact set containing $0$. By the
+previous paragraph $A\mapsto\Gamma(A;x,t,s)$ is continuous on $Q_0$, which is
+contained in $\{|A|\le\Lambda_0+1\}$, so it attains a minimum on $Q_0$ at some
+$A_0$ with $|A_0|\le\Lambda_0$ (preamble). We claim
+\begin{equation}\label{eq:bgma-min}
+  \Gamma(A_0;x,t,s)\le\Gamma(A;x,t,s)\qquad(A\in F).
+\end{equation}
+Indeed, if $|A|\le\Lambda_0$ this is the minimality of $A_0$ on $Q_0$. If
+$|A|>\Lambda_0$ then by hypothesis (ii), read in contrapositive,
+$\Gamma(A;x,t,s)>\Gamma(0;x,t,s)+1>\Gamma(0;x,t,s)\ge\Gamma(A_0;x,t,s)$, the last
+inequality being the minimality of $A_0$ on $Q_0$ applied at $0\in Q_0$. This is
+\eqref{eq:bgma-min}.
+
+\emph{The continuous minimal value.}
+Apply the recorded parametric fact a second time, with $P=S$, $Q=Q_0$ and
+$H((x,t,s),A)=\Gamma(A;x,t,s)$, in the minimum form: $Q_0$ is nonempty and
+compact, and $H$ is continuous on $S\times Q_0$ because
+$Q_0\times S\subseteq\{|A|\le\Lambda_0+1\}\times S$ and $\Gamma$ is continuous
+there by the first assertion, the exchange of the two factors being a
+homeomorphism. Hence
+\[
+  G(x,t,s):=\min_{|A|\le\Lambda_0}\Gamma(A;x,t,s)
+\]
+defines a function continuous on $S$; extend it to all of $F\times\R\times\R$ by
+giving it the value $0$ off $S$, which does not affect continuity on $S$. For
+$(x,t,s)\in S$ the minimum is attained at the $A_0$ produced above, so
+$G(x,t,s)=\Gamma(A_0;x,t,s)$ with $|A_0|\le\Lambda_0$, and by
+\eqref{eq:bgma-min} $G(x,t,s)\le\Gamma(A;x,t,s)$ for every $A\in F$. These are
+the two displayed properties, and the proof is complete.
+\end{proof}

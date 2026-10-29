@@ -1,0 +1,359 @@
+\begin{theorem}[Alexandrov's theorem]
+Let $E$ be a finite-dimensional real inner-product space with an additive Haar
+measure $\mu$, and let $\psi:E\to\R$ be convex on $E$. Then for $\mu$-almost
+every $x\in E$ there are a vector $q\in E$ and a symmetric continuous bilinear
+form $A$ on $E$ with $A(h,h)\ge0$ for all $h\in E$, such that for every
+$\delta>0$ there is $\rho>0$ with
+\[
+  \Bigl|\psi(x+h)-\psi(x)-\langle q,h\rangle-\tfrac12A(h,h)\Bigr|
+    \le\delta|h|^2\qquad(|h|<\rho).
+\]
+\end{theorem}
+\begin{proof}
+\emph{Notation and standing facts.}
+By \noderef{MoreauProxExists} fix $u:E\to E$ which is a proximal map for $\psi$
+in the sense of \noderef{IsMoreauProx}, and set
+\[
+  v(y)=y-u(y),\qquad \psi_1(y)=\psi(u(y))+\frac{|u(y)-y|^2}{2}
+   =\psi(u(y))+\frac{|v(y)|^2}{2}.
+\]
+For any $y_1,y_2\in E$ the points $u(y_1)$ and $u(y_2)$ minimize
+$x\mapsto\psi(x)+|x-y_1|^2/2$ and $x\mapsto\psi(x)+|x-y_2|^2/2$ respectively, by
+\noderef{IsMoreauProx}, so \noderef{MoreauProxMonotone} gives
+\begin{equation}\label{eq:csa-firm}
+  |u(y_1)-u(y_2)|^2+|v(y_1)-v(y_2)|^2\le|y_1-y_2|^2 .
+\end{equation}
+In particular $u$ and $v$ are $1$-Lipschitz on $E$, and for each $y$ the
+minimizer of $x\mapsto\psi(x)+|x-y|^2/2$ is unique and equals $u(y)$ (take
+$y_1=y_2$ in \noderef{MoreauProxMonotone}). By
+\noderef{MoreauEnvelopeGradient}, $\psi_1$ is differentiable at every $y$ with
+$\nabla\psi_1(y)=v(y)$; since $v$ is $1$-Lipschitz, $\nabla\psi_1$ is
+continuous, so $\psi_1$ is $C^1$. Finally, the hypothesis of
+\noderef{IsMoreauProx} at the base point $y$ is clause (1) of
+\noderef{MoreauProxSubgradient} with $x_0=u(y)$, so clause (2) of that statement
+gives
+\begin{equation}\label{eq:csa-subgrad}
+  \psi(u(y))+\langle v(y),x-u(y)\rangle\le\psi(x)\qquad(x,y\in E).
+\end{equation}
+
+\emph{Step 1: a second-order expansion of $\psi_1$ where $u$ is differentiable.}
+Let $y$ be a point at which $u$ is differentiable, let $P=Du(y)$, and put
+$Q=\mathrm{id}-P$, $x=u(y)$, $p=v(y)$. Since $v=\mathrm{id}-u$, the map $v$ is
+differentiable at $y$ with $Dv(y)=Q$; write
+\begin{equation}\label{eq:csa-rdef}
+  r(k)=v(y+k)-v(y)-Qk,\qquad\text{so}\qquad \frac{|r(k)|}{|k|}\to0
+  \ \ (k\to0),\quad r(0)=0.
+\end{equation}
+We claim: for every $\delta>0$ there is $\rho>0$ with
+\begin{equation}\label{eq:csa-psi1}
+  \Bigl|\psi_1(y+h)-\psi_1(y)-\langle p,h\rangle-\tfrac12\langle Qh,h\rangle\Bigr|
+   \le\delta|h|^2\qquad(|h|<\rho).
+\end{equation}
+Indeed $\psi_1$ is $C^1$ with $\nabla\psi_1=v$, so integrating the gradient
+along the segment from $y$ to $y+h$ (preamble) gives
+\[
+  \psi_1(y+h)-\psi_1(y)=\int_0^1\langle v(y+th),h\rangle\,dt .
+\]
+By \eqref{eq:csa-rdef} with $k=th$,
+$\langle v(y+th),h\rangle=\langle p,h\rangle+t\langle Qh,h\rangle+\langle
+r(th),h\rangle$, and $\int_0^1t\,dt=\tfrac12$, so
+\[
+  \psi_1(y+h)-\psi_1(y)
+   =\langle p,h\rangle+\tfrac12\langle Qh,h\rangle+\int_0^1\langle r(th),h\rangle\,dt,
+\]
+and the last integral has absolute value at most
+$|h|\sup_{0\le t\le1}|r(th)|$. Given $\delta>0$ choose $\rho>0$ with
+$|r(k)|\le\delta|k|$ for $|k|<\rho$; then for $|h|<\rho$ and $t\in[0,1]$ we have
+$|th|\le|h|<\rho$, hence $|r(th)|\le\delta|th|\le\delta|h|$, and the integral is
+bounded by $\delta|h|^2$. This proves \eqref{eq:csa-psi1}.
+
+\emph{Step 2: the curve identity.}
+Keep $y,P,Q,x,p$ as in Step 1 and set, for $h\in E$,
+\[
+  x_h=u(y+h),\qquad \varrho(h)=x_h-x-Ph,
+\]
+so that $|\varrho(h)|/|h|\to0$ as $h\to0$ by the differentiability of $u$ at
+$y$. Because $Ph+Qh=h$ and $y-x=p$, we have the \emph{exact} identity
+\begin{equation}\label{eq:csa-vexact}
+  v(y+h)=(y+h)-x_h=(y-x)+h-(x_h-x)=p+h-Ph-\varrho(h)=p+Qh-\varrho(h).
+\end{equation}
+We claim: for every $\delta>0$ there is $\rho_1>0$ with
+\begin{equation}\label{eq:csa-curve}
+  \Bigl|\psi(x_h)-\psi(x)-\langle p,x_h-x\rangle-\tfrac12\langle Qh,Ph\rangle\Bigr|
+   \le\delta|h|^2\qquad(|h|<\rho_1).
+\end{equation}
+Indeed, by the definition of $\psi_1$ at the base point $y+h$ (whose proximal
+point is $x_h$) we have $\psi(x_h)=\psi_1(y+h)-\tfrac12|v(y+h)|^2$, and by
+\eqref{eq:csa-vexact}
+\[
+  \tfrac12|v(y+h)|^2
+   =\tfrac12|p|^2+\langle p,Qh-\varrho(h)\rangle+\tfrac12|Qh-\varrho(h)|^2,
+\]
+\[
+  \tfrac12|Qh-\varrho(h)|^2
+   =\tfrac12|Qh|^2-\langle Qh,\varrho(h)\rangle+\tfrac12|\varrho(h)|^2 .
+\]
+Also $\psi_1(y)=\psi(x)+\tfrac12|p|^2$. Subtracting and using
+\eqref{eq:csa-psi1},
+\[
+\begin{aligned}
+  \psi(x_h)&=\Bigl[\psi(x)+\tfrac12|p|^2+\langle p,h\rangle
+     +\tfrac12\langle Qh,h\rangle+e_1(h)\Bigr]\\
+   &\quad-\Bigl[\tfrac12|p|^2+\langle p,Qh\rangle-\langle p,\varrho(h)\rangle
+     +\tfrac12|Qh|^2-\langle Qh,\varrho(h)\rangle+\tfrac12|\varrho(h)|^2\Bigr]\\
+   &=\psi(x)+\langle p,h-Qh+\varrho(h)\rangle
+     +\tfrac12\langle Qh,h-Qh\rangle+e_1(h)+e_2(h)\\
+   &=\psi(x)+\langle p,x_h-x\rangle+\tfrac12\langle Qh,Ph\rangle+e_1(h)+e_2(h),
+\end{aligned}
+\]
+where $e_1(h)$ is the error in \eqref{eq:csa-psi1},
+$e_2(h)=\langle Qh,\varrho(h)\rangle-\tfrac12|\varrho(h)|^2$, and we used
+$h-Qh=Ph$, $h-Qh+\varrho(h)=Ph+\varrho(h)=x_h-x$ and
+$\langle Qh,h-Qh\rangle=\langle Qh,Ph\rangle$. Now fix $\delta>0$. Choose
+$\delta'>0$ so small that $\|Q\|\delta'+\tfrac12\delta'^2\le\delta/2$, then
+$\rho'>0$ with $|\varrho(h)|\le\delta'|h|$ for $|h|<\rho'$; this gives
+$|e_2(h)|\le\|Q\|\,|h|\,\delta'|h|+\tfrac12\delta'^2|h|^2\le(\delta/2)|h|^2$.
+Choosing also $\rho''>0$ so that \eqref{eq:csa-psi1} holds with $\delta/2$ in
+place of $\delta$, and putting $\rho_1=\min(\rho',\rho'')$, we obtain
+\eqref{eq:csa-curve}.
+
+\emph{Step 3: almost every $x$ is $u(y)$ for a $y$ at which $Du(y)$ is
+invertible.}
+Let $N=\{y\in E:u$ is not differentiable at $y\}$. Since $u$ is $1$-Lipschitz on
+$E$, Rademacher's theorem (preamble) gives $\mu(N)=0$, and the preamble's bound
+for the measure of a Lipschitz image --- applied with source and target both
+equal to $E$, and with the $1$-Lipschitz map $u$ --- gives
+\begin{equation}\label{eq:csa-uN}
+  \mu\bigl(u(N)\bigr)=0 .
+\end{equation}
+Put $\Delta=E\setminus N$ and $P(y)=Du(y)$ for $y\in\Delta$, and set
+\[
+  S=\{y\in\Delta:\det P(y)=0\},\qquad G=\{y\in\Delta:\det P(y)\ne0\}.
+\]
+By the preamble, $\Delta$ is a Borel set and $y\mapsto Du(y)$ is Borel
+measurable; the determinant is continuous (preamble), so $S$, being the
+intersection of $\Delta$ with the preimage of the closed set $\{0\}$ under a
+Borel map, is Borel. For $y\in S$ the map $u$ is differentiable at $y$, hence a
+fortiori has the derivative $P(y)$ at $y$ within $S$. The area-formula
+inequality (preamble), applied with the measurable set $S$, the map $u$ and the
+derivative field $P$, therefore gives
+\begin{equation}\label{eq:csa-uS}
+  \mu\bigl(u(S)\bigr)\le\int_S\bigl|\det P(y)\bigr|\,d\mu(y)=0,
+\end{equation}
+since the integrand vanishes identically on $S$.
+
+Let $D=\{x\in E:\psi$ is differentiable at $x\}$. The function $\psi$ is convex
+and real-valued on the open set $E$, hence locally Lipschitz there (preamble),
+so Rademacher's theorem (preamble) gives
+\begin{equation}\label{eq:csa-D}
+  \mu(E\setminus D)=0 .
+\end{equation}
+We claim $D\subseteq u(E)$. Let $x\in D$ and $q=\nabla\psi(x)$. For $x'\in E$ and
+$t\in(0,1]$, convexity of $\psi$ gives
+$\psi(x+t(x'-x))\le(1-t)\psi(x)+t\psi(x')$, i.e.
+\[
+  \frac{\psi(x+t(x'-x))-\psi(x)}{t}\le\psi(x')-\psi(x);
+\]
+letting $t\downarrow0$ and using differentiability at $x$, the left-hand side
+tends to $\langle q,x'-x\rangle$, so
+\begin{equation}\label{eq:csa-gradsub}
+  \psi(x)+\langle q,x'-x\rangle\le\psi(x')\qquad(x'\in E).
+\end{equation}
+Put $y=x+q$, so that $y-x=q$. Then \eqref{eq:csa-gradsub} is clause (2) of
+\noderef{MoreauProxSubgradient} with this $y$ and $x_0=x$, so clause (1) holds:
+$x$ minimizes $x'\mapsto\psi(x')+|x'-y|^2/2$. By \noderef{IsMoreauProx} the
+point $u(y)$ minimizes the same function, and the minimizer is unique by
+\noderef{MoreauProxMonotone} with $y_1=y_2=y$; hence $u(y)=x$ and $x\in u(E)$.
+
+Since $E=N\cup S\cup G$ we have $u(E)=u(N)\cup u(S)\cup u(G)$, so
+\[
+  E\setminus u(G)\subseteq(E\setminus D)\cup\bigl(D\setminus u(G)\bigr)
+   \subseteq(E\setminus D)\cup u(N)\cup u(S),
+\]
+and by \eqref{eq:csa-uN}, \eqref{eq:csa-uS}, \eqref{eq:csa-D} the right-hand
+side is null. Therefore
+\begin{equation}\label{eq:csa-ae}
+  \mu\bigl(E\setminus u(G)\bigr)=0,
+\end{equation}
+and it suffices to establish the asserted expansion at every $x\in u(G)$. We
+record also, for later use, that $u(E)$ has full measure (it contains $D$), so
+$E\setminus u(E)$ is null; a null set has empty interior (preamble), hence
+\begin{equation}\label{eq:csa-dense}
+  u(E)\ \text{is dense in}\ E .
+\end{equation}
+
+\emph{Step 4: the subdifferential is a singleton above $G$, with a uniform
+localization.}
+Fix $y\in G$ and put $x=u(y)$, $p=v(y)$, $P=Du(y)$; note $y=x+p$. Let
+\[
+  \partial\psi(x)=\bigl\{s\in E:\psi(x)+\langle s,x'-x\rangle\le\psi(x')
+    \ \text{for all}\ x'\in E\bigr\}.
+\]
+By \eqref{eq:csa-subgrad}, $p\in\partial\psi(x)$. The set $\partial\psi(x)$ is
+an intersection, over $x'\in E$, of the closed half-spaces
+$\{s:\langle s,x'-x\rangle\le\psi(x')-\psi(x)\}$, hence is closed and convex.
+
+\emph{(4a) $\partial\psi(x)=\{p\}$.} Let $s\in\partial\psi(x)$ and put
+$d=s-p$. For $t\in[0,1]$ the vector $p+td$ lies in $\partial\psi(x)$ by
+convexity of $\partial\psi(x)$, so with $y_t=x+p+td=y+td$ the defining property
+of $\partial\psi(x)$ reads
+$\psi(x)+\langle y_t-x,x'-x\rangle\le\psi(x')$ for all $x'$, which is clause (2)
+of \noderef{MoreauProxSubgradient} with the base point $y_t$ and $x_0=x$. Hence
+$x$ minimizes $x'\mapsto\psi(x')+|x'-y_t|^2/2$, and by the uniqueness of the
+minimizer, $u(y_t)=x=u(y)$. Thus $u(y+td)-u(y)=0$ for every $t\in[0,1]$.
+Dividing by $t$ and letting $t\downarrow0$, differentiability of $u$ at $y$
+gives $Pd=0$. If $d\ne0$ then $P$ is not injective, so $\det P=0$ (preamble:
+$\det P\ne0$ if and only if $P$ is bijective), contradicting $y\in G$. Hence
+$d=0$ and $s=p$.
+
+\emph{(4b) Uniform localization.} We claim: for every $\sigma>0$ there is
+$\rho_\sigma>0$ such that
+\[
+  w\in E,\ |w-x|<\rho_\sigma,\ y'\in E,\ u(y')=w
+  \quad\Longrightarrow\quad |y'-y|<\sigma .
+\]
+Suppose not. Then there are $\sigma>0$, points $w_j\to x$ and points $y'_j$ with
+$u(y'_j)=w_j$ and $|y'_j-y|\ge\sigma$ for all $j$. Put
+$s_j=y'_j-w_j=v(y'_j)$; by \eqref{eq:csa-subgrad} at the base point $y'_j$,
+\begin{equation}\label{eq:csa-sj}
+  \psi(w_j)+\langle s_j,x'-w_j\rangle\le\psi(x')\qquad(x'\in E).
+\end{equation}
+The $s_j$ are bounded. Indeed $\psi$ is locally Lipschitz on $E$ (preamble), so
+there are $a>0$ and $L\ge0$ with $|\psi(b)-\psi(b')|\le L|b-b'|$ for
+$b,b'\in\overline B(x,2a)$; for all large $j$ we have $|w_j-x|\le a$, and then
+for a unit vector $e$ and $0<t\le a$ the point $w_j+te$ lies in $\overline
+B(x,2a)$, so \eqref{eq:csa-sj} with $x'=w_j+te$ gives
+$t\langle s_j,e\rangle\le\psi(w_j+te)-\psi(w_j)\le Lt$, whence
+$\langle s_j,e\rangle\le L$ for every unit $e$ and therefore $|s_j|\le L$.
+Consequently $y'_j=w_j+s_j$ is a bounded sequence, and by Bolzano--Weierstrass
+(preamble) a subsequence $y'_{j_i}$ converges to some $\bar y$ with
+$|\bar y-y|\ge\sigma$. Then $s_{j_i}=y'_{j_i}-w_{j_i}\to\bar y-x=:\bar s$.
+Passing to the limit in \eqref{eq:csa-sj} along this subsequence, using the
+continuity of $\psi$ (preamble) and of the inner product, gives
+$\psi(x)+\langle\bar s,x'-x\rangle\le\psi(x')$ for all $x'$, i.e.
+$\bar s\in\partial\psi(x)=\{p\}$ by (4a). So $\bar s=p$ and
+$\bar y=x+p=y$, contradicting $|\bar y-y|\ge\sigma$.
+
+\emph{Step 5: the expansion at $x=u(y)$ for $y\in G$.}
+Fix $y\in G$ and keep $x=u(y)$, $p=v(y)$, $P=Du(y)$, $Q=\mathrm{id}-P$. Since
+$\det P\ne0$, $P$ is bijective with continuous linear inverse $P^{-1}$, and
+there is $c>0$ with
+\begin{equation}\label{eq:csa-lower}
+  |Ph|\ge c|h|\qquad(h\in E)
+\end{equation}
+(preamble). Put $A_0=QP^{-1}$, a continuous linear map $E\to E$, and
+\[
+  A(a,b)=\tfrac12\bigl(\langle A_0a,b\rangle+\langle A_0b,a\rangle\bigr),
+\]
+a symmetric continuous bilinear form on $E$ with
+$A(k,k)=\langle A_0k,k\rangle$. Finally set
+$g(k)=\psi(x+k)-\psi(x)-\langle p,k\rangle$; by \eqref{eq:csa-subgrad} at the
+base point $y$ we have $p\in\partial\psi(x)$, so
+\begin{equation}\label{eq:csa-gnonneg}
+  g(k)\ge0\ \ (k\in E),\qquad g(0)=0,
+\end{equation}
+and $g$ is continuous because $\psi$ is.
+
+We claim: for every $\delta>0$ there is $\rho>0$ with
+\begin{equation}\label{eq:csa-goal}
+  \bigl|g(k)-\tfrac12\langle A_0k,k\rangle\bigr|\le\delta|k|^2\qquad(|k|<\rho).
+\end{equation}
+
+Let $\delta>0$. Put
+\[
+  C_1=\frac{4\|Q\|\,\|P^{-1}\|\,\|P\|}{c^2}+\frac{2\|A_0\|}{c},
+\]
+choose $\delta_1$ with $0<\delta_1\le\min(1,c/2)$ and
+$\tfrac12C_1\delta_1\le\delta/2$, and choose $\delta_2>0$ with
+$4\delta_2/c^2\le\delta/2$. By Step 2 there is $\rho_1>0$ such that
+\eqref{eq:csa-curve} holds with $\delta_2$ in place of $\delta$; by the
+differentiability of $u$ at $y$ there is $\rho_2>0$ with
+\begin{equation}\label{eq:csa-rho}
+  |\varrho(h)|=|x_h-x-Ph|\le\delta_1|h|\qquad(|h|<\rho_2);
+\end{equation}
+and by Step 4(4b) with $\sigma=\min(\rho_1,\rho_2)$ there is $\rho_3>0$ such
+that every $w$ with $|w-x|<\rho_3$ and every $y'$ with $u(y')=w$ satisfy
+$|y'-y|<\sigma$.
+
+Let $k\in E$ with $|k|<\rho_3$ and suppose first that $x+k\in u(E)$, say
+$u(y')=x+k$. Put $h=y'-y$. By the choice of $\rho_3$ we have
+$|h|<\sigma\le\min(\rho_1,\rho_2)$, and $u(y+h)=u(y')=x+k$, that is
+\begin{equation}\label{eq:csa-xh}
+  x_h-x=k .
+\end{equation}
+By \eqref{eq:csa-rho} and \eqref{eq:csa-xh}, $|k-Ph|\le\delta_1|h|$. Combining
+with \eqref{eq:csa-lower} and $\delta_1\le c/2$,
+\[
+  |k|\ge|Ph|-\delta_1|h|\ge(c-\delta_1)|h|\ge\frac{c}{2}|h|,
+  \qquad\text{so}\qquad |h|\le\frac{2}{c}|k| .
+\]
+Hence
+\begin{equation}\label{eq:csa-two}
+  |k-Ph|\le\frac{2\delta_1}{c}|k|,
+  \qquad
+  |h-P^{-1}k|=\bigl|P^{-1}(Ph-k)\bigr|\le\|P^{-1}\|\frac{2\delta_1}{c}|k| .
+\end{equation}
+Now
+\[
+  \langle Qh,Ph\rangle-\langle A_0k,k\rangle
+   =\bigl\langle Q(h-P^{-1}k),Ph\bigr\rangle
+    +\bigl\langle QP^{-1}k,Ph-k\bigr\rangle,
+\]
+as one checks by inserting and removing the term
+$\langle QP^{-1}k,Ph\rangle$ and using $A_0=QP^{-1}$. Since
+$|Ph|\le\|P\|\,|h|\le(2\|P\|/c)|k|$, the Cauchy--Schwarz inequality and
+\eqref{eq:csa-two} give
+\begin{equation}\label{eq:csa-formdiff}
+  \bigl|\langle Qh,Ph\rangle-\langle A_0k,k\rangle\bigr|
+   \le\|Q\|\,\|P^{-1}\|\frac{2\delta_1}{c}|k|\cdot\frac{2\|P\|}{c}|k|
+    +\|A_0\|\,|k|\cdot\frac{2\delta_1}{c}|k|
+   =C_1\delta_1|k|^2 .
+\end{equation}
+On the other hand \eqref{eq:csa-curve} (with $\delta_2$) together with
+\eqref{eq:csa-xh} and $|h|\le(2/c)|k|$ gives
+\begin{equation}\label{eq:csa-curve2}
+  \Bigl|g(k)-\tfrac12\langle Qh,Ph\rangle\Bigr|
+   =\Bigl|\psi(x_h)-\psi(x)-\langle p,x_h-x\rangle-\tfrac12\langle Qh,Ph\rangle\Bigr|
+   \le\delta_2|h|^2\le\frac{4\delta_2}{c^2}|k|^2 .
+\end{equation}
+Adding half of \eqref{eq:csa-formdiff} to \eqref{eq:csa-curve2} and using the
+choices of $\delta_1,\delta_2$,
+\[
+  \bigl|g(k)-\tfrac12\langle A_0k,k\rangle\bigr|
+   \le\frac{4\delta_2}{c^2}|k|^2+\tfrac12C_1\delta_1|k|^2
+   \le\delta|k|^2 .
+\]
+So \eqref{eq:csa-goal} holds for every $k$ with $|k|<\rho_3$ such that
+$x+k\in u(E)$.
+
+Finally we remove that restriction. Put
+$T=\{k\in E:|k|<\rho_3,\ x+k\in u(E)\}$. By \eqref{eq:csa-dense} the set $u(E)$
+is dense in $E$, so $T$ is dense in $B(0,\rho_3)$: given $k_0\in B(0,\rho_3)$ and
+$\varepsilon>0$ with $B(k_0,\varepsilon)\subseteq B(0,\rho_3)$, the open set
+$x+B(k_0,\varepsilon)$ meets $u(E)$, which produces a point of $T$ within
+$\varepsilon$ of $k_0$. Both $k\mapsto|g(k)-\tfrac12\langle A_0k,k\rangle|$ and
+$k\mapsto\delta|k|^2$ are continuous on $E$, and the inequality
+\eqref{eq:csa-goal} holds on the dense subset $T$ of the ball $B(0,\rho_3)$;
+hence, by passing to limits along sequences in $T$, it holds at every point of
+$B(0,\rho_3)$. This proves \eqref{eq:csa-goal} with $\rho=\rho_3$.
+
+\emph{Step 6: nonnegativity of $A$, and conclusion.}
+Let $x\in u(G)$ and let $p$ and $A$ be as in Step 5 for some $y\in G$ with
+$u(y)=x$. The form $A$ is symmetric and continuous by construction, and Step 5
+is exactly the asserted expansion with $q=p$, since
+$A(h,h)=\langle A_0h,h\rangle$.
+
+For nonnegativity, let $k_0\in E$ with $|k_0|=1$ and let $\delta>0$. Take $\rho$
+from \eqref{eq:csa-goal} and let $t\in(0,\rho)$. With $k=tk_0$, so $|k|=t<\rho$,
+\eqref{eq:csa-gnonneg} and \eqref{eq:csa-goal} give
+\[
+  0\le g(tk_0)\le\tfrac12\langle A_0(tk_0),tk_0\rangle+\delta t^2
+   =t^2\Bigl(\tfrac12A(k_0,k_0)+\delta\Bigr),
+\]
+so $\tfrac12A(k_0,k_0)+\delta\ge0$. As $\delta>0$ was arbitrary,
+$A(k_0,k_0)\ge0$. For general $h\ne0$, bilinearity gives
+$A(h,h)=|h|^2A(h/|h|,h/|h|)\ge0$, and $A(0,0)=0$.
+
+By \eqref{eq:csa-ae} the set of $x$ not of the form $u(y)$ with $y\in G$ is
+null, so the expansion holds for $\mu$-almost every $x\in E$.
+\end{proof}

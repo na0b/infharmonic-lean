@@ -1,0 +1,97 @@
+\begin{lemma}[The stopped walks and their expectation bounds]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$, let $\kappa>0$ and $H\in\R$, and let $v\in\Aclass_{m,C_0}$
+in the sense of \noderef{IsFitClass} be centered at $z_*=(0,1)$ with constant
+$C_0$ in the sense of \noderef{IsCenteredAt} and satisfy the horizontal Jensen
+bound with constant $\kappa$ at every time in the sense of
+\noderef{HasJensenBound}. Let $W$ be the contact envelope of
+\noderef{ContactEnv} formed from $v$ and $\kappa$, and assume the standing
+properties of the extremal contact pair:
+\begin{enumerate}
+\item $W$ is continuous on $\{(x,t):t>0\}$ and has subquadratic spatial growth
+on compact subintervals of $(0,\infty)$ in the sense of
+\noderef{SubquadraticGrowth};
+\item $W$ is a viscosity subsolution of the limiting equation on
+$\{(x,t):t>0\}$ in the sense of \noderef{IsLimitSubOn};
+\item $v(x,t)-\kappa^2t/2\le W(x,t)\le v(x,t)$ for $t>0$, and
+$W(z_*)=v(z_*)=0$;
+\item $x\mapsto W(x,t)-|x|^2/(2t)$ is concave on $F$ for every $t>0$;
+\item if $t>0$ and $W(x,t)=v(x,t)$ then $(\Cenv_tv(x,t)-v(x,t))/t=\kappa^2/2$,
+with $\Cenv$ the barycentric envelope of \noderef{BaryEnv};
+\item the envelope Hamiltonian of \noderef{EnvHamiltonian} satisfies
+$H_v(z_*)=H$, and the forward envelope slopes of \noderef{EnvSlopeP} satisfy
+$\Senv_\ell^+W(z_*)\to H$ as $\ell\downarrow0$.
+\end{enumerate}
+Write $J_\epsilon$ for the quantity of \noderef{JGap}, $\delta_j=2^{-j}$ and
+$L(K)=1+\log K$.
+
+Then there is a constant $C_*>0$ such that for every integer $T\ge2$, every
+$R\ge2$ and every integer $N\ge1$ there are $\epsilon>0$, a measure space
+$(\Omega,\mathcal M,\mu)$ with a filtration $(\mathcal G_n)$, functions
+$\xi_n$, $z_n$, $z^+_n$, $z^-_n$, $Q_0(n)$ and $\tau$ which form a stopped
+contact walk for $(\kappa,H,T,R,v,N,\epsilon)$ in the sense of
+\noderef{IsContactWalk}, such that, writing
+\[
+  Q_+(n)=\frac{x^+_n-x_n}{\epsilon},\qquad
+  Q_-(n)=\frac{x_n-x^-_n}{\epsilon},\qquad
+  \mathcal E_n=|Q_+(n)-Q_0(n)|^2+|Q_-(n)-Q_0(n)|^2,
+\]
+the following two bounds hold with $B=R+T+2$:
+\begin{enumerate}
+\item[(i)] for every stopping time $\sigma$ for $(\mathcal G_n)$ with
+$\sigma\le\tau$ pointwise, the function $J_\epsilon(z_\sigma)$ is
+$\mu$-integrable and
+\begin{equation}\label{eq:contact-stopped-expectation}
+  \mathbb E J_\epsilon(z_\sigma)\ge J_\epsilon(z_*);
+\end{equation}
+\item[(ii)] the function $\sum_{n<\tau}\mathcal E_n$ is $\mu$-integrable and
+\begin{equation}\label{eq:contact-error-budget}
+  \mathbb E\sum_{n<\tau}\mathcal E_n\le B_0,\qquad B_0=C_*L(B)^4 ;
+\end{equation}
+\item[(iii)] there are marks with fits $(\sigma_j,p_j,a_j)$ for
+$(C_0,v,N,\mathcal G,z,\tau)$ in the sense of \noderef{IsMarkData}.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Hypotheses (1) and (6) and the normalizations in (3) are the only parts of the
+standing package used below; hypotheses (2), (4), (5) and the sandwich
+inequalities of (3) are not needed for this assembly.
+
+\emph{The constant.} By \noderef{ContactWalkBudgets}, applied to $C_0$, $\kappa$,
+$H$ and $v$ --- its hypotheses are that $v$ lies in $\Aclass_{m,C_0}$ in the
+sense of \noderef{IsFitClass}, is centered at $z_*$ with constant $C_0$ in the
+sense of \noderef{IsCenteredAt} and satisfies the horizontal Jensen bound with
+constant $\kappa$ in the sense of \noderef{HasJensenBound}, together with
+hypothesis (1) for the contact envelope $W$ of \noderef{ContactEnv} --- there is
+a constant $C_*>0$ with the property stated there. That node produces $C_*$
+before $T$, $R$ and $N$ are quantified, so the single $C_*$ serves every box;
+this is the uniformity the present statement asserts. Fix now an integer
+$T\ge2$, a real $R\ge2$ and an integer $N\ge1$.
+
+\emph{The walk.} By \noderef{ContactWalkExists}, applied with these $T$, $R$ and
+$N$ --- its hypotheses are the same three assumptions on $v$, hypothesis (1) for
+$W$, the normalizations $W(z_*)=0$ and $v(z_*)=0$ from hypothesis (3), and
+hypothesis (6), namely $H_v(z_*)=H$ for the envelope Hamiltonian of
+\noderef{EnvHamiltonian} and $\Senv^+_\ell W(z_*)\to H$ for the forward envelope
+slopes of \noderef{EnvSlopeP} --- there are $\epsilon>0$, a measure space
+$(\Omega,\mathcal M,\mu)$ with a filtration $(\mathcal G_n)$, and functions
+$\xi_n$, $z_n$, $z^+_n$, $z^-_n$, $Q_0(n)$ and $\tau$ on it which form a stopped
+contact walk for $(\kappa,H,T,R,v,N,\epsilon)$ in the sense of
+\noderef{IsContactWalk}, and such that the range of each $z_n$ is at most
+countable.
+
+\emph{Conclusions (i) and (ii).} \noderef{ContactWalkBudgets} quantifies the
+walk universally: its conclusion applies to every $\epsilon$ and every stopped
+contact walk for $(\kappa,H,T,R,v,N,\epsilon)$, in particular to the one just
+produced. Its two conclusions at this $T$, $R$, $N$, $\epsilon$ and this walk are
+verbatim conclusions (i) and (ii) of the present statement, with the same
+constant $C_*$ and the same $B=R+T+2$.
+
+\emph{Conclusion (iii).} By \noderef{ContactWalkMarkData}, applied to the same
+walk --- its hypotheses are that $v$ lies in $\Aclass_{m,C_0}$, that the data
+form a stopped contact walk in the sense of \noderef{IsContactWalk}, and that the
+range of each $z_n$ is at most countable, the last being the final assertion of
+\noderef{ContactWalkExists} --- there are marks with fits
+$(\sigma_j,p_j,a_j)$ for $(C_0,v,N,\mathcal G,z,\tau)$ in the sense of
+\noderef{IsMarkData}. This is conclusion (iii), and the lemma follows with the
+constant $C_*$ fixed above. \end{proof}

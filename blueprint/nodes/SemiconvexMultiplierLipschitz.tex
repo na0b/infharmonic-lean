@@ -1,0 +1,153 @@
+\begin{lemma}[The multiplier is $2\lambda$-Lipschitz in the maximum point]
+Let $E$ be a finite-dimensional real inner-product space, let $\lambda>0$, let
+$\Omega\subseteq E$ be open, let $\phi:E\to\R$ be $\lambda$-semiconvex on
+$\Omega$ in the sense of \noderef{SemiconvexOn}, let $A\subseteq E$, let
+$z_1,z_2,p_1,p_2\in E$ and let $\eta>0$. Assume
+\begin{enumerate}
+  \item $B(z_1,\eta)\subseteq A\cap\Omega$ and $B(z_2,\eta)\subseteq A\cap\Omega$;
+  \item $|z_1-z_2|<\eta$;
+  \item for $i=1,2$,
+    $\ \phi(w)+\langle p_i,w\rangle\le\phi(z_i)+\langle p_i,z_i\rangle$
+    for every $w\in A$.
+\end{enumerate}
+Then
+\[
+  |p_1-p_2|\le2\lambda|z_1-z_2| .
+\]
+\end{lemma}
+\begin{proof}
+Write
+\[
+  \psi(w)=\phi(w)+\frac{\lambda|w|^2}{2}\qquad(w\in E),
+\]
+so that, by the definition of $\lambda$-semiconvexity in
+\noderef{SemiconvexOn}, $\psi$ is convex on $\Omega$ and $\Omega$ is convex.
+Put $D=|z_1-z_2|$.
+
+Throughout we use the identity
+\begin{equation}\label{eq:sml-quad}
+  \frac{\lambda|u|^2}{2}-\frac{\lambda|v|^2}{2}
+   =\lambda\langle v,u-v\rangle+\frac{\lambda|u-v|^2}{2}
+  \qquad(u,v\in E),
+\end{equation}
+which follows by expanding $|u|^2=|(u-v)+v|^2=|u-v|^2+2\langle u-v,v\rangle+|v|^2$
+and using the symmetry of the real inner product.
+
+\emph{Step 1: a subgradient of $\psi$ at $z_2$, pinned to $\lambda z_2-p_2$.}
+We have $z_2\in B(z_2,\eta)\subseteq A\cap\Omega$ by (1), so $z_2\in\Omega$.
+Since $\Omega$ is open and $\psi$ is convex on $\Omega$,
+\noderef{ConvexSubgradientExists} applied to $\Omega$, $\psi$ and $z_2$
+produces $s\in E$ with
+\[
+  \psi(z_2)+\langle s,w-z_2\rangle\le\psi(w)\qquad(w\in\Omega).
+\]
+The data $\lambda$, $\phi$, $A$, $\Omega$, $z_2$, $p_2$, $s$, $\eta$ satisfy
+every hypothesis of \noderef{MaxMultiplierPinsSubgradient}: $\eta>0$,
+$B(z_2,\eta)\subseteq A\cap\Omega$ by (1), the maximality
+$\phi(w)+\langle p_2,w\rangle\le\phi(z_2)+\langle p_2,z_2\rangle$ on $A$ by
+(3), and the subgradient inequality just displayed. That lemma therefore gives
+$s=\lambda z_2-p_2$, so
+\begin{equation}\label{eq:sml-sg}
+  \psi(z_2)+\langle\lambda z_2-p_2,w-z_2\rangle\le\psi(w)\qquad(w\in\Omega).
+\end{equation}
+
+\emph{Step 2: the degenerate case $D=0$.}
+If $D=0$ then $z_1=z_2$, so \eqref{eq:sml-sg} with $z_1$ in place of $z_2$ reads
+$\psi(z_1)+\langle s,w-z_1\rangle\le\psi(w)$ for $w\in\Omega$, with the same
+$s$. Applying \noderef{MaxMultiplierPinsSubgradient} a second time, now with
+the data $z_1$, $p_1$, $s$, $\eta$ --- admissible because
+$B(z_1,\eta)\subseteq A\cap\Omega$ by (1) and the maximality of
+$\phi+\langle p_1,\cdot\rangle$ at $z_1$ on $A$ holds by (3) --- gives
+$s=\lambda z_1-p_1$. Comparing with $s=\lambda z_2-p_2=\lambda z_1-p_2$ yields
+$p_1=p_2$, hence $|p_1-p_2|=0=2\lambda D$. So we may assume $D>0$ from now on.
+
+\emph{Step 3: the defect $\sigma$ and its two-sided bound.}
+Since $|z_1-z_2|<\eta$ we have $z_1\in B(z_2,\eta)$, so (1) gives
+$z_1\in A$ and $z_1\in\Omega$. Put
+\[
+  \sigma=\psi(z_1)-\psi(z_2)-\langle\lambda z_2-p_2,z_1-z_2\rangle .
+\]
+Taking $w=z_1\in\Omega$ in \eqref{eq:sml-sg} gives $\sigma\ge0$. For the upper
+bound, (3) with $i=2$ and $w=z_1\in A$ gives
+$\phi(z_1)-\phi(z_2)\le\langle p_2,z_2\rangle-\langle p_2,z_1\rangle
+=-\langle p_2,z_1-z_2\rangle$. Expanding $\sigma$ and using
+$\langle\lambda z_2-p_2,z_1-z_2\rangle
+=\lambda\langle z_2,z_1-z_2\rangle-\langle p_2,z_1-z_2\rangle$ together with
+\eqref{eq:sml-quad} for $u=z_1$, $v=z_2$,
+\[
+  \sigma=\bigl(\phi(z_1)-\phi(z_2)\bigr)+\frac{\lambda D^2}{2}
+         +\langle p_2,z_1-z_2\rangle
+   \le\frac{\lambda D^2}{2}.
+\]
+Hence
+\begin{equation}\label{eq:sml-sigma}
+  0\le\sigma\le\frac{\lambda D^2}{2}.
+\end{equation}
+
+\emph{Step 4: the key estimate on $B(z_1,\eta)$.}
+Put $\Delta=(p_1-p_2)-\lambda(z_1-z_2)$ and let $w\in B(z_1,\eta)$; by (1),
+$w\in A$ and $w\in\Omega$. From (3) with $i=1$,
+\begin{equation}\label{eq:sml-up}
+  \phi(w)-\phi(z_1)\le-\langle p_1,w-z_1\rangle .
+\end{equation}
+From \eqref{eq:sml-sg} at this $w$, and subtracting $\lambda|w|^2/2$ from both
+sides to pass from $\psi$ to $\phi$,
+\[
+  \phi(w)-\phi(z_1)
+  \ge\bigl(\psi(z_2)-\psi(z_1)\bigr)+\langle\lambda z_2-p_2,w-z_2\rangle
+    -\Bigl(\frac{\lambda|w|^2}{2}-\frac{\lambda|z_1|^2}{2}\Bigr).
+\]
+Now $\psi(z_2)-\psi(z_1)=-\sigma-\langle\lambda z_2-p_2,z_1-z_2\rangle$ by the
+definition of $\sigma$, and
+$\langle\lambda z_2-p_2,w-z_2\rangle-\langle\lambda z_2-p_2,z_1-z_2\rangle
+=\langle\lambda z_2-p_2,w-z_1\rangle$ because $(w-z_2)-(z_1-z_2)=w-z_1$; while
+\eqref{eq:sml-quad} with $u=w$, $v=z_1$ evaluates the last bracket as
+$\lambda\langle z_1,w-z_1\rangle+\lambda|w-z_1|^2/2$. Therefore
+\[
+  \phi(w)-\phi(z_1)\ge-\sigma+\langle\lambda z_2-p_2,w-z_1\rangle
+   -\lambda\langle z_1,w-z_1\rangle-\frac{\lambda|w-z_1|^2}{2}.
+\]
+Comparing with \eqref{eq:sml-up} and rearranging,
+\[
+  \langle\lambda z_2-p_2,w-z_1\rangle-\lambda\langle z_1,w-z_1\rangle
+   +\langle p_1,w-z_1\rangle\le\sigma+\frac{\lambda|w-z_1|^2}{2}.
+\]
+By linearity of the inner product in its first argument the left-hand side is
+$\langle\Delta,w-z_1\rangle$, since
+$(\lambda z_2-p_2)-\lambda z_1+p_1=(p_1-p_2)-\lambda(z_1-z_2)=\Delta$. Thus
+\begin{equation}\label{eq:sml-key}
+  \langle\Delta,w-z_1\rangle\le\sigma+\frac{\lambda|w-z_1|^2}{2}
+  \qquad\bigl(w\in B(z_1,\eta)\bigr).
+\end{equation}
+
+\emph{Step 5: the bound $|\Delta|\le\lambda D$.}
+If $\Delta=0$ this is clear, both sides being $\ge0$ and the left-hand side
+$0$. Otherwise $|\Delta|>0$; take
+\[
+  w=z_1+\frac{D}{|\Delta|}\,\Delta ,
+\]
+so that $w-z_1=(D/|\Delta|)\Delta$ and $|w-z_1|=(D/|\Delta|)|\Delta|=D<\eta$ by
+(2); hence $w\in B(z_1,\eta)$ and \eqref{eq:sml-key} applies. Since
+$\langle\Delta,(D/|\Delta|)\Delta\rangle=(D/|\Delta|)|\Delta|^2=D|\Delta|$, it
+reads
+\[
+  D|\Delta|\le\sigma+\frac{\lambda D^2}{2}\le\frac{\lambda D^2}{2}
+   +\frac{\lambda D^2}{2}=\lambda D^2 ,
+\]
+using \eqref{eq:sml-sigma} for the middle inequality. Dividing by $D>0$ gives
+\begin{equation}\label{eq:sml-delta}
+  |\Delta|\le\lambda D .
+\end{equation}
+(The choice $t=D$ for the step length is what makes the usual optimization in
+$t$ unnecessary: at $t=D$ the two terms $\sigma/t$ and $\lambda t/2$ are each
+at most $\lambda D/2$.)
+
+\emph{Step 6: conclusion.}
+Since $p_1-p_2=\Delta+\lambda(z_1-z_2)$, the triangle inequality,
+$|\lambda(z_1-z_2)|=\lambda D$ (as $\lambda>0$) and \eqref{eq:sml-delta} give
+\[
+  |p_1-p_2|\le|\Delta|+\lambda D\le\lambda D+\lambda D=2\lambda D
+   =2\lambda|z_1-z_2| ,
+\]
+which is the assertion.
+\end{proof}

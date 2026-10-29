@@ -1,0 +1,569 @@
+\begin{lemma}[Theorem of sums]
+Let $E$ be a finite-dimensional real inner-product space, let $N$ be a natural
+number and write $V=\ell^2\bigl(\bigoplus_{j=1}^NE\bigr)$ for the $\ell^2$-product
+of $N$ copies of $E$, whose elements are written $Y=(y_j)_{j=1}^N$ and whose norm
+satisfies $|Y|^2=\sum_j|y_j|^2$. For each $j$ let $O_j\subseteq E$ be open and
+let $g_j:E\to\R$ be continuous on $O_j$. Let $\Psi:V\to\R$, let
+$\widehat Z\in V$ with $\widehat z_j\in O_j$ for every $j$, and assume that
+$\Psi$ is $C^2$ near $\widehat Z$ and that
+\[
+  Y\longmapsto\sum_{j=1}^Ng_j(y_j)-\Psi(Y)
+\]
+has a local maximum at $\widehat Z$. Set $A=D^2\Psi(\widehat Z)$, a symmetric
+bilinear form on $V$, let $\bar A:V\to V$ be the self-adjoint operator with
+$\langle\bar A\xi,\zeta\rangle=A(\xi,\zeta)$, so that $|\bar A\xi|$ is the norm
+of the linear functional $\zeta\mapsto A(\xi,\zeta)$ and
+$|\bar A\xi|^2=\langle\bar A^2\xi,\xi\rangle$ is the value at $\xi$ of the
+quadratic form of $\bar A^2$; the matrix inequality below is thus the paper's
+$\operatorname{diag}(X_1,\ldots,X_N)\le A+\eta A^2$ read as an inequality
+between quadratic forms. Write
+$D_j\Psi(\widehat Z)$ for the $j$-th component of $\nabla\Psi(\widehat Z)$. Then
+for every $\eta>0$ there are symmetric continuous bilinear forms $X_j$ on $E$
+such that
+\[
+  \bigl(D_j\Psi(\widehat Z),X_j\bigr)\in\overline J^{2,+}g_j(\widehat z_j)
+  \quad(1\le j\le N),
+  \qquad
+  \sum_{j=1}^NX_j[\xi_j]\le A[\xi]+\eta\,|\bar A\xi|^2
+  \quad(\xi\in V),
+\]
+where $\overline J^{2,+}$ is the closed superjet of \noderef{ClosedSuperjet},
+$X[h]=X(h,h)$ and $A[\xi]=A(\xi,\xi)$.
+\end{lemma}
+\begin{proof}
+If $N=0$ then $V=\{0\}$, the family of $X_j$ is empty and both assertions are
+vacuous, so assume $N\ge1$. Fix $\eta>0$. Write $\widehat p_j=D_j\Psi(\widehat
+Z)$, so that $\widehat P:=\nabla\Psi(\widehat Z)$ has components $\widehat p_j$
+and
+\begin{equation}\label{eq:srj-inner}
+  \langle\widehat P,W\rangle=\sum_j\langle\widehat p_j,w_j\rangle\qquad(W\in V),
+\end{equation}
+by the definition of the $\ell^2$-product inner product (preamble). For
+$a\in E$ and $1\le j\le N$ let $\iota_ja\in V$ be the vector with $j$-th
+component $a$ and all other components $0$; then $|\iota_ja|=|a|$ and
+$\langle\xi,\iota_ja\rangle=\langle\xi_j,a\rangle$.
+
+\medskip\noindent\emph{Part I: four facts about superjets.}
+
+\emph{(A) Superjets and closed superjets are local.}
+If $f_1,f_2:E\to\R$ agree on a ball $B(0,b)$ with $b>0$, then
+$\overline J^{2,+}f_1(0)=\overline J^{2,+}f_2(0)$. Indeed, let
+$(p,X)\in\overline J^{2,+}f_1(0)$ with defining sequences $(z_k,p_k,X_k)$ as in
+\noderef{ClosedSuperjet}. Choose $k_0$ with $|z_k|<b/4$ for $k\ge k_0$. For
+$k\ge k_0$ and any $\varepsilon'>0$, the superjet condition of
+\noderef{Superjet} for $f_1$ at $z_k$ supplies some $\delta>0$, and replacing
+$\delta$ by $\min(\delta,b/4)$ --- which only weakens the condition --- we may
+assume $|h|<\delta$ implies $|z_k+h|<b/2<b$, so that $f_1$ and $f_2$ agree at
+$z_k$ and at $z_k+h$; hence the same inequality holds for $f_2$, giving
+$(p_k,X_k)\in J^{2,+}f_2(z_k)$. Also $f_2(z_k)=f_1(z_k)\to f_1(0)=f_2(0)$.
+Re-indexing the sequences by $k\ge k_0$ (which changes none of the limits)
+exhibits $(p,X)\in\overline J^{2,+}f_2(0)$. The reverse inclusion is symmetric.
+
+\emph{(B) Subtracting $|\cdot|^4$ does not change the closed superjet at $0$.}
+Let $s(w)=|w|^4$. Then $s$ is infinitely differentiable with
+$\nabla s(w)=4|w|^2w$ and $D^2s(w)(a,b)=4|w|^2\langle a,b\rangle
++8\langle w,a\rangle\langle w,b\rangle$, so $\nabla s(w)\to0$ and
+$\|D^2s(w)\|\to0$ as $w\to0$, and $D^2s(w)$ is symmetric. For any $f:E\to\R$,
+any $z\in E$ and any pair $(p,X)$ with $X$ symmetric,
+\begin{equation}\label{eq:srj-shift}
+  (p,X)\in J^{2,+}(f-s)(z)
+  \iff
+  \bigl(p+\nabla s(z),\,X+D^2s(z)\bigr)\in J^{2,+}f(z).
+\end{equation}
+Indeed, by the second-order Taylor expansion of the smooth $s$ at $z$
+(preamble), for every $\varepsilon''>0$ there is $\delta''>0$ with
+$|s(z+h)-s(z)-\langle\nabla s(z),h\rangle-\tfrac12D^2s(z)(h,h)|
+\le\varepsilon''|h|^2$ for $|h|<\delta''$; adding this to the defining
+inequality of \noderef{Superjet} for $f-s$ at $z$ with parameter
+$\varepsilon'$ turns it into the inequality for $f$ at $z$ with the shifted jet
+and parameter $\varepsilon'+\varepsilon''$, and conversely. Since the defining
+condition quantifies over all positive parameters, the two memberships are
+equivalent. Passing to closed superjets, the defining sequences
+$(z_k,p_k,X_k)$ for $f-s$ at $0$ correspond to the sequences
+$(z_k,p_k+\nabla s(z_k),X_k+D^2s(z_k))$ for $f$ at $0$; because
+$\nabla s(z_k)\to0$ and $D^2s(z_k)\to0$ the limits $(p,X)$ are unchanged, and
+$(f-s)(z_k)\to(f-s)(0)$ is equivalent to $f(z_k)\to f(0)$ since $s$ is
+continuous. Hence
+$\overline J^{2,+}(f-s)(0)=\overline J^{2,+}f(0)$.
+
+\emph{(C) Translating and subtracting an affine function.}
+Fix $j$ and set $\widehat g_j(w)=g_j(\widehat z_j+w)-g_j(\widehat z_j)
+-\langle\widehat p_j,w\rangle$, so $\widehat g_j(0)=0$. For every $w_0\in E$ and
+every pair $(q,X)$,
+\[
+  (q,X)\in J^{2,+}\widehat g_j(w_0)
+  \iff
+  (q+\widehat p_j,X)\in J^{2,+}g_j(\widehat z_j+w_0),
+\]
+because substituting the definition of $\widehat g_j$ into the inequality of
+\noderef{Superjet} at $w_0$ and cancelling the affine terms
+$-\langle\widehat p_j,w_0+h\rangle$ and $-\langle\widehat p_j,w_0\rangle$ yields
+exactly the inequality for $g_j$ at $\widehat z_j+w_0$ with the gradient
+increased by $\widehat p_j$ and the same $\delta$. Translating the defining
+sequences accordingly --- $w_k\to0$ iff $\widehat z_j+w_k\to\widehat z_j$, and
+$\widehat g_j(w_k)\to0$ iff $g_j(\widehat z_j+w_k)\to g_j(\widehat z_j)$ ---
+gives
+\begin{equation}\label{eq:srj-translate}
+  (q,X)\in\overline J^{2,+}\widehat g_j(0)
+  \iff
+  (q+\widehat p_j,X)\in\overline J^{2,+}g_j(\widehat z_j).
+\end{equation}
+
+\emph{(D) The closed superjet is a closed set.}
+Let $f:E\to\R$, $z\in E$, and let $(p^{(m)},X^{(m)})\in\overline J^{2,+}f(z)$
+with $p^{(m)}\to p$ and $X^{(m)}\to X$. For each $m$ pick defining sequences
+$(z^{(m)}_k,p^{(m)}_k,X^{(m)}_k)_k$ as in \noderef{ClosedSuperjet}, and then
+$k(m)$ so large that
+\[
+  \bigl|z^{(m)}_{k(m)}-z\bigr|<\tfrac1m,\quad
+  \bigl|f(z^{(m)}_{k(m)})-f(z)\bigr|<\tfrac1m,\quad
+  \bigl|p^{(m)}_{k(m)}-p^{(m)}\bigr|<\tfrac1m,\quad
+  \bigl\|X^{(m)}_{k(m)}-X^{(m)}\bigr\|<\tfrac1m .
+\]
+Setting $\zeta_m=z^{(m)}_{k(m)}$, $\pi_m=p^{(m)}_{k(m)}$,
+$\Xi_m=X^{(m)}_{k(m)}$ we get $(\pi_m,\Xi_m)\in J^{2,+}f(\zeta_m)$,
+$\zeta_m\to z$, $f(\zeta_m)\to f(z)$, $\pi_m\to p$ and $\Xi_m\to X$; so
+$(p,X)\in\overline J^{2,+}f(z)$.
+
+\medskip\noindent\emph{Part II: reduction to a quadratic test with a strict
+global maximum.}
+
+Fix $\tau\in(0,1]$ and let $B_\tau:V\to V$ be the self-adjoint operator
+$B_\tau=\bar A+\tau\,\mathrm{id}$.
+
+\emph{(II.1) A quadratic majorant.}
+By the second-order Taylor expansion of $\Psi$ at $\widehat Z$ (preamble),
+$\Psi(\widehat Z+W)=\Psi(\widehat Z)+\langle\widehat P,W\rangle
++\tfrac12A(W,W)+R(W)$ with $|R(W)|/|W|^2\to0$. The local maximum at
+$\widehat Z$ gives $\rho'>0$ with
+$\sum_jg_j(\widehat z_j+w_j)-\Psi(\widehat Z+W)\le\sum_jg_j(\widehat z_j)
+-\Psi(\widehat Z)$ for $|W|\le\rho'$. Using \eqref{eq:srj-inner}, for
+$|W|\le\rho'$,
+\[
+  \sum_j\widehat g_j(w_j)
+   =\sum_jg_j(\widehat z_j+w_j)-\sum_jg_j(\widehat z_j)-\langle\widehat P,W\rangle
+   \le\Psi(\widehat Z+W)-\Psi(\widehat Z)-\langle\widehat P,W\rangle
+   =\tfrac12A(W,W)+R(W).
+\]
+Choose $\rho_\tau\in(0,\rho']$ with $|R(W)|\le(\tau/2)|W|^2$ for
+$|W|\le\rho_\tau$. Since $\tfrac12A(W,W)+(\tau/2)|W|^2
+=\tfrac12\langle B_\tau W,W\rangle$, we obtain
+\begin{equation}\label{eq:srj-majorant}
+  \sum_j\widehat g_j(w_j)\le\tfrac12\langle B_\tau W,W\rangle
+  \qquad(|W|\le\rho_\tau),
+\end{equation}
+with equality at $W=0$ (both sides vanish, as $\widehat g_j(0)=0$).
+
+\emph{(II.2) Localization.}
+Each $O_j$ is open and $\widehat z_j\in O_j$, so there is $\rho''>0$ with
+$\overline B(\widehat z_j,\rho'')\subseteq O_j$ for every one of the finitely
+many $j$. Put
+\[
+  a=\frac{\min(\rho_\tau,\rho'')}{1+\sqrt N}>0 .
+\]
+Then $a\le\rho''$, so $\widehat g_j$ is defined and continuous on
+$\overline B(0,a)$; and if $|w_j|\le a$ for all $j$ then
+$|W|\le a\sqrt N\le\rho_\tau$, so \eqref{eq:srj-majorant} applies. Let
+$M_j=\max_{\overline B(0,a)}|\widehat g_j|$, finite by continuity and
+compactness (preamble) and nonnegative because $\widehat g_j(0)=0$; put
+$C=\max_jM_j\ge0$.
+
+Let $\pi:E\to\overline B(0,a)$ be the radial retraction, $\pi(w)=w$ for
+$|w|\le a$ and $\pi(w)=aw/|w|$ for $|w|>a$; it is continuous. Write
+$(s)_+=\max(s,0)$ and set $K=\|B_\tau\|N(a+1)+1$ and
+\[
+  G_j(w)=\widehat g_j(\pi(w))-K(|w|-a)_+-K(|w|-a)_+^2-|w|^4 .
+\]
+Then:
+\begin{enumerate}
+\item[(G1)] $G_j$ is continuous on $E$ and $G_j\le M_j\le C\le C+|w|$ for all
+$w$, since the three subtracted terms are nonnegative.
+\item[(G2)] $G_j(w)=\widehat g_j(w)-|w|^4$ for $|w|\le a$.
+\item[(G3)] Writing $\Phi(W)=\sum_jG_j(w_j)-\tfrac12\langle B_\tau W,W\rangle$, we
+have $\Phi(0)=0$ and $\Phi(W)\le-\sum_j|w_j|^4<0$ for $W\ne0$.
+\end{enumerate}
+Only (G3) needs an argument. $\Phi(0)=\sum_j\widehat g_j(0)=0$. Let $W\ne0$,
+put $m=\max_j(|w_j|-a)_+\ge0$ and $\Pi W=(\pi(w_j))_j$. If $m=0$ then
+$|w_j|\le a$ for all $j$, so $\pi(w_j)=w_j$ and the penalty terms vanish; by
+\eqref{eq:srj-majorant} (applicable since $|W|\le a\sqrt N\le\rho_\tau$),
+$\Phi(W)\le-\sum_j|w_j|^4$. If $m>0$, then $|\pi(w_j)|\le a$ for all $j$ gives
+$|\Pi W|\le a\sqrt N\le\rho_\tau$, so \eqref{eq:srj-majorant} applied to
+$\Pi W$ gives $\sum_j\widehat g_j(\pi(w_j))\le\tfrac12\langle B_\tau\Pi W,\Pi
+W\rangle$; moreover $\sum_j(|w_j|-a)_+\ge m$ and
+$\sum_j(|w_j|-a)_+^2\ge m^2$, whence
+\[
+  \Phi(W)\le\tfrac12\bigl[\langle B_\tau\Pi W,\Pi W\rangle
+     -\langle B_\tau W,W\rangle\bigr]-Km-Km^2-\sum_j|w_j|^4 .
+\]
+Since $B_\tau$ is self-adjoint,
+$\langle B_\tau W,W\rangle-\langle B_\tau\Pi W,\Pi W\rangle
+=\langle B_\tau(W-\Pi W),W+\Pi W\rangle$. Here
+$|W-\Pi W|^2=\sum_j\bigl((|w_j|-a)_+\bigr)^2\le Nm^2$, so
+$|W-\Pi W|\le\sqrt Nm$, and $|W+\Pi W|\le|W|+|\Pi W|\le2a\sqrt N+\sqrt Nm$.
+Therefore
+\[
+  \tfrac12\bigl|\langle B_\tau\Pi W,\Pi W\rangle-\langle B_\tau W,W\rangle\bigr|
+   \le\tfrac12\|B_\tau\|\sqrt Nm\bigl(2a\sqrt N+\sqrt Nm\bigr)
+   =\|B_\tau\|Nam+\tfrac12\|B_\tau\|Nm^2,
+\]
+and so
+\[
+  \Phi(W)\le m\bigl(\|B_\tau\|Na-K\bigr)+m^2\bigl(\tfrac12\|B_\tau\|N-K\bigr)
+     -\sum_j|w_j|^4\le-\sum_j|w_j|^4,
+\]
+because $K\ge\|B_\tau\|Na$ and $K\ge\|B_\tau\|N\ge\tfrac12\|B_\tau\|N$ by the
+choice of $K$. Finally $\sum_j|w_j|^4>0$ since $W\ne0$, which proves (G3).
+
+\medskip\noindent\emph{Part III: the sup-convolution duality.}
+
+Put
+\[
+  \varepsilon=\min\Bigl(\frac{\eta}{2},\ \frac1{2\|B_\tau\|+2}\Bigr)>0,
+\]
+so that $\varepsilon\|B_\tau\|\le\|B_\tau\|/(2\|B_\tau\|+2)\le\tfrac12$ and
+$2\varepsilon\le\eta$; the second property is used only in (V.2). Then
+$\mathrm{id}-\varepsilon B_\tau$ is invertible, with inverse given by the
+convergent Neumann series $\sum_{k\ge0}(\varepsilon B_\tau)^k$, which is
+self-adjoint and commutes with $B_\tau$. Put
+\[
+  A_\varepsilon=B_\tau(\mathrm{id}-\varepsilon B_\tau)^{-1},
+\]
+a self-adjoint operator on $V$, and note the identity
+\begin{equation}\label{eq:srj-resolvent}
+  \mathrm{id}+\varepsilon A_\varepsilon
+   =\bigl[(\mathrm{id}-\varepsilon B_\tau)+\varepsilon B_\tau\bigr]
+     (\mathrm{id}-\varepsilon B_\tau)^{-1}
+   =(\mathrm{id}-\varepsilon B_\tau)^{-1}.
+\end{equation}
+Since $\langle(\mathrm{id}-\varepsilon B_\tau)\xi,\xi\rangle
+\ge(1-\varepsilon\|B_\tau\|)|\xi|^2\ge\tfrac12|\xi|^2$, the operator
+$\mathrm{id}-\varepsilon B_\tau$ is positive definite, hence so is its inverse
+$\mathrm{id}+\varepsilon A_\varepsilon$, and therefore so is
+$\varepsilon^{-1}\mathrm{id}+A_\varepsilon
+=\varepsilon^{-1}(\mathrm{id}+\varepsilon A_\varepsilon)$:
+\begin{equation}\label{eq:srj-posdef}
+  \bigl\langle(\varepsilon^{-1}\mathrm{id}+A_\varepsilon)\xi,\xi\bigr\rangle>0
+  \qquad(\xi\ne0).
+\end{equation}
+
+Set $\mathcal G(W)=\sum_jG_j(w_j)$, a continuous function on $V$ with
+$\mathcal G\le NC$, so that $\mathcal G(W)\le NC+|W|$, and let
+$\mathcal G^\varepsilon$ be its sup-convolution on $V$
+(\noderef{SupConvolution}). By part (1) of
+\noderef{SupConvolutionSemiconvex}, applied in $V$ with the growth constant
+$NC$, each defining set is bounded above, so $\mathcal G^\varepsilon$ is finite;
+likewise each $G_j^\varepsilon$ is finite by (G1) and part (1) of
+\noderef{SupConvolutionSemiconvex} in $E$.
+
+\emph{(III.1) Separability.}
+Since $|Z-W|^2=\sum_j|z_j-w_j|^2$,
+\[
+  \mathcal G^\varepsilon(Z)
+   =\sup_{W\in V}\sum_j\Bigl(G_j(w_j)-\frac{|z_j-w_j|^2}{2\varepsilon}\Bigr)
+   =\sum_j\sup_{w_j\in E}\Bigl(G_j(w_j)-\frac{|z_j-w_j|^2}{2\varepsilon}\Bigr)
+   =\sum_jG_j^\varepsilon(z_j),
+\]
+the middle step because a supremum of a sum of functions of independent
+variables, each bounded above, is the sum of the suprema.
+
+\emph{(III.2) The duality identity.}
+For $(Z,W)\in V\times V$ put
+$F(Z,W)=\mathcal G(W)-|Z-W|^2/(2\varepsilon)
+-\tfrac12\langle A_\varepsilon Z,Z\rangle$, and
+$\Upsilon(Z)=\mathcal G^\varepsilon(Z)-\tfrac12\langle A_\varepsilon Z,Z\rangle$,
+so that $\Upsilon(Z)=\sup_WF(Z,W)$.
+
+Fix $W$ and consider $Z\mapsto F(Z,W)$. Its quadratic part is
+$-\tfrac12\langle(\varepsilon^{-1}\mathrm{id}+A_\varepsilon)Z,Z\rangle$, which
+by \eqref{eq:srj-posdef} is negative definite; so $F(\cdot,W)$ is a strictly
+concave quadratic and has a unique maximum at its critical point, determined by
+$-(Z-W)/\varepsilon-A_\varepsilon Z=0$, i.e.
+$(\mathrm{id}+\varepsilon A_\varepsilon)Z=W$, i.e.
+$Z_W=(\mathrm{id}-\varepsilon B_\tau)W$ by \eqref{eq:srj-resolvent}. Writing
+$T=\mathrm{id}-\varepsilon B_\tau$ we have $Z_W-W=-\varepsilon B_\tau W$, so
+$|Z_W-W|^2/(2\varepsilon)=\tfrac{\varepsilon}{2}|B_\tau W|^2$, and
+\[
+  \langle A_\varepsilon Z_W,Z_W\rangle
+   =\langle B_\tau T^{-1}TW,TW\rangle=\langle B_\tau W,TW\rangle
+   =\langle B_\tau W,W\rangle-\varepsilon|B_\tau W|^2 .
+\]
+Hence
+\begin{equation}\label{eq:srj-duality}
+  \sup_ZF(Z,W)=\mathcal G(W)-\frac{\varepsilon}{2}|B_\tau W|^2
+   -\frac12\Bigl(\langle B_\tau W,W\rangle-\varepsilon|B_\tau W|^2\Bigr)
+   =\mathcal G(W)-\tfrac12\langle B_\tau W,W\rangle=\Phi(W).
+\end{equation}
+
+\emph{(III.3) $\Upsilon$ has a strict global maximum at $0$.}
+By \eqref{eq:srj-duality} and (G3),
+$\sup_{Z,W}F=\sup_W\Phi=0$, and $F(Z,W)=0$ forces $\Phi(W)\ge F(Z,W)=0$, hence
+$W=0$ by (G3), and then $Z=Z_0=T\cdot0=0$ by the uniqueness of the maximizer of
+$F(\cdot,0)$. So the joint maximum $0$ is attained exactly at $(0,0)$.
+Consequently $\Upsilon\le0$ everywhere, and
+$\Upsilon(0)=\sup_WF(0,W)\ge F(0,0)=0$, so $\Upsilon(0)=0$. Finally, for each
+$Z$ the supremum $\Upsilon(Z)=\sup_WF(Z,W)$ is attained: $F(Z,\cdot)$ is
+continuous, and $F(Z,W)\le NC-|Z-W|^2/(2\varepsilon)
+-\tfrac12\langle A_\varepsilon Z,Z\rangle$, whose right-hand side tends to
+$-\infty$ as $|W|\to\infty$. Choose therefore $S>0$ so large that this bound is
+$<F(Z,Z)$ whenever $|W-Z|>S$; then $\sup_WF(Z,W)
+=\max_{\overline B(Z,S)}F(Z,\cdot)$, since every $W$ outside
+$\overline B(Z,S)$ gives a value below the one already attained at $W=Z$
+inside the ball. The ball $\overline B(Z,S)$ is closed and bounded, hence
+compact and nonempty, so the maximum is attained (preamble). Hence
+$\Upsilon(Z)=0$ implies $F(Z,W)=0$ for some $W$, which forces $Z=0$.
+Therefore
+\begin{equation}\label{eq:srj-strict}
+  \Upsilon(0)=0,\qquad \Upsilon(Z)<0\ \ (Z\ne0).
+\end{equation}
+
+\emph{(III.4) $\Upsilon$ is semiconvex and continuous.}
+By part (3) of \noderef{SupConvolutionSemiconvex}, applied in $V$ to
+$\mathcal G$ with growth constant $NC$, the function
+$\mathcal G^\varepsilon+|\cdot|^2/(2\varepsilon)$ is convex on $V$. Also
+$Z\mapsto-\tfrac12\langle A_\varepsilon Z,Z\rangle
++\tfrac12\|A_\varepsilon\|\,|Z|^2
+=\tfrac12\langle(\|A_\varepsilon\|\mathrm{id}-A_\varepsilon)Z,Z\rangle$ is
+convex: for a self-adjoint $S$ with $\langle S\xi,\xi\rangle\ge0$ and
+$t_1,t_2\ge0$, $t_1+t_2=1$, one has
+\[
+  \langle S(t_1\xi_1+t_2\xi_2),t_1\xi_1+t_2\xi_2\rangle
+   -t_1\langle S\xi_1,\xi_1\rangle-t_2\langle S\xi_2,\xi_2\rangle
+   =-t_1t_2\langle S(\xi_1-\xi_2),\xi_1-\xi_2\rangle\le0,
+\]
+and here $S=\|A_\varepsilon\|\mathrm{id}-A_\varepsilon$ satisfies
+$\langle S\xi,\xi\rangle\ge0$. Adding the two convex functions shows that
+$\Upsilon+\tfrac{\lambda}{2}|\cdot|^2$ is convex on $V$ with
+\[
+  \lambda:=\varepsilon^{-1}+\|A_\varepsilon\|>0,
+\]
+that is, $\Upsilon$ is $\lambda$-semiconvex on $V$ in the sense of
+\noderef{SemiconvexOn}; the same then holds on any convex subset of $V$.
+Moreover $\Upsilon+\tfrac\lambda2|\cdot|^2$ is a finite convex function on the
+open set $V$, hence continuous (preamble), so $\Upsilon$ is continuous.
+
+\medskip\noindent\emph{Part IV: Jensen's lemma and the second-order expansion.}
+
+Let $R>0$ and $\delta'>0$. By \eqref{eq:srj-strict} the point $0$ is a strict
+maximum point of $\Upsilon$ on $\overline B(0,R)$, and $\Upsilon$ is continuous
+there and $\lambda$-semiconvex on $B(0,R)$ by (III.4). Fix an additive Haar
+measure $\mu_V$ on $V$. By \noderef{JensenLemma} the set
+\[
+  \mathcal K=\bigl\{Z\in B(0,R):\exists\,Q,\ |Q|\le\delta',\
+    \Upsilon+\langle Q,\cdot\rangle\ \text{has a local maximum on }B(0,R)
+    \text{ at }Z\bigr\}
+\]
+satisfies $\mu_V(\mathcal K)>0$. By \noderef{SemiconvexSecondOrderAe}, applied
+in $V$ with this $\lambda$ and the open convex set $B(0,R)$, there is a
+$\mu_V$-null set $\mathcal N$ such that every $Z\in B(0,R)\setminus\mathcal N$
+admits $q_\Upsilon\in V$ and a symmetric continuous bilinear form $A_\Upsilon$ on
+$V$ with $A_\Upsilon(\zeta,\zeta)\ge-\lambda|\zeta|^2$ and, for every
+$\delta>0$, some $\rho(\delta)>0$ with
+\begin{equation}\label{eq:srj-expansion}
+  \bigl|\Upsilon(Z+\zeta)-\Upsilon(Z)-\langle q_\Upsilon,\zeta\rangle
+    -\tfrac12A_\Upsilon(\zeta,\zeta)\bigr|\le\delta|\zeta|^2
+  \qquad(|\zeta|<\rho(\delta)).
+\end{equation}
+Since $\mu_V(\mathcal K)>0=\mu_V(\mathcal N)$, we may pick
+$\widehat Z'\in\mathcal K\setminus\mathcal N$; fix a multiplier $Q$ with
+$|Q|\le\delta'$ and expansion data $(q_\Upsilon,A_\Upsilon)$ at
+$\widehat Z'$.
+
+\emph{(IV.1) First- and second-order conditions.}
+As $B(0,R)$ is open and $\widehat Z'\in B(0,R)$, there is $\rho_1>0$ with
+$B(\widehat Z',\rho_1)\subseteq B(0,R)$ and
+\begin{equation}\label{eq:srj-max}
+  \Upsilon(\widehat Z'+\zeta)-\Upsilon(\widehat Z')\le-\langle Q,\zeta\rangle
+  \qquad(|\zeta|<\rho_1).
+\end{equation}
+Let $\delta>0$ and $|\zeta|<\min(\rho_1,\rho(\delta))$. Combining
+\eqref{eq:srj-expansion} and \eqref{eq:srj-max},
+\[
+  \langle q_\Upsilon+Q,\zeta\rangle
+   \le-\tfrac12A_\Upsilon(\zeta,\zeta)+\delta|\zeta|^2 .
+\]
+Taking $\zeta=tv$ with $|v|=1$ and $t\downarrow0$, and dividing by $t$, gives
+$\langle q_\Upsilon+Q,v\rangle\le0$ for every unit $v$, hence
+\begin{equation}\label{eq:srj-first}
+  q_\Upsilon=-Q .
+\end{equation}
+Substituting \eqref{eq:srj-first} back, $\tfrac12A_\Upsilon(\zeta,\zeta)
+\le\delta|\zeta|^2$ for $|\zeta|$ small; taking $\zeta=tv$, dividing by $t^2$
+and letting $\delta\downarrow0$ gives
+\begin{equation}\label{eq:srj-second}
+  A_\Upsilon(\zeta,\zeta)\le0\qquad(\zeta\in V).
+\end{equation}
+
+\emph{(IV.2) The expansion of $\mathcal G^\varepsilon$ and the forms $X_j$.}
+Since $\mathcal G^\varepsilon(Z)=\Upsilon(Z)
++\tfrac12\langle A_\varepsilon Z,Z\rangle$ and, exactly,
+$\tfrac12\langle A_\varepsilon(\widehat Z'+\zeta),\widehat Z'+\zeta\rangle
+=\tfrac12\langle A_\varepsilon\widehat Z',\widehat Z'\rangle
++\langle A_\varepsilon\widehat Z',\zeta\rangle
++\tfrac12\langle A_\varepsilon\zeta,\zeta\rangle$ (using self-adjointness),
+\eqref{eq:srj-expansion} becomes: with
+\[
+  \Pi:=q_\Upsilon+A_\varepsilon\widehat Z'=-Q+A_\varepsilon\widehat Z',
+  \qquad
+  A':=A_\Upsilon+\langle A_\varepsilon\cdot,\cdot\rangle,
+\]
+a symmetric continuous bilinear form on $V$,
+\begin{equation}\label{eq:srj-Gexp}
+  \bigl|\mathcal G^\varepsilon(\widehat Z'+\zeta)-\mathcal G^\varepsilon(\widehat Z')
+    -\langle\Pi,\zeta\rangle-\tfrac12A'(\zeta,\zeta)\bigr|\le\delta|\zeta|^2
+  \qquad(|\zeta|<\rho(\delta)).
+\end{equation}
+Define, for each $j$, the continuous bilinear form
+$X_j(a,b)=A'(\iota_ja,\iota_jb)$ on $E$; it is symmetric because $A'$ is.
+Taking $\zeta=\iota_jh$ in \eqref{eq:srj-Gexp} and using (III.1) --- which shows
+that changing only the $j$-th component of $Z$ changes
+$\mathcal G^\varepsilon$ only through $G_j^\varepsilon$ --- together with
+$\langle\Pi,\iota_jh\rangle=\langle\Pi_j,h\rangle$ and $|\iota_jh|=|h|$,
+\begin{equation}\label{eq:srj-Gjexp}
+  \bigl|G_j^\varepsilon(\widehat z'_j+h)-G_j^\varepsilon(\widehat z'_j)
+   -\langle\Pi_j,h\rangle-\tfrac12X_j(h,h)\bigr|\le\delta|h|^2
+  \qquad(|h|<\rho(\delta)).
+\end{equation}
+In particular, taking $\delta=\varepsilon'$ for an arbitrary $\varepsilon'>0$,
+the defining inequality of \noderef{Superjet} holds, so
+\begin{equation}\label{eq:srj-jet}
+  (\Pi_j,X_j)\in J^{2,+}G_j^\varepsilon(\widehat z'_j)\qquad(1\le j\le N).
+\end{equation}
+
+\emph{(IV.3) The matrix inequality.}
+Summing \eqref{eq:srj-Gjexp} over $j$ with $h=\zeta_j$: if $|\zeta|<\rho(\delta)$
+then $|\zeta_j|\le|\zeta|<\rho(\delta)$ for every $j$, so
+\[
+  \Bigl|\mathcal G^\varepsilon(\widehat Z'+\zeta)
+   -\mathcal G^\varepsilon(\widehat Z')-\langle\Pi,\zeta\rangle
+   -\tfrac12\sum_jX_j[\zeta_j]\Bigr|\le\sum_j\delta|\zeta_j|^2=\delta|\zeta|^2,
+\]
+where we used (III.1) again, together with $\sum_j\langle\Pi_j,\zeta_j\rangle
+=\langle\Pi,\zeta\rangle$ and $\sum_j|\zeta_j|^2=|\zeta|^2$, both instances of
+the definition of the $\ell^2$-product inner product (preamble). Comparing with
+\eqref{eq:srj-Gexp} gives
+$\bigl|\tfrac12A'(\zeta,\zeta)-\tfrac12\sum_jX_j[\zeta_j]\bigr|
+\le2\delta|\zeta|^2$ for $|\zeta|<\rho(\delta)$. Both
+$\zeta\mapsto A'(\zeta,\zeta)$ and $\zeta\mapsto\sum_jX_j[\zeta_j]$ are
+homogeneous of degree two, so replacing $\zeta$ by $tv$ with $|v|=1$ and
+dividing by $t^2$ shows
+$|\tfrac12A'(v,v)-\tfrac12\sum_jX_j[v_j]|\le2\delta$ for every unit $v$ and
+every $\delta>0$. Hence
+\begin{equation}\label{eq:srj-diag}
+  \sum_jX_j[\zeta_j]=A'(\zeta,\zeta)
+   =A_\Upsilon(\zeta,\zeta)+\langle A_\varepsilon\zeta,\zeta\rangle
+  \qquad(\zeta\in V).
+\end{equation}
+By \eqref{eq:srj-second} and $A_\Upsilon(\zeta,\zeta)\ge-\lambda|\zeta|^2$,
+\begin{equation}\label{eq:srj-bounds}
+  -\bigl(\lambda+\|A_\varepsilon\|\bigr)|\zeta|^2
+   \le\sum_jX_j[\zeta_j]\le\langle A_\varepsilon\zeta,\zeta\rangle
+   \le\|A_\varepsilon\|\,|\zeta|^2 .
+\end{equation}
+Taking $\zeta=\iota_ja$ in \eqref{eq:srj-bounds} gives
+$|X_j[a]|\le(\lambda+\|A_\varepsilon\|)|a|^2$, and by the polarization identity
+$X_j(a,b)=\tfrac14\bigl(X_j[a+b]-X_j[a-b]\bigr)$ together with
+$|a+b|^2+|a-b|^2=2(|a|^2+|b|^2)$ we get
+$\|X_j\|\le\lambda+\|A_\varepsilon\|$.
+
+\emph{(IV.4) Transfer to $G_j$.}
+By (G1) the function $G_j$ is continuous with $G_j(w)\le C+|w|$, and
+$\varepsilon>0$; so \noderef{SupConvolutionMagic} applies to the jet
+\eqref{eq:srj-jet} and yields
+\begin{equation}\label{eq:srj-magic}
+  (\Pi_j,X_j)\in J^{2,+}G_j\bigl(\widehat z'_j+\varepsilon\Pi_j\bigr).
+\end{equation}
+
+\medskip\noindent\emph{Part V: the limits.}
+
+\emph{(V.1) Letting $R,\delta'\downarrow0$.}
+Fix $R_0>0$ and apply Part IV with $R=\min(R_0,1/k)$ and $\delta'=1/k$, for
+$k=1,2,\dots$; this produces $\widehat Z'^{(k)}$ with
+$|\widehat Z'^{(k)}|<1/k$, a multiplier $Q^{(k)}$ with $|Q^{(k)}|\le1/k$, the
+vector $\Pi^{(k)}=-Q^{(k)}+A_\varepsilon\widehat Z'^{(k)}$ and symmetric forms
+$X_j^{(k)}$ satisfying \eqref{eq:srj-bounds} and \eqref{eq:srj-magic}. Then
+$|\Pi^{(k)}|\le(1+\|A_\varepsilon\|)/k\to0$, so the base points
+$\widehat z'^{(k)}_j+\varepsilon\Pi_j^{(k)}\to0$, and by (IV.3) the forms
+$X_j^{(k)}$ are bounded by $\lambda+\|A_\varepsilon\|$, a bound independent of
+$k$. The space of $N$-tuples of continuous bilinear forms on the
+finite-dimensional space $E$ is itself finite-dimensional, so by
+Bolzano--Weierstrass (preamble) there is a subsequence along which
+$X_j^{(k)}\to X_j^{\infty}$ for every $j$. Each $X_j^\infty$ is symmetric, and
+passing to the limit in \eqref{eq:srj-bounds},
+\begin{equation}\label{eq:srj-limit1}
+  \sum_jX_j^\infty[\zeta_j]\le\langle A_\varepsilon\zeta,\zeta\rangle,
+  \qquad
+  \sum_jX_j^\infty[\zeta_j]\ge-\bigl(\lambda+\|A_\varepsilon\|\bigr)|\zeta|^2 .
+\end{equation}
+Moreover the sequences
+$z_k=\widehat z'^{(k)}_j+\varepsilon\Pi_j^{(k)}\to0$, $p_k=\Pi_j^{(k)}\to0$,
+$X_k=X_j^{(k)}\to X_j^\infty$ satisfy $(p_k,X_k)\in J^{2,+}G_j(z_k)$ by
+\eqref{eq:srj-magic} and $G_j(z_k)\to G_j(0)$ by the continuity of $G_j$; this
+is exactly the defining condition of \noderef{ClosedSuperjet}, so
+\begin{equation}\label{eq:srj-closed}
+  (0,X_j^\infty)\in\overline J^{2,+}G_j(0)\qquad(1\le j\le N).
+\end{equation}
+By (G2) the functions $G_j$ and $\widehat g_j-|\cdot|^4$ agree on $B(0,a)$, so
+Part I(A) and Part I(B) give
+$\overline J^{2,+}G_j(0)=\overline J^{2,+}\widehat g_j(0)$, and then
+\eqref{eq:srj-translate} turns \eqref{eq:srj-closed} into
+\begin{equation}\label{eq:srj-pj}
+  (\widehat p_j,X_j^\infty)\in\overline J^{2,+}g_j(\widehat z_j)
+  \qquad(1\le j\le N).
+\end{equation}
+
+\emph{(V.2) Comparing $A_\varepsilon$ with $B_\tau+\eta B_\tau^2$.}
+Recall from Part III that $\varepsilon\|B_\tau\|\le\tfrac12$ and
+$2\varepsilon\le\eta$. Since $B_\tau$ is self-adjoint on the
+finite-dimensional space $V$, there is an orthonormal basis $(v_i)$ of $V$ with
+$B_\tau v_i=b_iv_i$, $b_i\in\R$, $|b_i|\le\|B_\tau\|$. Then
+$(\mathrm{id}-\varepsilon B_\tau)v_i=(1-\varepsilon b_i)v_i$ with
+$1-\varepsilon b_i\ge1-\varepsilon\|B_\tau\|\ge\tfrac12>0$, so
+$A_\varepsilon v_i=a_iv_i$ with $a_i=b_i/(1-\varepsilon b_i)$ and
+\[
+  a_i-b_i=\frac{\varepsilon b_i^2}{1-\varepsilon b_i}\le2\varepsilon b_i^2
+   \le\eta b_i^2 .
+\]
+Writing $\zeta=\sum_ic_iv_i$ we have $\langle A_\varepsilon\zeta,\zeta\rangle
+=\sum_ia_ic_i^2$, $\langle B_\tau\zeta,\zeta\rangle=\sum_ib_ic_i^2$ and
+$|B_\tau\zeta|^2=\sum_ib_i^2c_i^2$, so the termwise inequality gives
+\begin{equation}\label{eq:srj-eigen}
+  \langle A_\varepsilon\zeta,\zeta\rangle
+   \le\langle B_\tau\zeta,\zeta\rangle+\eta|B_\tau\zeta|^2\qquad(\zeta\in V).
+\end{equation}
+Combining \eqref{eq:srj-limit1} and \eqref{eq:srj-eigen}, and writing
+$X_j^{\tau}=X_j^\infty$ to record the dependence on $\tau$,
+\begin{equation}\label{eq:srj-tau}
+  \sum_jX_j^{\tau}[\zeta_j]
+   \le\langle B_\tau\zeta,\zeta\rangle+\eta|B_\tau\zeta|^2\qquad(\zeta\in V).
+\end{equation}
+
+\emph{(V.3) Letting $\tau\downarrow0$.}
+For $\tau\in(0,1]$ we have $\|B_\tau\|\le\|\bar A\|+1$, hence
+$\|A_\varepsilon\|\le\|B_\tau\|/(1-\varepsilon\|B_\tau\|)\le2(\|\bar A\|+1)$ and
+$\varepsilon^{-1}=\max\bigl(2/\eta,\ 2\|B_\tau\|+2\bigr)
+\le\max\bigl(2/\eta,\ 2\|\bar A\|+4\bigr)$, so the bound
+$\lambda+\|A_\varepsilon\|=\varepsilon^{-1}+2\|A_\varepsilon\|$ is bounded by a
+constant $\Lambda$ depending only on $\eta$ and $\|\bar A\|$ and not on
+$\tau\in(0,1]$. By \eqref{eq:srj-bounds} and (IV.3), therefore,
+$\|X_j^\tau\|\le\Lambda$ for all $\tau\in(0,1]$ and all $j$.
+
+Apply the above with $\tau=1/k$, $k=1,2,\dots$. By Bolzano--Weierstrass
+(preamble) there is a subsequence along which $X_j^{1/k}\to X_j$ for every $j$;
+each $X_j$ is a symmetric continuous bilinear form on $E$. Along this
+subsequence:
+\begin{itemize}
+\item $B_{1/k}=\bar A+(1/k)\mathrm{id}\to\bar A$ in operator norm, so the
+right-hand side of \eqref{eq:srj-tau} converges to
+$\langle\bar A\zeta,\zeta\rangle+\eta|\bar A\zeta|^2=A[\zeta]+\eta|\bar A\zeta|^2$
+for each fixed $\zeta$; passing to the limit in \eqref{eq:srj-tau},
+\[
+  \sum_jX_j[\zeta_j]\le A[\zeta]+\eta|\bar A\zeta|^2\qquad(\zeta\in V).
+\]
+\item By \eqref{eq:srj-pj}, $(\widehat p_j,X_j^{1/k})\in
+\overline J^{2,+}g_j(\widehat z_j)$ for every $k$, and
+$X_j^{1/k}\to X_j$; so Part I(D) gives
+$(\widehat p_j,X_j)\in\overline J^{2,+}g_j(\widehat z_j)$.
+\end{itemize}
+These are exactly the two assertions of the lemma, with
+$\widehat p_j=D_j\Psi(\widehat Z)$.
+\end{proof}

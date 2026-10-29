@@ -1,0 +1,51 @@
+\begin{helper}[Selection from events of uniformly positive measure]
+Let $(X,\mathcal M,\mu)$ be a finite measure space, let $c>0$ be an element of
+$[0,\infty]$, let $E_j\in\mathcal M$ for $j\in\mathbb N$ satisfy
+\[
+  \mu(E_j)\ge c\qquad(j\ge1),
+\]
+and let $G\subseteq X$ satisfy $\mu(X\setminus G)=0$. Then there is a point
+$x\in G$ for which the set $\{j\ge1:x\in E_j\}$ is infinite.
+\end{helper}
+\begin{proof}
+No independence of the events $E_j$ is assumed or used.
+
+For $h\in\mathbb N$ put
+\[
+  U_h=\bigcup_{j\ge h}E_j\in\mathcal M .
+\]
+
+\emph{The tail unions are antitone with measure at least $c$.} If $a\le b$ then
+every $j\ge b$ satisfies $j\ge a$, so $U_b\subseteq U_a$; thus $h\mapsto U_h$ is
+antitone. For each $h$ the index $\max(h,1)$ satisfies both $\max(h,1)\ge h$ and
+$\max(h,1)\ge1$, so $E_{\max(h,1)}\subseteq U_h$ and the hypothesis applies to
+it, giving
+\[
+  c\le\mu\bigl(E_{\max(h,1)}\bigr)\le\mu(U_h).
+\]
+
+\emph{The intersection of the tail unions has measure at least $c$.} The
+$U_h$ are measurable, antitone, and $\mu(U_0)\le\mu(X)<\infty$ because $\mu$ is
+finite. By continuity of a finite measure along a decreasing sequence of
+measurable sets,
+\[
+  \mu\Bigl(\bigcap_{h\in\mathbb N}U_h\Bigr)=\inf_{h\in\mathbb N}\mu(U_h)\ge c,
+\]
+the last inequality because $c$ is a lower bound for every $\mu(U_h)$ by the
+previous paragraph.
+
+\emph{A point of $G$ in the intersection.} Since $\mu(X\setminus G)=0$ we have
+$\mu(A\cap G)=\mu(A)$ for every measurable $A$, so
+\[
+  \mu\Bigl(\Bigl(\bigcap_hU_h\Bigr)\cap G\Bigr)
+   =\mu\Bigl(\bigcap_hU_h\Bigr)\ge c>0 .
+\]
+A set of nonzero measure is nonempty, so we may choose
+$x\in\bigl(\bigcap_hU_h\bigr)\cap G$. In particular $x\in G$.
+
+\emph{The index set is infinite.} Let $S=\{j\ge1:x\in E_j\}$ and suppose $S$
+were bounded above by some $b\in\mathbb N$. Since $x\in U_{b+1}$ there is
+$j\ge b+1$ with $x\in E_j$; this $j$ satisfies $j\ge b+1\ge1$, hence $j\in S$,
+hence $j\le b$, contradicting $j\ge b+1$. So $S$ is not bounded above, and a
+subset of $\mathbb N$ that is not bounded above is infinite.
+\end{proof}

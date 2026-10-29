@@ -1,0 +1,198 @@
+\begin{lemma}[Optional stopping and the accumulated error budget]
+Let $(\Omega,\mathcal M,\mu)$ be a probability space, let
+$(\mathcal G_n)_{n\in\N}$ be a filtration of sub-$\sigma$-algebras of
+$\mathcal M$, let $J,\mathcal E:\N\times\Omega\to\R$ be two processes written
+$J_n$ and $\mathcal E_n$, let $\tau:\Omega\to\N$ and let
+$c,J_0,\Lambda,J^{\mathrm u},J^{\mathrm l}$ be real numbers. Assume:
+\begin{enumerate}
+\item\label{it:oseb-c} $c>0$ and $\Lambda\ge0$;
+\item\label{it:oseb-adapt} $J_n$ and $\mathcal E_n$ are $\mathcal
+G_n$-measurable for every $n$;
+\item\label{it:oseb-Enn} $\mathcal E_n(\omega)\ge0$ for every $n$ and every
+$\omega$;
+\item\label{it:oseb-tau} $\tau$ is a stopping time for $(\mathcal G_n)$;
+\item\label{it:oseb-J0} $J_0(\omega)=J_0$ for every $\omega$ --- the starting
+value is the constant $J_0$;
+\item\label{it:oseb-bds} $-J^{\mathrm l}\le J_n(\omega)\le J^{\mathrm u}$ for
+every $n$ and every $\omega$;
+\item\label{it:oseb-Eball} for almost every $\omega$ and every $n<\tau(\omega)$
+one has $c\,\mathcal E_n(\omega)\le\Lambda$;
+\item\label{it:oseb-sub} the process
+\[
+  M_n=J_n-c\sum_{k<n}\mathbf 1_{\{k<\tau\}}\mathcal E_k
+\]
+is a submartingale for $(\mathcal G_n)$ and $\mu$.
+\end{enumerate}
+Then:
+\begin{enumerate}
+\item[(i)] for every stopping time $\sigma$ for $(\mathcal G_n)$ with
+$\sigma\le\tau$ pointwise, the stopped value $\omega\mapsto
+J_{\sigma(\omega)}(\omega)$ is $\mu$-integrable and
+\[
+  J_0\le\int J_{\sigma(\omega)}(\omega)\,d\mu(\omega);
+\]
+\item[(ii)] the accumulated error
+$\omega\mapsto\sum_{k<\tau(\omega)}\mathcal E_k(\omega)$ is $\mu$-integrable;
+\item[(iii)] its mean obeys the budget
+\[
+  \int\sum_{k<\tau(\omega)}\mathcal E_k(\omega)\,d\mu(\omega)
+   \le\frac{J^{\mathrm u}-J_0}{c} .
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Nothing below uses more about the data than \ref{it:oseb-c}--\ref{it:oseb-sub};
+in particular the budget is stated with the symbolic numerator
+$J^{\mathrm u}-J_0$, and an application supplies its own bound
+$J^{\mathrm u}$ and its own starting value $J_0$.
+
+\emph{Step 0: random indices, boundedness and integrability.} Since each
+$\mathcal G_n$ is contained in $\mathcal M$, hypothesis
+\ref{it:oseb-adapt} makes every $J_i$ and every partial sum
+$\omega\mapsto\sum_{k<i}\mathcal E_k(\omega)$ measurable. Next, if
+$\rho:\Omega\to\N$ is measurable with $\rho\le h$ pointwise and
+$g_i:\Omega\to\R$ is measurable for each $i$, then
+$\omega\mapsto g_{\rho(\omega)}(\omega)$ is measurable, because
+\[
+  g_{\rho(\omega)}(\omega)
+   =\sum_{i\le h}\mathbf 1_{\{\rho=i\}}(\omega)\,g_i(\omega),
+\]
+a finite sum of measurable functions: for a fixed $\omega$ exactly one
+indicator is $1$, namely $i=\rho(\omega)$, which lies in the index range
+because $\rho(\omega)\le h$. We use this with $\rho=\sigma\wedge h$ for a
+stopping time $\sigma$, which is legitimate because a $\N$-valued stopping time
+is measurable: $\{\sigma=i\}\in\mathcal G_i\subseteq\mathcal M$ for every $i$
+and $\N$ is countable.
+
+Put $\Lambda_1=\max\{J^{\mathrm u},J^{\mathrm l}\}$. By \ref{it:oseb-bds},
+\begin{equation}\label{eq:oseb-Jabs}
+  |J_i(\omega)|\le\Lambda_1\qquad(i\in\N,\ \omega\in\Omega),
+\end{equation}
+since $J_i\le J^{\mathrm u}\le\Lambda_1$ and
+$-\Lambda_1\le-J^{\mathrm l}\le J_i$. As $\mu$ is a probability measure, the
+constant $\Lambda_1$ is integrable, so \eqref{eq:oseb-Jabs} shows that
+\begin{equation}\label{eq:oseb-Jint}
+  \omega\mapsto J_{\rho(\omega)}(\omega)\ \text{is integrable}
+\end{equation}
+for every $\rho:\Omega\to\N$ for which that function is measurable.
+
+\emph{Step 1: optional stopping at a truncated time.} Let $\sigma$ be a
+stopping time with $\sigma\le\tau$ and let $h\in\N$. Then $\sigma\wedge h$ is
+again a stopping time: $\{\sigma\wedge h\le i\}=\{\sigma\le i\}\cup\{h\le i\}$,
+and the second set is $\emptyset$ or $\Omega$ according as $i<h$ or $h\le i$;
+and it is bounded by $h$. The constant time $0$ is a stopping time with
+$0\le\sigma\wedge h\le h$, so optional stopping for submartingales, applied to
+$(M_n)$ of \ref{it:oseb-sub} at the bounded stopping times $0$ and
+$\sigma\wedge h$, gives
+\begin{equation}\label{eq:oseb-os}
+  \int M_0\,d\mu\ \le\ \int M_{\sigma(\omega)\wedge h}(\omega)\,d\mu(\omega).
+\end{equation}
+
+We compute both sides. The sum in $M_0$ is empty, so $M_0=J_0$, which is the
+constant $J_0$ by \ref{it:oseb-J0}; as $\mu(\Omega)=1$, the left side of
+\eqref{eq:oseb-os} is $J_0$. For the right side, if $k<\sigma(\omega)\wedge h$
+then $k<\sigma(\omega)\le\tau(\omega)$, so every indicator in the sum equals
+$1$ and
+\[
+  M_{\sigma(\omega)\wedge h}(\omega)
+   =J_{\sigma(\omega)\wedge h}(\omega)
+     -c\sum_{k<\sigma(\omega)\wedge h}\mathcal E_k(\omega).
+\]
+Both terms are integrable: the first by \eqref{eq:oseb-Jint} and Step 0, the
+second because it is measurable by Step 0 and, for almost every $\omega$,
+\[
+  0\le\sum_{k<\sigma(\omega)\wedge h}\mathcal E_k(\omega)
+   \le\sum_{k<\sigma(\omega)\wedge h}\frac{\Lambda}{c}
+   \le h\cdot\frac{\Lambda}{c},
+\]
+using \ref{it:oseb-Enn} for the first inequality and, for the second,
+hypothesis \ref{it:oseb-Eball} together with $k<\tau(\omega)$ and $c>0$; the
+last step uses $\sigma(\omega)\wedge h\le h$ and $\Lambda/c\ge0$, which holds
+by \ref{it:oseb-c}. So the integral of the right side splits, and
+\eqref{eq:oseb-os} becomes
+\begin{equation}\label{eq:oseb-trunc}
+  J_0+c\int\sum_{k<\sigma(\omega)\wedge h}\mathcal E_k(\omega)\,d\mu(\omega)
+   \ \le\ \int J_{\sigma(\omega)\wedge h}(\omega)\,d\mu(\omega).
+\end{equation}
+
+\emph{Step 2: conclusion (i).} Let $\sigma\le\tau$ be a stopping time. For each
+fixed $\omega$ the sequence $h\mapsto J_{\sigma(\omega)\wedge h}(\omega)$ is
+eventually constant, equal to $J_{\sigma(\omega)}(\omega)$ as soon as
+$h\ge\sigma(\omega)$; so it converges to $J_{\sigma(\omega)}(\omega)$. Each
+function $\omega\mapsto J_{\sigma(\omega)\wedge h}(\omega)$ is measurable by
+Step 0, so the pointwise limit $\omega\mapsto J_{\sigma(\omega)}(\omega)$ is
+measurable, and it is integrable by \eqref{eq:oseb-Jint}. By
+\eqref{eq:oseb-Jabs} the whole family is dominated by the integrable constant
+$\Lambda_1$, so dominated convergence gives
+\[
+  \int J_{\sigma(\omega)\wedge h}(\omega)\,d\mu(\omega)
+   \ \longrightarrow\ \int J_{\sigma(\omega)}(\omega)\,d\mu(\omega)
+  \qquad(h\to\infty).
+\]
+For each $h$, the error integral in \eqref{eq:oseb-trunc} is nonnegative by
+\ref{it:oseb-Enn} and $c>0$, so $J_0\le\int J_{\sigma(\cdot)\wedge h}\,d\mu$.
+A limit of numbers that are all at least $J_0$ is at least $J_0$, whence
+$J_0\le\int J_{\sigma(\cdot)}\,d\mu$. This is (i).
+
+\emph{Step 3: the truncated budget.} Take $\sigma=\tau$ in
+\eqref{eq:oseb-trunc}, which is admissible since $\tau\le\tau$. By
+\ref{it:oseb-bds} and $\mu(\Omega)=1$,
+\[
+  \int J_{\tau(\omega)\wedge h}(\omega)\,d\mu(\omega)
+   \le\int J^{\mathrm u}\,d\mu=J^{\mathrm u},
+\]
+the integral comparison being legitimate because the left integrand is
+integrable by \eqref{eq:oseb-Jint} and the right one is constant. Combining
+with \eqref{eq:oseb-trunc} gives
+$c\int\sum_{k<\tau(\omega)\wedge h}\mathcal E_k\,d\mu\le J^{\mathrm u}-J_0$,
+hence, dividing by $c>0$,
+\begin{equation}\label{eq:oseb-bnd}
+  \int\sum_{k<\tau(\omega)\wedge h}\mathcal E_k(\omega)\,d\mu(\omega)
+   \ \le\ \frac{J^{\mathrm u}-J_0}{c}\qquad(h\in\N).
+\end{equation}
+Since the left side is nonnegative --- the integrand is a finite sum of
+nonnegative terms --- the right side is nonnegative as well:
+\begin{equation}\label{eq:oseb-nn}
+  0\le\frac{J^{\mathrm u}-J_0}{c}.
+\end{equation}
+
+\emph{Step 4: conclusions (ii) and (iii).} Write $\iota:\R\to[0,\infty]$ for
+the map sending $s$ to $s$ when $s\ge0$ and to $0$ otherwise, and $\int^{*}$
+for the upper integral of a measurable $[0,\infty]$-valued function. Put
+\[
+  S_h(\omega)=\sum_{k<\tau(\omega)\wedge h}\mathcal E_k(\omega),
+  \qquad
+  S(\omega)=\sum_{k<\tau(\omega)}\mathcal E_k(\omega),
+\]
+both nonnegative by \ref{it:oseb-Enn}. Each $S_h$ is measurable by Step 0, and
+so is $S$, as their pointwise limit: $S_h(\omega)=S(\omega)$ as soon as
+$h\ge\tau(\omega)$, exactly as in Step 2.
+
+The functions $\iota\circ S_h$ are measurable and nondecreasing in $h$: for
+$h\le h'$ we have $\tau(\omega)\wedge h\le\tau(\omega)\wedge h'$, so the index
+set of $S_h$ is contained in that of $S_{h'}$ and the extra terms are
+nonnegative; and $\iota$ is nondecreasing. Their pointwise supremum is
+$\iota\circ S$, because $\iota(S_h(\omega))=\iota(S(\omega))$ once
+$h\ge\tau(\omega)$. Moreover each $S_h$ is nonnegative and integrable by
+Step 1, so its upper integral is $\iota$ of its integral. By the monotone
+convergence theorem for upper integrals of a nondecreasing sequence of
+measurable $[0,\infty]$-valued functions,
+\[
+  \int^{*}\iota\circ S\,d\mu
+   =\sup_h\int^{*}\iota\circ S_h\,d\mu
+   =\sup_h\iota\Bigl(\int S_h\,d\mu\Bigr)
+   \le\iota\Bigl(\frac{J^{\mathrm u}-J_0}{c}\Bigr)<\infty ,
+\]
+the inequality by \eqref{eq:oseb-bnd} and the monotonicity of $\iota$.
+
+Thus $S$ is a nonnegative measurable function whose upper integral is finite,
+so $S$ is integrable, which is (ii). Finally, for a nonnegative integrable
+function the integral is the real value of that upper integral, and
+$\iota\bigl((J^{\mathrm u}-J_0)/c\bigr)=(J^{\mathrm u}-J_0)/c$ by
+\eqref{eq:oseb-nn}, so the display gives
+\[
+  \int\sum_{k<\tau(\omega)}\mathcal E_k(\omega)\,d\mu(\omega)
+   \le\frac{J^{\mathrm u}-J_0}{c},
+\]
+which is (iii).
+\end{proof}

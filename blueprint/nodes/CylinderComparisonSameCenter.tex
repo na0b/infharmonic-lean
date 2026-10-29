@@ -1,0 +1,104 @@
+\begin{lemma}[Comparison of cylinder fits: common center]
+Let $E$ be a finite-dimensional real inner-product space and fix
+$0<c_*\le C_*<\infty$. There is $C>0$, depending only on $c_*$ and $C_*$, with
+the following property. Let $u:E\to\R$, let $z\in E$, let $0<\theta<1$, let
+$0<H\le H'\le2H$, and let $P,P'\in E$ with
+\[
+  c_*\le|P|,|P'|\le C_* .
+\]
+Suppose $P$ realizes the cylinder fit of parameter $\theta^2$ for $u$ at
+$(z,H)$ and $P'$ realizes the cylinder fit of parameter $\theta^2$ for $u$ at
+$(z,H')$, both in the sense of \noderef{IsCylinderFit}. Write $n=P/|P|$ and
+$n'=P'/|P'|$. Then
+\begin{equation}\label{eq:cylinder-comparison}
+  |P-P'|+|n-n'|\le C\theta,\qquad
+  \bigl||P|-|P'|\bigr|\le C\theta^2 .
+\end{equation}
+\end{lemma}
+\begin{proof}
+All the cylinders below are those of \noderef{FitCylinder}, with transverse
+radius $\sqrt{\theta^2}\,R=\theta R$ at axial radius $R$, since $\theta>0$.
+
+\emph{Step 1: both cylinders contain $\overline B_{\theta H}(z)$.}
+Let $|h|\le\theta H$. For the first cylinder $Z_{\theta^2}(z,H;P)$ the axial
+component satisfies $|h\cdot n|\le|h|\le\theta H\le H$, since $\theta<1$, and
+the transverse component satisfies $|h-(h\cdot n)n|\le|h|\le\theta H$. For the
+second cylinder $Z_{\theta^2}(z,H';P')$ we similarly get
+$|h\cdot n'|\le\theta H\le H\le H'$ and transverse length at most
+$\theta H\le\theta H'$. So $z+h$ lies in both.
+
+\emph{Step 2: the vector bound.}
+By \noderef{IsCylinderFit} the two fits give, for $|h|\le\theta H$,
+\[
+  |u(z+h)-u(z)-P\cdot h|\le\theta^2H,\qquad
+  |u(z+h)-u(z)-P'\cdot h|\le\theta^2H'\le2\theta^2H .
+\]
+Subtracting, $|(P-P')\cdot h|\le3\theta^2H$ for all $|h|\le\theta H$. If
+$P\ne P'$, take $h=\theta H(P-P')/|P-P'|$, which has $|h|=\theta H$; then
+$(P-P')\cdot h=\theta H|P-P'|$ and hence
+\begin{equation}\label{eq:ccsc-vector}
+  |P-P'|\le3\theta .
+\end{equation}
+If $P=P'$ this holds trivially.
+
+\emph{Step 3: the direction bound.}
+For nonzero vectors $a,b$ one has the elementary inequality
+\[
+  \left|\frac a{|a|}-\frac b{|b|}\right|
+   =\frac{\bigl|\,|b|a-|a|b\,\bigr|}{|a||b|}
+   \le\frac{\bigl|\,|b|(a-b)\,\bigr|+\bigl|(|b|-|a|)b\,\bigr|}{|a||b|}
+   \le\frac{2|a-b|}{|a|},
+\]
+using $\bigl||b|-|a|\bigr|\le|a-b|$. With $a=P$, $b=P'$ and $|P|\ge c_*$ this
+and \eqref{eq:ccsc-vector} give
+\begin{equation}\label{eq:ccsc-dir}
+  |n-n'|\le\frac{2|P-P'|}{c_*}\le\frac{6\theta}{c_*}.
+\end{equation}
+Together with \eqref{eq:ccsc-vector}, the first bound in
+\eqref{eq:cylinder-comparison} holds with $C\ge3+6/c_*$.
+
+\emph{Step 4: a point on the axis in both cylinders.}
+Put $\gamma=\min\{1/2,\ c_*/12\}$ and consider the point $z+\gamma Hn$. In the
+first cylinder its axial component is $\gamma H\le H$ and its transverse
+component is $0$, so it lies in $Z_{\theta^2}(z,H;P)$. In the second cylinder
+its axial component has absolute value at most $\gamma H\le H\le H'$, and its
+transverse component, relative to $n'$, is
+$\gamma H(n-(n\cdot n')n')$, whose length is at most
+$\gamma H|n-n'|$, because $n-(n\cdot n')n'$ is the orthogonal projection of
+$n-n'$ onto the orthogonal complement of $n'$. By \eqref{eq:ccsc-dir},
+\[
+  \gamma H|n-n'|\le\gamma H\frac{6\theta}{c_*}
+   \le\frac{c_*}{12}\cdot\frac{6\theta H}{c_*}=\frac{\theta H}2\le\theta H' ,
+\]
+so $z+\gamma Hn\in Z_{\theta^2}(z,H';P')$ as well.
+
+\emph{Step 5: the axial component of the slope difference.}
+Applying both fits at $Z=z+\gamma Hn$ and subtracting as in Step 2, using
+$(P-P')\cdot(\gamma Hn)=\gamma H\,(P-P')\cdot n$,
+\[
+  \gamma H\,\bigl|(P-P')\cdot n\bigr|\le\theta^2H+2\theta^2H=3\theta^2H,
+\]
+hence
+\begin{equation}\label{eq:ccsc-axial}
+  \bigl|(P-P')\cdot n\bigr|\le\frac{3\theta^2}{\gamma}.
+\end{equation}
+
+\emph{Step 6: the norm bound.}
+Since $P\cdot n=|P|$ and $P'\cdot n=|P'|(n'\cdot n)$,
+\[
+  |P|-|P'|=(P-P')\cdot n+|P'|(n'\cdot n)-|P'|
+   =(P-P')\cdot n-|P'|\bigl(1-n'\cdot n\bigr).
+\]
+As $|n|=|n'|=1$ we have $|n-n'|^2=2-2\,n\cdot n'$, i.e.
+$1-n'\cdot n=|n-n'|^2/2$. Therefore, by \eqref{eq:ccsc-axial},
+\eqref{eq:ccsc-dir} and $|P'|\le C_*$,
+\[
+  \bigl||P|-|P'|\bigr|
+   \le\frac{3\theta^2}{\gamma}+C_*\frac{|n-n'|^2}2
+   \le\left(\frac3\gamma+\frac{18C_*}{c_*^2}\right)\theta^2 .
+\]
+Taking
+$C=\max\{3+6/c_*,\ 3/\gamma+18C_*/c_*^2\}$, which depends only on $c_*$ and
+$C_*$ and is positive, gives both bounds in
+\eqref{eq:cylinder-comparison}.
+\end{proof}

@@ -1,0 +1,72 @@
+\begin{lemma}[First and second variation along a line, read off any local model]
+Let $P$ be a real normed space, let $g:P\to\R$, and let $W,\zeta\in P$ be such that
+$g$ is twice continuously differentiable at $W$. Suppose given functions
+$r,r':\R\to\R$ and a number $c\in\R$ such that
+\begin{enumerate}
+\item $g(W+h\zeta)=r(h)$ for all $h$ in a neighbourhood of $0$;
+\item for every $h$ in a neighbourhood of $0$, $r$ is differentiable at $h$ with
+derivative $r'(h)$;
+\item $r'$ is differentiable at $0$ with derivative $c$.
+\end{enumerate}
+Then
+\[
+  Dg(W)[\zeta]=r'(0),
+  \qquad
+  D^2g(W)[\zeta,\zeta]=c,
+\]
+the second being the second iterated Fréchet derivative of $g$ at $W$ evaluated on
+the constant pair $(\zeta,\zeta)$.
+
+This is the bridge from the second iterated Fréchet derivative, with which the
+limiting operator of \noderef{LimitOp} is stated, to an ordinary one-dimensional
+second derivative, which is what an explicit test function can be differentiated by
+hand. It is strictly more general than \noderef{SecondVariationAddAffineOnLine},
+which discards only a summand whose restriction to the line is affine: here the
+restriction may be any function with a second derivative at the base point, and it
+is identified only up to agreement on a neighbourhood of $0$, so the algebraic
+rearrangement of the restriction may use inequalities that hold only near the base
+point.
+\end{lemma}
+\begin{proof}
+Write $\lambda(h)=W+h\zeta$. Since $\lambda$ is affine with linear part $h\mapsto
+h\zeta$, it is differentiable everywhere with $\lambda'(h)=\zeta$.
+
+\emph{Step 1: the restriction of $g$ to the line.}
+Because $g$ is twice continuously differentiable at $W$, it is twice continuously
+differentiable at every point of some neighbourhood $U$ of $W$; in particular $g$
+is differentiable on $U$. Since $\lambda$ is continuous and $\lambda(0)=W$, the set
+$\lambda^{-1}(U)$ is a neighbourhood of $0$, so for every $h$ in a neighbourhood of
+$0$ the function $g$ is differentiable at $\lambda(h)$, and by the chain rule
+$h\mapsto g(\lambda(h))$ is differentiable at $h$ with derivative
+$Dg(W+h\zeta)[\zeta]$.
+
+\emph{Step 2: $r'$ is that derivative near $0$.}
+Let $h$ be in a neighbourhood of $0$ small enough that the agreement in (1) holds on
+a whole neighbourhood of $h$ — possible because (1) holds on a neighbourhood of $0$,
+and a neighbourhood of $0$ contains an open set around $0$, each point of which has
+a neighbourhood inside it. On that neighbourhood $r$ coincides with $h\mapsto
+g(\lambda(h))$, so by Step 1 $r$ is differentiable at $h$ with derivative
+$Dg(W+h\zeta)[\zeta]$. By (2) and the uniqueness of the derivative,
+\begin{equation}\label{eq:svl-first}
+  r'(h)=Dg(W+h\zeta)[\zeta]
+  \qquad\text{for all $h$ in a neighbourhood of $0$.}
+\end{equation}
+Taking $h=0$ gives $r'(0)=Dg(W)[\zeta]$, the first assertion.
+
+\emph{Step 3: one more derivative.}
+Because $g$ is twice continuously differentiable at $W$, the map $Dg:U\to P^{*}$ is
+differentiable at $W$, with derivative $D^2g(W)$. By the chain rule along $\lambda$,
+the map $h\mapsto Dg(W+h\zeta)$ is differentiable at $0$ with derivative
+$D^2g(W)[\zeta]\in P^{*}$. Evaluation at $\zeta$, that is $\varphi\mapsto
+\varphi[\zeta]$, is a continuous linear functional on $P^{*}$, so composing with it,
+the map $h\mapsto Dg(W+h\zeta)[\zeta]$ is differentiable at $0$ with derivative
+$D^2g(W)[\zeta,\zeta]$.
+
+By \eqref{eq:svl-first} this map agrees with $r'$ on a neighbourhood of $0$, hence
+$r'$ is differentiable at $0$ with the same derivative. Comparing with (3) and using
+the uniqueness of the derivative, $c=D^2g(W)[\zeta,\zeta]$.
+
+Finally, the second iterated Fréchet derivative of $g$ at $W$, evaluated on a pair
+of vectors, is $D^2g(W)$ applied to that pair; on the constant pair $(\zeta,\zeta)$
+it is therefore $D^2g(W)[\zeta,\zeta]=c$.
+\end{proof}

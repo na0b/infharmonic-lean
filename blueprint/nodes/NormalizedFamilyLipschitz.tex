@@ -1,0 +1,55 @@
+\begin{lemma}[Uniform bounds for the normalized family]
+Fix an integer $d\ge1$ and put $n=d+1$. There is a constant $L\ge0$, depending
+only on $d$, such that every $U\in\mathcal U$ in the normalized family of
+\noderef{NormalizedInfFamily} satisfies
+\[
+  |U|\le L\quad\text{on }\overline B_{7/8}^n,\qquad
+  |U(a)-U(b)|\le L|a-b|\quad\bigl(a,b\in\overline B_{7/8}^n\bigr).
+\]
+\end{lemma}
+\begin{proof}
+We show that $L=64$ works.
+
+\emph{Step 1: $|u|\le1$ on $B_1^d$.}
+Let $U\in\mathcal U$ and let $u$ be as in \noderef{NormalizedInfFamily}: $u$ is
+continuous and infinity-harmonic on $B_1^d$, $u(0)=0$, the set $u(B_1^d)$ is
+bounded above and below, and $\osc_{B_1^d}u\le1$. For $y\in B_1^d$ we have
+$u(y)\le\sup u(B_1^d)$ and $0=u(0)\ge\inf u(B_1^d)$, so by the definition of the
+oscillation in \noderef{OscOn},
+\[
+  u(y)=u(y)-u(0)\le\sup u(B_1^d)-\inf u(B_1^d)=\osc_{B_1^d}u\le1 .
+\]
+Symmetrically $-u(y)=u(0)-u(y)\le\osc_{B_1^d}u\le1$. Hence $|u|\le1$ on
+$B_1^d$.
+
+\emph{Step 2: the pointwise bound for $U$.}
+For a space-time point $z=(y,b)$ we have $|y|\le|z|$ and $|b|\le|z|$, because
+$|z|^2=|y|^2+b^2$. If $|z|\le15/16$ then $|y|\le15/16<1$, so by Step 1 and
+$U(y,b)=u(y)+b$,
+\begin{equation}\label{eq:nfl-bound}
+  |U(z)|\le|u(y)|+|b|\le1+\tfrac{15}{16}\le2
+  \qquad\bigl(z\in\overline B_{15/16}^n\bigr).
+\end{equation}
+In particular $|U|\le2\le64=L$ on $\overline B_{7/8}^n$.
+
+\emph{Step 3: $U$ is infinity-harmonic on the lifted domain.}
+Since $u$ is infinity-harmonic on $B_1^d$, \noderef{LinearLift} shows that
+$(y,b)\mapsto u(y)+b$ is infinity-harmonic on $B_1^d\times\R$, the preimage of
+$B_1^d$ under the spatial projection. By \noderef{NormalizedInfFamily} this
+function is $U$, so $U$ is infinity-harmonic on $D:=B_1^d\times\R$.
+
+\emph{Step 4: the Lipschitz bound.}
+Apply \noderef{InfHarmonicLocLipschitz} with $D$ as in Step 3, $w=U$,
+$z_0=0$, $\rho=7/8$, $\sigma=1/16$ and $\Lambda=64$. Its hypotheses hold:
+$\rho\ge0$ and $\sigma>0$; the set $\overline B_{\rho+\sigma}^n=\overline
+B_{15/16}^n$ is contained in $D$, since $|z|\le15/16$ forces $|y|\le15/16<1$;
+and for $a,b\in\overline B_{15/16}^n$ the bound \eqref{eq:nfl-bound} gives
+\[
+  |U(a)-U(b)|\le|U(a)|+|U(b)|\le4=64\cdot\tfrac1{16}=\Lambda\sigma .
+\]
+The conclusion of \noderef{InfHarmonicLocLipschitz} is
+\[
+  |U(a)-U(b)|\le64\,|a-b|\qquad\bigl(a,b\in\overline B_{7/8}^n\bigr),
+\]
+as required. The constant $64$ does not depend on $U$ or on $d$.
+\end{proof}

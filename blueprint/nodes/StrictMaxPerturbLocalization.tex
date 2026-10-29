@@ -1,0 +1,81 @@
+\begin{lemma}[Localization of the maximizers of a small linear perturbation]
+Let $E$ be a finite-dimensional real inner-product space, let $\phi:E\to\R$, let
+$z_0\in E$ and let $0<\rho\le r_1$. Assume that $\phi$ is continuous on
+$\overline B(z_0,r_1)$ and that $z_0$ is a strict maximum point of $\phi$ there:
+\[
+  \phi(z)<\phi(z_0)\qquad\bigl(z\in\overline B(z_0,r_1),\ z\ne z_0\bigr).
+\]
+Then there exists $\delta_0>0$ with the following property. Whenever $p\in E$
+satisfies $|p|\le\delta_0$ and $z\in\overline B(z_0,r_1)$ satisfies
+\[
+  \phi(w)+\langle p,w\rangle\le\phi(z)+\langle p,z\rangle
+  \qquad\bigl(w\in\overline B(z_0,r_1)\bigr),
+\]
+one has $|z-z_0|<\rho$.
+\end{lemma}
+\begin{proof}
+Note first that $r_1\ge\rho>0$, so $r_1>0$. Put
+\[
+  S=\overline B(z_0,r_1)\setminus B(z_0,\rho)
+   =\bigl\{z\in E:\ \rho\le|z-z_0|\le r_1\bigr\}.
+\]
+The second description is the first one unwound: $z\in\overline B(z_0,r_1)$ says
+$|z-z_0|\le r_1$, and $z\notin B(z_0,\rho)$ says $\neg(|z-z_0|<\rho)$, i.e.
+$\rho\le|z-z_0|$.
+
+\emph{Case 1: $S=\emptyset$.}
+Take $\delta_0=1>0$. Let $p$ and $z$ be as in the statement; we must show
+$|z-z_0|<\rho$. If not, then $\rho\le|z-z_0|$, and also $|z-z_0|\le r_1$
+because $z\in\overline B(z_0,r_1)$; by the description of $S$ this puts $z\in
+S$, contradicting $S=\emptyset$. (This is the only case that can occur when
+$E=\{0\}$, and the hypothesis of the lemma is then vacuous; no nondegeneracy
+assumption on $E$ is needed anywhere.)
+
+\emph{Case 2: $S\ne\emptyset$.}
+The set $\overline B(z_0,r_1)$ is closed and bounded in a finite-dimensional
+space, hence compact (preamble), and $B(z_0,\rho)$ is open; so
+$S=\overline B(z_0,r_1)\setminus B(z_0,\rho)$ is compact, being the
+intersection of a compact set with a closed set. Also $S\subseteq\overline
+B(z_0,r_1)$, on which $\phi$ is continuous, so $\phi$ is continuous on $S$.
+A continuous real function on a nonempty compact set attains its maximum
+(preamble): there is $z_m\in S$ with
+\[
+  \phi(z)\le m:=\phi(z_m)\qquad(z\in S).
+\]
+
+We claim $m<\phi(z_0)$. Indeed $z_m\in S\subseteq\overline B(z_0,r_1)$, and
+$z_m\ne z_0$ because $|z_m-z_0|\ge\rho>0$ while $|z_0-z_0|=0$; so the strict
+maximum hypothesis gives $\phi(z_m)<\phi(z_0)$, i.e. $m<\phi(z_0)$.
+
+Put
+\[
+  \delta_0=\frac{\phi(z_0)-m}{2r_1},
+\]
+which is strictly positive because $\phi(z_0)-m>0$ and $r_1>0$.
+
+Now let $|p|\le\delta_0$ and let $z\in\overline B(z_0,r_1)$ satisfy the
+maximality hypothesis, and suppose for contradiction that $|z-z_0|\ge\rho$.
+Since also $|z-z_0|\le r_1$, we get $z\in S$ and therefore
+\begin{equation}\label{eq:smpl-m}
+  \phi(z)\le m .
+\end{equation}
+The point $z_0$ lies in $\overline B(z_0,r_1)$ because $r_1\ge0$, so the
+maximality hypothesis at $w=z_0$ gives
+$\phi(z_0)+\langle p,z_0\rangle\le\phi(z)+\langle p,z\rangle$, that is,
+\[
+  \phi(z_0)-\phi(z)\le\langle p,z\rangle-\langle p,z_0\rangle
+   =\langle p,z-z_0\rangle .
+\]
+By the Cauchy--Schwarz inequality and the hypotheses $|p|\le\delta_0$ and
+$|z-z_0|\le r_1$,
+\[
+  \langle p,z-z_0\rangle\le|p|\,|z-z_0|\le\delta_0 r_1
+   =\frac{\phi(z_0)-m}{2}.
+\]
+Combining this with \eqref{eq:smpl-m},
+\[
+  \phi(z_0)-m\le\phi(z_0)-\phi(z)\le\frac{\phi(z_0)-m}{2},
+\]
+whence $\phi(z_0)-m\le0$, contradicting $m<\phi(z_0)$. Therefore
+$|z-z_0|<\rho$, as required.
+\end{proof}

@@ -1,0 +1,92 @@
+\begin{lemma}[Stability of infinity-harmonicity under locally uniform limits]
+Let $E$ be a finite-dimensional real inner-product space, let $\Omega\subseteq E$
+be open, let $u_1,u_2,\ldots:E\to\R$ each be infinity-harmonic on $\Omega$ in the
+sense of \noderef{IsInfHarmonicOn}, and let $u_0:E\to\R$ be such that
+$u_j\to u_0$ uniformly on every compact subset of $\Omega$. Then $u_0$ is
+infinity-harmonic on $\Omega$.
+\end{lemma}
+\begin{proof}
+\emph{Step 0: continuity of the limit.}
+Let $x\in\Omega$. Since $\Omega$ is open there is $\varrho>0$ with
+$\overline B_\varrho(x)\subseteq\Omega$, and this set is compact, so
+$u_j\to u_0$ uniformly on it. Each $u_j$ is continuous on $\Omega$ by
+\noderef{IsInfHarmonicOn}, hence continuous on $\overline B_\varrho(x)$, and a
+uniform limit of continuous functions on a set is continuous on that set. Thus
+$u_0$ is continuous at each point of $\Omega$, i.e. continuous on $\Omega$.
+
+\emph{Step 1: strictifying an upper test.}
+Let $z_0\in\Omega$ and let $\phi$ be $C^2$ near $z_0$ with
+$x\mapsto u_0(x)-\phi(x)$ having a local maximum on $\Omega$ at $z_0$. Set
+\[
+  \phi^\sharp(x)=\phi(x)+|x-z_0|^4 .
+\]
+The function $x\mapsto|x-z_0|^4=\bigl(|x-z_0|^2\bigr)^2$ is a polynomial in the
+coordinates, hence smooth, with
+\begin{equation}\label{eq:stab-fourth}
+  \nabla\bigl(|\cdot-z_0|^4\bigr)(z_0)=0,\qquad
+  D^2\bigl(|\cdot-z_0|^4\bigr)(z_0)=0 ,
+\end{equation}
+because $4|x-z_0|^2(x-z_0)$ and its derivative vanish at $x=z_0$. Thus
+$\phi^\sharp$ is $C^2$ near $z_0$ with
+$\nabla\phi^\sharp(z_0)=\nabla\phi(z_0)$ and
+$D^2\phi^\sharp(z_0)=D^2\phi(z_0)$, so by \noderef{InfLap}
+\begin{equation}\label{eq:stab-same-jet}
+  \Dinf\phi^\sharp(z_0)=\Dinf\phi(z_0).
+\end{equation}
+
+Choose $\varrho>0$ so small that $\overline B_\varrho(z_0)\subseteq\Omega$, that
+$\phi$ is $C^2$ on a neighbourhood of $\overline B_\varrho(z_0)$, and that
+$u_0-\phi$ attains its maximum over $\overline B_\varrho(z_0)$ at $z_0$ (possible
+because the maximum is local on $\Omega$). Then for
+$x\in\overline B_\varrho(z_0)$ with $x\ne z_0$,
+\[
+  u_0(x)-\phi^\sharp(x)=\bigl(u_0(x)-\phi(x)\bigr)-|x-z_0|^4
+    <u_0(z_0)-\phi(z_0)=u_0(z_0)-\phi^\sharp(z_0),
+\]
+so $z_0$ is the \emph{unique} maximum point of $u_0-\phi^\sharp$ on
+$\overline B_\varrho(z_0)$.
+
+\emph{Step 2: nearby maxima of the approximations.}
+The set $\overline B_\varrho(z_0)$ is compact and contained in $\Omega$. Each
+$u_j-\phi^\sharp$ is continuous on it, so it attains a maximum at some
+$z_j\in\overline B_\varrho(z_0)$. We claim $z_j\to z_0$. By compactness it
+suffices to show every convergent subsequence of $(z_j)$ has limit $z_0$. Let
+$z_{j_k}\to\bar z\in\overline B_\varrho(z_0)$. Uniform convergence of $u_j$ to
+$u_0$ on $\overline B_\varrho(z_0)$ and continuity of $u_0-\phi^\sharp$ give
+\[
+  (u_{j_k}-\phi^\sharp)(z_{j_k})\longrightarrow(u_0-\phi^\sharp)(\bar z).
+\]
+On the other hand, for every $x\in\overline B_\varrho(z_0)$,
+$(u_{j_k}-\phi^\sharp)(z_{j_k})\ge(u_{j_k}-\phi^\sharp)(x)
+ \to(u_0-\phi^\sharp)(x)$, so $(u_0-\phi^\sharp)(\bar z)\ge
+ (u_0-\phi^\sharp)(x)$ for all such $x$. Thus $\bar z$ is a maximum point of
+$u_0-\phi^\sharp$ on $\overline B_\varrho(z_0)$, and by the uniqueness in Step 1
+$\bar z=z_0$. Hence $z_j\to z_0$, and in particular $|z_j-z_0|<\varrho$ for all
+large $j$, so $z_j$ is an interior point of $\overline B_\varrho(z_0)$ and
+therefore $u_j-\phi^\sharp$ has a local maximum on $\Omega$ at $z_j$.
+
+\emph{Step 3: passing the inequality.}
+For such $j$, $\phi^\sharp$ is $C^2$ near $z_j$ and $u_j-\phi^\sharp$ has a
+local maximum on $\Omega$ at $z_j$, so the subsolution inequality of
+\noderef{IsInfHarmonicOn} for $u_j$ gives
+\[
+  \Dinf\phi^\sharp(z_j)\ge0 .
+\]
+The function $\phi^\sharp$ is $C^2$ on a neighbourhood of
+$\overline B_\varrho(z_0)$, so $\nabla\phi^\sharp$ and $D^2\phi^\sharp$ are
+continuous there; by \noderef{InfLap} the map $x\mapsto\Dinf\phi^\sharp(x)$ is
+therefore continuous near $z_0$. Letting $j\to\infty$ and using $z_j\to z_0$
+gives $\Dinf\phi^\sharp(z_0)\ge0$, and \eqref{eq:stab-same-jet} yields
+$\Dinf\phi(z_0)\ge0$.
+
+\emph{Step 4: lower tests.}
+If instead $u_0-\phi$ has a local minimum on $\Omega$ at $z_0$, repeat Steps 1--3
+with $\phi^\sharp(x)=\phi(x)-|x-z_0|^4$, with minima in place of maxima, and with
+the supersolution inequality of \noderef{IsInfHarmonicOn}. The identity
+\eqref{eq:stab-fourth} again gives
+$\Dinf\phi^\sharp(z_0)=\Dinf\phi(z_0)$, and the conclusion is
+$\Dinf\phi(z_0)\le0$.
+
+Together with Step 0 and the openness of $\Omega$, this shows that $u_0$ is
+infinity-harmonic on $\Omega$.
+\end{proof}

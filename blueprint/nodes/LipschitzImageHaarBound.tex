@@ -1,0 +1,59 @@
+\begin{lemma}[Measure of a Lipschitz image]
+Let $E$ be a finite-dimensional real inner-product space equipped with an
+additive Haar measure $\mu$, and put $n=\dim E$. Let $A\subseteq E$, let
+$K\ge0$ and let $f:E\to E$ satisfy
+\[
+  |f(a)-f(a')|\le K|a-a'|\qquad(a,a'\in A).
+\]
+Then
+\[
+  \mu\bigl(f(A)\bigr)\le K^{n}\,\mu(A).
+\]
+\end{lemma}
+\begin{proof}
+This is the statement recorded in the preamble as the proposition on the
+measure of a Lipschitz image; we carry out its justification in full, since the
+assertion is a reduction and not a single imported fact. Write $\mathcal H^{n}$
+for the $n$-dimensional Hausdorff measure on $E$, and recall that all measures
+of sets below are taken in $[0,\infty]$, where multiplication is commutative,
+associative, and monotone in each argument.
+
+\emph{Step 1: $\mu$ is a scalar multiple of $\mathcal H^{n}$.}
+In the critical dimension $n=\dim E$ the Hausdorff measure $\mathcal H^{n}$ is
+itself an additive Haar measure on $E$
+(\texttt{isAddHaarMeasure\_hausdorffMeasure}). By the uniqueness of additive
+Haar measure recorded in the preamble's definition of Haar measure --- any two
+additive Haar measures on $E$ are positive scalar multiples of one another ---
+there is a finite constant $c\ge0$ with
+\begin{equation}\label{eq:lihb-scalar}
+  \mu(s)=c\,\mathcal H^{n}(s)\qquad(s\subseteq E).
+\end{equation}
+The identity \eqref{eq:lihb-scalar} is an identity of measures, so it holds for
+the two sets $f(A)$ and $A$, which are the only ones we use; no measurability of
+$A$ is required.
+
+\emph{Step 2: the bound for $\mathcal H^{n}$.}
+For every $d\ge0$, a map that is $K$-Lipschitz on $A$ satisfies
+$\mathcal H^{d}(f(A))\le K^{d}\mathcal H^{d}(A)$
+(\texttt{LipschitzOnWith.hausdorffMeasure\_image\_le}); this is exactly the
+hypothesis $|f(a)-f(a')|\le K|a-a'|$ for $a,a'\in A$. The dimension
+$n=\dim E$ is a nonnegative integer, so $d=n$ is admissible and
+\begin{equation}\label{eq:lihb-haus}
+  \mathcal H^{n}\bigl(f(A)\bigr)\le K^{n}\,\mathcal H^{n}(A).
+\end{equation}
+
+\emph{Step 3: rescaling by the same factor on both sides.}
+Apply \eqref{eq:lihb-scalar} to $s=f(A)$, then multiply
+\eqref{eq:lihb-haus} by the constant $c\ge0$, which preserves the inequality,
+then rearrange the product and apply \eqref{eq:lihb-scalar} to $s=A$:
+\[
+  \mu\bigl(f(A)\bigr)=c\,\mathcal H^{n}\bigl(f(A)\bigr)
+   \le c\,\Bigl(K^{n}\,\mathcal H^{n}(A)\Bigr)
+   =K^{n}\bigl(c\,\mathcal H^{n}(A)\bigr)
+   =K^{n}\,\mu(A).
+\]
+This is the assertion. Note that the source and the target of $f$ are the same
+space $E$, which is what makes the exponent $n$ correct; the preamble records
+the counterexample that shows no such bound holds between spaces of different
+dimensions.
+\end{proof}

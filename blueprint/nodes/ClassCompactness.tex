@@ -1,0 +1,231 @@
+\begin{lemma}[Compactness of the centered class]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$ and let $z_c$ be either $(0,0)$ or $(0,1)$. Let
+$v_1,v_2,\ldots\in\Aclass_{m,C_0}$, in the sense of \noderef{IsFitClass}, each
+centered at $z_c$ with constant $C_0$ in the sense of \noderef{IsCenteredAt}.
+Then there are a strictly increasing sequence of indices $j\mapsto\iota(j)$ and a
+function $w$ on space-time such that $v_{\iota(j)}\to w$ uniformly on every
+compact set, $w\in\Aclass_{m,C_0}$, and $w$ is centered at $z_c$ with constant
+$C_0$.
+\end{lemma}
+\begin{proof}
+Write $L(K)=1+\log K\ge1$ for $K\ge2$ and
+$\mathcal B_K=\{(x,t):|x|\le K,\ |t|\le K\}$. Let $C_g$, $C_s$, $C_\tau$ and
+$C_p$ be the constants of \noderef{CenteredGrowth}, \noderef{SpatialFitModulus},
+\noderef{TimeFitModulus} and \noderef{FitParamBound} respectively, for this
+$C_0$. Each $v_j$ belongs to $\Aclass_{m,C_0}$ and is centered at $z_c$ with
+constant $C_0$, so all four lemmas apply to every $v_j$ with the same
+constants.
+
+\emph{Step 1: uniform local bounds.}
+By \noderef{CenteredGrowth}, for every $K\ge2$,
+\begin{equation}\label{eq:cc-bound}
+  |v_j(z)|\le C_gKL(K)^2\qquad(z\in\mathcal B_K,\ j\in\mathbb N).
+\end{equation}
+
+\emph{Step 2: uniform equicontinuity on each box.}
+Fix $K\ge2$ and put $K'=K+1\ge2$. Let $z=(x,t)$ and $z'=(x',t')$ lie in
+$\mathcal B_K$ with $|x-x'|\le\varsigma$ and $|t-t'|\le\varsigma$ for some
+$0<\varsigma\le1/2$. The intermediate point $(x,t')$ lies in $\mathcal B_{K'}$,
+as do $z$ and $z'$. Writing $h=x'-x$ and $\tau=t'-t$,
+\[
+  |v_j(z')-v_j(z)|\le|v_j(x',t')-v_j(x,t')|+|v_j(x,t')-v_j(x,t)| .
+\]
+If $h\ne0$, \noderef{SpatialFitModulus}, applied at the center
+$(x,t')\in\mathcal B_{K'}$ with the radius $r=|h|\le\varsigma$, bounds the first
+term by $C_s\varsigma\bigl(L(K')+|\log\varsigma|\bigr)$ when
+$|h|=\varsigma$; in general, applying it with $r=\varsigma$ and the increment
+$h$, which satisfies $|h|\le\varsigma=r$, gives
+\[
+  |v_j(x+h,t')-v_j(x,t')|\le C_s\,\varsigma\bigl(L(K')+|\log\varsigma|\bigr),
+\]
+and this also covers $h=0$. If $\tau\ne0$, \noderef{TimeFitModulus}, applied at
+the center $(x,t)\in\mathcal B_{K'}$ with the time increment $\tau$, for which
+$0<|\tau|\le\varsigma\le1/2$, bounds the second term by
+$C_\tau|\tau|\bigl(L(K')+|\log|\tau||\bigr)^2$. The function
+$\sigma\mapsto\sigma\bigl(L(K')+|\log\sigma|\bigr)^2$ is bounded on
+$(0,\varsigma]$ by its supremum there, and tends to $0$ as $\varsigma\to0$,
+because $\sigma(\log\sigma)^2\to0$; the same holds for
+$\sigma\mapsto\sigma(L(K')+|\log\sigma|)$. Hence, setting
+\[
+  \omega_{K}(\varsigma)
+   =C_s\,\varsigma\bigl(L(K')+|\log\varsigma|\bigr)
+    +C_\tau\sup_{0<\sigma\le\varsigma}
+      \sigma\bigl(L(K')+|\log\sigma|\bigr)^2 ,
+\]
+we obtain
+\begin{equation}\label{eq:cc-equi}
+  |v_j(z')-v_j(z)|\le\omega_K(\varsigma)
+  \qquad\bigl(z,z'\in\mathcal B_K,\ |z-z'|\le\varsigma\le\tfrac12,\ j\in\mathbb N\bigr),
+\end{equation}
+with $\omega_K(\varsigma)\to0$ as $\varsigma\downarrow0$ and $\omega_K$
+independent of $j$. (We used $|x-x'|\le|z-z'|$ and $|t-t'|\le|z-z'|$.)
+
+\emph{Step 3: a compactness claim and a diagonal subsequence.}
+The extraction of a locally uniformly convergent subsequence needs a compactness
+statement which is not among the background items of the preamble, so we prove
+the instance we use; the argument is the standard Arzel\`a--Ascoli one, and the
+only external inputs are the preamble items \emph{Compactness, Weierstrass and
+uniform continuity} (a closed bounded subset of a finite-dimensional space is
+compact) and \emph{Bolzano--Weierstrass}.
+
+\emph{Claim A.} Let $\mathcal K$ be a closed bounded subset of space-time, let
+$A\ge0$, let $S\subseteq\mathbb N$ be infinite, let $g_j$, $j\in S$, be real
+functions on space-time with $|g_j|\le A$ on $\mathcal K$, and let
+$\omega:(0,\tfrac12]\to[0,\infty)$ be a function with
+$\omega(\varsigma)\to0$ as $\varsigma\downarrow0$ and
+\[
+  |g_j(a)-g_j(b)|\le\omega(\varsigma)
+  \qquad\bigl(a,b\in\mathcal K,\ |a-b|\le\varsigma\le\tfrac12,\ j\in S\bigr).
+\]
+Then there are an infinite set $S'\subseteq S$ and a function $g$ on
+$\mathcal K$ such that $\sup_{\mathcal K}|g_j-g|\to0$ as $j\to\infty$ along
+$S'$.
+
+\emph{Proof of Claim A.} If $\mathcal K=\emptyset$ take $S'=S$ and $g$ the empty
+function; so assume $\mathcal K\ne\emptyset$. Being closed and bounded in the
+finite-dimensional space-time, $\mathcal K$ is compact. For each integer $k\ge1$
+the balls $B_{1/k}(a)$, $a\in\mathcal K$, form an open cover of $\mathcal K$, so
+finitely many of them cover it; let $N_k\subseteq\mathcal K$ be a finite
+nonempty set with $\mathcal K\subseteq\bigcup_{b\in N_k}B_{1/k}(b)$, and put
+$Q=\bigcup_{k\ge1}N_k$. Then $Q\subseteq\mathcal K$ is countable and nonempty,
+and for every $\varsigma>0$ the balls $B_\varsigma(b)$, $b\in Q$, cover
+$\mathcal K$: choose $k$ with $1/k\le\varsigma$ and use $N_k$. Enumerate
+$Q=\{a_1,a_2,\dots\}$ (if $Q$ is finite the argument below is the same and
+shorter).
+
+For each $k$ the family $\bigl(g_j(a_k)\bigr)_{j\in S}$ is bounded by $A$, so by
+Bolzano--Weierstrass we may choose nested infinite sets
+$S\supseteq J_1\supseteq J_2\supseteq\cdots$ such that for every $k$ the values
+$g_j(a_k)$ converge as $j\to\infty$ along $J_k$: given $J_{k-1}$ (with
+$J_0=S$), pick a convergent subsequence of $\bigl(g_j(a_k)\bigr)_{j\in J_{k-1}}$
+and let $J_k$ be its set of indices. Choose $j_1<j_2<\cdots$ with $j_l\in J_l$,
+which is possible because each $J_l$ is infinite, and put $S'=\{j_l:l\ge1\}$, an
+infinite subset of $S$. Since $\{j_l:l\ge k\}\subseteq J_k$ for every $k$, the
+sequence $\bigl(g_{j_l}(a_k)\bigr)_l$ converges for every $k$.
+
+Fix $\varepsilon>0$ and choose $\eta\in(0,\tfrac12]$ with
+$\omega(\eta)\le\varepsilon/3$, which is possible because
+$\omega(\varsigma)\to0$ as $\varsigma\downarrow0$. Cover $\mathcal K$ by
+finitely many balls $B_\eta(b_1),\dots,B_\eta(b_N)$ with $b_\nu\in Q$, as in the
+first paragraph, and choose $l_0$ with
+$|g_{j_l}(b_\nu)-g_{j_{l'}}(b_\nu)|\le\varepsilon/3$ for all $\nu\le N$ and all
+$l,l'\ge l_0$; this is possible because each of the finitely many sequences
+$\bigl(g_{j_l}(b_\nu)\bigr)_l$ converges, hence is Cauchy. Given
+$a\in\mathcal K$, pick $\nu$ with $|a-b_\nu|<\eta$; then for $l,l'\ge l_0$,
+\[
+  |g_{j_l}(a)-g_{j_{l'}}(a)|
+   \le|g_{j_l}(a)-g_{j_l}(b_\nu)|
+     +|g_{j_l}(b_\nu)-g_{j_{l'}}(b_\nu)|
+     +|g_{j_{l'}}(b_\nu)-g_{j_{l'}}(a)|
+   \le2\omega(\eta)+\frac\varepsilon3\le\varepsilon .
+\]
+So $\bigl(g_{j_l}\bigr)_l$ is uniformly Cauchy on $\mathcal K$; for each
+$a\in\mathcal K$ the real sequence $\bigl(g_{j_l}(a)\bigr)_l$ is therefore
+Cauchy and has a limit $g(a)$, and letting $l'\to\infty$ in the display gives
+$\sup_{\mathcal K}|g_{j_l}-g|\le\varepsilon$ for every $l\ge l_0$. As
+$\varepsilon>0$ was arbitrary, $\sup_{\mathcal K}|g_j-g|\to0$ along $S'$. This
+proves Claim A.
+
+Each box $\mathcal B_K$ is closed and bounded, and for an integer $K\ge2$ the
+hypotheses of Claim A hold on $\mathcal B_K$ for every infinite index set, with
+$A=C_gKL(K)^2$ by \eqref{eq:cc-bound} and $\omega=\omega_K$ by
+\eqref{eq:cc-equi}, the latter being valid for all $j\in\mathbb N$ and all
+$0<\varsigma\le\tfrac12$ with $\omega_K(\varsigma)\to0$ as
+$\varsigma\downarrow0$ by Step 2. Define infinite index sets
+$S_2\supseteq S_3\supseteq\cdots$ recursively: $S_K$ is the set $S'$ produced by
+Claim A applied on $\mathcal B_K$ with the index set $\mathbb N$ when $K=2$ and
+with the index set $S_{K-1}$ when $K\ge3$. Claim A also supplies functions
+$w^{(K)}$ on $\mathcal B_K$ with
+$\sup_{\mathcal B_K}|v_j-w^{(K)}|\to0$ as $j\to\infty$ along $S_K$.
+
+Choose $\iota(1)<\iota(2)<\cdots$ with $\iota(j)\in S_{j+1}$ for every $j$,
+which is possible because each $S_{j+1}$ is infinite; thus
+$\iota:\mathbb N\to\mathbb N$ is strictly increasing. Fix an integer $K\ge2$.
+For $j\ge K-1$ we have $\iota(j)\in S_{j+1}\subseteq S_K$, and
+$\iota(j)\to\infty$, so
+\begin{equation}\label{eq:cc-diag}
+  \sup_{\mathcal B_K}\bigl|v_{\iota(j)}-w^{(K)}\bigr|\longrightarrow0
+  \qquad(j\to\infty).
+\end{equation}
+In particular, for $2\le K\le K'$ the functions $w^{(K)}$ and $w^{(K')}$ agree
+on $\mathcal B_K$, both being the pointwise limit of $v_{\iota(j)}$ there. Hence
+a single function $w$ on space-time is well defined by $w(z)=w^{(K)}(z)$ for any
+integer $K\ge2$ with $z\in\mathcal B_K$, and \eqref{eq:cc-diag} says that
+$v_{\iota(j)}\to w$ uniformly on $\mathcal B_K$ for every integer $K\ge2$. Every
+compact subset of space-time is bounded, hence contained in some
+$\mathcal B_K$ with $K\ge2$ an integer, so the convergence is uniform on every
+compact set. This is the first assertion.
+
+\emph{Step 4: $w$ solves the equation.}
+By \noderef{IsFitClass} each $v_{\iota(j)}$ is a viscosity solution of
+$F[\cdot]=0$ on all of space-time, in the sense of
+\noderef{IsLimitSolutionOn}. The whole space is open, and
+$v_{\iota(j)}\to w$ uniformly on every compact subset of it by Step 3, so
+\noderef{LimitStability} gives that $w$ is a viscosity solution of $F[w]=0$ on
+all of space-time; in particular $w$ is continuous.
+
+\emph{Step 5: $w$ has fits at every center and radius.}
+Fix a space-time point $z=(x,t)$ and $r>0$, and pick an integer
+$K\ge\max\{2,|x|,|t|\}$, so $z\in\mathcal B_K$. By \noderef{IsFitClass} choose,
+for each $j$, a fit $(p_j,a_j)$ for $v_{\iota(j)}$ at $z$ of radius $r$ with
+constant $C_0$. By \noderef{FitParamBound},
+\[
+  |p_j|+|a_j|\le C_p\bigl(L(K)+|\log r|\bigr)\qquad(j\in\mathbb N),
+\]
+a bound independent of $j$. Since $F\times\R$ is finite-dimensional, a
+subsequence $j\mapsto j_k$ has $(p_{j_k},a_{j_k})\to(p,a)$ for some
+$p\in F$, $a\in\R$.
+
+Let $h\in F$ and $\ell\in\R$ with $|\ell|\le r$ and $|h-\ell p|\le r$. Put
+\[
+  h_k=\ell\,p_{j_k}+(h-\ell p),
+\]
+so $h_k\to h$ and $|h_k-\ell p_{j_k}|=|h-\ell p|\le r$; together with
+$|\ell|\le r$ this means $(h_k,\ell)$ satisfies the box conditions of
+\noderef{IsFit} for the fit $(p_{j_k},a_{j_k})$ at $z$ of radius $r$. Hence
+\begin{equation}\label{eq:cc-fit-k}
+  \Bigl|v_{\iota(j_k)}\bigl(z+(h_k,\ell)\bigr)-v_{\iota(j_k)}(z)
+    -\langle p_{j_k},h_k\rangle
+    -\Bigl(a_{j_k}-\frac{|p_{j_k}|^2}{2}\Bigr)\ell\Bigr|\le C_0r .
+\end{equation}
+We pass to the limit. The points $\zeta_k=z+(h_k,\ell)$ converge to
+$\zeta=z+(h,\ell)$, and all of them, together with $\zeta$, lie in a fixed
+compact set; since $v_{\iota(j)}\to w$ uniformly there and $w$ is continuous by
+Step 4,
+\[
+  \bigl|v_{\iota(j_k)}(\zeta_k)-w(\zeta)\bigr|
+   \le\bigl|v_{\iota(j_k)}(\zeta_k)-w(\zeta_k)\bigr|+\bigl|w(\zeta_k)-w(\zeta)\bigr|
+   \longrightarrow0 ,
+\]
+so $v_{\iota(j_k)}(\zeta_k)\to w(\zeta)$; likewise
+$v_{\iota(j_k)}(z)\to w(z)$. Also
+$\langle p_{j_k},h_k\rangle\to\langle p,h\rangle$ and
+$a_{j_k}-|p_{j_k}|^2/2\to a-|p|^2/2$. Letting $k\to\infty$ in
+\eqref{eq:cc-fit-k},
+\[
+  \Bigl|w\bigl(z+(h,\ell)\bigr)-w(z)-\langle p,h\rangle
+    -\Bigl(a-\frac{|p|^2}{2}\Bigr)\ell\Bigr|\le C_0r .
+\]
+As $(h,\ell)$ was an arbitrary increment satisfying the box conditions for
+$(p,a)$ at radius $r$, this says by \noderef{IsFit} that $(p,a)$ is a fit for
+$w$ at $z$ of radius $r$ with constant $C_0$. The subsequence used depends on
+$z$ and $r$, which is irrelevant: the function $w$ is fixed and only the
+existence of a fit at each $(z,r)$ is asserted. Together with Step 4 and
+\noderef{IsFitClass}, $w\in\Aclass_{m,C_0}$.
+
+\emph{Step 6: $w$ is centered at $z_c$.}
+By \noderef{IsCenteredAt}, $v_{\iota(j)}(z_c)=0$ for every $j$, and
+$v_{\iota(j)}\to w$ pointwise, so $w(z_c)=0$. Again by
+\noderef{IsCenteredAt} the pair $(0,0)$ is a fit for each $v_{\iota(j)}$ at
+$z_c$ of radius $1$ with constant $C_0$, i.e. by \noderef{IsFit}
+\[
+  \bigl|v_{\iota(j)}\bigl(z_c+(h,\ell)\bigr)-v_{\iota(j)}(z_c)\bigr|\le C_0
+  \qquad(|\ell|\le1,\ |h|\le1),
+\]
+the affine terms vanishing because $p=0$ and $a=0$. Letting $j\to\infty$
+pointwise gives $\bigl|w(z_c+(h,\ell))-w(z_c)\bigr|\le C_0$ on the same set of
+increments, which by \noderef{IsFit} says that $(0,0)$ is a fit for $w$ at $z_c$
+of radius $1$ with constant $C_0$. Hence $w$ is centered at $z_c$ with constant
+$C_0$ in the sense of \noderef{IsCenteredAt}.
+\end{proof}

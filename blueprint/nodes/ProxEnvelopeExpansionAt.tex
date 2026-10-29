@@ -1,0 +1,125 @@
+\begin{lemma}[Second-order expansion of a convex function above an invertible derivative]
+Let $E$ be a finite-dimensional real inner-product space, let $\psi:E\to\R$ be
+convex on $E$, and let $u:E\to E$ be a proximal map for $\psi$ in the sense of
+\noderef{IsMoreauProx} whose range is dense in $E$. Let $y\in E$ be a point at
+which $u$ is differentiable with derivative the continuous linear map $P$, let
+$P^{-1}:E\to E$ be a continuous linear map with $P^{-1}(Pz)=z$ and $P(P^{-1}z)=z$
+for all $z\in E$, and suppose $\det P\ne0$. Write $Q=\mathrm{id}-P$ and
+$A_0=QP^{-1}$. Then for every $\delta>0$ there is $\rho>0$ such that
+\[
+  \Bigl|\psi\bigl(u(y)+k\bigr)-\psi\bigl(u(y)\bigr)-\langle y-u(y),k\rangle
+    -\tfrac12\langle A_0k,k\rangle\Bigr|\le\delta|k|^2\qquad(|k|<\rho).
+\]
+\end{lemma}
+\begin{proof}
+Write $x=u(y)$, $p=y-x$, $x_h=u(y+h)$ and
+\[
+  g(k)=\psi(x+k)-\psi(x)-\langle p,k\rangle\qquad(k\in E),
+\]
+so that the assertion is that for every $\delta>0$ there is $\rho>0$ with
+$|g(k)-\tfrac12\langle A_0k,k\rangle|\le\delta|k|^2$ for $|k|<\rho$. Note that
+$g$ is continuous on $E$, because $\psi$ is convex and real-valued on the open
+set $E$ and hence locally Lipschitz, so continuous (preamble), and the inner
+product is continuous.
+
+\emph{A lower bound for $P$.}
+Since $P^{-1}(Pz)=z$ for every $z$, the operator norm bound gives
+$|z|=|P^{-1}(Pz)|\le\|P^{-1}\|\,|Pz|$. The map $P^{-1}$ is not the zero map when
+$E\ne\{0\}$, and in any case $\|P^{-1}\|\ge0$; if $\|P^{-1}\|=0$ then
+$P^{-1}=0$, so $z=P^{-1}(Pz)=0$ for every $z$, i.e. $E=\{0\}$, and then the
+assertion is trivial because every vector is $0$ and both sides vanish. So we
+may assume $\|P^{-1}\|>0$ and put $c=1/\|P^{-1}\|>0$; the displayed inequality
+rearranges to
+\begin{equation}\label{eq:peea-lower}
+  c|z|\le|Pz|\qquad(z\in E).
+\end{equation}
+
+\emph{Choice of the parameters.}
+Let $\delta>0$. Put
+\[
+  C_1=\frac{4\,\|Q\|\,\|P^{-1}\|\,\|P\|}{c^2}+\frac{2\,\|A_0\|}{c},
+\]
+choose $\delta_1$ with $0<\delta_1\le\min(1,c/2)$ and
+$\tfrac12C_1\delta_1\le\delta/2$, which is possible since $C_1\ge0$ is a fixed
+finite number, and choose $\delta_2>0$ with $4\delta_2/c^2\le\delta/2$. By
+\noderef{MoreauCurveExpansion}, applied at this $y$ with this $P$ and with
+$\delta_2$ in place of $\delta$, there is $\rho_1>0$ with
+\begin{equation}\label{eq:peea-curve}
+  \Bigl|\psi(x_h)-\psi(x)-\langle p,x_h-x\rangle
+    -\tfrac12\langle Qh,Ph\rangle\Bigr|\le\delta_2|h|^2\qquad(|h|<\rho_1).
+\end{equation}
+By the differentiability of $u$ at $y$ with derivative $P$ there is $\rho_2>0$
+with
+\begin{equation}\label{eq:peea-rho}
+  |x_h-x-Ph|\le\delta_1|h|\qquad(|h|<\rho_2).
+\end{equation}
+By \noderef{ProxPreimageLocalization}, applied at this $y$ with this $P$ and
+$\det P\ne0$ and with $\sigma=\min(\rho_1,\rho_2)>0$, there is $\rho_3>0$ such
+that
+\begin{equation}\label{eq:peea-loc}
+  y'\in E,\ |u(y')-x|<\rho_3\ \Longrightarrow\ |y'-y|<\sigma .
+\end{equation}
+
+\emph{The estimate at points of the range.}
+Let $k\in E$ with $|k|<\rho_3$ and suppose first that $x+k$ lies in the range of
+$u$, say $u(y')=x+k$. Put $h=y'-y$. Since $|u(y')-x|=|k|<\rho_3$,
+\eqref{eq:peea-loc} gives $|h|<\sigma\le\min(\rho_1,\rho_2)$, and
+$x_h=u(y+h)=u(y')=x+k$, that is
+\begin{equation}\label{eq:peea-xh}
+  x_h-x=k .
+\end{equation}
+By \eqref{eq:peea-rho} and \eqref{eq:peea-xh} we have $|k-Ph|\le\delta_1|h|$.
+The hypotheses of \noderef{ProxQuadraticFormComparison} are therefore met for
+this $P$, $P^{-1}$, $c$, $\delta_1$, $h$ and $k$ --- namely $P^{-1}(Pz)=z$,
+the lower bound \eqref{eq:peea-lower}, $0<\delta_1\le c/2$, and
+$|k-Ph|\le\delta_1|h|$ --- and that lemma gives
+\begin{equation}\label{eq:peea-comp}
+  |h|\le\frac{2}{c}|k|
+  \qquad\text{and}\qquad
+  \bigl|\langle Qh,Ph\rangle-\langle A_0k,k\rangle\bigr|\le C_1\delta_1|k|^2 .
+\end{equation}
+On the other hand \eqref{eq:peea-curve} together with \eqref{eq:peea-xh} and the
+first part of \eqref{eq:peea-comp} gives
+\begin{equation}\label{eq:peea-curve2}
+  \Bigl|g(k)-\tfrac12\langle Qh,Ph\rangle\Bigr|
+   =\Bigl|\psi(x_h)-\psi(x)-\langle p,x_h-x\rangle
+     -\tfrac12\langle Qh,Ph\rangle\Bigr|
+   \le\delta_2|h|^2\le\frac{4\delta_2}{c^2}|k|^2 ,
+\end{equation}
+where the first equality uses \eqref{eq:peea-xh} and the definition of $g$.
+Adding half of the second part of \eqref{eq:peea-comp} to
+\eqref{eq:peea-curve2}, by the triangle inequality,
+\begin{equation}\label{eq:peea-dense}
+  \bigl|g(k)-\tfrac12\langle A_0k,k\rangle\bigr|
+   \le\frac{4\delta_2}{c^2}|k|^2+\tfrac12C_1\delta_1|k|^2
+   \le\frac{\delta}{2}|k|^2+\frac{\delta}{2}|k|^2=\delta|k|^2 ,
+\end{equation}
+by the choices of $\delta_1$ and $\delta_2$. So the asserted inequality holds for
+every $k$ with $|k|<\rho_3$ such that $x+k$ lies in the range of $u$.
+
+\emph{Removing the restriction, by density.}
+Put $T=\{k\in E:|k|<\rho_3,\ x+k\ \text{lies in the range of}\ u\}$. We claim
+$T$ is dense in the open ball $B(0,\rho_3)$. Let $k_0\in B(0,\rho_3)$ and let
+$\varepsilon>0$; shrinking $\varepsilon$ we may assume
+$B(k_0,\varepsilon)\subseteq B(0,\rho_3)$, which is possible because
+$B(0,\rho_3)$ is open. The set $x+B(k_0,\varepsilon)$ is open and nonempty, so
+by the assumed density of the range of $u$ it contains a point $u(y')$ of that
+range. Writing $u(y')=x+k$ we get $k\in B(k_0,\varepsilon)\subseteq B(0,\rho_3)$
+and $x+k$ in the range of $u$, so $k\in T$ and $|k-k_0|<\varepsilon$. This
+proves the claim.
+
+Both $k\mapsto\bigl|g(k)-\tfrac12\langle A_0k,k\rangle\bigr|$ and
+$k\mapsto\delta|k|^2$ are continuous on $E$: the first because $g$ is continuous,
+$A_0$ is continuous linear, the inner product is continuous and the absolute
+value is continuous; the second because the norm is. By \eqref{eq:peea-dense}
+the first is bounded by the second at every point of $T$. Let
+$k_0\in B(0,\rho_3)$. By the density just proved there is a sequence $k_i\in T$
+with $k_i\to k_0$, and passing to the limit in
+$\bigl|g(k_i)-\tfrac12\langle A_0k_i,k_i\rangle\bigr|\le\delta|k_i|^2$, using
+the continuity of both sides and the fact that weak inequalities are preserved
+in the limit, gives
+$\bigl|g(k_0)-\tfrac12\langle A_0k_0,k_0\rangle\bigr|\le\delta|k_0|^2$.
+
+Thus the asserted inequality holds for every $k$ with $|k|<\rho_3$, and
+$\rho=\rho_3$ proves the lemma.
+\end{proof}

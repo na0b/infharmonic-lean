@@ -1,0 +1,198 @@
+\begin{lemma}[Uniform localization of slopes and maximizing positions]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$, let
+$\Omega=\{(y,\sigma):\sigma\in I\}$, and let $f$ be a real function on space-time
+which is continuous on $\Omega$ and has subquadratic spatial growth on compact
+time intervals of $I$ in the sense of \noderef{SubquadraticGrowth}. Let
+$S\subseteq F\times\R\times\R$ be a nonempty compact set of triples $(x,t,s)$
+with $s>0$ and $t\in I$. For such a triple write
+\[
+  g(y)=f(y,t)-\frac{|y|^2}{2s},
+  \qquad
+  \mathcal G(A;x,t,s)=\bigl\{g(y)-A\cdot(y-x):y\in F\bigr\}\quad(A\in F).
+\]
+Then there are $\Lambda_0\ge0$ and $M>0$, depending only on $S$, such that for
+every $(x,t,s)\in S$:
+\begin{enumerate}
+\item[(i)] $\mathcal G(A;x,t,s)$ is bounded above for every $A\in F$;
+\item[(ii)] every $A\in F$ with
+$\sup\mathcal G(A;x,t,s)\le\sup\mathcal G(0;x,t,s)+1$ satisfies
+$|A|\le\Lambda_0$;
+\item[(iii)] for every $A\in F$ with $|A|\le\Lambda_0+1$,
+\[
+  \sup\mathcal G(A;x,t,s)
+   =\sup_{|y|\le M}\bigl\{g(y)-A\cdot(y-x)\bigr\},
+\]
+that value is attained at some $y_0$ with $|y_0|\le M$, and every $y\in F$ with
+$g(y)-A\cdot(y-x)=\sup\mathcal G(A;x,t,s)$ satisfies $|y|\le M$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{The data attached to $S$.}
+The three coordinate maps $(x,t,s)\mapsto|x|$, $(x,t,s)\mapsto t$ and
+$(x,t,s)\mapsto s$ are continuous on $F\times\R\times\R$, so on the nonempty
+compact set $S$ the first and third attain a maximum and the third also attains a
+minimum (preamble). Put
+\[
+  R_0=\max_S|x|\ \ (\ge0),\qquad s_{\max}=\max_Ss,\qquad s_{\min}=\min_Ss .
+\]
+Every triple of $S$ has $s>0$, so $s_{\min}>0$ and hence
+$s_{\max}\ge s_{\min}>0$. Let $J$ be the image of $S$ under the continuous
+projection $(x,t,s)\mapsto t$; then $J$ is compact, being a continuous image of a
+compact set, and $J\subseteq I$ because every triple of $S$ has $t\in I$.
+
+\emph{The far bound.}
+Apply \noderef{SubquadraticGrowth} with the compact set $J\subseteq I$ and
+$\varepsilon=1/(4s_{\max})>0$: there is $M_0>0$ with
+$|f(y,\sigma)|\le|y|^2/(4s_{\max})$ whenever $|y|\ge M_0$ and $\sigma\in J$. Let
+$(x,t,s)\in S$ and $|y|\ge M_0$. Then $t\in J$ and $0<s\le s_{\max}$, so
+$1/(4s_{\max})\le1/(4s)$ and
+\begin{equation}\label{eq:besl-gfar}
+  g(y)=f(y,t)-\frac{|y|^2}{2s}
+   \le\frac{|y|^2}{4s_{\max}}-\frac{|y|^2}{2s}
+   \le\frac{|y|^2}{4s}-\frac{|y|^2}{2s}
+   =-\frac{|y|^2}{4s}
+   \le-\frac{|y|^2}{4s_{\max}} ,
+\end{equation}
+the last step because $0<s\le s_{\max}$ and $|y|^2\ge0$.
+
+\emph{The near bound.}
+The set $\mathcal K=\{(y,\sigma):|y|\le M_0+R_0+1,\ \sigma\in J\}$ is compact:
+the closed ball $\{|y|\le M_0+R_0+1\}$ is a closed bounded subset of the
+finite-dimensional space $F$ and hence compact, $J$ is compact, and the
+identification of $F\times\R$ with the $L^2$ product space of the preamble is a
+homeomorphism. It is nonempty, because $J\ne\emptyset$ and $|0|=0\le M_0+R_0+1$,
+and it is contained in $\Omega$ because $J\subseteq I$. As $f$ is continuous on
+$\Omega$, the continuous function $|f|$ attains a finite maximum $N_0\ge0$ on
+$\mathcal K$. Put $N_1=N_0+(M_0+R_0+1)^2/(2s_{\min})$, a finite nonnegative
+number. For $(x,t,s)\in S$ and $|y|\le M_0+R_0+1$ we have $t\in J$ and
+$s\ge s_{\min}>0$, so
+\begin{equation}\label{eq:besl-gnear}
+  |g(y)|\le|f(y,t)|+\frac{|y|^2}{2s}
+   \le N_0+\frac{(M_0+R_0+1)^2}{2s_{\min}}=N_1 .
+\end{equation}
+
+\emph{Proof of (i).}
+Let $(x,t,s)\in S$ and $A\in F$. We bound $g(y)-A\cdot(y-x)$ for every $y$,
+splitting on $|y|$ and using $|x|\le R_0$ and the Cauchy--Schwarz inequality
+$|A\cdot v|\le|A|\,|v|$.
+If $|y|\le M_0+R_0+1$ then $|y-x|\le|y|+|x|\le M_0+2R_0+1$, so by
+\eqref{eq:besl-gnear}
+\[
+  g(y)-A\cdot(y-x)\le N_1+|A|\,(M_0+2R_0+1).
+\]
+If $|y|>M_0+R_0+1$ then in particular $|y|\ge M_0$, so \eqref{eq:besl-gfar}
+applies, and $-A\cdot(y-x)\le|A|\,|y-x|\le|A|(|y|+R_0)$; writing $\varrho=|y|$,
+\[
+  g(y)-A\cdot(y-x)\le-\frac{\varrho^2}{4s_{\max}}+|A|\varrho+|A|R_0
+   \le s_{\max}|A|^2+|A|R_0 ,
+\]
+the last step by completing the square: for every real $\varrho$,
+\[
+  -\frac{\varrho^2}{4s_{\max}}+|A|\varrho
+   =-\frac{\bigl(\varrho-2s_{\max}|A|\bigr)^2}{4s_{\max}}+s_{\max}|A|^2
+   \le s_{\max}|A|^2 ,
+\]
+since $s_{\max}>0$ and squares are nonnegative. Hence every element of
+$\mathcal G(A;x,t,s)$ is at most the real number
+\begin{equation}\label{eq:besl-supfinite}
+  \max\bigl\{N_1+|A|(M_0+2R_0+1),\ s_{\max}|A|^2+|A|R_0\bigr\},
+\end{equation}
+so $\mathcal G(A;x,t,s)$ is bounded above, which is (i). It is also nonempty,
+containing $g(x)$ at $y=x$; so for every $A$ the number
+$\Gamma(A;x,t,s):=\sup\mathcal G(A;x,t,s)$ is a genuine finite least upper bound,
+and in particular
+\begin{equation}\label{eq:besl-lub}
+  g(y)-A\cdot(y-x)\le\Gamma(A;x,t,s)\qquad(y\in F,\ A\in F),
+\end{equation}
+which is both the bound on the elements and, read from right to left, the licence
+to bound $\Gamma$ from below by inserting any competitor $y$. The bound
+\eqref{eq:besl-supfinite} is allowed to grow with $|A|$: only finiteness for each
+fixed $A$ is asserted in (i), and the uniformity over $|A|\le\Lambda_0+1$ needed
+later is the separate statement (iii).
+
+\emph{Proof of (ii), with $\Lambda_0=2N_1+1$.}
+Let $(x,t,s)\in S$. Taking $A=0$ in \eqref{eq:besl-lub} and inserting the
+competitor $y=0$, which satisfies $|0|=0\le M_0+R_0+1$, gives by
+\eqref{eq:besl-gnear} that $\Gamma(0;x,t,s)\ge g(0)\ge-N_1$. Now let $A\ne0$ and
+put $y_A=x-A/|A|$, so $|y_A|\le|x|+1\le R_0+1\le M_0+R_0+1$ and
+$-A\cdot(y_A-x)=A\cdot(A/|A|)=|A|$. Hence by \eqref{eq:besl-lub} and
+\eqref{eq:besl-gnear},
+\[
+  \Gamma(A;x,t,s)\ge g(y_A)-A\cdot(y_A-x)\ge-N_1+|A| .
+\]
+If moreover $\Gamma(A;x,t,s)\le\Gamma(0;x,t,s)+1$, then combining this with the
+upper bound $\Gamma(0;x,t,s)\le N_1$ — which holds because by
+\eqref{eq:besl-gnear} and \eqref{eq:besl-gfar} every $g(y)$ is at most $N_1$ when
+$|y|\le M_0+R_0+1$ and at most $0\le N_1$ when $|y|>M_0+R_0+1$, so $N_1$ is an
+upper bound for $\mathcal G(0;x,t,s)$ and the supremum is the least one — we get
+\[
+  |A|-N_1\le\Gamma(A;x,t,s)\le\Gamma(0;x,t,s)+1\le N_1+1 ,
+\]
+so $|A|\le2N_1+1=\Lambda_0$. For $A=0$ the conclusion $|A|\le\Lambda_0$ is
+immediate since $\Lambda_0=2N_1+1\ge1>0$. This is (ii), and
+$\Lambda_0=2N_1+1\ge0$ because $N_1\ge0$.
+
+\emph{Proof of (iii).}
+Let $(x,t,s)\in S$ and $|A|\le\Lambda_0+1$. For $|y|\ge M_0$,
+\eqref{eq:besl-gfar} and Cauchy--Schwarz give
+\begin{equation}\label{eq:besl-decay}
+  g(y)-A\cdot(y-x)
+   \le-\frac{|y|^2}{4s_{\max}}+(\Lambda_0+1)\bigl(|y|+R_0\bigr),
+\end{equation}
+whose right-hand side depends on $y$ only through $|y|$ and tends to $-\infty$ as
+$|y|\to\infty$, with a rate depending only on $s_{\max}$, $\Lambda_0$ and $R_0$,
+hence only on $S$. Concretely, choose
+\[
+  M=\max\Bigl\{M_0+R_0+1,\ 8s_{\max}(\Lambda_0+1),\
+     \sqrt{8s_{\max}\bigl(N_1+1+(\Lambda_0+1)R_0\bigr)}\Bigr\},
+\]
+which is $\ge M_0+R_0+1>0$ and depends only on $S$. For $|y|\ge M$ we have
+$|y|\ge M_0$, and $(\Lambda_0+1)|y|\le|y|^2/(8s_{\max})$ because
+$|y|\ge8s_{\max}(\Lambda_0+1)$, and
+$N_1+1+(\Lambda_0+1)R_0\le|y|^2/(8s_{\max})$ because
+$|y|^2\ge8s_{\max}(N_1+1+(\Lambda_0+1)R_0)$; so \eqref{eq:besl-decay} gives
+\[
+  g(y)-A\cdot(y-x)
+   \le-\frac{|y|^2}{4s_{\max}}+\frac{|y|^2}{8s_{\max}}
+       +(\Lambda_0+1)R_0
+   \le-\frac{|y|^2}{8s_{\max}}+(\Lambda_0+1)R_0
+   \le-(N_1+1) .
+\]
+On the other hand the competitor $y=x$ has $|x|\le R_0\le M_0+R_0+1$, so by
+\eqref{eq:besl-gnear}
+\[
+  g(x)-A\cdot(x-x)=g(x)\ge-N_1>-(N_1+1).
+\]
+Therefore
+\begin{equation}\label{eq:besl-strict}
+  g(y)-A\cdot(y-x)<g(x)-A\cdot(x-x)\qquad(|y|\ge M).
+\end{equation}
+Write $B_M=\{y\in F:|y|\le M\}$, a nonempty compact set containing $x$. The
+function $y\mapsto g(y)-A\cdot(y-x)$ is continuous on $B_M$: for $|y|\le M$ the
+point $(y,t)$ lies in $\Omega$, where $f$ is continuous, while
+$y\mapsto|y|^2/(2s)$ and $y\mapsto A\cdot(y-x)$ are continuous on $F$ because
+$s>0$. So it attains a maximum on $B_M$ at some $y_0\in B_M$ (preamble), and
+\[
+  \sup_{|y|\le M}\bigl\{g(y)-A\cdot(y-x)\bigr\}
+   =g(y_0)-A\cdot(y_0-x)
+\]
+is a genuine least upper bound, the set of values over $B_M$ being nonempty and
+bounded above by $g(y_0)-A\cdot(y_0-x)$.
+Since $x\in B_M$, maximality gives
+$g(x)-A\cdot(x-x)\le g(y_0)-A\cdot(y_0-x)$, and therefore by
+\eqref{eq:besl-strict} every $y$ with $|y|\ge M$ satisfies
+$g(y)-A\cdot(y-x)<g(y_0)-A\cdot(y_0-x)$. Combining the two cases
+$|y|\le M$ and $|y|\ge M$, the value $g(y_0)-A\cdot(y_0-x)$ is an upper bound for
+$\mathcal G(A;x,t,s)$, and it belongs to that set; so it is the greatest element
+and
+\[
+  \Gamma(A;x,t,s)=g(y_0)-A\cdot(y_0-x)
+   =\sup_{|y|\le M}\bigl\{g(y)-A\cdot(y-x)\bigr\},
+\]
+which is the displayed identity of (iii) together with its attainment at
+$y_0\in B_M$. Finally, if $y\in F$ satisfies
+$g(y)-A\cdot(y-x)=\Gamma(A;x,t,s)$ then $|y|<M$ is forced: otherwise $|y|\ge M$
+and the strict inequality of the previous sentence would give
+$\Gamma(A;x,t,s)<g(y_0)-A\cdot(y_0-x)=\Gamma(A;x,t,s)$. In particular
+$|y|\le M$, completing (iii).
+\end{proof}

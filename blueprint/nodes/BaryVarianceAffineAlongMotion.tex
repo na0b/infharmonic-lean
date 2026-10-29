@@ -1,0 +1,77 @@
+\begin{lemma}[The variance penalty is affine along the common-time motion]
+Let $F$ be a finite-dimensional real inner-product space, let $n\in\N$, let
+$\theta:\{1,\dots,n\}\to\R$ satisfy $\sum_i\theta_i=1$, let $y^0=(y^0_i)_i$ be points of
+$F$ with weighted mean $\sum_i\theta_iy^0_i=x_0$, let $t_0>0$ and let $p\in F$. Put
+\[
+  q_i=p+\frac{y^0_i-x_0}{t_0},\qquad y_i(h)=y^0_i+hq_i,
+\]
+and write $R^2=\sum_i\theta_i|y^0_i-x_0|^2$. Then for every real $h$ with $t_0+h>0$,
+\[
+  \frac{\sum_i\theta_i\bigl|y_i(h)-\sum_j\theta_jy_j(h)\bigr|^2}{2(t_0+h)}
+    =\frac{R^2}{2t_0}+\frac{R^2}{2t_0^2}\,h ,
+\]
+an affine function of $h$.
+\end{lemma}
+\begin{proof}
+Since $t_0>0$ and $t_0+h>0$, both $t_0$ and $t_0+h$ are nonzero, so all the divisions
+below are legitimate.
+
+\emph{Step 1: the weighted mean of the offsets vanishes.}
+Using $\sum_i\theta_i=1$ and $\sum_i\theta_iy^0_i=x_0$,
+\[
+  \sum_i\theta_i\bigl(y^0_i-x_0\bigr)
+    =\sum_i\theta_iy^0_i-\Bigl(\sum_i\theta_i\Bigr)x_0
+    =x_0-x_0=0 .
+\]
+
+\emph{Step 2: the weighted mean of the velocities is $p$.}
+By the definition of $q_i$, linearity of the weighted sum, $\sum_i\theta_i=1$, and
+Step 1,
+\[
+  \sum_i\theta_iq_i
+    =\Bigl(\sum_i\theta_i\Bigr)p+\frac1{t_0}\sum_i\theta_i\bigl(y^0_i-x_0\bigr)
+    =p+\frac1{t_0}\cdot 0=p .
+\]
+
+\emph{Step 3: the running barycentre.}
+Again by linearity, using $\sum_i\theta_iy^0_i=x_0$ and Step 2,
+\[
+  \sum_j\theta_jy_j(h)=\sum_j\theta_jy^0_j+h\sum_j\theta_jq_j=x_0+hp .
+\]
+
+\emph{Step 4: every offset dilates by the same factor.}
+Subtracting Step 3 from the definition of $y_i(h)$ and using
+$q_i-p=(y^0_i-x_0)/t_0$,
+\[
+  y_i(h)-\sum_j\theta_jy_j(h)
+    =\bigl(y^0_i-x_0\bigr)+h\bigl(q_i-p\bigr)
+    =\bigl(y^0_i-x_0\bigr)+\frac{h}{t_0}\bigl(y^0_i-x_0\bigr)
+    =\Bigl(1+\frac h{t_0}\Bigr)\bigl(y^0_i-x_0\bigr).
+\]
+The factor $1+h/t_0$ is the same for every index $i$: this is the point of the
+calculation.
+
+\emph{Step 5: the variance scales by the square of that factor.}
+Taking norms in Step 4, for each $i$
+\[
+  \bigl|y_i(h)-\textstyle\sum_j\theta_jy_j(h)\bigr|^2
+    =\Bigl(1+\frac h{t_0}\Bigr)^2\bigl|y^0_i-x_0\bigr|^2 ,
+\]
+since $|\lambda v|^2=\lambda^2|v|^2$ for a real scalar $\lambda$. Multiplying by
+$\theta_i$ and summing, and pulling the common factor out of the sum,
+\[
+  \sum_i\theta_i\bigl|y_i(h)-\textstyle\sum_j\theta_jy_j(h)\bigr|^2
+    =\Bigl(1+\frac h{t_0}\Bigr)^2R^2 .
+\]
+
+\emph{Step 6: the collapse.}
+Since $1+h/t_0=(t_0+h)/t_0$,
+\[
+  \frac{\bigl(1+h/t_0\bigr)^2R^2}{2(t_0+h)}
+    =\frac{R^2(t_0+h)^2/t_0^2}{2(t_0+h)}
+    =\frac{R^2(t_0+h)}{2t_0^2}
+    =\frac{R^2}{2t_0}+\frac{R^2}{2t_0^2}\,h ,
+\]
+where the cancellation of one factor $t_0+h$ uses $t_0+h\neq0$. Combining with Step 5
+gives the assertion.
+\end{proof}

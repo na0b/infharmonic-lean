@@ -1,0 +1,42 @@
+\begin{lemma}[Spatial fit modulus]
+Let $F$ be a finite-dimensional real inner-product space and let
+$1\le C_0<\infty$. Write $L(K)=1+\log K$ for $K\ge2$ and
+$\mathcal B_K=\{(x,t):|x|\le K,\ |t|\le K\}$. There is $C>0$, depending only on
+$C_0$ and $\dim F$, such that for every $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass} which is centered at $(0,0)$ or at $(0,1)$ with constant
+$C_0$ in the sense of \noderef{IsCenteredAt}, every $K\ge2$, every
+$(x,t)\in\mathcal B_K$ and every $r>0$,
+\begin{equation}\label{eq:spatial-fit-modulus}
+  |v(x+h,t)-v(x,t)|\le Cr\bigl(L(K)+|\log r|\bigr)\qquad(|h|\le r).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Let $C_1>0$ be the constant of \noderef{FitParamBound} for this $C_0$, and
+let $v$, $K$, $z=(x,t)\in\mathcal B_K$ and $r>0$ be as in the statement.
+
+Since $v\in\Aclass_{m,C_0}$ and $r>0$, \noderef{IsFitClass} provides a fit
+$(p,a)$ for $v$ at $z$ of radius $r$ with constant $C_0$. By
+\noderef{FitParamBound} applied at this center and radius,
+\begin{equation}\label{eq:sfm-param}
+  |p|+|a|\le C_1\bigl(L(K)+|\log r|\bigr).
+\end{equation}
+
+Let $|h|\le r$ and consider the increment $(h,\ell)$ with $\ell=0$. Its box
+conditions in \noderef{IsFit} read $|\ell|=0\le r$ and $|h-\ell p|=|h|\le r$,
+both of which hold. Hence
+\[
+  \bigl|v(x+h,t)-v(x,t)-p\cdot h\bigr|\le C_0r ,
+\]
+the time term dropping out because $\ell=0$. Therefore, by Cauchy--Schwarz and
+$|h|\le r$,
+\[
+  |v(x+h,t)-v(x,t)|\le|p|\,|h|+C_0r\le\bigl(|p|+C_0\bigr)r .
+\]
+Now $L(K)=1+\log K\ge1+\log2\ge1$ for $K\ge2$, so
+$C_0\le C_0\bigl(L(K)+|\log r|\bigr)$, and with \eqref{eq:sfm-param}
+\[
+  |v(x+h,t)-v(x,t)|\le(C_1+C_0)\,r\,\bigl(L(K)+|\log r|\bigr).
+\]
+Thus \eqref{eq:spatial-fit-modulus} holds with $C=C_1+C_0$, which depends only
+on $C_0$ and $\dim F$.
+\end{proof}

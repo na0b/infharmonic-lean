@@ -1,0 +1,127 @@
+\begin{lemma}[The resolvent of a self-adjoint operator, and its comparison with the operator]
+Let $E$ be a finite-dimensional real inner-product space, let $B:E\to E$ be a
+self-adjoint continuous linear operator, i.e.\
+$\langle B\xi,\zeta\rangle=\langle\xi,B\zeta\rangle$ for all $\xi,\zeta\in E$,
+and let $\varepsilon>0$ satisfy $\varepsilon\|B\|\le\tfrac12$. Then there is a
+continuous linear operator $A_\varepsilon:E\to E$ such that
+\begin{enumerate}
+\item[(R1)] $A_\varepsilon$ is self-adjoint:
+  $\langle A_\varepsilon\xi,\zeta\rangle
+   =\langle\xi,A_\varepsilon\zeta\rangle$ for all $\xi,\zeta\in E$;
+\item[(R2)] $A_\varepsilon\xi=B\bigl(\xi+\varepsilon A_\varepsilon\xi\bigr)$ for
+  every $\xi\in E$;
+\item[(R3)] $\bigl(\xi+\varepsilon A_\varepsilon\xi\bigr)
+  -\varepsilon B\bigl(\xi+\varepsilon A_\varepsilon\xi\bigr)=\xi$ for every
+  $\xi\in E$;
+\item[(R4)] $\varepsilon^{-1}\langle\xi,\xi\rangle
+  +\langle A_\varepsilon\xi,\xi\rangle>0$ for every $\xi\ne0$;
+\item[(R5)] $\|A_\varepsilon\|\le2\|B\|$;
+\item[(R6)] for every $\eta\ge2\varepsilon$ and every $\zeta\in E$,
+  \[
+    \langle A_\varepsilon\zeta,\zeta\rangle
+     \le\langle B\zeta,\zeta\rangle+\eta\,|B\zeta|^2 .
+  \]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{Step 1: $\mathrm{id}-\varepsilon B$ is invertible.}
+From $\varepsilon>0$ and $\varepsilon\|B\|\le\tfrac12$ we get
+$\|\varepsilon B\|=\varepsilon\|B\|\le\tfrac12<1$, so the Neumann series
+$T=\sum_{k\ge0}(\varepsilon B)^k$ converges in the operator norm and satisfies
+$T(\mathrm{id}-\varepsilon B)=(\mathrm{id}-\varepsilon B)T=\mathrm{id}$; thus
+$\mathrm{id}-\varepsilon B$ is invertible with
+$(\mathrm{id}-\varepsilon B)^{-1}=T$. Each partial sum of the series is a
+polynomial in $B$, hence self-adjoint (a sum of powers of a self-adjoint
+operator is self-adjoint) and commuting with $B$; since
+$\xi\mapsto\langle S\xi,\zeta\rangle-\langle\xi,S\zeta\rangle$ and
+$S\mapsto SB-BS$ are continuous in $S$, the limit $T$ is again self-adjoint and
+commutes with $B$. Also
+$\|T\|\le\sum_{k\ge0}\|\varepsilon B\|^k\le\sum_{k\ge0}2^{-k}=2$, and more
+precisely $\|T\|\le(1-\varepsilon\|B\|)^{-1}\le2$.
+
+Define $A_\varepsilon=BT=B(\mathrm{id}-\varepsilon B)^{-1}$, a continuous linear
+operator on $E$.
+
+\emph{(R1).} $B$ and $T$ are self-adjoint and commute, so for all $\xi,\zeta$,
+\[
+  \langle BT\xi,\zeta\rangle=\langle T\xi,B\zeta\rangle
+   =\langle\xi,TB\zeta\rangle=\langle\xi,BT\zeta\rangle .
+\]
+
+\emph{The resolvent identity.}
+Using $(\mathrm{id}-\varepsilon B)T=\mathrm{id}$ and the distributivity of
+composition over addition,
+\begin{equation}\label{eq:srr-resolvent}
+  \mathrm{id}+\varepsilon A_\varepsilon
+   =\mathrm{id}+\varepsilon BT
+   =(\mathrm{id}-\varepsilon B)T+\varepsilon BT
+   =\bigl[(\mathrm{id}-\varepsilon B)+\varepsilon B\bigr]T
+   =T,
+\end{equation}
+where the second equality replaced $\mathrm{id}$ by
+$(\mathrm{id}-\varepsilon B)T$.
+
+\emph{(R2).} By \eqref{eq:srr-resolvent}, $T\xi=\xi+\varepsilon A_\varepsilon\xi$
+for every $\xi$, so
+$A_\varepsilon\xi=B(T\xi)=B\bigl(\xi+\varepsilon A_\varepsilon\xi\bigr)$.
+
+\emph{(R3).} Again by \eqref{eq:srr-resolvent} and
+$(\mathrm{id}-\varepsilon B)T=\mathrm{id}$,
+\[
+  \bigl(\xi+\varepsilon A_\varepsilon\xi\bigr)
+   -\varepsilon B\bigl(\xi+\varepsilon A_\varepsilon\xi\bigr)
+   =(\mathrm{id}-\varepsilon B)(T\xi)=\xi .
+\]
+
+\emph{(R4).} For $\xi\ne0$, the Cauchy--Schwarz inequality and the definition of
+the operator norm give $\langle B\xi,\xi\rangle\le|B\xi|\,|\xi|\le\|B\||\xi|^2$,
+hence
+\[
+  \langle(\mathrm{id}-\varepsilon B)\xi,\xi\rangle
+   =|\xi|^2-\varepsilon\langle B\xi,\xi\rangle
+   \ge(1-\varepsilon\|B\|)|\xi|^2\ge\tfrac12|\xi|^2>0 .
+\]
+So $\mathrm{id}-\varepsilon B$ is self-adjoint and positive definite. Its
+inverse $T$ is then positive definite as well: for $x\ne0$ we have $Tx\ne0$
+(because $T$ is injective, being invertible), and
+\[
+  \langle Tx,x\rangle=\bigl\langle Tx,(\mathrm{id}-\varepsilon B)Tx\bigr\rangle
+   =\bigl\langle(\mathrm{id}-\varepsilon B)(Tx),Tx\bigr\rangle>0,
+\]
+using $x=(\mathrm{id}-\varepsilon B)Tx$ and the self-adjointness of
+$\mathrm{id}-\varepsilon B$. Consequently, by \eqref{eq:srr-resolvent},
+\[
+  \varepsilon^{-1}\langle\xi,\xi\rangle+\langle A_\varepsilon\xi,\xi\rangle
+   =\varepsilon^{-1}\bigl\langle(\mathrm{id}
+     +\varepsilon A_\varepsilon)\xi,\xi\bigr\rangle
+   =\varepsilon^{-1}\langle T\xi,\xi\rangle>0\qquad(\xi\ne0).
+\]
+
+\emph{(R5).} $\|A_\varepsilon\|=\|BT\|\le\|B\|\,\|T\|\le2\|B\|$ by Step 1.
+
+\emph{(R6).} Since $B$ is self-adjoint on the finite-dimensional space $E$, the
+spectral theorem supplies an orthonormal basis $(v_i)_{i=1}^n$ of $E$ with
+$Bv_i=b_iv_i$ and $b_i\in\R$; moreover
+$|b_i|=|Bv_i|\le\|B\|\,|v_i|=\|B\|$. For each $i$,
+$(\mathrm{id}-\varepsilon B)v_i=(1-\varepsilon b_i)v_i$ with
+$1-\varepsilon b_i\ge1-\varepsilon\|B\|\ge\tfrac12>0$, so $Tv_i=
+(1-\varepsilon b_i)^{-1}v_i$ and therefore $A_\varepsilon v_i=a_iv_i$ with
+$a_i=b_i/(1-\varepsilon b_i)$. Now
+\[
+  a_i-b_i=\frac{b_i-b_i(1-\varepsilon b_i)}{1-\varepsilon b_i}
+   =\frac{\varepsilon b_i^2}{1-\varepsilon b_i}\le2\varepsilon b_i^2\le\eta b_i^2 ,
+\]
+using $0<1-\varepsilon b_i$, $1-\varepsilon b_i\ge\tfrac12$ (so
+$(1-\varepsilon b_i)^{-1}\le2$), $\varepsilon b_i^2\ge0$ and
+$2\varepsilon\le\eta$. Writing $\zeta=\sum_ic_iv_i$ with $c_i\in\R$ and using
+orthonormality,
+\[
+  \langle A_\varepsilon\zeta,\zeta\rangle=\sum_ia_ic_i^2,\qquad
+  \langle B\zeta,\zeta\rangle=\sum_ib_ic_i^2,\qquad
+  |B\zeta|^2=\sum_ib_i^2c_i^2 .
+\]
+Multiplying the termwise inequality $a_i-b_i\le\eta b_i^2$ by $c_i^2\ge0$ and
+summing over $i$ gives
+$\langle A_\varepsilon\zeta,\zeta\rangle-\langle B\zeta,\zeta\rangle
+\le\eta|B\zeta|^2$, which is (R6).
+\end{proof}

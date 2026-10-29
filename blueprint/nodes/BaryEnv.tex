@@ -1,0 +1,18 @@
+\begin{definition}[Barycentric envelope]
+Let $F$ be a finite-dimensional real inner-product space, let $f$ be a real
+function on the space-time $\ell^2(F\times\R)$, let $s\in\R$ and let $z=(x,t)$
+be a space-time point. The \emph{barycentric envelope} is
+\[
+  \Cenv_s f(x,t)=
+  \sup\left\{\sum_i\theta_i f(y_i,t)
+             -\frac{\sum_i\theta_i|y_i-x|^2}{2s}\right\},
+\]
+the supremum being over all finite horizontal probability configurations
+$(\theta,y)$ with mean $x$ in the sense of \noderef{IsBaryConfig}, and
+$\bigl(\sum_i\theta_i|y_i-x|^2\bigr)^{1/2}$ being the radius of
+\noderef{BaryRadius}. The operation averages the single horizontal slice at the
+fixed time $t$, and $s$ controls the variance penalty. The single-point
+configuration $y_1=x$ is admissible, so the supremum is at least $f(x,t)$. By
+the convention of the preamble it is meaningful only together with the
+hypotheses guaranteeing boundedness above, which are always stated explicitly.
+\end{definition}

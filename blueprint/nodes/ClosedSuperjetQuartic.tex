@@ -1,0 +1,90 @@
+\begin{lemma}[Subtracting a quartic does not change the closed superjet at the origin]
+Let $E$ be a finite-dimensional real inner-product space and let $f:E\to\R$.
+Write $s(w)=|w|^4$. Then
+\[
+  \overline J^{2,+}(f-s)(0)=\overline J^{2,+}f(0),
+\]
+where $\overline J^{2,+}$ is the closed superjet of \noderef{ClosedSuperjet}.
+\end{lemma}
+\begin{proof}
+\emph{Step 1: the derivatives of $s$ and their vanishing at $0$.}
+The function $s(w)=|w|^4=\langle w,w\rangle^2$ is a polynomial in $w$ and
+therefore infinitely differentiable on $E$, with
+\[
+  \nabla s(w)=4|w|^2w,\qquad
+  D^2s(w)(a,b)=4|w|^2\langle a,b\rangle+8\langle w,a\rangle\langle w,b\rangle .
+\]
+In particular $D^2s(w)$ is a symmetric continuous bilinear form for every $w$,
+\[
+  |\nabla s(w)|=4|w|^3\xrightarrow[w\to0]{}0,
+  \qquad
+  \|D^2s(w)\|\le4|w|^2+8|w|^2=12|w|^2\xrightarrow[w\to0]{}0,
+\]
+the bound on $\|D^2s(w)\|$ coming from the Cauchy--Schwarz inequality applied to
+each of the two terms. Finally $s$ is continuous and $s(0)=0$.
+
+\emph{Step 2: the superjet shift identity.}
+We claim that for every $w_0\in E$, every $q\in E$ and every symmetric
+continuous bilinear form $X$ on $E$,
+\begin{equation}\label{eq:csq-shift}
+  (q,X)\in J^{2,+}(f-s)(w_0)
+  \iff
+  \bigl(q+\nabla s(w_0),\,X+D^2s(w_0)\bigr)\in J^{2,+}f(w_0),
+\end{equation}
+where $J^{2,+}$ is the superjet of \noderef{Superjet}. Note first that $X$ is
+symmetric if and only if $X+D^2s(w_0)$ is, because $D^2s(w_0)$ is symmetric; so
+only the inequalities need comparing.
+
+By the second-order Taylor expansion of the smooth function $s$ at $w_0$
+(preamble), for every $\varepsilon''>0$ there is $\delta''>0$ with
+\begin{equation}\label{eq:csq-taylor}
+  \bigl|s(w_0+h)-s(w_0)-\langle\nabla s(w_0),h\rangle
+    -\tfrac12D^2s(w_0)(h,h)\bigr|\le\varepsilon''|h|^2\qquad(|h|<\delta'').
+\end{equation}
+Assume the left-hand side of \eqref{eq:csq-shift} and let $\varepsilon'>0$. Pick
+$\delta_1>0$ from \noderef{Superjet} for $f-s$ at $w_0$ with parameter
+$\varepsilon'/2$, and pick $\delta''>0$ from \eqref{eq:csq-taylor} with
+$\varepsilon''=\varepsilon'/2$. For $|h|<\min(\delta_1,\delta'')$ we may add
+\[
+  f(w_0+h)-s(w_0+h)\le f(w_0)-s(w_0)+\langle q,h\rangle+\tfrac12X(h,h)
+    +\tfrac{\varepsilon'}2|h|^2
+\]
+to the inequality
+$s(w_0+h)\le s(w_0)+\langle\nabla s(w_0),h\rangle
++\tfrac12D^2s(w_0)(h,h)+\tfrac{\varepsilon'}2|h|^2$ obtained from
+\eqref{eq:csq-taylor}; the terms $\mp s(w_0+h)$ and $\mp s(w_0)$ cancel and we
+obtain
+\[
+  f(w_0+h)\le f(w_0)+\langle q+\nabla s(w_0),h\rangle
+    +\tfrac12\bigl(X+D^2s(w_0)\bigr)(h,h)+\varepsilon'|h|^2 .
+\]
+As $\varepsilon'>0$ was arbitrary this is the condition of \noderef{Superjet}
+for $f$ at $w_0$ with the shifted jet. The converse implication is the same
+computation with the roles of $f$ and $f-s$ exchanged: subtract, instead of add,
+the Taylor inequality \eqref{eq:csq-taylor} in the form
+$s(w_0)+\langle\nabla s(w_0),h\rangle+\tfrac12D^2s(w_0)(h,h)
+-\tfrac{\varepsilon'}2|h|^2\le s(w_0+h)$. This proves
+\eqref{eq:csq-shift}.
+
+\emph{Step 3: passing to closed superjets.}
+Let $(p,X)\in\overline J^{2,+}(f-s)(0)$ with defining sequences
+$(z_k,p_k,X_k)$ as in \noderef{ClosedSuperjet}: $(p_k,X_k)\in
+J^{2,+}(f-s)(z_k)$, $z_k\to0$, $(f-s)(z_k)\to(f-s)(0)=f(0)$, $p_k\to p$ and
+$X_k\to X$. Put $p'_k=p_k+\nabla s(z_k)$ and $X'_k=X_k+D^2s(z_k)$. By
+\eqref{eq:csq-shift} with $w_0=z_k$ we have $(p'_k,X'_k)\in J^{2,+}f(z_k)$.
+Since $z_k\to0$, Step 1 gives $\nabla s(z_k)\to0$ and $D^2s(z_k)\to0$, so
+$p'_k\to p$ and $X'_k\to X$. Also $s(z_k)\to s(0)=0$ by the continuity of $s$,
+so $f(z_k)=(f-s)(z_k)+s(z_k)\to f(0)+0=f(0)$. Thus $(z_k,p'_k,X'_k)$ are
+defining sequences for $(p,X)$ relative to $f$ at $0$, i.e.
+$(p,X)\in\overline J^{2,+}f(0)$.
+
+Conversely let $(p,X)\in\overline J^{2,+}f(0)$ with defining sequences
+$(z_k,\pi_k,\Xi_k)$. Put $p_k=\pi_k-\nabla s(z_k)$ and
+$X_k=\Xi_k-D^2s(z_k)$; then $p_k+\nabla s(z_k)=\pi_k$ and
+$X_k+D^2s(z_k)=\Xi_k$, so \eqref{eq:csq-shift} gives
+$(p_k,X_k)\in J^{2,+}(f-s)(z_k)$. As before $\nabla s(z_k)\to0$ and
+$D^2s(z_k)\to0$, so $p_k\to p$ and $X_k\to X$; and
+$(f-s)(z_k)=f(z_k)-s(z_k)\to f(0)-0=(f-s)(0)$. Hence
+$(p,X)\in\overline J^{2,+}(f-s)(0)$. The two inclusions give the asserted
+equality.
+\end{proof}

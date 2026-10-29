@@ -1,0 +1,66 @@
+\begin{lemma}[Continuity of the cone slopes in the center]
+Let $E$ be a finite-dimensional real inner-product space, let $D\subseteq E$ and
+let $w:E\to\R$ be infinity-harmonic on $D$ in the sense of
+\noderef{IsInfHarmonicOn}. Let $r>0$ and let $z_0\in E$ with
+$\overline B_r(z_0)\subseteq D$. Then the functions
+\[
+  z\longmapsto L_r^+(w;z),\qquad z\longmapsto L_r^-(w;z)
+\]
+of \noderef{ConeSlopeUpper} and \noderef{ConeSlopeLower} are continuous at
+$z_0$.
+\end{lemma}
+\begin{proof}
+By \noderef{IsInfHarmonicOn} the set $D$ is open and $w$ is continuous on $D$.
+
+\emph{Step 1: a margin.}
+The set $\overline B_r(z_0)$ is compact and contained in the open set $D$, so
+there is $\eta>0$ with $\overline B_{r+2\eta}(z_0)\subseteq D$. Indeed,
+otherwise there would be points $\zeta_k\notin D$ with
+$|\zeta_k-z_0|\le r+2/k$; a subsequence converges to some $\zeta$ with
+$|\zeta-z_0|\le r$, so $\zeta\in\overline B_r(z_0)\subseteq D$, while
+$\zeta\notin D$ because the complement of $D$ is closed, a contradiction. Write
+$K=\overline B_{r+2\eta}(z_0)$, a compact subset of $D$.
+
+\emph{Step 2: uniform continuity and the slope comparison.}
+Since $w$ is continuous on $D$ and $K\subseteq D$ is compact, $w$ is uniformly
+continuous on $K$. Let $\varepsilon>0$. Choose $\delta\in(0,\eta]$ such that
+\[
+  |w(a)-w(b)|\le\frac{\varepsilon r}{2}\qquad
+  \bigl(a,b\in K,\ |a-b|\le\delta\bigr).
+\]
+Let $z\in E$ with $|z-z_0|\le\delta$. For $|h|\le r$ both $z+h$ and $z_0+h$ lie
+in $K$, since $|z+h-z_0|\le r+\delta\le r+\eta$, and
+$|(z+h)-(z_0+h)|=|z-z_0|\le\delta$; likewise $z,z_0\in K$ and
+$|z-z_0|\le\delta$. Hence
+\[
+  \bigl|\bigl(w(z+h)-w(z)\bigr)-\bigl(w(z_0+h)-w(z_0)\bigr)\bigr|
+    \le|w(z+h)-w(z_0+h)|+|w(z)-w(z_0)|
+    \le\varepsilon r .
+\]
+Dividing by $r>0$,
+\[
+  \frac{w(z+h)-w(z)}{r}
+    \le\frac{w(z_0+h)-w(z_0)}{r}+\varepsilon
+  \qquad(|h|\le r),
+\]
+and symmetrically with the roles of $z,z_0$ exchanged.
+
+\emph{Step 3: both suprema are finite.}
+For $|z-z_0|\le\delta$ the set
+$\{r^{-1}(w(z+h)-w(z)):|h|\le r\}$ is the image of the compact set
+$\{|h|\le r\}$ under a continuous function, hence nonempty and bounded; the same
+holds at $z_0$. Therefore $L_r^\pm(w;z)$ and $L_r^\pm(w;z_0)$ are genuine
+suprema of nonempty bounded sets.
+
+\emph{Step 4: conclusion.}
+Taking the supremum over $|h|\le r$ in the two displays of Step 2 gives
+\[
+  L_r^+(w;z)\le L_r^+(w;z_0)+\varepsilon,\qquad
+  L_r^+(w;z_0)\le L_r^+(w;z)+\varepsilon,
+\]
+that is $|L_r^+(w;z)-L_r^+(w;z_0)|\le\varepsilon$ whenever $|z-z_0|\le\delta$.
+Since $\varepsilon>0$ was arbitrary, $z\mapsto L_r^+(w;z)$ is continuous at
+$z_0$. The identical argument with $-(w(z+h)-w(z))$ in place of
+$w(z+h)-w(z)$, which is the defining family for $L_r^-$ in
+\noderef{ConeSlopeLower}, gives continuity of $z\mapsto L_r^-(w;z)$ at $z_0$.
+\end{proof}

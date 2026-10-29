@@ -1,0 +1,129 @@
+\begin{helper}[Box growth and subquadratic growth for an arbitrary class member]
+Let $F$ be a finite-dimensional real inner-product space, let $1\le C_0<\infty$
+and let $w\in\Aclass_{m,C_0}$ in the sense of \noderef{IsFitClass}. Write
+$L(K)=1+\log K$ and
+$\mathcal B_K=\{(y,s)\in F\times\R:|y|\le K,\ |s|\le K\}$. Then there is a
+constant $C>0$ such that
+\[
+  \bigl|w(\zeta)-w(0)\bigr|\le C\,K\,L(K)^2
+  \qquad(\zeta\in\mathcal B_K,\ K\ge2),
+\]
+and $w$ has subquadratic spatial growth on compact time subintervals of $\R$ in
+the sense of \noderef{SubquadraticGrowth}.
+\end{helper}
+\begin{proof}
+No centering is assumed: the point of the statement is that an arbitrary member
+of the class obeys the centered growth estimate once its value at the origin is
+subtracted.
+
+\emph{The normalizing frame change.} By the second clause of
+\noderef{IsFitClass} choose a fit $(p_1,a_1)$ for $w$ at the origin of radius
+$1$ with constant $C_0$. Let $W$ be the sheared change of frame of
+\noderef{FrameChange} based at $z_0=0$ with scale $R=1$ and parameters
+$(p_1,a_1)$. Unwinding the definition of \noderef{FrameChange} at the point
+$(y-s p_1,s)$, whose sheared image is $(y,s)$,
+\begin{equation}\label{eq:fcg-inv}
+  W(y-sp_1,\,s)=w(y,s)-w(0)-\langle p_1,y-sp_1\rangle
+     -\Bigl(a_1+\frac{|p_1|^2}{2}\Bigr)s
+  \qquad(y\in F,\ s\in\R).
+\end{equation}
+By the first assertion of \noderef{FrameInvariance}, $W\in\Aclass_{m,C_0}$.
+
+\emph{$W$ is centered at the origin.} Taking $(y,s)=(0,0)$ in
+\eqref{eq:fcg-inv} gives $W(0)=w(0)-w(0)-0-0=0$. For the fit, apply the second
+assertion of \noderef{FrameInvariance} with new center $\zeta=0$ and radius
+$\rho=1$: its hypothesis asks for a fit for $w$ at the point
+$z_0+R\bigl((\zeta_y+\zeta_s p_1),\,\zeta_s\bigr)$, which for $z_0=0$, $R=1$ and
+$\zeta=0$ is the origin, and at radius $R\rho=1$; that is exactly the fit
+$(p_1,a_1)$ chosen above. The conclusion is that $(p_1-p_1,a_1-a_1)=(0,0)$ is a
+fit for $W$ at the origin of radius $1$. With $W(0)=0$ this is precisely
+$W$ being centered at the origin with constant $C_0$ in the sense of
+\noderef{IsCenteredAt}.
+
+\emph{The box bound.} Let $C_g>0$ be the constant of \noderef{CenteredGrowth}
+for $C_0$, so that $|W(\zeta)|\le C_gKL(K)^2$ for $\zeta\in\mathcal B_K$ and
+$K\ge2$, $W$ being a centered member of the class. Let $K\ge2$ and let
+$\zeta=(y,s)\in\mathcal B_K$. Note $L(K)\ge1$, hence $L(K)^2\ge1$.
+
+Put $K'=K(1+|p_1|)$. Then $K'\ge K\ge2$, and
+$|y-sp_1|\le|y|+|s||p_1|\le K+K|p_1|=K'$ while $|s|\le K\le K'$, so
+$(y-sp_1,s)\in\mathcal B_{K'}$ and
+$|W(y-sp_1,s)|\le C_gK'L(K')^2$. Since $\log K'=\log K+\log(1+|p_1|)$ and
+$\log(1+|p_1|)\ge0$ and $L(K)\ge1$,
+\[
+  L(K')=L(K)+\log(1+|p_1|)\le\bigl(1+\log(1+|p_1|)\bigr)L(K),
+\]
+and $L(K')\ge0$, so squaring and multiplying by $C_gK'=C_gK(1+|p_1|)\ge0$,
+\[
+  |W(y-sp_1,s)|\le C_g(1+|p_1|)\bigl(1+\log(1+|p_1|)\bigr)^2\,K\,L(K)^2 .
+\]
+By Cauchy--Schwarz and $|y-sp_1|\le K(1+|p_1|)$,
+$|\langle p_1,y-sp_1\rangle|\le|p_1|(1+|p_1|)K\le|p_1|(1+|p_1|)KL(K)^2$, the
+last step by $L(K)^2\ge1$. Finally
+$\bigl|\bigl(a_1+\tfrac12|p_1|^2\bigr)s\bigr|
+ \le\bigl(|a_1|+\tfrac12|p_1|^2\bigr)K
+ \le\bigl(|a_1|+\tfrac12|p_1|^2\bigr)KL(K)^2$, again by $|s|\le K$ and
+$L(K)^2\ge1$. Rearranging \eqref{eq:fcg-inv} as
+\[
+  w(y,s)-w(0)=W(y-sp_1,s)+\langle p_1,y-sp_1\rangle
+    +\Bigl(a_1+\frac{|p_1|^2}{2}\Bigr)s
+\]
+and adding the three bounds through the triangle inequality gives the box bound
+with
+\[
+  C=C_g(1+|p_1|)\bigl(1+\log(1+|p_1|)\bigr)^2+|p_1|(1+|p_1|)
+     +|a_1|+\tfrac12|p_1|^2 ,
+\]
+which is positive because its first summand is.
+
+\emph{Subquadratic growth.} Let $J\subseteq\R$ be compact and let
+$\varepsilon>0$. A compact subset of $\R$ is bounded, so there is $K_J\ge1$ with
+$|s|\le K_J$ for every $s\in J$. Apply \noderef{UniformSubquadratic} with the
+centering point $0$, the compact set $J$ and the tolerance $\varepsilon/8$: it
+returns $M_1>0$ such that every member of the class centered at the origin
+satisfies $|U(\eta)|\le(\varepsilon/8)|\eta_y|^2$ whenever
+$|\eta_y|\ge M_1$ and $\eta_s\in J$. Since $W$ is such a member, this applies to
+$W$.
+
+Put
+\[
+  A=|w(0)|+|p_1|\,K_J|p_1|+\bigl(|a_1|+\tfrac12|p_1|^2\bigr)K_J\ \ (\ge0),
+  \qquad
+  M=\max\Bigl\{1,\ M_1+K_J|p_1|,\ K_J|p_1|,\
+     \frac{2(A+|p_1|)}{\varepsilon}\Bigr\}>0 .
+\]
+Let $\zeta=(y,s)$ with $|y|\ge M$ and $s\in J$. Then $|s|\le K_J$, so
+$|sp_1|\le K_J|p_1|$, and therefore
+\[
+  |y-sp_1|\le|y|+K_J|p_1|\le2|y|,\qquad
+  |y-sp_1|\ge|y|-K_J|p_1|\ge M_1 ,
+\]
+using $|y|\ge K_J|p_1|$ for the first and $|y|\ge M_1+K_J|p_1|$ for the second.
+Hence the uniform estimate applies at $(y-sp_1,s)$, whose time coordinate is
+$s\in J$, and
+\[
+  |W(y-sp_1,s)|\le\frac{\varepsilon}{8}|y-sp_1|^2
+   \le\frac{\varepsilon}{8}\cdot4|y|^2=\frac{\varepsilon}{2}|y|^2 .
+\]
+For the remaining terms of \eqref{eq:fcg-inv}, Cauchy--Schwarz and
+$|y-sp_1|\le|y|+K_J|p_1|$ give
+$|\langle p_1,y-sp_1\rangle|\le|p_1||y|+|p_1|K_J|p_1|$, and
+$\bigl|\bigl(a_1+\tfrac12|p_1|^2\bigr)s\bigr|\le
+\bigl(|a_1|+\tfrac12|p_1|^2\bigr)K_J$, so
+\[
+  |\langle p_1,y-sp_1\rangle|
+   +\Bigl|\Bigl(a_1+\frac{|p_1|^2}{2}\Bigr)s\Bigr|+|w(0)|
+  \le A+|p_1|\,|y| .
+\]
+Since $|y|\ge1$ and $A\ge0$ we have $A+|p_1||y|\le(A+|p_1|)|y|$, and
+$|y|\ge2(A+|p_1|)/\varepsilon$ gives $2(A+|p_1|)\le\varepsilon|y|$, hence
+$(A+|p_1|)|y|\le\tfrac{\varepsilon}{2}|y|^2$. Writing
+$w(y,s)=W(y-sp_1,s)+\langle p_1,y-sp_1\rangle
+ +\bigl(a_1+\tfrac12|p_1|^2\bigr)s+w(0)$ and applying the triangle inequality,
+\[
+  |w(y,s)|\le\frac{\varepsilon}{2}|y|^2+\frac{\varepsilon}{2}|y|^2
+   =\varepsilon|y|^2 .
+\]
+As $J$ and $\varepsilon$ were arbitrary, $w$ has subquadratic spatial growth on
+compact time subintervals of $\R$ in the sense of
+\noderef{SubquadraticGrowth}. \end{proof}

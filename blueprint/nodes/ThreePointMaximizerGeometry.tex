@@ -1,0 +1,156 @@
+\begin{lemma}[The geometry at a maximizing triple of the penalized three-point functional]
+Let $E$ be a finite-dimensional real inner-product space, write $\overline B_\rho$
+for the closed ball of radius $\rho$ centred at the origin of $E$, and write
+$\ell^2(E^3)$ for $E\times E\times E$ with the Euclidean product norm. Let
+$\Phi:E\times E\times E\to\R$, let $\Psi:\ell^2(E^3)\to\R$, let
+$g_0,g_1,g_2:E\to\R$, let $w,B:E\to\R$, let $f:\R\to\R$, let
+$x,y,z,c,h\in E$, let $Z\in\ell^2(E^3)$ and let
+$r,\delta,\nu,C,C',B_{\mathrm{out}},\beta,r_0\in\R$. Assume:
+\begin{enumerate}
+\item\label{it:tpmg-Phi} for all $x',y',z'\in E$,
+\[
+  \Phi(x',y',z')=w(x')+w(y')-2w(z')
+    -B\Bigl(\frac{x'+y'}{2}\Bigr)f\bigl(|x'-y'|\bigr)
+    -\frac{\bigl|z'-\frac{x'+y'}{2}\bigr|^2}{|x'-y'|^2};
+\]
+\item\label{it:tpmg-data} $c=\dfrac{x+y}{2}$, $h=z-c$ and $r=|x-y|$;
+\item\label{it:tpmg-Z} the three coordinates of $Z$ are $x$, $y$ and $z$;
+\item\label{it:tpmg-val} $\displaystyle\sum_{j}g_j\bigl(Y_j\bigr)-\Psi(Y)
+=\Phi(Y_0,Y_1,Y_2)$ for every $Y\in\ell^2(E^3)$, where $Y_0,Y_1,Y_2$ are the
+coordinates of $Y$;
+\item\label{it:tpmg-ball} $x,y,z,c\in\overline B_{3/4}$;
+\item\label{it:tpmg-r} $0<r$ and $\nu r\le f(r)$;
+\item\label{it:tpmg-small} $|w(t)|\le\dfrac{\delta\nu r_0}{8}$ for every
+$t\in\overline B_{3/4}$;
+\item\label{it:tpmg-lip} $|w(s)-w(t)|\le C\,|s-t|$ for all
+$s,t\in\overline B_{3/4}$;
+\item\label{it:tpmg-B} $\dfrac\delta2\le B(c)$, and $B(c)=B_{\mathrm{out}}$ if
+$\dfrac12\le|c|$;
+\item\label{it:tpmg-ub} $\Phi(x,y,z)\le Cr+C^2r^2-B(c)f(r)$;
+\item\label{it:tpmg-max} $\beta\le\Phi(x,y,z)$;
+\item\label{it:tpmg-attain} $\Phi(x',y',z')\le\Phi(x,y,z)$ for all
+$x',y',z'\in\overline B_{3/4}$ with $\dfrac{\beta}{2C'}\le|x'-y'|$;
+\item\label{it:tpmg-rlow} $\dfrac{\beta}{C'}\le|x-y|$;
+\item\label{it:tpmg-consts} $0<\beta$, $0<C'$, $0<C$, $0<\delta$, $0<\nu$,
+$C'=C+\tfrac32C^2$, $B_{\mathrm{out}}=\dfrac{C'}{\nu}+\dfrac\delta2+1$ and
+$\dfrac\delta2\le B_{\mathrm{out}}$;
+\item\label{it:tpmg-thr} $r_0\le\dfrac14$, $r_0\le\dfrac1{16C}$,
+$r_0\le\dfrac{16}9$ and $r_0\le\dfrac{\delta}{64C^2}$.
+\end{enumerate}
+Then
+\begin{equation}\label{eq:tpmg-concl}
+  r<r_0,\qquad |h|\le2Cr^2,\qquad
+  \frac3{16}\sqrt r\le\frac14,\qquad 8C^2r\le\frac\delta8,
+\end{equation}
+and $Z$ is a local maximum of
+$Y\mapsto\sum_jg_j(Y_j)-\Psi(Y)$ on $\ell^2(E^3)$.
+\end{lemma}
+\begin{proof}
+By \ref{it:tpmg-data} and \ref{it:tpmg-Phi} evaluated at $(x,y,z)$,
+\begin{equation}\label{eq:tpmg-Phiz}
+  \Phi(x,y,z)=w(x)+w(y)-2w(z)-B(c)f(r)-\frac{|h|^2}{r^2},
+\end{equation}
+and by \ref{it:tpmg-max} with \ref{it:tpmg-consts} the maximum is positive:
+$0<\beta\le\Phi(x,y,z)$. Note also that $C^2>0$, being the square of the
+positive $C$.
+
+\emph{The radius is small.} Apply \ref{it:tpmg-small} at $x$, $y$ and $z$, which
+lie in $\overline B_{3/4}$ by \ref{it:tpmg-ball}; this bounds each of
+$w(x),w(y),w(z)$ between $\pm\delta\nu r_0/8$, so
+$w(x)+w(y)-2w(z)\le4\cdot\delta\nu r_0/8=\delta\nu r_0/2$. Next
+$0\le\nu r$ by \ref{it:tpmg-r} and \ref{it:tpmg-consts}, so $0\le f(r)$ by
+\ref{it:tpmg-r}, and therefore
+\[
+  \frac\delta2(\nu r)\le\frac\delta2f(r)\le B(c)f(r)
+\]
+using \ref{it:tpmg-r} for the first inequality (multiplying by
+$\delta/2\ge0$) and \ref{it:tpmg-B} for the second (multiplying by
+$f(r)\ge0$). Finally $|h|^2/r^2\ge0$. Substituting these three facts into
+\eqref{eq:tpmg-Phiz} and using $\Phi(x,y,z)>0$,
+\[
+  0<\frac{\delta\nu r_0}{2}-\frac{\delta\nu r}{2},
+\]
+and cancelling the positive factor $\delta\nu/2$ gives $r<r_0$. This is the
+paper's $r\le8\varepsilon_i/(\delta\nu)$ with $\varepsilon_i=\delta\nu r_0/8$.
+
+\emph{The deviation of the third point.} First
+$\beta/(2C')\le|x-y|$: indeed $\beta/(2C')=\tfrac12\cdot\beta/C'$ and
+$\beta/C'\ge0$, so $\beta/(2C')\le\beta/C'\le|x-y|$ by \ref{it:tpmg-rlow}.
+Hence the competitor $(x,y,c)$ is admissible in \ref{it:tpmg-attain} --- its
+three entries lie in $\overline B_{3/4}$ by \ref{it:tpmg-ball} --- and
+$\Phi(x,y,c)\le\Phi(x,y,z)$. Evaluating \ref{it:tpmg-Phi} at $(x,y,c)$ and using
+$c-\frac{x+y}{2}=0$ from \ref{it:tpmg-data} gives
+$\Phi(x,y,c)=w(x)+w(y)-2w(c)-B(c)f(r)$, so comparing with
+\eqref{eq:tpmg-Phiz} and cancelling the common terms,
+\[
+  \frac{|h|^2}{r^2}\le2\bigl(w(c)-w(z)\bigr).
+\]
+By \ref{it:tpmg-lip} at $s=c$, $t=z$, both in $\overline B_{3/4}$, and
+$|c-z|=|h|$ from \ref{it:tpmg-data}, the right-hand side is at most $2C|h|$.
+Multiplying by $r^2>0$ gives $|h|^2\le2Cr^2|h|$. If $|h|=0$ then
+$|h|\le2Cr^2$ because $2Cr^2\ge0$; otherwise divide by $|h|>0$. Either way
+$|h|\le2Cr^2$.
+
+\emph{The two smallness packages.} From $r<r_0$ and \ref{it:tpmg-thr}:
+$r<1/4$, so $r<1/2$; and $r<1/(16C)$, so $r(16C)<1$ and hence
+$2Cr^2<1/4$ (multiply $r\cdot16C<1$ by $r/8>0$ and use $r<1/4$). Likewise
+$r\le16/9$ gives $\sqrt r\le\sqrt{16/9}=4/3$, so
+$\tfrac3{16}\sqrt r\le\tfrac3{16}\cdot\tfrac43=\tfrac14$; and
+$r\le\delta/(64C^2)$ with $64C^2>0$ gives $64C^2r\le\delta$, i.e.
+$8C^2r\le\delta/8$. The last two are the asserted bounds of
+\eqref{eq:tpmg-concl}; the first two, $r<1/2$ and $2Cr^2<1/4$, are used below
+and are not among the conclusions.
+
+\emph{The midpoint is interior to the localization region.} Suppose
+$\tfrac12\le|c|$. Then $B(c)=B_{\mathrm{out}}$ by \ref{it:tpmg-B}, so
+\ref{it:tpmg-ub} reads
+$\Phi(x,y,z)\le Cr+C^2r^2-B_{\mathrm{out}}f(r)$. Now
+$B_{\mathrm{out}}>0$, since $0<\delta/2\le B_{\mathrm{out}}$ by
+\ref{it:tpmg-consts}, so $\nu r\le f(r)$ gives
+$B_{\mathrm{out}}(\nu r)\le B_{\mathrm{out}}f(r)$; and by the definitions of
+$C'$ and $B_{\mathrm{out}}$ in \ref{it:tpmg-consts},
+\[
+  B_{\mathrm{out}}\nu=C'+\Bigl(\frac\delta2+1\Bigr)\nu,
+  \qquad\text{so}\qquad
+  B_{\mathrm{out}}(\nu r)
+   =\Bigl(C+\frac32C^2+\Bigl(\frac\delta2+1\Bigr)\nu\Bigr)r .
+\]
+Since $r<r_0\le1/4\le3/2$ we have $C^2r(\tfrac32-r)\ge0$, i.e.
+$Cr+C^2r^2\le Cr+\tfrac32C^2r$, and
+$\bigl(\tfrac\delta2+1\bigr)\nu r>0$. Chaining these,
+\[
+  0<\Phi(x,y,z)\le Cr+C^2r^2-B_{\mathrm{out}}f(r)
+   \le Cr+\frac32C^2r-\Bigl(C+\frac32C^2+\Bigl(\frac\delta2+1\Bigr)\nu\Bigr)r
+   =-\Bigl(\frac\delta2+1\Bigr)\nu r<0,
+\]
+a contradiction. Hence $|c|<1/2$. This is where the choice of
+$B_{\mathrm{out}}$ in \ref{it:tpmg-consts} is used, and it is the paper's
+$|c|<1/2$ at a positive maximum; the Lean statement does not list it as a
+conclusion because nothing after this step reads it, only the interiority it
+produces next.
+
+\emph{The three points are interior.} By \ref{it:tpmg-data},
+$x-c=\tfrac12(x-y)$ and $y-c=-\tfrac12(x-y)$, so
+$|x-c|=|y-c|=\tfrac12r$, while $|z-c|=|h|$. For any $t\in E$ with
+$|t-c|<1/4$ we get $|t|\le|c|+|t-c|<\tfrac12+\tfrac14=\tfrac34$ by the
+triangle inequality and $|c|<1/2$. Since $\tfrac12r<\tfrac14$ (from
+$r<1/2$) and $|h|\le2Cr^2<1/4$, this applies to $t=x,y,z$ and gives
+$|x|,|y|,|z|<3/4$. Moreover $\beta/(2C')<\beta/C'\le|x-y|=r$, strictly,
+because $\beta>0$ and $C'>0$.
+
+\emph{The constrained maximum is local.} The three coordinate maps
+$Y\mapsto Y_j$ on $\ell^2(E^3)$ are continuous, hence so are
+$Y\mapsto|Y_j|$ and $Y\mapsto|Y_0-Y_1|$. By \ref{it:tpmg-Z} these take the
+values $|x|,|y|,|z|<3/4$ and $|x-y|>\beta/(2C')$ at $Y=Z$, so each of the four
+strict inequalities persists on a neighbourhood of $Z$; intersecting the four
+neighbourhoods, there is a neighbourhood $N$ of $Z$ on which
+$|Y_0|,|Y_1|,|Y_2|<3/4$ and $\beta/(2C')<|Y_0-Y_1|$. For $Y\in N$ the triple
+$(Y_0,Y_1,Y_2)$ is therefore admissible in \ref{it:tpmg-attain}, so
+$\Phi(Y_0,Y_1,Y_2)\le\Phi(x,y,z)$, and by \ref{it:tpmg-val} together with
+\ref{it:tpmg-Z} this says exactly
+\[
+  \sum_jg_j(Y_j)-\Psi(Y)\le\sum_jg_j(Z_j)-\Psi(Z).
+\]
+Thus $Z$ is a local maximum of $Y\mapsto\sum_jg_j(Y_j)-\Psi(Y)$, which is the
+last assertion.
+\end{proof}

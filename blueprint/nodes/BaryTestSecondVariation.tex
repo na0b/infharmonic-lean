@@ -1,0 +1,110 @@
+\begin{lemma}[The lifted barycentric test, and its second variation]
+Let $F$ be a finite-dimensional real inner-product space and let $n\in\N$. Let
+$\theta:\{1,\dots,n\}\to\R$ satisfy $\sum_i\theta_i=1$, let $y^0=(y^0_i)_i$ be points of
+$F$ with $\sum_i\theta_iy^0_i=x_0$, let $t_0>0$ and $c\in\R$, and let $\varphi$ be a real
+function on the space-time $\ell^2(F\times\R)$ which is $C^2$ at $(x_0,t_0)$. On the
+product space-time $\ell^2\bigl(\ell^2(F^n)\times\R\bigr)$, write a point as $W=(Y,t)$
+with $Y=(y_i)_i$, and let $\Phi$ be a real function there satisfying, for every such $W$,
+\[
+  \Phi(Y,t)=\varphi\Bigl(\sum_j\theta_jy_j,\ t\Bigr)+ct
+    +\frac{\sum_j\theta_j\bigl|y_j-\sum_k\theta_ky_k\bigr|^2}{2t}.
+\]
+Put $Y^0=(y^0_i)_i$, $p=\nabla_x\varphi(x_0,t_0)$ for the spatial part of
+$\nabla\varphi(x_0,t_0)$, and
+\[
+  \zeta=\Bigl(\bigl(p+\tfrac{y^0_i-x_0}{t_0}\bigr)_{i=1}^n,\ 1\Bigr).
+\]
+Then $\Phi$ is $C^2$ at $(Y^0,t_0)$, and
+\[
+  D^2\Phi\bigl(Y^0,t_0\bigr)\bigl[\zeta,\zeta\bigr]=F[\varphi](x_0,t_0),
+\]
+with $F$ the limiting operator of \noderef{LimitOp}.
+\end{lemma}
+\begin{proof}
+Write $P=\ell^2(F^n)$ and introduce the continuous linear maps
+\[
+  \pi_1(W)=Y,\qquad \pi_2(W)=t,\qquad X(Y)=\sum_j\theta_jy_j,\qquad
+  L(W)=\bigl(X(Y),\,t\bigr),\qquad M_j(W)=y_j-X(Y),
+\]
+each built from coordinate projections and finite linear combinations. Write
+$W_0=(Y^0,t_0)$ and $q_i=p+(y^0_i-x_0)/t_0$, so that $\zeta=\bigl((q_i)_i,1\bigr)$. Since
+$\sum_j\theta_jy^0_j=x_0$ we have $L(W_0)=(x_0,t_0)$ and $\pi_2(W_0)=t_0$. Set
+\[
+  g(W)=\varphi\bigl(L(W)\bigr)+c\,\pi_2(W),\qquad
+  \psi(W)=\frac{\sum_j\theta_j|M_j(W)|^2}{2\pi_2(W)},
+\]
+so that the hypothesis on $\Phi$ says exactly $\Phi=g+\psi$.
+
+\emph{Step 1: regularity.}
+The map $L$ is continuous linear and $L(W_0)=(x_0,t_0)$, where $\varphi$ is $C^2$; hence
+$\varphi\circ L$ is $C^2$ at $W_0$. The map $W\mapsto c\,\pi_2(W)$ is continuous linear,
+hence $C^\infty$. So $g$ is $C^2$ at $W_0$. For $\psi$: each $M_j$ is continuous linear
+and $u\mapsto|u|^2$ is $C^\infty$, so the numerator is $C^\infty$; the denominator
+$W\mapsto2\pi_2(W)$ is continuous linear, hence $C^\infty$, and it takes the value
+$2t_0\neq0$ at $W_0$; so the quotient is $C^2$ at $W_0$. Therefore $\Phi=g+\psi$ is $C^2$
+at $W_0$, which is the first assertion.
+
+\emph{Step 2: the two summands other than $\varphi\circ L$ are affine along the motion.}
+Consider the straight motion $h\mapsto W_0+h\zeta$. In coordinates it is
+$\bigl(Y^0+hq,\ t_0+h\bigr)$ with $q=(q_i)_i$, because addition and scalar
+multiplication on the $\ell^2$ product are performed componentwise; in particular the
+$i$-th block of its spatial part is $y^0_i+hq_i$ and $\pi_2(W_0+h\zeta)=t_0+h$.
+
+For the time summand, $c\,\pi_2(W_0+h\zeta)=c(t_0+h)=ct_0+ch$, which is affine in $h$
+for every $h$.
+
+For $\psi$, note that $M_j(W_0+h\zeta)$ is the $j$-th block of the spatial part minus
+the weighted mean of all the blocks, that is
+$\bigl(y^0_j+hq_j\bigr)-\sum_k\theta_k\bigl(y^0_k+hq_k\bigr)$. Hence
+\noderef{BaryVarianceAffineAlongMotion} applies with these $\theta$, $y^0$, $x_0$, $t_0$
+and with this $p$: its hypotheses $\sum_i\theta_i=1$, $\sum_i\theta_iy^0_i=x_0$ and
+$t_0>0$ hold, and the points it moves are exactly the ones just displayed. It gives,
+for every $h$ with $t_0+h>0$ --- a set of $h$ containing a neighbourhood of $0$, since
+$t_0>0$ ---
+\[
+  \psi\bigl(W_0+h\zeta\bigr)
+    =\frac{R^2}{2t_0}+\frac{R^2}{2t_0^2}\,h,
+  \qquad R^2=\sum_i\theta_i\bigl|y^0_i-x_0\bigr|^2 ,
+\]
+which is affine in $h$.
+
+\emph{Step 3: stripping them.}
+Apply \noderef{SecondVariationAddAffineOnLine} on the product space-time at the point
+$W_0$ in the direction $\zeta$, first with the pair $(g,\psi)$. Both are $C^2$ at $W_0$
+by Step 1, and $\psi$ is affine along the motion by Step 2, so
+\[
+  D^2\Phi(W_0)\bigl[\zeta,\zeta\bigr]
+   =D^2\bigl(g+\psi\bigr)(W_0)\bigl[\zeta,\zeta\bigr]
+   =D^2g(W_0)\bigl[\zeta,\zeta\bigr].
+\]
+Apply it again with the pair $\bigl(\varphi\circ L,\ c\,\pi_2\bigr)$, whose sum is $g$:
+both are $C^2$ at $W_0$ by Step 1, and $c\,\pi_2$ is affine along the motion by Step 2,
+so
+\[
+  D^2g(W_0)\bigl[\zeta,\zeta\bigr]
+   =D^2\bigl(\varphi\circ L\bigr)(W_0)\bigl[\zeta,\zeta\bigr].
+\]
+
+\emph{Step 4: the remaining summand is the operator.}
+Since $L$ is continuous linear and $\varphi$ is $C^2$ at $L(W_0)=(x_0,t_0)$,
+\noderef{SecondFDerivCompLinear} gives
+\[
+  D^2\bigl(\varphi\circ L\bigr)(W_0)\bigl[\zeta,\zeta\bigr]
+   =D^2\varphi(x_0,t_0)\bigl[L\zeta,\ L\zeta\bigr].
+\]
+The time component of $L\zeta$ is the time component of $\zeta$, namely $1$. Its spatial
+component is $X\bigl((q_i)_i\bigr)=\sum_i\theta_iq_i$, and since $\sum_i\theta_i=1$ and
+$\sum_i\theta_i\bigl(y^0_i-x_0\bigr)=\sum_i\theta_iy^0_i-x_0=0$,
+\[
+  \sum_i\theta_iq_i
+   =\Bigl(\sum_i\theta_i\Bigr)p+\frac1{t_0}\sum_i\theta_i\bigl(y^0_i-x_0\bigr)=p .
+\]
+So $L\zeta=(p,1)$ and
+\[
+  D^2\bigl(\varphi\circ L\bigr)(W_0)\bigl[\zeta,\zeta\bigr]
+   =D^2\varphi(x_0,t_0)\bigl[(p,1)\bigr].
+\]
+As $p=\nabla_x\varphi(x_0,t_0)$ is the spatial part of $\nabla\varphi(x_0,t_0)$, the
+right-hand side is exactly $F[\varphi](x_0,t_0)$ in the sense of \noderef{LimitOp}.
+Chaining with Step 3 gives the second assertion.
+\end{proof}

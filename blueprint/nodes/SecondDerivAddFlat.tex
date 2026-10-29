@@ -1,0 +1,43 @@
+\begin{lemma}[A second-order flat perturbation changes nothing at the centre]
+Let $Q$ be a real normed space, let $x\in Q$, let $f:Q\to\R$ be $C^2$ near $x$, and let
+$g:Q\to\R$ be $C^2$ on all of $Q$ with
+\[
+  Dg(x)=0\qquad\text{and}\qquad D^2g(x)=0 .
+\]
+Then
+\[
+  D(f+g)(x)=Df(x)\qquad\text{and}\qquad D^2(f+g)(x)=D^2f(x).
+\]
+\end{lemma}
+\begin{proof}
+Since $g$ is $C^2$ on all of $Q$ it is differentiable at every point $y$, with
+derivative $Dg(y)$.
+
+\emph{Step 1: the first derivative.}
+As $f$ is $C^2$ near $x$ it is in particular differentiable at $x$. By the sum rule the
+function $f+g$ is differentiable at $x$ with
+\[
+  D(f+g)(x)=Df(x)+Dg(x).
+\]
+The hypothesis $Dg(x)=0$ gives $D(f+g)(x)=Df(x)$.
+
+\emph{Step 2: the first derivative splits near $x$.}
+For every $y$ in a neighbourhood of $x$ the function $f$ is still $C^2$, hence
+differentiable, so the same sum rule applies at $y$:
+\[
+  D(f+g)(y)=Df(y)+Dg(y).
+\]
+Thus the two maps $y\mapsto D(f+g)(y)$ and $y\mapsto Df(y)+Dg(y)$, with values in the
+space of continuous linear functionals on $Q$, agree on a neighbourhood of $x$.
+
+\emph{Step 3: the second derivative.}
+Because $f$ is $C^2$ near $x$ and $g$ is $C^2$, the maps $Df$ and $Dg$ are each
+differentiable at $x$, with derivatives $D^2f(x)$ and $D^2g(x)$. Hence
+$y\mapsto Df(y)+Dg(y)$ is differentiable at $x$ with derivative $D^2f(x)+D^2g(x)$; and
+since by Step 2 it agrees with $y\mapsto D(f+g)(y)$ on a neighbourhood of $x$, the
+latter has the same derivative at $x$:
+\[
+  D^2(f+g)(x)=D^2f(x)+D^2g(x).
+\]
+The hypothesis $D^2g(x)=0$ gives $D^2(f+g)(x)=D^2f(x)$, which completes the proof.
+\end{proof}

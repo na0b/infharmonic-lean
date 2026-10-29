@@ -1,0 +1,166 @@
+\begin{lemma}[Bound for fit parameters on a box]
+Let $F$ be a finite-dimensional real inner-product space and let
+$1\le C_0<\infty$. Write $L(K)=1+\log K$ for $K\ge2$ and
+$\mathcal B_K=\{(x,t):|x|\le K,\ |t|\le K\}$. There is $C>0$, depending only on
+$C_0$ and $\dim F$, such that for every $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass} which is centered at $(0,0)$ or at $(0,1)$ with constant
+$C_0$ in the sense of \noderef{IsCenteredAt}, every $K\ge2$, every
+$z\in\mathcal B_K$, every $r>0$ and every fit $(p,a)$ for $v$ at $z$ of radius
+$r$ with constant $C_0$ in the sense of \noderef{IsFit},
+\begin{equation}\label{eq:fit-parameter-bound}
+  |p|+|a|\le C\bigl(L(K)+|\log r|\bigr).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $L(K)=1+\log K\ge1$ for $K\ge2$, and write $z_c=(0,\theta)$ with
+$\theta\in\{0,1\}$ for the centering point, so that by \noderef{IsCenteredAt}
+$v(z_c)=0$ and $(0,0)$ is a fit for $v$ at $z_c$ of radius $1$ with constant
+$C_0$. By \noderef{IsFitClass}, $v$ admits a fit at every center of every
+positive radius with constant $C_0$; in particular the hypothesis of
+\noderef{FitComparisonSameCenter} holds at every center. Let $C_1>0$ be the
+constant of \noderef{FitComparisonSameCenter} for this $C_0$. All constants
+below depend only on $C_0$ and $\dim F$.
+
+\emph{Step 1: a fit of a large radius at the centering point.}
+Let $A\ge8$ be a constant, depending only on $C_0$ and $\dim F$, to be fixed in
+Step 2, and set
+\[
+  R=A\,K\,L(K)\ \ \ge8\cdot2\cdot1=16>1 .
+\]
+By \noderef{IsFitClass} choose a fit $(p_R,a_R)$ for $v$ at $z_c$ of radius $R$.
+Applying \noderef{FitComparisonSameCenter} at the center $z_c$ with the radii
+$R$ and $1$ and the fits $(p_R,a_R)$ and $(0,0)$,
+\[
+  |p_R|+|a_R|\le C_1\bigl(1+|\log(1/R)|\bigr)=C_1\bigl(1+\log R\bigr),
+\]
+using $R>1$. Now $\log R=\log A+\log K+\log L(K)\le\log A+2L(K)$, since
+$\log K\le1+\log K=L(K)$ and $\log L(K)\le L(K)$ (because $\log\sigma\le\sigma$
+for $\sigma>0$). Hence, using $L(K)\ge1$,
+\begin{equation}\label{eq:fpb-pR}
+  |p_R|+|a_R|\le C_4\,L(K),
+  \qquad C_4:=C_1\bigl(1+\log A+2\bigr)+1\ \ (\ge1).
+\end{equation}
+
+\emph{Step 2: the box of $(p_R,a_R)$ contains $\mathcal B_K$ with margin.}
+Let $z=(x,t)$ with $|x|\le K$ and $|t|\le K$. The increment from $z_c$ to $z$ is
+$(x,\,t-\theta)$, and $|t-\theta|\le K+1\le2K$. We claim
+\begin{equation}\label{eq:fpb-margin}
+  |t-\theta|\le\frac R4,
+  \qquad \bigl|x-p_R(t-\theta)\bigr|\le\frac R4 .
+\end{equation}
+For the first, $|t-\theta|\le2K$ while $R/4=AKL(K)/4\ge AK/4\ge2K$ because
+$A\ge8$. For the second, by \eqref{eq:fpb-pR} and $C_4L(K)\ge1$,
+\[
+  \bigl|x-p_R(t-\theta)\bigr|\le K+2K\,|p_R|\le K+2K\,C_4L(K)\le3C_4\,K\,L(K),
+\]
+and this is at most $R/4=AKL(K)/4$ as soon as $A\ge12C_4$. Since
+$C_4=C_1(3+\log A)+1$ depends on $A$ only through $\log A$, the requirement
+\[
+  A\ge\max\bigl\{8,\ 12\bigl(C_1(3+\log A)+1\bigr)\bigr\}
+\]
+has the form $A\ge\alpha+\beta\log A$ with $\alpha,\beta>0$ depending only on
+$C_0$ and $\dim F$, and is therefore satisfiable because $\log A/A\to0$. Fix
+such an $A$ once and for all. Then \eqref{eq:fpb-pR} and
+\eqref{eq:fpb-margin} hold for every $K\ge2$ and every $z\in\mathcal B_K$, with
+$C_4\ge1$ depending only on $C_0$ and $\dim F$.
+
+\emph{Step 3: fits of radius $R$ at a center in $\mathcal B_K$.}
+Let $z=(x,t)\in\mathcal B_K$ and let $(p_z,a_z)$ be any fit for $v$ at $z$ of
+radius $R$ with constant $C_0$. Write
+$\ell_{p,a}(h,\ell)=p\cdot h+(a-|p|^2/2)\ell$, so that \noderef{IsFit} at a
+center $\zeta$ and radius $\rho$ reads
+$\bigl|v(\zeta+(h,\ell))-v(\zeta)-\ell_{p,a}(h,\ell)\bigr|\le C_0\rho$ on the
+corresponding box.
+
+\emph{(a) The slopes.} Let $h\in F$ with $|h|\le R/2$. The increment $(h,0)$
+from $z$ lies in the box of $(p_z,a_z)$ of radius $R$, since $|0|\le R$ and
+$|h-p_z\cdot0|=|h|\le R$; hence
+\begin{equation}\label{eq:fpb-at-z}
+  \bigl|v(x+h,t)-v(x,t)-p_z\cdot h\bigr|\le C_0R .
+\end{equation}
+The increments $(x,t-\theta)$ and $(x+h,t-\theta)$ from $z_c$ both lie in the box
+of $(p_R,a_R)$ of radius $R$: by \eqref{eq:fpb-margin} we have
+$|t-\theta|\le R/4\le R$ and $|x-p_R(t-\theta)|\le R/4\le R$, and
+\[
+  \bigl|x+h-p_R(t-\theta)\bigr|\le\frac R4+\frac R2\le R .
+\]
+Subtracting the two corresponding estimates of \noderef{IsFit}, and noting that
+$\ell_{p_R,a_R}$ is linear so that its values at the two increments differ by
+$\ell_{p_R,a_R}(h,0)=p_R\cdot h$, we obtain
+\[
+  \bigl|v(x+h,t)-v(x,t)-p_R\cdot h\bigr|\le2C_0R\qquad(|h|\le R/2).
+\]
+Subtracting this from \eqref{eq:fpb-at-z} gives
+$|(p_z-p_R)\cdot h|\le3C_0R$ for all $|h|\le R/2$; taking
+$h=(R/2)(p_z-p_R)/|p_z-p_R|$ when $p_z\ne p_R$, and dividing by $R/2$,
+\begin{equation}\label{eq:fpb-slopes}
+  |p_z-p_R|\le6C_0 .
+\end{equation}
+
+\emph{(b) The time coefficients.} Put $c'=\bigl(4(1+6C_0)\bigr)^{-1}$, so
+$0<c'\le1/4$ and $6C_0c'\le1/4$, and consider the increment
+$(p_zc'R,\,c'R)$ from $z$. It lies in the box of $(p_z,a_z)$ of radius $R$:
+$|c'R|\le R$ and $|p_zc'R-p_zc'R|=0\le R$. The same space-time point, written as
+an increment from $z_c$, is $\bigl(x+p_zc'R,\ t-\theta+c'R\bigr)$, and it lies
+in the box of $(p_R,a_R)$ of radius $R$: by \eqref{eq:fpb-margin},
+$|t-\theta+c'R|\le R/4+R/4\le R$, and by \eqref{eq:fpb-margin} and
+\eqref{eq:fpb-slopes}
+\[
+  \bigl|x+p_zc'R-p_R(t-\theta+c'R)\bigr|
+   \le\bigl|x-p_R(t-\theta)\bigr|+c'R\,|p_z-p_R|
+   \le\frac R4+\frac R4\le R .
+\]
+Finally $(x,t-\theta)$ lies in that box by \eqref{eq:fpb-margin}.
+
+Apply \noderef{IsFit} for $(p_z,a_z)$ at the increment $(p_zc'R,c'R)$ from $z$,
+and \noderef{IsFit} for $(p_R,a_R)$ at the two increments
+$(x+p_zc'R,\,t-\theta+c'R)$ and $(x,\,t-\theta)$ from $z_c$. The three
+estimates involve $v$ at the two space-time points
+$z+(p_zc'R,c'R)$ and $z$ only, so the values of $v$ cancel on forming the
+combination (first estimate) $-$ (second) $+$ (third), and the total error is at
+most $3C_0R$. Since $\ell_{p_R,a_R}$ is linear in the increment, the difference
+of its values at the second and third increments is
+$\ell_{p_R,a_R}(p_zc'R,c'R)$. Hence
+\[
+  \bigl|(\ell_{p_z,a_z}-\ell_{p_R,a_R})(p_zc'R,\,c'R)\bigr|\le3C_0R .
+\]
+Expanding, and using
+$(p_z-p_R)\cdot p_z-\tfrac12\bigl(|p_z|^2-|p_R|^2\bigr)=\tfrac12|p_z-p_R|^2$,
+\[
+  (\ell_{p_z,a_z}-\ell_{p_R,a_R})(p_zc'R,c'R)
+   =c'R\Bigl[a_z-a_R+\tfrac12|p_z-p_R|^2\Bigr],
+\]
+so dividing by $c'R>0$ and using \eqref{eq:fpb-slopes},
+\begin{equation}\label{eq:fpb-times}
+  |a_z-a_R|\le\frac{3C_0}{c'}+18C_0^2 .
+\end{equation}
+
+Combining \eqref{eq:fpb-pR}, \eqref{eq:fpb-slopes} and \eqref{eq:fpb-times},
+and using $L(K)\ge1$, there is $C_5>0$, depending only on $C_0$ and $\dim F$,
+with
+\begin{equation}\label{eq:fpb-radiusR}
+  |p_z|+|a_z|\le C_5\,L(K)
+\end{equation}
+for every $z\in\mathcal B_K$ and every fit at $z$ of radius exactly $R$.
+
+\emph{Step 4: arbitrary radii at a center in $\mathcal B_K$.}
+Let $z\in\mathcal B_K$, let $r>0$ and let $(p,a)$ be a fit for $v$ at $z$ of
+radius $r$ with constant $C_0$. By \noderef{IsFitClass} choose a fit
+$(p_z,a_z)$ for $v$ at $z$ of radius $R$. Applying
+\noderef{FitComparisonSameCenter} at the center $z$ with the two radii $r$ and
+$R$ and these two fits,
+\[
+  |p-p_z|+|a-a_z|\le C_1\Bigl(1+\bigl|\log(R/r)\bigr|\Bigr).
+\]
+Hence, with \eqref{eq:fpb-radiusR},
+\[
+  |p|+|a|\le C_5L(K)+C_1\Bigl(1+\bigl|\log(R/r)\bigr|\Bigr).
+\]
+Finally $\bigl|\log(R/r)\bigr|\le\log R+|\log r|\le\log A+2L(K)+|\log r|$ by
+Step 1 and $R>1$, so with $L(K)\ge1$ there is $C>0$, depending only on $C_0$ and
+$\dim F$, with
+\[
+  |p|+|a|\le C\bigl(L(K)+|\log r|\bigr),
+\]
+which is \eqref{eq:fit-parameter-bound}.
+\end{proof}

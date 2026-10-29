@@ -1,0 +1,70 @@
+\begin{lemma}[The forward envelope as a maximum over a fixed ball]
+Let $F$ be a finite-dimensional real inner-product space, let $f$ be a real
+function on space-time, let $\ell>0$, let $z=(x,t)$ be a space-time point and let
+$M\in\R$ satisfy $|x|\le M$. Write $B_M=\{y\in F:|y|\le M\}$ and assume
+\begin{enumerate}
+\item[(a)] $y\mapsto f(y,t+\ell)$ is continuous on $B_M$;
+\item[(b)] $f(y,t+\ell)-\dfrac{|y-x|^2}{2\ell}<f(x,t+\ell)$ for every $y\in F$
+with $|y|>M$.
+\end{enumerate}
+Then the forward quadratic envelope of \noderef{QuadEnvP} satisfies
+\[
+  \Penv_\ell f(z)
+  =\sup\Bigl\{f(y,t+\ell)-\frac{|y-x|^2}{2\ell}\ :\ y\in B_M\Bigr\},
+\]
+and this value is attained in $B_M$: there is $y^\ast\in F$ with $|y^\ast|\le M$
+and
+\[
+  \Penv_\ell f(z)=f(y^\ast,t+\ell)-\frac{|y^\ast-x|^2}{2\ell}.
+\]
+\end{lemma}
+\begin{proof}
+Write
+\[
+  G(y)=f(y,t+\ell)-\frac{|y-x|^2}{2\ell}\qquad(y\in F),
+\]
+so that, by \noderef{QuadEnvP} and $\ell\ne0$, the envelope $\Penv_\ell f(z)$ is
+the supremum of the competitor set $\mathcal V=\{G(y):y\in F\}$, while the
+supremum in the assertion is that of $\mathcal V_M=\{G(y):y\in B_M\}$.
+
+\emph{A maximizer on the ball.}
+$B_M$ is a closed bounded subset of the finite-dimensional space $F$, hence
+compact, and it is nonempty because $|x|\le M$ gives $x\in B_M$. The function
+$y\mapsto|y-x|^2/(2\ell)$ is continuous on $F$, since $\ell>0$ makes the
+denominator a nonzero constant; together with (a) this makes $G$ continuous on
+$B_M$. A continuous real function on a nonempty compact set attains its maximum,
+so there is $y^\ast\in B_M$ with
+\begin{equation}\label{eq:qebmax-max}
+  G(y)\le G(y^\ast)\qquad(y\in B_M).
+\end{equation}
+In particular $\mathcal V_M$ is nonempty and bounded above by $G(y^\ast)$, and
+$G(y^\ast)\in\mathcal V_M$, so $G(y^\ast)$ is the greatest element of
+$\mathcal V_M$ and $\sup\mathcal V_M=G(y^\ast)$. Here the supremum is a genuine
+least upper bound and not the value $0$ that the convention of the preamble
+assigns to an empty or unbounded-above set, precisely because nonemptiness and
+the upper bound $G(y^\ast)$ have just been exhibited.
+
+\emph{The ball is not restrictive.}
+Since $x\in B_M$ and $|x-x|=0$, \eqref{eq:qebmax-max} at $y=x$ gives
+\begin{equation}\label{eq:qebmax-center}
+  f(x,t+\ell)=G(x)\le G(y^\ast).
+\end{equation}
+Let $y\in F$ be arbitrary. If $|y|\le M$ then $G(y)\le G(y^\ast)$ by
+\eqref{eq:qebmax-max}. If $|y|>M$ then (b) and \eqref{eq:qebmax-center} give
+\[
+  G(y)<f(x,t+\ell)\le G(y^\ast).
+\]
+Hence $G(y)\le G(y^\ast)$ for every $y\in F$, i.e. $\mathcal V$ is bounded above
+by $G(y^\ast)$; and $\mathcal V$ is nonempty, containing $G(x)$. Since also
+$G(y^\ast)\in\mathcal V$, the number $G(y^\ast)$ is the greatest element of
+$\mathcal V$, so $\sup\mathcal V=G(y^\ast)$; again the boundedness and
+nonemptiness needed for the preamble's convention not to intervene have been
+exhibited.
+
+\emph{Conclusion.}
+By \noderef{QuadEnvP}, $\Penv_\ell f(z)=\sup\mathcal V=G(y^\ast)
+=\sup\mathcal V_M$, which is the displayed identity, and the witness
+$y^\ast\in B_M$, i.e. $|y^\ast|\le M$, satisfies
+$\Penv_\ell f(z)=G(y^\ast)=f(y^\ast,t+\ell)-|y^\ast-x|^2/(2\ell)$, which is the
+attainment statement.
+\end{proof}

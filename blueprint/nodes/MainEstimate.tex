@@ -1,0 +1,416 @@
+\begin{theorem}[Uniform interior estimate]
+Fix an integer $d\ge3$. Then there are real numbers $\alpha$ and $C$ with
+\[
+  0<\alpha\le\tfrac13,\qquad 0<C<\infty,
+\]
+depending only on $d$, with the following property. Let $u:\R^d\to\R$ be
+infinity-harmonic on the unit ball $B_1\subseteq\R^d$ in the sense of
+\noderef{IsInfHarmonicOn}, and assume that $u(B_1)$ is bounded above and bounded
+below. Then there is a map $g:\R^d\to\R^d$ such that
+\begin{enumerate}
+\item[(i)] $u$ is differentiable at every $x\in B_{1/2}$ with gradient $g(x)$;
+\item[(ii)] the set $\{|g(x)|:x\in B_{1/2}\}$ is bounded above;
+\item[(iii)] the set $Q_\alpha(g;B_{1/2})$ of H\"older quotients of
+\noderef{HolderQuotSet} is bounded above;
+\item[(iv)] with the H\"older seminorm of \noderef{HolderSeminormOn} and the
+oscillation of \noderef{OscOn},
+\begin{equation}\label{eq:uniform-interior-estimate}
+  \sup_{x\in B_{1/2}}|g(x)|
+   +[g]_{C^{0,\alpha}(B_{1/2})}
+   \le C\,\osc_{B_1}u .
+\end{equation}
+\end{enumerate}
+Conclusions (i) and (iii) together are exactly the membership
+$u\in C^{1,\alpha}(B_{1/2})$, and (ii) and (iii) are the boundedness hypotheses
+that the two suprema in \eqref{eq:uniform-interior-estimate} require.
+\end{theorem}
+\begin{proof}
+Write $n=d+1$ and identify $\R^n$ with the space-time
+$E=\ell^2(\R^d\times\R)$, whose added unit direction is $e_b=(0,1)$. Let
+\[
+  \iota:\R^d\to E,\qquad \iota(y)=(y,0),
+\]
+which is linear and isometric, since $|\iota(y)|^2=|y|^2+0^2=|y|^2$, and
+satisfies
+\begin{equation}\label{eq:me-slice-inner}
+  \langle P,\iota(h)\rangle=\langle P_x,h\rangle
+  \qquad\bigl(P=(P_x,P_t)\in E,\ h\in\R^d\bigr),
+\end{equation}
+because the inner product of $E$ is
+$\langle(a,s),(b,t)\rangle=\langle a,b\rangle+st$. Write
+$\mathcal B=\overline B_{1/2}\subseteq E$ for the closed half ball of the
+space-time, $G=B_{3/4}\subseteq E$ and $D(z)=\operatorname{dist}(z,\partial G)$,
+and let $\mathcal U$ be the normalized family of \noderef{NormalizedInfFamily}
+in dimension $d$. Since $d\ge3$ we have $d\ge1$, which is the hypothesis the
+cited lemmas in dimension $d$ carry.
+
+\emph{Step 1: the constants, all depending only on $d$.}
+By \noderef{PowerDecay} there are $B\in(0,\infty)$, $\gamma\in(0,1]$ and
+$s_0\in(0,1/8]$ with
+\begin{equation}\label{eq:me-power}
+  b_d(s)\le Bs^\gamma\qquad(0<s\le s_0),
+\end{equation}
+$b_d$ being the family flatness modulus of \noderef{FlatnessModulus}. By
+\noderef{NormalizedFamilyLipschitz} there is $L\ge0$ such that every
+$U\in\mathcal U$ satisfies
+\begin{equation}\label{eq:me-lip}
+  |U(a)-U(b)|\le L|a-b|\qquad\bigl(a,b\in\overline B_{7/8}\subseteq E\bigr).
+\end{equation}
+Put
+\[
+  d_0=\tfrac14,\qquad A_0=B\,4^\gamma+1,\qquad
+  r_0=\min\Bigl\{\tfrac14\min\{s_0,\tfrac18\},\ (2A_0)^{-1/\gamma},\
+                  \tfrac38\Bigr\},
+\]
+and
+\[
+  \alpha=\frac{\gamma}{2+\gamma},\qquad
+  \lambda(r)=A_0r^\gamma,\qquad
+  \rho(r)=\sqrt{A_0}\,r^{1+\gamma/2}=\sqrt{\lambda(r)}\,r,\qquad
+  \rho_0=\rho(r_0).
+\]
+All of these depend only on $d$. We record their elementary properties.
+Since $B>0$ and $4^\gamma>0$ we have $A_0>B\,4^\gamma=Bd_0^{-\gamma}$ and
+$A_0\ge1$; $r_0>0$ because each of the three entries is positive; and
+$r_0\le(2A_0)^{-1/\gamma}$ gives, the map $r\mapsto r^\gamma$ being increasing
+on $(0,\infty)$,
+\begin{equation}\label{eq:me-lambda-small}
+  0<\lambda(r)\le\lambda(r_0)=A_0r_0^\gamma\le A_0\cdot\frac1{2A_0}
+   =\frac12<1\qquad(0<r\le r_0).
+\end{equation}
+Consequently $\rho(r)=\sqrt{\lambda(r)}\,r<r$ for $0<r\le r_0$, so
+$0<\rho_0<r_0\le3/8$. Finally $\gamma\in(0,1]$ makes
+$\alpha=\gamma/(2+\gamma)$ positive and, the map $t\mapsto t/(2+t)$ being
+increasing on $(0,\infty)$, $\alpha\le1/(2+1)=1/3$; in particular
+$0<\alpha\le1/3\le1$.
+
+\emph{Step 2: $D(z)\ge d_0$ on $\mathcal B$.}
+Let $z\in\mathcal B$, so $|z|\le1/2$. In the normed space $E$ the closure of
+$B_{3/4}$ is $\overline B_{3/4}$ and its interior is $B_{3/4}$, so
+$\partial G=\{w\in E:|w|=3/4\}$. This set is nonempty: $E$ has dimension
+$n=d+1\ge4\ge1$, so it contains a unit vector $e$, and $\tfrac34e\in\partial G$.
+For every $w\in\partial G$ the triangle inequality gives
+$|z-w|\ge|w|-|z|\ge3/4-1/2=1/4$. Taking the infimum over the nonempty set
+$\partial G$,
+\begin{equation}\label{eq:me-dist}
+  D(z)\ge d_0=\tfrac14>0\qquad(z\in\mathcal B).
+\end{equation}
+Also $|z|\le1/2<3/4$, so $z\in G$.
+
+\emph{Step 3: $\lambda(r)$ is good at every center of $\mathcal B$ and every
+radius up to $r_0$.}
+Fix $U\in\mathcal U$, $z\in\mathcal B$ and $0<r\le r_0$, and put
+$s=r/D(z)$, which is legitimate by \eqref{eq:me-dist}. Then $s>0$, and the first entry in the definition of $r_0$ reads
+$r_0\le\tfrac14\min\{s_0,\tfrac18\}=d_0\min\{s_0,\tfrac18\}$, so, using
+$D(z)\ge d_0>0$ and $r\le r_0$,
+\[
+  s=\frac{r}{D(z)}\le\frac{r}{d_0}\le\frac{r_0}{d_0}
+   \le\min\{s_0,\tfrac18\}\le s_0 .
+\]
+The triple $(U,z,r)$ is admissible for the
+supremum defining $b_d(s)$ in \noderef{FlatnessModulus}: $U\in\mathcal U$,
+$z\in G$ by Step 2, $r>0$, and $r\le s\,D(z)=r$. Moreover that supremum is over
+a set of values $\beta_U(z,r)$, each of which lies in $[0,1]$ by
+\noderef{BetaFlatness}, so the set is bounded above by $1$ and the supremum
+dominates each of its members. Hence
+\[
+  \beta_U(z,r)\le b_d(s)\le Bs^\gamma\le B\Bigl(\frac{r}{d_0}\Bigr)^\gamma
+   =Bd_0^{-\gamma}r^\gamma<A_0r^\gamma=\lambda(r),
+\]
+using \eqref{eq:me-power} at $s\le s_0$, then $s\le r/d_0$ with
+$t\mapsto t^\gamma$ increasing, and finally $A_0>Bd_0^{-\gamma}$ together with
+$r^\gamma>0$. By \eqref{eq:me-lambda-small} we also have $\lambda(r)<1$, so
+$\lambda(r)\in(\beta_U(z,r),1)$ and \noderef{BetaFlatness} makes $\lambda(r)$
+good for $U$ at $(z,r)$: by \noderef{IsCylinderFit} there is $P\ne0$ with
+\begin{equation}\label{eq:me-fit}
+  |U(Z)-U(z)-P\cdot(Z-z)|\le\lambda(r)\,r
+  \qquad\bigl(Z\in Z_{\lambda(r)}(z,r;P)\bigr).
+\end{equation}
+
+\emph{Step 4: the fit holds on the inscribed ball.}
+Keep the data of Step 3 and write $\lambda=\lambda(r)$, $N_P=P/|P|$, which is a
+unit vector because $P\ne0$. If $h\in E$ has $|h|\le\rho(r)=\sqrt\lambda\,r$,
+then by Cauchy--Schwarz the axial component satisfies
+$|h\cdot N_P|\le|h|\le\sqrt\lambda\,r\le r$, using $\sqrt\lambda\le1$ from
+\eqref{eq:me-lambda-small}, and the transverse component satisfies
+\[
+  \bigl|h-(h\cdot N_P)N_P\bigr|^2=|h|^2-(h\cdot N_P)^2\le|h|^2
+   \le\bigl(\sqrt\lambda\,r\bigr)^2 ,
+\]
+so $|h-(h\cdot N_P)N_P|\le\sqrt\lambda\,r$. By \noderef{FitCylinder} this says
+$z+h\in Z_\lambda(z,r;P)$. Hence \eqref{eq:me-fit} gives
+\begin{equation}\label{eq:me-ball-fit}
+  \bigl|U(z+h)-U(z)-P\cdot h\bigr|\le\lambda(r)\,r=A_0r^{1+\gamma}
+  \qquad\bigl(|h|\le\rho(r)\bigr).
+\end{equation}
+Note that $z+h$ is unconstrained apart from $|h|\le\rho(r)$; in particular it
+need not lie in $\mathcal B$.
+
+\emph{Step 5: the dyadic scales and the limiting slope.}
+Fix $U\in\mathcal U$ and $z\in\mathcal B$. Put
+\[
+  r_j=2^{-j}r_0,\qquad \lambda_j=\lambda(r_j),\qquad
+  \rho_j=\rho(r_j)=\sqrt{A_0}\,r_j^{1+\gamma/2}\qquad(j\ge0),
+\]
+so $0<r_j\le r_0$, and by Step 3 choose, for each $j\ge0$, a vector $P_j=P_j(z)$
+realizing the cylinder fit of parameter $\lambda_j$ for $U$ at $(z,r_j)$; by
+Step 4 it satisfies
+\begin{equation}\label{eq:me-fit-j}
+  \bigl|U(z+h)-U(z)-P_j\cdot h\bigr|\le A_0r_j^{1+\gamma}
+  \qquad(|h|\le\rho_j).
+\end{equation}
+The sequences $r_j$, $\lambda_j$, $\rho_j$ are strictly decreasing and tend to
+$0$, and
+\begin{equation}\label{eq:me-rho-recursion}
+  \rho_{j+1}=\sqrt{A_0}\Bigl(\frac{r_j}{2}\Bigr)^{1+\gamma/2}
+   =2^{-(1+\gamma/2)}\sqrt{A_0}\,r_j^{1+\gamma/2}.
+\end{equation}
+
+Compare two consecutive fits on the smaller ball. Let $|h|\le\rho_{j+1}$; then
+also $|h|\le\rho_j$, so \eqref{eq:me-fit-j} at $j$ and at $j+1$ and the
+triangle inequality give
+\[
+  \bigl|(P_j-P_{j+1})\cdot h\bigr|
+   \le A_0r_j^{1+\gamma}+A_0r_{j+1}^{1+\gamma}\le2A_0r_j^{1+\gamma},
+\]
+using $r_{j+1}\le r_j$. If $P_j\ne P_{j+1}$, take
+$h=\rho_{j+1}(P_j-P_{j+1})/|P_j-P_{j+1}|$, which has $|h|=\rho_{j+1}$ and makes
+the left side $\rho_{j+1}|P_j-P_{j+1}|$; dividing by $\rho_{j+1}>0$ and using
+\eqref{eq:me-rho-recursion},
+\begin{equation}\label{eq:me-consecutive}
+  |P_j-P_{j+1}|\le\frac{2A_0r_j^{1+\gamma}}{\rho_{j+1}}
+   =\frac{2A_0r_j^{1+\gamma}\,2^{1+\gamma/2}}{\sqrt{A_0}\,r_j^{1+\gamma/2}}
+   =C_1r_j^{\gamma/2},\qquad C_1=2^{2+\gamma/2}\sqrt{A_0},
+\end{equation}
+and if $P_j=P_{j+1}$ the bound is trivial. Put $q=2^{-\gamma/2}\in(0,1)$, so
+$r_j^{\gamma/2}=q^jr_0^{\gamma/2}$ and, for $k\ge j$,
+$r_k^{\gamma/2}=q^{k-j}r_j^{\gamma/2}$. Hence
+\[
+  \sum_{k\ge j}|P_k-P_{k+1}|
+   \le C_1r_j^{\gamma/2}\sum_{i\ge0}q^i=C_2r_j^{\gamma/2},
+  \qquad C_2=\frac{C_1}{1-q}<\infty ,
+\]
+the geometric series converging because $0<q<1$. In particular the tails of
+$\sum_k(P_k-P_{k+1})$ tend to $0$, since $r_j^{\gamma/2}=q^jr_0^{\gamma/2}\to0$,
+so for $i\ge j$ we have
+$|P_i-P_j|\le\sum_{k\ge j}|P_k-P_{k+1}|\le C_2r_j^{\gamma/2}$ and $(P_j)_{j\ge0}$
+is a Cauchy sequence in $E$. It converges: being Cauchy it is bounded, hence
+contained in some closed ball of $E$, which is compact because $E$ is
+finite-dimensional, so some subsequence converges, and a Cauchy sequence with a
+convergent subsequence converges to the same limit. Let $P_\infty=P_\infty(z)$ be
+that limit. Summing the telescoping series from $j$ onwards,
+\begin{equation}\label{eq:me-slope-tail}
+  |P_j-P_\infty|\le\sum_{k\ge j}|P_k-P_{k+1}|\le C_2r_j^{\gamma/2}
+  \qquad(j\ge0).
+\end{equation}
+The constants $C_1$ and $C_2$ depend only on $A_0$ and $\gamma$, hence only on
+$d$; they do not depend on $U$ or $z$.
+
+\emph{Step 6: the uniform Taylor estimate with exponent $1+\alpha$.}
+Keep $U$ and $z$ and let $h\in E$ with $|h|\le\rho_0$. If $h=0$ the estimate
+below is $0\le0$, so assume $h\ne0$. The sequence $(\rho_j)$ is strictly
+decreasing to $0$ and $\rho_0\ge|h|>0$, so $\{j\ge0:\rho_j\ge|h|\}$ is a
+nonempty finite set; let $j$ be its largest element, so that
+\begin{equation}\label{eq:me-scale-choice}
+  \rho_{j+1}<|h|\le\rho_j .
+\end{equation}
+By \eqref{eq:me-fit-j}, \eqref{eq:me-slope-tail} and Cauchy--Schwarz,
+\[
+  \bigl|U(z+h)-U(z)-P_\infty\cdot h\bigr|
+   \le\bigl|U(z+h)-U(z)-P_j\cdot h\bigr|+\bigl|(P_j-P_\infty)\cdot h\bigr|
+   \le A_0r_j^{1+\gamma}+C_2r_j^{\gamma/2}|h| .
+\]
+From \eqref{eq:me-scale-choice} and \eqref{eq:me-rho-recursion},
+$2^{-(1+\gamma/2)}\sqrt{A_0}\,r_j^{1+\gamma/2}<|h|$, that is
+\begin{equation}\label{eq:me-rj-bound}
+  r_j^{1+\gamma/2}<\frac{2^{1+\gamma/2}}{\sqrt{A_0}}\,|h| .
+\end{equation}
+Multiplying \eqref{eq:me-rj-bound} by $A_0r_j^{\gamma/2}>0$ and using
+$r_j^{1+\gamma}=r_j^{\gamma/2}\,r_j^{1+\gamma/2}$,
+\[
+  A_0r_j^{1+\gamma}<2^{1+\gamma/2}\sqrt{A_0}\,r_j^{\gamma/2}|h| ,
+\]
+so with $C_3=2^{1+\gamma/2}\sqrt{A_0}+C_2$,
+\[
+  \bigl|U(z+h)-U(z)-P_\infty\cdot h\bigr|\le C_3r_j^{\gamma/2}|h| .
+\]
+Finally, $\alpha=\gamma/(2+\gamma)=(\gamma/2)/(1+\gamma/2)$, so
+$r_j^{\gamma/2}=\bigl(r_j^{1+\gamma/2}\bigr)^{\alpha}$; raising
+\eqref{eq:me-rj-bound} to the power $\alpha>0$, which preserves the inequality
+between positive numbers,
+\[
+  r_j^{\gamma/2}\le\Bigl(\frac{2^{1+\gamma/2}}{\sqrt{A_0}}\Bigr)^{\alpha}|h|^\alpha .
+\]
+Therefore, with
+$C_4=C_3\bigl(2^{1+\gamma/2}A_0^{-1/2}\bigr)^{\alpha}$,
+\begin{equation}\label{eq:me-taylor}
+  \bigl|U(z+h)-U(z)-P_\infty(z)\cdot h\bigr|\le C_4|h|^{1+\alpha}
+  \qquad\bigl(z\in\mathcal B,\ |h|\le\rho_0\bigr),
+\end{equation}
+and $C_4$ depends only on $d$.
+
+\emph{Step 7: the limiting slope is bounded by $L+1$.}
+Keep $U$ and $z$, and fix $j\ge0$. For $|h|\le r_j$ we have
+$|z+h|\le|z|+|h|\le\tfrac12+r_0\le\tfrac12+\tfrac38=\tfrac78$ and
+$|z|\le\tfrac12\le\tfrac78$, so \eqref{eq:me-lip} applies to the pair
+$a=z+h$, $b=z$ and gives $|U(z+h)-U(z)|\le L|h|$. With $r=r_j>0$,
+$\lambda=\lambda_j$ satisfying $0<\lambda_j\le1$ by
+\eqref{eq:me-lambda-small}, and the fit $P_j$ of Step 5,
+\noderef{CylinderFitSlopeBounds} gives
+\[
+  |P_j|\le L+\sqrt{\lambda_j}\le L+1 ,
+\]
+again by \eqref{eq:me-lambda-small}. Letting $j\to\infty$ and using the
+continuity of the norm,
+\begin{equation}\label{eq:me-slope-bound}
+  |P_\infty(z)|\le L+1\qquad(z\in\mathcal B).
+\end{equation}
+
+\emph{Step 8: one H\"older constant for the whole family.}
+Put $C_{\rm tay}=\max\{C_4,L+1\}$, so $C_{\rm tay}\ge L+1\ge1>0$, and recall
+$0<\alpha\le1$ and $\rho_0>0$ from Step 1. Apply
+\noderef{TaylorToHolderGradient} with the ambient space $E$, the exponent
+$\alpha$, the constant $C_{\rm tay}$ and the radius $\rho_0$. It produces a real
+number $C'$ with $0<C'<\infty$, depending only on $C_{\rm tay}$, $\alpha$ and
+$\rho_0$ — hence only on $d$ — such that, for every $S\subseteq E$, every
+$\widetilde U:E\to\R$ and every $\widetilde g:E\to E$ satisfying the Taylor
+estimate with constant $C_{\rm tay}$ and radius $\rho_0$ on $S$ and the slope
+bound $|\widetilde g|\le C_{\rm tay}$ on $S$, the function $\widetilde U$ is
+differentiable at every point of $S$ with gradient $\widetilde g$, and
+$|\widetilde g(z)-\widetilde g(z')|\le C'|z-z'|^\alpha$ for all $z,z'\in S$.
+
+This is the point at which the order of quantifiers matters: $C'$ is produced
+before the data $S,\widetilde U,\widetilde g$, so one and the same $C'$ serves
+every member of $\mathcal U$.
+
+Now let $U\in\mathcal U$ and take $S=\mathcal B$, $\widetilde U=U$ and
+$\widetilde g=P_\infty$ from Steps 5--7. The Taylor hypothesis holds by
+\eqref{eq:me-taylor}, since $C_4\le C_{\rm tay}$, and the slope hypothesis holds
+by \eqref{eq:me-slope-bound}, since $L+1\le C_{\rm tay}$. Hence
+\begin{equation}\label{eq:me-family-conclusion}
+  U\ \text{is differentiable at every }z\in\mathcal B\ \text{with gradient }
+  P_\infty(z),\qquad
+  |P_\infty(z)-P_\infty(z')|\le C'|z-z'|^\alpha\quad(z,z'\in\mathcal B).
+\end{equation}
+
+\emph{Step 9: the time-zero slice.}
+Let $w:\R^d\to\R$ be continuous and infinity-harmonic on $B_1\subseteq\R^d$ with
+$w(0)=0$, with $w(B_1)$ bounded above and below and
+$\osc_{B_1}w\le1$, and let
+\[
+  U(y,b)=w(y)+b\qquad\bigl((y,b)\in\R^d\times\R\bigr).
+\]
+By \noderef{NormalizedInfFamily} we then have $U\in\mathcal U$: its three
+clauses are exactly the listed properties of $w$ and the displayed formula for
+$U$. Apply Step 8 to this $U$ and set
+\[
+  \mathfrak q(y)=\bigl(P_\infty(\iota(y))\bigr)_x\in\R^d\qquad(y\in\R^d),
+\]
+the spatial component of the limiting slope at the time-zero point. For
+$y\in B_{1/2}\subseteq\R^d$ we have $|\iota(y)|=|y|<1/2$, so
+$\iota(y)\in\mathcal B$ and \eqref{eq:me-family-conclusion} applies at
+$\iota(y)$.
+
+Fix $y\in B_{1/2}$ and write $P=P_\infty(\iota(y))$. For $h\in\R^d$,
+\[
+  U\bigl(\iota(y)+\iota(h)\bigr)=U(y+h,0)=w(y+h),\qquad
+  U(\iota(y))=w(y),\qquad
+  \langle P,\iota(h)\rangle=\langle\mathfrak q(y),h\rangle
+\]
+by \eqref{eq:me-slice-inner}. Differentiability of $U$ at $\iota(y)$ with
+gradient $P$ means
+$U(\iota(y)+k)-U(\iota(y))-\langle P,k\rangle=o(|k|)$ as $k\to0$ in $E$;
+restricting to $k=\iota(h)$ and using $|\iota(h)|=|h|$ gives
+\[
+  w(y+h)-w(y)-\langle\mathfrak q(y),h\rangle=o(|h|)\qquad(h\to0\ \text{in }\R^d),
+\]
+that is, $w$ is differentiable at $y$ with gradient $\mathfrak q(y)$. Moreover,
+for $(a,s)\in E$ one has $|a|^2\le|a|^2+s^2=|(a,s)|^2$, so
+$|\mathfrak q(y)|\le|P_\infty(\iota(y))|\le L+1$ by \eqref{eq:me-slope-bound};
+and for $y,y'\in B_{1/2}$, since $\iota$ is linear and isometric,
+\[
+  |\mathfrak q(y)-\mathfrak q(y')|
+   \le\bigl|P_\infty(\iota(y))-P_\infty(\iota(y'))\bigr|
+   \le C'\bigl|\iota(y)-\iota(y')\bigr|^\alpha=C'|y-y'|^\alpha ,
+\]
+using \eqref{eq:me-family-conclusion}. Summarizing,
+\begin{equation}\label{eq:me-normalized-conclusion}
+\begin{gathered}
+  w\ \text{is differentiable at every }y\in B_{1/2}\ \text{with gradient }
+  \mathfrak q(y),\\
+  |\mathfrak q(y)|\le L+1,\qquad
+  |\mathfrak q(y)-\mathfrak q(y')|\le C'|y-y'|^\alpha
+  \qquad(y,y'\in B_{1/2}).
+\end{gathered}
+\end{equation}
+
+\emph{Step 10: the theorem.}
+Put $C=L+1+C'$, which is finite and, since $L\ge0$ and $C'>0$, satisfies
+$C\ge1>0$; it depends only on $d$. We also fix $\alpha$ from Step 1, so
+$0<\alpha\le1/3$. Let $u$ be as in the statement and put
+$M=\osc_{B_1}u$. The set $u(B_1)$ is nonempty, because $0\in B_1$, and bounded
+above and below by hypothesis, so by \noderef{OscOn} the numbers
+$\sup u(B_1)$ and $\inf u(B_1)$ are real, $M=\sup u(B_1)-\inf u(B_1)$, and
+$M\ge0$ because $\inf u(B_1)\le\sup u(B_1)$.
+
+\emph{The case $M=0$.} Then $\sup u(B_1)=\inf u(B_1)=:c_0$, and for every
+$x\in B_1$ we have $c_0=\inf u(B_1)\le u(x)\le\sup u(B_1)=c_0$, so $u\equiv c_0$
+on $B_1$. Take $g\equiv0$. For $x\in B_{1/2}$ the set $B_1$ is a neighbourhood
+of $x$ on which $u$ is constant, so
+$u(x+h)-u(x)-\langle0,h\rangle=0$ for all small $h$ and $u$ is differentiable at
+$x$ with gradient $0$; this is (i). The set $\{|g(x)|:x\in B_{1/2}\}=\{0\}$ is
+bounded above with supremum $0$, which is (ii). Since $d\ge3\ge1$, the ball
+$B_{1/2}\subseteq\R^d$ contains two distinct points, and by
+\noderef{HolderQuotSet} every element of $Q_\alpha(g;B_{1/2})$ has the form
+$|g(x)-g(y)|/|x-y|^\alpha=0/|x-y|^\alpha=0$ with $|x-y|>0$; so
+$Q_\alpha(g;B_{1/2})=\{0\}$, which is bounded above, giving (iii), and by
+\noderef{HolderSeminormOn} $[g]_{C^{0,\alpha}(B_{1/2})}=\sup\{0\}=0$. Hence the
+left side of \eqref{eq:uniform-interior-estimate} is $0+0=0=C\cdot0=C\,M$, which
+is (iv).
+
+\emph{The case $M>0$.} Put $c=u(0)$ and $w=(u-c)/M$. By
+\noderef{InfHarmonicNormalize} with $\Omega=B_1$, the constant $c$ and the
+factor $M>0$, the function $w$ is infinity-harmonic on $B_1$; in particular it
+is continuous there by \noderef{IsInfHarmonicOn}. Also $w(0)=(c-c)/M=0$. The map
+$T(t)=(t-c)/M$ is an increasing affine bijection of $\R$, and
+$w(B_1)=T\bigl(u(B_1)\bigr)$; an increasing bijection of $\R$ carries suprema to
+suprema and infima to infima of nonempty bounded sets, so $w(B_1)$ is bounded
+above and below with
+\[
+  \sup w(B_1)=\frac{\sup u(B_1)-c}{M},\qquad
+  \inf w(B_1)=\frac{\inf u(B_1)-c}{M},
+\]
+whence, by \noderef{OscOn},
+$\osc_{B_1}w=\bigl(\sup u(B_1)-\inf u(B_1)\bigr)/M=M/M=1\le1$.
+
+So $w$ satisfies all the hypotheses of Step 9. Let $\mathfrak q$ be as produced
+there and put
+\[
+  g(x)=M\,\mathfrak q(x)\qquad(x\in\R^d).
+\]
+Since $u=Mw+c$ on all of $\R^d$, for $x\in B_{1/2}$ and $h\in\R^d$
+\[
+  u(x+h)-u(x)-\langle g(x),h\rangle
+   =M\bigl(w(x+h)-w(x)-\langle\mathfrak q(x),h\rangle\bigr)=M\cdot o(|h|)=o(|h|),
+\]
+so $u$ is differentiable at every $x\in B_{1/2}$ with gradient $g(x)$, which is
+(i). By \eqref{eq:me-normalized-conclusion} and $M>0$,
+\begin{equation}\label{eq:me-final-bounds}
+  |g(x)|\le M(L+1),\qquad
+  |g(x)-g(x')|\le MC'|x-x'|^\alpha\qquad(x,x'\in B_{1/2}).
+\end{equation}
+The first bound shows that $\{|g(x)|:x\in B_{1/2}\}$ is bounded above, which is
+(ii), and that its supremum is at most $M(L+1)$, the set being nonempty because
+$0\in B_{1/2}$. The second bound shows, via \noderef{HolderQuotSet}, that every
+element $|g(x)-g(x')|/|x-x'|^\alpha$ of $Q_\alpha(g;B_{1/2})$ is at most $MC'$,
+so that set is bounded above — which is (iii) — and nonempty, $B_{1/2}$ having
+two distinct points; by \noderef{HolderSeminormOn} its supremum satisfies
+$[g]_{C^{0,\alpha}(B_{1/2})}\le MC'$. Adding the two estimates,
+\[
+  \sup_{x\in B_{1/2}}|g(x)|+[g]_{C^{0,\alpha}(B_{1/2})}
+   \le M(L+1)+MC'=(L+1+C')M=C\,\osc_{B_1}u ,
+\]
+which is (iv). In both cases $\alpha$ and $C$ were fixed in Step 1 and Step 10
+before $u$ was introduced, so they depend only on $d$. This completes the
+proof.
+\end{proof}

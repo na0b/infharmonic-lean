@@ -1,0 +1,176 @@
+\begin{lemma}[One ball localizes the envelopes on a box of lengths and centers]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$ be
+open, let $\Omega=\{(y,s):s\in I\}$, and let $f$ be a real function on space-time
+which is continuous on $\Omega$ and has subquadratic spatial growth on compact
+time intervals of $I$ in the sense of \noderef{SubquadraticGrowth}. Let
+$\ell_0>0$ and let $z_0=(x_0,t_0)$ be a space-time point. Then:
+\begin{enumerate}
+\item if $t_0+\ell_0\in I$, there are $\rho>0$ and $M>0$ such that every pair
+$(\ell,z)$ with $z=(x,t)$ and
+\[
+  |\ell-\ell_0|\le\rho,\qquad|x-x_0|\le\rho,\qquad|t-t_0|\le\rho
+\]
+satisfies $\ell>0$, $t+\ell\in I$ and
+\[
+  \Penv_\ell f(z)
+  =\sup\Bigl\{f(y,t+\ell)-\frac{|y-x|^2}{2\ell}\ :\ |y|\le M\Bigr\},
+\]
+with $\Penv_\ell f$ the forward envelope of \noderef{QuadEnvP}; and moreover
+$(\ell,z)\mapsto\Penv_\ell f(z)$ is continuous at $(\ell_0,z_0)$;
+\item if $t_0-\ell_0\in I$, there are $\rho>0$ and $M>0$ such that every pair
+$(\ell,z)$ with $z=(x,t)$ and $|\ell-\ell_0|\le\rho$, $|x-x_0|\le\rho$,
+$|t-t_0|\le\rho$ satisfies $\ell>0$, $t-\ell\in I$ and
+\[
+  \Menv_\ell f(z)
+  =\inf\Bigl\{f(y,t-\ell)+\frac{|y-x|^2}{2\ell}\ :\ |y|\le M\Bigr\},
+\]
+with $\Menv_\ell f$ the backward envelope of \noderef{QuadEnvM}; and moreover
+$(\ell,z)\mapsto\Menv_\ell f(z)$ is continuous at $(\ell_0,z_0)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{An elementary parametric-extremum fact.}
+We first record that the maximum of a continuous function over a fixed compact
+set depends continuously on the remaining parameters. Let $P$ be a metric space,
+let $Q$ be a nonempty compact metric space and let $H$ be real-valued and
+continuous on $P\times Q$. For each $\pi\in P$ the function $H(\pi,\cdot)$ is
+continuous on the nonempty compact $Q$, so $\max_{q\in Q}H(\pi,q)$ exists. Let
+$\pi_k\to\pi$ in $P$. Testing against each fixed $q\in Q$ gives
+$\max_{q'}H(\pi_k,q')\ge H(\pi_k,q)$ and $H(\pi_k,q)\to H(\pi,q)$ by continuity
+of $H$, hence $\liminf_k\max_{q'}H(\pi_k,q')\ge H(\pi,q)$ for every $q$, and
+therefore $\liminf_k\max_{q'}H(\pi_k,q')\ge\max_qH(\pi,q)$. Conversely, choose
+for each $k$ a maximizer $q_k\in Q$ of $H(\pi_k,\cdot)$, and let a subsequence be
+given; by compactness of $Q$ it has a further subsequence along which
+$q_k\to\bar q\in Q$. Along that further subsequence
+$(\pi_k,q_k)\to(\pi,\bar q)$, so by continuity of $H$
+\[
+  \max_{q'}H(\pi_k,q')=H(\pi_k,q_k)\to H(\pi,\bar q)\le\max_qH(\pi,q).
+\]
+Thus every subsequence of the real sequence $a_k=\max_{q'}H(\pi_k,q')$ has a
+further subsequence converging to a real number that is at most
+$L:=\max_qH(\pi,q)$. By the first bound every subsequential limit of $(a_k)$ is
+also at least $L$, so every subsequence of $(a_k)$ has a further subsequence
+converging to $L$ exactly; in particular no subsequence of $(a_k)$ diverges, so
+$(a_k)$ is bounded. A bounded real sequence all of whose subsequences have a
+further subsequence converging to $L$ converges to $L$: otherwise some
+$\varepsilon>0$ admits infinitely many $k$ with $|a_k-L|\ge\varepsilon$, and
+that subsequence would have no further subsequence converging to $L$. Hence
+$\max_{q'}H(\pi_k,q')\to\max_qH(\pi,q)$. As $P$ is a metric space, sequential
+continuity is continuity, so $\pi\mapsto\max_{q\in Q}H(\pi,q)$ is continuous on
+$P$. Applying this to $-H$ and using $\min_qH(\pi,q)=-\max_q(-H)(\pi,q)$, the map
+$\pi\mapsto\min_{q\in Q}H(\pi,q)$ is continuous on $P$ as well.
+
+\emph{Proof of (1).}
+Assume $t_0+\ell_0\in I$. Since $I$ is open there is $\sigma>0$ with
+$(t_0+\ell_0-\sigma,\,t_0+\ell_0+\sigma)\subseteq I$. Put
+\[
+  \rho=\min\Bigl\{\frac\sigma4,\ \frac{\ell_0}4\Bigr\}>0,
+  \qquad
+  J=[\,t_0+\ell_0-2\rho,\ t_0+\ell_0+2\rho\,].
+\]
+Then $2\rho\le\sigma/2<\sigma$, so $J\subseteq
+(t_0+\ell_0-\sigma,t_0+\ell_0+\sigma)\subseteq I$, and $J$ is a nonempty compact
+interval. Let
+\[
+  \mathcal P=\bigl\{(\ell,z):z=(x,t),\ |\ell-\ell_0|\le\rho,\
+    |x-x_0|\le\rho,\ |t-t_0|\le\rho\bigr\}.
+\]
+For $(\ell,z)\in\mathcal P$ we have $\ell\ge\ell_0-\rho\ge\tfrac34\ell_0>0$,
+$|x|\le|x_0|+|x-x_0|\le|x_0|+\rho$, $\ell\le\ell_0+\rho$ and
+\[
+  |(t+\ell)-(t_0+\ell_0)|\le|t-t_0|+|\ell-\ell_0|\le2\rho,
+\]
+so $t+\ell\in J\subseteq I$. This already gives the assertions $\ell>0$ and
+$t+\ell\in I$ for all $(\ell,z)\in\mathcal P$.
+
+Apply \noderef{QuadEnvFarCompetitors} with $R_0=|x_0|+\rho\ (\ge0)$, with this
+$J$ (nonempty, compact and contained in $I$) and with the length bound
+$\ell_0+\rho>0$. It produces $M\ge\max\{R_0,1\}$, so $M>0$ and $M\ge R_0$, and a
+constant $N$, such that in particular
+\begin{equation}\label{eq:qebr-far}
+  f(y,s)-\frac{|y-x'|^2}{2\ell}<f(x',s)
+  \qquad\bigl(|x'|\le R_0,\ s\in J,\ 0<\ell\le\ell_0+\rho,\ |y|>M\bigr).
+\end{equation}
+
+Fix $(\ell,z)\in\mathcal P$ with $z=(x,t)$. Then $|x|\le R_0\le M$, and
+$y\mapsto f(y,t+\ell)$ is continuous on $B_M=\{|y|\le M\}$: for $|y|\le M$ the
+point $(y,t+\ell)$ lies in $\Omega$, because $t+\ell\in I$, and $f$ is continuous
+on $\Omega$. Moreover \eqref{eq:qebr-far} applied with $x'=x$ (admissible since
+$|x|\le R_0$), $s=t+\ell\in J$ and this $\ell\in(0,\ell_0+\rho]$ says exactly
+that $f(y,t+\ell)-|y-x|^2/(2\ell)<f(x,t+\ell)$ whenever $|y|>M$. Hence
+\noderef{QuadEnvBallMax} applies at $(\ell,z)$ with this $M$ and yields
+\begin{equation}\label{eq:qebr-repP}
+  \Penv_\ell f(z)
+  =\sup\Bigl\{f(y,t+\ell)-\frac{|y-x|^2}{2\ell}:|y|\le M\Bigr\}
+  =\max_{y\in B_M}\Bigl(f(y,t+\ell)-\frac{|y-x|^2}{2\ell}\Bigr),
+\end{equation}
+the second equality because \noderef{QuadEnvBallMax} also asserts that the value
+is attained at some point of $B_M$. This is the displayed identity of (1), for
+every $(\ell,z)\in\mathcal P$, with the $\rho$ and $M$ just constructed.
+
+For the continuity, put
+\[
+  H\bigl((\ell,z),y\bigr)=f(y,t+\ell)-\frac{|y-x|^2}{2\ell}
+  \qquad\bigl((\ell,z)\in\mathcal P,\ y\in B_M\bigr).
+\]
+The set $B_M$ is a closed bounded subset of the finite-dimensional space $F$,
+hence compact, and it is nonempty. The set $\mathcal P$, with the metric induced
+from $\R\times F\times\R$, is a metric space. The map
+$((\ell,z),y)\mapsto(y,t+\ell)$ is continuous and maps $\mathcal P\times B_M$
+into $\Omega$, as shown above, and $f$ is continuous on $\Omega$; the map
+$((\ell,z),y)\mapsto|y-x|^2/(2\ell)$ is continuous on $\mathcal P\times B_M$
+because $\ell\ge\tfrac34\ell_0>0$ there, so the denominator does not vanish.
+Hence $H$ is continuous on $\mathcal P\times B_M$, and by the parametric-extremum
+fact recorded at the start the map
+$(\ell,z)\mapsto\max_{y\in B_M}H((\ell,z),y)$ is continuous on $\mathcal P$. By
+\eqref{eq:qebr-repP} that map is $(\ell,z)\mapsto\Penv_\ell f(z)$ restricted to
+$\mathcal P$.
+
+Finally, the set
+$\mathcal U=\{(\ell,z):|\ell-\ell_0|<\rho,\ |x-x_0|<\rho,\ |t-t_0|<\rho\}$
+is open in $\R\times F\times\R$, contains $(\ell_0,z_0)$ and is contained in
+$\mathcal P$. The function $(\ell,z)\mapsto\Penv_\ell f(z)$, defined on all of
+$\R\times F\times\R$, agrees on the neighbourhood $\mathcal U$ of
+$(\ell_0,z_0)$ with the restriction to $\mathcal P$, which was just shown
+continuous at $(\ell_0,z_0)$ relative to $\mathcal P$. Since $\mathcal U$ is a
+neighbourhood of $(\ell_0,z_0)$ contained in $\mathcal P$, relative continuity at
+$(\ell_0,z_0)$ on $\mathcal P$ gives continuity of the unrestricted map at
+$(\ell_0,z_0)$. This proves (1).
+
+\emph{Proof of (2).}
+Assume $t_0-\ell_0\in I$. The argument is the same with the time level $t-\ell$
+in place of $t+\ell$, minima in place of maxima, and the second inequality of
+\noderef{QuadEnvFarCompetitors} in place of the first. In detail: choose
+$\sigma>0$ with $(t_0-\ell_0-\sigma,t_0-\ell_0+\sigma)\subseteq I$, put
+$\rho=\min\{\sigma/4,\ell_0/4\}>0$ and
+$J=[\,t_0-\ell_0-2\rho,\ t_0-\ell_0+2\rho\,]\subseteq I$, a nonempty compact
+interval, and let $\mathcal P$ be as above. For $(\ell,z)\in\mathcal P$ we again
+have $\ell\ge\tfrac34\ell_0>0$, $\ell\le\ell_0+\rho$, $|x|\le|x_0|+\rho$ and
+\[
+  |(t-\ell)-(t_0-\ell_0)|\le|t-t_0|+|\ell-\ell_0|\le2\rho ,
+\]
+so $t-\ell\in J\subseteq I$. Apply \noderef{QuadEnvFarCompetitors} with
+$R_0=|x_0|+\rho$, this $J$ and the length bound $\ell_0+\rho$, obtaining
+$M\ge\max\{R_0,1\}$ and $N$ with, in particular,
+\[
+  f(x',s)<f(y,s)+\frac{|y-x'|^2}{2\ell}
+  \qquad\bigl(|x'|\le R_0,\ s\in J,\ 0<\ell\le\ell_0+\rho,\ |y|>M\bigr).
+\]
+For $(\ell,z)\in\mathcal P$ this says, at $x'=x$ and $s=t-\ell\in J$, that
+$f(x,t-\ell)<f(y,t-\ell)+|y-x|^2/(2\ell)$ whenever $|y|>M$; and
+$y\mapsto f(y,t-\ell)$ is continuous on $B_M$ because $(y,t-\ell)\in\Omega$
+there. So \noderef{QuadEnvBallMin} applies and gives
+\[
+  \Menv_\ell f(z)
+  =\inf\Bigl\{f(y,t-\ell)+\frac{|y-x|^2}{2\ell}:|y|\le M\Bigr\}
+  =\min_{y\in B_M}\Bigl(f(y,t-\ell)+\frac{|y-x|^2}{2\ell}\Bigr)
+\]
+for every $(\ell,z)\in\mathcal P$, the second equality because
+\noderef{QuadEnvBallMin} asserts attainment in $B_M$. The function
+$H((\ell,z),y)=f(y,t-\ell)+|y-x|^2/(2\ell)$ is continuous on
+$\mathcal P\times B_M$ for the same reasons as before, so by the minimum half of
+the parametric-extremum fact the map $(\ell,z)\mapsto\Menv_\ell f(z)$ is
+continuous on $\mathcal P$, hence — by the same neighbourhood argument, with
+$\mathcal U\subseteq\mathcal P$ an open set containing $(\ell_0,z_0)$ —
+continuous at $(\ell_0,z_0)$. This proves (2).
+\end{proof}

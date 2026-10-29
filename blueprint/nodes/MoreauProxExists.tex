@@ -1,0 +1,51 @@
+\begin{lemma}[Existence of the proximal map]
+Let $E$ be a finite-dimensional real inner-product space and let $\psi:E\to\R$
+be convex on $E$. Then there is $u:E\to E$ which is a proximal map for $\psi$ in
+the sense of \noderef{IsMoreauProx}.
+\end{lemma}
+\begin{proof}
+Since $E$ is open and $\psi$ is convex and real-valued on it, $\psi$ is
+continuous on $E$ (preamble), and $\psi$ has an affine minorant: there are
+$p_0\in E$ and $c_0\in\R$ with
+\begin{equation}\label{eq:mpe-minorant}
+  \psi(x)\ge\langle p_0,x\rangle+c_0\ge-|p_0|\,|x|+c_0\qquad(x\in E)
+\end{equation}
+(preamble; the second step is the Cauchy--Schwarz inequality).
+
+Fix $y\in E$ and set $\Theta_y(x)=\psi(x)+|x-y|^2/2$, a continuous function of
+$x$. We first show that $\Theta_y$ attains its infimum over $E$.
+
+By \eqref{eq:mpe-minorant} and $|x-y|\ge|x|-|y|$,
+\[
+  \Theta_y(x)\ge-|p_0|\,|x|+c_0+\frac{(|x|-|y|)^2}{2}
+  \qquad(|x|\ge|y|).
+\]
+The right-hand side is a quadratic polynomial in $|x|$ with positive leading
+coefficient $1/2$, so it tends to $+\infty$ as $|x|\to\infty$. Choose therefore
+$R\ge|y|$ so large that
+\[
+  -|p_0|\,s+c_0+\frac{(s-|y|)^2}{2}>\psi(y)\qquad(s>R).
+\]
+Then $\Theta_y(x)>\psi(y)=\Theta_y(y)$ whenever $|x|>R$. Consequently
+\[
+  \inf_{E}\Theta_y=\inf_{\overline B(0,R)}\Theta_y,
+\]
+because every $x$ with $|x|>R$ has $\Theta_y(x)>\Theta_y(y)$ while
+$y\in\overline B(0,R)$, so such $x$ cannot lower the infimum below the value
+already achieved at $y$ inside the ball. The set $\overline B(0,R)$ is closed and
+bounded in the finite-dimensional space $E$, hence compact, and it is nonempty;
+$\Theta_y$ is continuous, so $\Theta_y$ attains a minimum on $\overline B(0,R)$
+at some point, which we call $x_y$ (preamble). By the displayed identity of
+infima,
+\begin{equation}\label{eq:mpe-min}
+  \Theta_y(x_y)\le\Theta_y(x)\qquad(x\in E).
+\end{equation}
+
+Choosing one such minimizer $x_y$ for each $y\in E$ defines a function
+$u:E\to E$, $u(y)=x_y$. By \eqref{eq:mpe-min}, for all $y,x\in E$,
+\[
+  \psi(u(y))+\frac{|u(y)-y|^2}{2}=\Theta_y(u(y))\le\Theta_y(x)
+   =\psi(x)+\frac{|x-y|^2}{2},
+\]
+which is exactly the defining property of \noderef{IsMoreauProx}.
+\end{proof}

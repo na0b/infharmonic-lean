@@ -1,0 +1,45 @@
+\begin{lemma}[An attained partial supremum of a jointly concave function is concave]
+Let $E$ and $G$ be real vector spaces, let $\Phi:E\times G\to\R$ be concave on
+$E\times G$, and let $\Lambda:E\to\R$ satisfy
+\[
+  \Phi(x,y)\le\Lambda(x)\qquad(x\in E,\ y\in G),
+\]
+and suppose that for every $x\in E$ there is $y\in G$ with $\Lambda(x)=\Phi(x,y)$. Then
+$\Lambda$ is concave on $E$.
+\end{lemma}
+\begin{proof}
+The set $E$ is convex, so it remains to verify the concavity inequality. Let $x_0,x_1\in E$
+and let $a,b\ge0$ with $a+b=1$.
+
+By the attainment hypothesis applied at $x_0$ and at $x_1$, choose $y_0,y_1\in G$ with
+\[
+  \Lambda(x_0)=\Phi(x_0,y_0),\qquad \Lambda(x_1)=\Phi(x_1,y_1).
+\]
+
+The points $(x_0,y_0)$ and $(x_1,y_1)$ both lie in $E\times G$, on which $\Phi$ is
+concave, so
+\[
+  a\,\Phi(x_0,y_0)+b\,\Phi(x_1,y_1)
+   \le\Phi\bigl(a(x_0,y_0)+b(x_1,y_1)\bigr).
+\]
+Addition and scalar multiplication on the product $E\times G$ are performed
+coordinatewise, so
+\[
+  a(x_0,y_0)+b(x_1,y_1)=\bigl(ax_0+bx_1,\ ay_0+by_1\bigr).
+\]
+
+Finally the pair $\bigl(ax_0+bx_1,\ ay_0+by_1\bigr)$ is one admissible pair for the upper
+bound hypothesis at the point $ax_0+bx_1$, which therefore gives
+\[
+  \Phi\bigl(ax_0+bx_1,\ ay_0+by_1\bigr)\le\Lambda\bigl(ax_0+bx_1\bigr).
+\]
+
+Chaining the three displays and substituting the two attainment identities,
+\[
+  a\,\Lambda(x_0)+b\,\Lambda(x_1)
+   =a\,\Phi(x_0,y_0)+b\,\Phi(x_1,y_1)
+   \le\Phi\bigl(ax_0+bx_1,\ ay_0+by_1\bigr)
+   \le\Lambda\bigl(ax_0+bx_1\bigr),
+\]
+which is the required inequality. Hence $\Lambda$ is concave on $E$.
+\end{proof}

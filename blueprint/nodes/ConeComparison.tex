@@ -1,0 +1,129 @@
+\begin{lemma}[Cone comparison and radial monotonicity]
+Let $E$ be a finite-dimensional real inner-product space, let $D\subseteq E$,
+let $w:E\to\R$ be infinity-harmonic on $D$ in the sense of
+\noderef{IsInfHarmonicOn}, let $z\in E$ and let $r>0$ with
+$\overline B_r(z)\subseteq D$. Then, with the cone slopes of
+\noderef{ConeSlopeUpper} and \noderef{ConeSlopeLower},
+\begin{align}
+  w(Z)-w(z)&\le L_r^+(w;z)\,|Z-z| &&(Z\in\overline B_r(z)),
+     \label{eq:cone-upper}\\
+  -\bigl(w(Z)-w(z)\bigr)&\le L_r^-(w;z)\,|Z-z| &&(Z\in\overline B_r(z)),
+     \label{eq:cone-lower}
+\end{align}
+and for every $r'\ge r$ with $\overline B_{r'}(z)\subseteq D$,
+\begin{equation}\label{eq:cone-monotone}
+  L_r^+(w;z)\le L_{r'}^+(w;z),\qquad
+  L_r^-(w;z)\le L_{r'}^-(w;z).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Throughout, $\overline B_\rho(z)=\{Z:|Z-z|\le\rho\}$.
+
+\emph{Step 0: the slopes are finite and nonnegative.}
+Since $w$ is infinity-harmonic on $D$, it is continuous on $D$ by
+\noderef{IsInfHarmonicOn}; as $\overline B_r(z)\subseteq D$ is compact, the set
+$\{r^{-1}(w(z+h)-w(z)):|h|\le r\}$ is a nonempty bounded set of reals, so
+$L_r^+(w;z)$ is its maximum. Taking $h=0$ shows $L_r^+(w;z)\ge0$. The same
+applies to $L_r^-(w;z)$.
+
+\emph{Step 1: $-w$ is infinity-harmonic on $D$.}
+Let $\phi$ be $C^2$ near a point $Z_0\in D$ and suppose
+$Z\mapsto(-w)(Z)-\phi(Z)$ has a local maximum on $D$ at $Z_0$. Then
+$Z\mapsto w(Z)-(-\phi)(Z)$ has a local minimum on $D$ at $Z_0$, and $-\phi$ is
+$C^2$ near $Z_0$, so the supersolution inequality of
+\noderef{IsInfHarmonicOn} gives $\Dinf(-\phi)(Z_0)\le0$. By the definition of
+$\Dinf$ in \noderef{InfLap}, $\nabla(-\phi)=-\nabla\phi$ and
+$D^2(-\phi)=-D^2\phi$, so
+\[
+  \Dinf(-\phi)(Z_0)=-D^2\phi(Z_0)[-\nabla\phi(Z_0)]
+   =-D^2\phi(Z_0)[\nabla\phi(Z_0)]=-\Dinf\phi(Z_0),
+\]
+using that $A[-\xi]=A[\xi]$ for a bilinear form $A$. Hence
+$\Dinf\phi(Z_0)\ge0$, which is the subsolution inequality for $-w$. The
+symmetric computation with local minima gives the supersolution inequality for
+$-w$, and $-w$ is continuous on the open set $D$. Thus $-w$ is
+infinity-harmonic on $D$. Note also that, directly from
+\noderef{ConeSlopeUpper} and \noderef{ConeSlopeLower},
+\begin{equation}\label{eq:cone-neg}
+  L_\rho^+(-w;z)=L_\rho^-(w;z),\qquad
+  L_\rho^-(-w;z)=L_\rho^+(w;z)
+\end{equation}
+for every $\rho$, because the defining sets of quotients are exchanged.
+
+\emph{Step 2: the perturbed cone barrier.}
+We prove \eqref{eq:cone-upper}. Fix any $L>L_r^+(w;z)$ and choose $\gamma>0$ so
+small that
+\[
+  \gamma r<L-L_r^+(w;z),\qquad 2\gamma r<L .
+\]
+Define, for $Z\in E$,
+\[
+  \Theta(Z)=w(z)+L|Z-z|-\gamma|Z-z|^2 .
+\]
+On the sphere $|Z-z|=r$ we have, using Step 0,
+\[
+  w(Z)\le w(z)+rL_r^+(w;z)<w(z)+r\bigl(L-\gamma r\bigr)=\Theta(Z),
+\]
+the strict inequality coming from $\gamma r<L-L_r^+(w;z)$. Thus
+$w-\Theta<0$ on $\{|Z-z|=r\}$, while $(w-\Theta)(z)=0$.
+
+Suppose, for contradiction, that $w(Z)>\Theta(Z)$ for some
+$Z\in\overline B_r(z)$. The function $w-\Theta$ is continuous on the compact set
+$\overline B_r(z)$, so it attains a maximum there, and that maximum is strictly
+positive. By the previous paragraph the maximum is not attained on the sphere,
+and it is not attained at $z$ since the value there is $0$. Let $Z_0$ be a
+maximum point; then $|Z_0-z|=:\rho\in(0,r)$ and $Z_0$ is interior to
+$\overline B_r(z)$.
+
+The function $\Theta$ is $C^2$ on $E\setminus\{z\}$: indeed
+$Z\mapsto|Z-z|^2$ is a polynomial, and $Z\mapsto|Z-z|$ is smooth away from $z$.
+Since $w-\Theta$ has a local maximum on $D$ at $Z_0$ (it has a maximum over a
+neighbourhood of $Z_0$ contained in $\overline B_r(z)\subseteq D$), $\Theta$ is a
+local upper test for $w$ at $Z_0$, and the subsolution inequality of
+\noderef{IsInfHarmonicOn} gives $\Dinf\Theta(Z_0)\ge0$.
+
+We compute $\Dinf\Theta(Z_0)$. Write $e=(Z_0-z)/\rho$, a unit vector. For
+$g(\rho)=L\rho-\gamma\rho^2$ and $\Theta(Z)=w(z)+g(|Z-z|)$ one has
+\[
+  \nabla\Theta(Z_0)=g'(\rho)e=(L-2\gamma\rho)e .
+\]
+Since $2\gamma\rho<2\gamma r<L$, the number $L-2\gamma\rho$ is strictly
+positive, so $\nabla\Theta(Z_0)$ is a positive multiple of the radial direction
+$e$. The second derivative of $\Theta$ in the radial direction is
+\[
+  D^2\Theta(Z_0)[e]=g''(\rho)=-2\gamma .
+\]
+By bilinearity, $D^2\Theta(Z_0)[\nabla\Theta(Z_0)]
+ =(L-2\gamma\rho)^2D^2\Theta(Z_0)[e]$, so
+\[
+  \Dinf\Theta(Z_0)=-2\gamma\,(L-2\gamma\rho)^2<0,
+\]
+contradicting $\Dinf\Theta(Z_0)\ge0$. Hence $w\le\Theta$ on
+$\overline B_r(z)$, i.e.
+\[
+  w(Z)-w(z)\le L|Z-z|-\gamma|Z-z|^2\le L|Z-z|
+       \qquad(Z\in\overline B_r(z)).
+\]
+Letting $\gamma\downarrow0$ is unnecessary here, since the final bound no longer
+involves $\gamma$; letting $L\downarrow L_r^+(w;z)$ gives
+\eqref{eq:cone-upper}.
+
+\emph{Step 3: the lower bound.}
+Apply Step 2 to $-w$, which is infinity-harmonic on $D$ by Step 1, with the same
+$z$ and $r$. This gives
+$(-w)(Z)-(-w)(z)\le L_r^+(-w;z)|Z-z|$ on $\overline B_r(z)$, which by
+\eqref{eq:cone-neg} is exactly \eqref{eq:cone-lower}.
+
+\emph{Step 4: monotonicity in the radius.}
+Let $r'\ge r$ with $\overline B_{r'}(z)\subseteq D$; then $r'>0$. Applying Step 2
+at radius $r'$ gives $w(z+h)-w(z)\le L_{r'}^+(w;z)|h|$ for all $|h|\le r'$, in
+particular for all $|h|\le r$. Since $L_{r'}^+(w;z)\ge0$ by Step 0 and
+$|h|\le r$,
+\[
+  \frac{w(z+h)-w(z)}{r}\le\frac{L_{r'}^+(w;z)|h|}{r}
+       \le L_{r'}^+(w;z)\qquad(|h|\le r).
+\]
+Taking the supremum over $|h|\le r$ gives $L_r^+(w;z)\le L_{r'}^+(w;z)$. The
+same argument applied to $-w$, together with \eqref{eq:cone-neg}, gives
+$L_r^-(w;z)\le L_{r'}^-(w;z)$. This is \eqref{eq:cone-monotone}.
+\end{proof}

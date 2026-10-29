@@ -1,0 +1,99 @@
+\begin{lemma}[The forward envelope is concave after its own quadratic correction]
+Let $F$ be a finite-dimensional real inner-product space, let $f$ be a real function on
+the space-time $\ell^2(F\times\R)$, let $t,\ell>0$ and put $s=t+\ell$. Assume
+\begin{enumerate}
+\item the function $y\mapsto f(y,s)-|y|^2/(2s)$ is concave on $F$;
+\item for every $x\in F$ there is $y\in F$ with
+  $\Penv_\ell f(x,t)=f(y,s)-|y-x|^2/(2\ell)$, where $\Penv_\ell$ is the forward envelope
+  of \noderef{QuadEnvP};
+\item for all $x,y\in F$ one has $f(y,s)-|y-x|^2/(2\ell)\le\Penv_\ell f(x,t)$.
+\end{enumerate}
+Then
+\[
+  x\longmapsto\Penv_\ell f(x,t)-\frac{|x|^2}{2t}
+\]
+is concave on $F$.
+\end{lemma}
+\begin{proof}
+Put $a=\dfrac{t}{2\ell s}$ and $c=\dfrac st$; since $t,\ell>0$ we have $s>0$ and $a>0$.
+Define
+\[
+  \Phi(x,y)=\Bigl(f(y,s)-\frac{|y|^2}{2s}\Bigr)-a\,\bigl|y-cx\bigr|^2
+  \qquad(x,y\in F),
+\]
+and write $\Lambda(x)=\Penv_\ell f(x,t)-|x|^2/(2t)$.
+
+\emph{Step 1: a convex-combination identity for the squared norm.}
+Let $u_0,u_1\in F$ and let $\alpha,\beta\in\R$ with $\alpha+\beta=1$. Expanding with
+$|u+w|^2=|u|^2+2\langle u,w\rangle+|w|^2$, $|\lambda u|^2=\lambda^2|u|^2$ and
+$\langle\lambda u,\mu w\rangle=\lambda\mu\langle u,w\rangle$,
+\[
+  |\alpha u_0+\beta u_1|^2
+   =\alpha^2|u_0|^2+2\alpha\beta\langle u_0,u_1\rangle+\beta^2|u_1|^2 .
+\]
+Substituting $\beta=1-\alpha$ and $\alpha=1-\beta$ in the first and third coefficients,
+$\alpha^2=\alpha-\alpha\beta$ and $\beta^2=\beta-\alpha\beta$, so
+\begin{equation}\label{eq:qepcc-quad}
+  |\alpha u_0+\beta u_1|^2
+   =\alpha|u_0|^2+\beta|u_1|^2-\alpha\beta|u_0-u_1|^2 ,
+\end{equation}
+using $|u_0-u_1|^2=|u_0|^2-2\langle u_0,u_1\rangle+|u_1|^2$.
+
+\emph{Step 2: $\Phi$ is jointly concave on $F\times F$.}
+The set $F\times F$ is convex. Let $p_0=(x_0,y_0)$ and $p_1=(x_1,y_1)$ lie in $F\times F$
+and let $\alpha,\beta\ge0$ with $\alpha+\beta=1$.
+
+The first summand of $\Phi$ depends only on the second coordinate, and
+$(\alpha p_0+\beta p_1)$ has second coordinate $\alpha y_0+\beta y_1$ because operations
+on the product are coordinatewise; so hypothesis (1) applied at $y_0$ and $y_1$ gives
+\[
+  \alpha\Bigl(f(y_0,s)-\frac{|y_0|^2}{2s}\Bigr)+\beta\Bigl(f(y_1,s)-\frac{|y_1|^2}{2s}\Bigr)
+   \le f(\alpha y_0+\beta y_1,s)-\frac{|\alpha y_0+\beta y_1|^2}{2s}.
+\]
+
+For the second summand put $u_i=y_i-cx_i$. Since the coordinates of
+$\alpha p_0+\beta p_1$ are $\alpha x_0+\beta x_1$ and $\alpha y_0+\beta y_1$, and since
+$w\mapsto w-c\,\cdot$ is linear in the pair,
+\[
+  (\alpha y_0+\beta y_1)-c(\alpha x_0+\beta x_1)=\alpha u_0+\beta u_1 .
+\]
+Hence by \eqref{eq:qepcc-quad}
+\[
+  -a\bigl|(\alpha y_0+\beta y_1)-c(\alpha x_0+\beta x_1)\bigr|^2
+   =-a\alpha|u_0|^2-a\beta|u_1|^2+a\alpha\beta|u_0-u_1|^2
+   \ge\alpha\bigl(-a|u_0|^2\bigr)+\beta\bigl(-a|u_1|^2\bigr),
+\]
+because $a>0$, $\alpha\ge0$, $\beta\ge0$ and $|u_0-u_1|^2\ge0$ make the extra term
+$a\alpha\beta|u_0-u_1|^2$ nonnegative.
+
+Adding the two displays gives
+$\alpha\Phi(p_0)+\beta\Phi(p_1)\le\Phi(\alpha p_0+\beta p_1)$, so $\Phi$ is concave on
+$F\times F$.
+
+\emph{Step 3: $\Phi$ is the competitor value, shifted by a constant.}
+Fix $x,y\in F$. By \noderef{QuadShiftCompleteSquare}, applied with these $t,\ell>0$ and
+these $y,x$,
+\[
+  \frac{|y|^2}{2s}-\frac{|y-x|^2}{2\ell}-\frac{|x|^2}{2t}=-a\bigl|y-cx\bigr|^2 ,
+\]
+since $a=t/(2\ell s)$ and $c=s/t$. Substituting this for the penalty term in the
+definition of $\Phi$ and cancelling $|y|^2/(2s)$,
+\begin{equation}\label{eq:qepcc-shape}
+  \Phi(x,y)=\Bigl(f(y,s)-\frac{|y-x|^2}{2\ell}\Bigr)-\frac{|x|^2}{2t}.
+\end{equation}
+
+\emph{Step 4: $\Lambda$ is an attained partial supremum of $\Phi$.}
+By \eqref{eq:qepcc-shape} and hypothesis (3), for all $x,y\in F$
+\[
+  \Phi(x,y)=\Bigl(f(y,s)-\frac{|y-x|^2}{2\ell}\Bigr)-\frac{|x|^2}{2t}
+   \le\Penv_\ell f(x,t)-\frac{|x|^2}{2t}=\Lambda(x).
+\]
+And given $x\in F$, hypothesis (2) supplies $y\in F$ with
+$\Penv_\ell f(x,t)=f(y,s)-|y-x|^2/(2\ell)$; subtracting $|x|^2/(2t)$ and using
+\eqref{eq:qepcc-shape} gives $\Lambda(x)=\Phi(x,y)$.
+
+So $\Phi$ is concave on $F\times F$ by Step 2, $\Lambda$ is an upper bound for
+$\Phi(x,\cdot)$ at every $x$, and that upper bound is attained at every $x$. Therefore
+\noderef{PartialSupConcaveOfAttained}, applied with $E=G=F$, this $\Phi$ and this
+$\Lambda$, gives that $\Lambda$ is concave on $F$, which is the assertion.
+\end{proof}

@@ -1,0 +1,156 @@
+\begin{lemma}[The dyadic slope tail and its H\"older--Taylor estimate]
+Let $E$ be a finite-dimensional real inner-product space and let $A_0>0$,
+$\gamma>0$ and $r_0>0$ be reals. Write
+\[
+  r_j=2^{-j}r_0,\qquad \rho_j=\sqrt{A_0}\,r_j^{1+\gamma/2}\qquad(j\ge0),
+  \qquad \alpha=\frac{\gamma}{2+\gamma}.
+\]
+Then there is a real $C>0$, depending only on $A_0$, $\gamma$ and $r_0$, with the
+following property. Let $U:E\to\R$, let $z\in E$ and let $(P_j)_{j\ge0}$ be
+vectors of $E$ such that
+\begin{equation}\label{eq:dfte-fit}
+  \bigl|U(z+h)-U(z)-\langle P_j,h\rangle\bigr|\le A_0r_j^{1+\gamma}
+  \qquad\text{whenever }j\ge0\text{ and }|h|\le\rho_j .
+\end{equation}
+Then there is $P_\infty\in E$ with
+\[
+  |P_j-P_\infty|\le Cr_j^{\gamma/2}\qquad(j\ge0)
+\]
+and
+\[
+  \bigl|U(z+h)-U(z)-\langle P_\infty,h\rangle\bigr|\le C|h|^{1+\alpha}
+  \qquad\bigl(|h|\le\rho_0\bigr).
+\]
+\end{lemma}
+\begin{proof}
+Throughout put $p=1+\gamma/2>0$, so that $\rho_j=\sqrt{A_0}\,r_j^{p}$ and
+$\alpha=(\gamma/2)/p$, whence
+\begin{equation}\label{eq:dfte-exponent}
+  p\,\alpha=\gamma/2 .
+\end{equation}
+Put $t=(1/2)^{p}$ and $q=(1/2)^{\gamma/2}$; since $0<1/2<1$ and $p>0$,
+$\gamma/2>0$, both lie in $(0,1)$. For any real $e$ and any $j\ge0$,
+\[
+  r_j^{e}=\bigl(2^{-j}r_0\bigr)^{e}=\bigl((1/2)^{j}\bigr)^{e}r_0^{e}
+   =\bigl((1/2)^{e}\bigr)^{j}r_0^{e},
+\]
+the first step because both factors are positive and the second because
+$((1/2)^j)^e=(1/2)^{je}=((1/2)^e)^j$. In particular
+\begin{equation}\label{eq:dfte-geom}
+  \rho_j=B\,t^{j}\quad\text{with }B=\sqrt{A_0}\,r_0^{p}>0,
+  \qquad r_j^{\gamma/2}=q^{j}a\quad\text{with }a=r_0^{\gamma/2}>0 .
+\end{equation}
+Consequently $\rho_j>0$, $\rho_{j+1}=t\rho_j\le\rho_j$, and $\rho_j\to0$ since
+$0<t<1$.
+
+\emph{Step 1: consecutive slopes.}
+Fix $j\ge0$ and put $v=P_j-P_{j+1}$. If $v=0$ the bound below is trivial, so
+assume $v\ne0$ and set
+\[
+  h=\frac{\rho_{j+1}}{|v|}\,v,\qquad\text{so}\qquad |h|=\rho_{j+1},
+  \qquad \langle v,h\rangle=\frac{\rho_{j+1}}{|v|}\,|v|^2=\rho_{j+1}|v| ,
+\]
+using $|v|>0$ and $\langle v,v\rangle=|v|^2$. Since $|h|=\rho_{j+1}\le\rho_j$,
+hypothesis \eqref{eq:dfte-fit} applies to this $h$ both at the index $j$ and at
+the index $j+1$. Writing
+\[
+  A=U(z+h)-U(z)-\langle P_j,h\rangle,\qquad
+  B'=U(z+h)-U(z)-\langle P_{j+1},h\rangle,
+\]
+linearity of the inner product in its first argument gives
+$\langle v,h\rangle=B'-A$, while \eqref{eq:dfte-fit} gives $|A|\le A_0r_j^{1+\gamma}$
+and $|B'|\le A_0r_{j+1}^{1+\gamma}$. As $r_{j+1}\le r_j$ and $1+\gamma>0$ we have
+$r_{j+1}^{1+\gamma}\le r_j^{1+\gamma}$, so
+\[
+  \rho_{j+1}|v|=B'-A\le|B'|+|A|\le2A_0r_j^{1+\gamma}.
+\]
+Now $\gamma/2+p=1+\gamma$ and $r_j>0$, so
+$r_j^{1+\gamma}=r_j^{\gamma/2}r_j^{p}$, and $r_j^{p}=\rho_j/\sqrt{A_0}$; hence,
+using $\sqrt{A_0}\sqrt{A_0}=A_0$,
+\begin{equation}\label{eq:dfte-prod}
+  A_0r_j^{1+\gamma}=\sqrt{A_0}\,\bigl(q^{j}a\bigr)\rho_j .
+\end{equation}
+Since $\rho_{j+1}=t\rho_j$, dividing the previous display by $\rho_{j+1}>0$ and
+substituting \eqref{eq:dfte-prod} gives
+\begin{equation}\label{eq:dfte-cons}
+  |P_j-P_{j+1}|\le C_1a\,q^{j},\qquad C_1=\frac{2\sqrt{A_0}}{t} ,
+\end{equation}
+and \eqref{eq:dfte-cons} holds trivially when $v=0$ as well.
+
+\emph{Step 2: the limit slope and its tail.}
+By \eqref{eq:dfte-cons} the distances $|P_j-P_{j+1}|$ are bounded by
+$(C_1a)q^{j}$ with $0<q<1$, so $\sum_j|P_j-P_{j+1}|$ is dominated by a
+convergent geometric series and $(P_j)$ is a Cauchy sequence. A
+finite-dimensional real inner-product space is complete, so the sequence
+converges; call the limit $P_\infty$. The standard geometric tail estimate for
+such a sequence gives, for every $j$,
+\begin{equation}\label{eq:dfte-tail}
+  |P_j-P_\infty|\le\frac{C_1a\,q^{j}}{1-q}=\frac{C_2}{a}\,\bigl(q^{j}a\bigr),
+  \qquad C_2=\frac{C_1a}{1-q},
+\end{equation}
+which by \eqref{eq:dfte-geom} is the first asserted bound with constant
+$C_2/a$.
+
+\emph{Step 3: the scale selection.}
+Let $h\in E$ with $|h|\le\rho_0$. If $h=0$ both sides of the second assertion
+are $0$, since $\langle P_\infty,0\rangle=0$ and $0^{1+\alpha}=0$ for
+$1+\alpha>0$; so assume $h\ne0$, whence $|h|>0$. Because $\rho_m\to0$ there is
+an $m$ with $\rho_m<|h|$; let $m$ be the least such index. Then $m\ne0$, since
+$\rho_0\ge|h|$, so $m=j+1$ for some $j\ge0$, and minimality of $m$ gives
+\begin{equation}\label{eq:dfte-scale}
+  \rho_{j+1}<|h|\le\rho_j .
+\end{equation}
+
+\emph{Step 4: the estimate at that scale.}
+Since $|h|\le\rho_j$, \eqref{eq:dfte-fit} applies at the index $j$. Writing
+$\langle P_j-P_\infty,h\rangle=\bigl(U(z+h)-U(z)-\langle P_\infty,h\rangle\bigr)
+-\bigl(U(z+h)-U(z)-\langle P_j,h\rangle\bigr)$, the triangle inequality,
+\eqref{eq:dfte-fit} and the Cauchy--Schwarz bound
+$|\langle P_j-P_\infty,h\rangle|\le|P_j-P_\infty|\,|h|$ give
+\[
+  \bigl|U(z+h)-U(z)-\langle P_\infty,h\rangle\bigr|
+   \le A_0r_j^{1+\gamma}+|P_j-P_\infty|\,|h| .
+\]
+For the first term, $\rho_{j+1}=t\rho_j<|h|$ by \eqref{eq:dfte-scale} gives
+$\rho_j<|h|/t$, so by \eqref{eq:dfte-prod} and $q^ja>0$,
+\[
+  A_0r_j^{1+\gamma}=\sqrt{A_0}\,\bigl(q^{j}a\bigr)\rho_j
+   \le\frac{\sqrt{A_0}}{t}\,\bigl(q^{j}a\bigr)|h| .
+\]
+For the second, \eqref{eq:dfte-tail} gives
+$|P_j-P_\infty|\,|h|\le(C_2/a)(q^{j}a)|h|$. Hence, with
+$C_3=\sqrt{A_0}/t+C_2/a$,
+\begin{equation}\label{eq:dfte-atscale}
+  \bigl|U(z+h)-U(z)-\langle P_\infty,h\rangle\bigr|
+   \le C_3\bigl(q^{j}a\bigr)|h| .
+\end{equation}
+
+\emph{Step 5: converting the scale into $|h|^{\alpha}$.}
+From $\rho_j<|h|/t$ and $\rho_j=\sqrt{A_0}\,r_j^{p}$ we get
+$r_j^{p}<|h|/(t\sqrt{A_0})$. Both sides are positive and $\alpha>0$, so raising
+to the power $\alpha$ preserves the inequality:
+\[
+  \bigl(r_j^{p}\bigr)^{\alpha}
+   \le\Bigl(\frac{|h|}{t\sqrt{A_0}}\Bigr)^{\alpha}
+   =\Bigl(\frac1{t\sqrt{A_0}}\Bigr)^{\alpha}|h|^{\alpha},
+\]
+the last step because $(xy)^{\alpha}=x^{\alpha}y^{\alpha}$ for $x,y\ge0$. By
+\eqref{eq:dfte-exponent} and \eqref{eq:dfte-geom},
+$\bigl(r_j^{p}\bigr)^{\alpha}=r_j^{p\alpha}=r_j^{\gamma/2}=q^{j}a$, so
+\[
+  q^{j}a\le\Bigl(\frac1{t\sqrt{A_0}}\Bigr)^{\alpha}|h|^{\alpha} .
+\]
+Substituting into \eqref{eq:dfte-atscale} and using
+$|h|^{\alpha}|h|=|h|^{1+\alpha}$, which holds because $|h|>0$,
+\[
+  \bigl|U(z+h)-U(z)-\langle P_\infty,h\rangle\bigr|
+   \le C_4|h|^{1+\alpha},\qquad
+  C_4=C_3\Bigl(\frac1{t\sqrt{A_0}}\Bigr)^{\alpha}.
+\]
+
+Taking $C=\max\{1,\,C_2/a,\,C_4\}$, which is positive and depends only on
+$A_0$, $\gamma$ and $r_0$, both assertions hold: the first because
+$C\ge C_2/a$ and $r_j^{\gamma/2}\ge0$, the second because $C\ge C_4$ and
+$|h|^{1+\alpha}\ge0$. Neither $C_1$, $C_2$, $C_3$ nor $C_4$ depends on $U$,
+on $z$ or on the sequence $(P_j)$.
+\end{proof}

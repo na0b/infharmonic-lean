@@ -1,0 +1,267 @@
+\begin{lemma}[The sup-convolution duality for a separated quadratic test]
+Let $E$ be a finite-dimensional real inner-product space, let $N$ be a natural
+number and write $V=\ell^2\bigl(\bigoplus_{j=1}^NE\bigr)$ for the
+$\ell^2$-product of $N$ copies of $E$, so that $|W|^2=\sum_j|w_j|^2$ and
+$\langle Z,W\rangle=\sum_j\langle z_j,w_j\rangle$. Let $C\ge0$ and let
+$G_j:E\to\R$ $(1\le j\le N)$ be continuous with $G_j(w)\le C$ for every $w$ and
+$G_j(0)=0$. Let $B,A_\varepsilon:V\to V$ be self-adjoint continuous linear
+operators, let $\varepsilon>0$, and assume
+\begin{align}
+  A_\varepsilon\xi&=B\bigl(\xi+\varepsilon A_\varepsilon\xi\bigr)
+    &&(\xi\in V),\label{eq:srdt-res}\\
+  \bigl(\xi+\varepsilon A_\varepsilon\xi\bigr)
+    -\varepsilon B\bigl(\xi+\varepsilon A_\varepsilon\xi\bigr)&=\xi
+    &&(\xi\in V),\label{eq:srdt-inv}\\
+  \varepsilon^{-1}\langle\xi,\xi\rangle+\langle A_\varepsilon\xi,\xi\rangle&>0
+    &&(\xi\in V,\ \xi\ne0).\label{eq:srdt-pos}
+\end{align}
+Assume finally the strict quadratic test inequality
+\begin{equation}\label{eq:srdt-G3}
+  \sum_jG_j(w_j)-\tfrac12\langle B W,W\rangle\le-\sum_j|w_j|^4
+  \qquad(W\in V,\ W\ne0).
+\end{equation}
+Write $\mathcal G(W)=\sum_jG_j(w_j)$ and let $\mathcal G^\varepsilon$ and
+$G_j^\varepsilon$ denote the sup-convolutions of \noderef{SupConvolution} with
+parameter $\varepsilon$, formed in $V$ and in $E$ respectively. Then
+\begin{equation}\label{eq:srdt-sep}
+  \mathcal G^\varepsilon(Z)=\sum_jG_j^\varepsilon(z_j)\qquad(Z\in V),
+\end{equation}
+and the function
+$\Upsilon(Z)=\mathcal G^\varepsilon(Z)
+-\tfrac12\langle A_\varepsilon Z,Z\rangle$ satisfies
+\[
+  \Upsilon(0)=0,\qquad\Upsilon(Z)<0\ \ (Z\ne0),
+\]
+is $\lambda$-semiconvex on $V$ in the sense of \noderef{SemiconvexOn} with
+$\lambda=\varepsilon^{-1}+\|A_\varepsilon\|$, and is continuous on $V$.
+\end{lemma}
+\begin{proof}
+Throughout, $\mathcal G$ is continuous on $V$ (a finite sum of continuous
+functions of the independent coordinates) and $\mathcal G\le NC$, hence
+$\mathcal G(W)\le NC+|W|$; likewise $G_j(w)\le C+|w|$. By part (1) of
+\noderef{SupConvolutionSemiconvex}, applied in $V$ to $\mathcal G$ with growth
+constant $NC$ and in $E$ to each $G_j$ with growth constant $C$, every defining
+set
+$\{\mathcal G(W)-|Z-W|^2/(2\varepsilon):W\in V\}$, resp.
+$\{G_j(w)-|z-w|^2/(2\varepsilon):w\in E\}$, is bounded above; so
+$\mathcal G^\varepsilon$ and the $G_j^\varepsilon$ are finite (and are genuine
+suprema, not the junk value of an unbounded set).
+
+\emph{Step 1: separability \eqref{eq:srdt-sep}.}
+First dispose of the degenerate case $N=0$. Then $V$ is the zero space, the
+index set is empty, $\mathcal G(W)=0$ for the single element $W=0$ of $V$, and
+by the defining formula of \noderef{SupConvolution}
+$\mathcal G^\varepsilon(Z)=\sup_{W\in V}\bigl(\mathcal G(W)
+-|Z-W|^2/(2\varepsilon)\bigr)=0-0=0$ for the single element $Z=0$ of $V$,
+while $\sum_jG_j^\varepsilon(z_j)$ is an empty sum, also $0$; so
+\eqref{eq:srdt-sep} holds. (The remaining clauses of the lemma are then
+immediate: $A_\varepsilon$ is the zero operator on the zero space, so
+$\Upsilon\equiv0$ on $V=\{0\}$, which gives $\Upsilon(0)=0$, makes the clause
+``$\Upsilon(Z)<0$ for $Z\ne0$'' vacuous, makes $\Upsilon$ continuous, and makes
+$\Upsilon+\tfrac\lambda2|\cdot|^2\equiv0$ convex on $V$, i.e.\ $\Upsilon$
+$\lambda$-semiconvex in the sense of \noderef{SemiconvexOn}.) So assume
+$N\ge1$ for the rest of Step 1 and for Steps 2--4.
+
+Since $|Z-W|^2=\sum_j|z_j-w_j|^2$, the defining formula of
+\noderef{SupConvolution} gives
+\[
+  \mathcal G^\varepsilon(Z)
+   =\sup_{W\in V}\sum_j\Bigl(G_j(w_j)-\frac{|z_j-w_j|^2}{2\varepsilon}\Bigr)
+   =\sum_j\sup_{w_j\in E}\Bigl(G_j(w_j)-\frac{|z_j-w_j|^2}{2\varepsilon}\Bigr)
+   =\sum_jG_j^\varepsilon(z_j).
+\]
+The middle equality holds because the expression is a sum of $N\ge1$ functions
+of the independent variables $w_1,\dots,w_N$, each bounded above by the previous
+paragraph: the supremum of the sum is at most the sum of the suprema since each
+summand is at most its own supremum, and it is at least the sum of the suprema
+because for every $\theta>0$ one may choose, for each $j$, a $w_j$ with
+$G_j(w_j)-|z_j-w_j|^2/(2\varepsilon)>G_j^\varepsilon(z_j)-\theta/N$ (legitimate
+since $N\ge1$, so $\theta/N>0$, and $G_j^\varepsilon(z_j)$ is a genuine
+supremum) and add the $N$ inequalities, obtaining a value
+$>\sum_jG_j^\varepsilon(z_j)-\theta$; as $\theta>0$ was arbitrary, the
+supremum of the sum is at least $\sum_jG_j^\varepsilon(z_j)$.
+
+\emph{Step 2: the duality identity.}
+For $(Z,W)\in V\times V$ put
+\[
+  F(Z,W)=\mathcal G(W)-\frac{|Z-W|^2}{2\varepsilon}
+    -\tfrac12\langle A_\varepsilon Z,Z\rangle ,
+\]
+so that $\Upsilon(Z)=\sup_WF(Z,W)$ by the defining formula of
+\noderef{SupConvolution} applied to $\mathcal G$ in $V$.
+
+\emph{(2a) The two operators and the two-sided identity.}
+Put
+\[
+  S\xi=\xi+\varepsilon A_\varepsilon\xi,
+  \qquad
+  T\xi=\xi-\varepsilon B\xi\qquad(\xi\in V),
+\]
+two continuous linear operators on $V$. Both are self-adjoint: for all
+$x,y\in V$,
+\[
+  \langle Sx,y\rangle=\langle x,y\rangle
+    +\varepsilon\langle A_\varepsilon x,y\rangle
+   =\langle x,y\rangle+\varepsilon\langle x,A_\varepsilon y\rangle
+   =\langle x,Sy\rangle,
+\]
+by the self-adjointness of $A_\varepsilon$ assumed in the statement, and
+likewise $\langle Tx,y\rangle=\langle x,Ty\rangle$ by the self-adjointness of
+$B$. Hypothesis \eqref{eq:srdt-inv} says exactly
+\begin{equation}\label{eq:srdt-TS}
+  T(S\xi)=\xi\qquad(\xi\in V),
+\end{equation}
+i.e.\ $TS=\mathrm{id}$. We claim the identity also holds in the other order.
+Indeed, for all $x,y\in V$,
+\[
+  \langle S(Tx),y\rangle
+   =\langle Tx,Sy\rangle
+   =\langle x,T(Sy)\rangle
+   =\langle x,y\rangle,
+\]
+the first equality by the self-adjointness of $S$, the second by the
+self-adjointness of $T$, and the third by \eqref{eq:srdt-TS} applied to
+$\xi=y$. Since $\langle S(Tx)-x,y\rangle=0$ for every $y\in V$, taking
+$y=S(Tx)-x$ gives $|S(Tx)-x|^2=0$, so
+\begin{equation}\label{eq:srdt-ST}
+  S(Tx)=x\qquad(x\in V),
+\end{equation}
+i.e.\ $ST=\mathrm{id}$. No appeal to finite-dimensionality is used.
+
+A consequence we shall need twice: applying \eqref{eq:srdt-res} at the vector
+$\xi=Tx$ gives $A_\varepsilon(Tx)=B\bigl(Tx+\varepsilon A_\varepsilon(Tx)\bigr)
+=B\bigl(S(Tx)\bigr)=Bx$ by \eqref{eq:srdt-ST}, that is,
+\begin{equation}\label{eq:srdt-AT}
+  A_\varepsilon(Tx)=Bx\qquad(x\in V).
+\end{equation}
+
+\emph{(2b) The exact expansion of $F(\cdot,W)$ about $Z_W=TW$.}
+Fix $W\in V$ and put $Z_W=TW$, so that $S Z_W=W$ by \eqref{eq:srdt-ST}. For any
+$h\in V$, expanding the two $Z$-dependent terms of $F$ exactly,
+\[
+  \frac{|Z_W+h-W|^2}{2\varepsilon}
+   =\frac{|Z_W-W|^2}{2\varepsilon}
+     +\frac{\langle Z_W-W,h\rangle}{\varepsilon}
+     +\frac{|h|^2}{2\varepsilon},
+\]
+\[
+  \tfrac12\bigl\langle A_\varepsilon(Z_W+h),Z_W+h\bigr\rangle
+   =\tfrac12\langle A_\varepsilon Z_W,Z_W\rangle
+     +\langle A_\varepsilon Z_W,h\rangle
+     +\tfrac12\langle A_\varepsilon h,h\rangle,
+\]
+where the second display uses the SELF-ADJOINTNESS OF $A_\varepsilon$ to
+combine the two cross terms
+$\tfrac12\langle A_\varepsilon Z_W,h\rangle
++\tfrac12\langle A_\varepsilon h,Z_W\rangle$ into
+$\langle A_\varepsilon Z_W,h\rangle$. Subtracting both displays from
+$\mathcal G(W)$ gives
+\begin{equation}\label{eq:srdt-expand}
+  F(Z_W+h,W)=F(Z_W,W)
+    -\Bigl\langle\frac{Z_W-W}{\varepsilon}+A_\varepsilon Z_W,\,h\Bigr\rangle
+    -\tfrac12\bigl\langle(\varepsilon^{-1}\mathrm{id}
+      +A_\varepsilon)h,h\bigr\rangle .
+\end{equation}
+The linear term vanishes identically, because
+\[
+  \frac{Z_W-W}{\varepsilon}+A_\varepsilon Z_W
+   =\frac{Z_W+\varepsilon A_\varepsilon Z_W-W}{\varepsilon}
+   =\frac{S Z_W-W}{\varepsilon}=0 .
+\]
+Hence $F(Z_W+h,W)=F(Z_W,W)
+-\tfrac12\langle(\varepsilon^{-1}\mathrm{id}+A_\varepsilon)h,h\rangle$ for
+every $h$, and by \eqref{eq:srdt-pos} the subtracted quantity is $>0$ for
+$h\ne0$. Therefore the supremum of $F(\cdot,W)$ is ATTAINED at $Z_W$ and
+$Z_W$ is its UNIQUE maximizer:
+\begin{equation}\label{eq:srdt-unique}
+  F(Z,W)<F(Z_W,W)\quad(Z\ne Z_W),\qquad\sup_ZF(Z,W)=F(Z_W,W).
+\end{equation}
+
+\emph{(2c) The value at the maximizer.}
+From $Z_W=TW=W-\varepsilon BW$ we get $Z_W-W=-\varepsilon BW$, so
+$|Z_W-W|^2/(2\varepsilon)=\tfrac{\varepsilon}{2}|BW|^2$; and by
+\eqref{eq:srdt-AT} with $x=W$ we have $A_\varepsilon Z_W=A_\varepsilon(TW)=BW$,
+so
+\[
+  \langle A_\varepsilon Z_W,Z_W\rangle=\langle BW,TW\rangle
+   =\langle BW,W-\varepsilon BW\rangle
+   =\langle BW,W\rangle-\varepsilon|BW|^2 .
+\]
+Therefore
+\begin{equation}\label{eq:srdt-duality}
+  \sup_ZF(Z,W)=F(Z_W,W)
+   =\mathcal G(W)-\frac{\varepsilon}{2}|BW|^2
+     -\frac12\Bigl(\langle BW,W\rangle-\varepsilon|BW|^2\Bigr)
+   =\mathcal G(W)-\tfrac12\langle BW,W\rangle=:\Phi(W).
+\end{equation}
+
+\emph{Step 3: $\Upsilon$ has a strict global maximum at $0$ with value $0$.}
+By \eqref{eq:srdt-G3} we have $\Phi(W)\le-\sum_j|w_j|^4<0$ for $W\ne0$, while
+$\Phi(0)=\sum_jG_j(0)-0=0$; so $\sup_W\Phi=0$, attained exactly at $W=0$. By
+\eqref{eq:srdt-duality}, $\sup_{Z,W}F=\sup_W\Phi=0$. Hence $\Upsilon\le0$
+everywhere, and $\Upsilon(0)=\sup_WF(0,W)\ge F(0,0)=\mathcal G(0)-0-0=0$, so
+$\Upsilon(0)=0$.
+
+Next, for each fixed $Z$ the supremum $\Upsilon(Z)=\sup_WF(Z,W)$ is attained:
+$F(Z,\cdot)$ is continuous, and
+$F(Z,W)\le NC-|Z-W|^2/(2\varepsilon)
+-\tfrac12\langle A_\varepsilon Z,Z\rangle$, whose right-hand side tends to
+$-\infty$ as $|W-Z|\to\infty$. Choose therefore $R>0$ so large that this bound
+is $<F(Z,Z)$ whenever $|W-Z|>R$; then
+$\sup_WF(Z,W)=\max_{\overline B(Z,R)}F(Z,\cdot)$, because every $W$ outside
+$\overline B(Z,R)$ gives a value strictly below the value already attained at
+$W=Z$, which lies inside the ball. The set $\overline B(Z,R)$ is closed,
+bounded and nonempty, hence compact, so the maximum is attained (preamble).
+
+Now suppose $\Upsilon(Z)=0$ for some $Z$. By the previous paragraph there is $W$
+with $F(Z,W)=0$. Then $\Phi(W)=\sup_{Z'}F(Z',W)\ge F(Z,W)=0$, so $W=0$ by the
+first paragraph of this step. Thus $F(Z,0)=0$. Now $Z_0=T\cdot0=0$, so the
+expansion \eqref{eq:srdt-expand} at $W=0$ with $h=Z$ reads
+\[
+  F(Z,0)=F(0,0)
+   -\tfrac12\bigl\langle(\varepsilon^{-1}\mathrm{id}+A_\varepsilon)Z,Z\bigr\rangle
+   =-\tfrac12\bigl\langle(\varepsilon^{-1}\mathrm{id}
+     +A_\varepsilon)Z,Z\bigr\rangle,
+\]
+using $F(0,0)=\mathcal G(0)-0-0=0$. Since $F(Z,0)=0$ this forces
+$\langle(\varepsilon^{-1}\mathrm{id}+A_\varepsilon)Z,Z\rangle=0$, and
+\eqref{eq:srdt-pos} then gives $Z=0$. This proves
+\[
+  \Upsilon(0)=0,\qquad\Upsilon(Z)<0\quad(Z\ne0).
+\]
+
+\emph{Step 4: $\Upsilon$ is $\lambda$-semiconvex and continuous.}
+By part (3) of \noderef{SupConvolutionSemiconvex}, applied in $V$ to
+$\mathcal G$ with growth constant $NC$, the function
+$\mathcal G^\varepsilon$ is $(1/\varepsilon)$-semiconvex on $V$ in the sense of
+\noderef{SemiconvexOn}, i.e.\ $\mathcal G^\varepsilon+|\cdot|^2/(2\varepsilon)$
+is convex on $V$. Also
+\[
+  Z\mapsto-\tfrac12\langle A_\varepsilon Z,Z\rangle
+    +\tfrac12\|A_\varepsilon\|\,|Z|^2
+   =\tfrac12\bigl\langle(\|A_\varepsilon\|\mathrm{id}
+     -A_\varepsilon)Z,Z\rangle
+\]
+is convex: for a self-adjoint $S$ with $\langle S\xi,\xi\rangle\ge0$ for all
+$\xi$, and for $t_1,t_2\ge0$ with $t_1+t_2=1$, expanding and using
+self-adjointness gives
+\[
+  \langle S(t_1\xi_1+t_2\xi_2),t_1\xi_1+t_2\xi_2\rangle
+   -t_1\langle S\xi_1,\xi_1\rangle-t_2\langle S\xi_2,\xi_2\rangle
+   =-t_1t_2\langle S(\xi_1-\xi_2),\xi_1-\xi_2\rangle\le0,
+\]
+and here $S=\|A_\varepsilon\|\mathrm{id}-A_\varepsilon$ is self-adjoint with
+$\langle S\xi,\xi\rangle=\|A_\varepsilon\||\xi|^2
+-\langle A_\varepsilon\xi,\xi\rangle\ge0$ by Cauchy--Schwarz and the definition
+of the operator norm. Adding the two convex functions
+$\mathcal G^\varepsilon+|\cdot|^2/(2\varepsilon)$ and
+$-\tfrac12\langle A_\varepsilon\cdot,\cdot\rangle
++\tfrac12\|A_\varepsilon\||\cdot|^2$ shows that
+$\Upsilon+\tfrac{\lambda}{2}|\cdot|^2$ is convex on $V$ with
+$\lambda=\varepsilon^{-1}+\|A_\varepsilon\|>0$; that is, $\Upsilon$ is
+$\lambda$-semiconvex on $V$.
+
+Finally $\Upsilon+\tfrac\lambda2|\cdot|^2$ is a finite convex function on the
+open set $V$, hence continuous (preamble); subtracting the continuous function
+$\tfrac\lambda2|\cdot|^2$ shows that $\Upsilon$ is continuous on $V$.
+\end{proof}

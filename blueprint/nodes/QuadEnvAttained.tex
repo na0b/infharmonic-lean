@@ -1,0 +1,276 @@
+\begin{lemma}[Quadratic envelopes: attainment, continuity, collapse]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$ be
+open, let $\Omega=\{(x,t):t\in I\}$, and let $f$ be a real function on space-time
+which is continuous on $\Omega$ and has subquadratic spatial growth on compact
+time intervals of $I$ in the sense of \noderef{SubquadraticGrowth}. Then, with
+the envelopes of \noderef{QuadEnvP} and \noderef{QuadEnvM}:
+\begin{enumerate}
+\item for every $\ell>0$ and every $z=(x,t)$ with $t\in I$ and $t+\ell\in I$ the
+supremum defining $\Penv_\ell f(z)$ is attained at some $y\in F$, and for every
+$\ell>0$ and every $z$ with $t\in I$ and $t-\ell\in I$ the infimum defining
+$\Menv_\ell f(z)$ is attained;
+\item the maps $(\ell,z)\mapsto\Penv_\ell f(z)$ and
+$(\ell,z)\mapsto\Menv_\ell f(z)$ are jointly continuous in the length and the
+center at every $(\ell_0,z_0)$ with $\ell_0>0$, $t_0\in I$ and
+$t_0+\ell_0\in I$, respectively $t_0-\ell_0\in I$, where $z_0=(x_0,t_0)$;
+\item the convergence to the function as the length tends to zero is uniform on
+compact sets of admissible centers: for every compact set $K$ of points
+$z=(x,t)$ with $t\in I$ and every $\eta>0$ there is $\delta>0$ with
+\[
+  |\Penv_\ell f(z)-f(z)|\le\eta,\qquad
+  |\Menv_\ell f(z)-f(z)|\le\eta
+  \qquad(0<\ell<\delta,\ z\in K);
+\]
+in particular $\Penv_\ell f(z)\to f(z)$ and $\Menv_\ell f(z)\to f(z)$ as
+$\ell\downarrow0$ at each such $z$;
+\item for every $z=(x,t)$ with $t\in I$ and every $\eta>0$ there is $\delta>0$
+such that for all $0<\ell<\delta$ every optimizer $y$ for
+$\Penv_\ell f(z)$ and every optimizer $y$ for $\Menv_\ell f(z)$ satisfies
+$|y-x|\le\eta$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Throughout, $z=(x,t)$ denotes a space-time point. We use freely that
+$\Omega=\{(y,s):s\in I\}$ is open because $I$ is open, and that $f$ is
+continuous on $\Omega$.
+
+\emph{Step 1: a localization lemma.}
+We first prove the following. Let $R_0\ge0$, let $J\subseteq I$ be nonempty and
+compact, and let $\ell_0>0$. Then there are $M\ge\max\{R_0,1\}$ and $N<\infty$
+with
+\begin{enumerate}
+\item[(i)] $|f(y,s)|\le N$ whenever $|y|\le M$ and $s\in J$;
+\item[(ii)] for all $x$ with $|x|\le R_0$, all $s\in J$, all $0<\ell\le\ell_0$
+and all $y$ with $|y|>M$,
+\[
+  f(y,s)-\frac{|y-x|^2}{2\ell}<f(x,s),
+  \qquad
+  f(y,s)+\frac{|y-x|^2}{2\ell}>f(x,s).
+\]
+\end{enumerate}
+
+To see this, apply \noderef{SubquadraticGrowth} with the compact set
+$J\subseteq I$ and $\varepsilon=1/(8\ell_0)>0$: there is $M_0>0$ with
+\begin{equation}\label{eq:qea-growth}
+  |f(y,s)|\le\frac{|y|^2}{8\ell_0}\qquad(|y|\ge M_0,\ s\in J).
+\end{equation}
+Set $M_1=\max\{M_0,\,4R_0,\,1\}$. For $|y|>M_1$ and $|x|\le R_0$ we have
+$|y-x|\ge|y|-R_0\ge|y|-\tfrac14|y|=\tfrac34|y|$, so for $0<\ell\le\ell_0$ and
+$s\in J$, using \eqref{eq:qea-growth} and $\ell\le\ell_0$,
+\begin{equation}\label{eq:qea-far}
+  f(y,s)-\frac{|y-x|^2}{2\ell}
+   \le\frac{|y|^2}{8\ell}-\frac{9|y|^2}{32\ell}
+   =-\frac{5|y|^2}{32\ell}.
+\end{equation}
+The set $\mathcal K_1=\{(y,s):|y|\le M_1,\ s\in J\}$ is compact and contained in
+$\Omega$, so $N_1=\max_{\mathcal K_1}|f|$ is finite. Put
+\[
+  M=\max\Bigl\{M_1,\ \sqrt{\tfrac{32}{5}N_1\ell_0}+1\Bigr\},
+\]
+and let $N=\max_{\mathcal K_2}|f|$, where
+$\mathcal K_2=\{(y,s):|y|\le M,\ s\in J\}$ is again a compact subset of
+$\Omega$; this is (i), and $M\ge\max\{R_0,1\}$.
+
+For (ii), let $|y|>M$, $|x|\le R_0$, $s\in J$ and $0<\ell\le\ell_0$. Then
+$|y|>M_1$, so \eqref{eq:qea-far} applies; and
+$|y|^2>\tfrac{32}{5}N_1\ell_0\ge\tfrac{32}{5}N_1\ell$, so
+$\tfrac{5|y|^2}{32\ell}>N_1$. Since $|x|\le R_0\le M_1$ and $s\in J$ we have
+$f(x,s)\ge-N_1$, and therefore
+\[
+  f(y,s)-\frac{|y-x|^2}{2\ell}<-N_1\le f(x,s),
+\]
+which is the first inequality.
+
+For the second inequality we apply the first to $-f$, and we must check that it
+returns the same $M$, since (ii) asserts both inequalities for one $M$. The
+function $-f$ is continuous on $\Omega$, and it has subquadratic spatial growth
+on compact time intervals of $I$ in the sense of \noderef{SubquadraticGrowth}
+because $|-f|=|f|$ and that definition constrains the function only through its
+absolute value. Moreover every constant produced above depends on $f$ only
+through $|f|$, so the construction for $-f$ can be run with the constants
+already chosen. In detail: \eqref{eq:qea-growth} is a bound on $|f|$, so the
+$M_0$ chosen for $f$ also witnesses the conclusion of
+\noderef{SubquadraticGrowth} for $-f$ with the same $J$ and $\varepsilon$, and
+we take that $M_0$; then $M_1=\max\{M_0,4R_0,1\}$ is unchanged, being built from
+$M_0$, $R_0$ and $1$; and $N_1$ and $N$ are unchanged, being the maxima of
+$|f|$ over $\mathcal K_1$ and $\mathcal K_2$, whence
+$M=\max\{M_1,\sqrt{(32/5)N_1\ell_0}+1\}$ is unchanged as well. In particular (i)
+holds for $-f$ with that same $N$.
+The first inequality applied to $-f$ therefore reads
+\[
+  -f(y,s)-\frac{|y-x|^2}{2\ell}<-f(x,s)
+  \qquad\bigl(|y|>M,\ |x|\le R_0,\ s\in J,\ 0<\ell\le\ell_0\bigr),
+\]
+with this same $M$; multiplying by $-1$ gives the second inequality of (ii).
+
+\emph{Step 2: attainment, i.e. (1).}
+Let $\ell>0$ and $z=(x,t)$ with $t\in I$ and $t+\ell\in I$. Apply Step 1 with
+$R_0=|x|$, $J=\{t+\ell\}$ (nonempty, compact, contained in $I$) and
+$\ell_0=\ell$, obtaining $M$ and $N$. By Step 1(ii) with $s=t+\ell$, no
+competitor $y$ with $|y|>M$ gives a value
+$f(y,t+\ell)-|y-x|^2/(2\ell)$ exceeding the value $f(x,t+\ell)$ at $y=x$.
+Hence the set of competitor values
+\[
+  \mathcal V=\Bigl\{f(y,t+\ell)-\frac{|y-x|^2}{2\ell}:y\in F\Bigr\}
+\]
+appearing in \noderef{QuadEnvP} satisfies
+$\sup\mathcal V
+ =\max_{|y|\le M}\bigl(f(y,t+\ell)-|y-x|^2/(2\ell)\bigr)$,
+and this maximum exists because the function
+$y\mapsto f(y,t+\ell)-|y-x|^2/(2\ell)$ is continuous on the compact ball
+$\{|y|\le M\}$: there $(y,t+\ell)\in\Omega$, where $f$ is continuous. In
+particular $\mathcal V$ is nonempty and bounded above, so by \noderef{QuadEnvP}
+$\Penv_\ell f(z)$ is this maximum and is attained at some $y$ with $|y|\le M$.
+This is the first assertion of (1).
+
+For the second, let $t\in I$ and $t-\ell\in I$, and apply the same reasoning
+with $J=\{t-\ell\}$ and the second inequality of Step 1(ii): no competitor with
+$|y|>M$ gives a value $f(y,t-\ell)+|y-x|^2/(2\ell)$ below the value at $y=x$, so
+the infimum in \noderef{QuadEnvM} is the minimum over $\{|y|\le M\}$ of a
+continuous function and is attained there.
+
+\emph{Step 3: joint continuity in the length and the center, i.e. (2).}
+We first record the elementary fact that the maximum of a continuous function
+over a fixed compact set depends continuously on the remaining parameters. Let
+$H$ be continuous on $P\times Q$ with $P$ a metric space and $Q$ compact, and
+let $\pi_k\to\pi$ in $P$. Testing against each fixed $q\in Q$ gives
+$\max_{q'}H(\pi_k,q')\ge H(\pi_k,q)\to H(\pi,q)$, hence
+$\liminf_k\max_{q'}H(\pi_k,q')\ge\max_qH(\pi,q)$. Conversely, choose maximizers
+$q_k$, which exist because $Q$ is compact and $H(\pi_k,\cdot)$ is continuous,
+and pass to a subsequence along which $q_k\to\bar q\in Q$, using the compactness
+of $Q$ again; then $(\pi_k,q_k)\to(\pi,\bar q)$, so by the continuity of $H$,
+$\max_{q'}H(\pi_k,q')=H(\pi_k,q_k)\to H(\pi,\bar q)\le\max_qH(\pi,q)$ along that
+subsequence. Every subsequence of the real sequence $\max_{q'}H(\pi_k,q')$
+therefore has a further subsequence converging to a real number that is at most
+$\max_qH(\pi,q)$, and hence
+$\limsup_k\max_{q'}H(\pi_k,q')\le\max_qH(\pi,q)$. Hence
+$\pi\mapsto\max_qH(\pi,q)$ is continuous.
+
+Now fix $\ell_0>0$ and $z_0=(x_0,t_0)$ with $t_0\in I$ and $t_0+\ell_0\in I$.
+Since $I$ is open there is $\rho>0$ with
+\[
+  \rho<\tfrac12\ell_0,\qquad
+  J:=[t_0+\ell_0-2\rho,\;t_0+\ell_0+2\rho]\subseteq I .
+\]
+Put
+\[
+  \mathcal P=\bigl\{(\ell,z):|\ell-\ell_0|\le\rho,\ |x-x_0|\le\rho,\
+      |t-t_0|\le\rho\bigr\},
+\]
+a compact neighbourhood of $(\ell_0,z_0)$ in $\R\times F\times\R$. For
+$(\ell,z)\in\mathcal P$ we have $\ell\ge\ell_0-\rho\ge\tfrac12\ell_0>0$,
+$|x|\le|x_0|+\rho$, and $t+\ell\in J\subseteq I$. Apply Step 1 with
+$R_0=|x_0|+\rho$, this $J$ and $\ell_0^{\max}=\ell_0+\rho$, obtaining $M$. By
+Step 1(ii) and the argument of Step 2, for every $(\ell,z)\in\mathcal P$,
+\[
+  \Penv_\ell f(z)=\max_{|y|\le M}
+    \Bigl(f(y,t+\ell)-\frac{|y-x|^2}{2\ell}\Bigr).
+\]
+The function $H\bigl((\ell,z),y\bigr)=f(y,t+\ell)-|y-x|^2/(2\ell)$ is continuous
+on $\mathcal P\times\{|y|\le M\}$: indeed $(y,t+\ell)\in\Omega$ there, where $f$
+is continuous, and $\ell\ge\tfrac12\ell_0>0$ keeps the quadratic term
+continuous. By the fact recorded above, $(\ell,z)\mapsto\Penv_\ell f(z)$ is
+continuous on $\mathcal P$, hence continuous at $(\ell_0,z_0)$.
+
+The assertion for $\Menv$ at a point with $t_0\in I$ and $t_0-\ell_0\in I$
+follows by the same argument with
+$J=[t_0-\ell_0-2\rho,\,t_0-\ell_0+2\rho]$, minima in place of maxima, and the
+second inequality of Step 1(ii).
+
+\emph{Step 4: uniform convergence at length zero, i.e. (3), and the optimizer
+collapse (4).}
+Let $\mathcal K$ be a compact set of points $z=(x,t)$ with $t\in I$, and let
+$\eta>0$. The set $T$ of time coordinates of $\mathcal K$ is a compact subset of
+the open set $I$, so there is $L>0$ with
+\[
+  J:=\{s:\operatorname{dist}(s,T)\le L\}\subseteq I ,
+\]
+and $J$ is compact. Put $R_0=\max\{|x|:(x,t)\in\mathcal K\}$ and apply Step 1
+with $R_0$, this $J$ and $\ell_0=L$, obtaining $M\ge R_0$ and $N$; write
+$\mathcal K_2=\{(y,s):|y|\le M,\ s\in J\}$, a compact subset of $\Omega$ on
+which $|f|\le N$.
+
+Fix $z=(x,t)\in\mathcal K$ and $0<\ell\le L$. Then $t,t+\ell,t-\ell\in J$,
+because $t\in T$ and $\operatorname{dist}(t\pm\ell,T)\le\ell\le L$. Note also
+that $|x|\le R_0\le M$, so $z\in\mathcal K_2$.
+
+Let $y_\ell$ denote \emph{any} $y\in F$ with
+$\Penv_\ell f(z)=f(y,t+\ell)-|y-x|^2/(2\ell)$; by Step 2 at least one exists,
+and every such $y$ satisfies $|y|\le M$, since by Step 1(ii) with $s=t+\ell$ a
+competitor with $|y|>M$ has value strictly below $f(x,t+\ell)$, which is at most
+$\Penv_\ell f(z)$. The competitor $y=x$ gives
+\begin{equation}\label{eq:qea-twoside}
+  f(x,t+\ell)\le\Penv_\ell f(z)
+    =f(y_\ell,t+\ell)-\frac{|y_\ell-x|^2}{2\ell}\le f(y_\ell,t+\ell).
+\end{equation}
+Both $(x,t+\ell)$ and $(y_\ell,t+\ell)$ lie in $\mathcal K_2$, so
+\begin{equation}\label{eq:qea-collapse}
+  \frac{|y_\ell-x|^2}{2\ell}
+   =f(y_\ell,t+\ell)-\Penv_\ell f(z)
+   \le f(y_\ell,t+\ell)-f(x,t+\ell)\le2N,
+\end{equation}
+that is $|y_\ell-x|\le2\sqrt{N\ell}$.
+
+The same bound holds for the backward envelope. It is the mirror computation,
+not the forward one applied to $-f$: the time argument is $t-\ell$ rather than
+$t+\ell$ and the extremum is an infimum. Let $y'_\ell$ denote any $y\in F$ with
+$\Menv_\ell f(z)=f(y,t-\ell)+|y-x|^2/(2\ell)$; by Step 2 at least one exists,
+and every such $y$ satisfies $|y|\le M$, since by the second inequality of
+Step 1(ii) with $s=t-\ell$ a competitor with $|y|>M$ has value strictly above
+$f(x,t-\ell)$, which is at least $\Menv_\ell f(z)$. The competitor $y=x$ gives
+\begin{equation}\label{eq:qea-twoside-M}
+  f(x,t-\ell)\ge\Menv_\ell f(z)
+    =f(y'_\ell,t-\ell)+\frac{|y'_\ell-x|^2}{2\ell}\ge f(y'_\ell,t-\ell),
+\end{equation}
+and both $(x,t-\ell)$ and $(y'_\ell,t-\ell)$ lie in $\mathcal K_2$, so
+\begin{equation}\label{eq:qea-collapse-M}
+  \frac{|y'_\ell-x|^2}{2\ell}
+   =\Menv_\ell f(z)-f(y'_\ell,t-\ell)
+   \le f(x,t-\ell)-f(y'_\ell,t-\ell)\le2N,
+\end{equation}
+that is $|y'_\ell-x|\le2\sqrt{N\ell}$.
+
+For (4), take $\mathcal K=\{z\}$ above, which is a compact set of points with
+time coordinate in $I$ because $t\in I$, and put
+$\delta=\min\{L,\ \eta^2/(4N+1)\}>0$. Let $0<\ell<\delta$. Every optimizer $y$
+for $\Penv_\ell f(z)$ is one of the $y_\ell$ and every optimizer for
+$\Menv_\ell f(z)$ is one of the $y'_\ell$, both of which were quantified over
+all optimizers, so in either case
+\[
+  |y-x|\le2\sqrt{N\ell}\le2\sqrt{\frac{N\eta^2}{4N+1}}
+   =\eta\cdot2\sqrt{\frac N{4N+1}}\le\eta ,
+\]
+the last step because $N\ge0$ gives $N/(4N+1)\le1/4$. This is (4).
+
+For (3), the set $\mathcal K_2$ is a compact subset of $\Omega$, so $f$ is
+uniformly continuous there: there is $\delta_1>0$ with
+\begin{equation}\label{eq:qea-unifcont}
+  |f(a)-f(b)|\le\eta\qquad(a,b\in\mathcal K_2,\ |a-b|\le\delta_1).
+\end{equation}
+Put $\delta=\min\bigl\{L,\ \delta_1/2,\ \delta_1^2/(32N+1)\bigr\}>0$. Let
+$0<\ell<\delta$ and $z=(x,t)\in\mathcal K$. By \eqref{eq:qea-collapse} and the
+choice of $\delta$ we have $|y_\ell-x|\le2\sqrt{N\ell}\le\delta_1/2$ and
+$\ell\le\delta_1/2$, so the space-time distances from $(y_\ell,t+\ell)$ and from
+$(x,t+\ell)$ to $(x,t)$ are at most
+$\bigl(|y_\ell-x|^2+\ell^2\bigr)^{1/2}\le\delta_1$ and $\ell\le\delta_1$
+respectively, and all three points lie in $\mathcal K_2$. Hence
+\eqref{eq:qea-twoside} and \eqref{eq:qea-unifcont} give
+\[
+  \Penv_\ell f(z)-f(x,t)\le f(y_\ell,t+\ell)-f(x,t)\le\eta,
+  \qquad
+  \Penv_\ell f(z)-f(x,t)\ge f(x,t+\ell)-f(x,t)\ge-\eta,
+\]
+so $|\Penv_\ell f(z)-f(z)|\le\eta$. For the backward envelope,
+\eqref{eq:qea-collapse-M} and the same choice of $\delta$ give
+$|y'_\ell-x|\le2\sqrt{N\ell}\le\delta_1/2$, so the space-time distances from
+$(y'_\ell,t-\ell)$ and from $(x,t-\ell)$ to $(x,t)$ are again at most $\delta_1$
+and these points again lie in $\mathcal K_2$; hence \eqref{eq:qea-twoside-M} and
+\eqref{eq:qea-unifcont} give
+\[
+  \Menv_\ell f(z)-f(x,t)\ge f(y'_\ell,t-\ell)-f(x,t)\ge-\eta,
+  \qquad
+  \Menv_\ell f(z)-f(x,t)\le f(x,t-\ell)-f(x,t)\le\eta,
+\]
+so $|\Menv_\ell f(z)-f(z)|\le\eta$. Both bounds hold for every
+$z\in\mathcal K$ and every $0<\ell<\delta$, which is (3).
+\end{proof}

@@ -1,0 +1,134 @@
+\begin{lemma}[The expected length of a portion of the lattice walk]
+Let $(\Omega,\mathcal M,\mu)$ be a probability space, let $S_n:\Omega\to\Z$ for
+$n\in\N$, let $\sigma,\varsigma,\tau:\Omega\to\N$ and let $a,b\in\N$. Assume:
+\begin{enumerate}
+\item\label{it:epl-meas} $\sigma$ and $\varsigma$ are measurable;
+\item\label{it:epl-dom} $\varsigma(\omega)\le\tau(\omega)$ for every $\omega$;
+\item\label{it:epl-tauint} $\omega\mapsto\tau(\omega)$ is $\mu$-integrable;
+\item\label{it:epl-rand} for every measurable $\zeta:\Omega\to\N$ and every
+family $G_m:\Omega\to\R$ of measurable functions, $\omega\mapsto
+G_{\zeta(\omega)}(\omega)$ is measurable, and likewise for two indices: for
+measurable $\zeta,\eta:\Omega\to\N$ and a doubly indexed measurable family
+$G_{n,m}$, the function $\omega\mapsto G_{\zeta(\omega),\eta(\omega)}(\omega)$
+is measurable;
+\item\label{it:epl-gS} for every $g:\Z\to\R$ and every $k\in\N$ the function
+$\omega\mapsto g(S_k(\omega))$ is measurable;
+\item\label{it:epl-win} $a<S_n(\omega)<b$ whenever
+$\sigma(\omega)\le n<\varsigma(\omega)$;
+\item\label{it:epl-cmp} for every pair $h,u:\Z\to\R$ with $u\ge0$ everywhere
+and
+\[
+  \tfrac12\bigl(h(i+1)+h(i-1)\bigr)-h(i)\le-u(i)\qquad(a<i<b),
+\]
+and for every $n\in\N$,
+\[
+  \int\Bigl(h\bigl(S_{\min(\max(\sigma,n),\varsigma)}\bigr)
+     +\sum_{m=\sigma}^{\min(n,\varsigma)-1}u(S_m)\Bigr)d\mu
+   \ \le\ \int h\bigl(S_{\sigma}\bigr)\,d\mu ,
+\]
+all functions being evaluated at the same $\omega$.
+\end{enumerate}
+Then the portion length $\varsigma-\sigma$, formed with truncated subtraction
+in $\N$ and read as a real number, is $\mu$-integrable and
+\[
+  \int(\varsigma-\sigma)\,d\mu\ \le\ \frac{b^2}{4} .
+\]
+\end{lemma}
+\begin{proof}
+Hypothesis \ref{it:epl-cmp} is the supersolution comparison along the portion;
+in the application it is the whole-space instance of Claim T$'$ of the paper,
+and the construction that produces $S$, $\sigma$ and $\varsigma$ plays no part
+here. Throughout, $\varsigma-\sigma$ and $\min(n,\varsigma)-\sigma$ denote
+truncated differences of natural numbers, so they are nonnegative, and
+$\varsigma-\sigma\le\tau$ pointwise by \ref{it:epl-dom}.
+
+\emph{Step 1: the two conclusions are integrable.} The function
+$\omega\mapsto\bigl(\varsigma(\omega)-\sigma(\omega)\bigr)$ is measurable by
+the two-index case of \ref{it:epl-rand}, applied to $\zeta=\sigma$,
+$\eta=\varsigma$ and the constant family $G_{i,m}=(m-i)$; and
+$0\le\varsigma-\sigma\le\tau$ pointwise, by \ref{it:epl-dom}. Since $\tau$ is
+integrable by \ref{it:epl-tauint}, domination gives that $\varsigma-\sigma$ is
+integrable. The same argument, with $G_{i,m}=(\min(n,m)-i)$, shows that each
+truncation $\min(n,\varsigma)-\sigma$ is measurable and integrable, using
+$\min(n,\varsigma)-\sigma\le\varsigma-\sigma\le\tau$.
+
+\emph{Step 2: the test pair.} Put
+\[
+  h(i)=\begin{cases}(b-i)(i-a),&a\le i\le b,\\ 0,&\text{otherwise},\end{cases}
+  \qquad
+  u(i)=\begin{cases}1,&a<i<b,\\ 0,&\text{otherwise}.\end{cases}
+\]
+Then $u\ge0$ everywhere. Also $h\ge0$ everywhere: off $[a,b]$ it vanishes,
+and for $a\le i\le b$ both factors are nonnegative. And $h$ is bounded by
+$b^2/4$:
+\begin{equation}\label{eq:epl-hbd}
+  h(i)\le\frac{b^2}{4}\qquad(i\in\Z).
+\end{equation}
+Indeed, off $[a,b]$ the value is $0\le b^2/4$, while for $a\le i\le b$ we have
+$a\ge0$ and $b-i\ge0$, so $h(i)=(b-i)(i-a)\le(b-i)i$, and
+$(b-i)i\le b^2/4$ because $b^2-4(b-i)i=(b-2i)^2\ge0$.
+
+For $a<i<b$ all three points $i-1,i,i+1$ lie in $[a,b]$, so there
+$h(i)=-i^2+(a+b)i-ab$ and
+\[
+  \tfrac12\bigl(h(i+1)+h(i-1)\bigr)-h(i)
+   =\tfrac12\bigl(-(i+1)^2-(i-1)^2+2i^2\bigr)=-1=-u(i),
+\]
+the linear terms cancelling. So $(h,u)$ satisfies the hypothesis of
+\ref{it:epl-cmp}.
+
+\emph{Step 3: the comparison at a finite horizon.} Fix $n\in\N$. By
+\ref{it:epl-win}, for every $\omega$ and every $m$ with
+$\sigma(\omega)\le m<\min(n,\varsigma(\omega))$ --- hence
+$m<\varsigma(\omega)$ --- we have $a<S_m(\omega)<b$ and therefore
+$u(S_m(\omega))=1$. Consequently
+\[
+  \sum_{m=\sigma(\omega)}^{\min(n,\varsigma(\omega))-1}u(S_m(\omega))
+   =\min(n,\varsigma(\omega))-\sigma(\omega),
+\]
+the number of terms. Since $h\ge0$, the integrand on the left of
+\ref{it:epl-cmp} is therefore at least $\min(n,\varsigma)-\sigma$ pointwise.
+
+The left integrand is integrable: its first summand is measurable by the
+two-index case of \ref{it:epl-rand} with
+$G_{i,m}(\omega)=h(S_{\min(\max(i,n),m)}(\omega))$, whose members are
+measurable by \ref{it:epl-gS}, and its second summand is measurable by the same
+case with $G_{i,m}(\omega)=\sum_{k=i}^{\min(n,m)-1}u(S_k(\omega))$, a finite
+sum of functions measurable by \ref{it:epl-gS}; and the sum of the two is
+bounded in absolute value by the constant $b^2/4+n$, by \eqref{eq:epl-hbd},
+$h\ge0$ and $0\le\min(n,\varsigma)-\sigma\le n$. Hence monotonicity of the
+integral and \ref{it:epl-cmp} give
+\begin{equation}\label{eq:epl-step}
+  \int\bigl(\min(n,\varsigma)-\sigma\bigr)d\mu
+   \ \le\ \int h\bigl(S_{\sigma}\bigr)d\mu .
+\end{equation}
+
+The right-hand side is at most $b^2/4$: the function
+$\omega\mapsto h(S_{\sigma(\omega)}(\omega))$ is measurable by the one-index
+case of \ref{it:epl-rand} with $G_m(\omega)=h(S_m(\omega))$, it is integrable
+because $0\le h(S_\sigma)\le b^2/4$ by \eqref{eq:epl-hbd}, and integrating that
+bound over the probability space $\Omega$ gives
+$\int h(S_\sigma)\,d\mu\le b^2/4$. With \eqref{eq:epl-step},
+\begin{equation}\label{eq:epl-partial}
+  \int\bigl(\min(n,\varsigma)-\sigma\bigr)d\mu\ \le\ \frac{b^2}{4}
+  \qquad(n\in\N).
+\end{equation}
+
+\emph{Step 4: the horizon tends to infinity.} For each fixed $\omega$ the
+sequence $n\mapsto\min(n,\varsigma(\omega))-\sigma(\omega)$ is nondecreasing,
+because $n\mapsto\min(n,\varsigma(\omega))$ is, and it is eventually constant
+equal to $\varsigma(\omega)-\sigma(\omega)$, namely for
+$n\ge\varsigma(\omega)$; so it converges to $\varsigma(\omega)-\sigma(\omega)$.
+Each term is integrable by Step 1, the limit $\varsigma-\sigma$ is integrable
+by Step 1 as well, and the convergence is monotone, so the integrals converge:
+\[
+  \int\bigl(\min(n,\varsigma)-\sigma\bigr)d\mu
+   \ \longrightarrow\ \int(\varsigma-\sigma)\,d\mu\qquad(n\to\infty).
+\]
+By \eqref{eq:epl-partial} every term of the converging sequence is at most
+$b^2/4$, hence so is the limit:
+\[
+  \int(\varsigma-\sigma)\,d\mu\le\frac{b^2}{4} .
+\]
+Together with the integrability of Step 1 this is the assertion.
+\end{proof}

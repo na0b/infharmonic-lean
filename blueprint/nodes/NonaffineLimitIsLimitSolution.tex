@@ -1,0 +1,125 @@
+\begin{lemma}[The normalized limit solves the limiting equation on all of space-time]
+Let $d\in\N$ and work in $X=\ell^2(\R^d\times\R)$, writing a point as
+$w=(w_x,w_t)$ and $\overline B_\rho$, $B_\rho$ for the closed and open balls of
+radius $\rho$ centred at the origin. Let $r,\lambda,c:\N\to\R$, let
+$U_i:X\to\R$, let $z_i\in X$, let
+$\Phi_i:X\to X$ be linear isometric equivalences, let $v_i:X\to\R$, let
+$i_1,i_2\in\N$, let $\psi:\N\to\N$ and let $v_\infty:X\to\R$. Write
+\[
+  Z_i(w)=z_i+r_i\,\Phi_i\bigl(\sqrt{\lambda_i}\,w_x,\;w_t\bigr)
+\]
+for the normalizing map of (3.6). Assume:
+\begin{enumerate}
+\item\label{it:nlls-r} $0<r_i$ for every $i$, and $r_i\to0$;
+\item\label{it:nlls-lam} $0<\lambda_i$ for every $i$, $\lambda_i\to0$, and
+$\lambda_i\le1$ for every $i\ge i_2$;
+\item\label{it:nlls-z} $z_i\in B_{3/4}$ for every $i$;
+\item\label{it:nlls-fam} each $U_i$ is a member of a normalized inf-family in
+the sense of \noderef{NormalizedInfFamily} for this $d$;
+\item\label{it:nlls-c} $0<c_i$ for every $i\ge i_1$;
+\item\label{it:nlls-eq} for every $i\ge i_1$ and every $w\in X$,
+\begin{equation}\label{eq:nlls-incr}
+  U_i\bigl(Z_i(w)\bigr)
+  =U_i(z_i)+r_i\,c_i\bigl(w_t+\lambda_i\,v_i(w)\bigr);
+\end{equation}
+\item\label{it:nlls-psi} $\psi$ is strictly increasing with $i_1\le\psi(j)$ for
+every $j$;
+\item\label{it:nlls-conv} $v_\infty$ is continuous, and $v_{\psi(j)}\to
+v_\infty$ uniformly on every compact subset of $X$.
+\end{enumerate}
+Then $v_\infty$ is a limit solution on all of $X$.
+\end{lemma}
+\begin{proof}
+Throughout we use the elementary fact that the $\ell^2$ norm dominates each
+coordinate: if $|y|\le\rho$ then $|y_x|\le\rho$ and $|y_t|\le\rho$, because
+$|y|^2=|y_x|^2+|y_t|^2$ and both summands are nonnegative.
+
+\emph{Stage 1: the rescaled equation on the normalized domain.} Fix $i\ge i_1$.
+By \ref{it:nlls-fam} there are $u_i:\R^d\to\R$, infinity-harmonic on the unit
+ball of $\R^d$, with $U_i(y)=u_i(y_x)+y_t$ for every $y\in X$. By
+\noderef{LinearLift} applied to $u_i$ on that ball, the function
+$y\mapsto u_i(y_x)+y_t$ --- which is $U_i$ --- is infinity-harmonic on the
+lifted ball
+\[
+  \Omega=\{y\in X:\ y_x\in B_1^{\R^d}\},
+\]
+the preimage of the unit ball of $\R^d$ under $y\mapsto y_x$. Now
+\eqref{eq:nlls-incr} is exactly the increment hypothesis of
+\noderef{RescaledEquation} at the data $\Omega$, $U_i$, $z_i$, $r_i$, $c_i$,
+$\lambda_i$, $\Phi_i$, $v_i$, whose positivity requirements are
+\ref{it:nlls-r}, \ref{it:nlls-c} and \ref{it:nlls-lam}. That node gives
+\begin{equation}\label{eq:nlls-resc}
+  v_i\ \text{is a rescaled solution with parameter }\lambda_i
+  \ \text{on}\ Z_i^{-1}(\Omega)\qquad(i\ge i_1).
+\end{equation}
+
+We also record that a rescaled solution restricts to any \emph{open} subset: if
+$\Omega'\subseteq\Omega''$ with $\Omega'$ open and $g$ is a rescaled solution
+with parameter $\ell$ on $\Omega''$, then it is one on $\Omega'$. Indeed the
+continuity and openness requirements are immediate, and for the two viscosity
+inequalities it suffices that a local maximum of $g-\varphi$ relative to
+$\Omega'$ at a point of $\Omega'$ is a local maximum relative to $\Omega''$:
+since $\Omega'$ is open, the neighbourhood filter within $\Omega'$ at such a
+point is the full neighbourhood filter, which is finer than the filter within
+$\Omega''$.
+
+\emph{Stage 2: each bounded ball, after a tail shift.} Fix $k\in\N$ and put
+$\rho=k+1>0$. We claim $v_\infty$ is a limit solution on $B_\rho$.
+
+Since $r_i\to0$ by \ref{it:nlls-r}, there is $m$ with
+$r_i<\dfrac1{8\rho}$ for all $i\ge m$. Put $m_2=\max(\max(m,i_2),i_1)$, so
+$m\le m_2$, $i_2\le m_2$ and $i_1\le m_2$.
+
+\emph{Every point of $B_\rho$ is carried into $\Omega$ for $i\ge m_2$.} Let
+$i\ge m_2$ and $w\in B_\rho$, so $|w|<\rho$. By \ref{it:nlls-lam} we have
+$\lambda_i\le1$, hence $\sqrt{\lambda_i}\le1$ and $\sqrt{\lambda_i}\ge0$. The
+coordinate bound gives $|w_x|\le|w|$ and $|w_t|\le|w|$, so
+\[
+  \bigl|(\sqrt{\lambda_i}\,w_x,\,w_t)\bigr|^2
+   =\lambda_i|w_x|^2+|w_t|^2\le|w|^2+|w|^2\le(2|w|)^2 ,
+\]
+whence $|(\sqrt{\lambda_i}w_x,w_t)|\le2|w|$. Since $\Phi_i$ is a linear
+isometry and $r_i>0$,
+\[
+  \bigl|r_i\Phi_i(\sqrt{\lambda_i}w_x,w_t)\bigr|
+   =r_i\bigl|(\sqrt{\lambda_i}w_x,w_t)\bigr|
+   \le 2r_i|w|<2r_i\rho<\frac{2\rho}{8\rho}=\frac14 ,
+\]
+using $|w|<\rho$ and $r_i<1/(8\rho)$. By \ref{it:nlls-z}, $|z_i|<3/4$, so
+$|Z_i(w)|\le|z_i|+|r_i\Phi_i(\cdots)|<\tfrac34+\tfrac14=1$, and therefore
+$|(Z_i(w))_x|\le|Z_i(w)|<1$, i.e. $Z_i(w)\in\Omega$. Thus
+\begin{equation}\label{eq:nlls-sub}
+  B_\rho\subseteq Z_i^{-1}(\Omega)\qquad(i\ge m_2).
+\end{equation}
+
+\emph{The shifted tail.} Consider the sequence $j\mapsto\psi(j+m_2)$. Since
+$\psi$ is strictly increasing, $j+m_2\le\psi(j+m_2)$, so
+$m_2\le\psi(j+m_2)$ for every $j$ and $\psi(j+m_2)\to\infty$; consequently
+$\lambda_{\psi(j+m_2)}\to0$ by \ref{it:nlls-lam}. For each $j$ the index
+$\psi(j+m_2)$ is at least $i_1$ by \ref{it:nlls-psi}, so
+\eqref{eq:nlls-resc} applies, and it is at least $m_2$, so
+\eqref{eq:nlls-sub} applies; by the restriction remark of Stage 1, with
+$B_\rho$ open, $v_{\psi(j+m_2)}$ is a rescaled solution with parameter
+$\lambda_{\psi(j+m_2)}$ on $B_\rho$. Finally, for every compact
+$C\subseteq B_\rho$ the convergence $v_{\psi(j)}\to v_\infty$ uniformly on $C$
+of \ref{it:nlls-conv} still holds after shifting the index by $m_2$, because a
+shifted tail of a convergent net converges to the same limit. All the
+hypotheses of \noderef{RescaledLimitStability} on the open set $B_\rho$ are
+therefore met, and it gives
+\begin{equation}\label{eq:nlls-ball}
+  v_\infty\ \text{is a limit solution on}\ B_{k+1}\qquad(k\in\N).
+\end{equation}
+
+\emph{Stage 3: the gluing.} The balls $B_{k+1}$, $k\in\N$, are all contained in
+$X$ and cover it: given $z\in X$, the Archimedean property gives $k\in\N$ with
+$|z|<k$, hence $|z|<k+1$ and $z\in B_{k+1}$. The set $X$ is open, $v_\infty$ is
+continuous hence continuous on $X$ by \ref{it:nlls-conv}, and
+\eqref{eq:nlls-ball} is the per-member hypothesis. So
+\noderef{LimitSolutionLocalToGlobal}, applied with $\Omega=X$ and the family
+$(B_{k+1})_{k\in\N}$, gives that $v_\infty$ is a limit solution on $X$.
+
+This last step is where the gluing is genuinely needed:
+\noderef{RescaledLimitStability} cannot be invoked at $\Omega=X$ directly,
+because its hypothesis is universally quantified over the index while the
+normalized domains $Z_i^{-1}(\Omega)$ only exhaust $X$ as $i\to\infty$.
+\end{proof}

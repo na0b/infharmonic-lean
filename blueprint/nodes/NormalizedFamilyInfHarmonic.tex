@@ -1,0 +1,41 @@
+\begin{lemma}[Members of the normalized family are infinity-harmonic on the unit ball]
+Fix an integer $d\ge0$, write $\R^d$ for the Euclidean space of dimension $d$ and
+identify space-time with $\ell^2(\R^d\times\R)$, and let $B_1$ denote the open
+unit ball about the origin of space-time. Let
+$U:\ell^2(\R^d\times\R)\to\R$ belong to the normalized lifted family in the sense
+of \noderef{NormalizedInfFamily}. Then $U$ is infinity-harmonic on $B_1$ in the
+sense of \noderef{IsInfHarmonicOn}.
+\end{lemma}
+\begin{proof}
+By \noderef{NormalizedInfFamily} there is a function $u:\R^d\to\R$, among whose
+listed properties are that $u$ is infinity-harmonic on the open unit ball
+$B_1^d$ of $\R^d$ in the sense of \noderef{IsInfHarmonicOn} and that
+\begin{equation}\label{eq:nfih-lift}
+  U(z)=u(z_x)+z_t\qquad\bigl(z=(z_x,z_t)\in\ell^2(\R^d\times\R)\bigr).
+\end{equation}
+(The remaining properties listed there --- $u(0)=0$, the boundedness of the image
+of $B_1^d$ above and below, and the bound on the oscillation --- are not used
+here.)
+
+\emph{The lift is infinity-harmonic on the slab.} Applying \noderef{LinearLift}
+to the open set $B_1^d$ and the function $u$, the function
+$z\mapsto u(z_x)+z_t$ is infinity-harmonic, in the sense of
+\noderef{IsInfHarmonicOn}, on the preimage of $B_1^d$ under the projection
+$z\mapsto z_x$, that is, on the slab
+\[
+  S=\bigl\{z\in\ell^2(\R^d\times\R):|z_x|<1\bigr\}.
+\]
+By \eqref{eq:nfih-lift} that function is exactly $U$, so $U$ is
+infinity-harmonic on $S$.
+
+\emph{The unit ball of space-time lies in the slab.} The $\ell^2$ norm of
+space-time satisfies $|z|^2=|z_x|^2+|z_t|^2$, so $|z_x|^2\le|z|^2$ and hence
+$|z_x|\le|z|$, both being nonnegative. Therefore $|z|<1$ implies $|z_x|<1$, i.e.
+\[
+  B_1\subseteq S .
+\]
+
+\emph{Restriction.} The ball $B_1$ is open, it is contained in $S$, and $U$ is
+infinity-harmonic on $S$; so \noderef{InfHarmonicMono} applies and gives that
+$U$ is infinity-harmonic on $B_1$ in the sense of \noderef{IsInfHarmonicOn}.
+\end{proof}

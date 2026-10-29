@@ -1,0 +1,85 @@
+\begin{lemma}[The Moreau envelope is differentiable with gradient $y-u(y)$]
+Let $E$ be a finite-dimensional real inner-product space, let $\psi:E\to\R$ be
+convex on $E$, let $u:E\to E$ be a proximal map for $\psi$ in the sense of
+\noderef{IsMoreauProx}, and write
+\[
+  \psi_1(y)=\psi(u(y))+\frac{|u(y)-y|^2}{2},\qquad v(y)=y-u(y).
+\]
+Then for all $y,y'\in E$
+\[
+  \bigl|\psi_1(y')-\psi_1(y)-\langle v(y),y'-y\rangle\bigr|
+   \le\tfrac32|y'-y|^2 .
+\]
+Consequently $\psi_1$ is differentiable at every $y$ with gradient
+$\nabla\psi_1(y)=v(y)$.
+\end{lemma}
+\begin{proof}
+Fix $y,y'\in E$ and write $k=y'-y$.
+
+\emph{Step 1: the upper bound.}
+Apply the defining inequality of \noderef{IsMoreauProx} at the base point $y'$
+with the test point $x=u(y)$:
+\[
+  \psi_1(y')=\psi(u(y'))+\frac{|u(y')-y'|^2}{2}
+   \le\psi(u(y))+\frac{|u(y)-y'|^2}{2}.
+\]
+Since $u(y)-y'=(u(y)-y)-k$, expanding the square gives
+\[
+  \frac{|u(y)-y'|^2}{2}
+   =\frac{|u(y)-y|^2}{2}-\langle u(y)-y,k\rangle+\frac{|k|^2}{2}
+   =\frac{|u(y)-y|^2}{2}+\langle v(y),k\rangle+\frac{|k|^2}{2},
+\]
+using $v(y)=y-u(y)=-(u(y)-y)$. Adding $\psi(u(y))$ and recalling the definition
+of $\psi_1(y)$,
+\begin{equation}\label{eq:meg-upper}
+  \psi_1(y')-\psi_1(y)-\langle v(y),k\rangle\le\frac{|k|^2}{2}.
+\end{equation}
+
+\emph{Step 2: the same bound with the roles of $y$ and $y'$ exchanged.}
+By the identical computation, with $y$ and $y'$ interchanged (so that $k$ is
+replaced by $-k$),
+\[
+  \psi_1(y)-\psi_1(y')-\langle v(y'),-k\rangle\le\frac{|k|^2}{2},
+\]
+that is
+\begin{equation}\label{eq:meg-swap}
+  \psi_1(y')-\psi_1(y)\ge\langle v(y'),k\rangle-\frac{|k|^2}{2}.
+\end{equation}
+
+\emph{Step 3: the lower bound.}
+Subtracting $\langle v(y),k\rangle$ from \eqref{eq:meg-swap},
+\[
+  \psi_1(y')-\psi_1(y)-\langle v(y),k\rangle
+   \ge\langle v(y')-v(y),k\rangle-\frac{|k|^2}{2}
+   \ge-\bigl|v(y')-v(y)\bigr|\,|k|-\frac{|k|^2}{2},
+\]
+the last step by the Cauchy--Schwarz inequality. We now bound
+$|v(y')-v(y)|$. The point $u(y)$ minimizes $x\mapsto\psi(x)+|x-y|^2/2$ and the
+point $u(y')$ minimizes $x\mapsto\psi(x)+|x-y'|^2/2$, both by
+\noderef{IsMoreauProx}. Hence \noderef{MoreauProxMonotone}, applied with
+$y_1=y'$, $y_2=y$, $x_1=u(y')$, $x_2=u(y)$, gives
+\[
+  |u(y')-u(y)|^2+\bigl|(y'-u(y'))-(y-u(y))\bigr|^2\le|y'-y|^2,
+\]
+and discarding the first summand, $|v(y')-v(y)|\le|k|$. Therefore
+\begin{equation}\label{eq:meg-lower}
+  \psi_1(y')-\psi_1(y)-\langle v(y),k\rangle
+   \ge-|k|^2-\frac{|k|^2}{2}=-\tfrac32|k|^2 .
+\end{equation}
+
+\emph{Conclusion.}
+Combining \eqref{eq:meg-upper} and \eqref{eq:meg-lower}, and using
+$\tfrac12\le\tfrac32$,
+\[
+  \bigl|\psi_1(y')-\psi_1(y)-\langle v(y),y'-y\rangle\bigr|\le\tfrac32|y'-y|^2 ,
+\]
+which is the stated estimate. For the final assertion, fix $y$; the estimate
+gives
+\[
+  \frac{\bigl|\psi_1(y+k)-\psi_1(y)-\langle v(y),k\rangle\bigr|}{|k|}
+   \le\tfrac32|k|\qquad(k\ne0),
+\]
+and the right-hand side tends to $0$ as $k\to0$. By the definition of the
+derivative this says precisely that $\psi_1$ is differentiable at $y$ with
+derivative $k\mapsto\langle v(y),k\rangle$, i.e. with gradient $v(y)$.
+\end{proof}

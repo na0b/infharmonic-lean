@@ -1,0 +1,95 @@
+\begin{helper}[Changes of frame act on configurations]
+Let $F$ be a finite-dimensional real inner-product space, let $g$ be a real
+function on space-time, let $z_0\in F\times\R$, let $R>0$, $p_0\in F$,
+$a_0\in\R$ and $s\in\R$, and let $\bar g$ be the sheared change of frame of
+\noderef{FrameChange} based at $z_0$ with scale $R$ and parameters $(p_0,a_0)$.
+Write $T(y)=x_0+R(y+sp_0)$, where $x_0$ is the space coordinate of $z_0$, and
+$t=t_0+Rs$, where $t_0$ is its time coordinate. Then:
+\begin{enumerate}
+\item[(i)] for every $N$, every family of weights $\theta$ and positions $y$ and
+every $\bar y\in F$, the family $(\theta_i,T(y_i))$ is a configuration with mean
+$T(\bar y)$ in the sense of \noderef{IsBaryConfig} if and only if
+$(\theta_i,y_i)$ is a configuration with mean $\bar y$;
+\item[(ii)] the radius of \noderef{BaryRadius} of the family $(\theta_i,T(y_i))$
+about $T(\bar y)$ equals $R$ times the radius of $(\theta_i,y_i)$ about
+$\bar y$;
+\item[(iii)] $T$ is surjective: every $Y\in F$ is $T(y)$ for some $y\in F$;
+\item[(iv)] for every configuration $(\theta_i,y_i)$ with mean $\bar y$,
+\[
+  \sum_i\theta_i\bar g(y_i,s)-\bar g(\bar y,s)
+    =\frac1R\Bigl(\sum_i\theta_ig(T(y_i),t)-g(T(\bar y),t)\Bigr).
+\]
+\end{enumerate}
+\end{helper}
+\begin{proof}
+This is about CONFIGURATIONS, and it is neither implied by nor implies the two
+nodes that transport other frame-covariant data. \texttt{FrameInvariance}
+transports FITS: it preserves the class and carries a fit at the sheared point
+of radius $R\rho$ to a fit at the new center of radius $\rho$ with the frame
+parameters subtracted. \texttt{FrameGapCovariance} transports the barycentric
+ENVELOPE gap, and only in the contact frame, where the base point is $(x_0,r)$,
+the scale is the same $r$, and a fit of radius $r$ at that point is assumed;
+the statement above has an arbitrary base point, an arbitrary scale, and no fit
+hypothesis, and it speaks about a single configuration rather than about the
+supremum over all of them. Items (i) to (iii) have no counterpart in either
+node.
+
+Throughout, write $x_0$ and $t_0$ for the coordinates of $z_0$, so that by
+\noderef{FrameChange}
+\[
+  \bar g(y,s)=\frac{g\bigl(T(y),t\bigr)-g(z_0)}{R}
+     -\langle p_0,y\rangle-\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)s ,
+  \qquad T(y)=x_0+R(y+sp_0),\quad t=t_0+Rs .
+\]
+
+\emph{A weighted mean is carried to the weighted mean of the images.} Let
+$\theta$ be weights with $\sum_i\theta_i=1$ and let $y$ be positions. Then
+\[
+  \sum_i\theta_iT(y_i)
+   =\sum_i\theta_ix_0+R\sum_i\theta_iy_i+R\Bigl(\sum_i\theta_i\Bigr)sp_0
+   =x_0+R\Bigl(\sum_i\theta_iy_i+sp_0\Bigr)
+   =T\Bigl(\sum_i\theta_iy_i\Bigr),
+\]
+the first equality by expanding $T$ and the linearity of the weighted sum, and
+the second by $\sum_i\theta_i=1$.
+
+\emph{(i).} By \noderef{IsBaryConfig} a configuration with mean $x$ consists of
+weights that are positive and sum to $1$ together with positions whose weighted
+mean is $x$; the positivity and the sum are untouched by $T$. If
+$(\theta_i,y_i)$ has mean $\bar y$, the display above gives
+$\sum_i\theta_iT(y_i)=T(\bar y)$, so $(\theta_i,T(y_i))$ has mean $T(\bar y)$.
+Conversely, if $\sum_i\theta_iT(y_i)=T(\bar y)$ then by the display
+$T\bigl(\sum_i\theta_iy_i\bigr)=T(\bar y)$; cancelling the summand $x_0$ and
+then the factor $R\ne0$ and the summand $sp_0$ gives
+$\sum_i\theta_iy_i=\bar y$.
+
+\emph{(ii).} For each $i$,
+$T(y_i)-T(\bar y)=R\bigl((y_i+sp_0)-(\bar y+sp_0)\bigr)=R(y_i-\bar y)$, so
+$|T(y_i)-T(\bar y)|^2=R^2|y_i-\bar y|^2$. Hence
+$\sum_i\theta_i|T(y_i)-T(\bar y)|^2=R^2\sum_i\theta_i|y_i-\bar y|^2$, and taking
+square roots, which is legitimate because $R^2\ge0$ and $R\ge0$, the radius of
+\noderef{BaryRadius} satisfies the asserted identity.
+
+\emph{(iii).} Given $Y\in F$, put $y=R^{-1}(Y-x_0)-sp_0$, which is defined
+because $R\ne0$. Then $y+sp_0=R^{-1}(Y-x_0)$ and
+$T(y)=x_0+R\cdot R^{-1}(Y-x_0)=Y$.
+
+\emph{(iv).} Let $(\theta_i,y_i)$ be a configuration with mean $\bar y$, so
+$\sum_i\theta_i=1$ and $\sum_i\theta_iy_i=\bar y$. Taking the weighted mean of
+the displayed formula for $\bar g$ at the positions $y_i$,
+\[
+  \sum_i\theta_i\bar g(y_i,s)
+   =\frac1R\sum_i\theta_ig\bigl(T(y_i),t\bigr)-\frac{g(z_0)}{R}
+     -\Bigl\langle p_0,\sum_i\theta_iy_i\Bigr\rangle
+     -\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)s ,
+\]
+where the constant terms contributed $\sum_i\theta_i=1$ times their value and
+the inner product was collected by linearity in its second argument. Using
+$\sum_i\theta_iy_i=\bar y$ and subtracting the same formula evaluated at
+$\bar y$, the three terms $-g(z_0)/R$, $-\langle p_0,\bar y\rangle$ and
+$-\bigl(a_0+|p_0|^2/2\bigr)s$ cancel, leaving
+\[
+  \sum_i\theta_i\bar g(y_i,s)-\bar g(\bar y,s)
+   =\frac1R\Bigl(\sum_i\theta_ig\bigl(T(y_i),t\bigr)-g\bigl(T(\bar y),t\bigr)\Bigr),
+\]
+which is (iv). \end{proof}

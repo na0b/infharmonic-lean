@@ -1,0 +1,131 @@
+\begin{lemma}[Comparison of fits at one center across scales]
+Let $F$ be a finite-dimensional real inner-product space and let
+$1\le C_0<\infty$. There is a constant $C>0$, depending only on $C_0$, with the
+following property. Let $v$ be a real function on the space-time
+$\ell^2(F\times\R)$ and let $z$ be a space-time point such that $v$ admits a
+fit at $z$ of every positive radius with constant $C_0$, in the sense of
+\noderef{IsFit}. Then, for all $R,R'>0$ and all fits $(p,a)$ for $v$ at $z$ of
+radius $R$ and $(p',a')$ for $v$ at $z$ of radius $R'$, both with constant
+$C_0$,
+\begin{equation}\label{eq:origin-fit-bound}
+  |p-p'|+|a-a'|\le C\Bigl(1+\bigl|\log(R'/R)\bigr|\Bigr).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write
+\[
+  \ell_{p,a}(h,\ell)=p\cdot h+\Bigl(a-\frac{|p|^2}{2}\Bigr)\ell
+\]
+for the affine increment attached to a fit, so that \noderef{IsFit} reads
+$\bigl|v(z+(h,\ell))-v(z)-\ell_{p,a}(h,\ell)\bigr|\le C_0R$ whenever
+$|\ell|\le R$ and $|h-p\ell|\le R$.
+
+\emph{Step 1: comparable radii.}
+We first show that there is $C_1>0$, depending only on $C_0$, such that
+\begin{equation}\label{eq:fcsc-adjacent}
+  |p-p'|+|a-a'|\le C_1
+\end{equation}
+whenever $(p,a)$ and $(p',a')$ are fits for $v$ at $z$ of radii $R$ and $R'$
+with $0<R\le R'\le2R$.
+
+Consider the increments $(h,0)$ with $|h|\le R$. The box conditions for the
+first fit read $|0|\le R$ and $|h-p\cdot0|=|h|\le R$, both satisfied; those for
+the second read $|0|\le R'$ and $|h|\le R'$, satisfied because $R\le R'$. So
+both estimates of \noderef{IsFit} apply at $(h,0)$, and subtracting them, using
+$\ell_{p,a}(h,0)=p\cdot h$, $\ell_{p',a'}(h,0)=p'\cdot h$ and $R'\le2R$,
+\[
+  |(p-p')\cdot h|\le C_0R+C_0R'\le3C_0R\qquad(|h|\le R).
+\]
+If $p\ne p'$, taking $h=R(p-p')/|p-p'|$, for which $|h|=R$ and
+$(p-p')\cdot h=R|p-p'|$, and dividing by $R>0$ gives
+\begin{equation}\label{eq:fcsc-p}
+  |p-p'|\le3C_0\le4C_0 ,
+\end{equation}
+and this is trivial when $p=p'$.
+
+Put $c=(2+8C_0)^{-1}$, so $0<c\le\tfrac12$ and $c\le1/(8C_0)$, and consider the
+increment $(h,\ell)=(cRp,\,cR)$. It lies in the first box: $|\ell|=cR\le R$ and
+$|h-p\ell|=0\le R$. It lies in the second box too: $|\ell|=cR\le R\le R'$ and,
+by \eqref{eq:fcsc-p}, $|h-p'\ell|=cR|p-p'|\le4C_0cR\le\tfrac12R\le R'$. At this
+increment,
+\[
+  \bigl(\ell_{p,a}-\ell_{p',a'}\bigr)(cRp,cR)
+   =cR\Bigl[(p-p')\cdot p+a-a'-\frac{|p|^2-|p'|^2}{2}\Bigr]
+   =cR\Bigl[a-a'+\frac{|p-p'|^2}{2}\Bigr],
+\]
+because
+$(p-p')\cdot p-\tfrac12(|p|^2-|p'|^2)
+ =|p|^2-p\cdot p'-\tfrac12|p|^2+\tfrac12|p'|^2=\tfrac12|p-p'|^2$. Subtracting
+the two estimates of \noderef{IsFit} at this increment, whose errors sum to at
+most $C_0R+C_0R'\le3C_0R$, gives
+$cR\bigl|a-a'+\tfrac12|p-p'|^2\bigr|\le3C_0R$, hence by \eqref{eq:fcsc-p}
+\begin{equation}\label{eq:fcsc-a}
+  |a-a'|\le\frac{3C_0}{c}+\frac{|p-p'|^2}{2}
+   \le3C_0(2+8C_0)+8C_0^2 .
+\end{equation}
+Adding \eqref{eq:fcsc-p} and \eqref{eq:fcsc-a} gives
+\eqref{eq:fcsc-adjacent} with
+$C_1=4C_0+3C_0(2+8C_0)+8C_0^2>0$.
+
+\emph{Step 2: a dyadic chain between two arbitrary radii.}
+Let now $R,R'>0$ be arbitrary and let $(p,a)$, $(p',a')$ be fits at $z$ of these
+radii. Put
+\[
+  s_0=\min\{R,R'\},\qquad s_1=\max\{R,R'\},\qquad
+  \varrho=\frac{s_1}{s_0}\ \ge1 ,
+\]
+and let $k\ge0$ be the least integer with $2^k\ge\varrho$. Define
+\[
+  \rho_j=s_0\,2^j\ \ (0\le j\le k-1),\qquad \rho_k=s_1 ,
+\]
+so $\rho_0=s_0$ and $\rho_k=s_1$ (when $k=0$ we have $\varrho=1$, hence
+$s_0=s_1$ and the chain is the single radius $s_0$). All $\rho_j$ are positive,
+and consecutive radii satisfy $\rho_j\le\rho_{j+1}\le2\rho_j$: for $j+1\le k-1$
+the ratio is exactly $2$; and for $j=k-1$ with $k\ge1$,
+\[
+  \frac{\rho_k}{\rho_{k-1}}=\frac{s_1}{s_0\,2^{k-1}}=\frac{\varrho}{2^{k-1}},
+\]
+which is $\ge1$ because $2^{k-1}<\varrho$ by minimality of $k$, and $\le2$
+because $2^k\ge\varrho$.
+
+Suppose $k\ge1$. For $1\le j\le k-1$ use the hypothesis to choose a fit
+$(p_j,a_j)$ for $v$ at $z$ of radius $\rho_j>0$ with constant $C_0$, and at the
+two ends put
+\[
+  (p_0,a_0)=\begin{cases}(p,a)&\text{if }s_0=R,\\(p',a')&\text{otherwise},\end{cases}
+  \qquad
+  (p_k,a_k)=\begin{cases}(p',a')&\text{if }s_0=R,\\(p,a)&\text{otherwise},\end{cases}
+\]
+which are fits at the radii $\rho_0=s_0$ and $\rho_k=s_1$ respectively. Applying
+\eqref{eq:fcsc-adjacent} to each of the $k$ consecutive pairs
+$(\rho_j,\rho_{j+1})$ and summing with the triangle inequality,
+\[
+  |p-p'|+|a-a'|=|p_0-p_k|+|a_0-a_k|
+   \le\sum_{j=0}^{k-1}\bigl(|p_{j+1}-p_j|+|a_{j+1}-a_j|\bigr)\le k\,C_1 .
+\]
+If $k=0$ then $R=R'$, and \eqref{eq:fcsc-adjacent} applied once with $R=R'$
+gives $|p-p'|+|a-a'|\le C_1$. In all cases
+\begin{equation}\label{eq:fcsc-sum}
+  |p-p'|+|a-a'|\le(k+1)\,C_1 .
+\end{equation}
+
+\emph{Step 3: bounding $k$.}
+We claim $k<1+\bigl|\log(R'/R)\bigr|/\log2$. If $k=0$ this is immediate since
+the absolute value is nonnegative. If $k\ge1$, minimality of $k$ gives
+$2^{k-1}<\varrho$, i.e. $(k-1)\log2<\log\varrho$; and
+\[
+  \log\varrho=\log\frac{\max\{R,R'\}}{\min\{R,R'\}}
+   =\bigl|\log(R'/R)\bigr| ,
+\]
+since $\log(R'/R)$ and $\log(R/R')$ are negatives of one another. Dividing by
+$\log2>0$ gives the claim.
+
+Combining with \eqref{eq:fcsc-sum} and using
+$2+u/\log2\le(2+1/\log2)(1+u)$ for $u=|\log(R'/R)|\ge0$,
+\[
+  |p-p'|+|a-a'|\le C_1\Bigl(2+\frac{|\log(R'/R)|}{\log2}\Bigr)
+   \le C_1\Bigl(2+\frac1{\log2}\Bigr)\Bigl(1+\bigl|\log(R'/R)\bigr|\Bigr).
+\]
+Thus \eqref{eq:origin-fit-bound} holds with $C=C_1(2+1/\log2)>0$, which depends
+only on $C_0$.
+\end{proof}

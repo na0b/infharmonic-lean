@@ -1,0 +1,138 @@
+\begin{lemma}[The six properties of the contact envelope]
+Let $F$ be a finite-dimensional real inner-product space --- the ambient
+convention of this development --- and work in the space-time
+$X=\ell^2(F\times\R)$, writing a point as $z=(x,t)$ with $x\in F$ the space
+coordinate and $t\in\R$ the time coordinate, and writing
+$P=\{z\in X:\ t>0\}$ for the positive-time half space. Let $C_0\in\R$, let
+$\kappa>0$ and let $v:X\to\R$. Assume:
+\begin{enumerate}
+\item\label{it:cep-class} $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass}, with $m=\dim F$;
+\item\label{it:cep-jensen} $v$ satisfies the horizontal Jensen bound with
+constant $\kappa$ on $I=\R$ in the sense of \noderef{HasJensenBound};
+\item\label{it:cep-grow} $v$ has subquadratic spatial growth on compact time
+intervals of $I=\R$ in the sense of \noderef{SubquadraticGrowth}.
+\end{enumerate}
+Let $W=\Cenv_tv-\kappa^2t/2$ be the contact envelope of \noderef{ContactEnv}
+formed from $v$ and $\kappa$, so $W(z)=\Cenv_tv(z)-\kappa^2t/2$ at $z=(x,t)$,
+the barycentric radius being taken equal to the time. Then
+\begin{enumerate}
+\item[(a)] for every $z=(x,t)$ with $t>0$,
+\[
+  v(z)-\frac{\kappa^2t}{2}\le W(z)\le v(z);
+\]
+\item[(b)] $W$ is continuous on $P$, and for every $t>0$ the function
+$x\mapsto W(x,t)-|x|^2/(2t)$ is concave on all of $F$;
+\item[(c)] $W$ has subquadratic spatial growth on compact time intervals of
+$I=(0,\infty)$;
+\item[(d)] $W$ is a viscosity subsolution of the limiting equation on $P$ in
+the sense of \noderef{IsLimitSubOn};
+\item[(e)] at every $z=(x,t)$ with $t>0$ and $W(z)=v(z)$,
+\[
+  \frac{\Cenv_tv(z)-v(z)}{t}=\frac{\kappa^2}{2}.
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The six conclusions are proved and stated in this order; the construction that
+supplies \ref{it:cep-class}--\ref{it:cep-grow} in the application plays no
+role here and is not re-narrated.
+
+\emph{Preliminaries.} The time coordinate $z\mapsto t$ is continuous on $X$,
+being the second projection composed with the linear homeomorphism
+$\ell^2(F\times\R)\cong F\times\R$; hence $P$, the preimage of $(0,\infty)$
+under it, is open. From \ref{it:cep-class} we use only that $v$ is continuous
+on all of space-time and is a viscosity solution of $F[v]=0$ there; the two
+further hypotheses \ref{it:cep-jensen} and \ref{it:cep-grow} are stated at
+$I=\R$, so they hold a fortiori at $I=(0,\infty)$, as does the continuity of
+$v$ on the preimage of $(0,\infty)$. These restricted forms are what the cited
+nodes consume below.
+
+\emph{(a) The sandwich.} \noderef{BaryEnvSandwich}, applied with
+$I=(0,\infty)$, $f=v$ and the constant $\kappa\ge0$, and with the continuity,
+Jensen and growth hypotheses just restricted, gives
+\begin{equation}\label{eq:cep-sand}
+  v(z)\le\Cenv_sv(z)\le v(z)+\frac{\kappa^2s}{2}
+\end{equation}
+for every $s>0$ and every $z=(x,t)$ with $t>0$. Take $s=t$, which is legitimate
+since $t>0$, and subtract $\kappa^2t/2$ throughout: by \noderef{ContactEnv} the
+middle term becomes $W(z)$ and (a) follows.
+
+\emph{(b) Continuity and semiconcavity.} Apply \noderef{BaryEnvDuality} with
+the \emph{open} interval $I=(0,\infty)$ and $f=v$, whose hypotheses are the
+restricted continuity and growth of the preliminaries. One of its clauses
+speaks about probability measures on $F$ and therefore requires a Borel
+measurable structure on $F$; the present statement carries none and needs
+none, so $F$ is given its Borel $\sigma$-algebra for the duration of this
+step, and nothing below depends on that choice.
+
+The continuity clause gives that $(s,z)\mapsto\Cenv_sv(z)$ is continuous at
+every pair $(s,z_0)$ with $s>0$ and the time of $z_0$ positive. Fix $z_0\in P$
+and compose that clause at $(t_0,z_0)$, where $t_0>0$ is the time of $z_0$,
+with the continuous map $z\mapsto(t,z)$: the composite
+$z\mapsto\Cenv_tv(z)$ is continuous at $z_0$. The function
+$z\mapsto\kappa^2t/2$ is continuous as well, so their difference, which is $W$
+by \noderef{ContactEnv}, is continuous at $z_0$; as $z_0\in P$ was arbitrary,
+$W$ is continuous on $P$.
+
+The concavity clause, applied with the barycentric radius $s$ and the time
+both equal to a fixed $t>0$, gives that $x\mapsto\Cenv_tv(x,t)-|x|^2/(2t)$ is
+concave on $F$. Adding the constant $-\kappa^2t/2$ preserves concavity, and the
+result is $x\mapsto W(x,t)-|x|^2/(2t)$, because the time coordinate of $(x,t)$
+is $t$. This is the second half of (b).
+
+\emph{(c) Growth.} Let $J\subseteq(0,\infty)$ be compact and let
+$\varepsilon>0$. Being compact, $J$ is bounded above, say by $T$. Put
+\[
+  c_J=\max\Bigl\{0,\ \frac{\kappa^2T}{2}\Bigr\}\ \ge 0 .
+\]
+By \ref{it:cep-grow} restricted to $I=(0,\infty)$, applied to $J$ and to
+$\varepsilon/2>0$, there is $M_1>0$ with
+\begin{equation}\label{eq:cep-vgrow}
+  |v(x,t)|\le\frac{\varepsilon}{2}|x|^2\qquad(|x|\ge M_1,\ t\in J).
+\end{equation}
+Set $M=\max\{M_1,\sqrt{2c_J/\varepsilon}\}$, which is positive because
+$M_1>0$. Let $z=(x,t)$ with $|x|\ge M$ and $t\in J$; then $t>0$, since
+$J\subseteq(0,\infty)$. From $|x|\ge M_1$ we get \eqref{eq:cep-vgrow}. From
+$\sqrt{2c_J/\varepsilon}\le|x|$ and $2c_J/\varepsilon\ge0$ we get, squaring,
+$2c_J/\varepsilon\le|x|^2$, that is
+\begin{equation}\label{eq:cep-cJ}
+  c_J\le\frac{\varepsilon}{2}|x|^2 .
+\end{equation}
+Also $t\le T$ and $\kappa^2\ge0$ give $\kappa^2t/2\le\kappa^2T/2\le c_J$. Now
+(a) bounds $W(z)$ on both sides: on one side
+$W(z)\le v(z)\le(\varepsilon/2)|x|^2\le\varepsilon|x|^2$, and on the other
+\[
+  W(z)\ \ge\ v(z)-\frac{\kappa^2t}{2}
+    \ \ge\ -\frac{\varepsilon}{2}|x|^2-c_J
+    \ \ge\ -\varepsilon|x|^2 ,
+\]
+using \eqref{eq:cep-vgrow} and \eqref{eq:cep-cJ}. Hence
+$|W(x,t)|\le\varepsilon|x|^2$ whenever $|x|\ge M$ and $t\in J$, which is (c).
+
+\emph{(d) The subsolution property.} First, $v$ is a viscosity subsolution of
+the limiting equation on $P$ in the sense of \noderef{IsLimitSubOn}: the set
+$P$ is open and $v$ is continuous there by the preliminaries, and if $\phi$ is
+$C^2$ near a point $z\in P$ and $v-\phi$ has a local maximum at $z$ relative to
+$P$, then, $P$ being open and containing $z$, the neighbourhood filter within
+$P$ at $z$ is the full neighbourhood filter; so $v-\phi$ has a local maximum at
+$z$ relative to all of $X$, and $F[\phi](z)\ge0$ follows from the subsolution
+half of the equation satisfied by $v$ on the whole space.
+
+Now \noderef{BarycentricSubsolution}, applied with $f=v$, with this subsolution
+property on $P$, with the restricted growth on $I=(0,\infty)$ and with
+$c=\kappa^2/2$, shows that $z\mapsto\Cenv_tv(z)-(\kappa^2/2)\,t$ is a viscosity
+subsolution of the limiting equation on $P$. That function is $W$ pointwise, by
+\noderef{ContactEnv} and the identity $(\kappa^2/2)t=\kappa^2t/2$, so (d)
+follows.
+
+\emph{(e) The gap at a contact.} Let $z=(x,t)$ with $t>0$ and $W(z)=v(z)$. By
+\noderef{ContactEnv} this reads $\Cenv_tv(z)-\kappa^2t/2=v(z)$, hence
+$\Cenv_tv(z)-v(z)=\kappa^2t/2$, and dividing by $t>0$ gives
+\[
+  \frac{\Cenv_tv(z)-v(z)}{t}=\frac{\kappa^2}{2},
+\]
+which is (e).
+
+Collecting (a)--(e) gives the six conclusions in the stated order.
+\end{proof}

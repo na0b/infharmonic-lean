@@ -1,0 +1,29 @@
+\begin{definition}[Optimizing step pair]
+Let $F$ be a finite-dimensional real inner-product space, let $v$ be a real
+function on the space-time $\ell^2(F\times\R)$, let $\kappa,\epsilon\in\R$ and
+let $z=(x,t)$, $z^+$, $z^-$ be space-time points. Write
+$W=\Cenv_tv-\kappa^2t/2$ for the contact envelope of \noderef{ContactEnv} and
+$f=W$. We say $(z^+,z^-)$ is an \emph{optimizing step pair of size $\epsilon$ at
+$z$} if there are $Y^+,Y^-\in F$ such that
+\begin{gather*}
+  \Penv_{2\epsilon}f(z)
+    =f(Y^+,t+2\epsilon)-\frac{|Y^+-x|^2}{2\cdot2\epsilon},
+  \qquad
+  \Menv_{2\epsilon}v(z)
+    =v(Y^-,t-2\epsilon)+\frac{|Y^--x|^2}{2\cdot2\epsilon},
+  \\
+  z^+=\left(\frac{x+Y^+}{2},\,t+\epsilon\right),
+  \qquad
+  z^-=\left(\frac{x+Y^-}{2},\,t-\epsilon\right),
+\end{gather*}
+with $\Penv$, $\Menv$ as in \noderef{QuadEnvP} and \noderef{QuadEnvM}. Thus
+$Y^+$ attains the forward envelope of $f$ at $z$ at length $2\epsilon$, $Y^-$
+attains the backward envelope of $v$ at $z$ at length $2\epsilon$, and
+$z^\pm$ are the intermediate points at times $t\pm\epsilon$ on the straight
+paths from $x$ to those optimizers. The associated step velocities are
+\[
+  Q_+=\frac{x^+-x}{\epsilon},\qquad
+  Q_-=\frac{x-x^-}{\epsilon},
+\]
+where $z^\pm=(x^\pm,t\pm\epsilon)$; both are oriented forward in time.
+\end{definition}

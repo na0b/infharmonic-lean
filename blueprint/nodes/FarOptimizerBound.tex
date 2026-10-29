@@ -1,0 +1,118 @@
+\begin{helper}[A far position cannot beat the undisplaced competitor]
+Let $F$ be a finite-dimensional real inner-product space, let $C_V>0$ and let
+$W$ be a real function on space-time satisfying the box bound
+\[
+  |W(\zeta)|\le C_V\,K\,L(K)^2\qquad(\zeta\in\mathcal B_K,\ K\ge2),
+\]
+where $L(K)=1+\log K$ and
+$\mathcal B_K=\{(y,s)\in F\times\R:|y|\le K,\ |s|\le K\}$. Fix $x\in F$ and
+$t\in\R$. Then there is a constant $C<\infty$ such that for every length
+$\ell\ge1$ and every $y\in F$ with
+\begin{equation}\label{eq:fob-beats}
+  W(x,t+\ell)\le W(y,t+\ell)-\frac{|y-x|^2}{2\ell}
+\end{equation}
+one has
+\[
+  |y|\le C\,\ell\,(1+\log\ell)^2 .
+\]
+\end{helper}
+\begin{proof}
+The regime here is the opposite of the one in the small-length optimizer
+estimate of the limiting-tools section, the node \texttt{OptimizerLocalization},
+which is deliberately not a dependency of this statement: that lemma constrains the optimizers of the quadratic envelopes at
+\emph{small} lengths, below a threshold depending on the level, and gives the
+sharp rate $\sqrt{\ell}$; the statement above concerns \emph{large} lengths
+$\ell\ge1$ and gives only the much weaker rate $\ell(1+\log\ell)^2$, which is
+all that the box growth of $W$ supports and all that is needed where this bound
+is used. Neither statement implies the other, and the hypothesis here is a bare
+scalar inequality rather than an envelope optimality property, so no envelope
+machinery enters this proof.
+
+Set $c_1=|x|+|t|+3$, so $c_1\ge3$ and $\log(2c_1)\ge0$, and put
+\[
+  c_2=16C_Vc_1\bigl(1+\log(2c_1)\bigr)^2>0,\qquad
+  c_3=16C_Vc_1>0,\qquad
+  b_0=\max\bigl\{2,(32c_3)^2\bigr\} .
+\]
+We prove the conclusion with $C=|x|+2+(2c_2+b_0)$, which is positive.
+
+\emph{An elementary absorption of the logarithm.} For $u\ge1$,
+$\log u=4\log\sqrt{\sqrt u}\le4\sqrt{\sqrt u}$, by applying
+$\log\sqrt{a}=\tfrac12\log a$ twice and then $\log s\le s-1\le s$ at
+$s=\sqrt{\sqrt u}>0$. Since $\log u\ge0$, squaring gives
+$(\log u)^2\le16\sqrt u$. Hence if $u\ge1$ and $u\ge(32c_3)^2$ then
+$\sqrt u\ge32c_3$, so
+\begin{equation}\label{eq:fob-absorb}
+  c_3(\log u)^2\le16c_3\sqrt u\le\frac{\sqrt u\cdot\sqrt u}{2}=\frac u2 .
+\end{equation}
+
+\emph{Setting up.} Fix $\ell\ge1$ and $y\in F$ with \eqref{eq:fob-beats}. Then
+$L(\ell)=1+\log\ell\ge1$, so $L(\ell)^2\ge1$. Put $\beta=|y-x|/\ell\ge0$, so
+$|y-x|=\beta\ell$ and $|y|\le|x|+\beta\ell$. It suffices to produce a
+$D\in[0,\,2+2c_2+b_0]$ with $\beta\le DL(\ell)^2$: indeed then
+$\beta\ell\le DL(\ell)^2\ell\le(2+2c_2+b_0)L(\ell)^2\ell$, while
+$|x|\le|x|\ell L(\ell)^2$ because $\ell\ge1$ and $L(\ell)^2\ge1$, and adding
+the two gives $|y|\le C\ell L(\ell)^2$.
+
+\emph{The near regime.} If $\beta\le2$, take $D=2$: then
+$\beta\le2\le2L(\ell)^2$, and $2\le2+2c_2+b_0$ because $c_2>0$ and $b_0\ge2$.
+
+\emph{The far regime.} Assume $\beta>2$. Then $\beta\ell\ge\beta>2$, and since
+$c_1\ge3$,
+\[
+  c_1\le c_1(\beta\ell),\qquad \beta\ell\le c_1(\beta\ell),\qquad
+  6\le c_1(\beta\ell) .
+\]
+Put $\Theta=2c_1(\beta\ell)$, so $\Theta\ge12\ge2$. Also $|x|\le c_1$ and
+$|t|\le c_1$ by the definition of $c_1$, hence
+\[
+  |y|\le|x|+\beta\ell\le c_1(\beta\ell)+c_1(\beta\ell)=\Theta,
+  \qquad|x|\le c_1\le\Theta,
+\]
+and, using $\ell\le\beta\ell$,
+$|t+\ell|\le|t|+\ell\le c_1(\beta\ell)+c_1(\beta\ell)=\Theta$. So both
+$(y,t+\ell)$ and $(x,t+\ell)$ lie in $\mathcal B_\Theta$, and the box bound
+gives
+\[
+  |W(y,t+\ell)|\le C_V\Theta L(\Theta)^2,\qquad
+  |W(x,t+\ell)|\le C_V\Theta L(\Theta)^2 .
+\]
+Rearranging \eqref{eq:fob-beats} and using $|y-x|^2/(2\ell)=\beta(\beta\ell)/2$,
+\[
+  \frac{\beta(\beta\ell)}{2}\le W(y,t+\ell)-W(x,t+\ell)
+   \le|W(y,t+\ell)|+|W(x,t+\ell)|\le2C_V\Theta L(\Theta)^2
+   =4C_Vc_1(\beta\ell)L(\Theta)^2 .
+\]
+Both sides are products of $(\beta\ell)/2>0$ with $\beta$ and with
+$8C_Vc_1L(\Theta)^2$ respectively, so cancelling that positive factor gives
+\begin{equation}\label{eq:fob-beta}
+  \beta\le8C_Vc_1L(\Theta)^2 .
+\end{equation}
+
+\emph{Expanding the logarithm of $\Theta$.} Since $\Theta=(2c_1)(\beta\ell)$
+with $2c_1>0$ and $\beta\ell>0$,
+$\log\Theta=\log(2c_1)+\log\beta+\log\ell$, and $\log\beta\ge0$ because
+$\beta>2>1$. As $\log(2c_1)\ge0$ and $\log\ell\ge0$,
+\[
+  1+\log\Theta\le\bigl(1+\log(2c_1)\bigr)\bigl(1+\log\ell\bigr)+\log\beta ,
+\]
+because the product on the right expands to
+$1+\log(2c_1)+\log\ell+\log(2c_1)\log\ell$ and the last term is nonnegative.
+Both sides being nonnegative, squaring and then using
+$(u+w)^2\le2u^2+2w^2$ gives
+\[
+  L(\Theta)^2\le2\bigl(1+\log(2c_1)\bigr)^2L(\ell)^2+2(\log\beta)^2 .
+\]
+Substituting into \eqref{eq:fob-beta} and multiplying out,
+\begin{equation}\label{eq:fob-key}
+  \beta\le c_2L(\ell)^2+c_3(\log\beta)^2 .
+\end{equation}
+
+\emph{Absorbing.} If $\beta\ge b_0$ then $\beta\ge2\ge1$ and
+$\beta\ge(32c_3)^2$, so \eqref{eq:fob-absorb} applies at $u=\beta$ and gives
+$c_3(\log\beta)^2\le\beta/2$; with \eqref{eq:fob-key} this yields
+$\beta\le2c_2L(\ell)^2$, so $D=2c_2$ works, and $2c_2\le2+2c_2+b_0$. If
+$\beta<b_0$ then $\beta<b_0\le b_0L(\ell)^2$ since $L(\ell)^2\ge1$ and
+$b_0\ge0$, so $D=b_0$ works, and $b_0\le2+2c_2+b_0$. In both cases the
+reduction of the previous paragraph applies and completes the proof.
+\end{proof}

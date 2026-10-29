@@ -1,0 +1,18 @@
+\begin{definition}[Solution of the rescaled equation]
+Let $F$ be a finite-dimensional real inner-product space, let $\lambda\in\R$,
+let $\Omega$ be a subset of the space-time $\ell^2(F\times\R)$ and let $v$ be a
+real function on space-time. We say $v$ is a \emph{viscosity solution of}
+\[
+  D^2v\bigl[(\nabla_xv,1+\lambda v_t)\bigr]=0
+\]
+\emph{on $\Omega$} if $\Omega$ is open, $v$ is continuous on $\Omega$, and for
+every $z\in\Omega$ and every $\phi$ that is $C^2$ near $z$:
+\begin{itemize}
+\item if $w\mapsto v(w)-\phi(w)$ has a local maximum on $\Omega$ at $z$, then
+$F_\lambda[\phi](z)\ge0$;
+\item if $w\mapsto v(w)-\phi(w)$ has a local minimum on $\Omega$ at $z$, then
+$F_\lambda[\phi](z)\le0$;
+\end{itemize}
+with $F_\lambda$ the rescaled operator of \noderef{RescaledOp}. Tests involve all
+variables together, and all tests are admitted.
+\end{definition}

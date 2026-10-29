@@ -1,0 +1,156 @@
+\begin{lemma}[Envelope bounds for fitted solutions]
+Let $F$ be a finite-dimensional real inner-product space and let
+$1\le C_0<\infty$. Write $L(K)=1+\log K$ for $K\ge2$ and
+$\mathcal B_K=\{(x,t):|x|\le K,\ |t|\le K\}$. There is $C>0$, depending only on
+$C_0$ and $\dim F$, such that for every $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass} which is centered at $(0,0)$ or at $(0,1)$ with constant
+$C_0$ in the sense of \noderef{IsCenteredAt}, every $K\ge2$ and every
+$z\in\mathcal B_K$:
+\begin{equation}\label{eq:envelope-slope-bound}
+  \Senv_\ell^+v(z)\le CL(K)^4,\qquad
+  \Senv_\ell^-v(z)\le CL(K)^4\qquad(0<\ell\le K),
+\end{equation}
+with the slopes of \noderef{EnvSlopeP} and \noderef{EnvSlopeM}; and every
+optimizing displacement $y-x$ for $\Penv_Kv(z)$ or for $\Menv_Kv(z)$, in the
+sense of \noderef{QuadEnvP} and \noderef{QuadEnvM}, has length at most
+$CKL(K)^2$.
+\end{lemma}
+\begin{proof}
+Write $L(K)=1+\log K\ge1$ for $K\ge2$. Let $C_g>0$ be the constant of
+\noderef{CenteredGrowth} for this $C_0$, so that
+\begin{equation}\label{eq:feb-growth}
+  |v(\zeta)|\le C_g\,\Theta\,L(\Theta)^2
+  \qquad(\zeta\in\mathcal B_\Theta,\ \Theta\ge2)
+\end{equation}
+for every $v\in\Aclass_{m,C_0}$ centered at $(0,0)$ or at $(0,1)$ with constant
+$C_0$. Fix such a $v$, let $K\ge2$ and let $z=(x,t)\in\mathcal B_K$.
+
+\emph{Step 0: the envelopes at length $K$ are attained.}
+By \noderef{IsFitClass} the function $v$ is continuous on all of space-time and
+is a viscosity solution of $F[v]=0$ there. By \noderef{UniformSubquadratic},
+applied with the centering point of $v$, for every compact $J\subseteq\R$ and
+every $\varepsilon>0$ there is $M>0$ with $|v(y,\sigma)|\le\varepsilon|y|^2$
+whenever $|y|\ge M$ and $\sigma\in J$; that is, $v$ has subquadratic spatial
+growth on compact time intervals of $I=\R$ in the sense of
+\noderef{SubquadraticGrowth}. Hence \noderef{QuadEnvAttained} applies to $v$
+with $I=\R$, and its part (1) with the length $K>0$ gives $y^+,y^-\in F$ with
+\begin{equation}\label{eq:feb-attain}
+  \Penv_Kv(z)=v(y^+,t+K)-\frac{|y^+-x|^2}{2K},
+  \qquad
+  \Menv_Kv(z)=v(y^-,t-K)+\frac{|y^--x|^2}{2K}.
+\end{equation}
+The same applies to any optimizer, so the displacement bound below applies to
+every optimizing displacement at length $K$.
+
+\emph{Step 1: the optimizing displacements at length $K$.}
+Let $y$ be any optimizer for $\Penv_Kv(z)$, and write $|y-x|=BK$ with $B\ge0$.
+The point $x$ itself, at time $(t+K)$, is a competitor in the supremum of
+\noderef{QuadEnvP} defining $\Penv_Kv(z)$, and its cost $|x-x|^2/(2K)$ vanishes.
+That a competitor's value is at most the envelope is not read off the definition:
+the envelope is a supremum, and the supremum of a set that is empty or unbounded
+above is a junk value, so the domination must be licensed. The licence is part (1)
+of \noderef{EnvelopeCompetitorBounds}, whose first clause states that
+$\Penv_\ell v(z)$ dominates every competitor value; we apply it at this centre $z$
+and the length $K>0$, its hypotheses being the continuity and subquadratic growth of
+$v$ established in Step 0 together with $t\in I$ and $t+K\in I$, which are automatic
+since $I=\R$. This gives $\Penv_Kv(z)\ge v(x,t+K)$, so
+\begin{equation}\label{eq:feb-compare}
+  \frac{|y-x|^2}{2K}\le v(y,t+K)-v(x,t+K)
+   \le|v(y,t+K)|+|v(x,t+K)| .
+\end{equation}
+
+If $B\le2$ we are done, since $|y-x|\le2K\le2KL(K)^2$. So assume $B>2$ and put
+$\Theta=(B+2)K$; then $\Theta\ge4K\ge8\ge2$. We have $|y|\le|x|+BK\le(B+1)K$,
+$|x|\le K$ and $|t+K|\le2K$, so both $(y,t+K)$ and $(x,t+K)$ lie in
+$\mathcal B_\Theta$. By \eqref{eq:feb-growth} and \eqref{eq:feb-compare},
+\[
+  \frac{B^2K}{2}\le2C_g\,\Theta\,L(\Theta)^2
+   =2C_g(B+2)K\bigl(1+\log((B+2)K)\bigr)^2
+   \le4C_gBK\bigl(1+\log(2BK)\bigr)^2 ,
+\]
+using $B+2<2B$ for $B>2$. Dividing by $BK/2>0$,
+\[
+  B\le8C_g\bigl(1+\log2+\log B+\log K\bigr)^2 .
+\]
+Since $1+\log2+\log K\le(1+\log2)(1+\log K)=(1+\log2)L(K)$, and
+$(u+w)^2\le2u^2+2w^2$,
+\begin{equation}\label{eq:feb-Bineq}
+  B\le a\,L(K)^2+b\,(\log B)^2,
+  \qquad a:=16C_g(1+\log2)^2,\quad b:=16C_g .
+\end{equation}
+Because $(\log B)^2/B\to0$ as $B\to\infty$, we may fix $B_0\ge2$, depending only
+on $b$, with $b(\log B)^2\le B/2$ for all $B\ge B_0$. If $B\ge B_0$ then
+\eqref{eq:feb-Bineq} gives $B\le aL(K)^2+B/2$, hence $B\le2aL(K)^2$; and if
+$B<B_0$ then $B<B_0\le B_0L(K)^2$ since $L(K)\ge1$. In all cases
+\begin{equation}\label{eq:feb-disp}
+  |y-x|=BK\le C_6\,K\,L(K)^2,\qquad C_6:=\max\{2a,\,B_0,\,2\} ,
+\end{equation}
+which also covers the case $B\le2$.
+
+For an optimizer $y$ of $\Menv_Kv(z)$ the same reasoning applies with the mirror
+clause: part (2) of \noderef{EnvelopeCompetitorBounds}, whose first clause states
+that $\Menv_\ell v(z)$ is dominated by every competitor value, applied at this
+centre and this length with the competitor $x$ of vanishing cost, gives
+$\Menv_Kv(z)\le v(x,t-K)$, while \noderef{QuadEnvM} and attainment give
+$\Menv_Kv(z)=v(y,t-K)+|y-x|^2/(2K)$; hence
+\[
+  \frac{|y-x|^2}{2K}\le v(x,t-K)-v(y,t-K)\le|v(x,t-K)|+|v(y,t-K)| ,
+\]
+and the argument above applies verbatim with $t-K$ in place of $t+K$, giving the
+same bound \eqref{eq:feb-disp}. This is the displacement assertion.
+
+\emph{Step 2: the slopes at length $K$.}
+Let $y=y^+$ be as in \eqref{eq:feb-attain}, so $|y-x|\le C_6KL(K)^2$ by
+\eqref{eq:feb-disp}. Then
+$|y|\le|x|+C_6KL(K)^2\le(1+C_6)KL(K)^2$ and $|t+K|\le2K$, so
+$(y,t+K)\in\mathcal B_{K_1}$ with
+\[
+  K_1:=C_7\,K\,L(K)^2,\qquad C_7:=3+C_6 ,
+\]
+and $K_1\ge3K\ge6\ge2$. Moreover
+\[
+  L(K_1)=1+\log C_7+\log K+2\log L(K)
+   \le(1+\log C_7)+L(K)+2L(K)\le(3+\log C_7)L(K),
+\]
+using $\log K\le L(K)$, $\log L(K)\le L(K)$ and $1\le L(K)$. Hence by
+\eqref{eq:feb-growth}
+\begin{equation}\label{eq:feb-vbig}
+  |v(y,t+K)|\le C_gK_1L(K_1)^2
+   \le C_gC_7(3+\log C_7)^2\,K\,L(K)^4=:C_8\,K\,L(K)^4 ,
+\end{equation}
+and also $|v(z)|\le C_gKL(K)^2\le C_gKL(K)^4$ by \eqref{eq:feb-growth} with
+$\Theta=K$.
+
+Dropping the nonpositive cost in \eqref{eq:feb-attain} gives
+$\Penv_Kv(z)\le v(y,t+K)$, so by \noderef{EnvSlopeP}, \eqref{eq:feb-vbig} and
+the bound on $|v(z)|$,
+\[
+  \Senv_K^+v(z)=\frac{\Penv_Kv(z)-v(z)}{K}
+   \le\frac{|v(y,t+K)|+|v(z)|}{K}\le(C_8+C_g)L(K)^4 .
+\]
+Similarly $\Menv_Kv(z)\ge v(y^-,t-K)$ by \eqref{eq:feb-attain}, and
+\eqref{eq:feb-disp} applied to $y^-$ together with \eqref{eq:feb-growth} gives
+$|v(y^-,t-K)|\le C_8KL(K)^4$, so by \noderef{EnvSlopeM}
+\[
+  \Senv_K^-v(z)=\frac{v(z)-\Menv_Kv(z)}{K}
+   \le\frac{|v(z)|+|v(y^-,t-K)|}{K}\le(C_8+C_g)L(K)^4 .
+\]
+
+\emph{Step 3: all lengths $0<\ell\le K$.}
+The hypotheses of \noderef{EnvHamiltonianSolution} hold for $v$ with $I=\R$: the
+set $\R$ is open, $v$ is continuous on all of space-time and is a viscosity
+solution of $F[v]=0$ there by \noderef{IsFitClass}, and $v$ has the growth
+property of \noderef{SubquadraticGrowth} on $\R$ by Step 0. Its part (1),
+applied at the center $z$ with the lengths $\ell\le K$ — its hypothesis
+$t+\sigma\in\R$ for $\sigma\in[-K,K]$ being automatic — gives
+\[
+  \Senv_\ell^+v(z)\le\Senv_K^+v(z),\qquad
+  \Senv_\ell^-v(z)\le\Senv_K^-v(z)\qquad(0<\ell\le K).
+\]
+Combining with Step 2, both slopes are at most $(C_8+C_g)L(K)^4$ for every
+$0<\ell\le K$.
+
+\emph{Conclusion.} Taking $C=\max\{C_8+C_g,\ C_6\}+1>0$, which depends only on
+$C_0$ and $\dim F$, gives \eqref{eq:envelope-slope-bound} and the displacement
+bound.
+\end{proof}

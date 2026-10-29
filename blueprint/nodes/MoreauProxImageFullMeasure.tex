@@ -1,0 +1,84 @@
+\begin{lemma}[Almost every point lies above an invertible derivative]
+Let $E$ be a finite-dimensional real inner-product space equipped with its Borel
+$\sigma$-algebra and an additive Haar measure $\mu$, let $\psi:E\to\R$ be convex
+on $E$, and let $u:E\to E$ be a proximal map for $\psi$ in the sense of
+\noderef{IsMoreauProx}. Put
+\[
+  G=\bigl\{y\in E:u\ \text{is differentiable at}\ y\ \text{with derivative}\
+     P(y),\ \det P(y)\ne0\bigr\}.
+\]
+Then $\mu\bigl(E\setminus u(G)\bigr)=0$, and the range of $u$ is dense in $E$.
+\end{lemma}
+\begin{proof}
+\emph{$u$ is $1$-Lipschitz.}
+For any $z_1,z_2\in E$ the points $u(z_1)$ and $u(z_2)$ minimize
+$x\mapsto\psi(x)+|x-z_1|^2/2$ and $x\mapsto\psi(x)+|x-z_2|^2/2$ respectively, by
+\noderef{IsMoreauProx}, so \noderef{MoreauProxMonotone} applied with these data
+gives
+\begin{equation}\label{eq:mpifm-firm}
+  |u(z_1)-u(z_2)|^2+\bigl|(z_1-u(z_1))-(z_2-u(z_2))\bigr|^2\le|z_1-z_2|^2 .
+\end{equation}
+Dropping the second (nonnegative) term gives $|u(z_1)-u(z_2)|\le|z_1-z_2|$, so
+$u$ is $1$-Lipschitz on $E$.
+
+\emph{The non-differentiability set and its image are null.}
+Let $N=\{y\in E:u\ \text{is not differentiable at}\ y\}$. Since $u$ is
+$1$-Lipschitz on $E$, Rademacher's theorem (preamble) gives $\mu(N)=0$. The
+preamble's bound for the measure of a Lipschitz image, applied with source and
+target both equal to $E$ and with the $1$-Lipschitz map $u$ on the null set $N$,
+then gives
+\begin{equation}\label{eq:mpifm-uN}
+  \mu\bigl(u(N)\bigr)=0 .
+\end{equation}
+
+\emph{The singular part and its image are null.}
+Put $\Delta=E\setminus N$ and let $P(y)$ denote the derivative of $u$ at
+$y\in\Delta$, and set
+\[
+  S=\{y\in\Delta:\det P(y)=0\},\qquad
+  G=\{y\in\Delta:\det P(y)\ne0\}.
+\]
+By the preamble, $\Delta$ is a Borel set and $y\mapsto P(y)$ is Borel measurable
+on it; the determinant is a continuous function of a linear map (preamble), so
+$S$, being the intersection of $\Delta$ with the preimage of the closed set
+$\{0\}$ under a Borel map, is Borel. For $y\in S$ the map $u$ is differentiable
+at $y$ with derivative $P(y)$, hence a fortiori has derivative $P(y)$ at $y$
+within $S$. The area-formula inequality of the preamble, applied with the
+measurable set $S$, the map $u$ and the derivative field $P$, therefore gives
+\begin{equation}\label{eq:mpifm-uS}
+  \mu\bigl(u(S)\bigr)\le\int_S\bigl|\det P(y)\bigr|\,d\mu(y)=0,
+\end{equation}
+since the integrand vanishes identically on $S$ by the definition of $S$.
+
+\emph{Almost every point is a differentiability point of $\psi$, hence in the
+range of $u$.}
+Let $D=\{x\in E:\psi\ \text{is differentiable at}\ x\}$. The function $\psi$ is
+convex and real-valued on the open set $E$, hence locally Lipschitz there
+(preamble), so Rademacher's theorem (preamble) gives
+\begin{equation}\label{eq:mpifm-D}
+  \mu(E\setminus D)=0 .
+\end{equation}
+If $x\in D$ with gradient $q=\nabla\psi(x)$, then \noderef{ProxHitsGradientPoints}
+gives $u(x+q)=x$; in particular $x$ lies in the range of $u$. Hence
+$D\subseteq u(E)$.
+
+\emph{Conclusion.}
+Since $E=N\cup S\cup G$ we have $u(E)=u(N)\cup u(S)\cup u(G)$, so every point of
+$D$ outside $u(G)$ lies in $u(N)\cup u(S)$, and therefore
+\[
+  E\setminus u(G)\subseteq(E\setminus D)\cup\bigl(D\setminus u(G)\bigr)
+   \subseteq(E\setminus D)\cup u(N)\cup u(S).
+\]
+By \eqref{eq:mpifm-D}, \eqref{eq:mpifm-uN} and \eqref{eq:mpifm-uS} each of the
+three sets on the right is $\mu$-null, so their union is $\mu$-null and
+\[
+  \mu\bigl(E\setminus u(G)\bigr)=0 .
+\]
+Finally, $u(E)$ contains $D$, so $E\setminus u(E)\subseteq E\setminus D$ is
+$\mu$-null by \eqref{eq:mpifm-D}. Now $E\setminus u(E)$ has empty interior: if
+it had an interior point $z$, it would contain a closed ball $\overline B(z,r)$
+with $r>0$, and $\mu(\overline B(z,r))>0$ by the preamble's computation of the
+Haar measure of balls, which together with the monotonicity of $\mu$ contradicts
+$\mu(E\setminus u(E))=0$. A set whose complement has empty interior is dense, so
+$u(E)$ is dense in $E$.
+\end{proof}

@@ -1,0 +1,236 @@
+\begin{lemma}[A nonaffine horizontal slice]
+Let $F$ be a finite-dimensional real inner-product space, let $1\le C_0<\infty$
+and let $v\in\Aclass_{m,C_0}$ in the sense of \noderef{IsFitClass} be centered at
+the origin with constant $C_0$ in the sense of \noderef{IsCenteredAt}. If $v$ is
+not affine in the sense of \noderef{IsSpaceTimeAffine}, then some horizontal
+slice of $v$ has a nonzero midpoint Jensen defect: there are a time $t$ and
+points $y_1,y_2\in F$ with
+\[
+  v\left(\frac{y_1+y_2}{2},t\right)
+    \ne\frac{v(y_1,t)+v(y_2,t)}{2}.
+\]
+\end{lemma}
+\begin{proof}
+We argue by contraposition: assuming that every horizontal slice of $v$
+satisfies the midpoint identity,
+\begin{equation}\label{eq:nse-mid}
+  v\Bigl(\frac{y_1+y_2}{2},t\Bigr)=\frac{v(y_1,t)+v(y_2,t)}{2}
+  \qquad(t\in\R,\ y_1,y_2\in F),
+\end{equation}
+we show that $v$ is affine in the sense of \noderef{IsSpaceTimeAffine}, which
+contradicts the hypothesis.
+
+\emph{Step 0: standing facts about $v$.}
+By \noderef{IsFitClass} the function $v$ is continuous on all of space-time and
+is a viscosity solution of $F[v]=0$ there; by \noderef{IsLimitSolutionOn}, whose
+definition of that notion is precisely the conjunction of the two one-sided
+conditions, $v$ is therefore both a viscosity subsolution and a viscosity
+supersolution in the senses of \noderef{IsLimitSubOn} and
+\noderef{IsLimitSuperOn}. By
+\noderef{UniformSubquadratic}, applied with the centering point $(0,0)$, for
+every compact $J\subseteq\R$ and every $\varepsilon>0$ there is $M>0$ with
+$|v(y,\sigma)|\le\varepsilon|y|^2$ for $|y|\ge M$, $\sigma\in J$; that is, $v$
+has subquadratic spatial growth on compact time intervals of $I=\R$ in the sense
+of \noderef{SubquadraticGrowth}. Hence \noderef{QuadEnvPathConvex} applies to
+$v$ with $I=\R$ and any $T>0$.
+
+\emph{Step 1: each slice is affine.}
+Fix $t\in\R$ and put $g(y)=v(y,t)$, a continuous function on $F$. Let
+$h(y)=g(y)-g(0)$. From \eqref{eq:nse-mid} with $y_2=0$ we get
+$h(y/2)=h(y)/2$ for every $y$, and then \eqref{eq:nse-mid} itself gives
+\[
+  \frac{h(y_1+y_2)}{2}=h\Bigl(\frac{y_1+y_2}{2}\Bigr)
+   =\frac{h(y_1)+h(y_2)}{2},
+\]
+so $h$ is additive. An additive map is $\mathbb Q$-homogeneous: additivity gives
+$h(ny)=nh(y)$ for $n\in\mathbb N$ by induction, $h(0)=0$, $h(-y)=-h(y)$, and
+$h(y/n)=h(y)/n$ by applying the first identity to $y/n$. Since $h$ is
+continuous and $\mathbb Q$ is dense in $\R$, $h$ is $\R$-homogeneous, hence
+$\R$-linear. By the Riesz representation of a continuous linear functional on
+the finite-dimensional inner-product space $F$, there is $p(t)\in F$ with
+\begin{equation}\label{eq:nse-slice}
+  v(y,t)=\langle p(t),y\rangle+c(t)\qquad(y\in F),\qquad c(t):=v(0,t).
+\end{equation}
+
+\emph{Step 2: $p$ and $c$ are continuous.}
+$c(t)=v(0,t)$ is continuous in $t$ because $v$ is continuous. Fix an orthonormal
+basis $e_1,\dots,e_m$ of $F$. By \eqref{eq:nse-slice},
+$\langle p(t),e_i\rangle=v(e_i,t)-v(0,t)$, so
+$p(t)=\sum_i\bigl(v(e_i,t)-v(0,t)\bigr)e_i$ is continuous in $t$.
+
+\emph{Step 3: the forward envelope of an affine slice.}
+Let $\ell>0$ and $(x,t)$ be arbitrary. By \eqref{eq:nse-slice} and
+\noderef{QuadEnvP},
+\[
+  \Penv_\ell v(x,t)
+   =\sup_{y\in F}\Bigl\{\langle p(t+\ell),y\rangle+c(t+\ell)
+      -\frac{|y-x|^2}{2\ell}\Bigr\}.
+\]
+Writing $y=x+\ell p(t+\ell)+w$ and expanding, the expression in braces equals
+\[
+  \langle p(t+\ell),x\rangle+c(t+\ell)+\frac{\ell|p(t+\ell)|^2}{2}
+    -\frac{|w|^2}{2\ell},
+\]
+which is maximal exactly at $w=0$. Hence
+\begin{equation}\label{eq:nse-P}
+  \Penv_\ell v(x,t)=\langle p(t+\ell),x\rangle+c(t+\ell)
+     +\frac{\ell}{2}\bigl|p(t+\ell)\bigr|^2\qquad(\ell>0),
+\end{equation}
+and by \noderef{QuadEnvP} the same formula holds at $\ell=0$, where it reads
+$\Penv_0v(x,t)=v(x,t)=\langle p(t),x\rangle+c(t)$.
+
+\emph{Step 4: $p$ is affine in $t$.}
+Fix $t$ and $T>0$. By \noderef{QuadEnvPathConvex}, part (1), applied with
+$d=0$, $x_0=x$ and this $T$ — the admissibility hypothesis being vacuous since
+$I=\R$ — the function $\ell\mapsto\Penv_\ell v(x,t)$ is convex on $[0,T]$. Let
+$\ell_0,\ell_1\in[0,T]$, $\theta\in[0,1]$ and
+$\ell_\theta=(1-\theta)\ell_0+\theta\ell_1$. Putting $A(\ell)=p(t+\ell)$ and
+$B(\ell)=c(t+\ell)+\tfrac\ell2|p(t+\ell)|^2$, convexity and \eqref{eq:nse-P}
+give, for every $x\in F$,
+\[
+  \bigl\langle A(\ell_\theta)-(1-\theta)A(\ell_0)-\theta A(\ell_1),\,x\bigr\rangle
+   \le(1-\theta)B(\ell_0)+\theta B(\ell_1)-B(\ell_\theta).
+\]
+The right side does not depend on $x$. If the vector
+$\Delta=A(\ell_\theta)-(1-\theta)A(\ell_0)-\theta A(\ell_1)$ were nonzero, then
+taking $x=\lambda\Delta$ with $\lambda\to+\infty$ would make the left side tend
+to $+\infty$, a contradiction. Hence $\Delta=0$:
+\[
+  A(\ell_\theta)=(1-\theta)A(\ell_0)+\theta A(\ell_1)
+  \qquad(\ell_0,\ell_1\in[0,T],\ \theta\in[0,1]).
+\]
+Since $T>0$ was arbitrary, this holds for all $\ell_0,\ell_1\ge0$. Taking
+$\ell_0=0$, $\ell_1=1$ and $\theta=\ell\in[0,1]$ gives
+$A(\ell)=A(0)+\ell\bigl(A(1)-A(0)\bigr)$ for $\ell\in[0,1]$; and for $\ell>1$,
+taking $\ell_0=0$, $\ell_1=\ell$ and $\theta=1/\ell$ gives
+$A(1)=(1-1/\ell)A(0)+(1/\ell)A(\ell)$, i.e. again
+$A(\ell)=A(0)+\ell(A(1)-A(0))$. Hence, as $t\in\R$ was arbitrary,
+\begin{equation}\label{eq:nse-pstep}
+  p(t+\ell)=p(t)+\ell\bigl(p(t+1)-p(t)\bigr)\qquad(t\in\R,\ \ell\ge0).
+\end{equation}
+Note that \eqref{eq:nse-pstep} is licensed only for \emph{nonnegative} offsets
+$\ell$, because the convexity it came from is convexity on $[0,T]$. Passing from
+it to a formula valid on all of $\R$ is therefore a step to be carried out, not a
+remark, and we record it as a statement about an arbitrary map, because Step 6
+needs it a second time.
+
+\emph{Base-point lemma.} Let $V$ be a real vector space and let $q:\R\to V$
+satisfy
+\begin{equation}\label{eq:nse-nonneg-offset}
+  q(t+\ell)=q(t)+\ell\bigl(q(t+1)-q(t)\bigr)\qquad(t\in\R,\ \ell\ge0).
+\end{equation}
+Then $q(\tau)=q(0)+\tau\bigl(q(1)-q(0)\bigr)$ for every $\tau\in\R$.
+
+To see this, fix $\tau\in\R$ and choose the single base point
+$s=\min\{\tau,0\}-1$. Then $s\le\tau-1$ and $s\le-1$, so the three offsets
+\[
+  \tau-s\ge1,\qquad 0-s\ge1,\qquad 1-s\ge2
+\]
+are all nonnegative, and each of the three instantiations below is admissible in
+\eqref{eq:nse-nonneg-offset}. Put $m=q(s+1)-q(s)$. Applying
+\eqref{eq:nse-nonneg-offset} at $t=s$ with offsets $\tau-s$, $0-s$ and $1-s$ in
+turn, and simplifying $s+(\tau-s)=\tau$, $s+(0-s)=0$ and $s+(1-s)=1$,
+\[
+  q(\tau)=q(s)+(\tau-s)m,\qquad
+  q(0)=q(s)+(0-s)m,\qquad
+  q(1)=q(s)+(1-s)m .
+\]
+Subtracting the second display from the third gives
+$q(1)-q(0)=\bigl((1-s)-(0-s)\bigr)m=m$: the slope $m$ at the base point
+\emph{is} $q(1)-q(0)$, which is what the base point being unknown might
+otherwise have cost us. Subtracting the second from the first gives
+$q(\tau)-q(0)=\bigl((\tau-s)-(0-s)\bigr)m=\tau m$. Combining the two,
+$q(\tau)=q(0)+\tau\bigl(q(1)-q(0)\bigr)$, which proves the lemma. No case split
+on the sign of $\tau$ occurs, and the case $\tau\ge0$ is covered along with the
+rest: every instantiation stays inside the nonnegative range of offsets that
+\eqref{eq:nse-nonneg-offset} licenses. This is the sense in which the affine
+interpolation identity holds on every interval, rather than only forward from one
+fixed base point.
+
+Applying the base-point lemma with $V=F$ and $q=p$, whose hypothesis
+\eqref{eq:nse-nonneg-offset} is exactly \eqref{eq:nse-pstep}, and setting
+$p_0=p(0)$ and $p_1=p(1)-p(0)$,
+\begin{equation}\label{eq:nse-paffine}
+  p(\tau)=p_0+\tau p_1\qquad(\tau\in\R).
+\end{equation}
+
+\emph{Step 5: $p$ is constant.}
+Let $C_g>0$ be the constant of \noderef{CenteredGrowth} for this $C_0$; since
+$v\in\Aclass_{m,C_0}$ is centered at the origin, for $K\ge2$,
+$|v(\zeta)|\le C_gKL(K)^2$ on $\mathcal B_K$, where $L(K)=1+\log K$. If
+$F=\{0\}$ then $p(\tau)\in F=\{0\}$ for every $\tau$, so $p_1=p(1)-p(0)=0$ and
+$p$ is constant outright, which is the assertion of this step; assume therefore
+$F\ne\{0\}$, so that $F$ contains a unit vector. Fix a unit vector $e\in F$, let
+$K\ge2$ and let $|\tau|\le K$. By \eqref{eq:nse-slice},
+$v(Ke,\tau)-v(-Ke,\tau)=2K\langle p(\tau),e\rangle$, and both points lie in
+$\mathcal B_K$, so
+\[
+  \bigl|\langle p(\tau),e\rangle\bigr|
+   \le\frac{|v(Ke,\tau)|+|v(-Ke,\tau)|}{2K}\le C_gL(K)^2 .
+\]
+Taking the supremum over unit vectors $e$ gives $|p(\tau)|\le C_gL(K)^2$ for
+$|\tau|\le K$. In particular $|p(K)|\le C_g(1+\log K)^2$ for every $K\ge2$. By
+\eqref{eq:nse-paffine}, $|p(K)|\ge K|p_1|-|p_0|$; if $p_1\ne0$ this grows
+linearly in $K$, while $C_g(1+\log K)^2$ grows slower than linearly, so
+$K|p_1|-|p_0|\le C_g(1+\log K)^2$ fails for large $K$. Hence $p_1=0$ and
+$p(\tau)\equiv p_0=:p$.
+
+\emph{Step 6: $c$ is convex and concave, hence affine.}
+With $p$ constant, \eqref{eq:nse-P} becomes
+\[
+  \Penv_\ell v(x,t)=\langle p,x\rangle+c(t+\ell)+\frac{\ell}{2}|p|^2 .
+\]
+Fix $t$ and $T>0$; convexity of $\ell\mapsto\Penv_\ell v(x,t)$ on $[0,T]$, from
+\noderef{QuadEnvPathConvex} part (1) as in Step 4, and the fact that adding the
+affine function $\ell\mapsto\langle p,x\rangle+\tfrac\ell2|p|^2$ changes neither
+convexity nor its failure, show that $\ell\mapsto c(t+\ell)$ is convex on
+$[0,T]$. Since $t$ and $T$ are arbitrary, $c$ is convex on $\R$.
+
+For the reverse, compute the backward envelope: by \eqref{eq:nse-slice} and
+\noderef{QuadEnvM}, for $\ell>0$,
+\[
+  \Menv_\ell v(x,t)
+   =\inf_{y}\Bigl\{\langle p,y\rangle+c(t-\ell)+\frac{|y-x|^2}{2\ell}\Bigr\}
+   =\langle p,x\rangle+c(t-\ell)-\frac{\ell}{2}|p|^2 ,
+\]
+the infimum being attained at $y=x-\ell p$, as the substitution
+$y=x-\ell p+w$ shows. By \noderef{QuadEnvPathConvex}, part (2), applied with
+$I=\R$ and any $T>0$ — its hypotheses hold because $v$ is a viscosity
+supersolution with the required continuity and growth by Step 0 — the function
+$\ell\mapsto\Menv_\ell v(x,t)$ is concave on $[0,T]$. Removing the affine
+function $\ell\mapsto\langle p,x\rangle-\tfrac\ell2|p|^2$ shows that
+$\ell\mapsto c(t-\ell)$ is concave on $[0,T]$ for every $t$ and $T$, i.e. $c$ is
+concave on $\R$.
+
+A function on $\R$ that is both convex and concave is affine. Convexity and
+concavity together give equality in every chord inequality, so
+\begin{equation}\label{eq:nse-cchord}
+  c\bigl((1-\theta)\tau_0+\theta\tau_1\bigr)
+   =(1-\theta)c(\tau_0)+\theta c(\tau_1)
+  \qquad(\tau_0,\tau_1\in\R,\ \theta\in[0,1]).
+\end{equation}
+We check that $c$ satisfies the hypothesis \eqref{eq:nse-nonneg-offset} of the
+base-point lemma of Step 4, with $V=\R$. Let $t\in\R$ and $\ell\ge0$. If
+$0\le\ell\le1$, then $t+\ell=(1-\ell)t+\ell(t+1)$ is a convex combination of $t$
+and $t+1$, so \eqref{eq:nse-cchord} with $\tau_0=t$, $\tau_1=t+1$ and
+$\theta=\ell$ gives
+$c(t+\ell)=(1-\ell)c(t)+\ell c(t+1)=c(t)+\ell\bigl(c(t+1)-c(t)\bigr)$. If
+$\ell>1$, then $1/\ell\in(0,1)$ and $t+1=(1-1/\ell)t+(1/\ell)(t+\ell)$, so
+\eqref{eq:nse-cchord} with $\tau_0=t$, $\tau_1=t+\ell$ and $\theta=1/\ell$ gives
+$c(t+1)=(1-1/\ell)c(t)+(1/\ell)c(t+\ell)$; multiplying by $\ell$ and rearranging
+yields the same identity $c(t+\ell)=c(t)+\ell\bigl(c(t+1)-c(t)\bigr)$. So
+\eqref{eq:nse-nonneg-offset} holds for $q=c$, and the base-point lemma gives
+\begin{equation}\label{eq:nse-caffine}
+  c(\tau)=c(0)+\tau\bigl(c(1)-c(0)\bigr)\qquad(\tau\in\R).
+\end{equation}
+
+\emph{Conclusion.}
+Writing $\beta=c(1)-c(0)$ and $\gamma=c(0)$, \eqref{eq:nse-slice},
+\eqref{eq:nse-caffine} and Step 5 give
+\[
+  v(x,t)=\langle p,x\rangle+\beta t+\gamma\qquad\bigl((x,t)\text{ arbitrary}\bigr),
+\]
+so $v$ is affine in the sense of \noderef{IsSpaceTimeAffine}. This contradicts
+the hypothesis that $v$ is not affine, and therefore
+\eqref{eq:nse-mid} must fail for some $t,y_1,y_2$, which is the assertion.
+\end{proof}

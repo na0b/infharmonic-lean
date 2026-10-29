@@ -1,0 +1,149 @@
+\begin{lemma}[The extremal Jensen constant]
+Let $F$ be a finite-dimensional real inner-product space, let $1\le C_0<\infty$
+and let $v^{(0)}\in\Aclass_{m,C_0}$ in the sense of \noderef{IsFitClass} be
+centered at the origin with constant $C_0$ in the sense of
+\noderef{IsCenteredAt} and not affine in the sense of
+\noderef{IsSpaceTimeAffine}. Then there are a function
+$v\in\Aclass_{m,C_0}$, centered at the origin and not affine, and a number
+$\kappa$ with $0<\kappa<\infty$ such that $v$ satisfies the horizontal Jensen
+bound with constant $\kappa$ on all times, in the sense of
+\noderef{HasJensenBound}, and $\kappa$ is the least such constant:
+\[
+  \kappa=\sup_{\substack{t,\ \text{finite configurations}\\r>0}}
+     \frac{\sum_i\theta_i v(y_i,t)-v(x,t)}{r},
+\]
+the supremum over all times and all finite horizontal probability configurations
+with mean $x$ and radius $r>0$, in the senses of \noderef{IsBaryConfig} and
+\noderef{BaryRadius}.
+\end{lemma}
+\begin{proof}
+\emph{Step 1: a configuration with nonzero defect.}
+By \noderef{NonaffineSliceExists}, applied to $v^{(0)}$, there are a time $t_1$
+and points $w_1,w_2\in F$ with
+\[
+  v^{(0)}\Bigl(\frac{w_1+w_2}{2},t_1\Bigr)
+   \ne\frac{v^{(0)}(w_1,t_1)+v^{(0)}(w_2,t_1)}{2}.
+\]
+In particular $w_1\ne w_2$. Put $n=2$, $\theta_1=\theta_2=\tfrac12$,
+$y_1=w_1$, $y_2=w_2$ and $x_1=\tfrac12(w_1+w_2)$. Then $\theta_i>0$,
+$\sum_i\theta_i=1$ and $\sum_i\theta_iy_i=x_1$, so $(\theta,y)$ is a finite
+horizontal probability configuration with mean $x_1$ in the sense of
+\noderef{IsBaryConfig}. Its radius, in the sense of \noderef{BaryRadius}, is
+\[
+  r_1=\Bigl(\tfrac12|w_1-x_1|^2+\tfrac12|w_2-x_1|^2\Bigr)^{1/2}
+   =\frac{|w_1-w_2|}{2}>0,
+\]
+since $w_1-x_1=\tfrac12(w_1-w_2)$ and $w_2-x_1=-\tfrac12(w_1-w_2)$. The defect
+\[
+  D_1=\sum_i\theta_iv^{(0)}(y_i,t_1)-v^{(0)}(x_1,t_1)
+\]
+is nonzero by the displayed inequality.
+
+\emph{Step 2: normalizing the sign of the defect.}
+If $D_1>0$, put $v=v^{(0)}$. If $D_1<0$, put $v=\widetilde{v^{(0)}}$, the time
+reversal of \noderef{TimeFlip}. We check that in the second case $v$ has all the
+required properties.
+
+By \noderef{TimeReversal}, part (3), $v\in\Aclass_{m,C_0}$, and $(0,0)$, being a
+fit for $v^{(0)}$ at the origin of radius $1$ by \noderef{IsCenteredAt}, becomes
+the fit $(-0,0)=(0,0)$ for $v$ at the reflection of the origin, which is the
+origin, of radius $1$; moreover $v(0,0)=-v^{(0)}(0,0)=0$ by \noderef{TimeFlip}.
+So $v$ is centered at the origin with constant $C_0$ in the sense of
+\noderef{IsCenteredAt}. It is not affine: if $v(y,s)=\langle q,y\rangle+\beta
+s+\gamma$ for all $(y,s)$, then by \noderef{TimeFlip}
+$v^{(0)}(y,\sigma)=-v(y,-\sigma)=-\langle q,y\rangle+\beta\sigma-\gamma$ would be
+affine in the sense of \noderef{IsSpaceTimeAffine}, contrary to hypothesis.
+Finally, by \noderef{TimeFlip}, for the same configuration at the time $-t_1$,
+\[
+  \sum_i\theta_iv(y_i,-t_1)-v(x_1,-t_1)
+   =-\Bigl(\sum_i\theta_iv^{(0)}(y_i,t_1)-v^{(0)}(x_1,t_1)\Bigr)=-D_1>0 .
+\]
+Thus in either case $v\in\Aclass_{m,C_0}$ is centered at the origin with
+constant $C_0$, is not affine, and there are a time $\tau_1$, a configuration
+$(\theta,y)$ with mean $x_1$ and radius $r_1>0$, and a defect
+\[
+  D=\sum_i\theta_iv(y_i,\tau_1)-v(x_1,\tau_1)>0 .
+\]
+
+\emph{Step 3: the set of defect quotients.}
+Let
+\[
+  \mathcal Q=\left\{\frac{\sum_i\theta_i'v(y_i',\tau)-v(x',\tau)}{r'}\right\},
+\]
+the set of quotients over all times $\tau$ and all finite horizontal
+probability configurations $(\theta',y')$ with mean $x'$, in the sense of
+\noderef{IsBaryConfig}, whose radius $r'$, in the sense of \noderef{BaryRadius},
+is strictly positive. By Step 2, $D/r_1\in\mathcal Q$, so $\mathcal Q$ is
+nonempty and contains a positive number.
+
+\emph{Step 4: $\mathcal Q$ is bounded above.}
+Let $C_g>0$ be the constant of \noderef{CenteredGrowth} for this $C_0$. We
+first record a consequence: if $w\in\Aclass_{m,C_0}$ is centered at the origin
+with constant $C_0$, then
+\begin{equation}\label{eq:jsf-quad}
+  |w(y,0)|\le C_1\bigl(1+|y|^2\bigr)\qquad(y\in F),
+\end{equation}
+with $C_1$ depending only on $C_0$ and $\dim F$. Indeed, if $|y|\le2$ take
+$K=2$ in \noderef{CenteredGrowth}: $(y,0)\in\mathcal B_2$ and
+$|w(y,0)|\le2C_g(1+\log2)^2$. If $|y|>2$ take $K=|y|\ge2$: then
+$(y,0)\in\mathcal B_K$ and $|w(y,0)|\le C_g|y|(1+\log|y|)^2$; since
+$c_1:=\sup_{K\ge2}(1+\log K)^2/K$ is finite, because $(\log K)^2/K\to0$ and the
+function is continuous on $[2,\infty)$, this is at most $C_gc_1|y|^2$. So
+\eqref{eq:jsf-quad} holds with $C_1=\max\{2C_g(1+\log2)^2,\ C_gc_1\}$.
+
+Now let $\tau$, $(\theta',y')$, $x'$ and $r'>0$ be as in Step 3, with defect
+$D'=\sum_i\theta_i'v(y_i',\tau)-v(x',\tau)$. By \noderef{IsFitClass} choose a fit
+$(p,a)$ for $v$ at $(x',\tau)$ of radius $r'>0$ with constant $C_0$, and let
+\[
+  \bar v=\text{the change of frame of \noderef{FrameChange} based at }
+  (x',\tau)\text{ with scale }r'\text{ and parameters }(p,a).
+\]
+By \noderef{FrameInvariance}, $\bar v\in\Aclass_{m,C_0}$; and its second
+assertion, applied at the new center $\zeta=0$, whose corresponding old point is
+$(x',\tau)$, with $\rho=1$ and the fit $(p,a)$ at radius $r'\cdot1=r'$, shows
+that $(p-p,a-a)=(0,0)$ is a fit for $\bar v$ at the origin of radius $1$.
+Together with $\bar v(0,0)=0$, which is immediate from \noderef{FrameChange},
+this makes $\bar v$ centered at the origin with constant $C_0$ in the sense of
+\noderef{IsCenteredAt}.
+
+Put $u_i=(y_i'-x')/r'$. By \noderef{FrameChange}, at the new time $0$ the point
+$u_i$ corresponds to the old point $x'+r'u_i=y_i'$ at time $\tau$, and
+\[
+  \bar v(u_i,0)=\frac{v(y_i',\tau)-v(x',\tau)}{r'}-\langle p,u_i\rangle .
+\]
+Since $\sum_i\theta_i'u_i=(x'-x')/r'=0$ and $\sum_i\theta_i'=1$, averaging with
+the weights $\theta_i'$ gives
+\begin{equation}\label{eq:jsf-transfer}
+  \sum_i\theta_i'\,\bar v(u_i,0)=\frac{D'}{r'} ,
+\end{equation}
+the linear term dropping out. Moreover
+$\sum_i\theta_i'|u_i|^2=\sum_i\theta_i'|y_i'-x'|^2/(r')^2=1$ by
+\noderef{BaryRadius}. Hence, by \eqref{eq:jsf-quad} applied to $\bar v$,
+\[
+  \frac{D'}{r'}=\sum_i\theta_i'\,\bar v(u_i,0)
+   \le\sum_i\theta_i'\,C_1\bigl(1+|u_i|^2\bigr)=2C_1 .
+\]
+So every element of $\mathcal Q$ is at most $2C_1$, a constant depending only on
+$C_0$ and $\dim F$.
+
+\emph{Step 5: the extremal constant.}
+By Steps 3 and 4 the set $\mathcal Q$ is nonempty and bounded above, so
+$\kappa:=\sup\mathcal Q$ is a real number, and $\kappa\ge D/r_1>0$.
+
+We check that $v$ satisfies the horizontal Jensen bound with constant $\kappa$
+at every time, in the sense of \noderef{HasJensenBound}. Let $\tau\in\R$ and let
+$(\theta',y')$ be a configuration with mean $x'$ and radius $r'$. If $r'>0$ the
+quotient $D'/r'$ lies in $\mathcal Q$, hence is at most $\kappa$, i.e.
+$D'\le\kappa r'$. If $r'=0$, then by \noderef{BaryRadius}
+$\sum_i\theta_i'|y_i'-x'|^2=0$ with all $\theta_i'>0$, so $y_i'=x'$ for every
+$i$, and $D'=\sum_i\theta_i'v(x',\tau)-v(x',\tau)=0=\kappa r'$. In both cases
+$D'\le\kappa r'$.
+
+Finally $\kappa$ is the least such constant: if $\kappa'$ is any number for
+which the horizontal Jensen bound of \noderef{HasJensenBound} holds for $v$ at
+every time, then for every configuration with radius $r'>0$ we get
+$D'/r'\le\kappa'$, so every element of $\mathcal Q$ is at most $\kappa'$ and
+hence $\kappa=\sup\mathcal Q\le\kappa'$.
+
+This exhibits $v$ and $\kappa$ with all the asserted properties.
+\end{proof}

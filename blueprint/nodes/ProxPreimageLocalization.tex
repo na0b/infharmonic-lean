@@ -1,0 +1,70 @@
+\begin{lemma}[Uniform localization of proximal preimages]
+Let $E$ be a finite-dimensional real inner-product space, let $\psi:E\to\R$ be
+convex on $E$, and let $u:E\to E$ be a proximal map for $\psi$ in the sense of
+\noderef{IsMoreauProx}. Let $y\in E$ be a point at which $u$ is differentiable
+with derivative the continuous linear map $P$, and suppose $\det P\ne0$. Then for
+every $\sigma>0$ there is $\rho>0$ such that
+\[
+  y'\in E,\quad |u(y')-u(y)|<\rho\quad\Longrightarrow\quad |y'-y|<\sigma .
+\]
+\end{lemma}
+\begin{proof}
+Write $x=u(y)$ and $p=y-x$. Suppose the assertion fails for some $\sigma>0$.
+Then for every integer $j\ge0$ the choice $\rho=1/(j+1)$ fails, so there is
+$y'_j\in E$
+with
+\begin{equation}\label{eq:ppl-bad}
+  |u(y'_j)-x|<\frac{1}{j+1},\qquad |y'_j-y|\ge\sigma .
+\end{equation}
+Put $w_j=u(y'_j)$, so $w_j\to x$, and $s_j=y'_j-w_j$.
+
+\emph{Each $s_j$ is a subgradient at $w_j$.}
+By \noderef{IsMoreauProx} the point $w_j=u(y'_j)$ minimizes
+$x'\mapsto\psi(x')+|x'-y'_j|^2/2$ over $E$. That is the left-hand clause of
+\noderef{MoreauProxSubgradient} with base point $y'_j$ and $x_0=w_j$, so the
+right-hand clause holds, and since $y'_j-w_j=s_j$ it reads
+\begin{equation}\label{eq:ppl-sj}
+  \psi(w_j)+\langle s_j,x'-w_j\rangle\le\psi(x')\qquad(x'\in E).
+\end{equation}
+
+\emph{The $s_j$ are bounded.}
+The function $\psi$ is convex and real-valued on the open set $E$, hence locally
+Lipschitz there (preamble): there are $a>0$ and $L\ge0$ with
+$|\psi(b)-\psi(b')|\le L|b-b'|$ for all $b,b'$ in the closed ball
+$\overline B(x,2a)$. Since $w_j\to x$ there is $J$ with $|w_j-x|\le a$ for all
+$j\ge J$. Fix such a $j$, let $e\in E$ with $|e|=1$ and let $0<t\le a$. Then
+$|w_j+te-x|\le|w_j-x|+t\le2a$, so $w_j+te\in\overline B(x,2a)$, and
+\eqref{eq:ppl-sj} with $x'=w_j+te$ gives
+\[
+  t\langle s_j,e\rangle=\langle s_j,(w_j+te)-w_j\rangle
+   \le\psi(w_j+te)-\psi(w_j)\le L\,|te|=Lt .
+\]
+Dividing by $t>0$ gives $\langle s_j,e\rangle\le L$ for every unit vector $e$.
+Taking $e=s_j/|s_j|$ when $s_j\ne0$ yields $|s_j|\le L$; and $|s_j|\le L$
+trivially when $s_j=0$. So $|s_j|\le L$ for all $j\ge J$.
+
+\emph{Passing to a limit.}
+Consequently $y'_j=w_j+s_j$ is a bounded sequence for $j\ge J$, since $w_j\to x$
+is bounded. By Bolzano--Weierstrass (preamble) there is a subsequence
+$(y'_{j_i})$ converging to some $\bar y\in E$; passing to the limit in the second
+part of \eqref{eq:ppl-bad} gives $|\bar y-y|\ge\sigma$, so in particular
+\begin{equation}\label{eq:ppl-far}
+  \bar y\ne y .
+\end{equation}
+Along this subsequence $w_{j_i}\to x$, hence
+$s_{j_i}=y'_{j_i}-w_{j_i}\to\bar y-x=:\bar s$. Now fix $x'\in E$ and pass to the
+limit in \eqref{eq:ppl-sj} along the subsequence: $\psi$ is continuous on $E$,
+being locally Lipschitz there (preamble), so $\psi(w_{j_i})\to\psi(x)$, and the
+inner product is continuous in both arguments, so
+$\langle s_{j_i},x'-w_{j_i}\rangle\to\langle\bar s,x'-x\rangle$. Therefore
+\[
+  \psi(x)+\langle\bar s,x'-x\rangle\le\psi(x')\qquad(x'\in E).
+\]
+
+\emph{Conclusion.}
+This is precisely the hypothesis of
+\noderef{ProxSubdifferentialSingleton} on the vector $\bar s$, at the same point
+$y$ with the same $P$ and $\det P\ne0$. That lemma gives $\bar s=y-u(y)=p$, and
+hence $\bar y=x+\bar s=x+p=y$, contradicting \eqref{eq:ppl-far}. So the assertion
+cannot fail, which proves the lemma.
+\end{proof}

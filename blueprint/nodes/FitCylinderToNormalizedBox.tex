@@ -1,0 +1,143 @@
+\begin{lemma}[A cylinder of an anisotropic slope sits in one fixed normalized box]
+Let $F$ be a real inner-product space, let $\ell^2(F\times\R)$ be the associated
+space-time, and let $\Phi$ be a linear isometry of $\ell^2(F\times\R)$ onto itself.
+Let $z\in\ell^2(F\times\R)$, let $c>0$, $\lambda>0$ and $r>0$ be reals, let $p\in F$
+and $q\in\R$, and write
+\[
+  A=1+\lambda q,\qquad N=\bigl(\lambda|p|^2+A^2\bigr)^{1/2}.
+\]
+Assume
+\begin{equation}\label{eq:fcnb-N}
+  \tfrac12\le N .
+\end{equation}
+If $x\in F$ and $t\in\R$ are such that
+\begin{equation}\label{eq:fcnb-mem}
+  z+r\,\Phi\bigl(\sqrt\lambda\,x,\ t\bigr)
+   \in Z_\lambda\bigl(z,\ r;\ \Phi(c\sqrt\lambda\,p,\ cA)\bigr),
+\end{equation}
+then
+\[
+  |x|\le2|p|+1,\qquad |t|\le1+\sqrt\lambda .
+\]
+\end{lemma}
+\begin{proof}
+Put
+\[
+  e=\bigl(\sqrt\lambda\,p,\ A\bigr),\qquad u=\bigl(\sqrt\lambda\,x,\ t\bigr),
+\]
+both in $\ell^2(F\times\R)$.
+
+\emph{Step 1: the length $N$ of the frame vector, and its two consequences.}
+By the definition of the $\ell^2$ product norm and
+$|\sqrt\lambda\,p|=\sqrt\lambda\,|p|$ together with
+$\sqrt\lambda\sqrt\lambda=\lambda$ (legitimate since $\lambda\ge0$),
+\begin{equation}\label{eq:fcnb-Nsq}
+  |e|^2=\lambda|p|^2+A^2 .
+\end{equation}
+Both $|e|$ and $N$ are nonnegative and have the same square by
+\eqref{eq:fcnb-Nsq} and the definition of $N$, so $|e|=N$; in particular
+$N\ge1/2>0$ by \eqref{eq:fcnb-N}. Two separate consequences of
+\eqref{eq:fcnb-Nsq} will be used, and it is worth separating them:
+\begin{equation}\label{eq:fcnb-AN}
+  |A|\le N,
+\end{equation}
+because $\lambda|p|^2\ge0$ gives $A^2\le N^2$, hence $|A|^2\le N^2$ and
+$|A|\le N$ as both sides are nonnegative; and the hypothesis
+\eqref{eq:fcnb-N} itself, which is what will bound $|p|/N$.
+
+\emph{Step 2: the slope's unit vector.}
+Since $\Phi$ is linear, $\Phi(c\sqrt\lambda\,p,cA)=\Phi(c\,e)=c\,\Phi(e)$, and
+since $\Phi$ is an isometry and $c>0$ this vector has norm $cN>0$. Hence its
+normalized direction is
+\[
+  n=\frac{c\,\Phi(e)}{cN}=N^{-1}\Phi(e),\qquad |n|=N^{-1}|\Phi(e)|=N^{-1}N=1 .
+\]
+The increment of the point in \eqref{eq:fcnb-mem} relative to $z$ is
+$D=r\,\Phi(u)$.
+
+\emph{Step 3: what the two cylinder conditions say.}
+By the definition of the cylinder, \eqref{eq:fcnb-mem} is the conjunction of
+\begin{equation}\label{eq:fcnb-ax}
+  |D\cdot n|\le r
+\end{equation}
+and
+\begin{equation}\label{eq:fcnb-tr}
+  \bigl|D-(D\cdot n)n\bigr|\le\sqrt\lambda\,r .
+\end{equation}
+Since $\Phi$ is a linear isometry it preserves inner products, so
+$D\cdot n=r\,N^{-1}\bigl(\Phi(u)\cdot\Phi(e)\bigr)=r\,N^{-1}(u\cdot e)$, and by
+the definition of the $\ell^2$ inner product together with
+$\sqrt\lambda\sqrt\lambda=\lambda$,
+\[
+  e\cdot u=\lambda\,(p\cdot x)+A\,t .
+\]
+Put
+\[
+  \sigma=\frac{e\cdot u}{N^2}.
+\]
+
+\emph{Step 4: the axial condition bounds $\sigma$.}
+Dividing \eqref{eq:fcnb-ax} by $r>0$ gives $N^{-1}|e\cdot u|\le1$, and
+multiplying by $N\ge0$ gives $|e\cdot u|\le N$. Therefore
+\begin{equation}\label{eq:fcnb-sg}
+  |\sigma|\,N=\frac{|e\cdot u|}{N^2}\,N=\frac{|e\cdot u|}{N}\le1 .
+\end{equation}
+
+\emph{Step 5: the transverse condition bounds the residual, componentwise.}
+Because $n=N^{-1}\Phi(e)$ and $D\cdot n=r\,N^{-1}(e\cdot u)$,
+\[
+  (D\cdot n)\,n=r\,N^{-1}(e\cdot u)\cdot N^{-1}\Phi(e)
+    =r\,\frac{e\cdot u}{N^2}\,\Phi(e)=r\,\Phi(\sigma\,e),
+\]
+so by linearity of $\Phi$
+\[
+  D-(D\cdot n)n=r\,\Phi(u)-r\,\Phi(\sigma e)=r\,\Phi(u-\sigma e).
+\]
+As $\Phi$ is an isometry and $r>0$, \eqref{eq:fcnb-tr} becomes
+$|u-\sigma e|\le\sqrt\lambda$. Now in $F\times\R$
+\[
+  u-\sigma e
+   =\bigl(\sqrt\lambda\,x-\sigma\sqrt\lambda\,p,\ t-\sigma A\bigr)
+   =\bigl(\sqrt\lambda\,(x-\sigma p),\ t-\sigma A\bigr),
+\]
+so by the definition of the $\ell^2$ product norm, and
+$\sqrt\lambda\sqrt\lambda=\lambda$ once more,
+\[
+  |u-\sigma e|^2=\lambda\,|x-\sigma p|^2+(t-\sigma A)^2 .
+\]
+Squaring $|u-\sigma e|\le\sqrt\lambda$, which is legitimate as both sides are
+nonnegative, and using $(\sqrt\lambda)^2=\lambda$,
+\begin{equation}\label{eq:fcnb-res}
+  \lambda\,|x-\sigma p|^2+(t-\sigma A)^2\le\lambda .
+\end{equation}
+
+\emph{Step 6: the spatial bound, which is where $N\ge1/2$ is used.}
+Dropping the nonnegative term $(t-\sigma A)^2$ from \eqref{eq:fcnb-res} gives
+$\lambda|x-\sigma p|^2\le\lambda$, and dividing by $\lambda>0$ gives
+$|x-\sigma p|^2\le1$; as $|x-\sigma p|\ge0$ this yields
+$|x-\sigma p|\le1$. Next, $|\sigma|\le2$: indeed $|\sigma|N\le1$ by
+\eqref{eq:fcnb-sg} and $N\ge1/2$ by \eqref{eq:fcnb-N}, so
+$|\sigma|/2\le|\sigma|N\le1$. Hence $|\sigma p|=|\sigma|\,|p|\le2|p|$, and by
+the triangle inequality applied to $x=(x-\sigma p)+\sigma p$,
+\[
+  |x|\le|x-\sigma p|+|\sigma p|\le1+2|p| .
+\]
+
+\emph{Step 7: the time bound, which uses only $N\ge|A|$.}
+Dropping the nonnegative term $\lambda|x-\sigma p|^2$ from
+\eqref{eq:fcnb-res} gives $(t-\sigma A)^2\le\lambda=(\sqrt\lambda)^2$, and as
+both $|t-\sigma A|$ and $\sqrt\lambda$ are nonnegative this yields
+$|t-\sigma A|\le\sqrt\lambda$. For the other term,
+\[
+  |\sigma A|=|\sigma|\,|A|\le|\sigma|\,N\le1
+\]
+by \eqref{eq:fcnb-AN} and \eqref{eq:fcnb-sg}, the first inequality using
+$|\sigma|\ge0$. Hence by the triangle inequality applied to
+$t=(t-\sigma A)+\sigma A$,
+\[
+  |t|\le|t-\sigma A|+|\sigma A|\le\sqrt\lambda+1 .
+\]
+Steps 6 and 7 are the two asserted bounds. Note that the hypothesis
+\eqref{eq:fcnb-N} entered only in Step 6: the time bound holds with no lower
+bound on $N$ at all.
+\end{proof}

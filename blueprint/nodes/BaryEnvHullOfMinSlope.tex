@@ -1,0 +1,131 @@
+\begin{lemma}[The center lies in the convex hull of the maximizing positions]
+Let $F$ be a finite-dimensional real inner-product space, let $f$ be a real
+function on space-time, let $s>0$, let $t\in\R$ and let $x\in F$. Write
+\[
+  g(y)=f(y,t)-\frac{|y|^2}{2s},
+  \qquad
+  \mathcal G(A)=\bigl\{g(y)-A\cdot(y-x):y\in F\bigr\},
+  \qquad
+  \Gamma(A)=\sup\mathcal G(A)\quad(A\in F),
+\]
+and assume that $\mathcal G(A)$ is bounded above for every $A\in F$.
+Let $\Lambda_0\ge0$, let $M>0$ and let $A_0\in F$ with $|A_0|\le\Lambda_0$.
+Assume
+\begin{enumerate}
+\item[(a)] $\Gamma(A_0)\le\Gamma(A)$ for every $A\in F$;
+\item[(b)] for every $A$ with $|A|\le\Lambda_0+1$ there is $y_0$ with
+$|y_0|\le M$ and $g(y_0)-A\cdot(y_0-x)=\Gamma(A)$;
+\item[(c)] for every $A$ with $|A|\le\Lambda_0+1$, every $y\in F$ with
+$g(y)-A\cdot(y-x)=\Gamma(A)$ satisfies $|y|\le M$;
+\item[(d)] $A\mapsto\Gamma(A)$ is continuous on $\{|A|\le\Lambda_0+1\}$;
+\item[(e)] $y\mapsto f(y,t)$ is continuous on $\{|y|\le M\}$.
+\end{enumerate}
+Then $x$ belongs to the convex hull of the set of maximizing positions at $A_0$,
+\[
+  E=\bigl\{y\in F:|y|\le M,\ g(y)-A_0\cdot(y-x)=\Gamma(A_0)\bigr\}.
+\]
+\end{lemma}
+\begin{proof}
+\emph{$E$ is nonempty and compact.}
+By (b) applied at $A=A_0$, which is legitimate because
+$|A_0|\le\Lambda_0\le\Lambda_0+1$, there is $y_0\in E$, so $E\ne\emptyset$. The
+function $y\mapsto g(y)-A_0\cdot(y-x)$ is continuous on the compact ball
+$B_M=\{|y|\le M\}$: indeed $y\mapsto f(y,t)$ is continuous there by (e), while
+$y\mapsto|y|^2/(2s)$ is continuous because $s>0$, and
+$y\mapsto A_0\cdot(y-x)$ is continuous because the inner product is. Hence $E$,
+the subset of $B_M$ on which that continuous function equals the constant
+$\Gamma(A_0)$, is closed in $B_M$; and $B_M$ is a closed bounded subset of the
+finite-dimensional space $F$ and therefore compact (preamble). A closed subset of
+a compact set is compact, so $E$ is compact.
+
+\emph{Strict separation from a compact convex set.}
+We record the following. Let $K\subseteq F$ be nonempty, compact and convex and
+let $w\in F\setminus K$. Then there are a unit vector $e\in F$ and $\delta>0$
+with $e\cdot(y-w)\ge\delta$ for every $y\in K$.
+
+To see this, note that $y\mapsto|y-w|$ is continuous on the nonempty compact set
+$K$, so it attains its minimum there at some $p\in K$ (preamble). Put
+$d=|p-w|$; then $d>0$, because $d=0$ would give $w=p\in K$. Let $y\in K$ and
+$0<\tau\le1$. By convexity $(1-\tau)p+\tau y\in K$, so minimality of $p$ gives
+\[
+  d^2\le\bigl|(1-\tau)p+\tau y-w\bigr|^2
+      =\bigl|p-w+\tau(y-p)\bigr|^2
+      =d^2+2\tau\,(p-w)\cdot(y-p)+\tau^2|y-p|^2 ,
+\]
+that is $0\le2(p-w)\cdot(y-p)+\tau|y-p|^2$ for every $\tau\in(0,1]$; letting
+$\tau\downarrow0$ gives $(p-w)\cdot(y-p)\ge0$. Hence
+\[
+  (p-w)\cdot(y-w)=(p-w)\cdot(y-p)+(p-w)\cdot(p-w)\ge|p-w|^2=d^2 .
+\]
+Taking $e=(p-w)/d$, a unit vector, and $\delta=d>0$, and dividing the last
+display by $d>0$, gives $e\cdot(y-w)\ge\delta$ for every $y\in K$, as recorded.
+
+\emph{The separation argument.}
+Suppose, for contradiction, that $x\notin\operatorname{conv}E$. By
+\noderef{BaryConfigOfConvexHull} the set $\operatorname{conv}E$ is compact, $E$
+being compact; it is convex, being a convex hull; and it is nonempty, containing
+the nonempty set $E$. So the recorded fact applies with $K=\operatorname{conv}E$
+and $w=x$ and gives a unit vector $e\in F$ and $\delta>0$ with
+\begin{equation}\label{eq:behm-sep}
+  e\cdot(y-x)\ge\delta\qquad(y\in\operatorname{conv}E),
+\end{equation}
+in particular for every $y\in E$.
+
+For $0<h\le1$ we have $|A_0+he|\le|A_0|+h|e|\le\Lambda_0+1$, so by (b) there is a
+maximizer $y_h$ with $|y_h|\le M$ and
+\begin{equation}\label{eq:behm-yh}
+  \Gamma(A_0+he)=g(y_h)-(A_0+he)\cdot(y_h-x).
+\end{equation}
+
+\emph{Claim: $e\cdot(y_h-x)\ge\delta/2$ for all sufficiently small $h>0$.}
+If not, there are $h_k$ with $0<h_k\le1$, $h_k\downarrow0$ and
+$e\cdot(y_{h_k}-x)<\delta/2$ for every $k$. The points $y_{h_k}$ lie in the
+compact ball $B_M$, so after passing to a subsequence $y_{h_k}\to\bar y$ with
+$|\bar y|\le M$ (Bolzano--Weierstrass, preamble). Along that subsequence,
+$g$ is continuous on $B_M$ (shown above) and $A_0+h_ke\to A_0$, so by
+\eqref{eq:behm-yh}
+\[
+  \Gamma(A_0+h_ke)=g(y_{h_k})-(A_0+h_ke)\cdot(y_{h_k}-x)
+   \longrightarrow g(\bar y)-A_0\cdot(\bar y-x),
+\]
+the convergence of the inner-product term following from the joint continuity of
+the inner product. On the other hand $|A_0+h_ke|\le\Lambda_0+1$ for every $k$ and
+$A_0+h_ke\to A_0$ with $|A_0|\le\Lambda_0+1$, so by (d)
+$\Gamma(A_0+h_ke)\to\Gamma(A_0)$. Limits of a convergent real sequence being
+unique,
+\[
+  g(\bar y)-A_0\cdot(\bar y-x)=\Gamma(A_0),
+\]
+so $\bar y\in E$ — it satisfies the defining equation and $|\bar y|\le M$ — and
+therefore $e\cdot(\bar y-x)\ge\delta$ by \eqref{eq:behm-sep}. But
+$e\cdot(y_{h_k}-x)<\delta/2$ for every $k$ and
+$e\cdot(y_{h_k}-x)\to e\cdot(\bar y-x)$ by continuity of the inner product, so
+$e\cdot(\bar y-x)\le\delta/2<\delta$. This contradiction proves the claim.
+
+\emph{Conclusion.}
+Fix $h$ with $0<h\le1$ small enough that $e\cdot(y_h-x)\ge\delta/2$. The number
+$g(y_h)-A_0\cdot(y_h-x)$ is an element of $\mathcal G(A_0)$, namely its element at
+$y=y_h$. By the hypothesis of the statement $\mathcal G(A_0)$ is bounded above,
+and it is nonempty, containing $g(x)$ at $y=x$; hence
+$\Gamma(A_0)=\sup\mathcal G(A_0)$ is a genuine finite least upper bound of
+$\mathcal G(A_0)$, rather than the convention value of the preamble, and so it
+dominates every element of that set:
+\begin{equation}\label{eq:behm-lub}
+  g(y_h)-A_0\cdot(y_h-x)\le\Gamma(A_0).
+\end{equation}
+This is the one place the boundedness hypothesis is used, and it cannot be
+replaced by the attainment supplied by (b) and (c): under the preamble's
+convention a competitor set that is unbounded above has supremum $0$, and $0$ may
+itself be a value of $y\mapsto g(y)-A_0\cdot(y-x)$, so attainment alone does not
+yield the least-upper-bound property. Therefore, by \eqref{eq:behm-yh} and
+bilinearity of the inner product,
+\[
+  \Gamma(A_0+he)=g(y_h)-A_0\cdot(y_h-x)-h\,e\cdot(y_h-x)
+   \le\Gamma(A_0)-\frac{h\delta}{2}
+   <\Gamma(A_0),
+\]
+the first inequality by \eqref{eq:behm-lub} together with
+$e\cdot(y_h-x)\ge\delta/2$ and $h>0$, and the second because $h>0$ and
+$\delta>0$. This contradicts (a) applied at $A=A_0+he$.
+Therefore $x\in\operatorname{conv}E$.
+\end{proof}

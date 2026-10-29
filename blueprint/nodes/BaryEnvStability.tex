@@ -1,0 +1,123 @@
+\begin{lemma}[Stability of the barycentric envelope]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$ be
+open and let $\Omega=\{(x,t):t\in I\}$. Let $f$ and $f_1,f_2,\ldots$ be real
+functions on space-time, continuous on $\Omega$, with $f_j\to f$ uniformly on
+every compact subset of $\Omega$, with $f$ of subquadratic spatial growth on
+compact time intervals of $I$ in the sense of \noderef{SubquadraticGrowth}, and
+with the sequence having the common growth control of
+\noderef{UnifSubquadraticGrowth} on $I$. Let $s>0$. Then
+$\Cenv_sf_j\to\Cenv_sf$ uniformly on every compact set of centers $z=(x,t)$ with
+$t\in I$, where $\Cenv$ is the barycentric envelope of \noderef{BaryEnv}.
+\end{lemma}
+\begin{proof}
+Write $\Omega=\{(y,\sigma):\sigma\in I\}$, an open set on which $f$ and every
+$f_j$ are continuous, and for a real function $g$ on space-time and a time
+$t\in I$ put
+\[
+  g_t(y)=g(y,t)-\frac{|y|^2}{2s},
+  \qquad
+  \Gamma_g(A;x,t)=\sup_{y\in F}\bigl\{g_t(y)-A\cdot(y-x)\bigr\}
+  \qquad(A,x\in F).
+\]
+By \noderef{BaryEnvDuality}, part (2), applied to $f$ and to each $f_j$ — all of
+which satisfy its hypotheses, namely continuity on $\Omega$ and the growth
+condition of \noderef{SubquadraticGrowth} on $I$, the latter for $f_j$ because
+\noderef{UnifSubquadraticGrowth} for the sequence implies it for each member —
+we have, for every $t\in I$, every $x\in F$ and $g\in\{f\}\cup\{f_j\}$,
+\begin{equation}\label{eq:bes-duality}
+  \Cenv_sg(x,t)-\frac{|x|^2}{2s}=\inf_{A\in F}\Gamma_g(A;x,t),
+\end{equation}
+the infimum being attained.
+
+\emph{Step 1: uniform localization of slopes and positions.}
+Let $\mathcal K$ be a compact set of centers $z=(x,t)$ with $t\in I$, put
+$R_0=\max\{|x|:(x,t)\in\mathcal K\}<\infty$ and let $J$ be the set of time
+coordinates of $\mathcal K$, a compact subset of $I$.
+
+Apply \noderef{UnifSubquadraticGrowth} with $J$ and $\varepsilon=1/(4s)$:
+there is $M_1>0$ with $|f_j(y,t)|\le|y|^2/(4s)$ for all $j$, all $|y|\ge M_1$
+and all $t\in J$; apply \noderef{SubquadraticGrowth} with the same data to get
+$M_2>0$ with the same bound for $f$. Put $M_3=\max\{M_1,M_2,R_0+1,1\}$. Then,
+for $g\in\{f\}\cup\{f_j\}$, $t\in J$ and $|y|\ge M_3$,
+\begin{equation}\label{eq:bes-far}
+  g_t(y)\le\frac{|y|^2}{4s}-\frac{|y|^2}{2s}=-\frac{|y|^2}{4s}\le0 .
+\end{equation}
+The set $\mathcal C_3=\{(y,t):|y|\le M_3,\ t\in J\}$ is a compact subset of
+$\Omega$, and the quantity
+\[
+  N_0=\sup_{g\in\{f\}\cup\{f_j\}}\ \max_{\mathcal C_3}|g|
+\]
+is finite. Indeed $f$ is continuous on $\Omega$, hence bounded on the compact
+$\mathcal C_3$; $f_j\to f$ uniformly on $\mathcal C_3$, so there is $j_0$ with
+$\sup_{\mathcal C_3}|f_j-f|\le1$ for $j\ge j_0$; and each of the finitely many
+remaining $f_j$ is continuous, hence bounded on $\mathcal C_3$. Consequently,
+for $g\in\{f\}\cup\{f_j\}$, $t\in J$ and $|y|\le M_3$,
+\begin{equation}\label{eq:bes-near}
+  |g_t(y)|\le N_0+\frac{M_3^2}{2s}=:N_1 .
+\end{equation}
+
+By \eqref{eq:bes-far} and \eqref{eq:bes-near}, for $z=(x,t)\in\mathcal K$,
+\[
+  \Gamma_g(0;x,t)=\sup_yg_t(y)\le\max\{N_1,0\}=N_1 ,
+\]
+(enlarging $N_1$ so that $N_1\ge0$), and for $A\ne0$ the competitor
+$y=x-A/|A|$, which satisfies $|y|\le R_0+1\le M_3$, gives by
+\eqref{eq:bes-near}
+\[
+  \Gamma_g(A;x,t)\ge g_t\Bigl(x-\frac A{|A|}\Bigr)+|A|\ge|A|-N_1 .
+\]
+Hence every $A$ with $\Gamma_g(A;x,t)\le\Gamma_g(0;x,t)+1$ satisfies
+$|A|\le2N_1+1=:\Lambda_0$, and therefore
+\begin{equation}\label{eq:bes-infball}
+  \inf_{A\in F}\Gamma_g(A;x,t)=\inf_{|A|\le\Lambda_0}\Gamma_g(A;x,t)
+  \qquad(z\in\mathcal K,\ g\in\{f\}\cup\{f_j\}),
+\end{equation}
+because $A=0$ lies in that ball while any $A$ outside it has
+$\Gamma_g(A;x,t)>\Gamma_g(0;x,t)+1$.
+
+For $|A|\le\Lambda_0$, $z\in\mathcal K$ and $|y|\ge M_3$, \eqref{eq:bes-far}
+gives
+\[
+  g_t(y)-A\cdot(y-x)\le-\frac{|y|^2}{4s}+\Lambda_0\bigl(|y|+R_0\bigr),
+\]
+whose right side tends to $-\infty$ as $|y|\to\infty$ and does not depend on $g$
+or $z$. Hence there is $M\ge M_3$, depending only on $\Lambda_0$, $R_0$, $s$ and
+$N_1$, with
+\[
+  g_t(y)-A\cdot(y-x)<-N_1\le g_t(x)-A\cdot(x-x)
+  \qquad(|y|\ge M),
+\]
+the last inequality by \eqref{eq:bes-near} and $|x|\le R_0\le M_3$. Therefore,
+for all $g\in\{f\}\cup\{f_j\}$, all $z\in\mathcal K$ and all $|A|\le\Lambda_0$,
+\begin{equation}\label{eq:bes-max}
+  \Gamma_g(A;x,t)=\max_{|y|\le M}\bigl\{g_t(y)-A\cdot(y-x)\bigr\},
+\end{equation}
+the maximum existing because $y\mapsto g_t(y)-A\cdot(y-x)$ is continuous on the
+compact ball $\{|y|\le M\}$, where $(y,t)\in\Omega$.
+
+\emph{Step 2: conclusion.}
+Let $\delta_j=\sup_{\mathcal C}|f_j-f|$, where
+$\mathcal C=\{(y,t):|y|\le M,\ t\in J\}$ is a compact subset of $\Omega$; by
+hypothesis $\delta_j\to0$. For $z=(x,t)\in\mathcal K$ and $|A|\le\Lambda_0$, the
+two functions of $y$ inside the maxima in \eqref{eq:bes-max} for $f_j$ and for
+$f$ differ by at most $\delta_j$ on $\{|y|\le M\}$, the quadratic and linear
+terms being identical. Using $|\sup_QG-\sup_QH|\le\sup_Q|G-H|$ for bounded
+functions on a nonempty set $Q$,
+\[
+  \bigl|\Gamma_{f_j}(A;x,t)-\Gamma_f(A;x,t)\bigr|\le\delta_j
+  \qquad(|A|\le\Lambda_0,\ z\in\mathcal K).
+\]
+Taking infima over $|A|\le\Lambda_0$, and using the same inequality for infima,
+$\bigl|\inf_QG-\inf_QH\bigr|\le\sup_Q|G-H|$, we get from
+\eqref{eq:bes-infball}
+\[
+  \Bigl|\inf_{A}\Gamma_{f_j}(A;x,t)-\inf_A\Gamma_f(A;x,t)\Bigr|\le\delta_j
+  \qquad(z\in\mathcal K).
+\]
+By \eqref{eq:bes-duality} the terms $|x|^2/(2s)$ cancel, so
+\[
+  \bigl|\Cenv_sf_j(x,t)-\Cenv_sf(x,t)\bigr|\le\delta_j
+  \qquad(z\in\mathcal K),
+\]
+and $\delta_j\to0$. Hence $\Cenv_sf_j\to\Cenv_sf$ uniformly on $\mathcal K$.
+\end{proof}

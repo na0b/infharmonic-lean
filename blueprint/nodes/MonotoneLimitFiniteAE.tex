@@ -1,0 +1,43 @@
+\begin{helper}[An increasing sequence with bounded integrals is a.e.\ bounded]
+Let $(X,\mathcal M,\mu)$ be a measure space, let $M\in\R$, and let
+$g_i:X\to\R$, $i\in\mathbb N$, be measurable functions such that for every
+$i\in\mathbb N$ and every $x\in X$
+\[
+  0\le g_i(x),\qquad g_i(x)\le g_{i+1}(x),
+\]
+such that each $g_i$ is $\mu$-integrable, and such that
+\[
+  \int g_i\,d\mu\le M\qquad(i\in\mathbb N).
+\]
+Then for $\mu$-almost every $x\in X$ the set $\{g_i(x):i\in\mathbb N\}$ is
+bounded above.
+\end{helper}
+\begin{proof}
+Put $f_i(x)=\iota\bigl(g_i(x)\bigr)$, where $\iota:\R\to[0,\infty]$ sends $s$
+to $s$ for $s\ge0$ and to $0$ for $s<0$. Each $f_i$ is measurable, and
+$i\mapsto f_i$ is nondecreasing: for $a\le b$ an induction on $b$ starting at
+$b=a$ and using $g_n(x)\le g_{n+1}(x)$ at each step gives
+$g_a(x)\le g_b(x)$, and $\iota$ is nondecreasing.
+
+\emph{The upper integrals are uniformly bounded.} Fix $i$. Since $g_i$ is
+integrable and $g_i\ge0$ everywhere, the upper integral of $f_i$ equals
+$\iota$ of the integral of $g_i$:
+\[
+  \int^{*}f_i\,d\mu=\iota\Bigl(\int g_i\,d\mu\Bigr)\le\iota(M),
+\]
+the inequality because $\iota$ is nondecreasing and $\int g_i\,d\mu\le M$.
+
+\emph{The pointwise supremum has finite upper integral.} By the monotone
+convergence theorem for upper integrals of a nondecreasing sequence of
+measurable $[0,\infty]$-valued functions,
+\[
+  \int^{*}\Bigl(\sup_if_i\Bigr)d\mu=\sup_i\int^{*}f_i\,d\mu\le\iota(M)<\infty .
+\]
+
+\emph{Conclusion.} A measurable $[0,\infty]$-valued function with finite upper
+integral is finite almost everywhere, so for $\mu$-almost every $x$ we have
+$s(x)=\sup_if_i(x)<\infty$. Fix such an $x$ and let $r\in[0,\infty)$ be the real
+number $s(x)$. For every $i$ we have $\iota(g_i(x))=f_i(x)\le s(x)$, and since
+$g_i(x)\ge0$ this says exactly $g_i(x)\le r$. Hence $r$ is an upper bound for
+$\{g_i(x):i\in\mathbb N\}$, which is therefore bounded above.
+\end{proof}

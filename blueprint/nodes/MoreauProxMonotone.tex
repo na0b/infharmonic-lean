@@ -1,0 +1,59 @@
+\begin{lemma}[Firm nonexpansiveness of the proximal map]
+Let $E$ be a finite-dimensional real inner-product space, let $\psi:E\to\R$ be
+convex on $E$, and let $y_1,y_2,x_1,x_2\in E$ be such that $x_i$ minimizes
+$x\mapsto\psi(x)+|x-y_i|^2/2$ over $E$ for $i=1,2$, that is
+\[
+  \psi(x_i)+\frac{|x_i-y_i|^2}{2}\le\psi(x)+\frac{|x-y_i|^2}{2}
+  \qquad(x\in E,\ i=1,2).
+\]
+Then
+\[
+  |x_1-x_2|^2+\bigl|(y_1-x_1)-(y_2-x_2)\bigr|^2\le|y_1-y_2|^2 .
+\]
+In particular $|x_1-x_2|\le|y_1-y_2|$ and
+$|(y_1-x_1)-(y_2-x_2)|\le|y_1-y_2|$, and the minimizer for a given $y$ is
+unique: taking $y_1=y_2$ forces $x_1=x_2$.
+\end{lemma}
+\begin{proof}
+Put $p_i=y_i-x_i$ for $i=1,2$.
+
+\emph{Step 1: $p_i$ is a subgradient of $\psi$ at $x_i$.}
+The hypothesis on $x_i$ is exactly clause (1) of \noderef{MoreauProxSubgradient}
+with $y=y_i$ and $x_0=x_i$, so clause (2) of that statement gives
+\begin{equation}\label{eq:mpm-sub}
+  \psi(x_i)+\langle p_i,x-x_i\rangle\le\psi(x)\qquad(x\in E,\ i=1,2).
+\end{equation}
+
+\emph{Step 2: monotonicity.}
+Apply \eqref{eq:mpm-sub} with $i=1$ and $x=x_2$, and with $i=2$ and $x=x_1$:
+\[
+  \psi(x_1)+\langle p_1,x_2-x_1\rangle\le\psi(x_2),
+  \qquad
+  \psi(x_2)+\langle p_2,x_1-x_2\rangle\le\psi(x_1).
+\]
+Adding these two inequalities, the terms $\psi(x_1)$ and $\psi(x_2)$ cancel from
+both sides and we obtain
+\[
+  \langle p_1,x_2-x_1\rangle+\langle p_2,x_1-x_2\rangle\le0,
+\]
+that is $\langle p_1-p_2,x_2-x_1\rangle\le0$, or equivalently
+\begin{equation}\label{eq:mpm-mono}
+  \langle x_1-x_2,p_1-p_2\rangle\ge0 .
+\end{equation}
+
+\emph{Step 3: the identity.}
+From $p_i=y_i-x_i$ we get $y_i=x_i+p_i$ and hence
+$y_1-y_2=(x_1-x_2)+(p_1-p_2)$. Expanding the square of this sum,
+\[
+  |y_1-y_2|^2=|x_1-x_2|^2+2\langle x_1-x_2,p_1-p_2\rangle+|p_1-p_2|^2 .
+\]
+By \eqref{eq:mpm-mono} the middle term is nonnegative, so
+\[
+  |y_1-y_2|^2\ge|x_1-x_2|^2+|p_1-p_2|^2
+   =|x_1-x_2|^2+\bigl|(y_1-x_1)-(y_2-x_2)\bigr|^2,
+\]
+which is the assertion. The two consequences follow by discarding one of the two
+nonnegative summands on the right, and the uniqueness statement follows by
+taking $y_1=y_2$, which makes the right-hand side $0$ and forces
+$|x_1-x_2|=0$.
+\end{proof}

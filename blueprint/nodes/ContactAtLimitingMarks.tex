@@ -1,0 +1,194 @@
+\begin{lemma}[Contact at every mark of the limiting law]
+Let $F$ be a finite-dimensional real inner-product space --- the ambient
+convention of this development, used here only to carry the space-time
+$X=\ell^2(F\times\R)$ --- let $v:X\to\R$ and $\kappa,H,U_B\in\R$, let $W$ be
+the contact envelope of \noderef{ContactEnv} formed from $v$ and $\kappa$, and
+let $J_\epsilon$ be the propagation quantity of \noderef{JGap} formed from the
+same data. Write $t_z$ for the time coordinate of $z\in X$ and
+$\delta_j=2^{-j}$. Assume:
+\begin{enumerate}
+\item\label{it:calm-v} $v$ is continuous on $X$, $W$ is continuous on
+$\{t_z>0\}$, and $W\le v$ there;
+\item\label{it:calm-gap} for every compact $K\subseteq X$ with $t_z>0$ on $K$
+and every $\delta>0$ there is $\epsilon_0>0$ such that
+\[
+  \bigl|2\epsilon J_\epsilon(z)-\bigl(W(z)-v(z)\bigr)\bigr|\le\delta
+  \qquad(0<\epsilon<\epsilon_0,\ z\in K);
+\]
+\item\label{it:calm-box} $\mathcal B\subseteq X$ is compact and
+$J_\epsilon(z)\le U_B$ whenever $z\in\mathcal B$, $t_z>0$ and
+$0<\epsilon\le1$;
+\item\label{it:calm-space} $\mathcal S$ is a topological space with a
+$\sigma$-algebra for which the open sets are measurable and closed sets admit
+outer approximations, $m_j:\mathcal S\to X$ is continuous for every $j\in\N$,
+and $\lambda$, $(\lambda_k)_{k\in\N}$ are Borel probability measures on
+$\mathcal S$ with $\lambda_{n_h}\to\lambda$ weakly along an index map
+$n:\N\to\N$ satisfying $h\le n_h$;
+\item\label{it:calm-A} $A_j\subseteq\mathcal S$ is closed with
+$\lambda(A_j)=1$ for every $j\ge1$, and $\delta_j\le t_{m_j(q)}$ for every
+$q\in A_j$;
+\item\label{it:calm-walk} for each $k$, $(\Omega_k,\mu_k)$ is a probability
+space, $\Psi_k:\Omega_k\to\mathcal S$ is measurable and pushes $\mu_k$ to
+$\lambda_k$, i.e.\ $\lambda_k(A)=\mu_k(\Psi_k^{-1}A)$ for measurable
+$A\subseteq\mathcal S$; there are maps $Z_k:\N\times\Omega_k\to X$ with
+$t_{Z_k(n,\omega)}>0$ always, indices
+$\varsigma^k_j:\Omega_k\to\N$, and lengths $\epsilon_k$ with
+$0<\epsilon_k\le\delta_{k+1}/4$;
+\item\label{it:calm-mark} for $1\le j\le k+1$ and every $\omega\in\Omega_k$,
+\[
+  m_j(\Psi_k\omega)=Z_k\bigl(\varsigma^k_j(\omega),\omega\bigr)
+  \in\mathcal B ;
+\]
+\item\label{it:calm-mean} for $1\le j\le k+1$ the function
+$\omega\mapsto J_{\epsilon_k}\bigl(Z_k(\varsigma^k_j(\omega),\omega)\bigr)$ is
+$\mu_k$-integrable with
+\[
+  H-1\le\int J_{\epsilon_k}
+    \bigl(Z_k(\varsigma^k_j(\omega),\omega)\bigr)\,d\mu_k(\omega).
+\]
+\end{enumerate}
+Then for $\lambda$-almost every $q\in\mathcal S$,
+\[
+  W\bigl(m_j(q)\bigr)=v\bigl(m_j(q)\bigr)\qquad\text{for every }j\ge1 .
+\]
+\end{lemma}
+\begin{proof}
+Fix $j\ge1$; since the conclusion is a countable conjunction it suffices to
+prove it for this $j$ almost surely. By \ref{it:calm-A} the event $A_j$ has
+full measure and $t_{m_j(q)}\ge\delta_j>0$ on it, so by \ref{it:calm-v} the
+defect $v(m_j(q))-W(m_j(q))$ is nonnegative there. It therefore suffices to
+show that it is almost surely not positive, and for that, by the Archimedean
+property --- every positive real exceeds $1/(n+1)$ for some $n\in\N$ --- it
+suffices to show
+\begin{equation}\label{eq:calm-level}
+  \lambda\Bigl\{q:\ \frac1{n+1}<v\bigl(m_j(q)\bigr)-W\bigl(m_j(q)\bigr)\Bigr\}=0
+  \qquad(n\in\N),
+\end{equation}
+since the set where the defect is positive is the union over $n$ of these sets.
+
+\emph{The open set.} Fix $n$ and suppose, for contradiction, that the set in
+\eqref{eq:calm-level} has positive measure. Put $\alpha=\dfrac1{2(n+1)}>0$, so
+that $2\alpha=1/(n+1)$. Let $f(q)=v(m_j(q))-W(m_j(q))$, let
+\[
+  V=\bigl\{q:\ \delta_j/2<t_{m_j(q)}\bigr\},
+  \qquad
+  O=V\cap f^{-1}\bigl((\alpha,\infty)\bigr).
+\]
+The map $q\mapsto t_{m_j(q)}$ is continuous by \ref{it:calm-space}, so $V$ is
+open; every $q\in V$ has $t_{m_j(q)}>\delta_j/2>0$, so $f$ is continuous on
+$V$ by \ref{it:calm-v}, and therefore $O$ is open.
+
+$O$ has positive measure. Indeed, intersecting the set of
+\eqref{eq:calm-level} with the conull set $A_j$ does not change its measure,
+and every $q$ in that intersection lies in $O$: its mark time is at least
+$\delta_j>\delta_j/2$ by \ref{it:calm-A}, and $f(q)>2\alpha>\alpha$. So
+$\lambda(O)>0$.
+
+\emph{The compact set and the gap bound.} Put
+\[
+  K=\bigl(\mathcal B\cap\{z:\ \delta_j/2\le t_z\}\bigr)
+     \cap\{z:\ \alpha\le v(z)-W(z)\} .
+\]
+The first bracket is closed, being the intersection of the compact --- hence
+closed --- set $\mathcal B$ with a closed half space of the continuous
+coordinate $z\mapsto t_z$; every one of its points has $t_z\ge\delta_j/2>0$,
+so $v-W$ is continuous on it by \ref{it:calm-v}, and therefore $K$, the
+preimage of the closed half line $[\alpha,\infty)$ under that restriction, is
+closed as well. Being a closed subset of the compact $\mathcal B$, $K$ is
+compact, and $t_z>0$ on $K$.
+
+Apply \ref{it:calm-gap} to $K$ with $\delta=\alpha/2>0$: there is
+$\epsilon_0>0$ such that for $0<\epsilon<\epsilon_0$ and $z\in K$,
+\[
+  2\epsilon J_\epsilon(z)\le\bigl(W(z)-v(z)\bigr)+\frac\alpha2
+   \le-\alpha+\frac\alpha2=-\frac\alpha2 ,
+\]
+using $\alpha\le v(z)-W(z)$ on $K$. Doubling, $4\epsilon J_\epsilon(z)\le-\alpha$,
+and dividing by $4\epsilon>0$ --- if $(4\epsilon)x\le-a$ with $\epsilon>0$ and
+$a>0$ then $x\le-a/(4\epsilon)$, by multiplying with the positive number
+$(4\epsilon)^{-1}$ ---
+\begin{equation}\label{eq:calm-verynegative}
+  J_\epsilon(z)\le-\frac{\alpha}{4\epsilon}
+  \qquad(0<\epsilon<\epsilon_0,\ z\in K).
+\end{equation}
+
+\emph{One index.} By the open-set half of the portmanteau theorem, available
+by \ref{it:calm-space},
+$\lambda(O)\le\liminf_h\lambda_{n_h}(O)$. Put $a=\lambda(O)/2$. Then
+$0<a<\lambda(O)$ and $a<\infty$, so $a<\lambda_{n_h}(O)$ for all large $h$.
+Let $D=\max\{|U_B|-H+1,\,1\}\ge1>0$. Since $(1/2)^m\to0$ there are $m_0,m_1$
+with
+\[
+  \Bigl(\frac12\Bigr)^{m_0}<\frac{\alpha a}{4D},
+  \qquad
+  \Bigl(\frac12\Bigr)^{m_1}<\epsilon_0 ,
+\]
+the first right-hand side being positive because $\alpha>0$, $a>0$ and $D>0$.
+Choose $h$ with $j\le h$, $m_0\le h$, $m_1\le h$ and $a<\lambda_{n_h}(O)$, and
+write $k=n_h$. Then $h\le k$ by \ref{it:calm-space}, so $1\le j\le k+1$, and
+by \ref{it:calm-walk}
+\begin{equation}\label{eq:calm-epsk}
+  \epsilon_k\le\Bigl(\frac12\Bigr)^{k+1}\!\!/4
+   \le\Bigl(\frac12\Bigr)^{m_0}<\frac{\alpha a}{4D},
+  \qquad
+  \epsilon_k\le\Bigl(\frac12\Bigr)^{k+1}\!\!/4
+   \le\Bigl(\frac12\Bigr)^{m_1}<\epsilon_0 ,
+\end{equation}
+both middle inequalities because $m_i\le h\le k<k+1$ and $(1/2)^\cdot$ is
+nonincreasing with $(1/2)^{k+1}>0$. Put $p=\lambda_k(O)$, so that
+$p=\mu_k(\Psi_k^{-1}O)$ by \ref{it:calm-walk}; then $a<p$ and $p\le1$, since
+$\mu_k$ is a probability measure.
+
+\emph{The pointwise bound on $\Omega_k$.} Let $\omega\in\Omega_k$ and write
+$Z=Z_k(\varsigma^k_j(\omega),\omega)$, which by \ref{it:calm-mark} equals
+$m_j(\Psi_k\omega)$ and lies in $\mathcal B$. Put
+$c=U_B+\alpha/(4\epsilon_k)$.
+
+If $\Psi_k\omega\in O$ then $Z\in K$: it lies in $\mathcal B$; its time
+satisfies $t_Z=t_{m_j(\Psi_k\omega)}>\delta_j/2$, hence $\ge\delta_j/2$; and
+$v(Z)-W(Z)=f(\Psi_k\omega)>\alpha$, hence $\ge\alpha$. So
+\eqref{eq:calm-verynegative} applies at $\epsilon_k$, which is admissible by
+\eqref{eq:calm-epsk} and $\epsilon_k>0$, and gives
+$J_{\epsilon_k}(Z)\le-\alpha/(4\epsilon_k)=U_B-c$.
+
+If $\Psi_k\omega\notin O$ then \ref{it:calm-box} applies: $Z\in\mathcal B$,
+$t_Z>0$ by \ref{it:calm-walk}, and $0<\epsilon_k\le1$ because
+$\epsilon_k\le(1/2)^{k+1}/4\le1$. So $J_{\epsilon_k}(Z)\le U_B$. In both cases
+\begin{equation}\label{eq:calm-pointwise}
+  J_{\epsilon_k}(Z)\le U_B-c\,\mathbf1_{\Psi_k^{-1}O}(\omega).
+\end{equation}
+
+\emph{Integration.} The left-hand side of \eqref{eq:calm-pointwise} is
+integrable by \ref{it:calm-mean}; the right-hand side is integrable as well,
+being the constant $U_B$ minus $c$ times the indicator of the measurable set
+$\Psi_k^{-1}O$ on a probability space. Integrating \eqref{eq:calm-pointwise}
+and using $\int\mathbf1_{\Psi_k^{-1}O}\,d\mu_k=p$ together with
+\ref{it:calm-mean},
+\[
+  H-1\le\int J_{\epsilon_k}(Z)\,d\mu_k
+   \le U_B-cp
+   =U_B(1-p)-\frac{\alpha}{4\epsilon_k}\,p ,
+\]
+the last step by the definition of $c$.
+
+Finally $U_B(1-p)\le|U_B|$, because $0\le1-p$ and $U_B\le|U_B|$ and
+$|U_B|\ge0$ --- if $0\le1-p\le1$ then
+$U_B(1-p)\le|U_B|(1-p)\le|U_B|$ --- and
+$\dfrac{\alpha a}{4\epsilon_k}\le\dfrac{\alpha}{4\epsilon_k}\,p$ because
+$a\le p$ and $\alpha/(4\epsilon_k)>0$. Hence
+\[
+  H-1\le|U_B|-\frac{\alpha a}{4\epsilon_k},
+  \qquad\text{i.e.}\qquad
+  \frac{\alpha a}{4\epsilon_k}\le|U_B|-H+1\le D ,
+\]
+so $\alpha a\le4D\epsilon_k$ after multiplying by $4\epsilon_k>0$. But
+\eqref{eq:calm-epsk} gives $4D\epsilon_k<\alpha a$, since $4D>0$. This
+contradiction proves \eqref{eq:calm-level}.
+
+\emph{Conclusion.} By \eqref{eq:calm-level} and the countable union, almost
+every $q$ has $v(m_j(q))-W(m_j(q))\le0$; intersecting with the conull $A_j$,
+almost every $q$ also has $t_{m_j(q)}\ge\delta_j>0$ and hence
+$W(m_j(q))\le v(m_j(q))$ by \ref{it:calm-v}. The two inequalities give
+$W(m_j(q))=v(m_j(q))$ almost surely, and intersecting the countably many
+full-measure events over $j\ge1$ completes the proof.
+\end{proof}

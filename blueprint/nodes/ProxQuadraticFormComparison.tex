@@ -1,0 +1,83 @@
+\begin{lemma}[Comparison of the two quadratic forms]
+Let $E$ be a finite-dimensional real inner-product space and let
+$P,P^{-1}:E\to E$ be continuous linear maps with $P^{-1}(Pz)=z$ for all $z\in E$.
+Write $Q=\mathrm{id}-P$ and $A_0=QP^{-1}$. Let $c>0$ satisfy
+$c|z|\le|Pz|$ for all $z\in E$, let $\delta_1$ satisfy
+$0<\delta_1\le c/2$, and let $h,k\in E$ satisfy $|k-Ph|\le\delta_1|h|$. Then
+\[
+  |h|\le\frac{2}{c}|k|
+  \qquad\text{and}\qquad
+  \bigl|\langle Qh,Ph\rangle-\langle A_0k,k\rangle\bigr|
+    \le C_1\delta_1|k|^2,
+\]
+where
+\[
+  C_1=\frac{4\,\|Q\|\,\|P^{-1}\|\,\|P\|}{c^2}+\frac{2\,\|A_0\|}{c}.
+\]
+\end{lemma}
+\begin{proof}
+\emph{The bound on $|h|$.}
+By the triangle inequality, the lower bound on $P$ and the hypothesis on $k$,
+\[
+  |k|\ge|Ph|-|k-Ph|\ge c|h|-\delta_1|h|=(c-\delta_1)|h|\ge\frac{c}{2}|h|,
+\]
+the last step because $\delta_1\le c/2$. Since $c>0$ this gives
+\begin{equation}\label{eq:pqfc-h}
+  |h|\le\frac{2}{c}|k| .
+\end{equation}
+
+\emph{Two consequences.}
+Combining \eqref{eq:pqfc-h} with the hypothesis $|k-Ph|\le\delta_1|h|$,
+\begin{equation}\label{eq:pqfc-one}
+  |k-Ph|\le\delta_1|h|\le\frac{2\delta_1}{c}|k| .
+\end{equation}
+Applying $P^{-1}$ to $Ph-k$ and using $P^{-1}(Ph)=h$ together with the operator
+norm bound,
+\begin{equation}\label{eq:pqfc-two}
+  \bigl|h-P^{-1}k\bigr|=\bigl|P^{-1}(Ph)-P^{-1}k\bigr|
+   =\bigl|P^{-1}(Ph-k)\bigr|\le\|P^{-1}\|\,|Ph-k|
+   \le\|P^{-1}\|\frac{2\delta_1}{c}|k| ,
+\end{equation}
+using \eqref{eq:pqfc-one} and $|Ph-k|=|k-Ph|$ at the last step.
+
+\emph{The algebraic identity.}
+Inserting and removing the term $\langle QP^{-1}k,Ph\rangle$, and using
+$A_0=QP^{-1}$ and the bilinearity of the inner product,
+\[
+\begin{aligned}
+  \langle Qh,Ph\rangle-\langle A_0k,k\rangle
+   &=\bigl[\langle Qh,Ph\rangle-\langle QP^{-1}k,Ph\rangle\bigr]
+     +\bigl[\langle QP^{-1}k,Ph\rangle-\langle QP^{-1}k,k\rangle\bigr]\\
+   &=\bigl\langle Q\bigl(h-P^{-1}k\bigr),Ph\bigr\rangle
+     +\bigl\langle QP^{-1}k,\,Ph-k\bigr\rangle ,
+\end{aligned}
+\]
+where the first bracket uses the linearity of $Q$ and the second the linearity of
+the inner product in its second argument.
+
+\emph{Estimating the two terms.}
+From \eqref{eq:pqfc-h} and the operator norm bound,
+$|Ph|\le\|P\|\,|h|\le(2\|P\|/c)|k|$. Hence by the Cauchy--Schwarz inequality,
+the operator norm bound for $Q$ and \eqref{eq:pqfc-two},
+\[
+  \bigl|\bigl\langle Q\bigl(h-P^{-1}k\bigr),Ph\bigr\rangle\bigr|
+   \le\|Q\|\,\bigl|h-P^{-1}k\bigr|\cdot|Ph|
+   \le\|Q\|\cdot\|P^{-1}\|\frac{2\delta_1}{c}|k|\cdot\frac{2\|P\|}{c}|k|
+   =\frac{4\,\|Q\|\,\|P^{-1}\|\,\|P\|}{c^2}\,\delta_1|k|^2 .
+\]
+Likewise, by Cauchy--Schwarz, $|A_0k|\le\|A_0\|\,|k|$ and \eqref{eq:pqfc-one},
+\[
+  \bigl|\bigl\langle QP^{-1}k,\,Ph-k\bigr\rangle\bigr|
+   =\bigl|\langle A_0k,\,Ph-k\rangle\bigr|
+   \le\|A_0\|\,|k|\cdot\frac{2\delta_1}{c}|k|
+   =\frac{2\,\|A_0\|}{c}\,\delta_1|k|^2 .
+\]
+Adding the two estimates and using the triangle inequality on the identity above
+gives
+\[
+  \bigl|\langle Qh,Ph\rangle-\langle A_0k,k\rangle\bigr|
+   \le\Bigl(\frac{4\,\|Q\|\,\|P^{-1}\|\,\|P\|}{c^2}+\frac{2\,\|A_0\|}{c}\Bigr)
+      \delta_1|k|^2=C_1\delta_1|k|^2 ,
+\]
+which together with \eqref{eq:pqfc-h} is the assertion.
+\end{proof}

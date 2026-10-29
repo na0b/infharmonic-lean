@@ -1,0 +1,84 @@
+\begin{lemma}[Integrating an affine majorant against a probability measure]
+Let $F$ be a finite-dimensional real inner-product space equipped with its Borel
+$\sigma$-algebra, let $f$ be a real function on space-time, let $s>0$, let
+$t\in\R$, let $x\in F$, let $\Lambda\in\R$ and let $A_0\in F$. Assume the affine
+majorant
+\begin{equation}\label{eq:bami-major}
+  f(y,t)-\frac{|y|^2}{2s}\le\Lambda+A_0\cdot(y-x)\qquad(y\in F).
+\end{equation}
+Let $\mu$ be a Borel probability measure on $F$ such that $y\mapsto|y-x|^2$,
+$y\mapsto f(y,t)$ and $y\mapsto y-x$ are all $\mu$-integrable and
+$\int(y-x)\,d\mu(y)=0$. Then
+\[
+  \int f(y,t)\,d\mu(y)-\frac{\int|y-x|^2\,d\mu(y)}{2s}
+   \le\Lambda+\frac{|x|^2}{2s}.
+\]
+\end{lemma}
+\begin{proof}
+Throughout, integrals are Bochner integrals with respect to $\mu$, which is a
+probability measure, so $\mu(F)=1$ and constants integrate to themselves.
+
+\emph{Integrability of the pieces.}
+Expanding the square in the inner product of $F$,
+\begin{equation}\label{eq:bami-expand}
+  |y|^2=|(y-x)+x|^2=|y-x|^2+2\,(y-x)\cdot x+|x|^2\qquad(y\in F).
+\end{equation}
+On the right, $y\mapsto|y-x|^2$ is $\mu$-integrable by hypothesis;
+$y\mapsto(y-x)\cdot x$ is $\mu$-integrable because $y\mapsto y-x$ is and the map
+$v\mapsto v\cdot x$ is a continuous linear functional on $F$, hence composing it
+with an integrable function leaves an integrable function; and the constant
+$|x|^2$ is integrable because $\mu$ is finite. So $y\mapsto|y|^2$ is
+$\mu$-integrable, and therefore so are
+\[
+  g(y)=f(y,t)-\frac{|y|^2}{2s}
+  \qquad\text{and}\qquad
+  y\longmapsto\Lambda+A_0\cdot(y-x),
+\]
+the first because $y\mapsto f(y,t)$ is integrable by hypothesis and
+$y\mapsto|y|^2/(2s)$ is a constant multiple of an integrable function, the second
+because the constant $\Lambda$ is integrable and $y\mapsto A_0\cdot(y-x)$ is the
+composition of the integrable $y\mapsto y-x$ with the continuous linear
+functional $v\mapsto A_0\cdot v$.
+
+\emph{The linear term integrates to zero.}
+By linearity of the Bochner integral, a continuous linear functional commutes
+with it, so
+\begin{equation}\label{eq:bami-lin}
+  \int A_0\cdot(y-x)\,d\mu(y)=A_0\cdot\int(y-x)\,d\mu(y)=A_0\cdot0=0 ,
+\end{equation}
+using the hypothesis $\int(y-x)\,d\mu=0$. The same argument applied to the
+functional $v\mapsto v\cdot x$ gives
+\begin{equation}\label{eq:bami-lin2}
+  \int(y-x)\cdot x\,d\mu(y)=\Bigl(\int(y-x)\,d\mu(y)\Bigr)\cdot x=0 .
+\end{equation}
+
+\emph{Integrating the majorant.}
+Both sides of \eqref{eq:bami-major} are $\mu$-integrable, as just shown, and the
+inequality holds pointwise, so monotonicity of the integral gives
+\[
+  \int g\,d\mu\le\int\bigl(\Lambda+A_0\cdot(y-x)\bigr)d\mu(y)
+   =\Lambda\,\mu(F)+\int A_0\cdot(y-x)\,d\mu(y)=\Lambda ,
+\]
+by additivity, the value of the integral of a constant against a probability
+measure, and \eqref{eq:bami-lin}.
+
+\emph{The second-moment identity.}
+Integrating \eqref{eq:bami-expand}, using additivity of the integral over the
+three integrable summands, \eqref{eq:bami-lin2} and $\mu(F)=1$,
+\[
+  \int|y|^2\,d\mu(y)=\int|y-x|^2\,d\mu(y)+2\cdot0+|x|^2 .
+\]
+Hence, dividing by $2s>0$ and using additivity once more,
+\[
+  \int g\,d\mu=\int f(y,t)\,d\mu(y)-\frac{\int|y|^2\,d\mu(y)}{2s}
+   =\int f(y,t)\,d\mu(y)-\frac{\int|y-x|^2\,d\mu(y)}{2s}-\frac{|x|^2}{2s}.
+\]
+
+\emph{Conclusion.}
+Comparing the last display with $\int g\,d\mu\le\Lambda$,
+\[
+  \int f(y,t)\,d\mu(y)-\frac{\int|y-x|^2\,d\mu(y)}{2s}-\frac{|x|^2}{2s}
+   \le\Lambda ,
+\]
+and adding $|x|^2/(2s)$ to both sides gives the assertion.
+\end{proof}

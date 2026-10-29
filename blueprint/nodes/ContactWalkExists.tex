@@ -1,0 +1,284 @@
+\begin{lemma}[Existence of the stopped contact walks]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$, let $\kappa>0$ and $H\in\R$, and let
+$v\in\Aclass_{m,C_0}$ in the sense of \noderef{IsFitClass} be centered at
+$z_*=(0,1)$ with constant $C_0$ in the sense of \noderef{IsCenteredAt} and
+satisfy the horizontal Jensen bound with constant $\kappa$ at every time in the
+sense of \noderef{HasJensenBound}. Let $W$ be the contact envelope of
+\noderef{ContactEnv} formed from $v$ and $\kappa$, and assume
+\begin{enumerate}
+\item $W$ is continuous on $\{(x,t):t>0\}$ and has subquadratic spatial growth on
+compact subintervals of $(0,\infty)$ in the sense of
+\noderef{SubquadraticGrowth};
+\item $W(z_*)=0$ and $v(z_*)=0$;
+\item the envelope Hamiltonian of \noderef{EnvHamiltonian} satisfies
+$H_v(z_*)=H$, and the forward envelope slopes of \noderef{EnvSlopeP} satisfy
+$\Senv^+_\ell W(z_*)\to H$ as $\ell\downarrow0$.
+\end{enumerate}
+Write $\delta_j=2^{-j}$. Then for every integer $T\ge2$, every real $R\ge2$ and
+every integer $N\ge1$ there are a step size $\epsilon>0$, a measure space
+$(\Omega,\mathcal M,\mu)$ with a filtration $(\mathcal G_n)$, and functions
+$\xi_n$, $z_n$, $z^+_n$, $z^-_n$, $Q_0(n)$ and $\tau$ on it which form a stopped
+contact walk for $(\kappa,H,T,R,v,N,\epsilon)$ in the sense of
+\noderef{IsContactWalk} and are such that, for every $n$, the range of $z_n$ is
+at most countable.
+\end{lemma}
+\begin{proof}
+Throughout, $z_*=(0,1)$, $f^\ell=\Penv_\ell W$ is the forward envelope of
+\noderef{QuadEnvP}, $g_\ell=\Menv_\ell v$ is the backward envelope of
+\noderef{QuadEnvM}, and $J_\ell=(f^\ell-g_\ell)/(2\ell)$ is the quantity of
+\noderef{JGap}. States are written $z=(x,t)$.
+
+\emph{Step 0: standing facts about $v$.}
+By \noderef{IsFitClass} the function $v$ is continuous on all of space-time and
+is a viscosity solution of the limiting equation there. By
+\noderef{UniformSubquadratic}, applied with the centering point $(0,1)$, $v$ has
+subquadratic spatial growth on compact time intervals of $\R$ in the sense of
+\noderef{SubquadraticGrowth}. Hence \noderef{QuadEnvAttained} and
+\noderef{EnvHamiltonianSolution} are available for $v$ with $I=\R$ (which is
+open), and, by hypothesis (1), \noderef{QuadEnvAttained} is available for $W$
+with $I=(0,\infty)$; also \noderef{OptimizerLocalization} is available for the
+pair $(v,W)$.
+
+\emph{Step 1: a lower bound for $J_\epsilon(z_*)$ at small lengths.}
+For $\ell>0$, hypothesis (2) gives $W(z_*)=v(z_*)=0$, so by
+\noderef{JGap}, \noderef{EnvSlopeP} and \noderef{EnvSlopeM},
+\begin{equation}\label{eq:cwe-Jcontact}
+  J_\ell(z_*)=\frac{\Penv_\ell W(z_*)-\Menv_\ell v(z_*)}{2\ell}
+   =\frac12\Bigl(\frac{\Penv_\ell W(z_*)-W(z_*)}{\ell}
+        +\frac{v(z_*)-\Menv_\ell v(z_*)}{\ell}\Bigr)
+   =\frac{\Senv^+_\ell W(z_*)+\Senv^-_\ell v(z_*)}{2}.
+\end{equation}
+By the second clause of \noderef{EnvHamiltonianSolution} for $v$ with $I=\R$ ---
+whose hypothesis $t+\sigma\in I$ for all $\sigma$ is vacuous for $I=\R$ ---
+\[
+  \inf_{\ell>0}\Senv^-_\ell v(z_*)=H_v(z_*)=H
+\]
+by hypothesis (3), and therefore
+\begin{equation}\label{eq:cwe-Mslope}
+  H\le\Senv^-_\ell v(z_*)\qquad(\ell>0),
+\end{equation}
+an infimum being a lower bound for each member of the family. By hypothesis (3)
+again, $\Senv^+_\ell W(z_*)\to H$ as $\ell\downarrow0$, and $H-2<H$, so there is
+$\ell_0>0$ with
+\begin{equation}\label{eq:cwe-Pslope}
+  H-2\le\Senv^+_\ell W(z_*)\qquad(0<\ell\le\ell_0).
+\end{equation}
+Combining \eqref{eq:cwe-Jcontact}, \eqref{eq:cwe-Mslope} and
+\eqref{eq:cwe-Pslope},
+\begin{equation}\label{eq:cwe-Jlow}
+  J_\ell(z_*)\ge\frac{(H-2)+H}{2}=H-1\qquad(0<\ell\le\ell_0).
+\end{equation}
+
+\emph{Step 2: the choice of $\epsilon$.}
+Fix $T\ge2$, $R\ge2$ and $N\ge1$ and write $\delta=\delta_N=2^{-N}$, so
+$0<\delta\le1/2$. By \noderef{OptimizerLocalization}, applied to $v$ and $W$
+with this $T$, $R$ and $N$ --- its hypotheses are Step 0 for $v$ and hypothesis
+(1) for $W$ --- there is $A\ge1$ such that for every $\ell$ with
+$0<\ell\le\min\{1,\delta/2\}$, every $(x,t)$ with $|x|\le R$ and
+$\delta\le t\le T$ and every $y$,
+\begin{equation}\label{eq:cwe-loc}
+  \Penv_\ell W(x,t)=W(y,t+\ell)-\frac{|y-x|^2}{2\ell}
+    \ \Longrightarrow\ |y-x|\le2\sqrt{A\ell},
+\end{equation}
+and the same implication for $\Menv_\ell v(x,t)=v(y,t-\ell)+|y-x|^2/(2\ell)$.
+Since $1/2<1$, there is an integer $k_1$ with
+$(1/2)^{k_1}<\min\{\ell_0,1/(32A)\}$; put $k=\max\{N+2,k_1\}$ and
+\begin{equation}\label{eq:cwe-eps}
+  \epsilon=2^{-k}.
+\end{equation}
+Then $\epsilon>0$ and, because $(1/2)^j$ is nonincreasing in $j$,
+\begin{equation}\label{eq:cwe-epsbounds}
+  \epsilon\le2^{-(N+2)}=\frac{\delta}{4},\qquad \epsilon\le\ell_0,\qquad
+  32A\epsilon\le1 .
+\end{equation}
+In particular $\epsilon\le1/2$ and $2\epsilon\le\min\{1,\delta/2\}$, so
+\eqref{eq:cwe-loc} is applicable with $\ell=2\epsilon$, and then
+$2\sqrt{2A\epsilon}\le1/2$ because $2A\epsilon\le1/16$.
+Moreover each of $1$, $T$ and $\delta$ is an integer multiple of $\epsilon$:
+\begin{equation}\label{eq:cwe-grid}
+  1=2^k\epsilon,\qquad T=(T2^k)\epsilon,\qquad \delta=2^{k-N}\epsilon,
+\end{equation}
+the second because $T$ is an integer and the third because $k\ge N+2\ge N$. We
+use these through the following consequence: if $a=m_1\epsilon$ and
+$b=m_2\epsilon$ with $m_1,m_2\in\mathbb Z$ and $a<b$, then $m_1<m_2$, hence
+$m_1+1\le m_2$ and
+\begin{equation}\label{eq:cwe-gap}
+  a+\epsilon\le b .
+\end{equation}
+
+\emph{Step 3: the probability space and the signs.}
+Put $q=\lceil(T-\delta)/\epsilon\rceil+1$, a positive integer. By
+\noderef{FairSignEscape} applied with this $q$ there are a measure space
+$(\Omega,\mathcal M,\mu)$ with $\mu(\Omega)=1$, a filtration
+$(\mathcal G_n)_{n\in\mathbb N}$, functions $\xi_n:\Omega\to\R$ and a function
+$G:\Omega\to\mathbb N$ such that each $\xi_n$ takes only the values $\pm1$, is
+$\mathcal G_{n+1}$-measurable and satisfies
+$\mathbb E[\xi_n\mid\mathcal G_n]=0$ a.e., such that
+\begin{equation}\label{eq:cwe-block}
+  \xi_{qG(\omega)+i}(\omega)=1\qquad(\omega\in\Omega,\ i<q),
+\end{equation}
+and such that $G$ is integrable with $\int_\Omega G\,d\mu\le2^q$. Write
+$b_k(\omega)\in\{0,1\}$ for the sign bit of $\xi_k(\omega)$, that is $b_k=1$ if
+$\xi_k=1$ and $b_k=0$ otherwise; then
+\begin{equation}\label{eq:cwe-bit}
+  \{b_k=1\}=\{\xi_k=1\}\in\mathcal G_{k+1},\qquad
+  \{b_k=0\}=\{\xi_k=1\}^{\rm c}\in\mathcal G_{k+1},
+\end{equation}
+because $\xi_k$ is $\mathcal G_{k+1}$-measurable and $\{1\}$ is a measurable
+subset of $\R$. Consequently, for every $n$ and every sequence of bits
+$(s_k)$, the cylinder $\{\omega:b_k(\omega)=s_k\ \text{for all}\ k<n\}$ is a
+finite intersection of sets of $\mathcal G_n$, hence lies in $\mathcal G_n$,
+the filtration being nondecreasing.
+
+\emph{The walk.} Call a state $z=(x,t)$ \emph{live} if
+$\delta<t<T$ and $|x|<R$. We define two maps on states. If $z=(x,t)$ has
+$t>0$ then, by \noderef{QuadEnvAttained} part (1) applied to $W$ with
+$I=(0,\infty)$, the length $2\epsilon$ and the center $z$ --- admissible since
+$t>0$ and $t+2\epsilon>0$ --- there is a point $Y^+(z)$ with
+\begin{equation}\label{eq:cwe-Yp}
+  \Penv_{2\epsilon}W(z)=W\bigl(Y^+(z),t+2\epsilon\bigr)
+    -\frac{|Y^+(z)-x|^2}{2\cdot2\epsilon},
+\end{equation}
+and we fix one such point; by part (2) of the same lemma applied to $v$ with
+$I=\R$ --- where both admissibility conditions are vacuous --- there is a point
+$Y^-(z)$ with
+\begin{equation}\label{eq:cwe-Ym}
+  \Menv_{2\epsilon}v(z)=v\bigl(Y^-(z),t-2\epsilon\bigr)
+    +\frac{|Y^-(z)-x|^2}{2\cdot2\epsilon},
+\end{equation}
+and we fix one such point as well. Put
+\[
+  z^+=\Bigl(\tfrac12\bigl(x+Y^+(z)\bigr),\,t+\epsilon\Bigr),\qquad
+  z^-=\Bigl(\tfrac12\bigl(x+Y^-(z)\bigr),\,t-\epsilon\Bigr)
+\]
+if $z$ is live, and $z^\pm=z$ otherwise. By \noderef{IsStepPair} and
+\eqref{eq:cwe-Yp}--\eqref{eq:cwe-Ym}, $(z^+,z^-)$ is an optimizing step pair of
+size $\epsilon$ at a live $z$ for $v$ and $\kappa$. Also, if $t>0$ then by
+\noderef{DPSpatialRegularity} applied at the time $t$, the length $\epsilon>0$
+and the center $x$ --- its hypotheses on $C_0$, $\kappa$, $v$ are the standing
+ones and its two numerical hypotheses are $t>0$ and $\epsilon>0$ --- the
+function $\Penv_\epsilon W(\cdot,t)$ is differentiable at $x$ with some gradient
+there, and we let $Q_0(z)$ be one such gradient.
+
+Now define $Z_n(\omega)$ by recursion: $Z_0(\omega)=z_*$ and
+\[
+  Z_{n+1}(\omega)=\begin{cases}
+    Z_n(\omega)^+,&Z_n(\omega)\ \text{live and}\ b_n(\omega)=1,\\
+    Z_n(\omega)^-,&Z_n(\omega)\ \text{live and}\ b_n(\omega)=0,\\
+    Z_n(\omega),&Z_n(\omega)\ \text{not live},
+  \end{cases}
+\]
+and put $z_n=Z_n$, $z^\pm_n=Z_n^\pm$ and $Q_0(n)=Q_0(Z_n)$. An immediate
+induction on $n$ shows that $Z_n(\omega)$ depends only on
+$b_0(\omega),\ldots,b_{n-1}(\omega)$: the recursion step reads only $b_n$. Hence
+each of $z_n$, $z^\pm_n$ and $Q_0(n)$ takes at most $2^n$ values and is constant
+on each of the $2^n$ cylinders of the first $n$ bits; writing such a function as
+the finite sum of the (constant) values times the indicators of those cylinders,
+which lie in $\mathcal G_n$ by \eqref{eq:cwe-bit}, each of them is
+$\mathcal G_n$-measurable, indeed strongly measurable, being a finite sum of
+indicators times constants. In particular the range of $z_n$ is finite, hence at
+most countable, for every $n$, which is the last assertion of the statement.
+
+\emph{The numerical invariants.} We claim that for every $\omega$ and $n$
+\begin{equation}\label{eq:cwe-inv}
+  t_n\in\epsilon\mathbb Z,\qquad \delta\le t_n\le T,
+\end{equation}
+where $z_n=(x_n,t_n)$. For $n=0$ we have $t_0=1$, which lies in
+$\epsilon\mathbb Z$ by \eqref{eq:cwe-grid}, and
+$\delta\le1/2<1\le T$. Assume \eqref{eq:cwe-inv} at $n$. If $z_n$ is not live
+then $z_{n+1}=z_n$ and there is nothing to prove. If $z_n$ is live then
+$t_{n+1}=t_n\pm\epsilon$, so $t_{n+1}\in\epsilon\mathbb Z$; moreover
+$\delta<t_n<T$ with all three of $\delta$, $t_n$, $T$ in $\epsilon\mathbb Z$, so
+\eqref{eq:cwe-gap} upgrades these to $\delta+\epsilon\le t_n\le T-\epsilon$,
+whence $\delta\le t_n-\epsilon\le t_{n+1}\le t_n+\epsilon\le T$. This proves
+\eqref{eq:cwe-inv}; in particular $t_n\ge\delta>0$ for every $n$, including at
+and after the stop, which is what makes the definitions of $Y^\pm$ and $Q_0$
+legitimate at every $Z_n$.
+
+\emph{The steps are short.} Let $z=(x,t)$ be live. Then $|x|\le R$ and
+$\delta\le t\le T$ by \eqref{eq:cwe-inv}, so \eqref{eq:cwe-loc} applies with
+$\ell=2\epsilon$ to the optimizers $Y^\pm(z)$ of
+\eqref{eq:cwe-Yp}--\eqref{eq:cwe-Ym} and gives
+$|Y^\pm(z)-x|\le2\sqrt{2A\epsilon}\le1/2$. The spatial parts of $z^\pm$ are the
+midpoints $\tfrac12(x+Y^\pm(z))$, so
+\begin{equation}\label{eq:cwe-short}
+  \bigl|\tfrac12(x+Y^\pm(z))-x\bigr|=\tfrac12|Y^\pm(z)-x|\le\tfrac14 .
+\end{equation}
+
+\emph{The stopping index.} We claim that for every $\omega$ there is an $n$ with
+$Z_n(\omega)$ not live. Suppose, to the contrary, that $Z_n(\omega)$ is live for
+every $n\le qG(\omega)+q$. By \eqref{eq:cwe-block} we have
+$b_{qG(\omega)+i}(\omega)=1$ for every $i<q$, so the recursion gives, by
+induction on $j\le q$,
+\[
+  t_{qG(\omega)+j}=t_{qG(\omega)}+j\epsilon ,
+\]
+each step being a $+\epsilon$ step. At $j=q$ this yields
+$t_{qG(\omega)+q}=t_{qG(\omega)}+q\epsilon\ge\delta+q\epsilon$ by
+\eqref{eq:cwe-inv}. But $q>(T-\delta)/\epsilon$ by the definition of $q$ and
+$\epsilon>0$, so $q\epsilon>T-\delta$ and therefore
+$t_{qG(\omega)+q}>T$, contradicting \eqref{eq:cwe-inv}. Hence there is an $n$ with
+$Z_n(\omega)$ not live, and we let $\tau(\omega)$ be the least such $n$. If we had
+$\tau(\omega)>qG(\omega)+q$ then every $n\le qG(\omega)+q$ would satisfy
+$n<\tau(\omega)$ and hence, by the minimality of $\tau(\omega)$, would carry a live
+state --- which the contradiction just derived excludes. Therefore
+\begin{equation}\label{eq:cwe-taubd}
+  \tau(\omega)\le qG(\omega)+q .
+\end{equation}
+By minimality, $Z_n(\omega)$ is live for $n<\tau(\omega)$; and for
+$n\ge\tau(\omega)$ an induction using the third line of the recursion gives
+$Z_n(\omega)=Z_{\tau(\omega)}(\omega)$, so $Z_n(\omega)$ is not live there
+either. Thus
+\begin{equation}\label{eq:cwe-lviff}
+  Z_n(\omega)\ \text{is live}\iff n<\tau(\omega).
+\end{equation}
+
+\emph{$\tau$ is a stopping time and is integrable.} The set of states that are
+live is $\{(x,t):t\in(\delta,T)\}\cap\{(x,t):|x|<R\}$, so, $t\mapsto t$ and
+$x\mapsto|x|$ being continuous, the event $\{Z_n\ \text{live}\}$ is
+$\mathcal G_n$-measurable, $Z_n$ being $\mathcal G_n$-measurable. By
+\eqref{eq:cwe-lviff},
+\[
+  \{\tau\le n\}=\bigcup_{m\le n}\{Z_m\ \text{not live}\},
+\]
+a finite union of sets of $\mathcal G_m\subseteq\mathcal G_n$ with $m\le n$,
+hence in $\mathcal G_n$; so $\tau$ is a stopping time. Likewise
+$\{\tau=n\}=\{Z_n\ \text{not live}\}\cap\bigcap_{m<n}\{Z_m\ \text{live}\}$ is
+measurable for every $n$, so $\tau$, having countable range, is measurable;
+and $0\le\tau\le qG+q$ pointwise by \eqref{eq:cwe-taubd} with $qG+q$
+integrable, because $G$ is integrable and $\mu$ is finite. Hence $\tau$ is
+integrable.
+
+\emph{The positions stay in $\overline B_{R+1}(0)$.} Let $n\le\tau(\omega)$. If
+$n<\tau(\omega)$ then $Z_n(\omega)$ is live, so $|x_n|<R\le R+1$. If
+$n=\tau(\omega)=0$ then $x_n=0$ and $|x_n|=0\le R+1$. If
+$n=\tau(\omega)=m+1$ then $Z_m(\omega)$ is live, so $|x_m|<R$, and by
+\eqref{eq:cwe-short} and the triangle inequality
+$|x_{m+1}|\le|x_{m+1}-x_m|+|x_m|\le\tfrac14+R\le R+1$.
+
+\emph{The stop is exactly at a cutoff.} At $n=\tau(\omega)$ the state is not
+live, that is, not all of $\delta<t_\tau$, $t_\tau<T$, $|x_\tau|<R$ hold. If
+$\delta<t_\tau$ and $t_\tau<T$ then $R\le|x_\tau|$. If $t_\tau\ge T$ then
+$t_\tau=T$ by \eqref{eq:cwe-inv}; if $t_\tau\le\delta$ then $t_\tau=\delta$ by
+\eqref{eq:cwe-inv}. So in every case
+$t_\tau=\delta$ or $t_\tau=T$ or $R\le|x_\tau|$.
+
+\emph{Conclusion.} The data $\epsilon$, $(\Omega,\mathcal M,\mu)$,
+$(\mathcal G_n)$, $\xi$, $z$, $z^\pm$, $Q_0$, $\tau$ satisfy every clause of
+\noderef{IsContactWalk}: $\mu(\Omega)=1$ and the three clauses on $\xi$ come
+from \noderef{FairSignEscape}; $\epsilon=2^{-k}$ is an inverse power of two with
+$0<\epsilon\le\delta_N/4$ by \eqref{eq:cwe-eps} and
+\eqref{eq:cwe-epsbounds}; the four measurability clauses were proved after the
+definition of the walk; $z_0=z_*$ by definition; the step-pair clause for
+$n<\tau$ holds by \eqref{eq:cwe-Yp}--\eqref{eq:cwe-Ym} and
+\eqref{eq:cwe-lviff}; the recursion clause is the definition of $Z_{n+1}$
+rewritten with \eqref{eq:cwe-lviff} and with $b_n=1$ replaced by $\xi_n=1$; the
+gradient clause is the definition of $Q_0$, legitimate because $t_n>0$ by
+\eqref{eq:cwe-inv}; $\tau$ is an integrable stopping time as just shown; the
+live bounds for $n<\tau$ are \eqref{eq:cwe-lviff} together with the definition
+of liveness; the exit alternative and the bound $|x_n|\le R+1$ for $n\le\tau$
+are the previous two paragraphs; the countability of the range of each $z_n$ was
+recorded when the walk was defined; and $H-1\le J_\epsilon(z_*)$ is
+\eqref{eq:cwe-Jlow} at $\ell=\epsilon$, admissible because
+$0<\epsilon\le\ell_0$ by \eqref{eq:cwe-epsbounds}. \end{proof}

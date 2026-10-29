@@ -1,0 +1,265 @@
+\begin{lemma}[Covariance of the envelope slopes in a fitted frame]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$ and $0\le\kappa<\infty$, and let $v\in\Aclass_{m,C_0}$ in the
+sense of \noderef{IsFitClass} satisfy the horizontal Jensen bound with constant
+$\kappa$ at every time in the sense of \noderef{HasJensenBound}. Let $r>0$, let
+$x_0\in F$, and let $(p_0,a_0)$ be a fit for $v$ at $(x_0,r)$ of radius $r$ with
+constant $C_0$, in the sense of \noderef{IsFit}. Define the contact frame by
+\begin{equation}\label{eq:contact-frame}
+\begin{gathered}
+  s=\frac{t}{r},\qquad y=\frac{x-x_0-p_0(t-r)}{r},\\
+  x=x_0+r\bigl(y+p_0(s-1)\bigr),\qquad t=rs,\\
+  \bar v(y,s)=\frac{v(x,t)-v(x_0,r)}{r}
+          -p_0\cdot y-\left(a_0+\frac{|p_0|^2}{2}\right)(s-1),
+\end{gathered}
+\end{equation}
+so that $\bar v$ is the change of frame of \noderef{FrameChange} based at
+$(x_0,r)$ with scale $r$ and parameters $(p_0,a_0)$, composed with the
+translation of the time coordinate by one unit. Then $\bar v\in\Aclass_{m,C_0}$,
+it is centered at $(0,1)$ with constant $C_0$ in the sense of
+\noderef{IsCenteredAt}, it satisfies the horizontal Jensen bound with the same
+constant $\kappa$, and for every $\ell>0$, at corresponding points,
+\begin{equation}\label{eq:fitted-slope-covariance}
+  \Senv_\ell^\pm\bar v(y,s)=\Senv_{r\ell}^\pm v(x,t)-a_0,
+\end{equation}
+with the slopes of \noderef{EnvSlopeP} and \noderef{EnvSlopeM}.
+\end{lemma}
+\begin{proof}
+Write $T(y,s)=\bigl(x_0+r(y+p_0(s-1)),\,rs\bigr)$ for the frame map, which is an
+affine bijection of space-time because $r>0$, with inverse
+$T^{-1}(x,t)=\bigl((x-x_0-p_0(t-r))/r,\ t/r\bigr)$; the formulas
+\eqref{eq:contact-frame} say exactly that $\bar v=\bar v(y,s)$ is given in terms
+of $v$ at the corresponding point $(x,t)=T(y,s)$. Note $T(0,1)=(x_0,r)$.
+
+\emph{Step 1: $\bar v$ is the change of frame followed by a time translation.}
+By \noderef{FrameChange} with base point $z_0=(x_0,r)$, scale $r$ and parameters
+$(p_0,a_0)$, the function
+\[
+  \widehat v(y,\sigma)
+   =\frac{v\bigl(x_0+r(y+p_0\sigma),\ r+r\sigma\bigr)-v(x_0,r)}{r}
+     -p_0\cdot y-\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)\sigma
+\]
+satisfies $\bar v(y,s)=\widehat v(y,s-1)$, since substituting $\sigma=s-1$ gives
+$r+r\sigma=rs$ and reproduces \eqref{eq:contact-frame}.
+
+\emph{Step 2: class, centering and Jensen bound.}
+By \noderef{FrameInvariance}, applied to $v\in\Aclass_{m,C_0}$ with $z_0=(x_0,r)$,
+$R=r>0$ and $(p_0,a_0)$, we have $\widehat v\in\Aclass_{m,C_0}$. Its second
+assertion, applied at the new center $\zeta=(0,0)$ — whose corresponding old
+point is $T(0,1)=(x_0,r)$ — with $\rho=1$ and the fit $(p_0,a_0)$ for $v$ at
+$(x_0,r)$ of radius $r\cdot1=r$, shows that $(p_0-p_0,a_0-a_0)=(0,0)$ is a fit
+for $\widehat v$ at $(0,0)$ of radius $1$ with constant $C_0$; and
+$\widehat v(0,0)=0$ directly from the displayed formula. So by
+\noderef{IsCenteredAt} the function $\widehat v$ is centered at the origin with
+constant $C_0$.
+
+It remains to transport this across the time translation
+$\Theta(y,s)=(y,s-1)$, for which $\bar v=\widehat v\circ\Theta$ by Step 1.
+\begin{itemize}
+\item \emph{Equation.} $\Theta$ is a translation, so for a $C^2$ function $\phi$
+on space-time, $\phi\circ\Theta^{-1}$ is $C^2$ and, at corresponding points, has
+the same gradient and the same second derivative as $\phi$; in particular the
+operator of \noderef{LimitOp} satisfies
+$F[\phi\circ\Theta^{-1}](\Theta\zeta)=F[\phi](\zeta)$. Also
+$\bar v-\phi=(\widehat v-\phi\circ\Theta^{-1})\circ\Theta$ and $\Theta$ is a
+homeomorphism, so local maxima and minima correspond. Assembling: let $\zeta_0$
+be any space-time point and let $\phi$ be $C^2$ near $\zeta_0$. If
+$\bar v-\phi$ has a local maximum at $\zeta_0$, then
+$\widehat v-\phi\circ\Theta^{-1}$ has a local maximum at $\Theta\zeta_0$, so the
+subsolution property of $\widehat v$ in \noderef{IsLimitSubOn} applied to the
+test function $\phi\circ\Theta^{-1}$ gives
+$0\le F[\phi\circ\Theta^{-1}](\Theta\zeta_0)=F[\phi](\zeta_0)$; and if
+$\bar v-\phi$ has a local minimum at $\zeta_0$, the supersolution property of
+$\widehat v$ in \noderef{IsLimitSuperOn} applied to the same test function gives
+$F[\phi](\zeta_0)=F[\phi\circ\Theta^{-1}](\Theta\zeta_0)\le0$. Moreover
+$\bar v=\widehat v\circ\Theta$ is continuous because $\widehat v$ is, and the
+whole space is open, which is the first of the three conditions in each of
+\noderef{IsLimitSubOn} and \noderef{IsLimitSuperOn}; with $\Omega$ the whole
+space, a local maximum of $\bar v-\phi$ on $\Omega$ at $\zeta_0$, as
+\noderef{IsLimitSubOn} requires, is an ordinary local maximum at $\zeta_0$, and
+likewise for local minima in \noderef{IsLimitSuperOn}. So the three conditions
+of each of those two definitions hold, and $\bar v$ is both a viscosity
+subsolution and a viscosity supersolution of $F[\bar v]=0$ on all of space-time,
+that is, by \noderef{IsLimitSolutionOn}, a viscosity solution of $F[\bar v]=0$
+there.
+\item \emph{Fits.} For any $\zeta$, $\rho>0$, $p$ and $a$, the increments
+$(h,\ell)$ appearing in \noderef{IsFit} are the same for $\bar v$ at $\zeta$ and
+for $\widehat v$ at $\Theta\zeta$, because $\Theta$ is a translation and
+$\bar v(\zeta+(h,\ell))=\widehat v(\Theta\zeta+(h,\ell))$. So $(p,a)$ is a fit
+for $\bar v$ at $\zeta$ of radius $\rho$ exactly when it is a fit for
+$\widehat v$ at $\Theta\zeta$ of radius $\rho$. Since $\widehat v$ has fits at
+every center and radius, so does $\bar v$; hence
+$\bar v\in\Aclass_{m,C_0}$ by \noderef{IsFitClass}. Taking
+$\zeta=(0,1)$, so $\Theta\zeta=(0,0)$, the centered fit $(0,0)$ of radius $1$
+for $\widehat v$ at the origin is a fit for $\bar v$ at $(0,1)$ of radius $1$,
+and $\bar v(0,1)=\widehat v(0,0)=0$. By \noderef{IsCenteredAt}, $\bar v$ is
+centered at $(0,1)$ with constant $C_0$.
+\end{itemize}
+
+For the Jensen bound, fix a time $s$ and a finite horizontal probability
+configuration $(\theta,y)$ with mean $y_*$ in the sense of
+\noderef{IsBaryConfig}. Put $t=rs$ and $x_i=x_0+r(y_i+p_0(s-1))$, and
+$x_*=x_0+r(y_*+p_0(s-1))$. Since $\sum_i\theta_iy_i=y_*$ and
+$\sum_i\theta_i=1$, we get $\sum_i\theta_ix_i=x_*$, so $(\theta,x)$ is a finite
+horizontal probability configuration at time $t$ with mean $x_*$; moreover
+$x_i-x_*=r(y_i-y_*)$, so by \noderef{BaryRadius} its radius is $r$ times the
+radius $\bar r$ of $(\theta,y)$. From \eqref{eq:contact-frame},
+\[
+  \bar v(y_i,s)=\frac{v(x_i,t)-v(x_0,r)}{r}-p_0\cdot y_i
+     -\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)(s-1),
+\]
+and the terms other than $v(x_i,t)/r$ are affine in $y_i$; averaging with the
+weights $\theta_i$ and subtracting the same expression at $y_*$, the affine
+terms cancel because the configuration has mean $y_*$, and we get
+\begin{equation}\label{eq:fec-defect}
+  \sum_i\theta_i\bar v(y_i,s)-\bar v(y_*,s)
+   =\frac1r\Bigl(\sum_i\theta_iv(x_i,t)-v(x_*,t)\Bigr).
+\end{equation}
+The hypothesis \noderef{HasJensenBound} for $v$ at the time $t$ bounds the right
+side by $\kappa\cdot(r\bar r)/r=\kappa\bar r$. As $s$ and $(\theta,y)$ were
+arbitrary, \noderef{HasJensenBound} holds for $\bar v$ with the same constant
+$\kappa$ at every time.
+
+\emph{Step 3: the envelope value identities.}
+We first record that the envelopes of $\bar v$ are genuine extrema, so that no
+convention for the supremum or infimum of an unbounded set is ever in play. By
+Step 2, $\bar v\in\Aclass_{m,C_0}$ and $\bar v$ is centered at $(0,1)$ with
+constant $C_0$ in the sense of \noderef{IsCenteredAt}; these are exactly the
+hypotheses of \noderef{UniformSubquadratic} with $z_c=(0,1)$, which therefore
+gives, for every compact $J\subseteq\R$ and every $\varepsilon>0$, an $M>0$ with
+$|\bar v(y',s')|\le\varepsilon|y'|^2$ whenever $|y'|\ge M$ and $s'\in J$. That
+is precisely subquadratic spatial growth on compact time intervals of $I=\R$ in
+the sense of \noderef{SubquadraticGrowth}, and $\bar v$ is continuous on all of
+space-time, which is $\Omega_\R$, by clause (1) of \noderef{IsFitClass}. So
+\noderef{EnvelopeCompetitorBounds} applies to $\bar v$ with $I=\R$; since every
+real time lies in $I$, its admissibility requirements $s\in I$, $s+\ell\in I$
+and $s-\ell\in I$ hold for every $(y,s)$ and every $\ell>0$, with no sign
+condition on $s$ or restriction on $\ell$. Clause (1) then says that
+$\Penv_\ell\bar v(y,s)$ is the least upper bound of the competitor values
+\begin{equation}\label{eq:fec-pfamily}
+  \Bigl\{\,\bar v(y',s+\ell)-\frac{|y'-y|^2}{2\ell}\ :\ y'\in F\,\Bigr\},
+\end{equation}
+and clause (2) says that $\Menv_\ell\bar v(y,s)$ is the greatest lower bound of
+\begin{equation}\label{eq:fec-mfamily}
+  \Bigl\{\,\bar v(y',s-\ell)+\frac{|y'-y|^2}{2\ell}\ :\ y'\in F\,\Bigr\}.
+\end{equation}
+In particular \eqref{eq:fec-pfamily} is nonempty and bounded above, and
+\eqref{eq:fec-mfamily} is nonempty and bounded below.
+
+Put
+\[
+  A(y,s)=\frac{v(x_0,r)}{r}+p_0\cdot y
+             +\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)(s-1),
+\]
+so that \eqref{eq:contact-frame} reads
+\begin{equation}\label{eq:fec-split}
+  \frac{v(x,t)}{r}=\bar v(y,s)+A(y,s)
+  \qquad\bigl((x,t)=T(y,s)\bigr).
+\end{equation}
+Let $\ell>0$ and let $(y,s)$ correspond to $(x,t)$. We claim
+\begin{equation}\label{eq:envelope-covariance}
+\begin{split}
+  \frac{\Penv_{r\ell}v(x,t)}{r}
+    &=\Penv_\ell\bar v(y,s)+A(y,s)+a_0\ell,\\
+  \frac{\Menv_{r\ell}v(x,t)}{r}
+    &=\Menv_\ell\bar v(y,s)+A(y,s)-a_0\ell .
+\end{split}
+\end{equation}
+
+For the first identity, parameterize the competitors in \noderef{QuadEnvP} for
+$\Penv_{r\ell}v(x,t)$: a competitor is a point $x'$ at time $t+r\ell$, and we
+write $x'=x_0+r(y'+p_0(s+\ell-1))$ for a unique $y'\in F$, i.e. $(y',s+\ell)$ is
+the point corresponding to $(x',t+r\ell)$ under $T$; as $y'$ ranges over $F$ so
+does $x'$. The old displacement is
+\[
+  x'-x=r\bigl(y'-y+p_0\ell\bigr),
+\]
+so the old cost divided by $r$ is
+\[
+  \frac{|x'-x|^2}{2r\ell\,r}=\frac{|y'-y+p_0\ell|^2}{2\ell}
+    =\frac{|y'-y|^2}{2\ell}+p_0\cdot(y'-y)+\frac{|p_0|^2\ell}{2}.
+\]
+By \eqref{eq:fec-split}, $v(x',t+r\ell)/r=\bar v(y',s+\ell)+A(y',s+\ell)$, and
+\[
+  A(y',s+\ell)-A(y,s)=p_0\cdot(y'-y)+\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)\ell .
+\]
+Therefore the old competitor value divided by $r$ is
+\[
+  \frac{v(x',t+r\ell)}{r}-\frac{|x'-x|^2}{2r\ell\,r}
+   =\bar v(y',s+\ell)-\frac{|y'-y|^2}{2\ell}+A(y,s)+a_0\ell .
+\]
+The correspondence $x'\leftrightarrow y'$ is a bijection of $F$ onto $F$, hence
+a bijection of the competitor index sets, and the last display says that the
+competitor value for $\Penv_{r\ell}v(x,t)$ at $x'$ equals $r\Psi(u)$, where
+\[
+  u=\bar v(y',s+\ell)-\frac{|y'-y|^2}{2\ell},
+  \qquad \Psi(u)=u+A(y,s)+a_0\ell
+\]
+is the competitor value for $\Penv_\ell\bar v(y,s)$ at $y'$ shifted by the
+constant $A(y,s)+a_0\ell$, which is independent of the competitor. So the set of
+competitor values for $\Penv_{r\ell}v(x,t)$ is the image of
+\eqref{eq:fec-pfamily} under $u\mapsto r\Psi(u)$, an increasing affine bijection
+of $\R$ because $r>0$. An increasing affine bijection of $\R$ carries a nonempty
+set that is bounded above to a nonempty set that is bounded above, and carries
+its least upper bound to the least upper bound of the image; this is how
+nonemptiness and boundedness transport across the bijection, so the conclusion
+of \noderef{EnvelopeCompetitorBounds} for $\bar v$ is what makes the $v$-side
+family genuinely bounded, even though no growth hypothesis is available for $v$
+itself. Therefore the competitor family for $\Penv_{r\ell}v(x,t)$ is nonempty
+and bounded above with least upper bound
+$r\bigl(\Penv_\ell\bar v(y,s)+A(y,s)+a_0\ell\bigr)$. The supremum defining
+$\Penv_{r\ell}v(x,t)$ in \noderef{QuadEnvP} is taken over exactly that family,
+and a supremum of a nonempty set that is bounded above is its least upper bound,
+so $\Penv_{r\ell}v(x,t)=r\bigl(\Penv_\ell\bar v(y,s)+A(y,s)+a_0\ell\bigr)$.
+Dividing by $r>0$ gives the first identity of \eqref{eq:envelope-covariance}.
+
+For the second identity, the same parameterization with $x'$ at time
+$t-r\ell$ and $(y',s-\ell)$ gives $x'-x=r(y'-y-p_0\ell)$, so the old cost
+divided by $r$ is
+\[
+  \frac{|y'-y-p_0\ell|^2}{2\ell}
+   =\frac{|y'-y|^2}{2\ell}-p_0\cdot(y'-y)+\frac{|p_0|^2\ell}{2},
+\]
+while $A(y',s-\ell)-A(y,s)=p_0\cdot(y'-y)-(a_0+|p_0|^2/2)\ell$. Adding the cost,
+as in \noderef{QuadEnvM}, the old competitor value divided by $r$ is
+\[
+  \bar v(y',s-\ell)+\frac{|y'-y|^2}{2\ell}+A(y,s)-a_0\ell ,
+\]
+and the same reasoning applies in the dual direction. The correspondence
+$x'\leftrightarrow y'$ is again a bijection of $F$ onto $F$, and by the last
+display the set of competitor values for $\Menv_{r\ell}v(x,t)$ is the image of
+\eqref{eq:fec-mfamily} under the increasing affine bijection
+$u\mapsto r\bigl(u+A(y,s)-a_0\ell\bigr)$ of $\R$. Such a map carries a nonempty
+set that is bounded below to a nonempty set that is bounded below and carries
+its greatest lower bound to the greatest lower bound of the image, so
+nonemptiness and boundedness again transport from \eqref{eq:fec-mfamily}, which
+\noderef{EnvelopeCompetitorBounds} supplied for $\bar v$; the competitor family
+for $\Menv_{r\ell}v(x,t)$ is thus nonempty and bounded below with greatest lower
+bound $r\bigl(\Menv_\ell\bar v(y,s)+A(y,s)-a_0\ell\bigr)$. The infimum defining
+$\Menv_{r\ell}v(x,t)$ in \noderef{QuadEnvM} is taken over exactly that family,
+and an infimum of a nonempty set that is bounded below is its greatest lower
+bound, so dividing by $r>0$ gives the second identity of
+\eqref{eq:envelope-covariance}.
+
+\emph{Step 4: the slope covariance.}
+Subtracting \eqref{eq:fec-split} from the first line of
+\eqref{eq:envelope-covariance},
+\[
+  \frac{\Penv_{r\ell}v(x,t)-v(x,t)}{r}
+   =\Penv_\ell\bar v(y,s)-\bar v(y,s)+a_0\ell ;
+\]
+dividing by $\ell>0$ and using \noderef{EnvSlopeP} on both sides, together with
+$(r\ell)^{-1}\bigl(\Penv_{r\ell}v(x,t)-v(x,t)\bigr)=\Senv^+_{r\ell}v(x,t)$,
+\[
+  \Senv_{r\ell}^+v(x,t)=\Senv_\ell^+\bar v(y,s)+a_0 .
+\]
+Subtracting the second line of \eqref{eq:envelope-covariance} from
+\eqref{eq:fec-split},
+\[
+  \frac{v(x,t)-\Menv_{r\ell}v(x,t)}{r}
+   =\bar v(y,s)-\Menv_\ell\bar v(y,s)+a_0\ell ,
+\]
+and dividing by $\ell$ and using \noderef{EnvSlopeM} gives
+$\Senv_{r\ell}^-v(x,t)=\Senv_\ell^-\bar v(y,s)+a_0$. Both identities are
+\eqref{eq:fitted-slope-covariance}.
+\end{proof}

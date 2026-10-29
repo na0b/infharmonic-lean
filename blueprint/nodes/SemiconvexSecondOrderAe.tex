@@ -1,0 +1,114 @@
+\begin{theorem}[Alexandrov's theorem for semiconvex functions]
+Let $E$ be a finite-dimensional real inner-product space with an additive Haar
+measure $\mu$, let $\lambda\ge0$, let $\Omega\subseteq E$ be open and let
+$\phi:E\to\R$ be $\lambda$-semiconvex on $\Omega$ in the sense of
+\noderef{SemiconvexOn} (so in particular $\Omega$ is convex). Then for
+$\mu$-almost every $x\in E$ the following holds: if $x\in\Omega$, there are a
+vector $q\in E$ and a symmetric continuous bilinear form $A$ on $E$ with
+$A(h,h)\ge-\lambda|h|^2$ for all $h\in E$, such that for every $\delta>0$ there
+is $\rho>0$ with
+\[
+  \Bigl|\phi(x+h)-\phi(x)-\langle q,h\rangle-\tfrac12A(h,h)\Bigr|
+    \le\delta|h|^2\qquad(|h|<\rho).
+\]
+\end{theorem}
+\begin{proof}
+Set
+\[
+  \psi(z)=\phi(z)+\frac{\lambda|z|^2}{2}\qquad(z\in E),
+\]
+so that $\psi$ is convex on $\Omega$ by the definition of semiconvexity in
+\noderef{SemiconvexOn}, and $\Omega$ is convex.
+
+\emph{Step 1: a countable cover of $\Omega$ by balls well inside it.}
+The space $E$ is a finite-dimensional real normed space, hence separable: fixing
+a basis $e_1,\dots,e_n$ of $E$, the countable set of combinations
+$\sum_i c_ie_i$ with all $c_i$ rational is dense in $E$. Let
+$(x_i)_{i\in\mathbb N}$ enumerate such a countable dense subset of $E$, and let
+\[
+  \mathcal F=\bigl\{\,(i,s)\ :\ i\in\mathbb N,\ s\in\mathbb Q,\ s>0,\
+     \overline B(x_i,2s)\subseteq\Omega\,\bigr\},
+\]
+a countable set. We claim that the balls $B(x_i,s)$ with $(i,s)\in\mathcal F$
+cover $\Omega$. Let $x\in\Omega$. Since $\Omega$ is open there is $r>0$ with
+$\overline B(x,5r)\subseteq\Omega$. By density there is $i$ with
+$|x_i-x|<r$, and there is a rational $s$ with $r<s<2r$. Then
+$|x-x_i|<r<s$, so $x\in B(x_i,s)$; and for $z\in\overline B(x_i,2s)$ we have
+$|z-x|\le|z-x_i|+|x_i-x|\le2s+r<4r+r=5r$, so
+$\overline B(x_i,2s)\subseteq\overline B(x,5r)\subseteq\Omega$ and
+$(i,s)\in\mathcal F$. This proves the claim.
+
+\emph{Step 2: a single null set.}
+Let $(i,s)\in\mathcal F$. Applying \noderef{ConvexLocalExtension} to the open set
+$\Omega$, the function $\psi$ (convex on $\Omega$), the centre $x_i$ and the
+radius $s>0$ --- whose hypothesis $\overline B(x_i,2s)\subseteq\Omega$ holds by
+the definition of $\mathcal F$ --- we obtain $\psi_{i,s}:E\to\R$, convex on all
+of $E$, with
+\begin{equation}\label{eq:ssa-agree}
+  \psi_{i,s}=\psi\quad\text{on }B(x_i,s).
+\end{equation}
+By \noderef{ConvexSecondOrderAe} applied to $\psi_{i,s}$ there is a $\mu$-null
+set $Z_{i,s}\subseteq E$ such that every $x\notin Z_{i,s}$ admits a vector
+$q\in E$ and a symmetric continuous bilinear form $A$ with $A(h,h)\ge0$ for all
+$h$ and
+\begin{equation}\label{eq:ssa-exp}
+  \Bigl|\psi_{i,s}(x+h)-\psi_{i,s}(x)-\langle q,h\rangle-\tfrac12A(h,h)\Bigr|
+   \le\delta|h|^2\qquad(|h|<\rho)
+\end{equation}
+for every $\delta>0$ and a suitable $\rho=\rho(\delta)>0$. Put
+$Z=\bigcup_{(i,s)\in\mathcal F}Z_{i,s}$, a countable union of null sets, hence
+$\mu(Z)=0$.
+
+\emph{Step 3: the expansion at every $x\in\Omega\setminus Z$.}
+Let $x\in\Omega\setminus Z$. By Step 1 there is $(i,s)\in\mathcal F$ with
+$x\in B(x_i,s)$; since $B(x_i,s)$ is open there is $\rho_0>0$ with
+$B(x,\rho_0)\subseteq B(x_i,s)$. Since $x\notin Z_{i,s}$, Step 2 provides $q$ and
+$A$ with $A(h,h)\ge0$ and \eqref{eq:ssa-exp}.
+
+Let $\delta>0$ and let $\rho=\min(\rho(\delta),\rho_0)>0$. For $|h|<\rho$ both
+$x$ and $x+h$ lie in $B(x_i,s)$, so \eqref{eq:ssa-agree} turns
+\eqref{eq:ssa-exp} into
+\begin{equation}\label{eq:ssa-psi}
+  \bigl|e(h)\bigr|\le\delta|h|^2,\qquad
+  e(h):=\psi(x+h)-\psi(x)-\langle q,h\rangle-\tfrac12A(h,h)
+  \qquad(|h|<\rho).
+\end{equation}
+
+Now translate this into a statement about $\phi=\psi-\lambda|\cdot|^2/2$.
+Expanding the square,
+\[
+  \frac{\lambda|x+h|^2}{2}
+   =\frac{\lambda|x|^2}{2}+\lambda\langle x,h\rangle+\frac{\lambda|h|^2}{2},
+\]
+so
+\[
+  \phi(x+h)-\phi(x)
+   =\bigl(\psi(x+h)-\psi(x)\bigr)-\lambda\langle x,h\rangle
+     -\frac{\lambda|h|^2}{2}.
+\]
+Substituting $\psi(x+h)-\psi(x)=\langle q,h\rangle+\tfrac12A(h,h)+e(h)$ from
+\eqref{eq:ssa-psi},
+\[
+  \phi(x+h)-\phi(x)
+   =\langle q-\lambda x,h\rangle
+    +\tfrac12\bigl(A(h,h)-\lambda|h|^2\bigr)+e(h).
+\]
+Define
+\[
+  q'=q-\lambda x,\qquad A'(a,b)=A(a,b)-\lambda\langle a,b\rangle .
+\]
+Then $A'$ is again a symmetric continuous bilinear form on $E$ (a difference of
+two such), $A'(h,h)=A(h,h)-\lambda|h|^2\ge-\lambda|h|^2$ because $A(h,h)\ge0$,
+and the display above reads
+\[
+  \phi(x+h)-\phi(x)-\langle q',h\rangle-\tfrac12A'(h,h)=e(h),
+\]
+so that $|\phi(x+h)-\phi(x)-\langle q',h\rangle-\tfrac12A'(h,h)|\le\delta|h|^2$
+for $|h|<\rho$ by \eqref{eq:ssa-psi}. Since $\delta>0$ was arbitrary and the
+pair $(q',A')$ does not depend on $\delta$, the point $x$ admits the asserted
+expansion.
+
+As $\mu(Z)=0$, the conclusion holds for $\mu$-almost every $x$: for
+$x\notin Z$, either $x\notin\Omega$ and there is nothing to prove, or
+$x\in\Omega\setminus Z$ and the expansion has just been established.
+\end{proof}

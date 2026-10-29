@@ -1,0 +1,146 @@
+\begin{lemma}[Stability of the rescaled equation as its parameter degenerates]
+Let $F$ be a finite-dimensional real inner-product space, let $\Omega$ be an
+open subset of the space-time $\ell^2(F\times\R)$, and let
+$(\lambda_j)_{j\ge0}$ be real numbers with $\lambda_j\to0$. Let
+$(v_j)_{j\ge0}$ be real functions on the space-time such that each $v_j$ is a
+viscosity solution of $D^2v_j[(\nabla_xv_j,1+\lambda_j\partial_tv_j)]=0$ on
+$\Omega$ in the sense of \noderef{IsRescaledSolutionOn}, and let $v_*$ be a real
+function on the space-time such that $v_j\to v_*$ uniformly on every compact
+subset of $\Omega$. Then $v_*$ is a viscosity solution of $F[v_*]=0$ on
+$\Omega$ in the sense of \noderef{IsLimitSolutionOn}.
+\end{lemma}
+\begin{proof}
+Write $R_\lambda[\phi](\zeta)$ for the rescaled operator
+$D^2\phi(\zeta)[(\nabla_x\phi(\zeta),1+\lambda\partial_t\phi(\zeta))]$ of
+\noderef{RescaledOp} and $F[\phi](\zeta)$ for the limiting operator
+$D^2\phi(\zeta)[(\nabla_x\phi(\zeta),1)]$ of \noderef{LimitOp}. Note the two
+agree at $\lambda=0$:
+\begin{equation}\label{eq:rls-zero}
+  R_0[\phi](\zeta)=F[\phi](\zeta),
+\end{equation}
+because $1+0\cdot\partial_t\phi(\zeta)=1$ and the two operators are then the
+second derivative of $\phi$ at $\zeta$ evaluated on the same pair of vectors.
+
+\emph{Step 0: continuity of the limit.}
+Let $\zeta\in\Omega$. Since $\Omega$ is open there is $\varrho>0$ with
+$\overline B_\varrho(\zeta)\subseteq\Omega$, a compact set, so $v_j\to v_*$
+uniformly on it. By \noderef{IsRescaledSolutionOn} each $v_j$ is continuous on
+$\Omega$, hence on $\overline B_\varrho(\zeta)$, and a uniform limit of
+continuous functions on a set is continuous on that set. Thus $v_*$ is
+continuous at every point of $\Omega$, i.e.\ continuous on $\Omega$.
+
+\emph{Step 1: strictifying an upper test.}
+Let $\zeta_0\in\Omega$ and let $\phi$ be $C^2$ near $\zeta_0$ with
+$\zeta\mapsto v_*(\zeta)-\phi(\zeta)$ having a local maximum on $\Omega$ at
+$\zeta_0$. Set
+\[
+  \phi^\sharp(\zeta)=\phi(\zeta)+|\zeta-\zeta_0|^4 .
+\]
+The function $\zeta\mapsto|\zeta-\zeta_0|^4=\bigl(|\zeta-\zeta_0|^2\bigr)^2$ is a
+polynomial in the coordinates, hence smooth, and
+\begin{equation}\label{eq:rls-fourth}
+  \nabla\bigl(|\cdot-\zeta_0|^4\bigr)(\zeta_0)=0,
+  \qquad
+  D^2\bigl(|\cdot-\zeta_0|^4\bigr)(\zeta_0)=0 ,
+\end{equation}
+since its gradient is $4|\zeta-\zeta_0|^2(\zeta-\zeta_0)$, which vanishes at
+$\zeta_0$ together with its derivative. Hence $\phi^\sharp$ is $C^2$ near
+$\zeta_0$ with $\nabla\phi^\sharp(\zeta_0)=\nabla\phi(\zeta_0)$ and
+$D^2\phi^\sharp(\zeta_0)=D^2\phi(\zeta_0)$, so by \noderef{LimitOp}
+\begin{equation}\label{eq:rls-same-jet}
+  F[\phi^\sharp](\zeta_0)=F[\phi](\zeta_0).
+\end{equation}
+
+Choose $\varrho>0$ so small that $\overline B_\varrho(\zeta_0)\subseteq\Omega$,
+that $\phi$ is $C^2$ on an open set $V$ with
+$\overline B_\varrho(\zeta_0)\subseteq V\subseteq\Omega$, and that $v_*-\phi$
+attains its maximum over $\overline B_\varrho(\zeta_0)$ at $\zeta_0$; the last is
+possible because the maximum is local on $\Omega$ and $\Omega$ is open. Then for
+$\zeta\in\overline B_\varrho(\zeta_0)$ with $\zeta\ne\zeta_0$,
+\[
+  v_*(\zeta)-\phi^\sharp(\zeta)
+   =\bigl(v_*(\zeta)-\phi(\zeta)\bigr)-|\zeta-\zeta_0|^4
+   <v_*(\zeta_0)-\phi(\zeta_0)=v_*(\zeta_0)-\phi^\sharp(\zeta_0),
+\]
+so $\zeta_0$ is the \emph{unique} maximum point of $v_*-\phi^\sharp$ on
+$\overline B_\varrho(\zeta_0)$.
+
+\emph{Step 2: nearby maxima of the approximations.}
+The set $\overline B_\varrho(\zeta_0)$ is compact and contained in $\Omega$, and
+each $v_j-\phi^\sharp$ is continuous on it, so it attains a maximum at some
+$\zeta_j\in\overline B_\varrho(\zeta_0)$. We claim $\zeta_j\to\zeta_0$. By
+compactness it suffices to show that every convergent subsequence has limit
+$\zeta_0$. Let $\zeta_{j_k}\to\bar\zeta\in\overline B_\varrho(\zeta_0)$. Uniform
+convergence of $v_j$ to $v_*$ on $\overline B_\varrho(\zeta_0)$ and continuity of
+$v_*-\phi^\sharp$ there give
+\[
+  (v_{j_k}-\phi^\sharp)(\zeta_{j_k})\longrightarrow
+  (v_*-\phi^\sharp)(\bar\zeta).
+\]
+On the other hand, for every $\zeta\in\overline B_\varrho(\zeta_0)$,
+$(v_{j_k}-\phi^\sharp)(\zeta_{j_k})\ge(v_{j_k}-\phi^\sharp)(\zeta)
+ \to(v_*-\phi^\sharp)(\zeta)$, so
+$(v_*-\phi^\sharp)(\bar\zeta)\ge(v_*-\phi^\sharp)(\zeta)$ for all such $\zeta$.
+Thus $\bar\zeta$ is a maximum point of $v_*-\phi^\sharp$ on
+$\overline B_\varrho(\zeta_0)$, and by the uniqueness in Step 1,
+$\bar\zeta=\zeta_0$. Hence $\zeta_j\to\zeta_0$; in particular
+$|\zeta_j-\zeta_0|<\varrho$ for all large $j$, so $\zeta_j$ is an interior point
+of $\overline B_\varrho(\zeta_0)$ and therefore $v_j-\phi^\sharp$ has a local
+maximum on $\Omega$ at $\zeta_j$.
+
+\emph{Step 3: passing the inequality, in the point and in the parameter.}
+For such $j$, $\phi^\sharp$ is $C^2$ near $\zeta_j$ and $v_j-\phi^\sharp$ has a
+local maximum on $\Omega$ at $\zeta_j$, so the subsolution clause of
+\noderef{IsRescaledSolutionOn} for $v_j$ gives
+\begin{equation}\label{eq:rls-at-j}
+  R_{\lambda_j}[\phi^\sharp](\zeta_j)\ge0 .
+\end{equation}
+It remains to pass to the limit in \emph{both} arguments, the point $\zeta_j$ and
+the parameter $\lambda_j$. Since $\phi^\sharp$ is $C^2$ on the open set $V$, both
+$\zeta\mapsto\nabla\phi^\sharp(\zeta)$ and
+$\zeta\mapsto D^2\phi^\sharp(\zeta)$ are continuous on $V$; write
+$\nabla_x\phi^\sharp(\zeta)$ and $\partial_t\phi^\sharp(\zeta)$ for the two
+components of $\nabla\phi^\sharp(\zeta)$, which are therefore continuous on $V$
+as well. For large $j$ we have $\zeta_j\in\overline B_\varrho(\zeta_0)\subseteq V$,
+and $\zeta_j\to\zeta_0$, so
+\[
+  \nabla_x\phi^\sharp(\zeta_j)\to\nabla_x\phi^\sharp(\zeta_0),\qquad
+  \partial_t\phi^\sharp(\zeta_j)\to\partial_t\phi^\sharp(\zeta_0),\qquad
+  D^2\phi^\sharp(\zeta_j)\to D^2\phi^\sharp(\zeta_0),
+\]
+the last in the space of continuous symmetric bilinear forms. Since
+$\lambda_j\to0$ and $\partial_t\phi^\sharp(\zeta_j)$ converges, hence is bounded,
+\[
+  1+\lambda_j\partial_t\phi^\sharp(\zeta_j)\longrightarrow1,
+\]
+and therefore the vectors
+$\xi_j=\bigl(\nabla_x\phi^\sharp(\zeta_j),1+\lambda_j
+  \partial_t\phi^\sharp(\zeta_j)\bigr)$
+converge to $\xi_0=\bigl(\nabla_x\phi^\sharp(\zeta_0),1\bigr)$. Evaluation of a
+continuous bilinear form on a pair of vectors is jointly continuous in the form
+and the vectors, so by \noderef{RescaledOp} and \noderef{LimitOp}
+\[
+  R_{\lambda_j}[\phi^\sharp](\zeta_j)
+   =D^2\phi^\sharp(\zeta_j)[\xi_j]
+   \longrightarrow D^2\phi^\sharp(\zeta_0)[\xi_0]
+   =F[\phi^\sharp](\zeta_0).
+\]
+Passing to the limit in \eqref{eq:rls-at-j} gives
+$F[\phi^\sharp](\zeta_0)\ge0$, and \eqref{eq:rls-same-jet} yields
+$F[\phi](\zeta_0)\ge0$, which is the subsolution inequality of
+\noderef{IsLimitSubOn} at $\zeta_0$.
+
+\emph{Step 4: lower tests.}
+If instead $v_*-\phi$ has a local minimum on $\Omega$ at $\zeta_0$, repeat
+Steps 1--3 with $\phi^\sharp(\zeta)=\phi(\zeta)-|\zeta-\zeta_0|^4$, with minima
+in place of maxima, and with the supersolution clause of
+\noderef{IsRescaledSolutionOn}, which gives
+$R_{\lambda_j}[\phi^\sharp](\zeta_j)\le0$ in place of \eqref{eq:rls-at-j}. The
+limit passage of Step 3 is unchanged, identity \eqref{eq:rls-fourth} again gives
+$F[\phi^\sharp](\zeta_0)=F[\phi](\zeta_0)$, and the conclusion is
+$F[\phi](\zeta_0)\le0$, the supersolution inequality of
+\noderef{IsLimitSuperOn} at $\zeta_0$.
+
+Together with Step 0 and the openness of $\Omega$, this verifies both clauses of
+\noderef{IsLimitSolutionOn} for $v_*$.
+\end{proof}

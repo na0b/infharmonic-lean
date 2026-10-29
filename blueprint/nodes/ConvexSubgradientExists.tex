@@ -1,0 +1,77 @@
+\begin{lemma}[Existence of subgradients of a convex function]
+Let $E$ be a finite-dimensional real inner-product space, let $\Omega\subseteq E$
+be open, let $\psi:E\to\R$ be convex on $\Omega$ (so in particular $\Omega$ is
+convex) and let $z\in\Omega$. Then $\psi$ has a subgradient at $z$: there is
+$q\in E$ with
+\[
+  \psi(z)+\langle q,x-z\rangle\le\psi(x)\qquad(x\in\Omega).
+\]
+\end{lemma}
+\begin{proof}
+\emph{Step 1: a ball on which $\psi$ is Lipschitz.}
+Since $\Omega$ is open and $\psi$ is convex and real-valued on $\Omega$, $\psi$
+is continuous on $\Omega$ and locally Lipschitz on $\Omega$ (preamble). Let
+$U\subseteq\Omega$ be a neighbourhood of $z$ and $L\ge0$ a constant with
+$|\psi(a)-\psi(b)|\le L|a-b|$ for $a,b\in U$. Choose $\rho>0$ so small that
+$\overline B(z,2\rho)\subseteq U$; this is possible because $U$ is a
+neighbourhood of $z$. Then $\psi$ is $L$-Lipschitz on $\overline
+B(z,2\rho)\subseteq\Omega$.
+
+\emph{Step 2: differentiability points accumulating at $z$.}
+The ball $B(z,2\rho)$ is open and $\psi$ is Lipschitz on it, so by Rademacher's
+theorem (preamble) $\psi$ is differentiable at almost every point of
+$B(z,2\rho)$; write $D$ for the set of those points of $B(z,2\rho)$ at which
+$\psi$ is differentiable, so that $B(z,2\rho)\setminus D$ is null. Fix an
+additive Haar measure $\mu$ on $E$. For each integer $j\ge1$ the ball
+$B(z,\rho/j)$ has $\mu(B(z,\rho/j))>0$ (preamble), so it cannot be contained in
+the null set $B(z,2\rho)\setminus D$; hence there is
+$w_j\in D$ with $|w_j-z|<\rho/j$. In particular $w_j\to z$ and
+$w_j\in B(z,\rho)$ for every $j$.
+
+\emph{Step 3: at a differentiability point the gradient is a subgradient.}
+Let $w\in D$ and let $x\in\Omega$. For $t\in(0,1]$ the point $w+t(x-w)$ lies in
+$\Omega$, since $\Omega$ is convex and $w,x\in\Omega$, and convexity of $\psi$ on
+$\Omega$ with the weights $1-t$ and $t$ gives
+\[
+  \psi\bigl(w+t(x-w)\bigr)\le(1-t)\psi(w)+t\psi(x),
+\]
+that is,
+\[
+  \frac{\psi(w+t(x-w))-\psi(w)}{t}\le\psi(x)-\psi(w).
+\]
+As $t\downarrow0$ the left-hand side tends to $\langle\nabla\psi(w),x-w\rangle$,
+because $\psi$ is differentiable at $w$ with gradient $\nabla\psi(w)$ and
+$\psi(w+th)=\psi(w)+t\langle\nabla\psi(w),h\rangle+o(t)$ for fixed $h=x-w$.
+Therefore
+\begin{equation}\label{eq:cse-subgrad-at-w}
+  \psi(w)+\langle\nabla\psi(w),x-w\rangle\le\psi(x)\qquad(w\in D,\ x\in\Omega).
+\end{equation}
+
+\emph{Step 4: the gradients at the $w_j$ are bounded by $L$.}
+Fix $j$ and let $e\in E$ with $|e|=1$. For $0<t\le\rho$ the point $w_j+te$
+satisfies $|w_j+te-z|\le|w_j-z|+t<\rho+\rho=2\rho$, so $w_j+te\in
+B(z,2\rho)\subseteq\Omega$. Applying \eqref{eq:cse-subgrad-at-w} with
+$x=w_j+te$, and then the Lipschitz bound of Step 1,
+\[
+  t\langle\nabla\psi(w_j),e\rangle\le\psi(w_j+te)-\psi(w_j)\le Lt .
+\]
+Dividing by $t>0$ gives $\langle\nabla\psi(w_j),e\rangle\le L$ for every unit
+vector $e$. Taking $e=\nabla\psi(w_j)/|\nabla\psi(w_j)|$ when
+$\nabla\psi(w_j)\ne0$ yields $|\nabla\psi(w_j)|\le L$; and the bound is trivial
+when $\nabla\psi(w_j)=0$. So $|\nabla\psi(w_j)|\le L$ for every $j$.
+
+\emph{Step 5: passing to the limit.}
+The sequence $(\nabla\psi(w_j))_j$ is bounded, so by Bolzano--Weierstrass
+(preamble) it has a subsequence $(\nabla\psi(w_{j_i}))_i$ converging to some
+$q\in E$. Let $x\in\Omega$. By \eqref{eq:cse-subgrad-at-w},
+\[
+  \psi(w_{j_i})+\langle\nabla\psi(w_{j_i}),x-w_{j_i}\rangle\le\psi(x)
+  \qquad(i\ge1).
+\]
+As $i\to\infty$ we have $w_{j_i}\to z$, hence $\psi(w_{j_i})\to\psi(z)$ by the
+continuity of $\psi$ on $\Omega$ (Step 1), and
+$\langle\nabla\psi(w_{j_i}),x-w_{j_i}\rangle\to\langle q,x-z\rangle$ by the
+joint continuity of the inner product. Therefore
+$\psi(z)+\langle q,x-z\rangle\le\psi(x)$. Since $x\in\Omega$ was arbitrary, $q$
+is the required subgradient.
+\end{proof}

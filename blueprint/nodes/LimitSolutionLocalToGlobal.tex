@@ -1,0 +1,53 @@
+\begin{lemma}[Being a limit solution is a local property]
+Let $F$ be a finite-dimensional real inner-product space, let
+$\Omega\subseteq\ell^2(F\times\R)$ be open, let $(O_k)_{k\in\iota}$ be a family of
+subsets of $\ell^2(F\times\R)$ with $O_k\subseteq\Omega$ for every $k$ and such
+that every $z\in\Omega$ lies in some $O_k$, and let
+$v:\ell^2(F\times\R)\to\R$ be continuous on $\Omega$. If $v$ is a limit solution
+on $O_k$ for every $k$, then $v$ is a limit solution on $\Omega$.
+\end{lemma}
+\begin{proof}
+By the definition of a limit solution, we must produce the two halves: that $v$ is
+a limit subsolution on $\Omega$ and a limit supersolution on $\Omega$. Each half
+consists of three conjuncts: that the set is open, that $v$ is continuous on it,
+and a one-sided inequality at every point of the set. The first conjunct is the
+hypothesis that $\Omega$ is open and the second is the hypothesis that $v$ is
+continuous on $\Omega$; only the third needs an argument, and the two halves are
+proved by the same argument with the inequality and the extremum reversed.
+
+\emph{The subsolution half.}
+Let $z\in\Omega$, let $\varphi:\ell^2(F\times\R)\to\R$ be twice continuously
+differentiable at $z$, and suppose that $v-\varphi$ has a local maximum at $z$
+relative to $\Omega$. We must show $0\le\mathcal L\varphi(z)$, where
+$\mathcal L$ is the limit operator.
+
+Choose $k$ with $z\in O_k$, which the covering hypothesis provides. Since
+$O_k\subseteq\Omega$, the neighbourhood filter of $z$ within $O_k$ is finer than
+the neighbourhood filter of $z$ within $\Omega$: every set that is a
+neighbourhood of $z$ relative to $\Omega$ is a neighbourhood of $z$ relative to
+$O_k$, because a relative neighbourhood is the intersection of an ambient
+neighbourhood with the set, and intersecting with the smaller set $O_k$ gives a
+subset of the corresponding relative neighbourhood in $O_k$. A local maximum
+relative to a set is a statement that the inequality $v-\varphi\le(v-\varphi)(z)$
+holds on some relative neighbourhood of $z$; passing to a finer filter preserves
+such a statement. Hence $v-\varphi$ has a local maximum at $z$ relative to
+$O_k$ as well.
+
+Now $v$ is a limit subsolution on $O_k$ by hypothesis, and its third conjunct
+applies at the point $z\in O_k$, the test function $\varphi$, which is twice
+continuously differentiable at $z$, and this local maximum relative to $O_k$. It
+yields $0\le\mathcal L\varphi(z)$, as required. Note that the hypothesis is used
+only through this third conjunct; the openness and continuity conjuncts of the
+local statements are not needed, since the global ones are hypotheses here.
+
+\emph{The supersolution half.}
+Let $z\in\Omega$, let $\varphi$ be twice continuously differentiable at $z$, and
+suppose $v-\varphi$ has a local minimum at $z$ relative to $\Omega$. Choose $k$
+with $z\in O_k$. The same filter comparison, applied to the inequality
+$v-\varphi\ge(v-\varphi)(z)$, shows that $v-\varphi$ has a local minimum at $z$
+relative to $O_k$. The third conjunct of the statement that $v$ is a limit
+supersolution on $O_k$ then gives $\mathcal L\varphi(z)\le0$.
+
+Together with the openness of $\Omega$ and the continuity of $v$ on $\Omega$,
+the two halves say exactly that $v$ is a limit solution on $\Omega$.
+\end{proof}

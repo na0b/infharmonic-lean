@@ -1,0 +1,99 @@
+\begin{lemma}[Comparison along a doubling chain]
+Let $E$ be a finite-dimensional real inner-product space and let $c_1,C_1$ be reals
+with $0<c_1\le C_1$. There is a constant $C\ge0$, depending only on $c_1$ and $C_1$,
+with the following property. Let $u$ be a real function on $E$, let $z\in E$, let
+$r>0$, let $\theta$ satisfy $0<\theta<1$ and let $R\ge2$. Let $P\in E$ satisfy
+$c_1\le|P|\le C_1$ and realize a cylinder fit of parameter $\theta^2$ for $u$ at
+$(z,r)$ in the sense of \noderef{IsCylinderFit}. Suppose moreover that for every
+$\rho$ with $0<\rho\le Rr$ there is $Q\in E$ with $c_1\le|Q|\le C_1$ realizing a
+cylinder fit of parameter $\theta^2$ for $u$ at $(z,\rho)$. Then there is $P_R\in E$
+with $c_1\le|P_R|\le C_1$ realizing a cylinder fit of parameter $\theta^2$ for $u$ at
+$(z,Rr)$ and satisfying
+\[
+  \Bigl|\frac{P_R}{|P_R|}-\frac{P}{|P|}\Bigr|\le C(1+\log R)\,\theta,
+  \qquad \bigl||P_R|-|P|\bigr|\le C(1+\log R)\,\theta^2 .
+\]
+\end{lemma}
+\begin{proof}
+Apply \noderef{CylinderComparisonSameCenter} with $c_*=c_1$ and $C_*=C_1$ and let
+$C_a>0$ be the constant it supplies, so that for every real function $u$ on $E$, every
+$z\in E$, every $\theta\in(0,1)$, all radii $0<H\le H'\le2H$ and all slopes $Q,Q'$ with
+norms in $[c_1,C_1]$ realizing cylinder fits of parameter $\theta^2$ for $u$ at $(z,H)$
+and $(z,H')$ respectively,
+\begin{equation}\label{eq:cfdc-link}
+  |Q-Q'|+\Bigl|\frac{Q}{|Q|}-\frac{Q'}{|Q'|}\Bigr|\le C_a\theta,
+  \qquad \bigl||Q|-|Q'|\bigr|\le C_a\theta^2 .
+\end{equation}
+We show that $C=2C_a$ works; it is nonnegative because $C_a>0$. Fix $u$, $z$, $r$,
+$\theta$, $R$ and $P$ as in the statement.
+
+\emph{Step 1: the chain of radii.}
+The set of integers $k\ge0$ with $R\le2^{k+1}$ is nonempty: choosing an integer $k$
+with $R<k$ and using $k\le2^k\le2^{k+1}$ gives such a $k$. Let $n$ be its least
+element, so that
+\begin{equation}\label{eq:cfdc-n}
+  R\le2^{n+1},\qquad 2^n<R .
+\end{equation}
+Indeed the first is the defining property of $n$; for the second, if $n=0$ then
+$2^0=1<2\le R$, and if $n\ge1$ then minimality gives $\neg(R\le2^{(n-1)+1})=\neg(R\le2^n)$,
+i.e.\ $2^n<R$.
+
+Define $\rho_k=2^kr$ for $0\le k\le n$ and $\rho_k=Rr$ for $k>n$. Then:
+\begin{itemize}
+\item $\rho_k>0$ for every $k$, since $r>0$, $2^k>0$ and $R\ge2>0$;
+\item $\rho_0=r$ and $\rho_{n+1}=Rr$;
+\item $\rho_k\le Rr$ for every $k$: for $k\le n$ this is $2^k\le2^n<R$ by
+\eqref{eq:cfdc-n}, and for $k>n$ it is an equality;
+\item $\rho_k\le\rho_{k+1}\le2\rho_k$ for every $k\le n$. If $k<n$ then $k+1\le n$ and
+the two radii are $2^kr$ and $2^{k+1}r=2\cdot2^kr$. If $k=n$ then the radii are $2^nr$
+and $Rr$, and \eqref{eq:cfdc-n} gives $2^nr<Rr$ and $Rr\le2^{n+1}r=2\cdot2^nr$.
+\end{itemize}
+
+\emph{Step 2: the slopes along the chain.}
+For each $k$ the radius $\rho_k$ satisfies $0<\rho_k\le Rr$, so the hypothesis supplies
+a slope $Q_k$ with $c_1\le|Q_k|\le C_1$ realizing a cylinder fit of parameter
+$\theta^2$ for $u$ at $(z,\rho_k)$. Put $\widehat Q_0=P$ and $\widehat Q_k=Q_k$ for
+$k\ge1$. Then for every $k$ the vector $\widehat Q_k$ realizes a cylinder fit of
+parameter $\theta^2$ for $u$ at $(z,\rho_k)$ --- for $k=0$ because $\rho_0=r$ and $P$
+realizes the fit at $(z,r)$ by hypothesis, and for $k\ge1$ by the choice of $Q_k$ ---
+and $c_1\le|\widehat Q_k|\le C_1$, for $k=0$ by hypothesis and for $k\ge1$ by the
+choice of $Q_k$.
+
+\emph{Step 3: summing the chain.}
+We prove by induction on $k$ that for $0\le k\le n+1$
+\begin{equation}\label{eq:cfdc-ind}
+  \Bigl|\frac{\widehat Q_k}{|\widehat Q_k|}-\frac{P}{|P|}\Bigr|\le k\,C_a\theta,
+  \qquad \bigl||\widehat Q_k|-|P|\bigr|\le k\,C_a\theta^2 .
+\end{equation}
+For $k=0$ both sides vanish, because $\widehat Q_0=P$. Assume \eqref{eq:cfdc-ind} for
+some $k$ with $k+1\le n+1$, so $k\le n$. By Step 1, $0<\rho_k\le\rho_{k+1}\le2\rho_k$,
+and by Step 2 the slopes $\widehat Q_k,\widehat Q_{k+1}$ have norms in $[c_1,C_1]$ and
+realize cylinder fits of parameter $\theta^2$ at $(z,\rho_k)$ and $(z,\rho_{k+1})$. So
+\eqref{eq:cfdc-link} applies and gives, discarding the nonnegative term
+$|\widehat Q_k-\widehat Q_{k+1}|$ from its left side,
+\[
+  \Bigl|\frac{\widehat Q_k}{|\widehat Q_k|}
+     -\frac{\widehat Q_{k+1}}{|\widehat Q_{k+1}|}\Bigr|\le C_a\theta,
+  \qquad \bigl||\widehat Q_k|-|\widehat Q_{k+1}|\bigr|\le C_a\theta^2 .
+\]
+The triangle inequality for the norm of $E$, applied to the three vectors
+$\widehat Q_{k+1}/|\widehat Q_{k+1}|$, $\widehat Q_k/|\widehat Q_k|$ and $P/|P|$,
+together with the inductive hypothesis, gives the first half of
+\eqref{eq:cfdc-ind} for $k+1$; the triangle inequality for the absolute value, applied
+to $|\widehat Q_{k+1}|$, $|\widehat Q_k|$ and $|P|$, gives the second half.
+
+\emph{Step 4: the logarithmic factor.}
+Taking $k=n+1$ in \eqref{eq:cfdc-ind}, it remains to show $n+1\le2(1+\log R)$. First,
+$\log 2>1/2$: the strict inequality $x+1<e^x$ at $x=-1/2$ gives $1/2<e^{-1/2}$, hence
+$\log(1/2)<-1/2$ by monotonicity of $\log$, and $\log(1/2)=-\log2$. Next, $2^n<R$ by
+\eqref{eq:cfdc-n} and $2^n>0$, so monotonicity of $\log$ and $\log(2^n)=n\log2$ give
+$n\log2\le\log R$. Since $\log 2>1/2$ and $n\ge0$ we get $n/2\le n\log 2\le\log R$,
+i.e.\ $n\le2\log R$, and therefore
+\[
+  n+1\le2\log R+1\le2+2\log R=2(1+\log R),
+\]
+using $\log R\ge0$, which holds because $R\ge2\ge1$. Multiplying
+\eqref{eq:cfdc-ind} at $k=n+1$ by this bound --- legitimate because $C_a\theta\ge0$ and
+$C_a\theta^2\ge0$ --- and recalling $\rho_{n+1}=Rr$, the vector
+$P_R=\widehat Q_{n+1}$ has all the asserted properties with $C=2C_a$.
+\end{proof}

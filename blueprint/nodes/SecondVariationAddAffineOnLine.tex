@@ -1,0 +1,74 @@
+\begin{lemma}[Adding a term affine along one motion leaves the second variation alone]
+Let $P$ be a real normed space, let $W,\zeta\in P$, and let $g,\psi:P\to\R$ both be
+$C^2$ near $W$. Suppose there are $a,b\in\R$ such that
+\[
+  \psi(W+h\zeta)=a+bh
+\]
+for all real $h$ in a neighbourhood of $0$. Then
+\[
+  D^2(g+\psi)(W)\bigl[\zeta,\zeta\bigr]=D^2g(W)\bigl[\zeta,\zeta\bigr].
+\]
+\end{lemma}
+\begin{proof}
+Write $\gamma(h)=W+h\zeta$ for the straight motion through $W$ with velocity $\zeta$.
+Since $\gamma$ is affine in $h$ with linear part $h\mapsto h\zeta$, it is differentiable
+with $\gamma'(h)=\zeta$ for every $h$. Also $\gamma$ is continuous and $\gamma(0)=W$, so
+for any function $u$ that is $C^2$ near $W$ --- hence differentiable at every point of
+some neighbourhood of $W$ --- the point $\gamma(h)$ lies in that neighbourhood for all
+$h$ near $0$, and therefore $u$ is differentiable at $\gamma(h)$ for all $h$ near $0$.
+We use this for $u=g$, for $u=\psi$ and for $u=g+\psi$.
+
+Put
+\[
+  A(h)=D(g+\psi)\bigl(\gamma(h)\bigr)[\zeta],\qquad
+  B(h)=Dg\bigl(\gamma(h)\bigr)[\zeta].
+\]
+
+\emph{Step 1: $A=B+b$ near $0$.}
+Fix $h$ near $0$, small enough that $g$ and $\psi$ are both differentiable at
+$\gamma(h)$ and that the affine identity for $\psi$ holds on a whole neighbourhood of
+$h$ (the hypothesis holds on a neighbourhood of $0$, so it holds on a neighbourhood of
+each point of a possibly smaller neighbourhood of $0$). Consider the real function
+$s\mapsto g(\gamma(s))+\psi(\gamma(s))$.
+
+On the one hand, $g+\psi$ is differentiable at $\gamma(h)$, so the chain rule for the
+composition with $\gamma$ gives that this function is differentiable at $h$ with
+derivative $D(g+\psi)(\gamma(h))[\gamma'(h)]=A(h)$.
+
+On the other hand, the chain rule applied to $g$ alone gives that $s\mapsto g(\gamma(s))$
+is differentiable at $h$ with derivative $B(h)$, while $s\mapsto\psi(\gamma(s))$ agrees
+on a neighbourhood of $h$ with the affine function $s\mapsto a+bs$, whose derivative at
+$h$ is $b$; two functions agreeing on a neighbourhood of $h$ have the same derivative
+there, so $s\mapsto\psi(\gamma(s))$ is differentiable at $h$ with derivative $b$. Summing,
+the function $s\mapsto g(\gamma(s))+\psi(\gamma(s))$ is differentiable at $h$ with
+derivative $B(h)+b$.
+
+A real function has at most one derivative at a point, so $A(h)=B(h)+b$.
+
+\emph{Step 2: the derivative of $A$ and of $B$ at $0$.}
+Let $u$ be $C^2$ near $W$. Then $Du$ is differentiable at $W$, with derivative
+$D^2u(W)$, as a map into the space of continuous linear functionals on $P$. Composing
+with $\gamma$ on the right, the map $h\mapsto Du(\gamma(h))$ is differentiable at $0$
+with derivative $D^2u(W)[\zeta]$, again a continuous linear functional on $P$. Composing
+with the evaluation at the fixed vector $\zeta$ --- which is bilinear and bounded in the
+pair (functional, vector), hence differentiable, and is here applied with the second
+argument constant --- the real function $h\mapsto Du(\gamma(h))[\zeta]$ is differentiable
+at $0$ with derivative $D^2u(W)[\zeta,\zeta]$.
+
+Applying this with $u=g+\psi$ gives that $A$ is differentiable at $0$ with derivative
+$D^2(g+\psi)(W)[\zeta,\zeta]$, and with $u=g$ that $B$ is differentiable at $0$ with
+derivative $D^2g(W)[\zeta,\zeta]$.
+
+\emph{Step 3: conclusion.}
+By Step 2 the function $h\mapsto B(h)+b$ is differentiable at $0$ with derivative
+$D^2g(W)[\zeta,\zeta]$. By Step 1 it agrees with $A$ on a neighbourhood of $0$, so $A$ is
+also differentiable at $0$ with that same derivative. Comparing with the value found for
+$A$ in Step 2 and using uniqueness of the derivative,
+\[
+  D^2(g+\psi)(W)\bigl[\zeta,\zeta\bigr]=D^2g(W)\bigl[\zeta,\zeta\bigr],
+\]
+as asserted. (Taking $g=0$, for which $D^2g(W)=0$, this says in particular that a
+function affine along the motion $h\mapsto W+h\zeta$ has vanishing second variation in
+the direction $\zeta$; that is the form in which the statement is used when a summand is
+to be discarded outright rather than stripped off a remainder.)
+\end{proof}

@@ -1,0 +1,93 @@
+\begin{lemma}[A quartic bump preserves the two-jet and leaves a $C^2$ neighbourhood]
+Let $F$ be a finite-dimensional real inner-product space, let $\Omega$ be an
+open subset of the space-time $\ell^2(F\times\R)$, let $z\in\Omega$, let
+$s\in\R$ and let $\phi$ be a real function on $\ell^2(F\times\R)$ that is $C^2$
+at $z$, i.e.\ twice continuously differentiable on some neighbourhood of $z$.
+Put
+\[
+  \phi^\sharp(\zeta)=\phi(\zeta)+s\,\bigl(|\zeta-z|^2\bigr)^2
+  \qquad\bigl(\zeta\in\ell^2(F\times\R)\bigr).
+\]
+Then both of the following hold.
+\begin{enumerate}
+\item The limiting operator of \noderef{LimitOp} takes the same value at $z$ on
+$\phi^\sharp$ as on $\phi$:
+\begin{equation}\label{eq:qbjr-same-jet}
+  F[\phi^\sharp](z)=F[\phi](z).
+\end{equation}
+\item There is a set $V\subseteq\ell^2(F\times\R)$ which is open, contains $z$
+and is contained in $\Omega$, and on which $\phi^\sharp$ is $C^2$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Write $b(\zeta)=s\bigl(|\zeta-z|^2\bigr)^2$ for the bump, so that
+$\phi^\sharp=\phi+b$.
+
+\emph{Step 1: the bump is $C^2$ on all of $\ell^2(F\times\R)$.}
+The translation $g(\zeta)=\zeta-z$ is the sum of the identity and a constant,
+hence smooth, and the squared norm $w\mapsto|w|^2$ of an inner-product space is
+smooth. Therefore $\zeta\mapsto|\zeta-z|^2=|g(\zeta)|^2$ is $C^2$ as a
+composition of $C^2$ maps, its square is $C^2$, and the constant multiple
+$b=s\cdot\bigl(|g|^2\bigr)^2$ is $C^2$.
+
+\emph{Step 2: the first derivative of the bump, and $Db(z)=0$.}
+Since $g$ has derivative the identity map at every point, the chain rule gives
+$D\bigl(|g|^2\bigr)(\zeta)=2\langle\zeta-z,\cdot\rangle$ for every $\zeta$.
+Applying the chain rule once more to the outer squaring and multiplying by the
+constant $s$,
+\begin{equation}\label{eq:qbjr-first}
+  Db(\zeta)=s\cdot 2\bigl(|\zeta-z|^2\bigr)\cdot
+     D\bigl(|g|^2\bigr)(\zeta)
+   =\bigl(4s\,|\zeta-z|^2\bigr)\,\langle\zeta-z,\cdot\rangle
+  \qquad\bigl(\zeta\in\ell^2(F\times\R)\bigr).
+\end{equation}
+At $\zeta=z$ the factor $|z-z|^2$ vanishes, so
+\begin{equation}\label{eq:qbjr-grad}
+  Db(z)=0,\qquad\text{and hence}\qquad\nabla b(z)=0 ,
+\end{equation}
+the gradient being the Riesz representative of the derivative.
+
+\emph{Step 3: the second derivative of the bump vanishes at $z$.}
+By \eqref{eq:qbjr-first} the map $\zeta\mapsto Db(\zeta)$ is the pointwise
+product of the scalar function $c(\zeta)=4s|\zeta-z|^2$ and the
+linear-functional-valued map $L(\zeta)=\langle\zeta-z,\cdot\rangle$. Both are
+differentiable: $c$ by Step 1 and $L$ because it is the composition of the
+bounded linear map $w\mapsto\langle w,\cdot\rangle$ with $g$, whose derivative
+at any point is $u\mapsto\langle u,\cdot\rangle$. The product rule for a scalar
+function times a map into a normed space therefore gives, for every
+$u\in\ell^2(F\times\R)$,
+\[
+  D^2b(z)[u]=\bigl(Dc(z)[u]\bigr)\,L(z)+c(z)\,\bigl(DL(z)[u]\bigr).
+\]
+Now $L(z)=\langle z-z,\cdot\rangle=0$ and $c(z)=4s|z-z|^2=0$, so both summands
+vanish and
+\begin{equation}\label{eq:qbjr-fourth}
+  D^2b(z)=0 .
+\end{equation}
+
+\emph{Step 4: proof of \eqref{eq:qbjr-same-jet}.}
+By hypothesis $\phi$ is $C^2$ on a neighbourhood of $z$, and $b$ is $C^2$
+everywhere by Step 1, so $\phi^\sharp=\phi+b$ is $C^2$ on a neighbourhood of
+$z$; in particular $\phi$, $b$ and $\phi^\sharp$ are differentiable at $z$ and
+twice differentiable at $z$. Derivatives are additive, so by \eqref{eq:qbjr-grad}
+and \eqref{eq:qbjr-fourth}
+\[
+  \nabla\phi^\sharp(z)=\nabla\phi(z)+\nabla b(z)=\nabla\phi(z),
+  \qquad
+  D^2\phi^\sharp(z)=D^2\phi(z)+D^2b(z)=D^2\phi(z).
+\]
+By \noderef{LimitOp}, $F[\psi](z)=D^2\psi(z)\bigl[(\nabla_x\psi(z),1)\bigr]$ is
+determined by the two quantities $\nabla\psi(z)$ and $D^2\psi(z)$ alone. Since
+$\phi^\sharp$ and $\phi$ agree in both, $F[\phi^\sharp](z)=F[\phi](z)$, which is
+\eqref{eq:qbjr-same-jet}.
+
+\emph{Step 5: the neighbourhood $V$.}
+Because $\phi$ is $C^2$ at $z$, there is a neighbourhood $u$ of $z$ with $\phi$
+of class $C^2$ on $u$; shrinking, choose an open $V_0$ with $z\in V_0\subseteq u$.
+Put $V=V_0\cap\Omega$. Then $V$ is open, being the intersection of the two open
+sets $V_0$ and $\Omega$; $z\in V$ because $z\in V_0$ and $z\in\Omega$ by
+hypothesis; and $V\subseteq\Omega$. Finally $\phi$ is $C^2$ on $V$, since
+$V\subseteq V_0\subseteq u$ and the class $C^2$ passes to subsets, and $b$ is
+$C^2$ on $V$ by Step 1; hence their sum $\phi^\sharp$ is $C^2$ on $V$. This is
+assertion 2, and the proof is complete.
+\end{proof}

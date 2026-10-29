@@ -1,0 +1,156 @@
+\begin{lemma}[Mark data for a stopped contact walk]
+Let $F$ be a finite-dimensional real inner-product space, let $C_0,\kappa,H\in\R$
+and let $v\in\Aclass_{m,C_0}$ in the sense of \noderef{IsFitClass}. Let
+$T\in\mathbb N$, $R\in\R$, $N\in\mathbb N$ and $\epsilon\in\R$, and let
+$(\Omega,\mathcal M,\mu)$ be a measure space with a filtration
+$(\mathcal G_n)_{n\in\mathbb N}$ carrying functions $\xi_n$, $z_n$, $z^+_n$,
+$z^-_n$, $Q_0(n)$ and $\tau$ which form a stopped contact walk for
+$(\kappa,H,T,R,v,N,\epsilon)$ in the sense of \noderef{IsContactWalk}. Assume
+that for every $n$ the range of $z_n$ is at most countable. Then there are
+functions $\sigma_j$, $p_j$, $a_j$ which are mark data for
+$(C_0,v,N,\mathcal G,z,\tau)$ in the sense of \noderef{IsMarkData}.
+\end{lemma}
+\begin{proof}
+Write $\delta_j=2^{-j}$ and $z_n=(x_n,t_n)$. Throughout, clause numbers refer to
+\noderef{IsContactWalk}: clause 1 says $\mu(\Omega)=1$, clause 4 that each $z_n$
+is $\mathcal G_n$-measurable, and clause 9 that $\tau$ is a stopping time for
+$(\mathcal G_n)$.
+
+\emph{Step 0: preliminaries.}
+Since $\mu(\Omega)=1$ by clause 1, $\Omega$ is nonempty. Since each $z_n$ is
+$\mathcal G_n$-measurable by clause 4 and the time coordinate $w\mapsto t(w)$ is
+continuous, each function $\omega\mapsto t_n(\omega)$ is
+$\mathcal G_n$-measurable, so
+\begin{equation}\label{eq:cwm-level}
+  \{t_m=\delta_j\}\in\mathcal G_m\qquad(m,j\in\mathbb N).
+\end{equation}
+Also, for every state $c$,
+\begin{equation}\label{eq:cwm-eqset}
+  \{\omega:z_i(\omega)=c\}\in\mathcal G_i ,
+\end{equation}
+because the set where two $\mathcal G_i$-measurable functions agree --- here
+$z_i$ and the constant $c$ --- is $\mathcal G_i$-measurable. Finally, since
+$\tau$ is a stopping time, $\{\tau\le n\}\in\mathcal G_n$ and
+$\{\tau=k\}\in\mathcal G_k$ for every $k$, the latter because $\tau$ has
+countable range; consequently, for $m\le n$,
+\begin{equation}\label{eq:cwm-ge}
+  \{m\le\tau\}=\Bigl(\bigcup_{k<m}\{\tau=k\}\Bigr)^{\rm c}\in\mathcal G_n ,
+\end{equation}
+a finite union of sets of $\mathcal G_k\subseteq\mathcal G_n$ with $k<m\le n$.
+
+\emph{Step 1: the mark index and clauses 1--4 of \noderef{IsMarkData}.}
+Fix $j$. If there is an $n\le\tau(\omega)$ with $t_n(\omega)=\delta_j$, let
+$\sigma_j(\omega)$ be the least such $n$; otherwise put
+$\sigma_j(\omega)=\tau(\omega)$. This is the index
+$\tau\wedge\inf\{n:t_n=\delta_j\}$ of the paper, read as: a mark is the first
+point on its time level, or the terminal point if the walk stops before that
+level.
+
+Then $\sigma_j\le\tau$: in the first case the least such $n$ is itself
+$\le\tau(\omega)$, and in the second case $\sigma_j=\tau$. This is clause 2.
+
+Let $n<\sigma_j(\omega)$. In the first case $n<\sigma_j(\omega)\le\tau(\omega)$,
+so $n\le\tau(\omega)$, and minimality of $\sigma_j(\omega)$ rules out
+$t_n(\omega)=\delta_j$; in the second case $n<\tau(\omega)$, and no $n'\le\tau$
+at all has $t_{n'}=\delta_j$, in particular not $n$. Either way $n<\tau(\omega)$
+and $t_n(\omega)\ne\delta_j$, which is clause 3.
+
+In the first case $t_{\sigma_j(\omega)}(\omega)=\delta_j$ by the definition of
+$\sigma_j(\omega)$, and in the second $\sigma_j(\omega)=\tau(\omega)$; this is
+clause 4.
+
+For clause 1 we claim
+\begin{equation}\label{eq:cwm-stop}
+  \{\sigma_j\le n\}
+   =\{\tau\le n\}\cup\bigcup_{m\le n}\bigl(\{m\le\tau\}\cap\{t_m=\delta_j\}\bigr).
+\end{equation}
+For the inclusion $\subseteq$: if $\omega$ is in the first case, then
+$m=\sigma_j(\omega)\le n$ satisfies $m\le\tau(\omega)$ and
+$t_m(\omega)=\delta_j$, so $\omega$ lies in the union; if $\omega$ is in the
+second case, then $\tau(\omega)=\sigma_j(\omega)\le n$. For $\supseteq$: if
+$\tau(\omega)\le n$ then $\sigma_j(\omega)\le\tau(\omega)\le n$ by clause 2; and
+if $m\le n$ satisfies $m\le\tau(\omega)$ and $t_m(\omega)=\delta_j$, then
+$\omega$ is in the first case and $\sigma_j(\omega)\le m\le n$ by minimality.
+Every set on the right of \eqref{eq:cwm-stop} lies in $\mathcal G_n$, by
+$\{\tau\le n\}\in\mathcal G_n$, by \eqref{eq:cwm-ge} and by
+\eqref{eq:cwm-level} together with $\mathcal G_m\subseteq\mathcal G_n$ for
+$m\le n$. Hence $\sigma_j$ is a stopping time, which is clause 1. Since
+$\sigma_j$ has countable range, it also follows that
+\begin{equation}\label{eq:cwm-eqi}
+  \{\sigma_j=i\}\in\mathcal G_i\qquad(i\in\mathbb N).
+\end{equation}
+
+\emph{Step 2: every function of the state at a fixed time is adapted.}
+Fix $i$. By hypothesis the range of $z_i$ is countable, and it is nonempty
+because $\Omega$ is, so there is a map $e:\mathbb N\to F\times\R$ whose range is
+exactly the range of $z_i$. For $\omega\in\Omega$ let $\mathrm{cd}(\omega)$ be
+the least $m$ with $e(m)=z_i(\omega)$; this exists because
+$z_i(\omega)$ lies in the range of $e$. Then
+$e(\mathrm{cd}(\omega))=z_i(\omega)$ for every $\omega$, and $\mathrm{cd}$ is
+$\mathcal G_i$-measurable, because it takes values in the countable set
+$\mathbb N$ and, for every $m$,
+\[
+  \{\mathrm{cd}=m\}
+   =\{z_i=e(m)\}\cap\bigcap_{m'<m}\{z_i=e(m')\}^{\rm c}\in\mathcal G_i
+\]
+by \eqref{eq:cwm-eqset}. Now let $g$ be any function on states with values in a
+finite-dimensional real inner-product space. For $k\in\mathbb N$ put
+\[
+  g_k(\omega)=\sum_{m<k}\mathbf 1_{\{\mathrm{cd}=m\}}(\omega)\,g(e(m)) ,
+\]
+a finite sum of indicators of sets of $\mathcal G_i$ times constants, hence
+$\mathcal G_i$-measurable. For each $\omega$ and each $k>\mathrm{cd}(\omega)$
+exactly one summand is nonzero, namely the one with $m=\mathrm{cd}(\omega)$, so
+$g_k(\omega)=g(e(\mathrm{cd}(\omega)))=g(z_i(\omega))$; thus $g_k\to g\circ z_i$
+pointwise, and a pointwise limit of $\mathcal G_i$-measurable functions with
+values in a metrizable space is $\mathcal G_i$-measurable. Hence
+\begin{equation}\label{eq:cwm-sel}
+  \omega\mapsto g(z_i(\omega))\ \text{is }\mathcal G_i\text{-measurable}
+  \qquad(i\in\mathbb N).
+\end{equation}
+
+\emph{Step 3: the fits and clauses 7--8.}
+Fix $j$ and let $w$ be a state. Since $\delta_j>0$, the second clause of
+\noderef{IsFitClass} provides a pair $(p(w),a(w))$ with
+$\mathrm{IsFit}(C_0,v,w,\delta_j,p(w),a(w))$ in the sense of \noderef{IsFit};
+fix one such pair for each $w$ (and each $j$). Define
+\[
+  G(w)=\begin{cases}(p(w),a(w)),&t(w)=\delta_j,\\(0,0),&t(w)\ne\delta_j,\end{cases}
+  \qquad
+  (p_j(\omega),a_j(\omega))=G\bigl(z_{\sigma_j(\omega)}(\omega)\bigr).
+\]
+If $t_{\sigma_j(\omega)}(\omega)=\delta_j$ then
+$(p_j(\omega),a_j(\omega))=(p(w),a(w))$ at $w=z_{\sigma_j(\omega)}(\omega)$, so
+$(p_j(\omega),a_j(\omega))$ is a fit for $v$ at that state of radius $\delta_j$,
+which is clause 7; and if $t_{\sigma_j(\omega)}(\omega)\ne\delta_j$ then
+$p_j(\omega)=0$ and $a_j(\omega)=0$, which is clause 8.
+
+\emph{Step 4: clauses 5--6.}
+Fix $j$ and $n$. We claim
+\begin{equation}\label{eq:cwm-decomp}
+  \mathbf 1_{\{\sigma_j\le n\}}\,G\bigl(z_{\sigma_j}\bigr)
+   =\sum_{i\le n}\mathbf 1_{\{\sigma_j=i\}}\,G\bigl(z_i\bigr) .
+\end{equation}
+Indeed, at an $\omega$ with $\sigma_j(\omega)\le n$ exactly the summand
+$i=\sigma_j(\omega)$ survives and equals
+$G(z_{\sigma_j(\omega)}(\omega))$, while at an $\omega$ with
+$\sigma_j(\omega)>n$ no summand survives and both sides are $0$. The sets
+$\{\sigma_j=i\}$ with $i\le n$ are pairwise disjoint, lie in
+$\mathcal G_i\subseteq\mathcal G_n$ by \eqref{eq:cwm-eqi}, and cover
+$\{\sigma_j\le n\}$; these are the sets $A_{i,c}=\{\sigma_j=i\}\cap\{z_i=c\}$ of
+the paper's countable tree of histories, grouped by $i$. By
+\eqref{eq:cwm-sel} each $\omega\mapsto G(z_i(\omega))$ is
+$\mathcal G_i$-measurable, hence $\mathcal G_n$-measurable for $i\le n$, so the
+right-hand side of \eqref{eq:cwm-decomp} is a finite sum of products of
+indicators of $\mathcal G_n$-measurable sets with $\mathcal G_n$-measurable
+functions, and is therefore $\mathcal G_n$-measurable. Taking the two components
+of \eqref{eq:cwm-decomp} --- the projections onto $F$ and onto $\R$ are
+continuous --- gives that
+$\omega\mapsto\mathbf 1_{\{\sigma_j\le n\}}(\omega)p_j(\omega)$ and
+$\omega\mapsto\mathbf 1_{\{\sigma_j\le n\}}(\omega)a_j(\omega)$, that is the
+functions equal to $p_j$ and $a_j$ on $\{\sigma_j\le n\}$ and to $0$ off it, are
+$\mathcal G_n$-measurable. These are clauses 5 and 6.
+
+All eight clauses of \noderef{IsMarkData} hold for every $j$ with
+$1\le j\le N$ --- indeed for every $j$ --- so $(\sigma_j,p_j,a_j)$ is mark data
+for $(C_0,v,N,\mathcal G,z,\tau)$. \end{proof}

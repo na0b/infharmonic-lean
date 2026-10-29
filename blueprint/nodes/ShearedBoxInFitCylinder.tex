@@ -1,0 +1,147 @@
+\begin{lemma}[The sheared box lies in the fitting cylinder of the normalized slope]
+Let $F$ be a real inner-product space, let $\ell^2(F\times\R)$ be the associated
+space-time, and let $\Phi$ be a linear isometry of $\ell^2(F\times\R)$ onto
+itself. Let $z\in\ell^2(F\times\R)$, let $c>0$, $\lambda>0$, $S>0$ and $r>0$ be
+reals, let $p'\in F$, $q'\in\R$, $h\in F$ and $\ell\in\R$, and let $C$ be a real
+with
+\begin{equation}\label{eq:sbfc-coeff}
+  |p'|+|q'|\le C .
+\end{equation}
+Write $A=1+\lambda q'$ and assume
+\begin{equation}\label{eq:sbfc-A}
+  \tfrac12\le A,
+  \qquad \lambda\bigl(C^2+C+1\bigr)\le\tfrac1{100} .
+\end{equation}
+If
+\begin{equation}\label{eq:sbfc-domain}
+  |\ell|\le S/2,\qquad \Bigl|h-\frac\ell A\,p'\Bigr|\le S,
+\end{equation}
+then
+\[
+  z+r\,\Phi\bigl(\sqrt\lambda\,h,\ \ell\bigr)
+   \in Z_{32\lambda}\bigl(z,\ Sr;\ \Phi(c\sqrt\lambda\,p',\ cA)\bigr).
+\]
+\end{lemma}
+\begin{proof}
+Note first that $C\ge0$, since $|p'|+|q'|\ge0$ and \eqref{eq:sbfc-coeff} holds;
+hence also $|p'|\le C$, because $|q'|\ge0$. From \eqref{eq:sbfc-A},
+$A\ge1/2>0$, and since $\lambda>0$ and $C^2,C\ge0$ the second part of
+\eqref{eq:sbfc-A} gives
+\begin{equation}\label{eq:sbfc-small}
+  \lambda C^2\le\tfrac1{100},\qquad \lambda C\le\tfrac1{100} .
+\end{equation}
+Write $g=h-(\ell/A)p'$, so $|g|\le S$ by \eqref{eq:sbfc-domain}. Put
+\[
+  e=(\sqrt\lambda\,p',\ A)\in\ell^2(F\times\R),\qquad N=|e|,\qquad
+  u=(\sqrt\lambda\,h,\ \ell),\qquad \mathrm{res}=(\sqrt\lambda\,g,\ 0).
+\]
+
+\emph{Step 1: the length $N$ of the frame vector.}
+By the definition of the $\ell^2$ product norm and $|\sqrt\lambda\,p'|
+=\sqrt\lambda\,|p'|$,
+\begin{equation}\label{eq:sbfc-N}
+  N^2=\lambda|p'|^2+A^2 .
+\end{equation}
+Since $\lambda|p'|^2\ge0$ we get $N^2\ge A^2$, and both $N\ge0$ and $A>0$, so
+$N\ge A>0$; in particular $N\ge1/2$, hence $N^{-1}\le2$. For an upper bound,
+$|p'|\le C\le2CA$ because $A\ge1/2$ and $C\ge0$, so
+$\lambda|p'|^2\le4\lambda C^2A^2$, and therefore by \eqref{eq:sbfc-N}
+\[
+  N^2\le A^2\bigl(1+4\lambda C^2\bigr)
+     \le A^2\bigl(1+2\lambda C^2\bigr)^2,
+\]
+the last step because $(1+2x)^2=1+4x+4x^2\ge1+4x$ for $x=\lambda C^2\ge0$. Both
+$N$ and $A(1+2\lambda C^2)$ are nonnegative, so
+\begin{equation}\label{eq:sbfc-NA}
+  N\le A\bigl(1+2\lambda C^2\bigr).
+\end{equation}
+
+\emph{Step 2: the exact shear decomposition.}
+In $F\times\R$,
+\begin{equation}\label{eq:sbfc-split}
+  u=\frac\ell A\,e+\mathrm{res} .
+\end{equation}
+Indeed the second components are $(\ell/A)A+0=\ell$, using $A\ne0$; and the first
+components are
+\[
+  \frac\ell A\bigl(\sqrt\lambda\,p'\bigr)+\sqrt\lambda\Bigl(h-\frac\ell A\,p'\Bigr)
+   =\sqrt\lambda\,h ,
+\]
+the two multiples of $p'$ cancelling. This is an identity, with no error term.
+
+\emph{Step 3: the normalized axis.}
+Since $\Phi$ is a linear isometry and $c>0$, the slope
+$P=\Phi(c\sqrt\lambda\,p',cA)=\Phi(c\,e)=c\,\Phi(e)$ has $|P|=cN>0$, so
+\[
+  \frac P{|P|}=\frac{c\,\Phi(e)}{cN}=N^{-1}\Phi(e)=:n ,
+\]
+and $|n|=N^{-1}|\Phi(e)|=N^{-1}N=1$. Also $\Phi(e)=N\,n$. The increment of the
+asserted point relative to $z$ is $D=r\,\Phi(u)$, and applying $\Phi$ to
+\eqref{eq:sbfc-split} and multiplying by $r$ gives
+\begin{equation}\label{eq:sbfc-D}
+  D=\Bigl(\frac{r\ell N}A\Bigr)n+r\,\Phi(\mathrm{res}).
+\end{equation}
+
+\emph{Step 4: the axial bound $|D\cdot n|\le Sr$.}
+Taking the inner product of \eqref{eq:sbfc-D} with $n$ and using $|n|=1$,
+\begin{equation}\label{eq:sbfc-axial}
+  D\cdot n=\frac{r\ell N}A+r\,\bigl(\Phi(\mathrm{res})\cdot n\bigr).
+\end{equation}
+For the second term, $\Phi(\mathrm{res})\cdot n=N^{-1}\bigl(\Phi(\mathrm{res})
+\cdot\Phi(e)\bigr)=N^{-1}(\mathrm{res}\cdot e)$ because $\Phi$ is a linear
+isometry, and by the definition of the $\ell^2$ inner product
+\[
+  \mathrm{res}\cdot e=\bigl(\sqrt\lambda\,g\bigr)\cdot\bigl(\sqrt\lambda\,p'\bigr)
+      +0\cdot A=\lambda\,(g\cdot p'),
+\]
+using $\sqrt\lambda\sqrt\lambda=\lambda$, which holds since $\lambda\ge0$. By
+Cauchy--Schwarz, $|g\cdot p'|\le|p'|\,|g|\le CS$, so with $N^{-1}\le2$,
+\[
+  \bigl|\Phi(\mathrm{res})\cdot n\bigr|\le N^{-1}\lambda\,|g\cdot p'|
+    \le2\lambda CS .
+\]
+For the first term, $|\ell|\le S/2$ by \eqref{eq:sbfc-domain} and $A>0$, so by
+\eqref{eq:sbfc-NA}
+\[
+  \Bigl|\frac{\ell N}A\Bigr|=\frac{|\ell|\,N}A
+    \le\frac S2\cdot\frac NA\le\frac S2\bigl(1+2\lambda C^2\bigr).
+\]
+Hence from \eqref{eq:sbfc-axial} and the triangle inequality, using $r>0$,
+\[
+  |D\cdot n|\le r\Bigl[\frac S2\bigl(1+2\lambda C^2\bigr)+2\lambda CS\Bigr]
+    = r S\Bigl[\frac12+\lambda C^2+2\lambda C\Bigr].
+\]
+By \eqref{eq:sbfc-small}, $\lambda C^2+2\lambda C\le1/100+2/100=3/100\le1/2$, so
+the bracket is at most $1$ and $|D\cdot n|\le Sr$. This is the strict axial
+margin: the first term alone already uses only $(1+2\lambda C^2)/2$ of the
+available length.
+
+\emph{Step 5: the transverse bound $|D-(D\cdot n)n|\le\sqrt{32\lambda}\,Sr$.}
+Subtracting $(D\cdot n)n$ from \eqref{eq:sbfc-D} and using
+\eqref{eq:sbfc-axial}, the multiple of $n$ coming from the first term cancels
+exactly, leaving
+\[
+  D-(D\cdot n)n
+   =r\Bigl[\Phi(\mathrm{res})-\bigl(\Phi(\mathrm{res})\cdot n\bigr)n\Bigr].
+\]
+For any vector $x$ and any unit vector $n$ the vectors $x-(x\cdot n)n$ and
+$(x\cdot n)n$ are orthogonal, since
+$\bigl(x-(x\cdot n)n\bigr)\cdot\bigl((x\cdot n)n\bigr)
+=(x\cdot n)\bigl(x\cdot n-(x\cdot n)|n|^2\bigr)=0$; their sum is $x$, so by the
+Pythagorean identity $|x-(x\cdot n)n|^2+|(x\cdot n)n|^2=|x|^2$ and therefore
+$|x-(x\cdot n)n|\le|x|$. Applying this with $x=\Phi(\mathrm{res})$ and using
+that $\Phi$ is an isometry,
+\[
+  \bigl|D-(D\cdot n)n\bigr|\le r\,\bigl|\Phi(\mathrm{res})\bigr|
+    =r\,|\mathrm{res}| = r\sqrt\lambda\,|g|\le r\sqrt\lambda\,S ,
+\]
+where $|\mathrm{res}|=\sqrt\lambda\,|g|$ by the definition of the $\ell^2$
+product norm applied to $(\sqrt\lambda\,g,0)$. Finally
+$\sqrt{32\lambda}=\sqrt{32}\sqrt\lambda\ge\sqrt\lambda$ because
+$\sqrt{32}\ge1$ and $\sqrt\lambda>0$, so
+$r\sqrt\lambda\,S\le\sqrt{32\lambda}\,(Sr)$.
+
+Steps 4 and 5 are exactly the two conditions defining membership of the point
+$z+D=z+r\Phi(\sqrt\lambda\,h,\ell)$ in the cylinder
+$Z_{32\lambda}(z,Sr;P)$ with $P=\Phi(c\sqrt\lambda\,p',cA)$.
+\end{proof}

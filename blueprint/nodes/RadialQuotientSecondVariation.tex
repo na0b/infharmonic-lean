@@ -1,0 +1,89 @@
+\begin{lemma}[Second variation of the quadratic penalty]
+Let $E$ be a real inner-product space, let $h,k\in E$ and let $r,s\in\R$ with
+$r>0$. Then there is a function $G:\R\to\R$ such that
+\begin{enumerate}
+\item for every $\tau$ in some neighbourhood of $0$ the function
+  \[
+    t\longmapsto\frac{|h+tk|^2}{(r+ts)^2}
+  \]
+  is differentiable at $\tau$ with derivative $G(\tau)$, and
+\item $G$ is differentiable at $0$ with
+  \[
+    G'(0)=\frac{2|k|^2}{r^2}-\frac{8s\langle h,k\rangle}{r^3}
+      +\frac{6s^2|h|^2}{r^4}.
+  \]
+\end{enumerate}
+In other words, along the motion in which the numerator vector moves from $h$
+with velocity $k$ and the denominator moves affinely from $r$ with velocity $s$,
+the quotient $|h|^2/r^2$ has a second derivative at the base point, and that
+second derivative is the displayed expression.
+\end{lemma}
+\begin{proof}
+Write $a=\langle h,k\rangle$, $b=|k|^2$ and $p=|h|^2$, and set
+$D(t)=r+ts$.
+
+\emph{The numerator is a quadratic polynomial in $t$.} Expanding the square of
+the norm,
+\begin{equation}\label{eq:rqsv-num}
+  |h+tk|^2=|h|^2+2\langle h,tk\rangle+|tk|^2=p+2ta+t^2b
+  \qquad(t\in\R),
+\end{equation}
+using the bilinearity and symmetry of the real inner product and
+$|tk|^2=t^2|k|^2$. Call this polynomial $P(t)=p+2ta+t^2b$; it is differentiable
+everywhere, with
+\begin{equation}\label{eq:rqsv-P}
+  P'(t)=2a+2tb,\qquad P''(t)=2b .
+\end{equation}
+Also $D$ is affine, so $D'\equiv s$, and for each $m\ge1$ the chain rule gives
+that $t\mapsto D(t)^m$ is differentiable with derivative $mD(t)^{m-1}s$.
+
+\emph{Definition of $G$.} Put
+\begin{equation}\label{eq:rqsv-G}
+  G(t)=\frac{P'(t)}{D(t)^2}-\frac{2sP(t)}{D(t)^3}
+   =\frac{2a+2tb}{(r+ts)^2}-\frac{2s\,(p+2ta+t^2b)}{(r+ts)^3},
+\end{equation}
+defined for every $t$ with $D(t)\ne0$, and extended arbitrarily (say by $0$)
+elsewhere.
+
+\emph{Proof of (1).} The map $t\mapsto D(t)$ is continuous and
+$D(0)=r>0\ne0$, so $D(\tau)\ne0$ for every $\tau$ in some neighbourhood
+$\mathcal U$ of $0$; shrinking $\mathcal U$ we may assume $G$ is given by
+\eqref{eq:rqsv-G} on $\mathcal U$. Fix $\tau\in\mathcal U$. By
+\eqref{eq:rqsv-num} the function in (1) equals $t\mapsto P(t)/D(t)^2$, and
+$D(\tau)^2\ne0$, so the quotient rule applies and gives differentiability at
+$\tau$ with derivative
+\[
+  \frac{P'(\tau)D(\tau)^2-P(\tau)\cdot 2D(\tau)s}{\bigl(D(\tau)^2\bigr)^2}
+   =\frac{P'(\tau)}{D(\tau)^2}-\frac{2sP(\tau)}{D(\tau)^3}
+   =G(\tau),
+\]
+the middle equality by cancelling one factor $D(\tau)\neq 0$ in the second term
+and two in the first. This is (1).
+
+\emph{Proof of (2).} We differentiate the two summands of \eqref{eq:rqsv-G} at
+$t=0$, where $D(0)=r\ne0$ so both quotient rules apply.
+
+For the first summand, the numerator $P'(t)=2a+2tb$ has derivative $2b$ at $0$
+by \eqref{eq:rqsv-P}, and the denominator $D(t)^2$ has value $r^2$ and
+derivative $2rs$ at $0$; hence
+\[
+  \left.\frac{d}{dt}\frac{P'(t)}{D(t)^2}\right|_{t=0}
+   =\frac{2b\cdot r^2-2a\cdot 2rs}{r^4}
+   =\frac{2b}{r^2}-\frac{4as}{r^3}.
+\]
+For the second summand, the numerator $2sP(t)$ has value $2sp$ and derivative
+$2sP'(0)=4as$ at $0$, and the denominator $D(t)^3$ has value $r^3$ and
+derivative $3r^2s$ at $0$; hence
+\[
+  \left.\frac{d}{dt}\frac{2sP(t)}{D(t)^3}\right|_{t=0}
+   =\frac{4as\cdot r^3-2sp\cdot3r^2s}{r^6}
+   =\frac{4as}{r^3}-\frac{6ps^2}{r^4}.
+\]
+Subtracting, $G$ is differentiable at $0$ with
+\[
+  G'(0)=\Bigl(\frac{2b}{r^2}-\frac{4as}{r^3}\Bigr)
+        -\Bigl(\frac{4as}{r^3}-\frac{6ps^2}{r^4}\Bigr)
+   =\frac{2b}{r^2}-\frac{8as}{r^3}+\frac{6ps^2}{r^4},
+\]
+which is the displayed expression once $a,b,p$ are written out. This is (2).
+\end{proof}

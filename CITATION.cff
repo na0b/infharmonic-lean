@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite the paper and this repository."
+title: "Lean 4 formalization of: Uniform Interior C^{1,alpha} Estimates for Infinity-Harmonic Functions"
+type: software
+license: Apache-2.0
+authors:
+  - family-names: Manfredi
+    given-names: Juan J.
+    affiliation: University of Pittsburgh
+preferred-citation:
+  type: article
+  title: "Uniform Interior C^{1,alpha} Estimates for Infinity-Harmonic Functions"
+  authors:
+    - name: OpenAI
+  year: 2026
+  month: 10
+  notes: "OpenAI Math Release preprint, October 4, 2026"
+  url: "https://github.com/openai/math/blob/main/preprints/Uniform-Interior-C1alpha-Estimates-for-Infinity-Harmonic-Functions-October-4-2026/interior-c1-infinity-harmonic.pdf"

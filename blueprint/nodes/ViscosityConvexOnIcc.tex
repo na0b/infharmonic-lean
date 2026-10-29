@@ -1,0 +1,91 @@
+\begin{lemma}[The one-dimensional viscosity criterion for convexity]
+Let $T>0$ and let $G:\R\to\R$ be continuous on $[0,T]$. Suppose that for every
+$\ell_0\in(0,T)$ and all $A,B,C\in\R$, if the function
+$\tau\mapsto G(\tau)-\bigl(A\tau^2+B\tau+C\bigr)$ has a local maximum on $[0,T]$ at
+$\ell_0$, then $A\ge0$. Then $G$ is convex on $[0,T]$.
+\end{lemma}
+\begin{proof}
+The interval $[0,T]$ is convex, so by the adjacent-slope characterisation of convexity it
+suffices to show that for all $a,b\in[0,T]$ and all $\tau$ with $a<\tau<b$,
+\[
+  \frac{G(\tau)-G(a)}{\tau-a}\le\frac{G(b)-G(\tau)}{b-\tau}.
+\]
+Suppose this fails for some such $a,\tau,b$. Then $a<b$, and the three quantities
+$b-a$, $\tau-a$, $b-\tau$ are all positive.
+
+\emph{Step 1: the chord lies strictly below $G$ at $\tau$.}
+Let
+\[
+  \lambda(r)=\frac{(b-r)G(a)+(r-a)G(b)}{b-a}
+\]
+be the affine function with $\lambda(a)=G(a)$ and $\lambda(b)=G(b)$. The failed
+inequality, multiplied by the positive number $(\tau-a)(b-\tau)$, reads
+\[
+  \bigl(G(b)-G(\tau)\bigr)(\tau-a)<\bigl(G(\tau)-G(a)\bigr)(b-\tau),
+\]
+that is, after moving the terms containing $G(\tau)$ to one side,
+\[
+  G(b)(\tau-a)+G(a)(b-\tau)<G(\tau)\bigl((b-\tau)+(\tau-a)\bigr)=G(\tau)(b-a).
+\]
+Dividing by $b-a>0$ gives $\lambda(\tau)<G(\tau)$.
+
+\emph{Step 2: the gap has a positive maximum.}
+Put $h=G-\lambda$. Since $[a,b]\subseteq[0,T]$, by the hypothesis $G$ is continuous on
+$[a,b]$, and $\lambda$ is continuous, so $h$ is continuous on the nonempty compact set
+$[a,b]$ and attains a maximum there, say at $\tau_1$. Put $m=h(\tau_1)$. Since
+$h(\tau)=G(\tau)-\lambda(\tau)>0$ by Step 1 and $h(\tau)\le m$, we get $m>0$.
+
+\emph{Step 3: a strictly concave perturbation whose maximum is still positive.}
+Put $\eta=m/(b-a)^2>0$ and
+\[
+  K(r)=h(r)+\eta\,(r-a)(r-b)\qquad(r\in[a,b]).
+\]
+For every $r\in[a,b]$ we have $(r-a)(r-b)\ge-(b-a)^2/4$: indeed
+$(2r-a-b)^2\ge0$ expands to $4r^2-4r(a+b)+(a+b)^2\ge0$, while
+$-4(r-a)(r-b)=-4r^2+4r(a+b)-4ab$, and adding the two gives
+$-4(r-a)(r-b)\le(a+b)^2-4ab=(b-a)^2$. Multiplying by $\eta>0$ and using
+$\eta(b-a)^2/4=m/4$,
+\[
+  K(\tau_1)=m+\eta(\tau_1-a)(\tau_1-b)\ge m-\frac m4=\frac{3m}{4}>\frac m2 .
+\]
+$K$ is continuous on $[a,b]$, so it attains a maximum there, say at $\tau_2$, and
+$K(\tau_2)\ge K(\tau_1)>m/2>0$.
+
+\emph{Step 4: the maximum is attained strictly inside.}
+At the endpoints $\lambda$ agrees with $G$ and the perturbation vanishes, so
+$K(a)=h(a)+0=G(a)-\lambda(a)=0$ and likewise $K(b)=0$. Since $K(\tau_2)>0$, we conclude
+$\tau_2\ne a$ and $\tau_2\ne b$, so $a<\tau_2<b$. As $0\le a$ and $b\le T$ this gives
+$\tau_2\in(0,T)$.
+
+\emph{Step 5: the quadratic upper test.}
+Expanding $\lambda$ and the perturbation, set
+\[
+  A=-\eta,\qquad
+  B=\frac{G(b)-G(a)}{b-a}+\eta(a+b),\qquad
+  C=\frac{bG(a)-aG(b)}{b-a}-\eta ab+K(\tau_2),
+\]
+so that for every $u\in\R$
+\[
+  A u^2+Bu+C=-\eta(u-a)(u-b)+\lambda(u)+K(\tau_2),
+\]
+using $\lambda(u)=\bigl[(G(b)-G(a))u+bG(a)-aG(b)\bigr]/(b-a)$. Consequently
+\begin{equation}\label{eq:vcoi-shape}
+  G(u)-\bigl(Au^2+Bu+C\bigr)
+   =\bigl(G(u)-\lambda(u)\bigr)+\eta(u-a)(u-b)-K(\tau_2)
+   =K(u)-K(\tau_2).
+\end{equation}
+
+The open interval $(a,b)$ is a neighbourhood of $\tau_2$, so for every $r$ in
+$(a,b)\cap[0,T]$ we have $r\in[a,b]$ and hence $K(r)\le K(\tau_2)$ by the choice of
+$\tau_2$; by \eqref{eq:vcoi-shape} this says
+\[
+  G(r)-\bigl(Ar^2+Br+C\bigr)\le0=G(\tau_2)-\bigl(A\tau_2^2+B\tau_2+C\bigr).
+\]
+Therefore $\tau\mapsto G(\tau)-\bigl(A\tau^2+B\tau+C\bigr)$ has a local maximum on
+$[0,T]$ at $\tau_2$, and $\tau_2\in(0,T)$.
+
+\emph{Step 6: the contradiction.}
+The hypothesis applied with these $A,B,C$ and this $\ell_0=\tau_2$ gives $A\ge0$. But
+$A=-\eta<0$, a contradiction. Hence the adjacent-slope inequality holds for all
+admissible $a,\tau,b$, and $G$ is convex on $[0,T]$.
+\end{proof}

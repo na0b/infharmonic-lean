@@ -1,0 +1,201 @@
+\begin{lemma}[Selection of bad scales]
+Fix an integer $d\ge1$, put $n=d+1$, write $G=B_{3/4}$ for the open ball of
+radius $3/4$ about the origin of the space-time $\ell^2(\R^d\times\R)$ and
+$D(z)=\operatorname{dist}(z,\partial G)$, and let $b_d$ be the family flatness
+modulus of \noderef{FlatnessModulus}. Suppose that the uniform power bound on
+$b_d$ fails for every positive exponent: for every $B>0$, every
+$\gamma\in(0,1]$ and every $s_0\in(0,1/8]$ there is $s\in(0,s_0]$ with
+\[
+  b_d(s)>Bs^\gamma .
+\]
+Then there are real sequences $\gamma_i,s_i,r_i,\lambda_i$, functions $U_i$ on
+the space-time and centers $z_i$ such that
+$(\gamma_i,s_i,r_i,\lambda_i,U_i,z_i)_{i\ge0}$ is selected bad-scale data in
+dimension $d$ in the sense of \noderef{IsBadScaleData}.
+\end{lemma}
+\begin{proof}
+Throughout, $\mathcal U$ is the normalized family of
+\noderef{NormalizedInfFamily}, $\beta_U(z,r)$ is as in \noderef{BetaFlatness},
+and by \noderef{FlatnessModulus}
+\begin{equation}\label{eq:bs-bdef}
+  b_d(s)=\sup\bigl\{\beta_U(z,r):U\in\mathcal U,\ z\in G,\ 0<r\le sD(z)\bigr\}.
+\end{equation}
+By \noderef{BetaFlatness} each $\beta_U(z,r)$ is the supremum of a subset of
+$(0,1)$, so $0\le\beta_U(z,r)\le1$; hence the set in \eqref{eq:bs-bdef} is
+bounded above by $1$ and $0\le b_d(s)\le1$. What this establishes is boundedness
+above, and nothing more: we do \emph{not} claim here that the set in
+\eqref{eq:bs-bdef} is nonempty. Nonemptiness is needed only where the
+\emph{approximation property} of a supremum is invoked, which happens exactly
+three times: for the scalar supremum $M$ in Step 1, and in Step 2 for
+\eqref{eq:bs-bdef} itself and for $\beta_{U_i}(z_i,r_i)$. It is established at
+each of those three points of use, in Step 2 from the strict positivity
+\eqref{eq:bs-bpos}. (The scalar supremum $T$ of Step 1 is used only as an upper
+bound, together with $T\ge0$, and its defining set is visibly nonempty because
+$1/N\le1/8$.) We use three consequences repeatedly: $\beta_U(z,r)\le
+b_d(s)$ whenever $(U,z,r)$ is admissible for $s$ as in \eqref{eq:bs-bdef}, which
+needs only the boundedness just proved; every $\lambda$ with
+$\beta_U(z,r)<\lambda<1$ is good for $U$ at $(z,r)$, i.e.\ admits a cylinder fit
+in the sense of \noderef{IsCylinderFit}, since otherwise $\lambda$ would lie in
+the set whose supremum is $\beta_U(z,r)$; and $D$ is $1$-Lipschitz, being a
+distance to a fixed set.
+
+We also record that for $z\in G$
+\begin{equation}\label{eq:bs-D}
+  D(z)=\tfrac34-|z|\in(0,\tfrac34],
+\end{equation}
+because $\partial G$ is the sphere of radius $3/4$, which is nonempty since the
+space-time has dimension $d+1\ge2$. Indeed the point $\tfrac34|z|^{-1}z$, or any
+point of the sphere when $z=0$, lies on the sphere at distance exactly
+$\tfrac34-|z|$ from $z$; and no point $w$ of the sphere is nearer, because
+$|z-w|\ge|w|-|z|=\tfrac34-|z|$.
+
+\emph{Step 1: the running maximum.}
+Put $\gamma_i=1/(i+1)$ for $i\ge0$, so $0<\gamma_i\le1$ and $\gamma_i\to0$. Fix
+$i$ and let
+\[
+  g(s)=\frac{b_d(s)}{s^{\gamma_i}}\qquad(0<s\le1/8),
+\]
+a nonnegative function. Let $N$ be an integer with $N\ge\max(8,i+1)$, so that
+$1/N\le1/8$.
+
+The quantity $T=\sup\{g(s):1/N\le s\le1/8\}$ is finite: on that interval
+$b_d(s)\le1$ and $s^{-\gamma_i}\le N^{\gamma_i}$, so $g\le N^{\gamma_i}$. Also
+$T\ge0$. Apply the hypothesis with $B=2T+2>0$, the exponent $\gamma_i$ and
+$s_0=1/N$: there is $\sigma\in(0,1/N]$ with $b_d(\sigma)>(2T+2)\sigma^{\gamma_i}$,
+that is
+\[
+  g(\sigma)>2T+2 .
+\]
+In particular $g(\sigma)>T$, so $\sigma\notin[1/N,1/8]$ and therefore
+\begin{equation}\label{eq:bs-sigma}
+  0<\sigma<\tfrac1N .
+\end{equation}
+
+Let $M=\sup\{g(s):\sigma\le s\le1/8\}$, again finite because $b_d\le1$ and
+$s^{-\gamma_i}\le\sigma^{-\gamma_i}$ there. Its defining set is nonempty, and
+the witness is $\sigma$ itself: by \eqref{eq:bs-sigma} and $N\ge8$ we have
+$\sigma<1/N\le1/8$, so $\sigma\in[\sigma,1/8]$ and $g(\sigma)$ belongs to the
+set. Hence $M\ge g(\sigma)>2$, and $M$ is the supremum of a nonempty set bounded
+above. Since $M/2<M$, the approximation property of the supremum is available
+and gives $s_i\in[\sigma,1/8]$ with
+\begin{equation}\label{eq:bs-approxmax}
+  g(s_i)>\tfrac12M .
+\end{equation}
+Two consequences. First, every $s\in[s_i,1/8]$ lies in $[\sigma,1/8]$, so
+$g(s)\le M<2g(s_i)$, i.e.
+\begin{equation}\label{eq:bs-running}
+  \frac{b_d(s)}{s^{\gamma_i}}\le2\frac{b_d(s_i)}{s_i^{\gamma_i}}
+  \qquad(s_i\le s\le1/8).
+\end{equation}
+Second, $g(s_i)>\tfrac12M\ge\tfrac12g(\sigma)>T$, while every $s\in[1/N,1/8]$
+has $g(s)\le T$; so $s_i\notin[1/N,1/8]$, and as $s_i\in[\sigma,1/8]$ with
+$\sigma<1/N$ by \eqref{eq:bs-sigma}, we conclude
+\begin{equation}\label{eq:bs-si}
+  0<s_i<\tfrac1N\le\frac1{i+1},\qquad s_i\le\tfrac18 .
+\end{equation}
+Hence $s_i\to0$. Also $g(s_i)>\tfrac12M>1>0$, so
+\begin{equation}\label{eq:bs-bpos}
+  b_d(s_i)>0 .
+\end{equation}
+
+\emph{Step 2: the bad triple and the bad parameter.}
+Fix $i$. The approximation property of a supremum is available only for a
+nonempty set, and here strict positivity supplies that. By
+\noderef{FlatnessModulus} the value $b_d(s_i)$ is $0$ when the set in
+\eqref{eq:bs-bdef} is empty, whereas $b_d(s_i)>0$ by \eqref{eq:bs-bpos}; hence
+that set is nonempty, and being bounded above by $1$ as recorded above it has a
+genuine supremum. Since $b_d(s_i)/2<b_d(s_i)$, again by \eqref{eq:bs-bpos}, the
+approximation property at $s=s_i$ gives $U_i\in\mathcal U$, $z_i\in G$ and $r_i$
+with
+\begin{equation}\label{eq:bs-triple}
+  0<r_i\le s_iD(z_i),\qquad \beta_{U_i}(z_i,r_i)>\tfrac12b_d(s_i)>0 .
+\end{equation}
+The same argument runs one level down. By \noderef{BetaFlatness} the quantity
+$\beta_{U_i}(z_i,r_i)$ is the supremum of the set of parameters in $(0,1)$ that
+are not good for $U_i$ at $(z_i,r_i)$, \emph{with the value $0$ when that set is
+empty}; since $\beta_{U_i}(z_i,r_i)>0$ by \eqref{eq:bs-triple}, that set is
+nonempty, and it is contained in $(0,1)$ and so bounded above by $1$. The
+approximation property is therefore available and gives a parameter
+\begin{equation}\label{eq:bs-lam}
+  \lambda_i\in(0,1)\ \text{not good for }U_i\text{ at }(z_i,r_i),\qquad
+  \lambda_i>\tfrac12\beta_{U_i}(z_i,r_i).
+\end{equation}
+Combining \eqref{eq:bs-triple} and \eqref{eq:bs-lam}, and using
+$\lambda_i\le\beta_{U_i}(z_i,r_i)\le b_d(s_i)$ --- the first because
+$\lambda_i$ belongs to the set whose supremum is $\beta_{U_i}(z_i,r_i)$, the
+second because $(U_i,z_i,r_i)$ is admissible for $s_i$ --- we obtain
+\begin{equation}\label{eq:bs-sandwich}
+  \tfrac14b_d(s_i)<\lambda_i\le b_d(s_i).
+\end{equation}
+
+\emph{Step 3: $\lambda_i\to0$.}
+By \eqref{eq:bs-si}, $s_i\to0$ with $s_i>0$. Let $\varepsilon>0$ and take $s_0$
+as in \noderef{FamilyFlatness} for this $\varepsilon$; for all large $i$ we have
+$0<s_i\le s_0$ and therefore $b_d(s_i)\le\varepsilon$. Hence $b_d(s_i)\to0$, and
+$\lambda_i\le b_d(s_i)$ from \eqref{eq:bs-sandwich} gives
+\begin{equation}\label{eq:bs-lamzero}
+  \lambda_i\longrightarrow0 .
+\end{equation}
+
+\emph{Step 4: the uniformity with $\Lambda=32$.}
+Fix $M_*\ge2$. Since $s_i\to0$, $\gamma_i\to0$ and $\lambda_i\to0$, and since
+$(2M_*)^{\gamma_i}=\exp(\gamma_i\log(2M_*))\to1$, there is $i_0$ such that for
+every $i\ge i_0$
+\begin{equation}\label{eq:bs-thresholds}
+  M_*s_i<\tfrac12,\qquad 2M_*s_i\le\tfrac18,\qquad
+  (2M_*)^{\gamma_i}<4,\qquad 32\lambda_i<1 .
+\end{equation}
+Let $i\ge i_0$, let $w$ satisfy $|w-z_i|\le M_*r_i$ and let
+$0<\rho\le M_*r_i$.
+
+\emph{(4a) $w\in G$.} By \eqref{eq:bs-triple} and \eqref{eq:bs-thresholds},
+\begin{equation}\label{eq:bs-Mr}
+  M_*r_i\le M_*s_iD(z_i)<\tfrac12D(z_i),
+\end{equation}
+so $|w-z_i|<\tfrac12D(z_i)$. By \eqref{eq:bs-D}, $|w|\le|z_i|+|w-z_i|
+<|z_i|+(\tfrac34-|z_i|)=\tfrac34$, i.e.\ $w\in G$.
+
+\emph{(4b) $\rho\le\tfrac18D(w)$.} Since $D$ is $1$-Lipschitz,
+$D(w)\ge D(z_i)-|w-z_i|\ge D(z_i)-M_*r_i\ge\tfrac12D(z_i)$ by
+\eqref{eq:bs-Mr}, so $D(z_i)\le2D(w)$ and, using \eqref{eq:bs-triple} and
+\eqref{eq:bs-thresholds},
+\begin{equation}\label{eq:bs-rho}
+  \rho\le M_*r_i\le M_*s_iD(z_i)\le2M_*s_iD(w)\le\tfrac18D(w).
+\end{equation}
+Thus the center $w$ and radius $\rho$ are admissible.
+
+\emph{(4c) $32\lambda_i$ is good for $U_i$ at $(w,\rho)$.} The triple
+$(U_i,w,\rho)$ is admissible for the scale $2M_*s_i$, since $U_i\in\mathcal U$,
+$w\in G$ by (4a), $\rho>0$, and $\rho\le2M_*s_iD(w)$ by \eqref{eq:bs-rho}.
+Therefore
+\[
+  \beta_{U_i}(w,\rho)\le b_d(2M_*s_i).
+\]
+Now $2M_*s_i\ge s_i$ because $2M_*\ge4\ge1$, and $2M_*s_i\le1/8$ by
+\eqref{eq:bs-thresholds}; so \eqref{eq:bs-running} applies at $s=2M_*s_i$ and
+gives
+\[
+  b_d(2M_*s_i)\le2b_d(s_i)\frac{(2M_*s_i)^{\gamma_i}}{s_i^{\gamma_i}}
+   =2b_d(s_i)(2M_*)^{\gamma_i}.
+\]
+By \eqref{eq:bs-sandwich}, $b_d(s_i)<4\lambda_i$, and by
+\eqref{eq:bs-thresholds}, $(2M_*)^{\gamma_i}<4$; hence
+\[
+  \beta_{U_i}(w,\rho)\le2b_d(s_i)(2M_*)^{\gamma_i}
+   <2\cdot4\lambda_i\cdot4=32\lambda_i .
+\]
+Finally $32\lambda_i<1$ by \eqref{eq:bs-thresholds}, so
+$32\lambda_i\in(\beta_{U_i}(w,\rho),1)$ and therefore $32\lambda_i$ is good for
+$U_i$ at $(w,\rho)$: there is $P$ realizing the cylinder fit of parameter
+$32\lambda_i$ for $U_i$ at $(w,\rho)$ in the sense of \noderef{IsCylinderFit}.
+
+\emph{Conclusion.}
+We check every clause of \noderef{IsBadScaleData} for the data
+$(\gamma_i,s_i,r_i,\lambda_i,U_i,z_i)$ just constructed, with $\Lambda=32$.
+We have $\gamma_i=1/(i+1)>0$ with $\gamma_i\to0$; $s_i>0$ with $s_i\to0$ by
+\eqref{eq:bs-si}; $\lambda_i>0$ by \eqref{eq:bs-lam} with $\lambda_i\to0$ by
+\eqref{eq:bs-lamzero}; $U_i\in\mathcal U$ and $z_i\in G$ by Step 2; $r_i>0$ and
+$r_i\le s_iD(z_i)$ by \eqref{eq:bs-triple}; $\lambda_i$ is not good for $U_i$ at
+$(z_i,r_i)$, i.e.\ no $P$ realizes that cylinder fit, by \eqref{eq:bs-lam}; and
+the final clause is Step 4, whose threshold $i_0$ depends on $M_*$ only.
+\end{proof}

@@ -1,0 +1,132 @@
+\begin{lemma}[The common-time directions of the barycentric test function]
+Let $F$ be a finite-dimensional real inner-product space and let $n\in\N$. Let
+$\theta:\{1,\dots,n\}\to\R$ satisfy $\theta_i>0$ for every $i$ and $\sum_i\theta_i=1$,
+let $y^0=(y^0_i)_i$ be points of $F$ with $\sum_i\theta_iy^0_i=x_0$, let $t_0>0$ and
+$c\in\R$. Let $\varphi$ be a real function on the space-time $\ell^2(F\times\R)$ which is
+$C^2$ at $(x_0,t_0)$. On the product space-time $\ell^2\bigl(\ell^2(F^n)\times\R\bigr)$,
+write a point as $W=(Y,t)$ with $Y=(y_i)_i$, and let $\Phi$ be a real function there
+satisfying, for every such $W$,
+\[
+  \Phi(Y,t)=\varphi\Bigl(\sum_j\theta_jy_j,\ t\Bigr)+ct
+    +\frac{\sum_j\theta_j\bigl|y_j-\sum_k\theta_ky_k\bigr|^2}{2t}.
+\]
+Then, writing $Y^0=(y^0_i)_i$ and $\nabla_{y_i}\Phi(Y^0,t_0)$ for the $i$-th block of the
+spatial part of $\nabla\Phi(Y^0,t_0)$, we have for every $i$
+\[
+  \theta_i^{-1}\,\nabla_{y_i}\Phi\bigl(Y^0,t_0\bigr)
+    =\nabla_x\varphi(x_0,t_0)+\frac{y^0_i-x_0}{t_0},
+\]
+where $\nabla_x\varphi(x_0,t_0)$ denotes the spatial part of $\nabla\varphi(x_0,t_0)$.
+\end{lemma}
+\begin{proof}
+Write $P=\ell^2(F^n)$ for the spatial factor of the product space-time, and introduce the
+continuous linear maps
+\[
+  \pi_1(W)=Y,\qquad \pi_2(W)=t,\qquad
+  X(Y)=\sum_j\theta_jy_j,\qquad
+  L(W)=\bigl(X(Y),\,t\bigr),
+\]
+so that $L$ maps the product space-time to $\ell^2(F\times\R)$, together with, for each
+index $j$, the continuous linear map $M_j(W)=y_j-X(Y)$ from the product space-time to
+$F$. Each of these is a composition, difference or finite linear combination of
+coordinate projections, hence continuous and linear. Set
+\[
+  N(W)=\sum_j\theta_j\,\bigl|M_j(W)\bigr|^2 ,
+\]
+so that the hypothesis on $\Phi$ reads
+\begin{equation}\label{eq:btd-shape}
+  \Phi(W)=\Bigl(\varphi\bigl(L(W)\bigr)+c\,\pi_2(W)\Bigr)+N(W)\cdot\bigl(2\pi_2(W)\bigr)^{-1}.
+\end{equation}
+Write $W_0=(Y^0,t_0)$. Since $\sum_j\theta_jy^0_j=x_0$ we have
+\begin{equation}\label{eq:btd-base}
+  L(W_0)=(x_0,t_0),\qquad \pi_2(W_0)=t_0,\qquad M_j(W_0)=y^0_j-x_0 .
+\end{equation}
+Also, using $\sum_j\theta_j=1$ and $\sum_j\theta_jy^0_j=x_0$,
+\begin{equation}\label{eq:btd-off}
+  \sum_j\theta_j\bigl(y^0_j-x_0\bigr)=x_0-x_0=0 .
+\end{equation}
+
+\emph{Step 1: the derivative of $\Phi$ at $W_0$.}
+Because $\varphi$ is $C^2$ at $(x_0,t_0)=L(W_0)$ it is differentiable there, so by the
+chain rule for a composition with a continuous linear map, $W\mapsto\varphi(L(W))$ is
+differentiable at $W_0$ with derivative $D\varphi(L(W_0))\circ L$. The map
+$W\mapsto c\,\pi_2(W)$ is continuous linear, hence differentiable with derivative
+$c\,\pi_2$. For each $j$ the map $W\mapsto|M_j(W)|^2$ is differentiable with derivative
+$\xi\mapsto2\langle M_j(W_0),M_j\xi\rangle$, since $u\mapsto|u|^2$ has derivative
+$v\mapsto2\langle u,v\rangle$ and $M_j$ is continuous linear; multiplying by the constant
+$\theta_j$ and summing over the finitely many $j$,
+\begin{equation}\label{eq:btd-DN}
+  DN(W_0)[\xi]=\sum_j\theta_j\cdot2\bigl\langle M_j(W_0),\,M_j\xi\bigr\rangle .
+\end{equation}
+Finally $t\mapsto(2t)^{-1}$ is differentiable at $t_0$, because $2t_0\neq0$; composing
+with the continuous linear $\pi_2$, the map $W\mapsto(2\pi_2(W))^{-1}$ is differentiable
+at $W_0$ with derivative of the form $\mu\,\pi_2$ for some real $\mu$. The product rule
+applied to \eqref{eq:btd-shape} therefore gives that $\Phi$ is differentiable at $W_0$
+with
+\begin{equation}\label{eq:btd-DPhi}
+  D\Phi(W_0)[\xi]
+   =D\varphi\bigl(L(W_0)\bigr)\bigl[L\xi\bigr]+c\,\pi_2\xi
+     +N(W_0)\,\mu\,\pi_2\xi+\frac{DN(W_0)[\xi]}{2t_0}.
+\end{equation}
+
+\emph{Step 2: the test direction.}
+Fix an index $i$ and a vector $a\in F$, let $e\in F^n$ be the tuple with $e_i=a$ and
+$e_j=0$ for $j\neq i$, and put $\xi=(e,0)$ in the product space-time. Then
+$\pi_2\xi=0$, and since $\sum_j\theta_je_j=\theta_ia$,
+\[
+  L\xi=\bigl(\theta_ia,\,0\bigr),\qquad
+  M_j\xi=e_j-\theta_ia .
+\]
+
+\emph{Step 3: evaluating \eqref{eq:btd-DPhi} on $\xi$.}
+The two terms carrying the factor $\pi_2\xi$ vanish. For the first term, by definition of
+the gradient and \eqref{eq:btd-base},
+\[
+  D\varphi\bigl(L(W_0)\bigr)\bigl[L\xi\bigr]
+   =\bigl\langle\nabla\varphi(x_0,t_0),\ (\theta_ia,0)\bigr\rangle
+   =\bigl\langle\nabla_x\varphi(x_0,t_0),\ \theta_ia\bigr\rangle
+   =\theta_i\bigl\langle\nabla_x\varphi(x_0,t_0),\ a\bigr\rangle,
+\]
+the middle equality because the inner product of the $\ell^2$ product splits as the sum
+of the inner products of the two components and the second component of $\xi$ is $0$.
+For the last term, by \eqref{eq:btd-DN}, \eqref{eq:btd-base} and Step 2,
+\[
+  DN(W_0)[\xi]
+   =2\sum_j\theta_j\bigl\langle y^0_j-x_0,\ e_j-\theta_ia\bigr\rangle
+   =2\sum_j\theta_j\bigl\langle y^0_j-x_0,\ e_j\bigr\rangle
+     -2\theta_i\sum_j\theta_j\bigl\langle y^0_j-x_0,\ a\bigr\rangle .
+\]
+In the first sum only the index $j=i$ contributes, because $e_j=0$ otherwise, and it
+contributes $\theta_i\langle y^0_i-x_0,a\rangle$. The second sum equals
+$\bigl\langle\sum_j\theta_j(y^0_j-x_0),\,a\bigr\rangle$, which vanishes by
+\eqref{eq:btd-off}. Hence $DN(W_0)[\xi]=2\theta_i\langle y^0_i-x_0,a\rangle$ and
+\[
+  D\Phi(W_0)[\xi]
+   =\theta_i\bigl\langle\nabla_x\varphi(x_0,t_0),a\bigr\rangle
+     +\frac{\theta_i\bigl\langle y^0_i-x_0,a\bigr\rangle}{t_0}
+   =\Bigl\langle\theta_i\Bigl(\nabla_x\varphi(x_0,t_0)+\frac{y^0_i-x_0}{t_0}\Bigr),\ a
+     \Bigr\rangle .
+\]
+
+\emph{Step 4: reading off the block.}
+By definition of the gradient, $D\Phi(W_0)[\xi]=\langle\nabla\Phi(W_0),\xi\rangle$. The
+inner product of the product space-time splits as the sum over the two components, and
+the time component of $\xi$ is $0$; the inner product of $P=\ell^2(F^n)$ is the sum over
+blocks, and only the $i$-th block of $e$ is nonzero. Hence
+\[
+  \bigl\langle\nabla\Phi(W_0),\xi\bigr\rangle
+   =\bigl\langle\nabla_{y_i}\Phi(W_0),\ a\bigr\rangle .
+\]
+Comparing with Step 3,
+\[
+  \bigl\langle\nabla_{y_i}\Phi(W_0),\ a\bigr\rangle
+   =\Bigl\langle\theta_i\Bigl(\nabla_x\varphi(x_0,t_0)+\frac{y^0_i-x_0}{t_0}\Bigr),\ a
+     \Bigr\rangle
+\]
+for every $a\in F$. As the inner product of $F$ separates points,
+\[
+  \nabla_{y_i}\Phi(W_0)
+    =\theta_i\Bigl(\nabla_x\varphi(x_0,t_0)+\frac{y^0_i-x_0}{t_0}\Bigr),
+\]
+and dividing by $\theta_i>0$ gives the assertion.
+\end{proof}

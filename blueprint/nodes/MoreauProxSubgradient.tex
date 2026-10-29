@@ -1,0 +1,77 @@
+\begin{lemma}[Minty's characterization of the proximal point]
+Let $E$ be a finite-dimensional real inner-product space, let $\psi:E\to\R$ be
+convex on $E$ and let $y,x_0\in E$. Then the following two statements are
+equivalent:
+\begin{enumerate}
+\item $x_0$ minimizes $x\mapsto\psi(x)+|x-y|^2/2$ over $E$, that is
+\[
+  \psi(x_0)+\frac{|x_0-y|^2}{2}\le\psi(x)+\frac{|x-y|^2}{2}\qquad(x\in E);
+\]
+\item $y-x_0$ is a subgradient of $\psi$ at $x_0$, that is
+\[
+  \psi(x_0)+\langle y-x_0,x-x_0\rangle\le\psi(x)\qquad(x\in E).
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Throughout we use the identity, valid for all $x$,
+\begin{equation}\label{eq:mps-expand}
+  \frac{|x-y|^2}{2}
+   =\frac{|(x-x_0)+(x_0-y)|^2}{2}
+   =\frac{|x-x_0|^2}{2}+\langle x-x_0,x_0-y\rangle+\frac{|x_0-y|^2}{2},
+\end{equation}
+which is the expansion of the square of a sum in an inner-product space.
+
+\emph{(2) implies (1).}
+Assume (2) and let $x\in E$. Adding $|x-y|^2/2$ to both sides of (2) and using
+\eqref{eq:mps-expand},
+\[
+  \psi(x)+\frac{|x-y|^2}{2}
+   \ge\psi(x_0)+\langle y-x_0,x-x_0\rangle
+      +\frac{|x-x_0|^2}{2}+\langle x-x_0,x_0-y\rangle+\frac{|x_0-y|^2}{2}.
+\]
+The two inner products cancel, since
+$\langle x-x_0,x_0-y\rangle=-\langle y-x_0,x-x_0\rangle$. Hence
+\[
+  \psi(x)+\frac{|x-y|^2}{2}
+   \ge\psi(x_0)+\frac{|x_0-y|^2}{2}+\frac{|x-x_0|^2}{2}
+   \ge\psi(x_0)+\frac{|x_0-y|^2}{2},
+\]
+which is (1).
+
+\emph{(1) implies (2).}
+Assume (1), let $x\in E$ and let $t\in(0,1]$. Put $x_t=x_0+t(x-x_0)$. Applying
+(1) at the point $x_t$,
+\begin{equation}\label{eq:mps-at-xt}
+  \psi(x_0)+\frac{|x_0-y|^2}{2}\le\psi(x_t)+\frac{|x_t-y|^2}{2}.
+\end{equation}
+Convexity of $\psi$ on $E$ with the weights $1-t$ and $t$ gives
+\[
+  \psi(x_t)\le(1-t)\psi(x_0)+t\psi(x).
+\]
+Also $x_t-y=(x_0-y)+t(x-x_0)$, so
+\[
+  \frac{|x_t-y|^2}{2}
+   =\frac{|x_0-y|^2}{2}+t\langle x_0-y,x-x_0\rangle+\frac{t^2|x-x_0|^2}{2}.
+\]
+Substituting both into \eqref{eq:mps-at-xt} and cancelling
+$|x_0-y|^2/2$ from the two sides,
+\[
+  \psi(x_0)\le(1-t)\psi(x_0)+t\psi(x)
+    +t\langle x_0-y,x-x_0\rangle+\frac{t^2|x-x_0|^2}{2},
+\]
+that is, after subtracting $(1-t)\psi(x_0)$,
+\[
+  t\,\psi(x_0)\le t\,\psi(x)+t\langle x_0-y,x-x_0\rangle
+     +\frac{t^2|x-x_0|^2}{2}.
+\]
+Dividing by $t>0$,
+\[
+  \psi(x_0)\le\psi(x)+\langle x_0-y,x-x_0\rangle+\frac{t\,|x-x_0|^2}{2}.
+\]
+The left-hand side and the first two terms on the right do not depend on $t$, so
+letting $t\downarrow0$ gives
+$\psi(x_0)\le\psi(x)+\langle x_0-y,x-x_0\rangle$, i.e.
+$\psi(x_0)+\langle y-x_0,x-x_0\rangle\le\psi(x)$. As $x$ was arbitrary this is
+(2).
+\end{proof}

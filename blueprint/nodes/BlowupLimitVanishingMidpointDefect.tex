@@ -1,0 +1,144 @@
+\begin{lemma}[The small-scale limit has vanishing midpoint defect]
+Let $d\in\N$ and work in $X=\ell^2(\R^d\times\R)$, writing $\overline B_\rho$
+and $B_\rho$ for the closed and open balls of radius $\rho$ centred at the
+origin. Let $U_i:X\to\R$, $z_i\in X$ and $r_i\in\R$ be given for $i\in\N$, let
+$R_k\in\R$ for $k\in\N$, let $z_*\in X$, let $W:X\to\R$ and let
+$\kappa:\N\to\N$. Assume:
+\begin{enumerate}
+\item\label{it:blmd-pos} $0<r_i$ for every $i$ and $0<R_k$ for every $k$;
+\item\label{it:blmd-slow}
+$\dfrac{|z_{\kappa(k)}-z_*|+r_{\kappa(k)}}{R_k}\longrightarrow0$ as
+$k\to\infty$;
+\item\label{it:blmd-W} the rescalings
+\[
+  W_k(H)=\frac{U_{\kappa(k)}\bigl(z_{\kappa(k)}+r_{\kappa(k)}H\bigr)
+    -U_{\kappa(k)}\bigl(z_{\kappa(k)}\bigr)}{r_{\kappa(k)}}
+\]
+converge to $W$ uniformly on $\overline B_2$;
+\item\label{it:blmd-tpf} for every $\epsilon'>0$ there is $k_0$ such that for
+all $k\ge k_0$ and all $X',Y'\in B_{1/4}$ with $X'\ne Y'$,
+\[
+  \Bigl|\widehat U_k(X')+\widehat U_k(Y')
+    -2\widehat U_k\bigl(\tfrac12(X'+Y')\bigr)\Bigr|
+  \le\epsilon'\,|X'-Y'| ,
+  \qquad
+  \widehat U_k(V)=\frac{U_{\kappa(k)}(z_*+R_kV)-U_{\kappa(k)}(z_*)}{R_k} .
+\]
+\end{enumerate}
+Then
+\begin{equation}\label{eq:blmd-mid}
+  W(H)+W(K)=2\,W\Bigl(\frac{H+K}{2}\Bigr)
+  \qquad\bigl(H,K\in\overline B_2\bigr).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Fix $H,K\in\overline B_2$, so $|H|\le2$ and $|K|\le2$. The midpoint also lies
+in $\overline B_2$: $|\tfrac12(H+K)|=\tfrac12|H+K|\le\tfrac12(|H|+|K|)\le2$ by
+the triangle inequality.
+
+\emph{The degenerate case.} If $H=K$ then $\tfrac12(H+H)=H$ and
+\eqref{eq:blmd-mid} reads $W(H)+W(H)=2W(H)$, which holds. So assume $H\ne K$,
+whence $|H-K|>0$.
+
+\emph{The quantitative claim.} We show
+\begin{equation}\label{eq:blmd-bound}
+  \Bigl|W(H)+W(K)-2W\Bigl(\frac{H+K}{2}\Bigr)\Bigr|\le\epsilon'
+  \qquad\text{for every }\epsilon'>0 .
+\end{equation}
+Fix $\epsilon'>0$ and put $\delta=\dfrac{\epsilon'}{2|H-K|}$, which is positive
+and satisfies $\delta\,|H-K|=\epsilon'/2$. Apply \ref{it:blmd-tpf} at this
+$\delta$ and let $k_0$ be the resulting index.
+
+\emph{The substituted points.} For $k\in\N$ set
+\[
+  X_k=\frac{z_{\kappa(k)}-z_*+r_{\kappa(k)}H}{R_k},\qquad
+  Y_k=\frac{z_{\kappa(k)}-z_*+r_{\kappa(k)}K}{R_k},
+\]
+legitimate because $R_k\ne0$ by \ref{it:blmd-pos}. Clearing the denominator in
+each case gives the three identities
+\begin{equation}\label{eq:blmd-img}
+  z_*+R_kX_k=z_{\kappa(k)}+r_{\kappa(k)}H,\qquad
+  z_*+R_kY_k=z_{\kappa(k)}+r_{\kappa(k)}K,
+\end{equation}
+\[
+  z_*+R_k\cdot\tfrac12(X_k+Y_k)
+   =z_{\kappa(k)}+r_{\kappa(k)}\cdot\tfrac12(H+K),
+\]
+the last because $\tfrac12(X_k+Y_k)
+=\bigl(z_{\kappa(k)}-z_*+r_{\kappa(k)}\tfrac12(H+K)\bigr)/R_k$; and
+\begin{equation}\label{eq:blmd-diff}
+  X_k-Y_k=\frac{r_{\kappa(k)}}{R_k}\,(H-K).
+\end{equation}
+So the images of $X_k$, $Y_k$ and their midpoint under $V\mapsto z_*+R_kV$ are
+exactly the three points at which $W_k$ is evaluated in \eqref{eq:blmd-mid}.
+
+\emph{The substituted points are in $B_{1/4}$ for large $k$.} Since
+$R_k>0$ and $r_{\kappa(k)}>0$,
+\[
+  |X_k|=\frac{\bigl|z_{\kappa(k)}-z_*+r_{\kappa(k)}H\bigr|}{R_k}
+   \le\frac{|z_{\kappa(k)}-z_*|+r_{\kappa(k)}|H|}{R_k}
+   \le\frac{|z_{\kappa(k)}-z_*|+2r_{\kappa(k)}}{R_k}
+   \le2\cdot\frac{|z_{\kappa(k)}-z_*|+r_{\kappa(k)}}{R_k},
+\]
+using $|H|\le2$ and $|z_{\kappa(k)}-z_*|\ge0$; the same bound holds for $Y_k$
+with $K$ in place of $H$.
+
+\emph{One index at which everything holds.} By \ref{it:blmd-slow} the quantity
+$(|z_{\kappa(k)}-z_*|+r_{\kappa(k)})/R_k$ is eventually below $1/8$, and by
+\ref{it:blmd-W} the uniform distance $\sup_{\overline B_2}|W-W_k|$ is
+eventually below $\epsilon'/8$; together with $k\ge k_0$ these are three
+eventual conditions, so some $k$ satisfies all three:
+\begin{equation}\label{eq:blmd-k}
+  k\ge k_0,\qquad
+  \frac{|z_{\kappa(k)}-z_*|+r_{\kappa(k)}}{R_k}<\frac18,\qquad
+  |W(w)-W_k(w)|<\frac{\epsilon'}8\ \ \bigl(w\in\overline B_2\bigr).
+\end{equation}
+Fix such a $k$. The second condition and the previous paragraph give
+$|X_k|\le2\cdot\tfrac18=\tfrac14$, in fact $|X_k|<1/4$, and likewise
+$|Y_k|<1/4$, so $X_k,Y_k\in B_{1/4}$. Also $X_k\ne Y_k$: otherwise
+\eqref{eq:blmd-diff} would give $\frac{r_{\kappa(k)}}{R_k}(H-K)=0$, and since
+$r_{\kappa(k)}/R_k>0$ this forces $H=K$, excluded above. Finally, by
+\eqref{eq:blmd-diff},
+\begin{equation}\label{eq:blmd-nrm}
+  |X_k-Y_k|=\frac{r_{\kappa(k)}}{R_k}\,|H-K| .
+\end{equation}
+
+\emph{Transferring the three-point estimate.} Hypothesis \ref{it:blmd-tpf} at
+this $k$, applied to $X_k$, $Y_k$, together with \eqref{eq:blmd-img} and
+\eqref{eq:blmd-nrm}, gives
+\[
+  \Bigl|\frac{U_{\kappa(k)}(z_{\kappa(k)}+r_{\kappa(k)}H)-U_{\kappa(k)}(z_*)}{R_k}
+   +\frac{U_{\kappa(k)}(z_{\kappa(k)}+r_{\kappa(k)}K)-U_{\kappa(k)}(z_*)}{R_k}
+   -2\,\frac{U_{\kappa(k)}\bigl(z_{\kappa(k)}+r_{\kappa(k)}\tfrac12(H+K)\bigr)
+             -U_{\kappa(k)}(z_*)}{R_k}\Bigr|
+  \le\delta\cdot\frac{r_{\kappa(k)}}{R_k}|H-K| .
+\]
+The three coefficients $1,1,-2$ sum to zero, so the constants
+$U_{\kappa(k)}(z_*)$ cancel and the left-hand expression equals
+\[
+  \frac{r_{\kappa(k)}}{R_k}
+  \Bigl(W_k(H)+W_k(K)-2W_k\bigl(\tfrac12(H+K)\bigr)\Bigr),
+\]
+as one sees by multiplying out: each term carries the factor
+$1/R_k=(r_{\kappa(k)}/R_k)\cdot(1/r_{\kappa(k)})$ and $W_k$ is the same
+difference divided by $r_{\kappa(k)}$. Dividing the resulting inequality by the
+positive number $r_{\kappa(k)}/R_k$,
+\begin{equation}\label{eq:blmd-Wk}
+  \Bigl|W_k(H)+W_k(K)-2W_k\bigl(\tfrac12(H+K)\bigr)\Bigr|
+  \le\delta\,|H-K|=\frac{\epsilon'}2 .
+\end{equation}
+
+\emph{Passing to the limit.} The three points $H$, $K$ and $\tfrac12(H+K)$ all
+lie in $\overline B_2$, so the third condition of \eqref{eq:blmd-k} bounds
+$|W-W_k|$ by $\epsilon'/8$ at each of them. Writing
+$D=W(H)+W(K)-2W(\tfrac12(H+K))$ and
+$D_k=W_k(H)+W_k(K)-2W_k(\tfrac12(H+K))$, the difference $D-D_k$ is a
+combination of those three errors with coefficients $1,1,-2$, so
+$|D-D_k|\le(1+1+2)\cdot\epsilon'/8=\epsilon'/2$. With \eqref{eq:blmd-Wk} this
+gives $|D|\le|D_k|+|D-D_k|\le\epsilon'/2+\epsilon'/2=\epsilon'$, which is
+\eqref{eq:blmd-bound}.
+
+\emph{Conclusion.} If $|D|>0$ then \eqref{eq:blmd-bound} at
+$\epsilon'=|D|/2>0$ gives $|D|\le|D|/2$, hence $|D|\le0$, a contradiction.
+So $|D|\le0$, hence $D=0$, which is \eqref{eq:blmd-mid}.
+\end{proof}

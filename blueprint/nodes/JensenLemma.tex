@@ -1,0 +1,205 @@
+\begin{lemma}[Jensen's lemma]
+Let $E$ be a finite-dimensional real inner-product space with an additive Haar
+measure $\mu$, let $\lambda>0$ and $r>0$, let $z_0\in E$ and let
+$\phi:E\to\R$ be continuous on $\overline B(z_0,r)$ and $\lambda$-semiconvex on
+$B(z_0,r)$ in the sense of \noderef{SemiconvexOn}. Assume that $z_0$ is a strict
+maximum point of $\phi$ on the closed ball:
+\[
+  \phi(z)<\phi(z_0)\qquad\bigl(z\in\overline B(z_0,r),\ z\ne z_0\bigr).
+\]
+Then for every $\delta>0$
+\[
+  \mu\Bigl(\bigl\{z\in B(z_0,r)\ :\ \exists\,p\in E,\ |p|\le\delta,\
+    w\mapsto\phi(w)+\langle p,w\rangle\ \text{has a local maximum on }
+    B(z_0,r)\text{ at }z\bigr\}\Bigr)>0 .
+\]
+\end{lemma}
+\begin{proof}
+Write $B=B(z_0,r)$ and fix the three radii
+\[
+  r_1=\frac r2,\qquad \rho=\frac r8,\qquad \eta=\frac{3r}{8},
+\]
+so that $0<\rho\le r_1<r$, $\eta>0$ and $\rho+\eta=r_1$. Write
+\[
+  \psi(w)=\phi(w)+\frac{\lambda|w|^2}{2}\qquad(w\in E),
+\]
+which is convex on the open convex set $B$ by the definition of
+$\lambda$-semiconvexity in \noderef{SemiconvexOn}. Denote by $K_\delta$ the set
+appearing in the statement. Finally put $n=\dim E$.
+
+No nondegeneracy assumption on $E$ is made or needed: the only place where the
+old argument used a nonzero vector was the construction of the threshold in
+Step 1, and that construction has been moved into
+\noderef{StrictMaxPerturbLocalization}, which covers the degenerate case
+internally. The case $n=0$ is discussed again at the end of Step 5.
+
+\emph{Step 1: the localization threshold.}
+Since $r_1<r$ we have $\overline B(z_0,r_1)\subseteq\overline B(z_0,r)$, so
+$\phi$ is continuous on $\overline B(z_0,r_1)$ and
+\[
+  \phi(z)<\phi(z_0)\qquad\bigl(z\in\overline B(z_0,r_1),\ z\ne z_0\bigr),
+\]
+both being restrictions of the corresponding hypotheses of the lemma. Together
+with $0<\rho\le r_1$ these are exactly the hypotheses of
+\noderef{StrictMaxPerturbLocalization} for $\phi$, $z_0$, $r_1$, $\rho$. That
+lemma therefore supplies $\delta_0>0$ such that
+\begin{equation}\label{eq:jl-loc}
+  \begin{gathered}
+  \text{if }|p|\le\delta_0,\ z\in\overline B(z_0,r_1)\text{ and }
+  \phi(w)+\langle p,w\rangle\le\phi(z)+\langle p,z\rangle
+  \text{ for all }w\in\overline B(z_0,r_1),\\
+  \text{then }|z-z_0|<\rho .
+  \end{gathered}
+\end{equation}
+Put
+\[
+  d=\min\{\delta,\delta_0\}>0 ,
+\]
+so that $d\le\delta$ and $d\le\delta_0$.
+
+\emph{Step 2: the set $K$ and its elementary properties.}
+Define
+\[
+  K=\Bigl\{z\in\overline B(z_0,r_1)\ :\ \exists\,p\in E,\ |p|\le d,\
+    \phi(w)+\langle p,w\rangle\le\phi(z)+\langle p,z\rangle\
+    \text{for all}\ w\in\overline B(z_0,r_1)\Bigr\}.
+\]
+Call such a $p$ a \emph{multiplier for $z$}.
+
+\emph{(2a) $K\subseteq B(z_0,\rho)$.} If $z\in K$ with multiplier $p$, then
+$|p|\le d\le\delta_0$, so \eqref{eq:jl-loc} applies and gives $|z-z_0|<\rho$.
+
+\emph{(2b) Room around a localized point.} If $|z-z_0|<\rho$ then
+\[
+  B(z,\eta)\subseteq\overline B(z_0,r_1)\cap B .
+\]
+Indeed, for $w\in B(z,\eta)$ the triangle inequality gives
+\[
+  |w-z_0|\le|w-z|+|z-z_0|<\eta+\rho=\frac{3r}{8}+\frac r8=\frac r2=r_1,
+\]
+so $|w-z_0|\le r_1$, i.e.\ $w\in\overline B(z_0,r_1)$, and also $|w-z_0|<r_1<r$,
+i.e.\ $w\in B$.
+
+\emph{(2c) $K\subseteq K_\delta$.} Let $z\in K$ with multiplier $p$. By (2a)
+$|z-z_0|<\rho$, so (2b) applies to $z$; in particular
+$z\in B(z,\eta)\subseteq B$. The set $B(z,\eta)$ is open and contains $z$,
+hence is a neighbourhood of $z$, and $B(z,\eta)\subseteq\overline B(z_0,r_1)$ by
+(2b); therefore
+\[
+  \phi(w)+\langle p,w\rangle\le\phi(z)+\langle p,z\rangle
+  \qquad\bigl(w\in B(z,\eta)\bigr),
+\]
+and a fortiori for $w\in B(z,\eta)\cap B$. Thus
+$w\mapsto\phi(w)+\langle p,w\rangle$ has a local maximum on $B$ at $z$. Since
+also $|p|\le d\le\delta$, the point $z$ lies in $K_\delta$.
+
+\emph{(2d) Every admissible multiplier occurs.} Let $p\in E$ with $|p|\le d$.
+The set $\overline B(z_0,r_1)$ is closed and bounded, hence compact (preamble),
+and it is nonempty since $z_0$ belongs to it ($r_1>0$). The function
+$w\mapsto\phi(w)+\langle p,w\rangle$ is continuous on it, being the sum of
+$\phi$ --- continuous on $\overline B(z_0,r_1)\subseteq\overline B(z_0,r)$ ---
+and of the continuous linear functional $w\mapsto\langle p,w\rangle$. By
+Weierstrass' theorem (preamble) it attains a maximum at some
+$z\in\overline B(z_0,r_1)$, i.e.
+\[
+  \phi(w)+\langle p,w\rangle\le\phi(z)+\langle p,z\rangle
+  \qquad\bigl(w\in\overline B(z_0,r_1)\bigr).
+\]
+Then $z\in K$ and $p$ is a multiplier for $z$.
+
+\emph{Step 3: the multiplier is unique, so $H$ is well defined.}
+Let $z\in K$ and let $p,p'$ both be multipliers for $z$. By (2a) and (2b),
+$B(z,\eta)\subseteq\overline B(z_0,r_1)\cap B$; in particular $z\in B$. Since
+$B$ is open and $\psi$ is convex on $B$, \noderef{ConvexSubgradientExists}
+applied to $B$, $\psi$ and $z$ produces $s\in E$ with
+\begin{equation}\label{eq:jl-sub}
+  \psi(z)+\langle s,w-z\rangle\le\psi(w)\qquad(w\in B).
+\end{equation}
+Apply \noderef{MaxMultiplierPinsSubgradient} with the data
+\[
+  \lambda,\quad\phi,\quad A=\overline B(z_0,r_1),\quad\Omega=B,\quad
+  z,\quad p,\quad s,\quad\eta .
+\]
+Its three hypotheses hold: $\eta>0$ and
+$B(z,\eta)\subseteq\overline B(z_0,r_1)\cap B$ as just noted; the maximality of
+$\phi+\langle p,\cdot\rangle$ at $z$ over $A$, because $p$ is a multiplier for
+$z$; and \eqref{eq:jl-sub}, which is the subgradient inequality for $\psi$ on
+$\Omega=B$. The conclusion is $s=\lambda z-p$. The same lemma with $p'$ in place
+of $p$ --- the subgradient $s$ being unchanged, since it was produced from $z$
+alone --- gives $s=\lambda z-p'$. Hence $\lambda z-p=\lambda z-p'$ and so
+$p=p'$.
+
+Therefore each $z\in K$ has exactly one multiplier, which we call $H(z)$; by
+definition $|H(z)|\le d$ and
+\begin{equation}\label{eq:jl-mult}
+  \phi(w)+\langle H(z),w\rangle\le\phi(z)+\langle H(z),z\rangle
+  \qquad\bigl(z\in K,\ w\in\overline B(z_0,r_1)\bigr).
+\end{equation}
+Extend $H$ to all of $E$ by setting $H(z)=0$ for $z\notin K$; this does not
+affect $H(K)$ or the Lipschitz estimate of Step 4, both of which involve only
+points of $K$.
+
+\emph{Step 4: $H$ is $2\lambda$-Lipschitz on $K$.}
+Let $z_1,z_2\in K$. We verify the hypotheses of
+\noderef{SemiconvexMultiplierLipschitz} for the data
+\[
+  \lambda,\quad\Omega=B,\quad\phi,\quad A=\overline B(z_0,r_1),\quad
+  z_1,\ z_2,\quad p_1=H(z_1),\ p_2=H(z_2),\quad\eta .
+\]
+First, $\lambda>0$ by hypothesis, $B$ is open, and $\phi$ is
+$\lambda$-semiconvex on $B$; and $\eta>0$. Next, by (2a) each $z_i$ satisfies
+$|z_i-z_0|<\rho$, so (2b) gives
+$B(z_i,\eta)\subseteq\overline B(z_0,r_1)\cap B$ for $i=1,2$, which is
+hypothesis (1) of that lemma. For hypothesis (2),
+\[
+  |z_1-z_2|\le|z_1-z_0|+|z_0-z_2|<\rho+\rho=\frac r4<\frac{3r}{8}=\eta .
+\]
+Hypothesis (3) is \eqref{eq:jl-mult} for $z_1$ and for $z_2$. The conclusion is
+\begin{equation}\label{eq:jl-lip}
+  |H(z_1)-H(z_2)|\le2\lambda|z_1-z_2|\qquad(z_1,z_2\in K).
+\end{equation}
+
+\emph{Step 5: the measure estimate.}
+By \eqref{eq:jl-lip} the map $H:E\to E$ satisfies
+$|H(a)-H(a')|\le2\lambda|a-a'|$ for all $a,a'\in K$, and $2\lambda>0$. So
+\noderef{LipschitzImageHaarBound}, applied with $A=K$, $f=H$ and the constant
+$2\lambda$, gives
+\begin{equation}\label{eq:jl-image}
+  \mu\bigl(H(K)\bigr)\le(2\lambda)^{n}\,\mu(K).
+\end{equation}
+(No measurability of $K$ is needed: that lemma has none, and below we use only
+the monotonicity of $\mu$, which holds for arbitrary sets.)
+
+Next, $\overline B(0,d)\subseteq H(K)$. Indeed, let $|p|\le d$. By (2d) there is
+$z\in K$ for which $p$ is a multiplier, and by Step 3 the multiplier of $z$ is
+unique and equals $H(z)$; hence $p=H(z)\in H(K)$.
+
+By the preamble's computation of the Haar measure of balls,
+\[
+  \mu\bigl(\overline B(0,d)\bigr)=d^{\,n}\,\mu\bigl(B(0,1)\bigr)
+  \qquad\text{with}\qquad 0<\mu\bigl(B(0,1)\bigr)<\infty,
+\]
+and $d>0$, so $\mu(\overline B(0,d))$ is a strictly positive (finite) number.
+Combining this with the monotonicity of $\mu$ along
+$\overline B(0,d)\subseteq H(K)$ and with \eqref{eq:jl-image},
+\[
+  0<\mu\bigl(\overline B(0,d)\bigr)\le\mu\bigl(H(K)\bigr)
+   \le(2\lambda)^{n}\,\mu(K).
+\]
+The factor $(2\lambda)^{n}$ is a finite real number, so if $\mu(K)$ were $0$ the
+right-hand side would be $0$, contradicting the strict positivity of the
+left-hand side. Hence
+\[
+  \mu(K)>0 .
+\]
+This argument is insensitive to the dimension: when $n=0$ both $d^{\,n}$ and
+$(2\lambda)^{n}$ equal $1$, the chain reads
+$0<\mu(B(0,1))\le\mu(H(K))\le\mu(K)$, and the conclusion $\mu(K)>0$ is
+unchanged.
+
+Finally $K\subseteq K_\delta$ by (2c), so the monotonicity of $\mu$ gives
+\[
+  \mu(K_\delta)\ge\mu(K)>0 ,
+\]
+which is the assertion of the lemma.
+\end{proof}

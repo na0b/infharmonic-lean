@@ -1,0 +1,466 @@
+\begin{lemma}[Propagation of contact to time zero]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$, let $\kappa>0$ and $H\in\R$, and let $v\in\Aclass_{m,C_0}$
+in the sense of \noderef{IsFitClass} be centered at $z_*=(0,1)$ with constant
+$C_0$ in the sense of \noderef{IsCenteredAt} and satisfy the horizontal Jensen
+bound with constant $\kappa$ at every time in the sense of
+\noderef{HasJensenBound}. Let $W$ be the contact envelope of
+\noderef{ContactEnv} formed from $v$ and $\kappa$, and assume the six standing
+properties of the extremal contact pair: $W$ is continuous on $\{t>0\}$ with
+subquadratic spatial growth on compact subintervals of $(0,\infty)$ in the
+sense of \noderef{SubquadraticGrowth}; $W$ is a viscosity subsolution of the
+limiting equation there in the sense of \noderef{IsLimitSubOn};
+$v-\kappa^2t/2\le W\le v$ for $t>0$ and $W(z_*)=v(z_*)=0$;
+$x\mapsto W(x,t)-|x|^2/(2t)$ is concave for every $t>0$; the barycentric gap of
+\noderef{BaryEnv} is $\kappa^2t/2$ at every contact; and the envelope
+Hamiltonian of \noderef{EnvHamiltonian} satisfies $H_v(z_*)=H$ with
+$\Senv_\ell^+W(z_*)\to H$ as $\ell\downarrow0$, the forward envelope slope being
+that of \noderef{EnvSlopeP}. Write $\delta_j=2^{-j}$.
+
+Then there are a constant $K\ge0$, a point $x_{\rm end}\in F$ and an infinite
+set $\mathcal J\subseteq\{1,2,3,\dots\}$ such that
+\begin{equation}\label{eq:contact-propagation-conclusion}
+  H_v(x_{\rm end},0)>-\infty
+\end{equation}
+and such that for every $j\in\mathcal J$ there are $x_j,p_j\in F$ and
+$a_j\in\R$ with $(p_j,a_j)$ a fit for $v$ at $(x_j,\delta_j)$ of radius
+$\delta_j$ with constant $C_0$ in the sense of \noderef{IsFit}, and with
+\begin{equation}\label{eq:contact-propagation-contact}
+  W(x_j,\delta_j)=v(x_j,\delta_j),\qquad
+  \bigl|x_{\rm end}-x_j+\delta_jp_j\bigr|\le K\delta_j .
+\end{equation}
+\end{lemma}
+\begin{proof}
+Throughout, $W$ is the contact envelope of \noderef{ContactEnv},
+$\Penv_\ell$, $\Menv_\ell$ are the quadratic envelopes of \noderef{QuadEnvP}
+and \noderef{QuadEnvM}, $\Senv^\pm_\ell$ are the envelope slopes of
+\noderef{EnvSlopeP} and \noderef{EnvSlopeM}, $H_v$ is the envelope Hamiltonian
+of \noderef{EnvHamiltonian}, and $J_\epsilon$ is the propagation quantity of
+\noderef{JGap} formed from $v$ and $\kappa$. We write $L(\Theta)=1+\log\Theta$
+and $\delta_j=2^{-j}$.
+
+Two standing facts about $v$ are used repeatedly. By \noderef{IsFitClass} the
+function $v$ is continuous on all of space-time and is a viscosity solution of
+the limiting equation there, and by \noderef{UniformSubquadratic}, applied with
+the centering point $(0,1)$ and the constant $C_0$, it has subquadratic spatial
+growth on compact time intervals of $\R$ in the sense of
+\noderef{SubquadraticGrowth}. Hence \noderef{QuadEnvAttained} and
+\noderef{EnvHamiltonianSolution} are available for $v$ with $I=\R$, for which
+every time and every shifted time is admissible.
+
+\emph{Step 1: the constants, the box, and the walks.}
+Let $C_*>0$ be the constant of \noderef{StoppedWalkBudgets} for the present
+$C_0,\kappa,H,v$. Feed this $C_*$ to \noderef{MarkLocalization} for the same
+data and let $T\ge8$, $R\ge2$, $K\ge2$ and $C_\Gamma>0$ be the box, radius and
+fit-parameter constant it provides. Put
+\[
+  B=R+T+2,\qquad \Gamma_j=C_\Gamma\bigl(L(B)+j\bigr)\ \ (j\ge1),\qquad
+  \mathcal B=\{(x,t):|x|\le R+1,\ 0\le t\le T\}.
+\]
+By conclusion (i) of \noderef{MarkLocalization} every $\Gamma_j\ge1$; also
+$\Gamma_j$ is nondecreasing in $j$. The set $\mathcal B$ is a closed bounded
+subset of space-time, hence compact.
+
+Fix $N\ge1$. Apply \noderef{StoppedWalkBudgets} with this $T$, this $R$ and
+this $N$. It produces a step size $\epsilon_N>0$, a measure space
+$(\Omega_N,\mathcal M_N,\mu_N)$ with a filtration $(\mathcal G^N_n)$, and
+functions $\xi^N$, $z^N$, $z^{N,+}$, $z^{N,-}$, $Q^N_0$, $\tau_N$ forming a
+stopped contact walk for $(\kappa,H,T,R,v,N,\epsilon_N)$ in the sense of
+\noderef{IsContactWalk}, together with
+\begin{equation}\label{eq:cp-stopped-expectation}
+  \mathbb E\,J_{\epsilon_N}\bigl(z^N_\sigma\bigr)\ge J_{\epsilon_N}(z_*)
+  \qquad\text{for every stopping time }\sigma\le\tau_N,
+\end{equation}
+the integrand being $\mu_N$-integrable, the error budget
+$\mathbb E\sum_{n<\tau_N}\mathcal E^N_n\le C_*L(B)^4$, and marks with fits
+$(\sigma^N_j,p^N_j,a^N_j)$ for $(C_0,v,N,\mathcal G^N,z^N,\tau_N)$ in the sense
+of \noderef{IsMarkData}. The error budget just stated is exactly the error-budget hypothesis of
+\noderef{MarkLocalization} for this walk, with the same $C_*$, $T$, $R$ and
+$B$, so that lemma applies to it with these marks, giving for every
+$1\le j\le N$
+\begin{gather}
+  \bigl|p^N_j\bigr|+\bigl|a^N_j\bigr|\le\Gamma_j
+    \quad\text{pointwise},\label{eq:cp-gamma}\\
+  \mathcal L^N_j=\Bigl\{t^N_{\tau_N}=\delta_N\ \text{and}\
+    \bigl|x^N_{\tau_N}-x^N_{\sigma^N_j}
+      -\bigl(t^N_{\tau_N}-\delta_j\bigr)p^N_j\bigr|\le K\delta_j\Bigr\}
+  \in\mathcal M_N,\qquad
+  \mu_N\bigl(\mathcal L^N_j\bigr)\ge\tfrac12 .\label{eq:cp-localization}
+\end{gather}
+Here and below $z^N_n=(x^N_n,t^N_n)$, and a subscripted random index means
+evaluation at that index, e.g.\ $z^N_{\tau_N}(\omega)=z^N_{\tau_N(\omega)}(\omega)$.
+By clause 2 of \noderef{IsContactWalk} we have $0<\epsilon_N\le\delta_N/4$, so
+\begin{equation}\label{eq:cp-eps-to-zero}
+  \epsilon_N\le 2^{-N-2}\longrightarrow0\qquad(N\to\infty).
+\end{equation}
+Finally, clause 13 of \noderef{IsContactWalk} gives the starting bound
+\begin{equation}\label{eq:cp-start}
+  J_{\epsilon_N}(z_*)\ge H-1\qquad(N\ge1).
+\end{equation}
+
+\emph{Step 2: four facts about the time grid.}
+Fix $N$ and write $\epsilon=\epsilon_N$, $\tau=\tau_N$, dropping the
+superscript $N$ from the walk.
+
+(G1) By clause 2 of \noderef{IsContactWalk}, $\epsilon=2^{-k}$ for an integer
+$k\ge0$ and $\epsilon\le\delta_N/4=2^{-N-2}$, so $k\ge N+2$. Hence $1$, $T$ and
+every $\delta_j$ with $j\le N$ are integer multiples of $\epsilon$: indeed
+$1=2^k\epsilon$, $T=T2^k\epsilon$ and $\delta_j=2^{k-j}\epsilon$ with
+$k-j\ge2$.
+
+(G2) By clause 5, $t_0=1$. For $n<\tau(\omega)$, clause 6 makes
+$(z^+_n,z^-_n)$ an optimizing step pair of size $\epsilon$ at $z_n$, so by
+\noderef{IsStepPair} the time coordinates of $z^\pm_n$ are $t_n\pm\epsilon$;
+clause 7 then gives $t_{n+1}=t_n\pm\epsilon$. For $n\ge\tau(\omega)$, clause 7
+gives $t_{n+1}=t_n$. In particular $|t_{n+1}-t_n|\in\{0,\epsilon\}$ for every
+$n$.
+
+(G3) By (G1), (G2) and induction, every $t_n(\omega)$ is an integer multiple of
+$\epsilon$.
+
+(G4) $\delta_N\le t_n(\omega)\le T$ for every $n$ and $\omega$. Indeed
+$t_0=1$ and $\delta_N\le\tfrac12<1\le T$ since $N\ge1$ and $T\ge8$. If
+$\delta_N\le t_n\le T$ and $n\ge\tau(\omega)$ then $t_{n+1}=t_n$. If
+$n<\tau(\omega)$ then clause 10 gives $\delta_N<t_n<T$, and since $t_n$,
+$\delta_N$ and $T$ are integer multiples of $\epsilon$ by (G1) and (G3), in
+fact $\delta_N+\epsilon\le t_n\le T-\epsilon$; by (G2),
+$\delta_N\le t_{n+1}\le T$.
+
+(G5) (discrete intermediate value) If $a\le b$, if $c$ is an integer multiple
+of $\epsilon$ and if $t_b(\omega)\le c\le t_a(\omega)$, then $t_n(\omega)=c$
+for some $n$ with $a\le n\le b$. Indeed the finite sequence
+$t_a,t_{a+1},\dots,t_b$ consists of integer multiples of $\epsilon$ by (G3) and
+has consecutive differences $0$ or $\pm\epsilon$ by (G2); the first index $n$
+in $[a,b]$ with $t_n\le c$ satisfies $t_n\ge t_{n-1}-\epsilon>c-\epsilon$ when
+$n>a$, hence $t_n=c$ because $t_n$ and $c$ are multiples of $\epsilon$ in
+$(c-\epsilon,c]$, while for $n=a$ we get $t_a\le c\le t_a$.
+
+Two consequences for the marks, both for $1\le j\le N$. Write
+$\sigma_j=\sigma^N_j$.
+
+(M1) $t_{\sigma_j}\ge\delta_j$ everywhere. Suppose $t_{\sigma_j}(\omega)<\delta_j$.
+Since $\delta_j\le\tfrac12<1=t_0(\omega)$ and $\delta_j$ is a multiple of
+$\epsilon$ by (G1), (G5) with $a=0$, $b=\sigma_j(\omega)$ and $c=\delta_j$ gives
+$n\le\sigma_j(\omega)$ with $t_n(\omega)=\delta_j$. As
+$t_{\sigma_j}(\omega)\ne\delta_j$ we have $n<\sigma_j(\omega)$, contradicting
+clause 3 of \noderef{IsMarkData}.
+
+(M2) On $\{t_\tau=\delta_N\}$ one has $t_{\sigma_j}=\delta_j$. Fix such an
+$\omega$. Then $t_\tau(\omega)=\delta_N\le\delta_j\le1=t_0(\omega)$, so (G5)
+with $a=0$, $b=\tau(\omega)$, $c=\delta_j$ gives an $n\le\tau(\omega)$ with
+$t_n(\omega)=\delta_j$; let $n_0$ be the least such. Every $m<n_0$ has
+$t_m(\omega)\ne\delta_j$ and $m<n_0\le\tau(\omega)$. If $\sigma_j(\omega)>n_0$
+then clause 3 of \noderef{IsMarkData}, applied at $n=n_0$, would give
+$t_{n_0}(\omega)\ne\delta_j$; so $\sigma_j(\omega)\le n_0$. By clause 4 of
+\noderef{IsMarkData} either $t_{\sigma_j}(\omega)=\delta_j$, and we are done, or
+$\sigma_j(\omega)=\tau(\omega)$, in which case
+$n_0\le\tau(\omega)=\sigma_j(\omega)\le n_0$, so $\sigma_j(\omega)=n_0$ and
+again $t_{\sigma_j}(\omega)=\delta_j$.
+
+\emph{Step 3: one compact space carrying terminal point, flag and all marks.}
+Put
+\[
+  \mathcal K_j=\mathcal B\times\overline B_{\Gamma_j}(0)\times
+     [-\Gamma_j,\Gamma_j]\ \ (j\ge1),\qquad
+  \mathcal X=\mathcal B\times\{0,1\}\times\prod_{j\ge1}\mathcal K_j .
+\]
+Each factor is a nonempty compact metric space, so $\mathcal X$ is a nonempty
+compact metrizable space, hence a complete separable metric space, and the
+coordinate projections are continuous. Denote the coordinates of a point of
+$\mathcal X$ by $z_{\rm end}=(x_{\rm end},t_{\rm end})$, $\eta$ and
+$(z_j,p_j,a_j)_{j\ge1}$, writing $z_j=(x_j,t_j)$.
+
+Fix $N\ge1$ and define $\Psi_N:\Omega_N\to\mathcal X$ by
+\[
+  \Psi_N(\omega)=\Bigl(z^N_{\tau_N}(\omega),\
+    \mathbf1_{\{t^N_{\tau_N}=\delta_N\}}(\omega),\
+    \bigl(w^N_j(\omega)\bigr)_{j\ge1}\Bigr),\qquad
+  w^N_j=\begin{cases}
+    \bigl(z^N_{\sigma^N_j},p^N_j,a^N_j\bigr)&1\le j\le N,\\
+    (z_*,0,0)&j>N.
+  \end{cases}
+\]
+This is well defined. The terminal point lies in $\mathcal B$: clause 12 of
+\noderef{IsContactWalk} gives $|x^N_n|\le R+1$ for $n\le\tau_N$, and (G4) gives
+$0<\delta_N\le t^N_n\le T$ for every $n$. The same two facts put every
+$z^N_{\sigma^N_j}$ in $\mathcal B$, because $\sigma^N_j\le\tau_N$ by clause 2 of
+\noderef{IsMarkData}; the dummy entry $z_*=(0,1)$ lies in $\mathcal B$ since
+$R+1\ge3$ and $1\le T$; and \eqref{eq:cp-gamma} puts $(p^N_j,a^N_j)$ in
+$\overline B_{\Gamma_j}(0)\times[-\Gamma_j,\Gamma_j]$ for $j\le N$, while
+$(0,0)$ lies there for $j>N$ because $\Gamma_j\ge1>0$.
+
+$\Psi_N$ is measurable. For a stopping time $\sigma$ for $(\mathcal G^N_n)$ with
+values in $\mathbb N$ and an adapted sequence $(Y_n)$, the stopped value
+$Y_\sigma$ is $\mathcal M_N$-measurable, because
+$\{\sigma=n\}\in\mathcal G^N_n\subseteq\mathcal M_N$, each $Y_n$ is
+$\mathcal G^N_n$-measurable, and $Y_\sigma=\sum_n\mathbf1_{\{\sigma=n\}}Y_n$ is
+a countable sum of measurable functions with pairwise disjoint supports. Apply
+this to $\sigma=\tau_N$, a stopping time by clause 9 of
+\noderef{IsContactWalk}, and to $\sigma=\sigma^N_j$, a stopping time by clause 1
+of \noderef{IsMarkData}, with $Y_n=z^N_n$, which is adapted by clause 4 of
+\noderef{IsContactWalk}; this makes $z^N_{\tau_N}$ and $z^N_{\sigma^N_j}$
+measurable. The flag is measurable because
+$\{t^N_{\tau_N}=\delta_N\}$ is the preimage of a closed set under the
+measurable map $z^N_{\tau_N}$ followed by the continuous time projection.
+Finally $p^N_j=\sum_m\mathbf1_{\{\sigma^N_j=m\}}
+\bigl(\mathbf1_{\{\sigma^N_j\le m\}}p^N_j\bigr)$ is measurable, each
+$\mathbf1_{\{\sigma^N_j\le m\}}p^N_j$ being $\mathcal G^N_m$-measurable by
+clause 5 of \noderef{IsMarkData}, and likewise $a^N_j$ by that same clause 5,
+which asserts the $\mathcal G_n$-measurability of
+$\mathbf1_{\{\sigma_j\le n\}}p_j$ and of $\mathbf1_{\{\sigma_j\le n\}}a_j$
+together. A map into
+a countable product is measurable as soon as all its coordinates are.
+
+Let $\lambda_N$ be the law of $\Psi_N$, that is, the image of $\mu_N$ under
+$\Psi_N$; it is a Borel probability measure on $\mathcal X$, since
+$\mu_N(\Omega_N)=1$ by clause 1 of \noderef{IsContactWalk}. By construction, for
+every Borel $A\subseteq\mathcal X$,
+\begin{equation}\label{eq:cp-pushforward}
+  \lambda_N(A)=\mu_N\bigl(\Psi_N^{-1}(A)\bigr),
+\end{equation}
+and $\int\varphi\,d\lambda_N=\int\varphi\circ\Psi_N\,d\mu_N$ for every bounded
+Borel $\varphi$ on $\mathcal X$.
+
+\emph{Step 4: one limiting law.}
+The single compact set $\mathcal X$ witnesses that
+$S=\{\lambda_N:N\ge1\}$ is tight. By Prokhorov's theorem, a Preamble item,
+some subsequence $\lambda_{N_h}$ converges weakly to a Borel probability
+measure $\lambda$ on $\mathcal X$; we may and do take $N_h\to\infty$. All
+limits below are along this subsequence, and $\mathbb P$, $\mathbb E$ refer to
+$\lambda$. Weak convergence is preserved by pushing forward under a continuous
+map, so for each fixed $j$ the marginals $\nu^j_{N_h}$ of $\lambda_{N_h}$ under
+$(z_j)$ converge weakly to the corresponding marginal $\nu^j$ of $\lambda$ on
+$\mathcal B$.
+
+\emph{Step 5: the terminal time vanishes on the flag.}
+The function $\eta\,t_{\rm end}$ is continuous on $\mathcal X$, because
+$\{0,1\}$ is discrete and $t_{\rm end}$ is a continuous coordinate, and it is
+bounded and nonnegative there, since $0\le t_{\rm end}\le T$ on $\mathcal B$.
+Under $\lambda_N$ it equals $\delta_N$ on $\{\eta=1\}$ and $0$ elsewhere, by the
+definition of the flag, so
+$\int\eta\,t_{\rm end}\,d\lambda_N\le\delta_N\to0$. Weak convergence applied to
+this bounded continuous function gives $\int\eta\,t_{\rm end}\,d\lambda=0$, and
+the integrand being nonnegative,
+\begin{equation}\label{eq:cp-terminal-time}
+  \eta\,t_{\rm end}=0\qquad\lambda\text{-almost surely.}
+\end{equation}
+
+\emph{Step 6: levels and fits pass to the limit.}
+Fix $j\ge1$ and consider the three subsets of $\mathcal X$
+\[
+  F^1_j=\{t_j\ge\delta_j\},\qquad
+  F^2_j=\{\eta=0\}\cup\{t_j=\delta_j\},\qquad
+  F^3_j=\{\eta=0\}\cup\mathcal Q_j,
+\]
+where $\mathcal Q_j$ is the set of points of $\mathcal X$ whose $j$-th mark
+coordinate $(z_j,p_j,a_j)$ satisfies the fitting inequality of
+\noderef{IsFit} for $v$ at $z_j$ with radius $\delta_j$ and constant $C_0$.
+
+$F^1_j$ and $F^2_j$ are closed, the time coordinate being continuous and
+$\{\eta=0\}$ being closed and open. $F^3_j$ is closed as well. To see that
+$\mathcal Q_j$ is closed, parametrize the increments admitted by \noderef{IsFit} at
+radius $\delta_j$: the conditions $|\ell|\le\delta_j$ and
+$|h-\ell p_j|\le\delta_j$ say exactly that
+\[
+  \ell=\delta_j\theta,\qquad h=\delta_j\bigl(\theta p_j+\zeta\bigr),
+  \qquad |\theta|\le1,\ |\zeta|\le1 ,
+\]
+with $\theta\in\R$ and $\zeta\in F$ ranging over a fixed compact set that does
+not depend on the point of $\mathcal K_j$. For each fixed $(\theta,\zeta)$ the
+inequality
+\[
+  \Bigl|v\bigl(z_j+(h,\ell)\bigr)-v(z_j)-\langle p_j,h\rangle
+     -\Bigl(a_j-\frac{|p_j|^2}{2}\Bigr)\ell\Bigr|\le C_0\delta_j
+\]
+is a closed condition on $(z_j,p_j,a_j)$, because $v$ is continuous on all of
+space-time and $h$, $\ell$ depend continuously on $p_j$; and $\mathcal Q_j$ is the
+intersection of these closed conditions over $(\theta,\zeta)$, hence closed.
+
+For every $N\ge j$ we have
+$\lambda_N(F^1_j)=\lambda_N(F^2_j)=\lambda_N(F^3_j)=1$. Indeed, by
+\eqref{eq:cp-pushforward} it suffices to check the corresponding statements
+about $\Psi_N$. The $j$-th mark coordinate of $\Psi_N(\omega)$ is
+$(z^N_{\sigma^N_j},p^N_j,a^N_j)(\omega)$ because $j\le N$. Its time coordinate
+is $\ge\delta_j$ by (M1), giving $F^1_j$. If moreover the flag is $1$, that is
+$t^N_{\tau_N}(\omega)=\delta_N$, then (M2) gives
+$t^N_{\sigma^N_j}(\omega)=\delta_j$, giving $F^2_j$, and then clause 6 of
+\noderef{IsMarkData} says that $(p^N_j,a^N_j)(\omega)$ is a fit for $v$ at
+$z^N_{\sigma^N_j}(\omega)$ of radius $\delta_j$ with constant $C_0$, giving
+$F^3_j$.
+
+By the closed-set direction of the Portmanteau Theorem, a Preamble item,
+$\lambda(F)\ge\limsup_h\lambda_{N_h}(F)$ for closed $F$; applied to the three
+sets, whose $\lambda_{N_h}$-measures are $1$ once $N_h\ge j$, this gives
+$\lambda(F^1_j)=\lambda(F^2_j)=\lambda(F^3_j)=1$. Intersecting over $j\ge1$,
+\begin{equation}\label{eq:cp-mark-limit}
+  t_j\ge\delta_j\ \text{for all }j,\qquad
+  \text{and on }\{\eta=1\}:\ t_j=\delta_j\ \text{and}\
+  (p_j,a_j)\ \text{is a fit at }z_j\ \text{of radius }\delta_j,
+\end{equation}
+$\lambda$-almost surely.
+
+\emph{Step 7: a uniform upper bound for $J_\epsilon$ on the box.}
+For $\ell>0$ put
+\[
+  \Phi^{\rm sl}_\ell(z)=\tfrac12\bigl(\Senv^+_\ell v(z)+\Senv^-_\ell v(z)\bigr).
+\]
+By \noderef{EnvSlopeP} and \noderef{EnvSlopeM} this is
+$\bigl(\Penv_\ell v(z)-\Menv_\ell v(z)\bigr)/(2\ell)$, which by part (2) of
+\noderef{QuadEnvAttained} applied to $v$ with $I=\R$ is a continuous real
+function of $z$ on all of space-time, every time being admissible. Put
+\[
+  U_B=\max_{z\in\mathcal B}\Phi^{\rm sl}_1(z)<\infty,
+\]
+the maximum of a continuous function on the nonempty compact set $\mathcal B$.
+By part (1) of \noderef{EnvHamiltonianSolution} for $v$ with $I=\R$, both
+slopes are nondecreasing in the length, so
+\begin{equation}\label{eq:cp-slope-mono}
+  \Phi^{\rm sl}_\ell\le\Phi^{\rm sl}_{\ell'}\qquad(0<\ell\le\ell'),
+\end{equation}
+and by \noderef{JUpperBound},
+$J_\epsilon(z)\le\Phi^{\rm sl}_\epsilon(z)$ for every $\epsilon>0$ and every
+$z=(x,t)$ with $t>0$. Combining the two, for $0<\epsilon\le\ell$ and $t>0$,
+\begin{equation}\label{eq:cp-J-upper}
+  J_\epsilon(z)\le\Phi^{\rm sl}_\ell(z),\qquad\text{in particular}\qquad
+  J_\epsilon(z)\le U_B\quad(z\in\mathcal B,\ t>0,\ \epsilon\le1).
+\end{equation}
+Since $\epsilon_N\le2^{-N-2}\le1$ by \eqref{eq:cp-eps-to-zero}, the second
+bound applies to every walk and every state it visits with positive time; by
+(G4) all of them have $t\ge\delta_N>0$.
+
+\emph{Step 8: the envelope Hamiltonian is finite at the terminal point.}
+Fix $\ell>0$. For every $N$ with $\epsilon_N\le\ell$, apply
+\eqref{eq:cp-stopped-expectation} with $\sigma=\tau_N$ and then the first bound
+of \eqref{eq:cp-J-upper} at $z^N_{\tau_N}$, whose time is $\ge\delta_N>0$ by
+(G4), and \eqref{eq:cp-start}:
+\[
+  \int\Phi^{\rm sl}_\ell(z_{\rm end})\,d\lambda_N
+   =\mathbb E_{\mu_N}\Phi^{\rm sl}_\ell\bigl(z^N_{\tau_N}\bigr)
+   \ge\mathbb E_{\mu_N}J_{\epsilon_N}\bigl(z^N_{\tau_N}\bigr)
+   \ge J_{\epsilon_N}(z_*)\ge H-1 .
+\]
+The function $\Phi^{\rm sl}_\ell(z_{\rm end})$ is continuous and bounded on
+$\mathcal X$, being a continuous function of a continuous coordinate on a
+compact space, so weak convergence along the subsequence gives
+\begin{equation}\label{eq:cp-terminal-slopes}
+  \int\Phi^{\rm sl}_\ell(z_{\rm end})\,d\lambda\ge H-1\qquad(\ell>0),
+\end{equation}
+the hypothesis $\epsilon_{N_h}\le\ell$ being satisfied for all large $h$ by
+\eqref{eq:cp-eps-to-zero}.
+
+Take $\ell_i\downarrow0$ with $\ell_i\le1$. By part (2) of
+\noderef{EnvHamiltonianSolution} for $v$ with $I=\R$, each of
+$\Senv^+_{\ell_i}v(z)$ and $\Senv^-_{\ell_i}v(z)$ decreases to $H_v(z)$ as
+$i\to\infty$, for every $z$; hence $\Phi^{\rm sl}_{\ell_i}(z)$ decreases to
+$H_v(z)\in[-\infty,\infty)$, the value being $<+\infty$ by part (3) of the same
+lemma. By \eqref{eq:cp-slope-mono} and the definition of $U_B$, the functions
+\[
+  g_i=U_B-\Phi^{\rm sl}_{\ell_i}(z_{\rm end})
+\]
+are nonnegative Borel functions on $\mathcal X$ increasing pointwise to
+$U_B-H_v(z_{\rm end})\in[0,\infty]$. By the monotone convergence theorem and
+\eqref{eq:cp-terminal-slopes},
+\[
+  \int\bigl(U_B-H_v(z_{\rm end})\bigr)\,d\lambda
+   =\lim_i\int g_i\,d\lambda\le U_B-(H-1)<\infty .
+\]
+An integrand with finite integral is finite almost everywhere, so
+\begin{equation}\label{eq:cp-finite-slope}
+  H_v(z_{\rm end})>-\infty\qquad\lambda\text{-almost surely.}
+\end{equation}
+
+\emph{Step 9: contact at every limiting mark.}
+This step is \noderef{ContactAtLimitingMarks}, applied as follows. The ambient
+data are $v$, $\kappa$ and the envelope $W$: $v$ is continuous and $W$ is
+continuous on $\{t>0\}$ with $W\le v$ there, by the standing hypotheses. The
+uniform gap hypothesis is part (2) of \noderef{ContactGapLimit} for the present
+$C_0,\kappa,v$, whose own hypotheses are those of the statement. The box is
+$\mathcal B$ with the bound $U_B$ of \eqref{eq:cp-J-upper}, admissible since
+$\epsilon\le1$ for every walk by \eqref{eq:cp-eps-to-zero}. The state space is
+the compact $\mathcal X$ of Step 3 with the mark maps $q\mapsto z_j(q)$, each
+continuous because it is a coordinate projection; the limiting law is $\lambda$
+and the pre-limit laws are the $\lambda_N$ of Step 3, with the subsequence
+$N_h\ge h$ of Step 4 along which $\lambda_{N_h}\to\lambda$ weakly. The
+full-measure closed events are the $\mathcal A_j$ of Step 6, on which
+$t_j\ge\delta_j$ by construction.
+
+On the walk side, $\Psi_N$ pushes $\mu_N$ to $\lambda_N$ by Step 3; the mark
+coordinate of $\Psi_N$ is $z^N_{\sigma^N_j}$ for $1\le j\le N+1$, again by
+Step 3, and that point lies in $\mathcal B$ by (M1) because
+$\sigma^N_j\le\tau_N$ by clause 2 of \noderef{IsMarkData}; its time is positive
+by (G4); and the averaged lower bound
+\[
+  H-1\le\mathbb E_{\mu_N}J_{\epsilon_N}\bigl(z^N_{\sigma^N_j}\bigr),
+\]
+with the integrability it needs, is \eqref{eq:cp-stopped-expectation} at
+$\sigma=\sigma^N_j$ --- legitimate because $\sigma^N_j$ is a stopping time
+bounded by $\tau_N$, by clauses 1 and 2 of \noderef{IsMarkData} --- combined
+with the starting bound $H-1\le J_{\epsilon_N}(z_*)$ of Step 1. The cited node
+therefore gives
+\begin{equation}\label{eq:cp-contact-limit}
+  W(z_j)=v(z_j)\quad\text{for every }j\ge1,
+  \qquad\lambda\text{-almost surely.}
+\end{equation}
+
+\emph{Step 10: the localization events and the selection.}
+For $j\ge1$ put
+\[
+  E_j=\Bigl\{\eta=1\ \text{and}\
+    \bigl|x_{\rm end}-x_j-(t_{\rm end}-\delta_j)p_j\bigr|\le K\delta_j\Bigr\}
+  \subseteq\mathcal X .
+\]
+This set is closed: $\{\eta=1\}$ is closed, and the displayed norm is a
+continuous function of the coordinates $z_{\rm end}$, $z_j$ and $p_j$. For
+$N\ge j$ we have $\Psi_N^{-1}(E_j)=\mathcal L^N_j$, since the flag equals $1$
+exactly on $\{t^N_{\tau_N}=\delta_N\}$ and the remaining coordinates of
+$\Psi_N$ are $z^N_{\tau_N}$, $z^N_{\sigma^N_j}$ and $p^N_j$. Hence
+$\lambda_N(E_j)=\mu_N(\mathcal L^N_j)\ge\tfrac12$ by \eqref{eq:cp-pushforward}
+and \eqref{eq:cp-localization}. The closed-set direction of Portmanteau then
+gives
+\[
+  \lambda(E_j)\ge\limsup_h\lambda_{N_h}(E_j)\ge\frac12\qquad(j\ge1).
+\]
+These events need not be independent, and none is needed. For every $h\ge1$ the
+tail union $\bigcup_{j\ge h}E_j$ contains $E_h$, so it has
+$\lambda$-measure at least $1/2$; these unions decrease in $h$, and $\lambda$
+is finite, so by continuity of a finite measure along a decreasing sequence
+\begin{equation}\label{eq:cp-limsup}
+  \lambda\Bigl(\limsup_{j\to\infty}E_j\Bigr)
+   =\lim_{h\to\infty}\lambda\Bigl(\bigcup_{j\ge h}E_j\Bigr)\ge\frac12 .
+\end{equation}
+
+The four full-measure events \eqref{eq:cp-terminal-time},
+\eqref{eq:cp-mark-limit}, \eqref{eq:cp-finite-slope} and
+\eqref{eq:cp-contact-limit} intersected with $\limsup_jE_j$ still has
+$\lambda$-measure at least $1/2>0$, so it is nonempty. Choose one point
+$\omega^\star$ of $\mathcal X$ in it, and let
+$x_{\rm end}$, $t_{\rm end}$, $\eta$, $(z_j,p_j,a_j)$ now denote its
+coordinates, with $z_j=(x_j,t_j)$. Let
+\[
+  \mathcal J=\{j\ge1:\omega^\star\in E_j\},
+\]
+an infinite set by the definition of $\limsup_jE_j$, all of whose elements are
+$\ge1$.
+
+Since $\mathcal J\ne\emptyset$ and every $E_j$ forces $\eta=1$, we have
+$\eta=1$. Hence \eqref{eq:cp-terminal-time} gives $t_{\rm end}=0$, and
+\eqref{eq:cp-mark-limit} gives, for every $j\ge1$, $t_j=\delta_j$ and that
+$(p_j,a_j)$ is a fit for $v$ at $z_j=(x_j,\delta_j)$ of radius $\delta_j$ with
+constant $C_0$ in the sense of \noderef{IsFit}. By
+\eqref{eq:cp-contact-limit}, $W(x_j,\delta_j)=v(x_j,\delta_j)$ for every
+$j\ge1$. By \eqref{eq:cp-finite-slope} and $t_{\rm end}=0$,
+\[
+  H_v(x_{\rm end},0)=H_v(z_{\rm end})>-\infty,
+\]
+which is \eqref{eq:contact-propagation-conclusion}. Finally, for $j\in\mathcal
+J$ the defining inequality of $E_j$ reads, with $t_{\rm end}=0$,
+\[
+  \bigl|x_{\rm end}-x_j-(0-\delta_j)p_j\bigr|
+   =\bigl|x_{\rm end}-x_j+\delta_jp_j\bigr|\le K\delta_j .
+\]
+Together with the previous display this is
+\eqref{eq:contact-propagation-contact} at every $j\in\mathcal J$. The constant
+$K\ge2\ge0$, the point $x_{\rm end}$, the infinite set $\mathcal J$ and the
+triples $(x_j,p_j,a_j)$ for $j\in\mathcal J$ are therefore as required, and the
+proof is complete.
+\end{proof}

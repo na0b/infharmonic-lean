@@ -1,0 +1,91 @@
+\begin{lemma}[From a uniform Taylor estimate to a Hölder gradient]
+Let $E$ be a finite-dimensional real inner-product space, let
+$\alpha\in(0,1]$, let $C>0$ and let $\rho_0>0$. Then there is a real number
+$C'$ with $0<C'<\infty$, depending only on $C$, $\alpha$ and $\rho_0$ and on
+nothing else, with the following property.
+
+Let $S\subseteq E$, let $U:E\to\R$ and let $g:E\to E$ be arbitrary, and assume
+\[
+  |U(z+h)-U(z)-g(z)\cdot h|\le C|h|^{1+\alpha}
+  \qquad(z\in S,\ |h|\le\rho_0),
+\]
+and $|g(z)|\le C$ for $z\in S$. Then $U$ is differentiable at every $z\in S$
+with gradient $g(z)$, and
+\[
+  |g(z)-g(z')|\le C'|z-z'|^\alpha\qquad(z,z'\in S).
+\]
+\end{lemma}
+\begin{proof}
+Put
+\[
+  C'=\max\{3\cdot2^{1+\alpha}C,\ 2C(2/\rho_0)^\alpha\},
+\]
+which is a positive real number determined by $C$, $\alpha$ and $\rho_0$ alone,
+since $C>0$, $\alpha>0$ and $\rho_0>0$. Now fix $S$, $U$ and $g$ satisfying the
+two hypotheses, and let us verify the two conclusions for this $C'$.
+
+\emph{Differentiability.}
+Let $z\in S$. For $h\in E$ with $0<|h|\le\rho_0$, the hypothesis gives
+\[
+  \frac{|U(z+h)-U(z)-g(z)\cdot h|}{|h|}\le C|h|^\alpha .
+\]
+Since $\alpha>0$, the right side tends to $0$ as $h\to0$. Hence $U$ is
+differentiable at $z$ with derivative $h\mapsto g(z)\cdot h$, that is, with
+gradient $g(z)$.
+
+\emph{The Hölder estimate.}
+Let $z,z'\in S$ and set $\ell=|z-z'|$.
+
+If $\ell=0$ then $z=z'$ and the inequality is trivial.
+
+Suppose $0<\ell\le\rho_0/2$. Fix any unit vector $e\in E$. We estimate
+$U(z'+\ell e)-U(z')$ in two ways.
+
+First, apply the Taylor estimate at $z'$ with the increment $h=\ell e$, whose
+norm is $\ell\le\rho_0$:
+\begin{equation}\label{eq:tth-at-zp}
+  \bigl|U(z'+\ell e)-U(z')-\ell\,g(z')\cdot e\bigr|\le C\ell^{1+\alpha}.
+\end{equation}
+
+Second, apply the Taylor estimate at $z$ with the two increments $h_1=z'-z$ and
+$h_2=z'+\ell e-z$. Their norms satisfy $|h_1|=\ell\le\rho_0$ and
+$|h_2|\le|z'-z|+\ell=2\ell\le\rho_0$, so both are admissible, and
+\[
+  \bigl|U(z')-U(z)-g(z)\cdot h_1\bigr|\le C\ell^{1+\alpha},
+  \qquad
+  \bigl|U(z'+\ell e)-U(z)-g(z)\cdot h_2\bigr|\le C(2\ell)^{1+\alpha}.
+\]
+Subtracting, and using $h_2-h_1=\ell e$,
+\begin{equation}\label{eq:tth-at-z}
+  \bigl|U(z'+\ell e)-U(z')-\ell\,g(z)\cdot e\bigr|
+    \le C\ell^{1+\alpha}+C(2\ell)^{1+\alpha}
+    \le 2C\,2^{1+\alpha}\ell^{1+\alpha},
+\end{equation}
+since $1\le2^{1+\alpha}$.
+
+Subtracting \eqref{eq:tth-at-zp} from \eqref{eq:tth-at-z} and using the triangle
+inequality,
+\[
+  \ell\,\bigl|(g(z)-g(z'))\cdot e\bigr|
+   \le C\ell^{1+\alpha}+2C\,2^{1+\alpha}\ell^{1+\alpha}
+   \le3C\,2^{1+\alpha}\ell^{1+\alpha}.
+\]
+Dividing by $\ell>0$ gives
+$\bigl|(g(z)-g(z'))\cdot e\bigr|\le3C\,2^{1+\alpha}\ell^\alpha$. The constants
+are independent of $e$, so taking the supremum over unit vectors $e$, which
+computes the norm of $g(z)-g(z')$, yields
+\[
+  |g(z)-g(z')|\le3C\,2^{1+\alpha}\ell^\alpha\le C'\ell^\alpha .
+\]
+
+Finally suppose $\ell>\rho_0/2$. Then, by the bound $|g|\le C$ on $S$,
+\[
+  |g(z)-g(z')|\le2C
+   =2C\left(\frac{2}{\rho_0}\right)^\alpha
+     \left(\frac{\rho_0}{2}\right)^\alpha
+   \le2C\left(\frac{2}{\rho_0}\right)^\alpha\ell^\alpha
+   \le C'\ell^\alpha ,
+\]
+using $(\rho_0/2)^\alpha\le\ell^\alpha$, which holds because $\alpha>0$ and
+$\rho_0/2<\ell$. This completes the proof.
+\end{proof}

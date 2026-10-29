@@ -1,0 +1,125 @@
+\begin{lemma}[A locally uniformly convergent subsequence of the normalized solutions]
+Let $d\in\N$ and work in $X=\ell^2(\R^d\times\R)$, writing a point as
+$w=(w_x,w_t)$ and $\overline B_\rho$ for the closed ball of radius $\rho$
+centred at the origin. Let $\lambda:\N\to\R$, let $v_i:X\to\R$ for $i\in\N$,
+let $i_1\in\N$, let $\mathcal B:\R\to\mathcal P(X)$, let $A:\R\to\R$,
+$i_4:\R\to\N$, $C_3:\R\times\R\to\R$ and $i_5:\R\times\R\to\N$. Assume:
+\begin{enumerate}
+\item\label{it:nles-box} $\mathcal B_K=\{w\in X:\ |w_x|\le K\ \text{and}\
+|w_t|\le K\}$ for every $K\in\R$;
+\item\label{it:nles-org} $v_i(0)=0$ for every $i\ge i_1$;
+\item\label{it:nles-bd} for every $K\ge1$, every $i\ge i_4(K)$ and every
+$w\in\mathcal B_K$, $|v_i(w)|\le A(K)$;
+\item\label{it:nles-C} $0\le C_3(K,S)$ for all $K,S\in\R$;
+\item\label{it:nles-fit} for every $K\ge1$, every $S>0$, every $i\ge i_5(K,S)$
+and every $w\in\mathcal B_K$ there are $p'\in\R^d$ and $q'\in\R$ with
+\[
+  |p'|+|q'|\le C_3(K,S),\qquad \tfrac12\le1+\lambda_iq',
+\]
+such that for all $h\in\R^d$ and $l\in\R$ with $|l|\le S/2$ and
+$\bigl|h-\frac{l}{1+\lambda_iq'}p'\bigr|\le S$,
+\begin{equation}\label{eq:nles-inc}
+  \bigl|v_i\bigl(w+(h,l)\bigr)-v_i(w)-\langle p',h\rangle-q'l\bigr|\le64S .
+\end{equation}
+\end{enumerate}
+Then there are a strictly increasing $\psi:\N\to\N$ with $i_1\le\psi(j)$ for
+every $j$, and a continuous $v_\infty:X\to\R$ with $v_\infty(0)=0$, such that
+$v_{\psi(j)}\to v_\infty$ uniformly on every compact subset of $X$.
+\end{lemma}
+\begin{proof}
+\emph{The sup box contains the Euclidean ball.} If $y\in\overline B_\rho$, i.e.
+$|y|\le\rho$, then $|y_x|\le\rho$ and $|y_t|\le\rho$: indeed
+$|y|^2=|y_x|^2+|y_t|^2$ with both summands nonnegative, so each is at most
+$|y|^2\le\rho^2$, and the square root is monotone on $[0,\infty)$. We use this
+three times below, and by \ref{it:nles-box} it says exactly that
+$\overline B_\rho\subseteq\mathcal B_\rho$.
+
+We verify the two hypotheses of
+\noderef{AsymptEquicontOriginNormalizedLimit} for the family $(v_i)$ and the
+index $i_1$; its third hypothesis is \ref{it:nles-org}, and its conclusion is
+the assertion of this lemma.
+
+\emph{The uniform bound on each ball.} Let $\rho>0$ and put $K=\max(1,\rho)$,
+so $1\le K$ and $\rho\le K$. Take $A=A(K)$ and the threshold $i_4(K)$. For
+$j\ge i_4(K)$ and $y\in\overline B_\rho$ the paragraph above gives
+$|y_x|\le\rho\le K$ and $|y_t|\le\rho\le K$, so $y\in\mathcal B_K$ by
+\ref{it:nles-box}; hence $|v_j(y)|\le A(K)$ by \ref{it:nles-bd}. This is the
+first hypothesis.
+
+\emph{The asymptotic modulus of continuity.} Let $\rho>0$ and $\epsilon>0$.
+Put
+\[
+  K=\max(1,\rho),\qquad S=\frac{\epsilon}{128},\qquad C=C_3(K,S),
+\]
+so $1\le K$, $\rho\le K$, $S>0$, $64S=\epsilon/2$, and $C\ge0$ by
+\ref{it:nles-C}; in particular $1+2C>0$ and $4(C+1)>0$. Only now choose the
+radius
+\[
+  \eta=\min\Bigl(\frac S2,\ \min\Bigl(\frac{S}{1+2C},\
+    \frac{\epsilon}{4(C+1)}\Bigr)\Bigr),
+\]
+which is positive, being the minimum of three positive numbers, and satisfies
+\begin{equation}\label{eq:nles-eta}
+  \eta\le\frac S2,\qquad \eta(1+2C)\le S,\qquad \eta\cdot4(C+1)\le\epsilon,
+\end{equation}
+the last two after clearing the positive denominators. Take the threshold
+$i_5(K,S)$. The order of these choices is what makes the argument work: the
+error $64S$ of \eqref{eq:nles-inc} is pinned to $\epsilon/2$ by the choice of
+$S$ alone, which fixes $C$; the remaining coefficient terms are then beaten by
+shrinking $\eta$, whose admissible size may depend on $C$.
+
+Let $j\ge i_5(K,S)$ and let $y,y'\in\overline B_\rho$ with $|y-y'|\le\eta$.
+As above $y\in\mathcal B_K$, so \ref{it:nles-fit} applies at $K$, $S$, $j$ and
+$y$ and yields $p',q'$ with $|p'|+|q'|\le C$ and $1+\lambda_jq'\ge1/2$. In
+particular $1+\lambda_jq'>0$, and since $|p'|\ge0$ and $|q'|\ge0$ the bound
+splits into $|p'|\le C$ and $|q'|\le C$.
+
+Put $h=y'_x-y_x$ and $l=y'_t-y_t$. Then $y+(h,l)=y'$, because
+$(y'-y)_x=h$ and $(y'-y)_t=l$ and addition is coordinatewise. Also
+$|y'-y|=|y-y'|\le\eta$, so the first paragraph applied to $y'-y$ gives
+\begin{equation}\label{eq:nles-hl}
+  |h|\le\eta,\qquad |l|\le\eta .
+\end{equation}
+
+\emph{The offset is admissible.} First $|l|\le\eta\le S/2$ by
+\eqref{eq:nles-hl} and \eqref{eq:nles-eta}. Second, from
+$1+\lambda_jq'\ge1/2$ we get $\frac{1}{1+\lambda_jq'}\le2$, so
+\[
+  \Bigl|\frac{l}{1+\lambda_jq'}\,p'\Bigr|
+   =\frac{|l|}{1+\lambda_jq'}\,|p'|\le2\eta\cdot C ,
+\]
+and therefore, by the triangle inequality and \eqref{eq:nles-hl},
+\[
+  \Bigl|h-\frac{l}{1+\lambda_jq'}p'\Bigr|
+   \le|h|+2\eta C\le\eta+2\eta C=\eta(1+2C)\le S
+\]
+by \eqref{eq:nles-eta}. So \eqref{eq:nles-inc} applies at this $(h,l)$ and,
+after substituting $y+(h,l)=y'$, gives
+\begin{equation}\label{eq:nles-key}
+  \bigl|v_j(y')-v_j(y)-\langle p',h\rangle-q'l\bigr|\le64S=\frac\epsilon2 .
+\end{equation}
+
+\emph{The two coefficient terms.} By Cauchy--Schwarz and \eqref{eq:nles-hl},
+$|\langle p',h\rangle|\le|p'|\,|h|\le C\eta$; and
+$|q'l|=|q'|\,|l|\le C\eta$. Their sum is at most $2C\eta$, and
+$4C\eta\le4(C+1)\eta\le\epsilon$ by \eqref{eq:nles-eta} and $\eta>0$, so
+$2C\eta\le\epsilon/2$.
+
+\emph{Conclusion of the modulus.} Combining the last two paragraphs,
+\[
+  \bigl|v_j(y)-v_j(y')\bigr|
+   \le\bigl|v_j(y')-v_j(y)-\langle p',h\rangle-q'l\bigr|
+     +|\langle p',h\rangle|+|q'l|
+   \le\frac\epsilon2+\frac\epsilon2=\epsilon .
+\]
+This is the second hypothesis, with the radius $\eta$ and the threshold
+$i_5(K,S)$. Note that the two hypotheses carry their own thresholds --- one
+inside the bound and one inside the $\epsilon$ binder of the modulus --- so the
+fact that $i_5$ depends on both $K$ and $S$ costs nothing.
+
+\emph{The extraction.} With both hypotheses verified and
+\ref{it:nles-org} in hand, \noderef{AsymptEquicontOriginNormalizedLimit} gives
+the strictly increasing $\psi$ with $\psi(j)\ge i_1$, the continuous limit
+$v_\infty$ with $v_\infty(0)=0$, and the uniform convergence of
+$v_{\psi(j)}$ to $v_\infty$ on every compact subset of $X$.
+\end{proof}

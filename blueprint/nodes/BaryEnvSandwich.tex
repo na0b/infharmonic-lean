@@ -1,0 +1,91 @@
+\begin{lemma}[The barycentric sandwich]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$, let
+$f$ be a real function on the space-time $\ell^2(F\times\R)$ and let
+$\kappa\ge0$. Assume that $f$ is continuous on $\Omega=\{(x,t):t\in I\}$, that
+$f$ satisfies the horizontal Jensen bound with
+constant $\kappa$ on $I$ in the sense of \noderef{HasJensenBound}, and that $f$
+has subquadratic spatial growth on compact time intervals of $I$ in the sense of
+\noderef{SubquadraticGrowth}. Then, for every $s>0$ and every $z=(x,t)$ with
+$t\in I$,
+\begin{equation}\label{eq:barycentric-sandwich}
+  0\le\Cenv_s f(x,t)-f(x,t)\le\frac{\kappa^2s}{2},
+\end{equation}
+with $\Cenv$ the barycentric envelope of \noderef{BaryEnv}.
+\end{lemma}
+\begin{proof}
+Fix $s>0$ and $z=(x,t)$ with $t\in I$. Write
+\[
+  \mathcal V=\left\{\sum_i\theta_if(y_i,t)
+      -\frac{r(\theta,y)^2}{2s}\right\}
+\]
+for the set of competitor values in \noderef{BaryEnv}, where
+$r(\theta,y)=\bigl(\sum_i\theta_i|y_i-x|^2\bigr)^{1/2}$ is the radius of
+\noderef{BaryRadius} and the configurations $(\theta,y)$ have mean $x$ in the
+sense of \noderef{IsBaryConfig}, so that $\Cenv_sf(z)=\sup\mathcal V$.
+
+\emph{Step 1: $\mathcal V$ is nonempty and bounded above.}
+The single-point configuration $n=1$, $\theta_1=1$, $y_1=x$ has mean $x$ and
+radius $0$, and contributes the value $f(x,t)$ to $\mathcal V$; so
+$\mathcal V\ne\emptyset$ and
+\begin{equation}\label{eq:bes-lower}
+  f(x,t)\le\sup\mathcal V .
+\end{equation}
+
+For boundedness above, apply \noderef{SubquadraticGrowth} with the compact set
+$J=\{t\}\subseteq I$ and $\varepsilon=1/(16s)>0$: there is $M_0>0$ with
+$|f(y,t)|\le|y|^2/(16s)$ whenever $|y|\ge M_0$. Put
+$M=\max\{M_0,\ 2|x|\}$. The set $\{(y,t):|y|\le M\}$ is compact and contained in
+$\Omega$, because $t\in I$, and $f$ is continuous on $\Omega$; hence
+\[
+  N=\sup_{|y|\le M}|f(y,t)|
+\]
+is finite.
+
+Let $(\theta,y)$ be a configuration with mean $x$. Split the indices according
+to whether $|y_i|\le M$ or $|y_i|>M$. For $|y_i|>M$ we have $|y_i|\ge2|x|$,
+hence $|y_i-x|\ge|y_i|-|x|\ge|y_i|/2$, so
+\[
+  f(y_i,t)\le\frac{|y_i|^2}{16s}\le\frac{4|y_i-x|^2}{16s}
+     =\frac{|y_i-x|^2}{4s}.
+\]
+For $|y_i|\le M$ we have $f(y_i,t)\le N$. Therefore
+\[
+  \sum_i\theta_if(y_i,t)
+   \le N+\sum_i\theta_i\frac{|y_i-x|^2}{4s}
+   =N+\frac{r(\theta,y)^2}{4s},
+\]
+using $\sum_i\theta_i=1$ and bounding each term by the larger of the two
+estimates. Consequently every element of $\mathcal V$ is at most
+\[
+  N+\frac{r(\theta,y)^2}{4s}-\frac{r(\theta,y)^2}{2s}\le N,
+\]
+so $\mathcal V$ is bounded above by $N$ and $\sup\mathcal V$ is a real number.
+
+\emph{Step 2: the upper bound.}
+Let $(\theta,y)$ be any configuration with mean $x$, and let
+$r=r(\theta,y)\ge0$. The Jensen bound of \noderef{HasJensenBound} at the time
+$t\in I$ gives
+\[
+  \sum_i\theta_if(y_i,t)-f(x,t)\le\kappa r .
+\]
+Therefore the corresponding element of $\mathcal V$ satisfies
+\[
+  \sum_i\theta_if(y_i,t)-\frac{r^2}{2s}-f(x,t)
+   \le\kappa r-\frac{r^2}{2s}.
+\]
+For every real $r$ the algebraic identity
+\[
+  \kappa r-\frac{r^2}{2s}
+   =\frac{\kappa^2s}{2}-\frac{(r-\kappa s)^2}{2s}
+\]
+holds, as one checks by expanding the square and using $s\ne0$. Since
+$(r-\kappa s)^2\ge0$ and $s>0$, this gives
+$\kappa r-r^2/(2s)\le\kappa^2s/2$, with equality exactly when $r=\kappa s$.
+Hence every element of $\mathcal V$ is at most $f(x,t)+\kappa^2s/2$, and so is
+its supremum:
+\[
+  \Cenv_sf(x,t)\le f(x,t)+\frac{\kappa^2s}{2}.
+\]
+Together with \eqref{eq:bes-lower} this is
+\eqref{eq:barycentric-sandwich}.
+\end{proof}

@@ -1,0 +1,220 @@
+\begin{lemma}[The travel inequality for a stopped portion in a sheared frame]
+Let $F$ be a finite-dimensional real inner-product space, let
+$(\Omega,\mathcal M,\mu)$ be a probability space with $\Omega$ nonempty, let
+$(\mathcal G_n)_{n\in\N}$ be a filtration of $\mathcal M$, let $\epsilon>0$, let
+$\xi:\N\times\Omega\to\R$, let $z,z^+,z^-:\N\times\Omega\to\ell^2(F\times\R)$,
+let $Q_0:\N\times\Omega\to F$, let $\tau:\Omega\to\N$ and let
+$\Lambda_Q,\Lambda_E\in\R$ with $\Lambda_E\ge0$. Write $z_n=(x_n,t_n)$,
+$z^+_n=(x^+_n,t^+_n)$ and $z^-_n=(x^-_n,t^-_n)$. Assume:
+\begin{enumerate}
+\item\label{it:sptb-pm} $\xi_n(\omega)=1$ or $\xi_n(\omega)=-1$ for every $n$
+and every $\omega$;
+\item\label{it:sptb-ximeas} $\xi_n$ is $\mathcal G_{n+1}$-measurable for every
+$n$;
+\item\label{it:sptb-xicond} $\mathbb E[\xi_n\mid\mathcal G_n]=0$ $\mu$-almost
+everywhere, for every $n$;
+\item\label{it:sptb-zmeas} $z_n$, $z^+_n$, $z^-_n$ and $Q_0(n)$ are
+$\mathcal G_n$-measurable for every $n$;
+\item\label{it:sptb-rec} the recursion
+$z_{n+1}=z^+_n$ if $n<\tau$ and $\xi_n=1$, $z_{n+1}=z^-_n$ if $n<\tau$ and
+$\xi_n\ne1$, and $z_{n+1}=z_n$ if $n\ge\tau$;
+\item\label{it:sptb-tauint} $\omega\mapsto\tau(\omega)$ is $\mu$-integrable as
+a real-valued function;
+\item\label{it:sptb-tstep} the time step
+$t_{n+1}=t_n+\epsilon\,\xi_n$ when $n<\tau$, and $t_{n+1}=t_n$ when
+$n\ge\tau$;
+\item\label{it:sptb-Qbd} $|Q_0(n)(\omega)|\le\Lambda_Q$ for every $n$ and every
+$\omega$;
+\item\label{it:sptb-Ebd} for every $n$ and every $\omega$ with $n<\tau(\omega)$,
+\[
+  \mathcal E_n
+   :=\bigl|\epsilon^{-1}(x^+_n-x_n)-Q_0(n)\bigr|^2
+     +\bigl|\epsilon^{-1}(x_n-x^-_n)-Q_0(n)\bigr|^2\le\Lambda_E ;
+\]
+\item\label{it:sptb-st} every $\zeta:\Omega\to\N$ which is a
+$(\mathcal G_n)$-stopping time (in the sense that
+$\{\zeta\le n\}\in\mathcal G_n$ for all $n$) is $\mathcal M$-measurable;
+\item\label{it:sptb-lim} if $G_h:\Omega\to\R$ is measurable for every $h\in\N$
+and $g:\Omega\to\R$ is such that for every $\omega$ there is $H$ with
+$G_h(\omega)=g(\omega)$ for all $h\ge H$, then $g$ is measurable;
+\item\label{it:sptb-idx} if $\zeta:\Omega\to\N$ is measurable and
+$G_m:\Omega\to\R$ is measurable for every $m$, then
+$\omega\mapsto G_{\zeta(\omega)}(\omega)$ is measurable.
+\end{enumerate}
+Then for all $(\mathcal G_n)$-stopping times $\rho,\sigma:\Omega\to\N$ with
+$\rho\le\sigma\le\tau$ pointwise, every $r>0$, every $C_p\in\R$ and every
+$p:\Omega\to F$ with $|p|\le C_p$ such that
+$\mathbf1_{\{\rho\le n\}}p$ is $\mathcal G_n$-measurable for every $n$, the four
+functions
+\[
+  \sup_{\rho\le n\le\sigma}\frac{|x_n-x_\rho-(t_n-t_\rho)p|}{r},\qquad
+  \sum_{\rho\le n<\sigma}\Bigl(\frac{\epsilon}{r}\Bigr)^2|Q_0(n)-p|^2,\qquad
+  \Bigl(\frac{\epsilon}{r}\Bigr)^2(\sigma-\rho),\qquad
+  \sum_{\rho\le n<\sigma}\mathcal E_n
+\]
+are all $\mu$-integrable, and
+\begin{equation}\label{eq:sptb-travel}
+\begin{split}
+  \mathbb E\sup_{\rho\le n\le\sigma}
+     \frac{|x_n-x_\rho-(t_n-t_\rho)p|}{r}
+  &\le 2\left(\mathbb E\sum_{\rho\le n<\sigma}
+        \Bigl(\frac{\epsilon}{r}\Bigr)^2|Q_0(n)-p|^2\right)^{1/2}\\
+  &\quad+\left(\mathbb E\Bigl(\frac{\epsilon}{r}\Bigr)^2(\sigma-\rho)\right)^{1/2}
+     \left(\mathbb E\sum_{\rho\le n<\sigma}\mathcal E_n\right)^{1/2}.
+\end{split}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Let $\rho\le\sigma\le\tau$, $r>0$, $C_p$ and $p$ be as in the statement, and put
+$\epsilon'=\epsilon/r$, which is positive. For $n\ge0$ set
+\[
+  y_n=\frac{x_n-x_\rho-(t_n-t_\rho)p}{r},
+\]
+so $y_\rho=0$ and the left side of \eqref{eq:sptb-travel} is
+$\mathbb E\sup_{\rho\le n\le\sigma}|y_n|$. Since $\Omega$ is nonempty we may fix
+a point of it and conclude from $|p|\le C_p$ and $|Q_0(0)|\le\Lambda_Q$ that
+$C_p\ge0$ and $\Lambda_Q\ge0$.
+
+\emph{The increments.} Write $Q_{+}(n)=\epsilon^{-1}(x^+_n-x_n)$ and
+$Q_{-}(n)=\epsilon^{-1}(x_n-x^-_n)$, and set $Q_{\xi_n}(n)=Q_+(n)$ when
+$\xi_n=1$ and $Q_{\xi_n}(n)=Q_-(n)$ otherwise. For $n<\tau$, hypothesis
+\ref{it:sptb-rec} gives $x_{n+1}=x^+_n$ when $\xi_n=1$ and $x_{n+1}=x^-_n$
+when $\xi_n\ne1$, so in the first case
+$x_{n+1}-x_n=x^+_n-x_n=\epsilon Q_+(n)=\epsilon\xi_nQ_{\xi_n}(n)$ (using
+$\xi_n=1$), and in the second case, where $\xi_n=-1$ by \ref{it:sptb-pm},
+$x_{n+1}-x_n=x^-_n-x_n=-\epsilon Q_-(n)=\epsilon\xi_nQ_{\xi_n}(n)$. Thus
+\begin{equation}\label{eq:sptb-xstep}
+  x_{n+1}-x_n=\epsilon\,\xi_n\,Q_{\xi_n}(n)\qquad(n<\tau),
+\end{equation}
+where the division by $\epsilon$ is legitimate because $\epsilon>0$. Combining
+\eqref{eq:sptb-xstep} with the time step \ref{it:sptb-tstep}, for $\rho\le
+n<\sigma$ (so $n<\tau$, as $\sigma\le\tau$),
+\[
+  y_{n+1}-y_n
+   =\frac{(x_{n+1}-x_n)-(t_{n+1}-t_n)p}{r}
+   =\frac{\epsilon\xi_nQ_{\xi_n}(n)-\epsilon\xi_np}{r}
+   =\epsilon'\xi_n\bigl(Q_{\xi_n}(n)-p\bigr)=d_n+e_n ,
+\]
+where
+\[
+  d_n=\mathbf1_{\{\rho\le n<\sigma\}}\epsilon'\xi_n\bigl(Q_0(n)-p\bigr),\qquad
+  e_n=\mathbf1_{\{\rho\le n<\sigma\}}\epsilon'\xi_n
+        \bigl(Q_{\xi_n}(n)-Q_0(n)\bigr),
+\]
+and we extend $d_n,e_n$ by these formulas for all $n$, so that both vanish
+outside $\{\rho\le n<\sigma\}$. Put $M_n=\sum_{k<n}d_k$, so $M_0=0$ and, for
+$\rho\le n\le\sigma$, telescoping from $y_\rho=0$ and using that $d_k=e_k=0$ for
+$k<\rho$,
+\begin{equation}\label{eq:sptb-split}
+  y_n=\sum_{k<n}(d_k+e_k),\qquad
+  |y_n|\le|M_n|+\sum_{\rho\le k<\sigma}|e_k| ,
+\end{equation}
+the second line by the triangle inequality and $|e_k|\ge0$.
+
+\emph{$(M_n)$ is a square-integrable martingale.} The indicator
+$\mathbf1_{\{\rho\le k<\sigma\}}$ is $\mathcal G_k$-measurable, because $\rho$
+and $\sigma$ are stopping times, so $\{\rho\le k\}\in\mathcal G_k$ and
+$\{\sigma\le k\}\in\mathcal G_k$, whence
+$\{\rho\le k<\sigma\}=\{\rho\le k\}\cap\{\sigma\le k\}^c\in\mathcal G_k$. The
+factor $\mathbf1_{\{\rho\le k<\sigma\}}(Q_0(k)-p)$ is therefore
+$\mathcal G_k$-measurable, by that observation, the
+$\mathcal G_k$-measurability of $Q_0(k)$ from \ref{it:sptb-zmeas} and the
+hypothesis that $\mathbf1_{\{\rho\le k\}}p$ is $\mathcal G_k$-measurable; and it
+is bounded in norm by $\epsilon'(\Lambda_Q+C_p)$, by \ref{it:sptb-Qbd} and
+$|p|\le C_p$. Since also $|\xi_k|=1$ by \ref{it:sptb-pm}, each $d_k$ is bounded
+by $\epsilon'(\Lambda_Q+C_p)$, so $M_n$ is $\mathcal G_n$-measurable (a finite
+sum of $\mathcal G_k$-measurable terms with $k<n$, using
+\ref{it:sptb-ximeas} for the $\mathcal G_{k+1}$-measurability of $\xi_k$) and
+bounded for each $n$; as $\mu$ is a probability measure, $|M_n|^2$ is integrable.
+The pull-out property of the conditional expectation, applied to the
+$\mathcal G_k$-measurable bounded factor, together with
+$\mathbb E[\xi_k\mid\mathcal G_k]=0$ from \ref{it:sptb-xicond}, gives
+$\mathbb E[d_k\mid\mathcal G_k]=0$ almost everywhere, hence
+$\mathbb E[M_{k+1}\mid\mathcal G_k]=M_k$. So $(M_n)$ is a martingale.
+
+\emph{The martingale part.} Apply \noderef{DoobL2Maximal} to $(M_n)$ at the
+index $h$:
+\[
+  \mathbb E\sup_{0\le n\le h}|M_n|\le2\bigl(\mathbb E|M_h|^2\bigr)^{1/2},
+  \qquad
+  \mathbb E|M_h|^2=\mathbb E|M_0|^2+\sum_{k<h}\mathbb E|d_k|^2
+   =\sum_{k<h}\mathbb E|d_k|^2 ,
+\]
+the last equality because $M_0=0$. Since $|\xi_k|=1$ we have
+$|d_k|^2=\mathbf1_{\{\rho\le k<\sigma\}}(\epsilon')^2|Q_0(k)-p|^2$, so, the sum
+being finite and the terms nonnegative,
+\[
+  \sum_{k<h}\mathbb E|d_k|^2
+   =\mathbb E\sum_{\substack{k<h\\ \rho\le k<\sigma}}
+       (\epsilon')^2|Q_0(k)-p|^2
+   \le\mathbb E\sum_{\rho\le k<\sigma}(\epsilon')^2|Q_0(k)-p|^2 .
+\]
+The quantities $\sup_{0\le n\le h}|M_n|$ are nonnegative and nondecreasing in
+$h$, with pointwise limit $\sup_{n\ge0}|M_n|$, which is finite because $d_k=0$
+for $k\ge\sigma$ and $\sigma(\omega)$ is a natural number. Monotone convergence
+therefore gives
+\begin{equation}\label{eq:sptb-doob}
+  \mathbb E\sup_{n\ge0}|M_n|
+   \le2\left(\mathbb E\sum_{\rho\le k<\sigma}
+        (\epsilon')^2|Q_0(k)-p|^2\right)^{1/2}.
+\end{equation}
+
+\emph{The error part.} Pathwise, by the Cauchy--Schwarz inequality on the index
+set $\{\rho\le k<\sigma\}$, which has $\sigma-\rho$ elements, together with
+$|\xi_k|=1$ and $|Q_{\xi_k}(k)-Q_0(k)|^2\le\mathcal E_k$ (each of the two terms
+of $\mathcal E_k$ dominating the relevant one),
+\begin{equation}\label{eq:sptb-errorpath}
+  \sum_{\rho\le k<\sigma}|e_k|
+   =\epsilon'\sum_{\rho\le k<\sigma}|Q_{\xi_k}(k)-Q_0(k)|
+   \le\bigl((\epsilon')^2(\sigma-\rho)\bigr)^{1/2}
+      \left(\sum_{\rho\le k<\sigma}\mathcal E_k\right)^{1/2}.
+\end{equation}
+Taking expectations and applying
+\noderef{IntegralSqrtProductCauchySchwarz} to the two nonnegative integrable
+functions $(\epsilon')^2(\sigma-\rho)$ and $\sum_{\rho\le k<\sigma}\mathcal E_k$
+--- whose integrability is established in the next paragraph ---
+\begin{equation}\label{eq:sptb-error}
+  \mathbb E\sum_{\rho\le k<\sigma}|e_k|
+   \le\Bigl(\mathbb E(\epsilon')^2(\sigma-\rho)\Bigr)^{1/2}
+      \left(\mathbb E\sum_{\rho\le k<\sigma}\mathcal E_k\right)^{1/2}.
+\end{equation}
+
+\emph{The four integrability assertions.} All four functions are nonnegative.
+They are measurable: $\rho$ and $\sigma$ are $\mathcal M$-measurable by
+\ref{it:sptb-st}; for a fixed index $n$ the integrands are built from the
+$\mathcal G_n$-measurable $z_n$, $z^\pm_n$, $Q_0(n)$ and from $p$ (whose
+strong measurability follows from the $\mathcal G_n$-measurability of
+$\mathbf1_{\{\rho\le n\}}p$ and the fact that this family is eventually equal to
+$p$ pointwise) by finitely many continuous operations; the random index sets
+$\{\rho\le n<\sigma\}$ and $\{\rho\le n\le\sigma\}$ are determined by events of
+the filtration, as above; and the passage from the fixed-index families to the
+random-range sums and the random-range supremum is measurable by
+\ref{it:sptb-lim} and \ref{it:sptb-idx}, each such sum or supremum being
+eventually constant in the truncation index because $\sigma\le\tau$ is finite at
+each $\omega$. For finiteness of their integrals:
+\begin{itemize}
+\item $(\epsilon')^2(\sigma-\rho)\le(\epsilon')^2\tau$ pointwise, because
+$\sigma-\rho\le\sigma\le\tau$, and $\tau$ is integrable by
+\ref{it:sptb-tauint}; so this function is integrable.
+\item $\sum_{\rho\le n<\sigma}\mathcal E_n\le\Lambda_E\,\tau$ pointwise: the
+index set is contained in $\{n<\tau\}$, on which $\mathcal E_n\le\Lambda_E$ by
+\ref{it:sptb-Ebd}, and it has at most $\tau$ elements; the right side is
+integrable by \ref{it:sptb-tauint}.
+\item $\sum_{\rho\le n<\sigma}(\epsilon')^2|Q_0(n)-p|^2
+  \le(\epsilon')^2(\Lambda_Q+C_p)^2\,\tau$ pointwise, by \ref{it:sptb-Qbd},
+$|p|\le C_p$ and the triangle inequality, and the same count of the index set;
+the right side is integrable by \ref{it:sptb-tauint}.
+\item For the supremum, \eqref{eq:sptb-split} gives
+$\sup_{\rho\le n\le\sigma}|y_n|\le\sup_{n\ge0}|M_n|
+  +\sum_{\rho\le k<\sigma}|e_k|$ pointwise. The first term is nonnegative and
+measurable and its integral is finite by \eqref{eq:sptb-doob}, whose right side
+is finite by the previous item; the second is integrable by
+\eqref{eq:sptb-errorpath} together with the first two items and the pointwise
+Cauchy--Schwarz bound. A nonnegative measurable function dominated pointwise by
+a sum of integrable functions is integrable.
+\end{itemize}
+
+\emph{Conclusion.} Taking the supremum in \eqref{eq:sptb-split} over
+$\rho\le n\le\sigma$, then expectations, and inserting \eqref{eq:sptb-doob} and
+\eqref{eq:sptb-error}, yields \eqref{eq:sptb-travel}.
+\end{proof}

@@ -1,0 +1,144 @@
+\begin{lemma}[Logarithmic bound for the reference velocity]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$ and $0\le\kappa<\infty$, and write $L(K)=1+\log K$ for
+$K\ge2$. There is $C>0$, depending only on $C_0$, $\dim F$ and $\kappa$, such
+that the following holds. Let $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass} be centered at $(0,1)$ with constant $C_0$ in the sense of
+\noderef{IsCenteredAt} and satisfy the horizontal Jensen bound with constant
+$\kappa$ at every time in the sense of \noderef{HasJensenBound}, and let
+$W=\Cenv_tv-\kappa^2t/2$ be the contact envelope of \noderef{ContactEnv}. Then,
+whenever $K\ge2$, $|x|\le K$, $|t|\le K$, $0<\epsilon\le1$ and $t>\epsilon$, the
+reference velocity of \noderef{DPSpatialRegularity} satisfies
+\begin{equation}\label{eq:dp-log-velocity}
+  |Q_0|=|\nabla_x\Penv_\epsilon W(x,t)|
+       \le C\bigl(L(K)+|\log t|\bigr).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $L(\Theta)=1+\log\Theta$ for $\Theta\ge2$ and
+$f=W=\Cenv_tv-\kappa^2t/2$ for the contact envelope of \noderef{ContactEnv}. Let
+$C_s>0$ be the constant of \noderef{SpatialFitModulus} for this $C_0$. The
+constant $C$ produced below is explicit in $C_s$, $\kappa$ and absolute
+numbers, hence depends only on $C_0$, $\dim F$ and $\kappa$.
+
+Let $v$, $K\ge2$, $x$, $t$, $\epsilon$ and $Q_0$ be as in the statement, so
+$|x|\le K$, $|t|\le K$, $0<\epsilon\le1$ and $t>\epsilon>0$. Put $s=t+\epsilon$,
+so
+\begin{equation}\label{eq:dplv-s}
+  2\epsilon<s\le K+1,\qquad 1<\frac st<2,\qquad s>0 .
+\end{equation}
+The middle statement holds because $s=t+\epsilon$ with $0<\epsilon<t$.
+
+\emph{Step 0: standing facts.}
+By \noderef{IsFitClass} the function $v$ is continuous on all of space-time and
+is a viscosity solution of $F[v]=0$ there; by \noderef{UniformSubquadratic},
+applied with the centering point $(0,1)$, it has subquadratic spatial growth on
+compact time intervals of $\R$ in the sense of \noderef{SubquadraticGrowth}.
+Hence \noderef{BaryEnvSandwich} with $I=\R$ applies at every parameter
+$\sigma>0$ and, with \noderef{ContactEnv}, gives
+\begin{equation}\label{eq:dplv-sandwich}
+  v(y,\tau)-\frac{\kappa^2\tau}{2}\le f(y,\tau)\le v(y,\tau)\qquad(\tau>0).
+\end{equation}
+
+\emph{Step 1: an upper supporting slope for $f(\cdot,s)$.}
+By \noderef{BaryEnvDuality}, part (4), applied to $v$ with $I=\R$ at the
+parameter $s>0$ and the time $s$, the function
+$y\mapsto\Cenv_sv(y,s)-|y|^2/(2s)$ is concave on $F$; by \noderef{ContactEnv},
+$f(y,s)=\Cenv_sv(y,s)-\kappa^2s/2$, so
+\[
+  y\longmapsto f(y,s)-\frac{|y|^2}{2s}
+\]
+is concave and finite on all of $F$. A finite concave function on a
+finite-dimensional real inner-product space has a supporting affine function at
+each point: its hypograph is convex with nonempty interior and the graph point
+is a boundary point, so the supporting hyperplane theorem provides a nonzero
+$(q_0,\beta_0)$ with
+$\langle q_0,\chi\rangle+\beta_0\beta\le\langle q_0,x\rangle+\beta_0\Lambda(x)$
+for all $(\chi,\beta)$ in the hypograph, where $\Lambda$ denotes the concave
+function; taking $\chi=x$ and $\beta\to-\infty$ forces $\beta_0\ge0$, and
+$\beta_0=0$ is impossible since then $\langle q_0,\chi-x\rangle\le0$ for all
+$\chi$ with $q_0\ne0$. Dividing by $\beta_0>0$ gives a supergradient. Adding
+back the quadratic $|\cdot|^2/(2s)$, there is $p\in F$ with
+\begin{equation}\label{eq:dp-W-upper-support}
+  f(x+h,s)\le f(x,s)+p\cdot h+\frac{|h|^2}{2s}\qquad(h\in F).
+\end{equation}
+
+\emph{Step 2: a bound for $|p|$.}
+If $p=0$ then $|p|=0$ and the bound \eqref{eq:dp-support-slope-bound} below is
+trivial, so assume $p\ne0$ and insert $h=-sp/|p|$, for which $|h|=s$, into
+\eqref{eq:dp-W-upper-support}:
+\begin{equation}\label{eq:dplv-upper}
+  f(x+h,s)-f(x,s)\le-s|p|+\frac s2 .
+\end{equation}
+In the other direction, \eqref{eq:dplv-sandwich} at the two points $(x+h,s)$ and
+$(x,s)$, both with time $s>0$, gives
+\begin{equation}\label{eq:dplv-lower}
+  f(x+h,s)-f(x,s)\ge v(x+h,s)-v(x,s)-\frac{\kappa^2s}{2}.
+\end{equation}
+We bound $v(x+h,s)-v(x,s)$ from below using \noderef{SpatialFitModulus}. Put
+$K_1=2K+1\ge5\ge2$. Then $|x|\le K\le K_1$ and $|s|\le K+1\le K_1$ by
+\eqref{eq:dplv-s}, so $(x,s)\in\mathcal B_{K_1}$; and $|h|=s\le K+1\le K_1$, so
+\noderef{SpatialFitModulus} applied at the center $(x,s)$ with the radius
+$r=s>0$ and the increment $h$, for which $|h|=s=r$, gives
+\[
+  |v(x+h,s)-v(x,s)|\le C_s\,s\,\bigl(L(K_1)+|\log s|\bigr).
+\]
+By \eqref{eq:dplv-s} we have $1<s/t<2$, so
+$|\log s|\le|\log t|+\log2$; and
+$L(K_1)=1+\log(2K+1)\le1+\log(4K)=1+\log4+\log K\le(1+\log4)L(K)$ because
+$L(K)\ge1$ and $\log K\le L(K)$. Hence
+\[
+  v(x+h,s)-v(x,s)\ge-C_s\,s\,\bigl((1+\log4)L(K)+|\log t|+\log2\bigr).
+\]
+Combining with \eqref{eq:dplv-upper} and \eqref{eq:dplv-lower} and dividing by
+$s>0$,
+\[
+  |p|\le\frac12+\frac{\kappa^2}{2}
+    +C_s\bigl((1+\log4)L(K)+|\log t|+\log2\bigr),
+\]
+so, using $L(K)\ge1$ to absorb the constants,
+\begin{equation}\label{eq:dp-support-slope-bound}
+  |p|\le C'\bigl(L(K)+|\log t|\bigr)
+\end{equation}
+with $C'=\tfrac12+\tfrac{\kappa^2}{2}+C_s(1+\log4)+C_s\log2$, which depends only
+on $C_0$, $\dim F$ and $\kappa$.
+
+\emph{Step 3: the optimizing displacement and the gradient.}
+By \noderef{DPSpatialRegularity}, applied to $v$ and $\kappa$ at the time $t>0$,
+the length $\epsilon>0$ and the point $x$, there is a unique
+$y\in F$ attaining $\Penv_\epsilon f(x,t)$, and $x'\mapsto\Penv_\epsilon f(x',t)$
+is differentiable at $x$ with gradient $(y-x)/\epsilon$. Since
+$\mathrm{HasGradientAt}$ determines the gradient uniquely, the hypothesis on
+$Q_0$ gives
+\begin{equation}\label{eq:dplv-Q0}
+  Q_0=\frac{y-x}{\epsilon}.
+\end{equation}
+Put $h=y-x$. Comparing the optimizer with the competitor $y'=x$ in
+\noderef{QuadEnvP},
+\[
+  f(x+h,s)-\frac{|h|^2}{2\epsilon}=\Penv_\epsilon f(x,t)\ge f(x,s),
+\]
+the time argument being $t+\epsilon=s$ in both cases, hence
+\[
+  \frac{|h|^2}{2\epsilon}\le f(x+h,s)-f(x,s)\le p\cdot h+\frac{|h|^2}{2s}
+\]
+by \eqref{eq:dp-W-upper-support}. If $h=0$ then $Q_0=0$ and we are done.
+Otherwise, since $s>2\epsilon$ by \eqref{eq:dplv-s},
+\[
+  \frac{|h|^2}{2\epsilon}-\frac{|h|^2}{2s}
+   =\frac{|h|^2(s-\epsilon)}{2\epsilon s}
+   \ge\frac{|h|^2}{2\epsilon}\cdot\frac12=\frac{|h|^2}{4\epsilon},
+\]
+because $s-\epsilon>s/2$. Hence
+$|h|^2/(4\epsilon)\le p\cdot h\le|p|\,|h|$, so $|h|/\epsilon\le4|p|$, i.e. by
+\eqref{eq:dplv-Q0}
+\[
+  |Q_0|=\frac{|h|}{\epsilon}\le4|p| .
+\]
+Combining with \eqref{eq:dp-support-slope-bound} gives
+\[
+  |Q_0|\le4C'\bigl(L(K)+|\log t|\bigr),
+\]
+which is \eqref{eq:dp-log-velocity} with $C=4C'$, a constant depending only on
+$C_0$, $\dim F$ and $\kappa$.
+\end{proof}

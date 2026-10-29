@@ -1,0 +1,81 @@
+\begin{lemma}[A constrained maximum pins the subgradient of the convexification]
+Let $E$ be a finite-dimensional real inner-product space, let $\lambda\in\R$, let
+$\phi:E\to\R$, let $A,\Omega\subseteq E$, let $z,p,s\in E$ and let $\eta>0$. Write
+\[
+  \psi(w)=\phi(w)+\frac{\lambda|w|^2}{2}\qquad(w\in E).
+\]
+Assume
+\begin{enumerate}
+  \item $B(z,\eta)\subseteq A\cap\Omega$;
+  \item $\phi(w)+\langle p,w\rangle\le\phi(z)+\langle p,z\rangle$ for every
+    $w\in A$;
+  \item $\psi(z)+\langle s,w-z\rangle\le\psi(w)$ for every $w\in\Omega$.
+\end{enumerate}
+Then
+\[
+  s=\lambda z-p .
+\]
+\end{lemma}
+\begin{proof}
+Set $d=s-(\lambda z-p)$. The proof consists of one algebraic estimate, valid on
+the ball $B(z,\eta)$, and one choice of test point.
+
+\emph{Step 1: the estimate $\langle d,w-z\rangle\le\lambda|w-z|^2/2$ on
+$B(z,\eta)$.}
+Let $w\in B(z,\eta)$. By hypothesis (1) we have $w\in A$ and $w\in\Omega$.
+Hypothesis (2) applied to this $w$ gives
+\[
+  \phi(w)-\phi(z)\le\langle p,z\rangle-\langle p,w\rangle
+   =-\langle p,w-z\rangle,
+\]
+the last equality because $\langle p,w\rangle-\langle p,z\rangle=\langle
+p,w-z\rangle$ by additivity of the inner product in its second argument.
+Hypothesis (3) applied to the same $w$ gives
+\[
+  \langle s,w-z\rangle\le\psi(w)-\psi(z)
+   =\bigl(\phi(w)-\phi(z)\bigr)
+     +\frac{\lambda|w|^2}{2}-\frac{\lambda|z|^2}{2}.
+\]
+Expanding $|w|^2=|(w-z)+z|^2=|w-z|^2+2\langle w-z,z\rangle+|z|^2$ and using the
+symmetry of the real inner product,
+\begin{equation}\label{eq:mmps-quad}
+  \frac{\lambda|w|^2}{2}-\frac{\lambda|z|^2}{2}
+   =\lambda\langle z,w-z\rangle+\frac{\lambda|w-z|^2}{2}.
+\end{equation}
+Combining the three displays,
+\[
+  \langle s,w-z\rangle
+   \le-\langle p,w-z\rangle+\lambda\langle z,w-z\rangle
+     +\frac{\lambda|w-z|^2}{2},
+\]
+and since $\langle d,w-z\rangle=\langle s,w-z\rangle+\langle p,w-z\rangle
+-\lambda\langle z,w-z\rangle$ by linearity of the inner product in its first
+argument, this is exactly
+\begin{equation}\label{eq:mmps-key}
+  \langle d,w-z\rangle\le\frac{\lambda|w-z|^2}{2}
+  \qquad\bigl(w\in B(z,\eta)\bigr).
+\end{equation}
+
+\emph{Step 2: the test point.}
+Suppose, for contradiction, that $d\ne0$, so that $|d|>0$. Put
+\[
+  t=\min\Bigl\{\frac{\eta}{2|d|},\ \frac{1}{|\lambda|+1}\Bigr\}>0,
+\]
+both entries being strictly positive, and set $w=z+td$. Then
+$|w-z|=t|d|\le\eta/2<\eta$, so $w\in B(z,\eta)$ and \eqref{eq:mmps-key} applies
+to it. Since $\langle d,td\rangle=t|d|^2$ and $|w-z|^2=t^2|d|^2$, it reads
+\[
+  t|d|^2\le\frac{\lambda t^2|d|^2}{2}
+   =\frac{\lambda t}{2}\cdot t|d|^2 .
+\]
+The number $t|d|^2$ is strictly positive, so dividing by it gives
+$1\le\lambda t/2$. On the other hand $\lambda\le|\lambda|$ and $t>0$ give
+$\lambda t/2\le|\lambda|t/2$, while $t\le1/(|\lambda|+1)$ and $|\lambda|\ge0$
+give
+\[
+  \frac{|\lambda|t}{2}\le\frac{|\lambda|}{2(|\lambda|+1)}<1 ,
+\]
+because $|\lambda|<2(|\lambda|+1)$. Hence $1\le\lambda t/2<1$, a contradiction.
+
+Therefore $d=0$, i.e. $s=\lambda z-p$.
+\end{proof}

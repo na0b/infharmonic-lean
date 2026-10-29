@@ -1,0 +1,134 @@
+\begin{lemma}[Step 3a: pathwise bounds along a stopped contact walk]
+Let $F$ be a finite-dimensional real inner-product space and write
+$\mathcal H=\ell^2(F\times\R)$. Let $C_0,\kappa\in\R$ with $1\le C_0$, let
+$v:\mathcal H\to\R$, and assume the standing properties of the contact pair:
+$v\in\Aclass_{m,C_0}$ in the sense of \noderef{IsFitClass}, $v$ is centered at
+$(0,1)$ with constant $C_0$ in the sense of \noderef{IsCenteredAt}, $v$ has the
+horizontal Jensen bound with constant $\kappa$ at every time in the sense of
+\noderef{HasJensenBound}, the contact envelope $W=\mathcal W[v,\kappa]$ of
+\noderef{ContactEnv} is continuous on $\{t>0\}$ and has subquadratic spatial
+growth there in the sense of \noderef{SubquadraticGrowth}, and the sandwich
+\[
+  v(z)-\frac{\kappa^2t}{2}\le W(z)\le v(z)\qquad(z=(x,t),\ t>0)
+\]
+holds. Let $C_2\in\R$ with $C_2>0$ satisfy the logarithmic velocity bound of
+\noderef{DPLogVelocity} at the constants $(C_0,\kappa)$: for every
+$u\in\Aclass_{m,C_0}$ centered at $(0,1)$ with the Jensen bound at $\kappa$,
+every $K\ge2$, every $x\in F$ and $t,\epsilon\in\R$ with $|x|\le K$,
+$|t|\le K$, $0<\epsilon\le1$ and $\epsilon<t$, and every $Q_0\in F$ which is
+the gradient at $x$ of $x'\mapsto\Penv_\epsilon(\mathcal W[u,\kappa])(x',t)$,
+\[
+  |Q_0|\le C_2\bigl((1+\log K)+|\log t|\bigr).
+\]
+Let $R\in\R$ with $10\le R$, let $\epsilon\in\R$ with $0<\epsilon\le\tfrac18$,
+and let $q\in\N$ with $\epsilon\,q=8$.
+
+Let $\Omega$ be a set --- no measurable structure is assumed --- and let
+$\xi:\N\times\Omega\to\R$, $z,z^+,z^-:\N\times\Omega\to\mathcal H$,
+$Q_0:\N\times\Omega\to F$, $\tau:\Omega\to\N$ and $S:\N\times\Omega\to\Z$.
+Write $z_n=(x_n,t_n)$, $z^\pm_n=(x^\pm_n,\cdot)$. Assume:
+\begin{enumerate}
+\item\label{it:wpb-rec} the walk recursion: $z_{n+1}=z^+_n$ if $n<\tau$ and
+$\xi_n=1$, $z_{n+1}=z^-_n$ if $n<\tau$ and $\xi_n\ne1$, and $z_{n+1}=z_n$ if
+$n\ge\tau$;
+\item\label{it:wpb-pair} for $n<\tau$ the triple $(z_n,z^+_n,z^-_n)$ is a step
+pair for $(v,\kappa,\epsilon)$ in the sense of \noderef{IsStepPair};
+\item\label{it:wpb-grad} $Q_0(n)$ is the gradient at $x_n$ of
+$x'\mapsto\Penv_\epsilon W(x',t_n)$;
+\item\label{it:wpb-xbnd} $|x_n|\le R+1$ whenever $n\le\tau$;
+\item\label{it:wpb-lat} $t_n=\epsilon\,S_n$ for every $n$ and every $\omega$;
+\item\label{it:wpb-range} $4\le S_n\le q$ for every $n$ and every $\omega$.
+\end{enumerate}
+Then there are constants $\Lambda_Q,\Lambda_E\in\R$ with $\Lambda_E\ge0$ such
+that, for every $n\in\N$ and every $\omega\in\Omega$,
+\begin{align}
+  |x_n|&\le R+1, \label{eq:wpb-x}\\
+  4\epsilon\le t_n&\le 8, \label{eq:wpb-t}\\
+  \bigl|\log t_n\bigr|&\le\bigl|\log(4\epsilon)\bigr|+\log 8,
+    \label{eq:wpb-logt}\\
+  |Q_0(n)|&\le\Lambda_Q, \label{eq:wpb-Q}
+\end{align}
+and, for every $n$ and $\omega$ with $n<\tau(\omega)$,
+\begin{equation}\label{eq:wpb-E}
+  \bigl|\epsilon^{-1}(x^+_n-x_n)-Q_0(n)\bigr|^2
+    +\bigl|\epsilon^{-1}(x_n-x^-_n)-Q_0(n)\bigr|^2\le\Lambda_E .
+\end{equation}
+\end{lemma}
+\begin{proof}
+\emph{The walk is frozen after $\tau$.} We first show
+\begin{equation}\label{eq:wpb-froz}
+  z_n=z_{\tau}\qquad(\tau\le n),
+\end{equation}
+by induction on $n$. If $n=0$ then $\tau\le0$ forces $\tau=0$ and the claim is
+trivial. For the step, suppose $\tau\le n+1$. If $\tau=n+1$ the claim is again
+trivial. Otherwise $\tau\le n$, so the inductive hypothesis gives
+$z_n=z_\tau$, and $n\ge\tau$ means $\neg(n<\tau)$, so the third case of
+\ref{it:wpb-rec} gives $z_{n+1}=z_n=z_\tau$.
+
+\emph{Proof of \eqref{eq:wpb-x}.} For $n\le\tau$ this is \ref{it:wpb-xbnd}. For
+$n>\tau$, \eqref{eq:wpb-froz} gives $z_n=z_\tau$, so $x_n=x_\tau$ and
+\ref{it:wpb-xbnd} at the index $\tau$ (which satisfies $\tau\le\tau$) applies.
+
+\emph{Proof of \eqref{eq:wpb-t}.} By \ref{it:wpb-lat}, $t_n=\epsilon S_n$, and
+by \ref{it:wpb-range}, $4\le S_n\le q$. Since $\epsilon>0$, multiplying through
+by $\epsilon$ gives $4\epsilon\le\epsilon S_n\le\epsilon q$, and
+$\epsilon q=8$ by hypothesis. This is \eqref{eq:wpb-t}.
+
+\emph{Proof of \eqref{eq:wpb-logt}.} Fix $n,\omega$ and put $t=t_n$. By
+\eqref{eq:wpb-t} we have $0<4\epsilon\le t\le8$, the left inequality strict
+because $\epsilon>0$. The logarithm is monotone on $(0,\infty)$, so
+$\log(4\epsilon)\le\log t\le\log 8$. Both bounds are dominated in absolute
+value by the right side of \eqref{eq:wpb-logt}: if $\log t\ge0$ then
+$|\log t|=\log t\le\log 8\le|\log(4\epsilon)|+\log 8$, since
+$|\log(4\epsilon)|\ge0$; and if $\log t<0$ then
+$|\log t|=-\log t\le-\log(4\epsilon)\le|\log(4\epsilon)|
+\le|\log(4\epsilon)|+\log 8$, since $\log 8\ge0$.
+
+\emph{Proof of \eqref{eq:wpb-Q}.} Put
+\[
+  \Lambda_Q=C_2\Bigl((1+\log(R+10))+\bigl(|\log(4\epsilon)|+\log 8\bigr)\Bigr).
+\]
+Fix $n,\omega$ and apply the bound assumed of $C_2$ to $u=v$ at the box size
+$K=R+10$. Its hypotheses hold: $K\ge2$ because $R\ge10$; $|x_n|\le R+1\le R+10$
+by \eqref{eq:wpb-x}; $|t_n|\le8\le R+10$ by \eqref{eq:wpb-t} and $R\ge10$, the
+absolute value being $t_n$ itself since $t_n\ge4\epsilon>0$;
+$0<\epsilon\le\tfrac18\le1$; $\epsilon<t_n$ because $t_n\ge4\epsilon>\epsilon$;
+and $Q_0(n)$ is the required gradient by \ref{it:wpb-grad}. The conclusion is
+$|Q_0(n)|\le C_2\bigl((1+\log(R+10))+|\log t_n|\bigr)$, and
+\eqref{eq:wpb-logt} together with $C_2>0$ bounds the right side by
+$\Lambda_Q$. Note that $\Lambda_Q$ depends only on $C_2$, $R$ and $\epsilon$,
+not on $n$ or $\omega$.
+
+\emph{The per-step displacement bound.} The two envelope competitor bounds of
+\noderef{EnvelopeCompetitorBounds}, applied to $v$ on $\R$ and to $W$ on
+$(0,\infty)$ --- legitimate because $v$ is continuous with subquadratic growth
+by the standing properties, and $W$ is continuous on $\{t>0\}$ with
+subquadratic growth there by hypothesis --- supply, together with the growth
+bound for $v$ on a compact slab and the sandwich, a constant $B_Y\ge0$,
+depending only on the standing data and on $\epsilon$, with the following
+property: whenever $n<\tau$ and $Y^\pm$ are the step displacements of
+\ref{it:wpb-pair}, their norms obey $|Y^\pm|^2\le B_Y$. Combining this with
+\ref{it:wpb-pair}, which expresses $x^+_n-x_n$ and $x_n-x^-_n$ in terms of
+$Y^\pm$ at the scale $2\epsilon$, gives for $n<\tau$
+\begin{equation}\label{eq:wpb-step}
+  \bigl|\epsilon^{-1}(x^+_n-x_n)-Q_0(n)\bigr|
+    \le\frac{\sqrt{B_Y}}{2\epsilon}+\Lambda_Q,
+  \qquad
+  \bigl|\epsilon^{-1}(x_n-x^-_n)-Q_0(n)\bigr|
+    \le\frac{\sqrt{B_Y}}{2\epsilon}+\Lambda_Q ,
+\end{equation}
+the term $\Lambda_Q$ entering through \eqref{eq:wpb-Q} and the triangle
+inequality.
+
+\emph{Proof of \eqref{eq:wpb-E}.} Put
+\[
+  \Lambda_E=2\Bigl(\frac{\sqrt{B_Y}}{2\epsilon}+\Lambda_Q\Bigr)^2 ,
+\]
+which is nonnegative, being twice a square. Fix $n<\tau$ and write $a,b$ for
+the two norms in \eqref{eq:wpb-E}. Both are nonnegative and both are at most
+$\sqrt{B_Y}/(2\epsilon)+\Lambda_Q$ by \eqref{eq:wpb-step}; squaring the
+inequality between nonnegative reals gives
+$a^2,b^2\le(\sqrt{B_Y}/(2\epsilon)+\Lambda_Q)^2$, and adding the two yields
+$a^2+b^2\le\Lambda_E$. This is \eqref{eq:wpb-E}, and $\Lambda_E$ depends only
+on $B_Y$, $\epsilon$ and $\Lambda_Q$, hence not on $n$ or $\omega$.
+\end{proof}

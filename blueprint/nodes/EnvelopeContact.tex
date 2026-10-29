@@ -1,0 +1,511 @@
+\begin{theorem}[Extremal envelope contact]
+Let $F$ be a finite-dimensional real inner-product space, write $m$ for its
+dimension and let $1\le C_0<\infty$. Suppose that $\Aclass_{m,C_0}$, in the
+sense of \noderef{IsFitClass}, contains a member $v^{(0)}$ that is not affine on
+space-time in the sense of \noderef{IsSpaceTimeAffine}. Then there are
+$\kappa\in(0,\infty)$, a real number $H$ and a function $v\in\Aclass_{m,C_0}$
+centered at $z_*=(0,1)$ with constant $C_0$ in the sense of
+\noderef{IsCenteredAt}, such that $v$ satisfies the horizontal Jensen bound with
+constant $\kappa$ at every time, in the sense of \noderef{HasJensenBound} with
+$I=\R$, and such that the contact envelope
+\[
+  W(x,t)=\Cenv_tv(x,t)-\frac{\kappa^2t}{2}\qquad(t>0)
+\]
+of \noderef{ContactEnv}, formed from the barycentric envelope of
+\noderef{BaryEnv}, has the following properties.
+\begin{enumerate}
+\item $W$ is continuous on $\{(x,t):t>0\}$ and has subquadratic spatial growth
+on compact subintervals of $(0,\infty)$, in the sense of
+\noderef{SubquadraticGrowth}.
+\item $W$ is a viscosity subsolution of the limiting equation on
+$\{(x,t):t>0\}$, in the sense of \noderef{IsLimitSubOn}.
+\item For every $t>0$,
+\[
+  v(x,t)-\frac{\kappa^2t}{2}\le W(x,t)\le v(x,t),
+\]
+and $W(z_*)=v(z_*)=0$.
+\item For every $t>0$ the function $x\mapsto W(x,t)-|x|^2/(2t)$ is concave on
+$F$.
+\item At every contact with $t>0$ the barycentric gap is exactly
+$\kappa^2t/2$: if $W(x,t)=v(x,t)$ and $t>0$ then
+\[
+  \frac{\Cenv_tv(x,t)-v(x,t)}{t}=\frac{\kappa^2}{2}.
+\]
+\item The envelope Hamiltonian of \noderef{EnvHamiltonian} is finite at $z_*$,
+with value $H_v(z_*)=H$, and the forward envelope slopes of
+\noderef{EnvSlopeP} satisfy
+\[
+  \lim_{\ell\downarrow0}\Senv_\ell^+W(z_*)=H .
+\]
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Throughout, $z_*=(0,1)$, a \emph{configuration} means a finite horizontal
+probability configuration in the sense of \noderef{IsBaryConfig}, and its
+\emph{radius} is the root mean square radius of \noderef{BaryRadius}. For a
+function $g$ in $\Aclass_{m,C_0}$ we use freely that $g$ is continuous on all of
+space-time and is a viscosity solution of the limiting equation
+$F[g]=D^2g[(\nabla_xg,1)]=0$ there, by \noderef{IsFitClass} and
+\noderef{IsLimitSolutionOn}. By \noderef{UniformSubquadratic}, applied with
+$z_c=(0,0)$ and with $z_c=(0,1)$, every member of $\Aclass_{m,C_0}$ centered at
+one of those two points has subquadratic spatial growth on compact time
+intervals uniformly over the class; in particular each such member satisfies
+\noderef{SubquadraticGrowth} with $I=\R$, hence also with $I=(0,\infty)$, since
+decreasing $I$ only decreases the family of compact subintervals tested.
+
+\emph{The envelope bound pairs.} Whenever a real function $f$ on space-time is
+continuous on $\Omega_I=\{(x,t):t\in I\}$ and has subquadratic spatial growth on
+compact subintervals of $I$ in the sense of \noderef{SubquadraticGrowth}, we
+apply \noderef{EnvelopeCompetitorBounds} to $f$ with that $I$. Its three
+conjuncts are exactly the three facts used below, and we name them in that
+order. For $s>0$ and $z=(x,t)$ with $t\in I$ write
+\[
+  V(f,s,z)=\Bigl\{\sum_i\theta_if(y_i,t)-\frac{\rho^2}{2s}:
+     (\theta_i,y_i)\text{ a configuration with mean }x\text{ and radius }
+     \rho\Bigr\}
+\]
+for the set of barycentric competitor values at $z$, the configurations being
+those of \noderef{IsBaryConfig} and the radius that of \noderef{BaryRadius}.
+\begin{enumerate}
+\item[(B1)] The third conjunct of \noderef{EnvelopeCompetitorBounds}: every
+element of $V(f,s,z)$ is at most $\Cenv_sf(z)$, and $\Cenv_sf(z)$ is at most
+every real number that dominates every element of $V(f,s,z)$.
+\item[(B2)] Its first conjunct: for $\ell>0$ with $t\in I$ and $t+\ell\in I$,
+every $f(y,t+\ell)-|y-x|^2/(2\ell)$ with $y\in F$ is at most $\Penv_\ell f(z)$,
+and $\Penv_\ell f(z)$ is at most every real number dominating all of them.
+\item[(B3)] Its second conjunct: for $\ell>0$ with $t\in I$ and $t-\ell\in I$,
+$\Menv_\ell f(z)$ is at most every $f(y,t-\ell)+|y-x|^2/(2\ell)$ with $y\in F$,
+and every real number below all of them is at most $\Menv_\ell f(z)$.
+\end{enumerate}
+Two remarks on how these are used. First, the domination half of each pair
+exhibits the envelope as an upper bound of its competitor set in (B1) and (B2)
+and as a lower bound in (B3); so each of those sets is bounded on the relevant
+side by a real number. Nonemptiness is a separate and immediate matter: the
+one-point configuration $N=1$, $\theta_1=1$, $y_1=x$ has mean $x$ and radius
+$0$ and is admissible by \noderef{IsBaryConfig}, so $f(z)\in V(f,s,z)$, and the
+choice $y=x$ is always available in (B2) and (B3). Second, no separate
+finiteness assertion is needed anywhere below: $\Cenv_s$, $\Penv_\ell$ and
+$\Menv_\ell$ are real-valued by \noderef{BaryEnv}, \noderef{QuadEnvP} and
+\noderef{QuadEnvM} together with the preamble's convention for the supremum or
+infimum of an empty or unbounded set, and what that convention withholds --
+namely that the value is the genuine least upper bound, respectively greatest
+lower bound, of its competitor set rather than the conventional substitute --
+is exactly what the two halves of each pair supply.
+\emph{Changes of frame act on configurations.} Let $g$ be a real function on
+space-time, let $z_0=(x_0,t_0)$, $R>0$, $p_0\in F$, $a_0\in\R$, and let $\bar g$
+be the change of frame of \noderef{FrameChange} based at $z_0$ with scale $R$
+and parameters $(p_0,a_0)$,
+\[
+  \bar g(y,s)=\frac{g\bigl(x_0+R(y+p_0s),\,t_0+Rs\bigr)-g(z_0)}{R}
+     -p_0\cdot y-\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)s .
+\]
+Fix $s\in\R$ and put $T_s(y)=x_0+R(y+p_0s)$ and $t=t_0+Rs$, so that
+$\bar g(y,s)=[g(T_s(y),t)-g(z_0)]/R-p_0\cdot y-(a_0+|p_0|^2/2)s$. We write
+(F0) for \noderef{FrameConfigCovariance} applied to these data. Its parts (i),
+(ii) and (iii) say that $T_s$ carries a family of weights and positions with
+mean $\bar y$ onto one with mean $T_s(\bar y)$ and back, in the sense of
+\noderef{IsBaryConfig}, keeping the weights, multiplying the radius of
+\noderef{BaryRadius} by $R$, and hitting every point of $F$; and its part (iv)
+says that for every configuration $(\theta_i,y_i)$ with mean $\bar y$,
+\[
+  \sum_i\theta_i\bar g(y_i,s)-\bar g(\bar y,s)
+    =\frac1R\Bigl(\sum_i\theta_ig(T_s(y_i),t)-g(T_s(\bar y),t)\Bigr).
+\]
+
+Three consequences will be used.
+\begin{enumerate}
+\item[(F1)] If $g$ satisfies the Jensen bound with constant $\kappa\ge0$ at
+every time (\noderef{HasJensenBound} with $I=\R$), then so does $\bar g$: by
+(F0)(iv), together with the radius identity (F0)(ii), for a configuration with
+mean $y$ and radius $\rho$,
+\[
+  \sum_i\theta_i\bar g(y_i,s)-\bar g(y,s)
+   =\frac1R\Bigl(\sum_i\theta_ig(T_sy_i,t)-g(T_sy,t)\Bigr)
+   \le\frac{\kappa\,R\rho}{R}=\kappa\rho .
+\]
+\item[(F2)] Suppose that $g$ and $\bar g$ are continuous on space-time with
+subquadratic spatial growth on compact time intervals. Then for every $\sigma>0$
+and every $(y,s)$, with $Z=(T_s(y),t)$,
+\[
+  \Cenv_\sigma\bar g(y,s)-\bar g(y,s)
+    =\frac{\Cenv_{R\sigma}g(Z)-g(Z)}{R}.
+\]
+Indeed, by (F0)(iv), the element of $V(\bar g,\sigma,(y,s))$ attached to a
+configuration with mean $y$ and radius $\rho$, minus $\bar g(y,s)$, equals
+\[
+  \frac1R\Bigl(\sum_i\theta_ig(T_sy_i,t)-g(Z)\Bigr)-\frac{\rho^2}{2\sigma}
+   =\frac1R\Bigl(\sum_i\theta_ig(T_sy_i,t)-g(Z)
+       -\frac{(R\rho)^2}{2R\sigma}\Bigr),
+\]
+because $(R\rho)^2/(2R^2\sigma)=\rho^2/(2\sigma)$; and by (F0)(i),(ii),(iii) the
+map
+$(\theta_\bullet,y_\bullet)\mapsto(\theta_\bullet,T_sy_\bullet)$ is a bijection
+of the configurations occurring in $V(\bar g,\sigma,(y,s))$ onto those occurring
+in $V(g,R\sigma,Z)$, carrying radius $\rho$ to $R\rho$. Thus
+$V(\bar g,\sigma,(y,s))-\bar g(y,s)$ is the image of
+$V(g,R\sigma,Z)-g(Z)$ under multiplication by the positive number $1/R$. Both
+sets are nonempty, as noted above, and the domination half of (B1) exhibits
+each of $\Cenv_\sigma\bar g(y,s)$ and $\Cenv_{R\sigma}g(Z)$ as an upper bound of
+its own set while the extremality half makes it the least such bound; a positive
+dilation of the reals carries the least upper bound of a nonempty set bounded
+above to the least upper bound of the dilated set, so the two suprema correspond
+in the same way, which is (F2).
+
+Both applications of (B1) are legitimate: the hypotheses of
+\noderef{EnvelopeCompetitorBounds} hold for $g$ with the ambient $I$ and for
+$\bar g$ with the corresponding one, by the continuity and growth assumptions in
+force wherever (F2) is invoked.
+\item[(F3)] If $\bar g$ is affine on space-time in the sense of
+\noderef{IsSpaceTimeAffine} then so is $g$. Indeed the definition of $\bar g$
+rearranges to
+\[
+  g\bigl(x_0+R(y+p_0s),t_0+Rs\bigr)
+   =g(z_0)+R\Bigl[\bar g(y,s)+p_0\cdot y
+        +\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)s\Bigr],
+\]
+whose right side is an affine function of $(y,s)$ when $\bar g$ is, while
+$(y,s)\mapsto(x_0+R(y+p_0s),t_0+Rs)$ is an affine bijection of space-time, with
+inverse $(x,t)\mapsto\bigl((x-x_0)/R-p_0(t-t_0)/R,\ (t-t_0)/R\bigr)$. Composing
+with that inverse exhibits $g$ as an affine function.
+\end{enumerate}
+
+\emph{Claim T: translation in time.}
+Let $c\in\R$, let $g$ be a real function on space-time and put
+$g_c(x,t)=g(x,t-c)$. Then:
+\begin{enumerate}
+\item[(i)] $g_c$ is continuous iff $g$ is, and $g_c$ is a viscosity solution of
+the limiting equation on all of space-time iff $g$ is
+(\noderef{IsLimitSolutionOn});
+\item[(ii)] $(p,a)$ is a fit for $g_c$ at $(x,t)$ of radius $\rho$ with constant
+$C_0$ iff it is a fit for $g$ at $(x,t-c)$ of radius $\rho$ with constant $C_0$
+(\noderef{IsFit});
+\item[(iii)] $g_c$ satisfies the Jensen bound with constant $\kappa$ at every
+time iff $g$ does (\noderef{HasJensenBound} with $I=\R$);
+\item[(iv)] $\Cenv_sg_c(x,t)=\Cenv_sg(x,t-c)$ for every $s>0$ and $(x,t)$;
+\item[(v)] consequently $g_c\in\Aclass_{m,C_0}$ iff $g\in\Aclass_{m,C_0}$, and
+$g_c$ is centered at $(x,t)$ iff $g$ is centered at $(x,t-c)$.
+\end{enumerate}
+\emph{Proof.} (ii) holds because \noderef{IsFit} involves only the base point
+and increments $(h,\ell)$ from it, and the base point of $g_c$ at $(x,t)$ is the
+base point of $g$ at $(x,t-c)$, with identical increments. (iii) and (iv) hold
+because \noderef{HasJensenBound} and \noderef{BaryEnv} involve, for each
+assertion, only one horizontal slice, and the slice of $g_c$ at time $t$ is the
+slice of $g$ at time $t-c$; in (iii) the time quantifier ranges over all of $\R$
+in both cases. For (i), write $\tau(x,t)=(x,t-c)$, so $g_c=g\circ\tau$ and
+$\tau$ is a bijective isometry of space-time whose inverse is the translation
+$(x,t)\mapsto(x,t+c)$; continuity is clear. If $\phi$ is twice continuously
+differentiable at $\hat z$ and $g_c-\phi$ has a local maximum at $\hat z$, then
+$g-\phi\circ\tau^{-1}$ has a local maximum at $\tau(\hat z)$ and
+$\phi\circ\tau^{-1}$ is twice continuously differentiable at $\tau(\hat z)$,
+with the same gradient and second derivative as $\phi$ at $\hat z$, because
+$\tau^{-1}$ is a translation. Hence $F[\phi\circ\tau^{-1}](\tau\hat z)
+=F[\phi](\hat z)$ by \noderef{LimitOp}, and the subsolution inequality of
+\noderef{IsLimitSubOn} transfers; minima and \noderef{IsLimitSuperOn} are
+identical, and the converse direction follows by replacing $c$ with $-c$. Part
+(v) combines (i), (ii) with the definition of \noderef{IsFitClass} and
+\noderef{IsCenteredAt}. This proves Claim T.
+
+\emph{Step 1: a centered nonaffine member and the extremal constant.}
+By \noderef{IsFitClass} choose a fit $(p_0,a_0)$ for $v^{(0)}$ at the origin of
+radius $1$, and let $w$ be the change of frame of \noderef{FrameChange} of
+$v^{(0)}$ based at $z_0=0$ with scale $R=1$ and parameters $(p_0,a_0)$. By the
+first clause of \noderef{FrameInvariance}, $w\in\Aclass_{m,C_0}$. Its second
+clause, with $\zeta=0$ and $\rho=1$, has as hypothesis exactly a fit for
+$v^{(0)}$ at the origin of radius $1\cdot1$, namely $(p_0,a_0)$, and yields that
+$(p_0-p_0,a_0-a_0)=(0,0)$ is a fit for $w$ at the origin of radius $1$; and
+$w(0)=0$ directly from \noderef{FrameChange}. So $w$ is centered at the origin
+with constant $C_0$ in the sense of \noderef{IsCenteredAt}. Moreover $w$ is not
+affine: otherwise $v^{(0)}$ would be affine by (F3).
+
+Now \noderef{JensenSupremumFinite}, applied to $C_0$ and $w$, supplies a
+function $\check v\in\Aclass_{m,C_0}$, centered at the origin and not affine,
+together with a constant $\kappa$ such that
+\begin{equation}\label{eq:ec-kappa}
+  0<\kappa<\infty,\qquad
+  \check v\text{ satisfies the Jensen bound with constant }\kappa
+  \text{ at every time},
+\end{equation}
+and such that $\kappa\le\kappa'$ for every $\kappa'$ with which $\check v$
+satisfies that bound. This $\kappa$ is the extremal constant of the proposition.
+
+\emph{Step 2: near-attaining configurations.}
+For every $\varepsilon>0$ there are a time $t$ and a configuration
+$(\theta_i,y_i)$ with mean $x$ and radius $\rho>0$ such that
+\[
+  \sum_i\theta_i\check v(y_i,t)-\check v(x,t)>(\kappa-\varepsilon)\rho .
+\]
+Otherwise $\check v$ would satisfy the Jensen bound with the constant
+$\kappa-\varepsilon$: for configurations of positive radius this is the failure
+of the displayed inequality, and for a configuration of radius $0$ all $y_i$
+equal $x$, because $\sum_i\theta_i|y_i-x|^2=0$ with every $\theta_i>0$, so the
+left side vanishes and the required inequality reads $0\le0$. The minimality in
+Step 1, applied to the admissible constant $\kappa'=\kappa-\varepsilon$, would
+then give $\kappa\le\kappa-\varepsilon$, which is false for $\varepsilon>0$.
+Choose accordingly, for each integer $j\ge0$, a time $t_j$ and a configuration
+$(\theta_{j,i},y_{j,i})_{i\le N_j}$ with mean $x_j$ and radius $\rho_j>0$ such
+that
+\begin{equation}\label{eq:ec-near}
+  D_j:=\sum_i\theta_{j,i}\check v(y_{j,i},t_j)-\check v(x_j,t_j)
+     >\Bigl(\kappa-\frac1{j+1}\Bigr)\rho_j .
+\end{equation}
+
+\emph{Step 3: normalizing each configuration.}
+Fix $j$. By \noderef{IsFitClass} choose a fit $(p_j,a_j)$ for $\check v$ at
+$(x_j,t_j)$ of radius $\rho_j>0$, and let $v_j$ be the change of frame
+\noderef{FrameChange} of $\check v$ based at $z_j=(x_j,t_j)$ with scale
+$R=\rho_j$ and parameters $(p_j,a_j)$. As in Step 1,
+\noderef{FrameInvariance} gives $v_j\in\Aclass_{m,C_0}$ and, with $\zeta=0$ and
+$\rho=1$, that $(0,0)$ is a fit for $v_j$ at the origin of radius $1$, while
+$v_j(0)=0$; so $v_j$ is centered at the origin. By (F1) and
+\eqref{eq:ec-kappa}, $v_j$ satisfies the Jensen bound with the same constant
+$\kappa$ at every time.
+
+Put $\hat y_{j,i}=(y_{j,i}-x_j)/\rho_j$. In (F0) for this frame change, take
+$s=0$; then $T_0(y)=x_j+\rho_jy$ and $t=t_j$, so $T_0(\hat y_{j,i})=y_{j,i}$ and
+$T_0(0)=x_j$. By (F0)(i),(ii), $(\theta_{j,i},\hat y_{j,i})$ is a configuration
+with mean $0$ and radius $1$, since its image under $T_0$ has mean $x_j$ and
+radius $\rho_j=\rho_j\cdot1$. By (F0)(iv) and $v_j(0,0)=0$,
+\[
+  \sum_i\theta_{j,i}v_j(\hat y_{j,i},0)
+    =\sum_i\theta_{j,i}v_j(\hat y_{j,i},0)-v_j(0,0)
+    =\frac{D_j}{\rho_j}>\kappa-\frac1{j+1},
+\]
+while the Jensen bound for $v_j$ at time $0$ with this configuration gives
+$\sum_i\theta_{j,i}v_j(\hat y_{j,i},0)\le\kappa\cdot1$. Hence
+\begin{equation}\label{eq:ec-tendsto}
+  \sum_i\theta_{j,i}v_j(\hat y_{j,i},0)\longrightarrow\kappa
+  \qquad(j\to\infty).
+\end{equation}
+
+\emph{Step 4: compactness and the attainment of the sandwich.}
+By \noderef{ClassCompactness}, applied with $z_c=(0,0)$ to the sequence
+$(v_j)$, there are a strictly increasing $\iota$ and a function
+$\hat v\in\Aclass_{m,C_0}$, centered at the origin, with $v_{\iota(j)}\to\hat v$
+uniformly on every compact set. For each fixed time and each fixed configuration
+the Jensen inequality for $v_{\iota(j)}$ passes to the limit of the finitely
+many values involved, so $\hat v$ satisfies the Jensen bound with constant
+$\kappa$ at every time (\noderef{HasJensenBound} with $I=\R$).
+
+\emph{Claim 4a.} $\displaystyle
+  \sum_i\theta_{\iota(j),i}\hat v(\hat y_{\iota(j),i},0)\to\kappa$.
+\emph{Proof.} Let $\delta>0$ and put $\varepsilon=\delta/8$. By
+\noderef{UniformSubquadratic} with $z_c=(0,0)$, the compact time set $J=\{0\}$
+and this $\varepsilon$, there is $M>0$ such that $|g(y,0)|\le\varepsilon|y|^2$
+whenever $|y|\ge M$, for every $g\in\Aclass_{m,C_0}$ centered at the origin;
+this applies to every $v_j$ and to $\hat v$. Splitting the weighted sum over the
+indices with $|\hat y_{j,i}|<M$ and those with $|\hat y_{j,i}|\ge M$, and using
+$\sum_i\theta_{j,i}|\hat y_{j,i}|^2=1$ (the configuration has mean $0$ and
+radius $1$),
+\[
+  \Bigl|\sum_i\theta_{j,i}\bigl(\hat v-v_j\bigr)(\hat y_{j,i},0)\Bigr|
+   \le\sup_{|y|\le M}\bigl|\hat v(y,0)-v_j(y,0)\bigr|
+      +2\varepsilon\sum_i\theta_{j,i}|\hat y_{j,i}|^2
+   \le\sup_{|y|\le M}\bigl|\hat v(y,0)-v_j(y,0)\bigr|+2\varepsilon .
+\]
+The set $\{(y,0):|y|\le M\}$ is compact, so the first term tends to $0$ along
+$\iota$, and for large $j$ the right side is at most
+$\delta/2+\delta/4<\delta$. Together with \eqref{eq:ec-tendsto} this proves
+Claim 4a.
+
+Put $R=1/\kappa>0$. The configuration
+$(\theta_{\iota(j),i},\hat y_{\iota(j),i})$ has mean $0$ and radius $1$, so it
+occurs in the set $V(\hat v,R,(0,0))$, and the domination half of (B1) applies
+to it, the hypotheses of \noderef{EnvelopeCompetitorBounds} holding for
+$\hat v$ with $I=\R$ by the opening paragraph. Hence
+\[
+  \Cenv_R\hat v(0,0)\ \ge\
+    \sum_i\theta_{\iota(j),i}\hat v(\hat y_{\iota(j),i},0)-\frac{1}{2R},
+\]
+and letting $j\to\infty$, using Claim 4a, $\hat v(0,0)=0$ and
+$1/(2R)=\kappa/2$,
+\[
+  \Cenv_R\hat v(0,0)-\hat v(0,0)\ \ge\ \kappa-\frac\kappa2=\frac\kappa2 .
+\]
+In the opposite direction \noderef{BaryEnvSandwich}, applied with $I=\R$,
+$f=\hat v$ and the constant $\kappa$, gives
+$\Cenv_R\hat v(0,0)-\hat v(0,0)\le\kappa^2R/2=\kappa/2$. Therefore
+\begin{equation}\label{eq:ec-attain}
+  \Cenv_{1/\kappa}\hat v(0,0)-\hat v(0,0)=\frac\kappa2 .
+\end{equation}
+
+\emph{Step 5: the final frame and the normalized contact.}
+By \noderef{IsFitClass} choose a fit $(p_*,a_*)$ for $\hat v$ at the origin of
+radius $R=1/\kappa$, let $g$ be the change of frame \noderef{FrameChange} of
+$\hat v$ based at $z_0=0$ with scale $R$ and parameters $(p_*,a_*)$, and define
+\[
+  v(y,t)=g(y,t-1)
+   =\frac{\hat v\bigl(R(y+p_*(t-1)),R(t-1)\bigr)-\hat v(0,0)}{R}
+     -p_*\cdot y-\Bigl(a_*+\frac{|p_*|^2}{2}\Bigr)(t-1),
+\]
+the single change of frame and time translation of the proposition. By
+\noderef{FrameInvariance}, $g\in\Aclass_{m,C_0}$, and its second clause with
+$\zeta=0$, $\rho=1$ --- whose hypothesis is the chosen fit for $\hat v$ at the
+origin of radius $R\cdot1$ --- shows that $(0,0)$ is a fit for $g$ at the origin
+of radius $1$, while $g(0)=0$; so $g$ is centered at the origin. By (F1), $g$
+satisfies the Jensen bound with constant $\kappa$ at every time. By Claim T with
+$c=1$ it follows that
+\begin{equation}\label{eq:ec-final}
+  v\in\Aclass_{m,C_0},\quad v\text{ is centered at }z_*=(0,1),\quad
+  v\text{ satisfies the Jensen bound with constant }\kappa
+  \text{ at every time},
+\end{equation}
+and in particular $v(z_*)=0$ by \noderef{IsCenteredAt}.
+
+Both $g$ and $\hat v$ are continuous with subquadratic spatial growth on compact
+time intervals, by the opening paragraph applied to the centered members $g$ and
+$\hat v$ of the class. So (F2) applies with $\sigma=1$ and $(y,s)=(0,0)$, for
+which $T_0(0)=0$ and $t=0$, that is $Z=(0,0)$:
+\[
+  \Cenv_1g(0,0)-g(0,0)=\frac{\Cenv_R\hat v(0,0)-\hat v(0,0)}{R}
+    =\kappa\cdot\frac{\kappa}{2}=\frac{\kappa^2}{2},
+\]
+using \eqref{eq:ec-attain} and $1/R=\kappa$. By Claim T(iv) with $c=1$,
+$\Cenv_1v(0,1)=\Cenv_1g(0,0)$, and $v(0,1)=g(0,0)$; hence
+\begin{equation}\label{eq:ec-contact}
+  \Cenv_1v(0,1)-v(0,1)=\frac{\kappa^2}{2}.
+\end{equation}
+
+\emph{Step 6: the contact envelope.}
+Let $W$ be the contact envelope of \noderef{ContactEnv} formed from $v$ and
+$\kappa$, so $W(x,t)=\Cenv_tv(x,t)-\kappa^2t/2$ for $t>0$. By
+\eqref{eq:ec-final} and the opening paragraph, $v$ is continuous on space-time,
+satisfies \noderef{SubquadraticGrowth} with $I=\R$ and with $I=(0,\infty)$, and
+is a viscosity solution of the limiting equation everywhere.
+
+\emph{(a) The sandwich and the contact.} \noderef{BaryEnvSandwich}, applied with
+$I=(0,\infty)$, $f=v$ and the constant $\kappa$, gives for every $s>0$ and every
+$z=(x,t)$ with $t>0$ that $v(z)\le\Cenv_sv(z)\le v(z)+\kappa^2s/2$. Taking
+$s=t$ and subtracting $\kappa^2t/2$,
+\begin{equation}\label{eq:ec-sandwich}
+  v(x,t)-\frac{\kappa^2t}{2}\le W(x,t)\le v(x,t)\qquad(t>0).
+\end{equation}
+At $z_*$, \eqref{eq:ec-contact} gives
+$W(z_*)=\Cenv_1v(0,1)-\kappa^2/2=v(0,1)=0$, so $W(z_*)=v(z_*)=0$.
+
+\emph{(b) Continuity and semiconcavity.} Apply \noderef{BaryEnvDuality} with
+$I=(0,\infty)$ and $f=v$; its hypotheses are the continuity and growth just
+recorded. Its continuity clause gives that
+$(s,z)\mapsto\Cenv_sv(z)$ is continuous at every pair $(s,z_0)$ with $s>0$ and
+the time of $z_0$ positive; composing with the continuous map
+$z\mapsto(t(z),z)$, where $t(z)$ is the time coordinate, shows that
+$z\mapsto\Cenv_{t(z)}v(z)$ is continuous on $\{t>0\}$, and subtracting the
+continuous function $\kappa^2t/2$ gives the continuity of $W$ there. Its
+concavity clause, applied with $s=t$ for a fixed $t>0$, gives that
+$x\mapsto\Cenv_tv(x,t)-|x|^2/(2t)$ is concave on $F$; subtracting the constant
+$\kappa^2t/2$, so is $x\mapsto W(x,t)-|x|^2/(2t)$, for every $t>0$.
+
+\emph{(c) Growth.} Let $J\subseteq(0,\infty)$ be compact and let
+$\varepsilon>0$. As $J$ is bounded there is $c_J$ with $\kappa^2t/2\le c_J$ for
+$t\in J$. By \noderef{SubquadraticGrowth} for $v$ with $I=(0,\infty)$ and
+$\varepsilon/2$ there is $M_1>0$ with $|v(x,t)|\le(\varepsilon/2)|x|^2$ whenever
+$|x|\ge M_1$ and $t\in J$. By \eqref{eq:ec-sandwich},
+$|W(x,t)|\le|v(x,t)|+\kappa^2t/2$ for $t>0$, so for $t\in J$ and
+$|x|\ge\max\{M_1,\sqrt{2c_J/\varepsilon}\}$ we get
+$|W(x,t)|\le(\varepsilon/2)|x|^2+c_J\le\varepsilon|x|^2$. This is
+\noderef{SubquadraticGrowth} for $W$ with $I=(0,\infty)$.
+
+\emph{(d) The subsolution property.} First, $v$ is a viscosity subsolution of
+the limiting equation on the open set $\{t>0\}$ in the sense of
+\noderef{IsLimitSubOn}: it is continuous there, and if $\phi$ is twice
+continuously differentiable at a point $z$ with positive time and $v-\phi$ has a
+local maximum at $z$ relative to $\{t>0\}$, then, because $\{t>0\}$ is open and
+contains $z$, a neighbourhood of $z$ witnessing that relative maximum may be
+intersected with $\{t>0\}$ and is then a neighbourhood of $z$ in the whole
+space on which the inequality holds; so $v-\phi$ has a local maximum at $z$
+relative to the whole space, and $0\le F[\phi](z)$ follows from
+\noderef{IsLimitSubOn} for $v$ on the whole space. Now
+\noderef{BarycentricSubsolution}, applied with $f=v$, with this subsolution
+property, with \noderef{SubquadraticGrowth} on $I=(0,\infty)$, and with
+$c=\kappa^2/2$, shows that
+$z\mapsto\Cenv_{t(z)}v(z)-(\kappa^2/2)t(z)$, which is exactly $W$ by
+\noderef{ContactEnv}, is a viscosity subsolution of the limiting equation on
+$\{t>0\}$.
+
+\emph{(e) The gap at a contact.} If $t>0$ and $W(x,t)=v(x,t)$ then
+\noderef{ContactEnv} gives $\Cenv_tv(x,t)-v(x,t)=\kappa^2t/2$, hence
+\[
+  \frac{\Cenv_tv(x,t)-v(x,t)}{t}=\frac{\kappa^2}{2}>0 .
+\]
+
+\emph{Step 7: the slope at the contact.}
+Since $v$ is continuous, has subquadratic spatial growth with $I=\R$ and solves
+the limiting equation on all of space-time, \noderef{EnvHamiltonianSolution}
+applies with $I=\R$ and $f=v$. Its third clause gives $H_v(z_*)\ne+\infty$,
+where $H_v$ is the envelope Hamiltonian of \noderef{EnvHamiltonian}; its first
+clause gives that $\ell\mapsto\Senv_\ell^+v(z_*)$ and
+$\ell\mapsto\Senv_\ell^-v(z_*)$ are nondecreasing on $(0,\infty)$
+(\noderef{EnvSlopeP}, \noderef{EnvSlopeM}); and its second clause, whose
+hypothesis holds because $I=\R$, gives
+\begin{equation}\label{eq:ec-ham}
+  \inf_{\ell>0}\Senv_\ell^-v(z_*)=H_v(z_*)
+   =\inf_{\ell>0}\Senv_\ell^+v(z_*),
+\end{equation}
+the second equality being the definition in \noderef{EnvHamiltonian}.
+By \eqref{eq:ec-final} and \eqref{eq:ec-contact}, the hypotheses of
+\noderef{ContactFiniteSlope} hold for $C_0$, $\kappa>0$ and $v$, so
+$H_v(z_*)\ne-\infty$. Hence there is a real number $H$ with $H_v(z_*)=H$, and by
+\eqref{eq:ec-ham} every $\Senv_\ell^\pm v(z_*)$ is a real number not smaller
+than $H$.
+
+Next we compare the slopes of $W$ and $v$ at $z_*$, where $W(z_*)=v(z_*)$ by
+Step 6(a). By Step 6(b),(c) the function $W$ satisfies the hypotheses of
+\noderef{EnvelopeCompetitorBounds} with $I=(0,\infty)$, and $v$ satisfies them
+with $I=\R$; the relevant times $1\pm\ell$ lie in $(0,\infty)$ for $0<\ell<1$,
+and $1+\ell\in(0,\infty)$ for every $\ell>0$. So (B2) applies to
+$\Penv_\ell W(z_*)$ and $\Penv_\ell v(z_*)$ for every $\ell>0$, and (B3) to
+$\Menv_\ell W(z_*)$ and $\Menv_\ell v(z_*)$ for $0<\ell<1$: each of the four is
+the genuine least upper bound, respectively greatest lower bound, of its
+competitor set. All four are real numbers, and hence so are
+$\Senv_\ell^+W(z_*)$ and, for $0<\ell<1$, $\Senv_\ell^-W(z_*)$, by the second
+remark of the opening paragraph.
+
+For $\ell>0$, the set defining $\Penv_\ell$ at $z_*$ in \noderef{QuadEnvP}
+involves only values at time $1+\ell>0$, where $W\le v$ by
+\eqref{eq:ec-sandwich}; so each of its elements for $W$ is at most the element
+for $v$ with the same $y$, and the latter set is bounded above by the
+domination half of (B2) for $v$; the extremality half of (B2) for $W$ then gives
+the comparison.
+Hence $\Penv_\ell W(z_*)\le\Penv_\ell v(z_*)$ and, by \noderef{EnvSlopeP} and
+$W(z_*)=v(z_*)$,
+\begin{equation}\label{eq:ec-slope-plus}
+  \Senv_\ell^+W(z_*)\le\Senv_\ell^+v(z_*)\qquad(\ell>0).
+\end{equation}
+For $0<\ell<1$, the set defining $\Menv_\ell$ at $z_*$ in \noderef{QuadEnvM}
+involves only values at time $1-\ell>0$, where again $W\le v$; so
+$\Menv_\ell W(z_*)$, a lower bound for the $W$-set, is a lower bound for the
+$v$-set as well, whence $\Menv_\ell W(z_*)\le\Menv_\ell v(z_*)$ and, by
+\noderef{EnvSlopeM} and $W(z_*)=v(z_*)$,
+\begin{equation}\label{eq:ec-slope-minus}
+  \Senv_\ell^-W(z_*)\ge\Senv_\ell^-v(z_*)\qquad(0<\ell<1).
+\end{equation}
+
+Fix $h\in(0,1)$ and $\varepsilon>0$. The second clause of
+\noderef{EnvelopeSlopeOrder} applied to $W$ at $z_*$ with these $h$ and
+$\varepsilon$ --- its hypothesis $1+\sigma>0$ for $|\sigma|\le h$ holds as
+$h<1$ --- supplies $\delta>0$ with
+$\Senv_\ell^-W(z_*)\le\Senv_h^+W(z_*)+\varepsilon$ for $0<\ell<\delta$. Pick
+one $\ell$ with $0<\ell<\min\{\delta,1\}$. Then, using
+\eqref{eq:ec-ham} and \eqref{eq:ec-slope-minus},
+\[
+  H=\inf_{\ell'>0}\Senv_{\ell'}^-v(z_*)\le\Senv_\ell^-v(z_*)
+   \le\Senv_\ell^-W(z_*)\le\Senv_h^+W(z_*)+\varepsilon .
+\]
+As $\varepsilon>0$ was arbitrary, $H\le\Senv_h^+W(z_*)$ for every
+$h\in(0,1)$; and the first clause of \noderef{EnvelopeSlopeOrder} applied to
+$W$ --- whose hypothesis $1+\sigma>0$ for $\sigma\in[0,h']$ always holds ---
+shows that $h\mapsto\Senv_h^+W(z_*)$ is nondecreasing on $(0,\infty)$, so
+$H\le\Senv_h^+W(z_*)$ for every $h>0$. Conversely
+\eqref{eq:ec-slope-plus} and \eqref{eq:ec-ham} give
+$\inf_{h>0}\Senv_h^+W(z_*)\le\inf_{h>0}\Senv_h^+v(z_*)=H$. Hence
+\[
+  \inf_{h>0}\Senv_h^+W(z_*)=H,
+\]
+and since $h\mapsto\Senv_h^+W(z_*)$ is a nondecreasing real-valued function on
+$(0,\infty)$ with infimum $H$, it converges to $H$ as $h\downarrow0$:
+\[
+  \lim_{\ell\downarrow0}\Senv_\ell^+W(z_*)=H=H_v(z_*).
+\]
+
+Collecting \eqref{eq:ec-kappa}, \eqref{eq:ec-final}, Step 6(a)--(e) and Step 7
+gives all the assertions, with this $\kappa$, this $H$ and this $v$.
+\end{proof}

@@ -1,0 +1,59 @@
+\begin{lemma}[The closed superjet is a closed set]
+Let $E$ be a finite-dimensional real inner-product space, let $f:E\to\R$ and let
+$z\in E$. Then the closed superjet $\overline J^{2,+}f(z)$ of
+\noderef{ClosedSuperjet} is a closed subset of $E\times\mathcal B(E)$, where
+$\mathcal B(E)$ denotes the space of continuous bilinear forms on $E$ with the
+operator norm.
+\end{lemma}
+\begin{proof}
+Since $E\times\mathcal B(E)$ is a metric space, it suffices to show that
+$\overline J^{2,+}f(z)$ contains the limit of every convergent sequence of its
+elements.
+
+So let $(p^{(m)},X^{(m)})\in\overline J^{2,+}f(z)$ for $m\ge1$ with
+$p^{(m)}\to p$ in $E$ and $X^{(m)}\to X$ in $\mathcal B(E)$; we must show
+$(p,X)\in\overline J^{2,+}f(z)$.
+
+\emph{A diagonal choice.}
+Fix $m\ge1$. By \noderef{ClosedSuperjet} applied to
+$(p^{(m)},X^{(m)})\in\overline J^{2,+}f(z)$ there are sequences
+$(z^{(m)}_k)_k$, $(p^{(m)}_k)_k$, $(X^{(m)}_k)_k$ with
+\[
+  (p^{(m)}_k,X^{(m)}_k)\in J^{2,+}f\bigl(z^{(m)}_k\bigr)\quad(k\ge0),
+\]
+and $z^{(m)}_k\to z$, $f(z^{(m)}_k)\to f(z)$, $p^{(m)}_k\to p^{(m)}$ and
+$X^{(m)}_k\to X^{(m)}$ as $k\to\infty$, where $J^{2,+}$ is the superjet of
+\noderef{Superjet}. Because these four sequences converge to the displayed
+limits, and $1/m>0$, we may choose an index $k(m)$ so large that all four of
+\[
+  \bigl|z^{(m)}_{k(m)}-z\bigr|<\tfrac1m,\quad
+  \bigl|f(z^{(m)}_{k(m)})-f(z)\bigr|<\tfrac1m,\quad
+  \bigl|p^{(m)}_{k(m)}-p^{(m)}\bigr|<\tfrac1m,\quad
+  \bigl\|X^{(m)}_{k(m)}-X^{(m)}\bigr\|<\tfrac1m
+\]
+hold simultaneously: each of the four conditions holds for all sufficiently
+large $k$, so any $k(m)$ beyond the largest of the four thresholds works.
+
+Put $\zeta_m=z^{(m)}_{k(m)}$, $\pi_m=p^{(m)}_{k(m)}$ and
+$\Xi_m=X^{(m)}_{k(m)}$.
+
+\emph{The diagonal sequences have the required properties.}
+First, $(\pi_m,\Xi_m)\in J^{2,+}f(\zeta_m)$ for every $m$, by the displayed
+membership with $k=k(m)$.
+
+Second, $|\zeta_m-z|<1/m\to0$, so $\zeta_m\to z$.
+
+Third, $|f(\zeta_m)-f(z)|<1/m\to0$, so $f(\zeta_m)\to f(z)$.
+
+Fourth, $|\pi_m-p|\le|\pi_m-p^{(m)}|+|p^{(m)}-p|<\tfrac1m+|p^{(m)}-p|$, and both
+terms tend to $0$ (the second because $p^{(m)}\to p$), so $\pi_m\to p$.
+
+Fifth, and in the same way,
+$\|\Xi_m-X\|\le\|\Xi_m-X^{(m)}\|+\|X^{(m)}-X\|<\tfrac1m+\|X^{(m)}-X\|\to0$, so
+$\Xi_m\to X$.
+
+These five statements are precisely the requirements in the definition of
+\noderef{ClosedSuperjet} for the pair $(p,X)$ relative to $f$ at $z$, with
+defining sequences $(\zeta_m,\pi_m,\Xi_m)_m$. Hence
+$(p,X)\in\overline J^{2,+}f(z)$, and $\overline J^{2,+}f(z)$ is closed.
+\end{proof}

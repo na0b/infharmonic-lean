@@ -1,0 +1,299 @@
+\begin{lemma}[Half-step identities for an optimizing step pair]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$ and $0\le\kappa<\infty$, and let $v\in\Aclass_{m,C_0}$ in the
+sense of \noderef{IsFitClass} be centered at $(0,1)$ with constant $C_0$ in the
+sense of \noderef{IsCenteredAt} and satisfy the horizontal Jensen bound with
+constant $\kappa$ at every time in the sense of \noderef{HasJensenBound}. Write
+$f=W$ for the contact envelope of \noderef{ContactEnv}, $f^\ell=\Penv_\ell f$,
+$g_\epsilon=\Menv_\epsilon v$ as in \noderef{JGap}. Let $\epsilon>0$ and let
+$z=(x,t)$ with $t>\epsilon$, and let $(z^+,z^-)$ be an optimizing step pair of
+size $\epsilon$ at $z$ in the sense of \noderef{IsStepPair}, with
+$z^\pm=(x^\pm,t\pm\epsilon)$. Put
+\begin{equation}\label{eq:dp-velocities}
+  Q_+=\frac{x^+-x}{\epsilon},\qquad
+  Q_-=\frac{x-x^-}{\epsilon}.
+\end{equation}
+Then
+\begin{equation}\label{eq:dp-step-choice}
+\begin{aligned}
+  f^{2\epsilon}(z)&=f^\epsilon(z^+)-\frac{\epsilon}{2}|Q_+|^2,\\
+  \Menv_{2\epsilon}v(z)&=g_\epsilon(z^-)+\frac{\epsilon}{2}|Q_-|^2,
+\end{aligned}
+\end{equation}
+and
+\[
+  Q_+=\nabla_xf^{2\epsilon}(z),
+\]
+the gradient being that of \noderef{DPSpatialRegularity}. Although $z^-$ is the
+backward step, $Q_-$ is oriented forward from $x^-$ to $x$; the spatial increment
+for that step is $-\epsilon Q_-$.
+\end{lemma}
+\begin{proof}
+Write $f=W=\Cenv_tv-\kappa^2t/2$ for the contact envelope of
+\noderef{ContactEnv}, $z=(x,t)$, and recall $t>\epsilon>0$.
+
+\emph{Step 0: hypotheses for the envelope lemmas.}
+By \noderef{IsFitClass} the function $v$ is continuous on all of space-time and
+is a viscosity solution of $F[v]=0$ there; by
+\noderef{UniformSubquadratic}, applied with the centering point $(0,1)$, it has
+subquadratic spatial growth on compact time intervals of $\R$ in the sense of
+\noderef{SubquadraticGrowth}. By \noderef{BaryEnvSandwich} with $I=\R$, applied
+at each parameter $\sigma>0$, and \noderef{ContactEnv},
+\begin{equation}\label{eq:dpsi-sandwich}
+  v(y,\tau)-\frac{\kappa^2\tau}{2}\le f(y,\tau)\le v(y,\tau)\qquad(\tau>0),
+\end{equation}
+so, exactly as for $v$, the function $f$ has subquadratic spatial growth on
+compact subintervals of $(0,\infty)$: let $J\subseteq(0,\infty)$ be compact and
+let $\varepsilon'>0$. If $J=\emptyset$ the required conclusion holds vacuously
+with $M'=1$, since there is no $\tau\in J$; so assume $J\ne\emptyset$, and then
+$\max J$ exists because $J$ is a nonempty compact set of reals. Apply
+\noderef{SubquadraticGrowth} for $v$ with $J$ and $\varepsilon'/2$ to get
+$M'>0$, then enlarge $M'$ so that
+$\kappa^2\max J/2\le(\varepsilon'/2)M'^2$; for $|y|\ge M'$ and $\tau\in J$ the
+two bounds of \eqref{eq:dpsi-sandwich} then give
+$|f(y,\tau)|\le\varepsilon'|y|^2$. Also $f$ is continuous on
+$\{(y,\tau):\tau>0\}$, because \noderef{BaryEnvDuality}, part (3), applied to
+$v$ with $I=\R$, makes $(\sigma,\zeta)\mapsto\Cenv_\sigma v(\zeta)$ continuous at
+every $(\sigma,\zeta)$ with $\sigma>0$, and \noderef{ContactEnv} composes this
+with the continuous map sending $\zeta$ to its time coordinate.
+
+Hence \noderef{QuadEnvAttained} applies to $f$ with $I=(0,\infty)$ and to $v$
+with $I=\R$: in both cases the hypotheses of that lemma -- continuity on
+$\Omega=\{(y,\tau):\tau\in I\}$ and subquadratic spatial growth on compact time
+intervals of $I$ in the sense of \noderef{SubquadraticGrowth} -- are exactly the
+two facts just established. Also \noderef{DPSpatialRegularity} applies to $v$
+and $\kappa$, since its hypotheses on $v$, $C_0$, $\kappa$ and $f$ are the
+hypotheses of the present lemma.
+
+\emph{Step 1: the optimizers and the velocities.}
+By \noderef{IsStepPair} there are $Y^+,Y^-\in F$ with
+\begin{equation}\label{eq:dpsi-opt}
+  \Penv_{2\epsilon}f(z)=f\bigl(Y^+,t+2\epsilon\bigr)
+      -\frac{|Y^+-x|^2}{2\cdot2\epsilon},
+  \qquad
+  \Menv_{2\epsilon}v(z)=v\bigl(Y^-,t-2\epsilon\bigr)
+      +\frac{|Y^--x|^2}{2\cdot2\epsilon},
+\end{equation}
+and $z^\pm=(x^\pm,t\pm\epsilon)$ with
+$x^+=\tfrac12(x+Y^+)$ and $x^-=\tfrac12(x+Y^-)$. By
+\eqref{eq:dp-velocities},
+\[
+  Q_+=\frac{x^+-x}{\epsilon}=\frac{Y^+-x}{2\epsilon},
+  \qquad
+  Q_-=\frac{x-x^-}{\epsilon}=\frac{x-Y^-}{2\epsilon},
+\]
+so
+\begin{equation}\label{eq:dpsi-points}
+  Y^+=x+2\epsilon Q_+,\quad x^+=x+\epsilon Q_+,
+  \qquad
+  Y^-=x-2\epsilon Q_-,\quad x^-=x-\epsilon Q_- .
+\end{equation}
+Consequently the quadratic costs split evenly along the straight paths:
+\begin{equation}\label{eq:dpsi-costs}
+  \frac{|Y^+-x|^2}{4\epsilon}=\epsilon|Q_+|^2,
+  \quad
+  \frac{|Y^+-x^+|^2}{2\epsilon}=\frac{|x^+-x|^2}{2\epsilon}
+     =\frac{\epsilon|Q_+|^2}{2},
+\end{equation}
+and likewise with $Q_-$ in place of $Q_+$.
+
+We also record once the elementary splitting inequality used in Steps 2 and 3:
+for all $a,b\in F$,
+\begin{equation}\label{eq:dpsi-split}
+  \frac{|a+b|^2}{4\epsilon}\le\frac{|a|^2}{2\epsilon}+\frac{|b|^2}{2\epsilon},
+\end{equation}
+because expanding the inner products gives
+$2|a|^2+2|b|^2-|a+b|^2=|a|^2-2\langle a,b\rangle+|b|^2=|a-b|^2\ge0$, and
+dividing by $4\epsilon>0$ yields \eqref{eq:dpsi-split}. The slack is exactly
+$|a-b|^2/(4\epsilon)$, so \eqref{eq:dpsi-split} is an equality precisely when
+$a=b$.
+
+\emph{Step 2: the forward identity.}
+We first show
+\begin{equation}\label{eq:dpsi-fwd-eq}
+  \Penv_\epsilon f(z^+)=f\bigl(Y^+,t+2\epsilon\bigr)-\frac{\epsilon|Q_+|^2}{2}.
+\end{equation}
+Throughout this step we use \noderef{QuadEnvAttained}, part (1), for $f$ with
+$I=(0,\infty)$, which Step 0 licenses. Two instances are needed, and both have
+admissible time arguments because $t>\epsilon>0$:
+
+(2a) at the center $z^+=(x^+,t+\epsilon)$ and the length $\epsilon$, where
+$t+\epsilon\in(0,\infty)$ and $(t+\epsilon)+\epsilon=t+2\epsilon\in(0,\infty)$;
+
+(2b) at the center $z=(x,t)$ and the length $2\epsilon$, where $t\in(0,\infty)$
+and $t+2\epsilon\in(0,\infty)$.
+
+Each instance supplies attainment: the supremum defining the envelope is equal
+to the value at some competitor. That is all \noderef{QuadEnvAttained} gives,
+and it is NOT the same as domination. The envelope is a supremum, and the
+supremum of a set that is empty or unbounded above is a junk value, so an
+equality with the value at one competitor does not by itself place the other
+competitors below the envelope -- the inference runs the other way, since
+attainment in the sense of a genuine maximum presupposes boundedness rather
+than supplying it. The domination used below is therefore taken from part (1)
+of \noderef{EnvelopeCompetitorBounds}, whose first clause states that
+$\Penv_\ell f(\zeta)$ dominates every competitor value, applied at the same two
+instances: at the centre $z^+$ with length $\epsilon$ for (2a), and at the
+centre $z$ with length $2\epsilon$ for (2b). Its hypotheses are the continuity
+and subquadratic growth of $f$ on $(0,\infty)$ established in Step 0, together
+with the time memberships just checked. Only domination is needed; the
+leastness half of the supremum is not used in this step.
+
+For ``$\ge$'': by \eqref{eq:dpsi-points} the point $Y^+$ is a competitor in
+\noderef{QuadEnvP} for $\Penv_\epsilon f(z^+)$, whose time argument is
+$(t+\epsilon)+\epsilon=t+2\epsilon$, and its cost is
+$|Y^+-x^+|^2/(2\epsilon)=\epsilon|Q_+|^2/2$ by \eqref{eq:dpsi-costs}. By
+instance (2a) this competitor value is at most the envelope:
+\begin{equation}\label{eq:dpsi-fwd-ge}
+  \Penv_\epsilon f(z^+)\ge f\bigl(Y^+,t+2\epsilon\bigr)
+    -\frac{\epsilon|Q_+|^2}{2}.
+\end{equation}
+
+For ``$\le$'': by instance (2a) the supremum defining $\Penv_\epsilon f(z^+)$ is
+attained at some $y_1\in F$, that is,
+\begin{equation}\label{eq:dpsi-fwd-max}
+  \Penv_\epsilon f(z^+)=f\bigl(y_1,t+2\epsilon\bigr)
+    -\frac{|y_1-x^+|^2}{2\epsilon}.
+\end{equation}
+The same point $y_1$ is a competitor in \noderef{QuadEnvP} for
+$\Penv_{2\epsilon}f(z)$, whose time argument is also $t+2\epsilon$ and whose
+cost is $|y_1-x|^2/(2\cdot2\epsilon)=|y_1-x|^2/(4\epsilon)$; by instance (2b)
+that competitor value is at most the envelope, so
+\begin{equation}\label{eq:dpsi-fwd-comp}
+  f\bigl(y_1,t+2\epsilon\bigr)\le\Penv_{2\epsilon}f(z)
+    +\frac{|y_1-x|^2}{4\epsilon}.
+\end{equation}
+Apply \eqref{eq:dpsi-split} with $a=y_1-x^+$ and $b=x^+-x$, whose sum is
+$y_1-x$:
+\begin{equation}\label{eq:dpsi-fwd-ineq}
+  \frac{|y_1-x|^2}{4\epsilon}\le\frac{|y_1-x^+|^2}{2\epsilon}
+    +\frac{|x^+-x|^2}{2\epsilon}.
+\end{equation}
+Substituting \eqref{eq:dpsi-fwd-comp} into \eqref{eq:dpsi-fwd-max} and then
+using \eqref{eq:dpsi-fwd-ineq}, the two terms $|y_1-x^+|^2/(2\epsilon)$ cancel:
+\[
+  \Penv_\epsilon f(z^+)
+   \le\Penv_{2\epsilon}f(z)+\frac{|y_1-x|^2}{4\epsilon}
+     -\frac{|y_1-x^+|^2}{2\epsilon}
+   \le\Penv_{2\epsilon}f(z)+\frac{|x^+-x|^2}{2\epsilon}
+   =\Penv_{2\epsilon}f(z)+\frac{\epsilon|Q_+|^2}{2},
+\]
+the last equality by \eqref{eq:dpsi-costs}. By \eqref{eq:dpsi-opt} and
+\eqref{eq:dpsi-costs}, $\Penv_{2\epsilon}f(z)
+=f(Y^+,t+2\epsilon)-\epsilon|Q_+|^2$, so
+\[
+  \Penv_\epsilon f(z^+)\le f\bigl(Y^+,t+2\epsilon\bigr)-\epsilon|Q_+|^2
+     +\frac{\epsilon|Q_+|^2}{2}
+   =f\bigl(Y^+,t+2\epsilon\bigr)-\frac{\epsilon|Q_+|^2}{2}.
+\]
+With \eqref{eq:dpsi-fwd-ge} this proves \eqref{eq:dpsi-fwd-eq}. Note that no
+property of the composed function $\Penv_\epsilon f$ is used anywhere above:
+every supremum appearing is an envelope of $f$ itself.
+
+Combining \eqref{eq:dpsi-opt}, \eqref{eq:dpsi-costs} and
+\eqref{eq:dpsi-fwd-eq},
+\[
+  \Penv_{2\epsilon}f(z)=f\bigl(Y^+,t+2\epsilon\bigr)-\epsilon|Q_+|^2
+   =\Bigl(\Penv_\epsilon f(z^+)+\frac{\epsilon|Q_+|^2}{2}\Bigr)
+     -\epsilon|Q_+|^2
+   =\Penv_\epsilon f(z^+)-\frac{\epsilon}{2}|Q_+|^2,
+\]
+which is the first line of \eqref{eq:dp-step-choice}.
+
+\emph{Step 3: the backward identity.}
+Symmetrically, we show
+\begin{equation}\label{eq:dpsi-bwd-eq}
+  \Menv_\epsilon v(z^-)=v\bigl(Y^-,t-2\epsilon\bigr)+\frac{\epsilon|Q_-|^2}{2}.
+\end{equation}
+Throughout this step we use \noderef{QuadEnvAttained}, part (1), for $v$ with
+$I=\R$, which Step 0 licenses. Because $I=\R$, every time argument is
+admissible with no sign condition -- which matters here, since $t>\epsilon$
+leaves $t-2\epsilon$ possibly negative. Two instances are needed:
+
+(3a) at the center $z^-=(x^-,t-\epsilon)$ and the length $\epsilon$, where
+$t-\epsilon\in\R$ and $(t-\epsilon)-\epsilon=t-2\epsilon\in\R$;
+
+(3b) at the center $z=(x,t)$ and the length $2\epsilon$, where $t\in\R$ and
+$t-2\epsilon\in\R$.
+
+Each instance supplies attainment: the infimum defining the envelope is equal to
+the value at some competitor. As in Step 2 that is not domination, and for the
+same reason with the inequalities reversed, since an infimum over a set that is
+empty or unbounded below is equally the junk value. The domination used below is
+part (2) of \noderef{EnvelopeCompetitorBounds}, whose first clause states that
+$\Menv_\ell v(\zeta)$ is dominated by every competitor value, applied at the
+centre $z^-$ with length $\epsilon$ for (3a) and at the centre $z$ with length
+$2\epsilon$ for (3b); its hypotheses are the continuity and subquadratic growth
+of $v$ on $\R$ established in Step 0. Only domination is needed here too.
+
+For ``$\le$'': by \eqref{eq:dpsi-points} the point $Y^-$ is a competitor in
+\noderef{QuadEnvM} for $\Menv_\epsilon v(z^-)$, whose time argument is
+$(t-\epsilon)-\epsilon=t-2\epsilon$, with cost
+$|Y^--x^-|^2/(2\epsilon)=\epsilon|Q_-|^2/2$ by \eqref{eq:dpsi-costs}. By
+instance (3a) this competitor value is at least the envelope:
+\begin{equation}\label{eq:dpsi-bwd-le}
+  \Menv_\epsilon v(z^-)\le v\bigl(Y^-,t-2\epsilon\bigr)
+    +\frac{\epsilon|Q_-|^2}{2}.
+\end{equation}
+
+For ``$\ge$'': by instance (3a) the infimum defining $\Menv_\epsilon v(z^-)$ is
+attained at some $w_0\in F$, that is,
+\begin{equation}\label{eq:dpsi-bwd-min}
+  \Menv_\epsilon v(z^-)=v\bigl(w_0,t-2\epsilon\bigr)
+    +\frac{|w_0-x^-|^2}{2\epsilon}.
+\end{equation}
+The same point $w_0$ is a competitor in \noderef{QuadEnvM} for
+$\Menv_{2\epsilon}v(z)$, whose time argument is also $t-2\epsilon$ and whose
+cost is $|w_0-x|^2/(2\cdot2\epsilon)=|w_0-x|^2/(4\epsilon)$; by instance (3b)
+that competitor value is at least the envelope, so
+\begin{equation}\label{eq:dpsi-bwd-comp}
+  v\bigl(w_0,t-2\epsilon\bigr)\ge\Menv_{2\epsilon}v(z)
+    -\frac{|w_0-x|^2}{4\epsilon}.
+\end{equation}
+Apply \eqref{eq:dpsi-split} with $a=w_0-x^-$ and $b=x^--x$, whose sum is
+$w_0-x$:
+\begin{equation}\label{eq:dpsi-bwd-ineq}
+  \frac{|w_0-x|^2}{4\epsilon}\le\frac{|w_0-x^-|^2}{2\epsilon}
+    +\frac{|x^--x|^2}{2\epsilon}.
+\end{equation}
+Substituting \eqref{eq:dpsi-bwd-comp} into \eqref{eq:dpsi-bwd-min} and then
+using \eqref{eq:dpsi-bwd-ineq}, the two terms $|w_0-x^-|^2/(2\epsilon)$ cancel:
+\[
+  \Menv_\epsilon v(z^-)
+   \ge\Menv_{2\epsilon}v(z)-\frac{|w_0-x|^2}{4\epsilon}
+     +\frac{|w_0-x^-|^2}{2\epsilon}
+   \ge\Menv_{2\epsilon}v(z)-\frac{|x^--x|^2}{2\epsilon}
+   =\Menv_{2\epsilon}v(z)-\frac{\epsilon|Q_-|^2}{2},
+\]
+the last equality by \eqref{eq:dpsi-costs}. By \eqref{eq:dpsi-opt} and
+\eqref{eq:dpsi-costs}, $\Menv_{2\epsilon}v(z)
+=v(Y^-,t-2\epsilon)+\epsilon|Q_-|^2$, so
+\[
+  \Menv_\epsilon v(z^-)\ge v\bigl(Y^-,t-2\epsilon\bigr)+\epsilon|Q_-|^2
+     -\frac{\epsilon|Q_-|^2}{2}
+   =v\bigl(Y^-,t-2\epsilon\bigr)+\frac{\epsilon|Q_-|^2}{2}.
+\]
+With \eqref{eq:dpsi-bwd-le} this proves \eqref{eq:dpsi-bwd-eq}; again every
+infimum used is an envelope of $v$ itself, never of a composed function, and
+$w_0$ is not claimed to be unique. Combining with \eqref{eq:dpsi-opt} and
+\eqref{eq:dpsi-costs},
+\[
+  \Menv_{2\epsilon}v(z)=v\bigl(Y^-,t-2\epsilon\bigr)+\epsilon|Q_-|^2
+   =\Menv_\epsilon v(z^-)+\frac{\epsilon}{2}|Q_-|^2,
+\]
+which is the second line of \eqref{eq:dp-step-choice}.
+
+\emph{Step 4: the forward velocity is the gradient.}
+Apply \noderef{DPSpatialRegularity} to $v$ and $\kappa$ at the time $t>0$, the
+length $2\epsilon>0$ and the point $x$. It supplies a point $y\in F$ which
+attains $\Penv_{2\epsilon}f(x,t)$, is the \emph{unique} such point, and
+satisfies
+\[
+  \text{$x'\mapsto\Penv_{2\epsilon}f(x',t)$ is differentiable at $x$ with
+  gradient }\frac{y-x}{2\epsilon}.
+\]
+By \eqref{eq:dpsi-opt} the point $Y^+$ also attains $\Penv_{2\epsilon}f(x,t)$,
+so uniqueness gives $Y^+=y$, and by \eqref{eq:dpsi-points}
+$(y-x)/(2\epsilon)=Q_+$. Hence
+$Q_+=\nabla_xf^{2\epsilon}(z)$, which is the last assertion.
+\end{proof}

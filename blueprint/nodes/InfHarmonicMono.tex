@@ -1,0 +1,61 @@
+\begin{lemma}[Infinity-harmonicity restricts to an open subset]
+Let $E$ be a finite-dimensional real inner-product space, let
+$\Omega'\subseteq\Omega\subseteq E$ with $\Omega'$ open, and let $u:E\to\R$ be
+infinity-harmonic on $\Omega$ in the sense of \noderef{IsInfHarmonicOn}. Then
+$u$ is infinity-harmonic on $\Omega'$ in the sense of \noderef{IsInfHarmonicOn}.
+\end{lemma}
+\begin{proof}
+By \noderef{IsInfHarmonicOn} the hypothesis says that $u$ is both an infinity
+subsolution on $\Omega$ in the sense of \noderef{IsInfSubsolutionOn} and an
+infinity supersolution on $\Omega$ in the sense of
+\noderef{IsInfSupersolutionOn}, and the conclusion to be proved is the
+conjunction of the same two properties for $\Omega'$. Unwinding
+\noderef{IsInfSubsolutionOn} and \noderef{IsInfSupersolutionOn}, each of those
+two properties consists of three clauses: that the set be open, that $u$ be
+continuous on it, and a one-sided inequality at every $C^2$ test.
+
+\emph{The first two clauses.} That $\Omega'$ is open is a hypothesis. That $u$
+is continuous on $\Omega'$ follows from its continuity on $\Omega$, which is part
+of the hypothesis, together with $\Omega'\subseteq\Omega$: the restriction of a
+function continuous on a set to a subset of that set is continuous on the
+subset.
+
+\emph{The key observation about neighbourhoods.} Let $z\in\Omega'$ and let
+$f:E\to\R$. Since $\Omega'$ is open and $z\in\Omega'$, the set $\Omega'$ is a
+neighbourhood of $z$; hence the neighbourhood filter of $z$ relative to
+$\Omega'$ coincides with the full neighbourhood filter of $z$. Consequently, if
+an inequality holds for all $x$ in $\Omega'$ near $z$, it holds for all $x$ near
+$z$ without restriction, and therefore in particular for all $x$ in $\Omega$
+near $z$, the neighbourhood filter of $z$ relative to $\Omega$ being coarser
+than the full one. In other words:
+\begin{equation}\label{eq:ihm-key}
+  \begin{gathered}
+  \text{if } f(x)\le f(z) \text{ for all } x\in\Omega' \text{ near } z,
+  \text{ then } f(x)\le f(z) \text{ for all } x\in\Omega \text{ near } z;\\
+  \text{if } f(z)\le f(x) \text{ for all } x\in\Omega' \text{ near } z,
+  \text{ then } f(z)\le f(x) \text{ for all } x\in\Omega \text{ near } z.
+  \end{gathered}
+\end{equation}
+
+\emph{The subsolution inequality.} Let $z\in\Omega'$ and let $\varphi$ be $C^2$
+at $z$ such that $u-\varphi$ has a local maximum on $\Omega'$ at $z$, i.e.
+$u(x)-\varphi(x)\le u(z)-\varphi(z)$ for all $x\in\Omega'$ near $z$. By the
+first half of \eqref{eq:ihm-key} applied to $f=u-\varphi$, the same inequality
+holds for all $x\in\Omega$ near $z$, i.e. $u-\varphi$ has a local maximum on
+$\Omega$ at $z$. Also $z\in\Omega$ because $\Omega'\subseteq\Omega$. Since $u$
+is an infinity subsolution on $\Omega$, \noderef{IsInfSubsolutionOn} gives
+$\Dinf\varphi(z)\ge0$. As $z$ and $\varphi$ were arbitrary, $u$ is an infinity
+subsolution on $\Omega'$ in the sense of \noderef{IsInfSubsolutionOn}.
+
+\emph{The supersolution inequality.} Symmetrically, let $z\in\Omega'$ and let
+$\varphi$ be $C^2$ at $z$ such that $u-\varphi$ has a local minimum on $\Omega'$
+at $z$. By the second half of \eqref{eq:ihm-key} applied to $f=u-\varphi$, the
+function $u-\varphi$ has a local minimum on $\Omega$ at $z$, and
+$z\in\Omega$. Since $u$ is an infinity supersolution on $\Omega$,
+\noderef{IsInfSupersolutionOn} gives $\Dinf\varphi(z)\le0$. Hence $u$ is an
+infinity supersolution on $\Omega'$ in the sense of
+\noderef{IsInfSupersolutionOn}.
+
+The two displayed properties together are exactly infinity-harmonicity of $u$ on
+$\Omega'$ in the sense of \noderef{IsInfHarmonicOn}.
+\end{proof}

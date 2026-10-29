@@ -1,0 +1,59 @@
+\begin{lemma}[The quartic penalty is flat to second order at its centre]
+Let $E$ be a real inner-product space and let $Z_0\in E$. Then the function
+\[
+  \kappa(Z)=|Z-Z_0|^4\qquad(Z\in E)
+\]
+is $C^2$ on $E$, and
+\[
+  D\kappa(Z_0)=0,\qquad D^2\kappa(Z_0)=0 .
+\]
+\end{lemma}
+\begin{proof}
+Write $n(Z)=|Z-Z_0|^2$, so that $\kappa=n^2$, since
+$|Z-Z_0|^4=\bigl(|Z-Z_0|^2\bigr)^2$.
+
+\emph{Step 1: $\kappa$ is $C^2$.}
+The map $Z\mapsto Z-Z_0$ is the sum of the identity and a constant, hence
+$C^\infty$; the squared norm $W\mapsto|W|^2$ is $C^\infty$ on an inner-product
+space (preamble, it is the quadratic form $W\mapsto\langle W,W\rangle$); so
+$n$ is $C^\infty$ as a composition, and $\kappa=n^2$ is $C^\infty$ as a product,
+in particular $C^2$.
+
+\emph{Step 2: the first derivative, at every point.}
+The derivative of $Z\mapsto Z-Z_0$ at any $Z$ is the identity map. The
+derivative of $W\mapsto|W|^2$ at $W$ is $h\mapsto2\langle W,h\rangle$. By the
+chain rule,
+\[
+  Dn(Z)h=2\langle Z-Z_0,h\rangle\qquad(h\in E).
+\]
+By the chain rule for the square, $D\kappa(Z)=2\,n(Z)\,Dn(Z)$, that is,
+\begin{equation}\label{eq:qfc-first}
+  D\kappa(Z)h=4\,|Z-Z_0|^2\,\langle Z-Z_0,h\rangle\qquad(Z,h\in E).
+\end{equation}
+Taking $Z=Z_0$ in \eqref{eq:qfc-first}, the factor $|Z_0-Z_0|^2=0$ gives
+$D\kappa(Z_0)h=0$ for every $h$, i.e.\ $D\kappa(Z_0)=0$.
+
+\emph{Step 3: the second derivative at $Z_0$.}
+By \eqref{eq:qfc-first} the function $Z\mapsto D\kappa(Z)$ is the product
+\[
+  Z\longmapsto g(Z)\cdot\Lambda(Z),\qquad
+  g(Z)=4\,|Z-Z_0|^2\in\R,\qquad
+  \Lambda(Z)=\langle Z-Z_0,\cdot\,\rangle,
+\]
+of a scalar function $g$ and a function $\Lambda$ with values in the space of
+continuous linear functionals on $E$. Both factors are differentiable: $g$ by
+Step 2 applied to the squared norm, and $\Lambda$ because it is the composition
+of the continuous linear map $W\mapsto\langle W,\cdot\,\rangle$ with the map
+$Z\mapsto Z-Z_0$, so that $D\Lambda(Z)h=\langle h,\cdot\,\rangle$.
+
+By the product rule for a scalar function times a vector-valued function,
+\[
+  D^2\kappa(Z_0)h
+   =\bigl(Dg(Z_0)h\bigr)\,\Lambda(Z_0)+g(Z_0)\,\bigl(D\Lambda(Z_0)h\bigr)
+   \qquad(h\in E).
+\]
+Both terms vanish: $\Lambda(Z_0)=\langle Z_0-Z_0,\cdot\,\rangle
+=\langle0,\cdot\,\rangle=0$ kills the first, and
+$g(Z_0)=4|Z_0-Z_0|^2=0$ kills the second. Hence $D^2\kappa(Z_0)h=0$ for every
+$h$, i.e.\ $D^2\kappa(Z_0)=0$.
+\end{proof}

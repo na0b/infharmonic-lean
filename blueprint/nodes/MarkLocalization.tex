@@ -1,0 +1,651 @@
+\begin{lemma}[Marks and localization in fitted frames]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$, let $\kappa>0$ and $H\in\R$, and let $v\in\Aclass_{m,C_0}$
+in the sense of \noderef{IsFitClass} be centered at $z_*=(0,1)$ with constant
+$C_0$ in the sense of \noderef{IsCenteredAt} and satisfy the horizontal Jensen
+bound with constant $\kappa$ at every time in the sense of
+\noderef{HasJensenBound}. Let $W$ be the contact envelope of
+\noderef{ContactEnv} formed from $v$ and $\kappa$, and assume the six standing
+properties of the extremal contact pair: $W$ is continuous on $\{t>0\}$ with
+subquadratic spatial growth on compact subintervals of $(0,\infty)$ in the
+sense of \noderef{SubquadraticGrowth}; $W$ is a viscosity subsolution of the
+limiting equation there in the sense of \noderef{IsLimitSubOn};
+$v-\kappa^2t/2\le W\le v$ for $t>0$ and $W(z_*)=v(z_*)=0$;
+$x\mapsto W(x,t)-|x|^2/(2t)$ is concave for every $t>0$; the barycentric gap of
+\noderef{BaryEnv} is $\kappa^2t/2$ at every contact; and the envelope
+Hamiltonian of \noderef{EnvHamiltonian} satisfies $H_v(z_*)=H$ with
+$\Senv_\ell^+W(z_*)\to H$ as $\ell\downarrow0$, the forward envelope slope being
+that of \noderef{EnvSlopeP}. Let $C_*>0$. Write $\delta_j=2^{-j}$ and
+$L(\Theta)=1+\log\Theta$.
+
+Then there are an integer $T\ge8$ and reals $R\ge2$, $K\ge2$ and
+$C_\Gamma>0$ with the following property. Let $N\ge1$, let
+$\epsilon>0$ and let $(\Omega,\mathcal M,\mu)$, $(\mathcal G_n)$, $\xi$, $z$,
+$z^+$, $z^-$, $Q_0$, $\tau$ be a stopped contact walk for
+$(\kappa,H,T,R,v,N,\epsilon)$ in the sense of \noderef{IsContactWalk}. Write
+$z_n=(x_n,t_n)$, $B=R+T+2$,
+\[
+  Q_+(n)=\frac{x^+_n-x_n}{\epsilon},\qquad
+  Q_-(n)=\frac{x_n-x^-_n}{\epsilon},\qquad
+  \mathcal E_n=|Q_+(n)-Q_0(n)|^2+|Q_-(n)-Q_0(n)|^2,
+\]
+and assume the error budget
+\begin{equation}\label{eq:ml-contact-error-budget-hyp}
+  \mathbb E\sum_{n<\tau}\mathcal E_n\le C_*L(B)^4 .
+\end{equation}
+Let $(\sigma_j,p_j,a_j)$ be marks with fits for
+$(C_0,v,N,\mathcal G,z,\tau)$ in the sense of \noderef{IsMarkData}. Then for
+every $j$ with $1\le j\le N$, writing $\Gamma_j=C_\Gamma(L(B)+j)$:
+\begin{enumerate}
+\item[(i)] $|p_j|+|a_j|\le\Gamma_j$ pointwise, and $\Gamma_j\ge1$;
+\item[(ii)] the localization event
+\[
+  \mathcal L_j=\Bigl\{t_\tau=\delta_N\ \text{and}\
+     \bigl|x_\tau-x_{\sigma_j}-(t_\tau-\delta_j)p_j\bigr|\le K\delta_j\Bigr\}
+\]
+belongs to $\mathcal M$ and, uniformly in $j$ and $N$,
+\begin{equation}\label{eq:contact-finite-localization}
+  \mathcal L_j\in\mathcal M,\qquad
+  \mathbb P\left(t_\tau=\delta_N\quad\text{and}\quad
+     \bigl|x_\tau-x_{\sigma_j}-(t_\tau-\delta_j)p_j\bigr|\le K\delta_j\right)
+   \ge\frac12 .
+\end{equation}
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Throughout, $W$ is the contact envelope of \noderef{ContactEnv}, states are
+written $z_n=(x_n,t_n)$, and $\delta_j=2^{-j}$.
+
+\emph{Step 0: the constants.}
+Let $C_f>0$ be the constant of \noderef{FitParamBound} for this $C_0$, let
+$C_2>0$ be the constant of \noderef{DPLogVelocity} for this $C_0$ and
+$\kappa$, and put
+\[
+  M=8,\qquad C_\Gamma=\max\{C_f,1\}>0 .
+\]
+Apply \noderef{StoppedWalkTravel} with the present standing data and this
+$C_*$: it supplies an integer $T\ge8$ and a real $R\ge2$ such that every
+stopped contact walk for $(\kappa,H,T,R,v,N,\epsilon)$ with $N\ge1$ satisfying
+\eqref{eq:ml-contact-error-budget-hyp} obeys both of its conclusions, namely the
+travel inequality in the portion generality and
+\begin{equation}\label{eq:ml-hit}
+  \mathbb P\bigl(t_\tau=\delta_N\bigr)\ge\frac34 .
+\end{equation}
+Fix these $T$, $R$ and put $B=R+T+2\ge12$, so $L(B)=1+\log B>1$. The constant
+$K\ge2$ is fixed in Step 7; everything before that is proved for every
+$K\ge2$ simultaneously, with constants not depending on $K$, $N$ or $j$.
+
+Now let $N\ge1$, let $\epsilon$ and the walk be as in the statement, let
+$(\sigma_j,p_j,a_j)$ be marks with fits, and fix $j$ with $1\le j\le N$. Put
+$r=\delta_j$ and
+\[
+  \mathcal R_j=\{t_{\sigma_j}=r\},\qquad
+  \epsilon'=\frac{\epsilon}{r},\qquad
+  y_n=\frac{x_n-x_{\sigma_j}-(t_n-r)p_j}{r},\qquad
+  s_n=\frac{t_n}{r}.
+\]
+By \noderef{IsMarkData}, clause 5, each $\mathbf1_{\{\sigma_j\le n\}}p_j$ is
+$\mathcal G_n$-measurable, so $p_j=\sum_{n\ge0}\mathbf1_{\{\sigma_j=n\}}
+ \mathbf1_{\{\sigma_j\le n\}}p_j$ is $\mathcal M$-measurable, and likewise
+$a_j$; also $z_{\sigma_j}$ and $z_\tau$ are measurable, because $\sigma_j$ and
+$\tau$ are stopping times and each $z_n$ is $\mathcal G_n$-measurable by
+\noderef{IsContactWalk}, clauses 4 and 9. Hence $\mathcal R_j$ and the event in
+\eqref{eq:contact-finite-localization} are measurable, and all expectations
+below are of measurable functions.
+
+\emph{Step 1: four grid facts, from \noderef{IsContactWalk}.}
+By \noderef{IsContactWalk}, clause 2, $\epsilon=2^{-k}$ for some nonnegative
+integer $k$ and $0<\epsilon\le\delta_N/4=2^{-N-2}$; hence $k\ge N+2$.
+
+\emph{(a) Every $t_n$ lies on the grid $\epsilon\mathbb Z$, and
+$\delta_i\in\epsilon\mathbb Z$ for $i\le N$.} Indeed
+$\delta_i=2^{-i}=2^{k-i}\epsilon$ with $k-i\ge2$ a nonnegative integer, and
+$1=2^k\epsilon$. For the states: $t_0=1$ by clause 5, and by clause 7 together
+with \noderef{IsStepPair} --- whose two steps at a live state have time
+coordinates $t_n+\epsilon$ and $t_n-\epsilon$ --- we have
+\begin{equation}\label{eq:ml-timestep}
+  t_{n+1}=t_n+\epsilon\xi_n\ \text{ on }\{n<\tau\},\qquad
+  t_{n+1}=t_n\ \text{ on }\{n\ge\tau\},
+\end{equation}
+with $\xi_n\in\{1,-1\}$ by clause 3. Induction on $n$ gives
+$t_n\in\epsilon\mathbb Z$. Consequently $S_n:=t_n/\epsilon$ is an integer for
+every $n$, with $S_{n+1}=S_n+\xi_n$ on $\{n<\tau\}$.
+
+\emph{(b) $t_{\sigma_j}\ge\delta_j$, with equality on $\{t_\tau=\delta_N\}$.}
+Suppose first $t_{\sigma_j}<\delta_j$. Since $j\ge1$ we have
+$t_0=1>\tfrac12\ge\delta_j$, so there is a least index $n_1\le\sigma_j$ with
+$t_{n_1}\le\delta_j$, and $n_1\ge1$ with $t_{n_1-1}>\delta_j$. If
+$n_1-1\ge\tau$ then $t_{n_1}=t_{n_1-1}>\delta_j$ by \eqref{eq:ml-timestep},
+contradicting $t_{n_1}\le\delta_j$. So $n_1-1<\tau$ and
+$t_{n_1}\ge t_{n_1-1}-\epsilon>\delta_j-\epsilon$ by
+\eqref{eq:ml-timestep}; as $t_{n_1}$ and $\delta_j$ both lie on
+$\epsilon\mathbb Z$ by (a), the two inequalities
+$\delta_j-\epsilon<t_{n_1}\le\delta_j$ force $t_{n_1}=\delta_j$. Hence
+$n_1<\sigma_j$ would contradict \noderef{IsMarkData}, clause 3, which gives
+$t_n\ne\delta_j$ for $n<\sigma_j$; so $n_1=\sigma_j$ and
+$t_{\sigma_j}=\delta_j$, contradicting $t_{\sigma_j}<\delta_j$. Therefore
+$t_{\sigma_j}\ge\delta_j$.
+
+On $\{t_\tau=\delta_N\}$ we have $t_\tau=\delta_N\le\delta_j$, since
+$j\le N$. By \noderef{IsMarkData}, clause 4, either
+$t_{\sigma_j}=\delta_j$ --- which is the assertion --- or
+$\sigma_j=\tau$, in which case $t_{\sigma_j}=t_\tau\le\delta_j$ and the
+inequality just proved gives $t_{\sigma_j}=\delta_j$ as well. So
+\begin{equation}\label{eq:ml-Rj}
+  \{t_\tau=\delta_N\}\subseteq\mathcal R_j .
+\end{equation}
+
+\emph{(c) $\epsilon'\le1/4$, and $\epsilon'$ is an inverse power of two
+dividing $1$ and $M$.} Since $j\le N$ we have $\delta_N\le\delta_j=r$, so
+$\epsilon'=\epsilon/r\le\epsilon/\delta_N\le1/4$; and
+$\epsilon'=2^{-k}/2^{-j}=2^{j-k}$ with $k-j\ge2$, so $\epsilon'=2^{j-k}$
+divides $1$ and divides the integer $M$.
+
+\emph{(d) Before any step of the portion the primed time exceeds
+$4\epsilon'$.} If $n<\tau$ then $t_n>\delta_N$ by \noderef{IsContactWalk},
+clause 10, so
+\begin{equation}\label{eq:ml-primed-time}
+  s_n=\frac{t_n}{r}>\frac{\delta_N}{r}\ge\frac{4\epsilon}{r}=4\epsilon',
+\end{equation}
+using $\delta_N\ge4\epsilon$ from clause 2.
+
+\emph{Step 2: the fit-parameter bound, i.e.\ (i).}
+On $\mathcal R_j$, \noderef{IsMarkData}, clause 6, gives that $(p_j,a_j)$ is a
+fit for $v$ at $z_{\sigma_j}=(x_{\sigma_j},r)$ of radius $r$ with constant
+$C_0$, in the sense of \noderef{IsFit}. By \noderef{IsContactWalk}, clause 12,
+$|x_{\sigma_j}|\le R+1\le B$, and $|r|=\delta_j\le1\le B$, while $B\ge2$ and
+$r>0$. Hence \noderef{FitParamBound}, applied to $v$ with the centering point
+$(0,1)$ --- the second alternative of its hypothesis --- the box size $K'=B$
+and the radius $r$, gives
+\[
+  |p_j|+|a_j|\le C_f\bigl(L(B)+|\log r|\bigr)
+   =C_f\bigl(L(B)+j\log2\bigr)\le C_f\bigl(L(B)+j\bigr)\le\Gamma_j
+\]
+on $\mathcal R_j$, using $\log2<1$ and $C_f\le C_\Gamma$. Off $\mathcal R_j$,
+clause 7 of \noderef{IsMarkData} gives $p_j=0$ and $a_j=0$, so the bound holds
+there too. Finally $L(B)>1$ and $j\ge1$ give
+$\Gamma_j=C_\Gamma(L(B)+j)\ge1\cdot2>1$, so $\Gamma_j\ge1$. This is (i).
+
+\emph{Step 3: the fitted frame.}
+Fix $\omega\in\mathcal R_j$ and write $p_0=p_j(\omega)$, $a_0=a_j(\omega)$,
+$x_0=x_{\sigma_j}(\omega)$, so that $(p_0,a_0)$ is a fit for $v$ at $(x_0,r)$
+of radius $r$ and $r>0$. Let
+\[
+  \bar v_\omega(y,s)=\frac{v(x,t)-v(x_0,r)}{r}
+     -p_0\cdot y-\Bigl(a_0+\frac{|p_0|^2}{2}\Bigr)(s-1),
+  \qquad x=x_0+r\bigl(y+p_0(s-1)\bigr),\quad t=rs,
+\]
+be the contact frame of \noderef{FrameChange} based at $(x_0,r)$ with scale
+$r$ and parameters $(p_0,a_0)$, preceded by the translation by $z_*=(0,1)$, and
+let $\bar W_\omega$ be the contact envelope of \noderef{ContactEnv} formed from
+$\bar v_\omega$ and the same $\kappa$. By \noderef{FrameEnvelopeCovariance},
+whose hypotheses $1\le C_0$, $0\le\kappa$, $v\in\Aclass_{m,C_0}$, the Jensen
+bound, $r>0$ and the fit are all available, its first three conclusions give
+\begin{equation}\label{eq:ml-frame-class}
+  \bar v_\omega\in\Aclass_{m,C_0},\quad
+  \bar v_\omega\text{ is centered at }(0,1)\text{ with constant }C_0,\quad
+  \bar v_\omega\text{ has the Jensen bound with the same }\kappa .
+\end{equation}
+These are exactly the standing hypotheses carried by $v$, so every statement
+below that was quoted for a centered member of the class with a Jensen bound
+applies to $\bar v_\omega$ and $\bar W_\omega$ with the same constants; this is
+the only place the frame enters the constants, and it enters not at all.
+
+Let $n$ satisfy $\sigma_j(\omega)\le n<\tau(\omega)$. Then $t_n>\delta_N\ge
+4\epsilon>\epsilon$ by Step 1(d), the pair $(z^+_n,z^-_n)$ is an optimizing
+step pair of size $\epsilon$ at $z_n$ for $v$ and $\kappa$ by
+\noderef{IsContactWalk}, clause 6, and $\Penv_\epsilon W(\cdot,t_n)$ has
+gradient $Q_0(n)$ at $x_n$ by clause 8. The images of $z_n$, $z^\pm_n$ under
+the inverse frame map
+$(x',t')\mapsto\bigl((x'-x_0-(t'-r)p_0)/r,\ t'/r\bigr)$ are
+$\zeta_n=(y_n,s_n)$ and $\zeta^\pm_n$. So
+\noderef{FrameVelocityCovariance} applies at this state and gives: the pair
+$(\zeta^+_n,\zeta^-_n)$ is an optimizing step pair of size $\epsilon'$ at
+$\zeta_n$ for $\bar v_\omega$ and $\kappa$; the primed velocities are
+\begin{equation}\label{eq:ml-primed-velocities}
+  Q'_\pm(n)=Q_\pm(n)-p_0,\qquad
+  Q'_0(n)=Q_0(n)-p_0
+   =\nabla_y\Penv_{\epsilon'}\bar W_\omega(y_n,s_n);
+\end{equation}
+and the discrepancies are unchanged,
+\begin{equation}\label{eq:ml-same-discrepancies}
+  \bigl|Q'_+(n)-Q'_0(n)\bigr|=\bigl|Q_+(n)-Q_0(n)\bigr|,\qquad
+  \bigl|Q'_-(n)-Q'_0(n)\bigr|=\bigl|Q_-(n)-Q_0(n)\bigr| .
+\end{equation}
+No contact of $W$ with $v$ at the mark is used, and the fit and the frame are
+determined by $\mathcal G_{\sigma_j}$-measurable data, hence fixed once the
+mark is reached.
+
+\emph{Step 4: the portion and its stopping index.}
+Let $K\ge2$. Define $\tau'_j(\omega)$, for $\omega\in\mathcal R_j$, to be the
+least $n\ge\sigma_j(\omega)$ with
+\[
+  n=\tau(\omega)\quad\text{or}\quad s_n(\omega)\ge M
+  \quad\text{or}\quad |y_n(\omega)|\ge K,
+\]
+which exists because $n=\tau(\omega)\ge\sigma_j(\omega)$ qualifies; and put
+$\tau'_j=\sigma_j$ off $\mathcal R_j$. Then
+\begin{equation}\label{eq:ml-portion-order}
+  \sigma_j\le\tau'_j\le\tau ,
+\end{equation}
+and for $\sigma_j\le n<\tau'_j$ we have $n<\tau$, $s_n<M$ and $|y_n|<K$.
+Moreover $\tau'_j$ is a stopping time: $\{\tau'_j\le n\}$ is a finite union, over
+$i\le n$, of intersections of $\{\sigma_j=i\}$ with events determined by
+$z_0,\dots,z_n$ and by $\mathbf1_{\{\sigma_j\le i\}}p_j$, all of which lie in
+$\mathcal G_n$ by \noderef{IsContactWalk}, clause 4, and
+\noderef{IsMarkData}, clauses 1 and 5. Off $\mathcal R_j$ the portion is empty:
+$\tau'_j=\sigma_j$, and there $p_j=0$, so $y_{\sigma_j}=0$ and every sum over
+$\sigma_j\le n<\tau'_j$ is empty. On $\mathcal R_j$ we have $t_{\sigma_j}=r$,
+hence $y_{\sigma_j}=0$ as well. In all cases
+\begin{equation}\label{eq:ml-y-start}
+  y_{\sigma_j}=0,\qquad
+  y_n=\frac{x_n-x_{\sigma_j}-(t_n-t_{\sigma_j})p_j}{r}
+  \quad(\sigma_j\le n\le\tau'_j),
+\end{equation}
+the second identity because on $\mathcal R_j$ we may replace $r$ by
+$t_{\sigma_j}$ and off $\mathcal R_j$ we have $p_j=0$.
+
+\emph{Step 5: the frame error budget.}
+By \eqref{eq:ml-same-discrepancies}, for $\sigma_j\le n<\tau'_j$ the primed
+squared discrepancy equals $\mathcal E_n$. Since
+$\{n:\sigma_j\le n<\tau'_j\}\subseteq\{n:n<\tau\}$ by
+\eqref{eq:ml-portion-order} and the summands are nonnegative, we get pointwise
+$\sum_{\sigma_j\le n<\tau'_j}\mathcal E_n\le\sum_{n<\tau}\mathcal E_n$, and on
+an empty portion the left side is $0$. Taking expectations and using
+\eqref{eq:ml-contact-error-budget-hyp},
+\begin{equation}\label{eq:contact-frame-error-budget}
+  \mathbb E\sum_{\sigma_j\le n<\tau'_j}
+    \bigl(|Q'_+(n)-Q'_0(n)|^2+|Q'_-(n)-Q'_0(n)|^2\bigr)
+   =\mathbb E\sum_{\sigma_j\le n<\tau'_j}\mathcal E_n
+   \le B_0:=C_*L(B)^4 .
+\end{equation}
+This is an unconditional estimate; it asserts nothing after conditioning on the
+history at the mark.
+
+\emph{Claim T$'$ (the conditional time walk).} Put $a=\delta_N/\epsilon$ and
+$b=M/\epsilon'$, which are integers by Step 1(a) and (c), and note
+$0\le a$. Let $h:\mathbb Z\to\R$ vanish outside $\{a,\dots,b\}$ and be
+nonnegative there, and let $u:\mathbb Z\to[0,\infty)$ satisfy
+\begin{equation}\label{eq:ml-poisson}
+  \tfrac12\bigl(h(i+1)+h(i-1)\bigr)-h(i)=-u(i)\qquad(a<i<b).
+\end{equation}
+Then
+\[
+  \mathbb E\Bigl[\sum_{\sigma_j\le n<\tau'_j}u(S_n)\ \Big|\
+      \mathcal G_{\sigma_j}\Bigr]\le h(S_{\sigma_j})\qquad\text{a.e.}
+\]
+Moreover, if $\ell:\mathbb Z\to\R$ is bounded and satisfies
+$\tfrac12(\ell(i+1)+\ell(i-1))=\ell(i)$ for $a<i<b$, then
+$\mathbb E[\ell(S_{\tau'_j})\mid\mathcal G_{\sigma_j}]=\ell(S_{\sigma_j})$
+almost everywhere.
+
+\emph{Proof of Claim T$'$.} Write $\rho=\sigma_j$ and $\varsigma=\tau'_j$. We
+first record that
+\begin{equation}\label{eq:ml-inside}
+  a<S_n<b\qquad(\rho\le n<\varsigma).
+\end{equation}
+Indeed such an $n$ has $n<\tau$ by Step 4, so $t_n>\delta_N$ by
+\noderef{IsContactWalk}, clause 10, i.e.\ $S_n>a$; and $s_n<M$ by Step 4, i.e.\
+$S_n=s_n/\epsilon'<M/\epsilon'=b$. (If the portion is empty,
+\eqref{eq:ml-inside} is vacuous.)
+
+For $n\ge0$ put
+\[
+  Y_n=h\bigl(S_{(\rho\vee n)\wedge\varsigma}\bigr)
+      +\sum_{\rho\le m<n\wedge\varsigma}u(S_m),
+\]
+a bounded function for each $n$, since $h$ and $u$ are bounded on the finite set
+$\{a,\dots,b\}$ and vanish or are irrelevant elsewhere, and the sum has at most
+$n$ terms.
+
+Define
+\[
+  \mathcal G_\rho=\bigl\{A\subseteq\Omega:
+     A\cap\{\rho\le n\}\in\mathcal G_n\ \text{for every }n\bigr\},
+\]
+the $\sigma$-algebra of events known at the stopping time $\rho$. It is a
+$\sigma$-algebra: it contains $\Omega$ because $\{\rho\le n\}\in\mathcal G_n$,
+$\rho$ being a stopping time; it is closed under complements because
+$A^{\rm c}\cap\{\rho\le n\}=\{\rho\le n\}\setminus(A\cap\{\rho\le n\})$; and it
+is closed under countable unions because intersection distributes over them. It
+is contained in $\mathcal M$, since $A=\bigcup_n(A\cap\{\rho\le n\})$ and each
+$A\cap\{\rho\le n\}\in\mathcal G_n\subseteq\mathcal M$. The only property of
+$\mathcal G_\rho$ used below is the defining one.
+
+Let $A\in\mathcal G_\rho$. We
+claim $\int_AY_{n+1}\,d\mu=\int_AY_n\,d\mu$ for every $n$. Split $A$ into three
+measurable pieces.
+
+On $\{\rho>n\}$: then $\rho\ge n+1$, so
+$(\rho\vee n)\wedge\varsigma=\rho\wedge\varsigma=\rho$ and
+$(\rho\vee(n+1))\wedge\varsigma=\rho$ as well, using $\rho\le\varsigma$; both
+sums are empty. Hence $Y_{n+1}=Y_n=h(S_\rho)$ there.
+
+On $\{\rho\le n\}\cap\{\varsigma\le n\}$: then
+$(\rho\vee n)\wedge\varsigma=\varsigma$ and
+$(\rho\vee(n+1))\wedge\varsigma=\varsigma$, and both sums equal
+$\sum_{\rho\le m<\varsigma}u(S_m)$. Hence $Y_{n+1}=Y_n$ there.
+
+On $E_n:=A\cap\{\rho\le n<\varsigma\}$: here
+$(\rho\vee n)\wedge\varsigma=n$ and
+$(\rho\vee(n+1))\wedge\varsigma=n+1$, and the sum gains exactly the term
+$u(S_n)$, so
+\[
+  Y_{n+1}-Y_n=h(S_{n+1})-h(S_n)+u(S_n).
+\]
+The event $E_n$ lies in $\mathcal G_n$: $A\cap\{\rho\le n\}\in\mathcal G_n$ by
+the definition of $\mathcal G_\rho$, and
+$\{n<\varsigma\}$ is the complement of $\{\varsigma\le n\}\in\mathcal G_n$,
+$\varsigma$ being a stopping time by Step 4. On $E_n$ we have $n<\tau$, so
+$S_{n+1}=S_n+\xi_n$ with $\xi_n\in\{1,-1\}$, and $a<S_n<b$ by
+\eqref{eq:ml-inside}; writing
+\[
+  h(S_{n+1})=\frac{1+\xi_n}{2}h(S_n+1)+\frac{1-\xi_n}{2}h(S_n-1)
+   =\frac{h(S_n+1)+h(S_n-1)}{2}
+     +\frac{\xi_n}{2}\bigl(h(S_n+1)-h(S_n-1)\bigr),
+\]
+the coefficient of $\xi_n$ is bounded and $\mathcal G_n$-measurable, so the
+pull-out property of the conditional expectation and
+$\mathbb E[\xi_n\mid\mathcal G_n]=0$ (\noderef{IsContactWalk}, clause 3) give
+$\int_{E_n}h(S_{n+1})\,d\mu
+ =\int_{E_n}\tfrac12(h(S_n+1)+h(S_n-1))\,d\mu
+ =\int_{E_n}(h(S_n)-u(S_n))\,d\mu$ by \eqref{eq:ml-poisson}. Hence
+$\int_{E_n}(Y_{n+1}-Y_n)\,d\mu=0$, which proves the claim.
+
+Therefore $\int_AY_n\,d\mu=\int_AY_0\,d\mu=\int_Ah(S_\rho)\,d\mu$ for every
+$n$, since $Y_0=h(S_{\rho\wedge\varsigma})=h(S_\rho)$ and the sum in $Y_0$ is
+empty. As $h\ge0$ on the range \eqref{eq:ml-inside} and $h$ vanishes elsewhere,
+dropping the $h$ term gives
+$\int_A\sum_{\rho\le m<n\wedge\varsigma}u(S_m)\,d\mu
+ \le\int_Ah(S_\rho)\,d\mu$. The sums are nonnegative and nondecreasing in $n$,
+with pointwise limit $X:=\sum_{\rho\le m<\varsigma}u(S_m)$ because $\varsigma$
+is finite, so monotone convergence gives
+\begin{equation}\label{eq:ml-condbound}
+  \int_AX\,d\mu\le\int_Ah(S_\rho)\,d\mu\qquad(A\in\mathcal G_\rho).
+\end{equation}
+Taking $A=\Omega$ shows $X$ is integrable, since it is nonnegative, measurable
+and has finite integral. Now both $\mathbb E[X\mid\mathcal G_\rho]$ and
+$h(S_\rho)$ are $\mathcal G_\rho$-measurable and integrable, and
+\eqref{eq:ml-condbound} says
+$\int_A\mathbb E[X\mid\mathcal G_\rho]\,d\mu\le\int_Ah(S_\rho)\,d\mu$ for every
+$A\in\mathcal G_\rho$; choosing
+$A=\{\mathbb E[X\mid\mathcal G_\rho]>h(S_\rho)\}$ forces that event to be null,
+so $\mathbb E[X\mid\mathcal G_\rho]\le h(S_\rho)$ a.e. For the last assertion,
+run the same computation with $u=0$ and $h=\ell$: the three-piece argument used
+neither $\ell\ge0$ nor the vanishing of $\ell$ outside $\{a,\dots,b\}$, only the
+mean-value identity on $(a,b)$ and \eqref{eq:ml-inside}, so
+$\int_A\ell(S_{(\rho\vee n)\wedge\varsigma})\,d\mu
+ =\int_A\ell(S_\rho)\,d\mu$ for every $n$; since $\varsigma$ is finite,
+$(\rho\vee n)\wedge\varsigma\to\varsigma$ pointwise, and $\ell$ is bounded while
+$\mu$ is a probability measure by \noderef{IsContactWalk}, clause 1, so
+dominated convergence gives
+$\int_A\ell(S_\varsigma)\,d\mu=\int_A\ell(S_\rho)\,d\mu$ for every
+$A\in\mathcal G_\rho$, i.e.\ the stated conditional identity. This proves
+Claim T$'$.
+
+\emph{Step 6: the conditional time and velocity budgets.}
+We use three instances of Claim T$'$. Note first that
+$\mathcal R_j\in\mathcal G_{\sigma_j}$ in the sense of Claim T$'$: for every
+$n$,
+\[
+  \mathcal R_j\cap\{\sigma_j\le n\}
+   =\bigcup_{i\le n}\bigl(\{\sigma_j=i\}\cap\{t_i=\delta_j\}\bigr),
+\]
+and each $\{\sigma_j=i\}$ lies in $\mathcal G_i\subseteq\mathcal G_n$ because
+$\sigma_j$ is a stopping time by \noderef{IsMarkData}, clause 1, while
+$\{t_i=\delta_j\}\in\mathcal G_i\subseteq\mathcal G_n$ because $z_i$ is
+$\mathcal G_i$-measurable by \noderef{IsContactWalk}, clause 4. We also note
+that $S_{\sigma_j}=r/\epsilon=1/\epsilon'$
+on $\mathcal R_j$, while off $\mathcal R_j$ the portion is empty so every sum
+below vanishes there; since $\mathcal R_j$ is $\mathcal G_{\sigma_j}$-measurable
+we may therefore insert the indicator $\mathbf1_{\mathcal R_j}$ on the right of
+each conditional bound.
+
+\emph{(a) The number of steps.} Take $h_1(i)=(b-i)(i-a)$ on
+$\{a,\dots,b\}$ and $0$ outside, and $u=\mathbf1_{(a,b)}$. Then $h_1\ge0$ on
+$\{a,\dots,b\}$ and, for $a<i<b$, writing $h_1(i)=-i^2+(a+b)i-ab$, the second
+difference of $-i^2$ is $-2$, so
+$\tfrac12(h_1(i+1)+h_1(i-1))-h_1(i)=-1=-u(i)$. By \eqref{eq:ml-inside} the
+summand $u(S_n)$ equals $1$ for every $n$ in the portion, so Claim T$'$ gives,
+with $n'=\tau'_j-\sigma_j$ the number of steps of the portion and
+$S_{\sigma_j}=1/\epsilon'$ on $\mathcal R_j$,
+\[
+  \mathbb E\bigl[n'\mid\mathcal G_{\sigma_j}\bigr]
+   \le\mathbf1_{\mathcal R_j}\,h_1(1/\epsilon')
+   =\mathbf1_{\mathcal R_j}\Bigl(\frac{M}{\epsilon'}-\frac1{\epsilon'}\Bigr)
+      \Bigl(\frac1{\epsilon'}-a\Bigr)
+   \le\mathbf1_{\mathcal R_j}\frac{M}{(\epsilon')^2},
+\]
+using $a\ge0$ and $M/\epsilon'-1/\epsilon'\le M/\epsilon'$. Hence
+\begin{equation}\label{eq:ml-time-budget}
+  \mathbb E\bigl[(\epsilon')^2n'\mid\mathcal G_{\sigma_j}\bigr]
+   \le M\,\mathbf1_{\mathcal R_j}\qquad\text{a.e.}
+\end{equation}
+
+\emph{(b) Visit counts.} Fix an integer $i_0$ with $a<i_0<b$ and take
+\[
+  G_{i_0}(i)=\frac{2\min(i-a,\,i_0-a)\bigl(b-\max(i,i_0)\bigr)}{b-a}
+\]
+on $\{a,\dots,b\}$ and $0$ outside. Then $G_{i_0}\ge0$,
+$G_{i_0}(a)=G_{i_0}(b)=0$, and $G_{i_0}$ is affine in $i$ on
+$\{a,\dots,i_0\}$ and on $\{i_0,\dots,b\}$, so its second difference vanishes
+for $a<i<b$, $i\ne i_0$, while at $i=i_0$, writing $q=b-a$,
+$\alpha=i_0-a$,
+\[
+  \tfrac12\bigl(G_{i_0}(i_0-1)+G_{i_0}(i_0+1)\bigr)-G_{i_0}(i_0)
+   =\frac{(\alpha-1)(q-\alpha)+\alpha(q-\alpha-1)}{q}
+      -\frac{2\alpha(q-\alpha)}{q}=-1,
+\]
+because $(\alpha-1)(q-\alpha)+\alpha(q-\alpha-1)=2\alpha(q-\alpha)-q$. So
+\eqref{eq:ml-poisson} holds with $u=\mathbf1_{\{i_0\}}$, and Claim T$'$ gives,
+with $V_{i_0}=\#\{n:\sigma_j\le n<\tau'_j,\ S_n=i_0\}$,
+\begin{equation}\label{eq:ml-visits}
+  \mathbb E\bigl[V_{i_0}\mid\mathcal G_{\sigma_j}\bigr]
+   \le\mathbf1_{\mathcal R_j}G_{i_0}(1/\epsilon')
+   \le\mathbf1_{\mathcal R_j}\frac{b-a}{2}
+   \le\mathbf1_{\mathcal R_j}\frac{M}{2\epsilon'},
+\end{equation}
+the middle step because $\min(i-a,\alpha)(b-\max(i,i_0))\le\alpha(q-\alpha)\le
+q^2/4$ for every $i$, and the last because $b-a\le b=M/\epsilon'$.
+
+\emph{(c) The velocity budget.} Let $\sigma_j\le n<\tau'_j$ and
+$\omega\in\mathcal R_j$. Then $|y_n|<K\le K+M+2$ and $0<s_n<M\le K+M+2$ by
+Step 4, $0<\epsilon'\le1/4\le1$ by Step 1(c), $\epsilon'<s_n$ by
+\eqref{eq:ml-primed-time}, and $K+M+2\ge2$. By \eqref{eq:ml-frame-class} the
+function $\bar v_\omega$ is a member of $\Aclass_{m,C_0}$ centered at $(0,1)$
+with the Jensen bound at the same $\kappa$, and by
+\eqref{eq:ml-primed-velocities} the vector $Q'_0(n)$ is the gradient of
+$\Penv_{\epsilon'}\bar W_\omega(\cdot,s_n)$ at $y_n$. Hence
+\noderef{DPLogVelocity}, applied to $\bar v_\omega$ with the box size
+$K+M+2$, gives
+\begin{equation}\label{eq:ml-Q0prime}
+  |Q'_0(n)|\le C_2\bigl(L(K+M+2)+|\log s_n|\bigr),
+\end{equation}
+with $C_2$ the constant of \noderef{DPLogVelocity}, which depends only on
+$C_0$, $\dim F$ and $\kappa$ --- in particular not on the frame, which is why
+the bound is uniform in $j$, $N$ and $\omega$.
+
+From $|\alpha+\beta|^2\le2|\alpha|^2+2|\beta|^2$ and
+\eqref{eq:ml-Q0prime},
+$(\epsilon')^2|Q'_0(n)|^2\le2C_2^2(\epsilon')^2L(K+M+2)^2
+  +2C_2^2(\epsilon')^2|\log s_n|^2$. Summing over the portion, the first part
+contributes $2C_2^2L(K+M+2)^2(\epsilon')^2n'$, whose conditional expectation is
+at most $2C_2^2L(K+M+2)^2M\mathbf1_{\mathcal R_j}$ by
+\eqref{eq:ml-time-budget}. For the second, $s_n=S_n\epsilon'$ and
+$a<S_n<b$, so grouping the summands by the level $i_0=S_n$ and using
+\eqref{eq:ml-visits},
+\[
+  \mathbb E\Bigl[\sum_{\sigma_j\le n<\tau'_j}
+     (\epsilon')^2|\log s_n|^2\ \Big|\ \mathcal G_{\sigma_j}\Bigr]
+   =(\epsilon')^2\sum_{i_0=a+1}^{b-1}\bigl|\log(i_0\epsilon')\bigr|^2
+       \mathbb E\bigl[V_{i_0}\mid\mathcal G_{\sigma_j}\bigr]
+   \le\mathbf1_{\mathcal R_j}\frac{M\epsilon'}{2}
+       \sum_{i_0=a+1}^{b-1}\bigl|\log(i_0\epsilon')\bigr|^2 .
+\]
+The levels $s=i_0\epsilon'$ with $a<i_0<b$ lie in $(0,M)$. Split the sum. For
+$i_0\epsilon'\le1$ the function $s\mapsto|\log s|^2$ is nonnegative and
+decreasing on $(0,1]$, so its right-endpoint grid sum obeys
+$\epsilon'\sum_{i_0\epsilon'\le1}|\log(i_0\epsilon')|^2
+ \le\int_0^1|\log s|^2\,ds=2$, the value of the integral following from the
+substitution $s=e^{-\upsilon}$, which turns it into
+$\int_0^\infty\upsilon^2e^{-\upsilon}\,d\upsilon=2$. For
+$1<i_0\epsilon'<M$ we have $|\log(i_0\epsilon')|^2\le(\log M)^2$ and there are
+at most $b=M/\epsilon'$ such $i_0$, so
+$\epsilon'\sum_{i_0\epsilon'>1}|\log(i_0\epsilon')|^2\le M(\log M)^2$.
+Therefore, using $L(K+M+2)\ge1$,
+\begin{equation}\label{eq:contact-frame-time-budget}
+  \mathbb E\Bigl[\sum_{\sigma_j\le n<\tau'_j}
+     (\epsilon')^2|Q'_0(n)|^2\ \Big|\ \mathcal G_{\sigma_j}\Bigr]
+   \le C_ML(K+M+2)^2\,\mathbf1_{\mathcal R_j},\qquad
+  C_M=2C_2^2\Bigl(M+\frac M2\bigl(2+M(\log M)^2\bigr)\Bigr).
+\end{equation}
+Integrating \eqref{eq:ml-time-budget} and
+\eqref{eq:contact-frame-time-budget} over $\Omega$ removes the indicators and
+gives the unconditional bounds
+\begin{equation}\label{eq:ml-integrated}
+  \mathbb E\bigl[(\epsilon')^2n'\bigr]\le M,\qquad
+  \mathbb E\sum_{\sigma_j\le n<\tau'_j}(\epsilon')^2|Q'_0(n)|^2
+    \le C_ML(K+M+2)^2 .
+\end{equation}
+
+The first of these two unconditional bounds is exactly
+\noderef{ExpectedPortionLengthBound}, applied to the lattice data of Claim
+T$'$ --- the process $S$, the indices $\sigma_j\le\tau'_j\le\tau$, the window
+$(a,b)$ and the whole-space instance of the comparison --- with the test pair
+$h_1$, $u$ of (a); the conditional form \eqref{eq:ml-time-budget} is kept here
+because the velocity estimate above reads it before the integration.
+
+\emph{Step 7: the frame travel bound and the choice of $K$.}
+Apply the travel inequality of \noderef{StoppedWalkTravel}, available by
+Step 0, with the stopping times $\rho=\sigma_j$ and $\varsigma=\tau'_j$, which
+satisfy $\sigma_j\le\tau'_j\le\tau$ by \eqref{eq:ml-portion-order}, with
+$p=p_j$, $C_p=\Gamma_j$ --- admissible by Step 2 --- and with $r=\delta_j>0$;
+the required measurability of $\mathbf1_{\{\sigma_j\le n\}}p_j$ is
+\noderef{IsMarkData}, clause 5. By \eqref{eq:ml-y-start} its left-hand side is
+exactly $\mathbb E\sup_{\sigma_j\le n\le\tau'_j}|y_n|$, and by
+\eqref{eq:ml-primed-velocities} its first right-hand term involves
+$|Q_0(n)-p_j|=|Q'_0(n)|$ with the factor $(\epsilon/r)^2=(\epsilon')^2$. So the
+clause asserts that $\sup_{\sigma_j\le n\le\tau'_j}|y_n|$ is integrable and
+\[
+  \mathbb E\sup_{\sigma_j\le n\le\tau'_j}|y_n|
+   \le2\left(\mathbb E\sum_{\sigma_j\le n<\tau'_j}
+        (\epsilon')^2|Q'_0(n)|^2\right)^{1/2}
+     +\left(\mathbb E(\epsilon')^2(\tau'_j-\sigma_j)\right)^{1/2}
+      \left(\mathbb E\sum_{\sigma_j\le n<\tau'_j}\mathcal E_n\right)^{1/2}.
+\]
+Inserting \eqref{eq:ml-integrated} and
+\eqref{eq:contact-frame-error-budget},
+\begin{equation}\label{eq:contact-frame-travel}
+  \mathbb E\sup_{\sigma_j\le n\le\tau'_j}|y_n|
+   \le2\sqrt{C_M}\,L(K+M+2)+\sqrt{M}\sqrt{B_0}
+   \le C'_M\bigl(L(K+M+2)+\sqrt{B_0}\bigr),
+\end{equation}
+with $C'_M=\max\{2\sqrt{C_M},\sqrt M\}$, a constant depending only on $M$,
+$C_0$, $\kappa$ and $\dim F$ --- and not on $K$, $N$ or $j$.
+
+Since $B_0=C_*L(B)^4$ and $M$ are now fixed and
+$L(K+M+2)/K\to0$ as $K\to\infty$, we may fix once and for all
+\begin{equation}\label{eq:ml-choiceK}
+  K\ge2\quad\text{with}\quad
+  \frac{C'_M\bigl(L(K+M+2)+\sqrt{B_0}\bigr)}{K}\le\frac18 .
+\end{equation}
+This choice uses only $M$, $B_0$ and the fixed data, so it is uniform in $N$
+and $j$, as required by the order of the quantifiers in the statement.
+
+\emph{Step 8: the two cutoff probabilities.}
+Put
+\[
+  \mathcal B^1_j=\mathcal R_j\cap\bigl\{|y_{\tau'_j}|\ge K\bigr\},\qquad
+  \mathcal B^2_j=\mathcal R_j\cap\bigl\{s_{\tau'_j}\ge M\bigr\}.
+\]
+On $\mathcal B^1_j$ we have
+$|y_{\tau'_j}|\le\sup_{\sigma_j\le n\le\tau'_j}|y_n|$, so the pointwise
+inequality $K\mathbf1_{\mathcal B^1_j}\le\sup_{\sigma_j\le n\le\tau'_j}|y_n|$
+holds; integrating it --- legitimate because that supremum is integrable by
+Step 7 --- and using \eqref{eq:contact-frame-travel} and
+\eqref{eq:ml-choiceK},
+\begin{equation}\label{eq:ml-prob1}
+  \mathbb P\bigl(\mathcal B^1_j\bigr)
+   \le\frac{\mathbb E\sup_{\sigma_j\le n\le\tau'_j}|y_n|}{K}
+   \le\frac{C'_M(L(K+M+2)+\sqrt{B_0})}{K}\le\frac18 .
+\end{equation}
+For the other cutoff take $\ell(i)=(i-a)/(b-a)$ for $a\le i\le b$,
+$\ell(i)=0$ for $i<a$ and $\ell(i)=1$ for $i>b$. It is bounded and affine on
+$\{a,\dots,b\}$, hence satisfies the mean-value identity for $a<i<b$, so the
+last assertion of Claim T$'$ applies:
+$\mathbb E[\ell(S_{\tau'_j})\mid\mathcal G_{\sigma_j}]=\ell(S_{\sigma_j})$
+a.e. On $\mathcal R_j$ we have $S_{\sigma_j}=1/\epsilon'$ and $b=M/\epsilon'$,
+so, with $a\ge0$ and $M\ge1$,
+\[
+  \ell(S_{\sigma_j})
+   =\frac{1/\epsilon'-a}{M/\epsilon'-a}\le\frac1M ,
+\]
+the inequality because $M(1/\epsilon'-a)\le M/\epsilon'-a$ reduces to
+$Ma\ge a$. Also $s_{\tau'_j}\ge M$ means $S_{\tau'_j}\ge b$, where
+$\ell=1$, so $\mathbf1_{\mathcal B^2_j}\le\mathbf1_{\mathcal R_j}
+ \ell(S_{\tau'_j})$ pointwise, $\ell$ being nonnegative. Since
+$\mathcal R_j\in\mathcal G_{\sigma_j}$,
+\begin{equation}\label{eq:ml-prob2}
+  \mathbb P\bigl(\mathcal B^2_j\bigr)
+   \le\mathbb E\bigl[\mathbf1_{\mathcal R_j}\ell(S_{\tau'_j})\bigr]
+   =\mathbb E\Bigl[\mathbf1_{\mathcal R_j}
+       \mathbb E\bigl[\ell(S_{\tau'_j})\mid\mathcal G_{\sigma_j}\bigr]\Bigr]
+   =\mathbb E\bigl[\mathbf1_{\mathcal R_j}\ell(S_{\sigma_j})\bigr]
+   \le\frac1M=\frac18 ,
+\end{equation}
+the middle equality by the characterizing property of the conditional
+expectation applied to the set $\mathcal R_j\in\mathcal G_{\sigma_j}$.
+
+\emph{Step 9: the combination, i.e.\ (ii).}
+Let $\mathcal G=\{t_\tau=\delta_N\}$, so $\mathbb P(\mathcal G)\ge3/4$ by
+\eqref{eq:ml-hit} and $\mathcal G\subseteq\mathcal R_j$ by
+\eqref{eq:ml-Rj}. Let
+$\omega\in\mathcal G\setminus(\mathcal B^1_j\cup\mathcal B^2_j)$. Then
+$\omega\in\mathcal R_j$, and since $\omega\notin\mathcal B^1_j\cup\mathcal
+B^2_j$ we have $|y_{\tau'_j}|<K$ and $s_{\tau'_j}<M$. By the definition of
+$\tau'_j$ in Step 4, at least one of the three alternatives holds at
+$n=\tau'_j$; the second and third have just been excluded, so
+$\tau'_j(\omega)=\tau(\omega)$. Hence $|y_\tau|<K$, which by
+\eqref{eq:ml-y-start} and $t_{\sigma_j}=\delta_j$ on $\mathcal R_j$ reads
+\[
+  \bigl|x_\tau-x_{\sigma_j}-(t_\tau-\delta_j)p_j\bigr|<K\delta_j .
+\]
+Together with $t_\tau=\delta_N$ this places $\omega$ in the event of
+\eqref{eq:contact-finite-localization}. Therefore that event contains
+$\mathcal G\setminus(\mathcal B^1_j\cup\mathcal B^2_j)$ and, by
+\eqref{eq:ml-hit}, \eqref{eq:ml-prob1} and \eqref{eq:ml-prob2},
+\[
+  \mathbb P\Bigl(t_\tau=\delta_N\ \text{and}\
+     \bigl|x_\tau-x_{\sigma_j}-(t_\tau-\delta_j)p_j\bigr|\le K\delta_j\Bigr)
+   \ge\mathbb P(\mathcal G)-\mathbb P(\mathcal B^1_j)
+      -\mathbb P(\mathcal B^2_j)
+   \ge\frac34-\frac18-\frac18=\frac12 .
+\]
+
+The event $\mathcal L_j$ is measurable, which is the remaining half of (ii).
+Both $\tau$ and $\sigma_j$ take values in $\mathbb N$, so
+\[
+  \mathcal L_j=\bigcup_{n\ge0}\ \bigcup_{m\ge0}
+    \bigl(\{\tau=n\}\cap\{\sigma_j=m\}\cap A_{n,m}\bigr),\qquad
+  A_{n,m}=\{t_n=\delta_N\}\cap
+    \bigl\{\bigl|x_n-x_m-(t_n-\delta_j)p_j\bigr|\le K\delta_j\bigr\},
+\]
+a countable union. Here $\{\tau=n\}\in\mathcal G_n\subseteq\mathcal M$ because
+$\tau$ is a stopping time for $(\mathcal G_n)$ by clause 9 of
+\noderef{IsContactWalk}, and $\{\sigma_j=m\}\in\mathcal G_m\subseteq\mathcal M$
+because $\sigma_j$ is a stopping time by clause 1 of \noderef{IsMarkData}. The
+maps $z_n$ and $z_m$ are $\mathcal G_n$- and $\mathcal G_m$-measurable by
+clause 4 of \noderef{IsContactWalk}, the coordinate projections of
+$\ell^2(F\times\R)$ are continuous and hence Borel, and on
+$\{\sigma_j=m\}\cap\{\sigma_j\le m\}=\{\sigma_j=m\}$ the function $p_j$ agrees
+with $\mathbf1_{\{\sigma_j\le m\}}p_j$, which is $\mathcal G_m$-measurable by
+clause 5 of \noderef{IsMarkData}; so
+$\{\sigma_j=m\}\cap A_{n,m}\in\mathcal G_{\max(n,m)}\subseteq\mathcal M$, the
+norm and the linear operations being continuous. A countable union of
+measurable sets is measurable, so $\mathcal L_j\in\mathcal M$; the same
+decomposition applied to $\mathcal B^1_j$, $\mathcal B^2_j$ and $\mathcal G$
+is what makes the probabilities used above meaningful.
+
+This is \eqref{eq:contact-finite-localization}, and with Step 2 it completes
+the proof.
+\end{proof}

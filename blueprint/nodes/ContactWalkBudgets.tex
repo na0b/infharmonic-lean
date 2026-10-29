@@ -1,0 +1,257 @@
+\begin{lemma}[The two budgets of a stopped contact walk]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$, let $\kappa>0$ and $H\in\R$, and let
+$v\in\Aclass_{m,C_0}$ in the sense of \noderef{IsFitClass} be centered at
+$z_*=(0,1)$ with constant $C_0$ in the sense of \noderef{IsCenteredAt} and
+satisfy the horizontal Jensen bound with constant $\kappa$ at every time in the
+sense of \noderef{HasJensenBound}. Let $W$ be the contact envelope of
+\noderef{ContactEnv} formed from $v$ and $\kappa$, and assume that $W$ is
+continuous on $\{(x,t):t>0\}$ and has subquadratic spatial growth on compact
+subintervals of $(0,\infty)$ in the sense of \noderef{SubquadraticGrowth}.
+Write $J_\epsilon$ for the quantity of \noderef{JGap}, $\delta_j=2^{-j}$ and
+$L(K)=1+\log K$.
+
+Then there is a constant $C_*>0$ such that for every integer $T\ge2$, every
+real $R\ge2$, every integer $N\ge1$, every $\epsilon$, every measure space
+$(\Omega,\mathcal M,\mu)$ with a filtration $(\mathcal G_n)$, and all functions
+$\xi_n$, $z_n$, $z^+_n$, $z^-_n$, $Q_0(n)$ and $\tau$ on it which form a stopped
+contact walk for $(\kappa,H,T,R,v,N,\epsilon)$ in the sense of
+\noderef{IsContactWalk}, the following hold, where
+\[
+  Q_+(n)=\frac{x^+_n-x_n}{\epsilon},\qquad
+  Q_-(n)=\frac{x_n-x^-_n}{\epsilon},\qquad
+  \mathcal E_n=|Q_+(n)-Q_0(n)|^2+|Q_-(n)-Q_0(n)|^2,
+\]
+and $B=R+T+2$:
+\begin{enumerate}
+\item[(i)] for every stopping time $\sigma$ for $(\mathcal G_n)$ with
+$\sigma\le\tau$ pointwise, the function $J_\epsilon(z_\sigma)$ is
+$\mu$-integrable and $\mathbb E J_\epsilon(z_\sigma)\ge J_\epsilon(z_*)$;
+\item[(ii)] the function $\sum_{n<\tau}\mathcal E_n$ is $\mu$-integrable and
+$\mathbb E\sum_{n<\tau}\mathcal E_n\le C_*L(B)^4$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{Step 0: the constants.}
+Let $C_1>0$ be the constant of \noderef{FittedEnvelopeBounds} for this $C_0$
+and put
+\[
+  c=\frac{1}{16(1+\log2)}>0,\qquad C_*=\frac{C_1+|H|+1}{c}>0 ,
+\]
+so that $c$ is the constant appearing in \noderef{DPDrift}. Both depend only on
+$C_0$, $\dim F$ and $H$, hence neither depends on $T$, $R$, $N$ or on the walk.
+Fix now $T$, $R$, $N$, $\epsilon$ and a stopped contact walk as in the
+statement, and write $\delta=\delta_N$, $B=R+T+2\ge6$ and $L=L(B)\ge1$. By
+clauses 2 and 3 of \noderef{IsContactWalk} we have $0<\epsilon\le\delta/4$, so
+$\epsilon\le1/8$ and $\epsilon\le B$, and $\mu$ is a probability measure by
+clause 1.
+
+\emph{Step 1: the walk stays in a compact box.}
+We claim that for every $n$ and every $\omega$
+\begin{equation}\label{eq:cwb-box}
+  \delta-\epsilon\le t_n\le T+\epsilon,\qquad |x_n|\le R+1 ,
+\end{equation}
+where $z_n=(x_n,t_n)$. For the time bounds we induct on $n$. At $n=0$, clause 6
+gives $z_0=z_*$, so $t_0=1$, and $\delta\le1/2<1\le T$ because $N\ge1$ and
+$T\ge2$. Assume the bounds at $n$. If $n\ge\tau(\omega)$ then clause 7 gives
+$z_{n+1}=z_n$ and there is nothing to prove. If $n<\tau(\omega)$ then clause 7
+gives $z_{n+1}\in\{z^+_n,z^-_n\}$, and by clause 6 together with
+\noderef{IsStepPair} the time coordinates of $z^\pm_n$ are $t_n\pm\epsilon$;
+clause 10 gives $\delta<t_n<T$, so $t_{n+1}\ge t_n-\epsilon>\delta-\epsilon$ and
+$t_{n+1}\le t_n+\epsilon<T+\epsilon$. In particular $t_n\ge\delta-\epsilon>0$
+for every $n$, since $\epsilon\le\delta/4$. For the spatial bound: clause 12
+gives $|x_n|\le R+1$ for $n\le\tau$, and for $n>\tau$ clause 7 gives
+$z_n=z_\tau$ by induction, so the same bound holds.
+
+\emph{Step 2: two-sided bounds for $J_\epsilon$ on the box.}
+Let $w=(y,s)$ satisfy $|y|\le R+1$ and $\delta-\epsilon\le s\le T+\epsilon$;
+then $s>0$ and $|s|\le T+1\le B$ and $|y|\le R+1\le B$.
+
+\emph{The upper bound.} By \noderef{JUpperBound}, applied with $\epsilon>0$ and
+$s>0$, $J_\epsilon(w)\le\tfrac12(\Senv^+_\epsilon v(w)+\Senv^-_\epsilon v(w))$
+with the envelope slopes of \noderef{EnvSlopeP} and \noderef{EnvSlopeM}; and by
+the first clause of \noderef{FittedEnvelopeBounds}, applied to $v$ with the
+centering point $(0,1)$, the box size $K=B\ge2$ and the length
+$\epsilon\le B$, both slopes are at most $C_1L^4$. Hence
+\begin{equation}\label{eq:cwb-Jup}
+  J_\epsilon(w)\le C_1L^4 .
+\end{equation}
+
+\emph{The lower bound.} The standing hypotheses on $v$, on $W$ and on the
+scales are exactly those of \noderef{JGapLowerBoundAndContinuity}, applied with
+the spatial radius $R+1$, the time $T$, the scale $\delta$ and the length
+$\epsilon$: here $0\le R+1$ and $0\le T$ because $R\ge2$ and $T\ge2$, while
+$0<\delta\le1/2$ and $0<\epsilon\le\delta/4$ hold by Step 0. Its first
+conclusion supplies a constant $\Lambda_0\ge0$ with
+\begin{equation}\label{eq:cwb-Jlow}
+  J_\epsilon(w)\ge-\Lambda_0
+\end{equation}
+for every $w=(y,s)$ with $|y|\le R+1$ and $\delta-\epsilon\le s\le T+\epsilon$,
+which is every $w$ as above. Put
+$\Lambda_1=\max\{C_1L^4,\Lambda_0\}$; by \eqref{eq:cwb-Jup},
+\eqref{eq:cwb-Jlow} and Step 1, $|J_\epsilon(z_n)|\le\Lambda_1$ for every $n$
+and $\omega$.
+
+\emph{Step 3: measurability.}
+Let $\rho(y,s)=(y,\max\{s,\delta/2\})$. By the second conclusion of
+\noderef{JGapLowerBoundAndContinuity}, applied with the same data, the
+composite $J_\epsilon\circ\rho$ is continuous on all of space-time, and it
+agrees with $J_\epsilon$ at every point whose time coordinate is at least
+$\delta/2$, because there $\max\{s,\delta/2\}=s$ --- in particular, by Step 1
+and
+$\epsilon\le\delta/4$, at every $z_n(\omega)$. Since each $z_n$ is
+$\mathcal G_n$-measurable by clause 4 of \noderef{IsContactWalk}, the function
+$\omega\mapsto J_\epsilon(z_n(\omega))=(J_\epsilon\circ\rho)(z_n(\omega))$ is
+$\mathcal G_n$-measurable, being a continuous function of a
+$\mathcal G_n$-measurable one; the same argument applies to $z^\pm_n$ with
+$J_\epsilon\circ\rho$ in place of $J_\epsilon$. Likewise each $\mathcal E_n$ is
+$\mathcal G_n$-measurable, being a continuous function of the
+$\mathcal G_n$-measurable $z_n$, $z^\pm_n$ and $Q_0(n)$, and
+$\mathcal E_n\ge0$, being a sum of two squares. Finally, $\tau$ is a stopping
+time by clause 9, so $\{n<\tau\}\in\mathcal G_n$ for every $n$, and $\tau$ is
+measurable because $\{\tau=i\}\in\mathcal G_i$ for every $i$ and $\tau$ has
+countable range.
+
+\emph{Step 4: almost everywhere the step states lie in the same box.}
+Fix $n$ and let $G$ be the set of $\omega$ with
+$|x^+_n(\omega)|\le R+1$ and $\delta-\epsilon\le t^+_n(\omega)\le T+\epsilon$,
+a $\mathcal G_n$-measurable set by Step 3. Put
+$S=\{n<\tau\}\setminus G\in\mathcal G_n$. On $S\cap\{\xi_n=1\}$ clause 7 gives
+$z_{n+1}=z^+_n$, so \eqref{eq:cwb-box} applied at $n+1$ puts $\omega$ in $G$;
+hence $S\cap\{\xi_n=1\}=\emptyset$. On the other hand $\xi_n$ is bounded and
+measurable, hence integrable, and clause 3 of \noderef{IsContactWalk} gives
+$\mathbb E[\xi_n\mid\mathcal G_n]=0$ a.e., so by the characterizing property of
+the conditional expectation $\int_S\xi_n\,d\mu=0$. But $\xi_n\in\{1,-1\}$ by
+clause 3, so $\xi_n=-1$ on $S$ and therefore
+$\int_S\xi_n\,d\mu=-\mu(S)$. Hence $\mu(S)=0$, that is, almost everywhere on
+$\{n<\tau\}$ the state $z^+_n$ satisfies the bounds of \eqref{eq:cwb-box}. The
+same argument with the sign $-1$ in place of $+1$ --- on
+$S'\cap\{\xi_n=-1\}$ clause 7 gives $z_{n+1}=z^-_n$, and on $S'$ we then have
+$\xi_n=+1$, so $\int_{S'}\xi_n\,d\mu=\mu(S')$ --- gives the same conclusion for
+$z^-_n$. Consequently, by Step 2, almost everywhere on $\{n<\tau\}$
+\begin{equation}\label{eq:cwb-stepbd}
+  |J_\epsilon(z^+_n)|\le\Lambda_1,\qquad |J_\epsilon(z^-_n)|\le\Lambda_1 .
+\end{equation}
+
+\emph{Step 5: the one-step drift.}
+Let $n<\tau(\omega)$. Then clause 10 gives $t_n>\delta\ge4\epsilon>\epsilon$,
+clause 6 says that $(z^+_n,z^-_n)$ is an optimizing step pair of size $\epsilon$
+at $z_n$ in the sense of \noderef{IsStepPair}, and clause 8 says that
+$\Penv_\epsilon W(\cdot,t_n)$ has gradient $Q_0(n)$ at $x_n$. So
+\noderef{DPDrift} applies at $z_n$ with this step pair and this reference
+velocity, with the four gaps $D,e,\tilde D,\tilde e$ given by its defining
+equations. Its sixth and seventh conclusions read
+\[
+  \frac{D+e}{4\epsilon}
+   \le\frac{J_\epsilon(z^+_n)+J_\epsilon(z^-_n)}{2}-J_\epsilon(z_n),
+  \qquad
+  c\,\mathcal E_n\le\frac{D+e}{4\epsilon},
+\]
+and together
+\begin{equation}\label{eq:cwb-drift}
+  c\,\mathcal E_n
+   \le\frac{J_\epsilon(z^+_n)+J_\epsilon(z^-_n)}{2}-J_\epsilon(z_n)
+  \qquad(n<\tau).
+\end{equation}
+With \eqref{eq:cwb-stepbd} and $|J_\epsilon(z_n)|\le\Lambda_1$ this gives the
+a.e.\ bound
+\begin{equation}\label{eq:cwb-Ebd}
+  c\,\mathcal E_n\le\Lambda:=C_1L^4+\Lambda_0
+  \qquad\text{a.e.\ on }\{n<\tau\} ,
+\end{equation}
+and since the index set is countable, almost every $\omega$ satisfies
+\eqref{eq:cwb-Ebd} for every $n<\tau(\omega)$ simultaneously.
+
+\emph{Step 6: the drift submartingale and optional stopping.}
+For $n\ge0$ put
+\[
+  M_n=J_\epsilon(z_n)-c\sum_{k<n}\mathbf1_{\{k<\tau\}}\mathcal E_k .
+\]
+Each $M_n$ is $\mathcal G_n$-measurable by Step 3, and integrable: $\mu$ is a
+probability measure, $|J_\epsilon(z_n)|\le\Lambda_1$ by Step 2, and by
+\eqref{eq:cwb-Ebd} the sum has at most $n$ terms each at most $\Lambda/c$
+almost everywhere.
+
+We claim $(M_n)$ is a submartingale. Set
+\[
+  A_n=\mathbf1_{\{n<\tau\}}
+      \Bigl(\frac{J_\epsilon(z^+_n)+J_\epsilon(z^-_n)}{2}-J_\epsilon(z_n)
+            -c\,\mathcal E_n\Bigr),\qquad
+  D_n=\mathbf1_{\{n<\tau\}}\,
+      \frac{J_\epsilon(z^+_n)-J_\epsilon(z^-_n)}{2},
+\]
+both $\mathcal G_n$-measurable by Step 3 (and both read through
+$J_\epsilon\circ\rho$, which is where their measurability comes from). Then
+\begin{equation}\label{eq:cwb-decomp}
+  M_{n+1}-M_n=A_n+\xi_nD_n .
+\end{equation}
+Indeed, on $\{n\ge\tau\}$ clause 7 gives $z_{n+1}=z_n$ and both sides vanish; on
+$\{n<\tau\}$ clause 7 gives $z_{n+1}=z^+_n$ where $\xi_n=1$ and
+$z_{n+1}=z^-_n$ where $\xi_n=-1$, and since $\xi_n\in\{1,-1\}$ by clause 3,
+\[
+  J_\epsilon(z_{n+1})
+   =\frac{J_\epsilon(z^+_n)+J_\epsilon(z^-_n)}{2}
+    +\xi_n\frac{J_\epsilon(z^+_n)-J_\epsilon(z^-_n)}{2}
+\]
+in both cases, which is \eqref{eq:cwb-decomp} after subtracting
+$J_\epsilon(z_n)+c\,\mathcal E_n$. By \eqref{eq:cwb-drift}, $A_n\ge0$ almost
+everywhere. By \eqref{eq:cwb-stepbd}, $D_n$ is bounded by $\Lambda_1$ almost
+everywhere, so the pull-out property of the conditional expectation for a
+bounded $\mathcal G_n$-measurable factor and clause 3 give
+$\mathbb E[\xi_nD_n\mid\mathcal G_n]=D_n\,\mathbb E[\xi_n\mid\mathcal G_n]=0$
+a.e. Since $A_n$ is $\mathcal G_n$-measurable and integrable,
+$\mathbb E[A_n\mid\mathcal G_n]=A_n$ a.e., and therefore
+$\mathbb E[M_{n+1}-M_n\mid\mathcal G_n]=A_n\ge0$ almost everywhere. As each
+$M_n$ is adapted and integrable, $(M_n)$ is a submartingale.
+
+Let $\sigma$ be a stopping time with $\sigma\le\tau$ and let $h\in\mathbb N$.
+The constant $0$ and $\sigma\wedge h$ are stopping times with
+$0\le\sigma\wedge h\le h$, so optional stopping for submartingales gives
+$\mathbb E M_0\le\mathbb E M_{\sigma\wedge h}$. Now $M_0=J_\epsilon(z_*)$ by
+clause 6, and for $k<\sigma\wedge h\le\tau$ the indicators in the sum equal $1$,
+so
+\begin{equation}\label{eq:cwb-trunc}
+  J_\epsilon(z_*)+c\,\mathbb E\sum_{k<\sigma\wedge h}\mathcal E_k
+   \le\mathbb E J_\epsilon(z_{\sigma\wedge h}) ,
+\end{equation}
+both expectations existing: the integrand on the right is bounded by
+$\Lambda_1$, and the sum on the left is nonnegative and bounded by
+$h\Lambda/c$ almost everywhere, while both are measurable because
+$\sigma\wedge h\le h$ makes them finite sums of the measurable
+$\mathbf1_{\{\sigma\wedge h=i\}}$ times measurable functions.
+
+\emph{Step 7: $h\to\infty$, and the two conclusions.}
+Fix $\sigma$ as above. For every $\omega$ we have $\sigma\wedge h=\sigma$ as
+soon as $h\ge\sigma(\omega)$, so $J_\epsilon(z_{\sigma\wedge h})\to
+J_\epsilon(z_\sigma)$ pointwise and $\sum_{k<\sigma\wedge h}\mathcal E_k$
+increases to $\sum_{k<\sigma}\mathcal E_k$ pointwise. In particular
+$J_\epsilon(z_\sigma)$ is measurable, being a pointwise limit of measurable
+functions, and $|J_\epsilon(z_\sigma)|\le\Lambda_1$ by Step 2, so it is
+integrable: this is the first half of (i). Dominated convergence, legitimate
+because all these functions are bounded by the constant $\Lambda_1$ and $\mu$ is
+a probability measure, gives
+$\mathbb E J_\epsilon(z_{\sigma\wedge h})\to\mathbb E J_\epsilon(z_\sigma)$.
+Dropping the nonnegative error term in \eqref{eq:cwb-trunc} leaves
+$J_\epsilon(z_*)\le\mathbb E J_\epsilon(z_{\sigma\wedge h})$ for every $h$, and
+letting $h\to\infty$ gives $J_\epsilon(z_*)\le\mathbb E J_\epsilon(z_\sigma)$.
+This is (i).
+
+For (ii) take $\sigma=\tau$ in \eqref{eq:cwb-trunc}. By \eqref{eq:cwb-Jup} and
+Step 1, $\mathbb E J_\epsilon(z_{\tau\wedge h})\le C_1L^4$, and by clause 13 of
+\noderef{IsContactWalk}, $J_\epsilon(z_*)\ge H-1$. Hence for every $h$
+\[
+  c\,\mathbb E\sum_{k<\tau\wedge h}\mathcal E_k
+   \le C_1L^4-(H-1)\le\bigl(C_1+|H|+1\bigr)L^4 ,
+\]
+using $L\ge1$ and $-H\le|H|$, that is
+$\mathbb E\sum_{k<\tau\wedge h}\mathcal E_k\le C_*L^4$. The functions
+$\sum_{k<\tau\wedge h}\mathcal E_k$ are nonnegative, measurable and
+nondecreasing in $h$ with pointwise limit $\sum_{k<\tau}\mathcal E_k$, so by
+monotone convergence --- applied to the integrals with values in $[0,\infty]$,
+which is what makes the conclusion carry integrability with it ---
+\[
+  \int_\Omega\sum_{k<\tau}\mathcal E_k\,d\mu
+   =\sup_h\int_\Omega\sum_{k<\tau\wedge h}\mathcal E_k\,d\mu\le C_*L^4<\infty .
+\]
+The function $\sum_{k<\tau}\mathcal E_k$ is therefore integrable, with
+$\mathbb E\sum_{k<\tau}\mathcal E_k\le C_*L^4$. This is (ii). \end{proof}

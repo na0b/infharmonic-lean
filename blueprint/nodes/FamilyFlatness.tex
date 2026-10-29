@@ -1,0 +1,412 @@
+\begin{lemma}[Uniform qualitative flatness]
+Fix an integer $d\ge1$, put $n=d+1$ and identify $\R^n$ with the space-time
+$\ell^2(\R^d\times\R)$. Let $b_d$ be the family flatness modulus of
+\noderef{FlatnessModulus}. Then $b_d(s)\to0$ as $s\downarrow0$: for every
+$\varepsilon>0$ there is $s_0$ with $0<s_0\le1/8$ and
+\[
+  b_d(s)\le\varepsilon\qquad(0<s\le s_0).
+\]
+\end{lemma}
+\begin{proof}
+Write $B_\rho$ for the open and $\overline B_\rho$ for the closed ball of radius
+$\rho$ about the origin of the space-time $\ell^2(\R^d\times\R)$, put
+$G=B_{3/4}$ and $D(z)=\operatorname{dist}(z,\partial G)$, and write
+$e_b=(0,1)$, a unit vector. For $U$ in the normalized family $\mathcal U$ of
+\noderef{NormalizedInfFamily}, $z\in G$ and $r>0$ let $\beta_U(z,r)$ be as in
+\noderef{BetaFlatness}, so that by \noderef{FlatnessModulus}
+\begin{equation}\label{eq:ff-bdef}
+  b_d(s)=\sup\bigl\{\beta_U(z,r):U\in\mathcal U,\ z\in G,\ 0<r\le sD(z)\bigr\}.
+\end{equation}
+By \noderef{BetaFlatness} each $\beta_U(z,r)$ is the supremum of a subset of
+$(0,1)$, hence $0\le\beta_U(z,r)\le1$; so the set in \eqref{eq:ff-bdef} is
+bounded above by $1$, and therefore $0\le b_d(s)\le1$. What this paragraph
+establishes is boundedness above, and nothing more: we do \emph{not} assert here
+that either defining set is nonempty. Nonemptiness is needed only for the
+approximation property of a supremum, it is used only in Step 2, and it is
+derived there at the point of use, where the strict positivity of the suprema
+concerned supplies it. Until then we use only the upper-bound property, which
+boundedness alone licenses: $\beta_U(z,r)\le b_d(s)$ whenever $(U,z,r)$ is
+admissible for $s$ as in \eqref{eq:ff-bdef}. We also use, as part of the
+statement of \noderef{BetaFlatness} rather than as a consequence of it, that
+every $\lambda\in(\beta_U(z,r),1)$ is good for $U$ at $(z,r)$, i.e.\ admits a
+cylinder fit in the sense of \noderef{IsCylinderFit}.
+
+Let $L\ge0$ be the common constant of \noderef{NormalizedFamilyLipschitz}, so
+that every $U\in\mathcal U$ satisfies
+\begin{equation}\label{eq:ff-lip}
+  |U|\le L\ \text{ and }\
+  |U(a)-U(b)|\le L|a-b|\qquad\bigl(a,b\in\overline B_{7/8}\bigr).
+\end{equation}
+
+Apart from the two suprema of \eqref{eq:ff-bdef} and of \noderef{BetaFlatness}
+just discussed, every supremum written below is of the form
+$\sup_{\overline B_\rho}|\cdot|$ over a closed ball of positive radius, hence
+over a nonempty set, and in each case the function inside the absolute value is
+bounded on that ball by \eqref{eq:ff-lip} --- together with the Cauchy--Schwarz
+bound $|\langle Q,X\rangle|\le|Q|\,|X|$ in the instances where a fixed linear
+functional also appears. Each of those suprema is therefore the supremum of a
+nonempty set that is bounded above, so it is a genuine supremum, and we use this
+below without further comment.
+
+\emph{Step 0: every member of $\mathcal U$ is infinity-harmonic on $B_1$.}
+Let $U\in\mathcal U$. By \noderef{NormalizedInfFamily} there is $u$,
+infinity-harmonic on the unit ball of $\R^d$, with $U(z)=u(z_x)+z_t$ for every
+space-time $z=(z_x,z_t)$. By \noderef{LinearLift} the function
+$z\mapsto u(z_x)+z_t$ is infinity-harmonic on the preimage of that ball under
+$z\mapsto z_x$, i.e.\ on $\{z:|z_x|<1\}$. Since $|z_x|\le|z|$, the ball $B_1$ is
+contained in that set, so
+\begin{equation}\label{eq:ff-harm}
+  U\ \text{is infinity-harmonic on}\ B_1,\ \text{hence on}\ B_{7/8}.
+\end{equation}
+Here we used that infinity-harmonicity passes to an open subset: if
+$\Omega'\subseteq\Omega$ are open and $v$ is infinity-harmonic on $\Omega$, then
+for $z\in\Omega'$ and a $C^2$ function $\phi$ near $z$ such that $v-\phi$ has a
+local maximum on $\Omega'$ at $z$, say $v-\phi\le(v-\phi)(z)$ on
+$\mathcal N\cap\Omega'$ for a neighbourhood $\mathcal N$ of $z$, the set
+$\mathcal N'=\mathcal N\cap\Omega'$ is again a neighbourhood of $z$ because
+$\Omega'$ is open, and $\mathcal N'\cap\Omega=\mathcal N\cap\Omega'$; so
+$v-\phi$ has a local maximum on $\Omega$ at $z$ and
+\noderef{IsInfSubsolutionOn} gives $\Dinf\phi(z)\ge0$. The same argument with
+minima and \noderef{IsInfSupersolutionOn} gives the other inequality, so $v$ is
+infinity-harmonic on $\Omega'$ in the sense of \noderef{IsInfHarmonicOn}.
+
+\emph{Step 1: a compactness claim.}
+We shall use the following twice.
+
+\textsc{Claim C.} \emph{Let $a$ be a point of a finite-dimensional real
+inner-product space $\mathcal H$, let $\rho>0$, put
+$K=\overline B(a,\rho)$, and let $v_i:\mathcal H\to\R$ satisfy
+$|v_i|\le A$ on $K$ and $|v_i(w)-v_i(w')|\le\Lambda|w-w'|$ for $w,w'\in K$, with
+constants $A,\Lambda\ge0$ independent of $i$. Then there are a strictly
+increasing $\iota:\N\to\N$ and $v:\mathcal H\to\R$ with
+$v_{\iota(k)}\to v$ uniformly on $K$.}
+
+\emph{Proof of Claim C.} If $\mathcal H=\{0\}$ then $K=\{a\}$ is a single point,
+the bounded sequence $(v_i(a))$ has a convergent subsequence by
+Bolzano--Weierstrass (preamble), and the constant function with that limit
+works. So assume $\mathcal H\ne\{0\}$. Fixing an orthonormal basis of
+$\mathcal H$, the set of points with rational coordinates is countable and
+dense, so its intersection with the open ball $B(a,\rho)$ is a countable set
+$\{w_1,w_2,\dots\}$ dense in $B(a,\rho)$ and hence in its closure $K$. For each
+$m$ the real sequence $(v_i(w_m))_i$ lies in $[-A,A]$; applying
+Bolzano--Weierstrass (preamble) and extracting nested subsequences, and then
+taking the diagonal, we obtain a strictly increasing $\iota$ such that
+$(v_{\iota(k)}(w_m))_k$ converges for every $m$. We show
+$(v_{\iota(k)})_k$ is uniformly Cauchy on $K$. Let $\varepsilon>0$ and put
+$\sigma=\varepsilon/(3(\Lambda+1))>0$. The set $K$ is closed and bounded, hence
+compact (preamble), so the cover of $K$ by the balls $B(w_m,\sigma)$ --- which
+is a cover, by density --- has a finite subcover, indexed by
+$m_1,\dots,m_p$. Choose $k_0$ with
+$|v_{\iota(k)}(w_{m_l})-v_{\iota(k')}(w_{m_l})|<\varepsilon/3$ for all
+$k,k'\ge k_0$ and all $l\le p$. Given $w\in K$ pick $l$ with
+$|w-w_{m_l}|<\sigma$; then for $k,k'\ge k_0$
+\[
+  |v_{\iota(k)}(w)-v_{\iota(k')}(w)|
+   \le\Lambda\sigma+\frac\varepsilon3+\Lambda\sigma\le\varepsilon,
+\]
+using the equi-Lipschitz bound twice and $\Lambda\sigma\le\varepsilon/3$. Hence
+$(v_{\iota(k)})$ is uniformly Cauchy on $K$ and therefore converges uniformly on
+$K$ to a function $v$ defined on $K$, which we extend to $\mathcal H$ by the
+value $0$ off $K$. \hfill$\square$
+
+\emph{Step 2: the contradiction hypothesis.}
+Suppose the conclusion fails. Then there is $\varepsilon_*>0$ such that for
+every $s_0\in(0,1/8]$ there is $s\in(0,s_0]$ with $b_d(s)>\varepsilon_*$. Put
+$\delta=\varepsilon_*>0$ and apply this with $s_0=\min(1/8,1/i)$ for
+$i=1,2,\dots$: we obtain $s_i\in(0,1/8]$ with
+\begin{equation}\label{eq:ff-badb}
+  s_i\le\frac1i\quad\text{and}\quad b_d(s_i)>\delta .
+\end{equation}
+In particular $s_i\to0$.
+
+Both of the extractions we now perform use the approximation property of a
+supremum, which is available only for a nonempty set; in both cases positivity
+supplies nonemptiness. First, \noderef{FlatnessModulus} assigns $b_d(s_i)$ the
+value $0$ when the set in \eqref{eq:ff-bdef} is empty, whereas
+$b_d(s_i)>\delta>0$ by \eqref{eq:ff-badb}; hence that set is nonempty, and being
+bounded above by $1$ it has a genuine supremum exceeding $\delta$. The
+approximation property therefore applies and produces $U_i\in\mathcal U$,
+$z_i\in G$ and $r_i$ with $0<r_i\le s_iD(z_i)$ and
+\begin{equation}\label{eq:ff-beta}
+  \beta_{U_i}(z_i,r_i)>\delta .
+\end{equation}
+Second, the same argument runs one level down. By \noderef{BetaFlatness} the
+value $\beta_{U_i}(z_i,r_i)$ is $0$ when the set
+$\{\lambda\in(0,1):\lambda\ \text{is not good for}\ U_i\ \text{at}\ (z_i,r_i)\}$
+defining it is empty, whereas $\beta_{U_i}(z_i,r_i)>\delta>0$ by
+\eqref{eq:ff-beta}; hence that set is nonempty too, and it is bounded above by
+$1$. The approximation property applies to it as well and yields a parameter
+\begin{equation}\label{eq:ff-lam}
+  \lambda_i\in(\delta,1)\quad\text{that is \emph{not} good for }U_i
+  \text{ at }(z_i,r_i).
+\end{equation}
+Since $D(z_i)\le3/4$ we get $r_i\le\tfrac34s_i\to0$.
+
+\emph{Step 3: passing to a convergent subsequence.}
+The points $z_i$ lie in the compact set $\overline B_{3/4}$, so after passing to
+a subsequence $z_i\to z_*$ with $|z_*|\le3/4$. By \eqref{eq:ff-lip} the
+functions $U_i$ are bounded by $L$ and $L$-Lipschitz on
+$K=\overline B_{7/8}$, so Claim C (with $a=0$, $\rho=7/8$, $A=\Lambda=L$) gives,
+after a further subsequence, a function $U_\circ$ with
+\begin{equation}\label{eq:ff-unif}
+  \eta_i:=\sup_{\overline B_{7/8}}|U_i-U_\circ|\longrightarrow0 .
+\end{equation}
+All the hypotheses recorded so far are preserved by passing to subsequences, and
+we keep the same names. By \eqref{eq:ff-harm} each $U_i$ is infinity-harmonic on
+the open set $B_{7/8}$, and \eqref{eq:ff-unif} gives uniform convergence on every
+compact subset of $B_{7/8}$; so \noderef{InfHarmonicStability} applies and
+\begin{equation}\label{eq:ff-limharm}
+  U_\circ\ \text{is infinity-harmonic on}\ B_{7/8}.
+\end{equation}
+Note $z_*\in B_{7/8}$, since $|z_*|\le3/4<7/8$.
+
+\emph{Step 4: the slow scales.}
+Put $a_i=r_i+|z_i-z_*|+\eta_i$, so $a_i\to0$ by Steps 2 and 3. Passing to a
+further subsequence we may assume $a_i\le4^{-i}$, and we set
+\[
+  R_i=2^{-i-4},
+\]
+so that $R_i\downarrow0$, $R_i\le1/16$, and
+\begin{equation}\label{eq:ff-slow}
+  \frac{a_i}{R_i}\le\frac{4^{-i}}{2^{-i-4}}=16\cdot2^{-i}\longrightarrow0 .
+\end{equation}
+Since $|z_*|\le3/4$ and $R_i\le1/16$ we have
+\begin{equation}\label{eq:ff-inside}
+  |z_*|+R_i\le\tfrac34+\tfrac1{16}<\tfrac78,
+\end{equation}
+so $z_*+R_iX\in B_{7/8}$ whenever $|X|\le1$.
+
+\emph{Step 5: the blow-ups at $z_*$ are asymptotically linear.}
+By \eqref{eq:ff-limharm} and $z_*\in B_{7/8}$ we may apply
+\noderef{AffineBlowups} to the single function $U_\circ$ on $D=B_{7/8}$ at the
+point $z_*$. Its second assertion, applied to the positive null sequence
+$(R_i)$, gives a strictly increasing $\iota$ and a function $V$ such that the
+blow-ups
+\[
+  \check U_k(X)=\frac{U_\circ(z_*+R_{\iota(k)}X)-U_\circ(z_*)}{R_{\iota(k)}}
+\]
+converge to $V$ uniformly on every compact set; its first assertion, applied to
+the same data, gives a continuous linear functional $\Lambda_0$ with
+$V=\Lambda_0$. By the Riesz representation of a continuous linear functional on
+a finite-dimensional inner-product space there is $P_0$ with
+$\Lambda_0(X)=\langle P_0,X\rangle$. Replace the whole family by the
+$\iota$-subsequence and keep all names; \eqref{eq:ff-slow} and all earlier
+properties persist. Thus
+\begin{equation}\label{eq:ff-checkconv}
+  \sup_{|X|\le1}\Bigl|
+    \frac{U_\circ(z_*+R_iX)-U_\circ(z_*)}{R_i}-\langle P_0,X\rangle\Bigr|
+  \longrightarrow0 .
+\end{equation}
+Define
+\[
+  \widehat U_i(X)=\frac{U_i(z_*+R_iX)-U_i(z_*)}{R_i}.
+\]
+For $|X|\le1$ both $z_*+R_iX$ and $z_*$ lie in $\overline B_{7/8}$ by
+\eqref{eq:ff-inside}, so by \eqref{eq:ff-unif}
+\[
+  \bigl|\widehat U_i(X)-\check U_i(X)\bigr|
+   \le\frac{2\eta_i}{R_i}\le\frac{2a_i}{R_i}\longrightarrow0
+\]
+by \eqref{eq:ff-slow}, where $\check U_i$ is as above with $R_i$ in place of
+$R_{\iota(k)}$. Combining with \eqref{eq:ff-checkconv},
+\begin{equation}\label{eq:ff-hatconv}
+  \sup_{|X|\le1}\bigl|\widehat U_i(X)-\langle P_0,X\rangle\bigr|
+  \longrightarrow0 .
+\end{equation}
+
+\emph{Step 6: the three-point estimate at the scales $R_i$.}
+Each $\widehat U_i$ is infinity-harmonic on $B_1$. Indeed $U_i$ is
+infinity-harmonic on $B_{7/8}$ by \eqref{eq:ff-harm};
+\noderef{InfHarmonicRescale}, with $x_0=z_*$ and $A=R_i>0$, makes
+$X\mapsto U_i(z_*+R_iX)$ infinity-harmonic on the preimage of $B_{7/8}$ under
+$X\mapsto z_*+R_iX$, which contains $B_1$ by \eqref{eq:ff-inside}; and
+\noderef{InfHarmonicNormalize}, with $c=U_i(z_*)$ and $M=R_i>0$, makes the
+normalized difference $\widehat U_i$ infinity-harmonic on the same set. Also,
+for $X,Y\in B_1$ the points $z_*+R_iX$ and $z_*+R_iY$ lie in
+$\overline B_{7/8}$, so \eqref{eq:ff-lip} gives
+\[
+  |\widehat U_i(X)-\widehat U_i(Y)|
+   =\frac{|U_i(z_*+R_iX)-U_i(z_*+R_iY)|}{R_i}\le L|X-Y| .
+\]
+Finally \eqref{eq:ff-hatconv} is exactly the hypothesis that
+$\widehat U_i-\ell$ tends to $0$ uniformly on $B_1$ for the affine functions
+$\ell(X)=\langle P_0,X\rangle+0$, the same one for every $i$. So
+\noderef{ThreePointFlatness}, applied with this $L$, the functions
+$\widehat U_i$, the slopes $P_0$ and the constants $0$, gives: for every
+$\varepsilon>0$ there is $i_0$ with
+\begin{equation}\label{eq:ff-threepoint}
+  \bigl|\widehat U_i(X)+\widehat U_i(Y)
+     -2\widehat U_i\bigl(\tfrac12(X+Y)\bigr)\bigr|\le\varepsilon|X-Y|
+  \qquad\bigl(i\ge i_0,\ X,Y\in B_{1/4},\ X\ne Y\bigr).
+\end{equation}
+
+\emph{Step 7: the small-scale blow-ups.}
+Since $r_i\to0$ we may assume $r_i\le1/16$ for every $i$, so that for $|H|\le2$
+\[
+  |z_i+r_iH|\le|z_i|+2r_i<\tfrac34+\tfrac18=\tfrac78 ,
+\]
+i.e.\ $z_i+r_iH\in\overline B_{7/8}$. Put
+\[
+  W_i(H)=\frac{U_i(z_i+r_iH)-U_i(z_i)}{r_i}.
+\]
+By \eqref{eq:ff-lip}, $|W_i(H)|\le L|H|\le2L$ and
+$|W_i(H)-W_i(K)|\le L|H-K|$ for $H,K\in\overline B_2$. Claim C (with $a=0$,
+$\rho=2$, $A=2L$, $\Lambda=L$) gives, after a further subsequence, a function
+$W$ with
+\begin{equation}\label{eq:ff-Wconv}
+  \sup_{|H|\le2}|W_i-W|\longrightarrow0 .
+\end{equation}
+In particular $W(0)=\lim W_i(0)=0$, and, because $U_i(z)=u_i(z_x)+z_t$ for the
+$u_i$ of \noderef{NormalizedInfFamily} and $e_b=(0,1)$ changes only the time
+coordinate,
+\begin{equation}\label{eq:ff-Web}
+  W_i(e_b)=\frac{U_i(z_i+r_ie_b)-U_i(z_i)}{r_i}
+    =\frac{\bigl(u_i((z_i)_x)+(z_i)_t+r_i\bigr)
+            -\bigl(u_i((z_i)_x)+(z_i)_t\bigr)}{r_i}=1,
+\end{equation}
+so $W(e_b)=1$.
+
+\emph{Step 8: $W$ has vanishing midpoint defect.}
+Let $H,K\in\overline B_2$ with $H\ne K$ and put, for each $i$,
+\[
+  X_i=\frac{z_i-z_*+r_iH}{R_i},\qquad
+  Y_i=\frac{z_i-z_*+r_iK}{R_i},
+\]
+so that $z_*+R_iX_i=z_i+r_iH$ and $z_*+R_iY_i=z_i+r_iK$, and
+$\tfrac12(X_i+Y_i)=(z_i-z_*+r_i\tfrac12(H+K))/R_i$, whose image under
+$X\mapsto z_*+R_iX$ is $z_i+r_i\tfrac12(H+K)$. Moreover
+\[
+  |X_i|\le\frac{|z_i-z_*|+2r_i}{R_i}\le\frac{3a_i}{R_i}\longrightarrow0
+\]
+by \eqref{eq:ff-slow}, and likewise for $Y_i$; so $X_i,Y_i\in B_{1/4}$ for all
+large $i$. Also $X_i-Y_i=(r_i/R_i)(H-K)\ne0$, so $X_i\ne Y_i$.
+
+Now the two midpoint defects are proportional. Since
+$\widehat U_i(X)=(U_i(z_*+R_iX)-U_i(z_*))/R_i$ and the three coefficients
+$1,1,-2$ sum to zero, the constants $U_i(z_*)$ cancel and
+\[
+  \widehat U_i(X_i)+\widehat U_i(Y_i)
+    -2\widehat U_i\bigl(\tfrac12(X_i+Y_i)\bigr)
+  =\frac{U_i(z_i+r_iH)+U_i(z_i+r_iK)
+          -2U_i\bigl(z_i+r_i\tfrac12(H+K)\bigr)}{R_i};
+\]
+the same cancellation of $U_i(z_i)$ in the definition of $W_i$ gives
+\[
+  W_i(H)+W_i(K)-2W_i\bigl(\tfrac12(H+K)\bigr)
+  =\frac{U_i(z_i+r_iH)+U_i(z_i+r_iK)
+          -2U_i\bigl(z_i+r_i\tfrac12(H+K)\bigr)}{r_i}.
+\]
+Hence the left sides differ by the factor $R_i/r_i$. Let $\varepsilon>0$ and let
+$i_0$ be as in \eqref{eq:ff-threepoint}. For $i\ge i_0$ large enough that
+$X_i,Y_i\in B_{1/4}$,
+\[
+  \bigl|W_i(H)+W_i(K)-2W_i\bigl(\tfrac12(H+K)\bigr)\bigr|
+   =\frac{R_i}{r_i}\bigl|\widehat U_i(X_i)+\widehat U_i(Y_i)
+      -2\widehat U_i\bigl(\tfrac12(X_i+Y_i)\bigr)\bigr|
+   \le\frac{R_i}{r_i}\varepsilon|X_i-Y_i|=\varepsilon|H-K| ,
+\]
+using $|X_i-Y_i|=(r_i/R_i)|H-K|$. Letting $i\to\infty$ and using
+\eqref{eq:ff-Wconv} at the three points $H$, $K$, $\tfrac12(H+K)$ of
+$\overline B_2$,
+\[
+  \bigl|W(H)+W(K)-2W\bigl(\tfrac12(H+K)\bigr)\bigr|\le\varepsilon|H-K| .
+\]
+As $\varepsilon>0$ was arbitrary, and the case $H=K$ is trivial,
+\begin{equation}\label{eq:ff-midpoint}
+  W(H)+W(K)=2W\bigl(\tfrac12(H+K)\bigr)\qquad\bigl(H,K\in\overline B_2\bigr).
+\end{equation}
+
+\emph{Step 9: $W$ is linear.}
+$W$ is $L$-Lipschitz on $\overline B_2$, being a uniform limit of $L$-Lipschitz
+functions, and $W(0)=0$. Taking $K=0$ in \eqref{eq:ff-midpoint} and using
+$W(0)=0$,
+\begin{equation}\label{eq:ff-half}
+  W(H)=2W(H/2)\qquad\bigl(H\in\overline B_2\bigr).
+\end{equation}
+For $H,K\in\overline B_1$ we have $H+K\in\overline B_2$ and
+$\tfrac12(H+K)\in\overline B_1$, so \eqref{eq:ff-midpoint} and
+\eqref{eq:ff-half} give
+\begin{equation}\label{eq:ff-add}
+  W(H)+W(K)=2W\bigl(\tfrac12(H+K)\bigr)=W(H+K)
+  \qquad\bigl(H,K\in\overline B_1\bigr).
+\end{equation}
+In particular $W(-H)=-W(H)$ for $H\in\overline B_1$ (take $K=-H$ and use
+$W(0)=0$). Next,
+\begin{equation}\label{eq:ff-dyadic}
+  W(qH)=qW(H)\qquad\bigl(q\in[0,1]\ \text{a dyadic rational},\
+  H\in\overline B_1\bigr).
+\end{equation}
+We prove \eqref{eq:ff-dyadic} by subdividing, not by doubling, and subdivision
+is the only direction the identities support: \eqref{eq:ff-add} is stated for
+$H,K\in\overline B_1$, so taking $K=H$ in it gives $W(2H)=2W(H)$ \emph{once},
+but applying it a second time would require $2H\in\overline B_1$, which fails as
+soon as $|H|>1/2$. Fix $H\in\overline B_1$ and write $q=p2^{-m}$ with integers
+$m\ge0$ and $0\le p\le2^m$. Halving first: $H\in\overline B_1\subseteq
+\overline B_2$ and $\overline B_2$ is closed under $X\mapsto X/2$, so
+\eqref{eq:ff-half} may be applied $m$ times in succession, each time to a point
+of $\overline B_2$, and it gives
+\[
+  W\bigl(2^{-m}H\bigr)=2^{-m}W(H).
+\]
+Adding second: form the partial sums $k2^{-m}H$ for $k=0,1,\dots,p$. For
+$0\le k<p$ we have $\bigl|k2^{-m}H\bigr|=k2^{-m}|H|\le q|H|\le|H|\le1$ and
+$\bigl|2^{-m}H\bigr|\le|H|\le1$, so the partial sum and the increment both lie
+in $\overline B_1$ and \eqref{eq:ff-add} applies at each of the $p$ steps. Hence
+\[
+  W\bigl(p2^{-m}H\bigr)=pW\bigl(2^{-m}H\bigr)=p2^{-m}W(H)=qW(H),
+\]
+which is \eqref{eq:ff-dyadic}. (This is exactly the bookkeeping used for the
+basis expansion in the next paragraph, performed one step earlier.) Since the
+dyadic rationals are dense in $[0,1]$, the continuity of $W$ extends
+\eqref{eq:ff-dyadic} to
+\begin{equation}\label{eq:ff-hom}
+  W(tH)=tW(H)\qquad\bigl(t\in[-1,1],\ H\in\overline B_1\bigr),
+\end{equation}
+the negative values following from oddness.
+
+Let $e_1,\dots,e_n$ be an orthonormal basis of the space-time, and set
+$P=\sum_{j}W(e_j)e_j$. Let $H\in\overline B_1$ and write
+$H=\sum_ja_je_j$ with $a_j=\langle H,e_j\rangle$. Every partial sum
+$\sum_{j\le k}a_je_j$ has norm at most $|H|\le1$, and each $a_ke_k$ has norm
+$|a_k|\le1$, so \eqref{eq:ff-add} applies repeatedly and gives
+$W(H)=\sum_jW(a_je_j)$; and $W(a_je_j)=a_jW(e_j)$ by \eqref{eq:ff-hom}.
+Therefore
+\[
+  W(H)=\sum_ja_jW(e_j)=\langle P,H\rangle\qquad\bigl(H\in\overline B_1\bigr),
+\]
+and then \eqref{eq:ff-half} extends this to $\overline B_2$:
+$W(H)=2W(H/2)=2\langle P,H/2\rangle=\langle P,H\rangle$. By
+\eqref{eq:ff-Web}, $\langle P,e_b\rangle=W(e_b)=1$, so in particular
+\begin{equation}\label{eq:ff-P}
+  W(H)=\langle P,H\rangle\ \bigl(H\in\overline B_2\bigr),\qquad P\ne0 .
+\end{equation}
+
+\emph{Step 10: the contradiction.}
+By \eqref{eq:ff-Wconv} and \eqref{eq:ff-P} there is $i$ with
+\begin{equation}\label{eq:ff-final}
+  \sup_{|H|\le2}\bigl|U_i(z_i+r_iH)-U_i(z_i)-r_i\langle P,H\rangle\bigr|
+   =r_i\sup_{|H|\le2}\bigl|W_i(H)-\langle P,H\rangle\bigr|<\delta r_i ,
+\end{equation}
+and we fix such an $i$, large enough for all the finitely many "for all large
+$i$" requirements above. We claim $P$ realizes the cylinder fit of parameter
+$\lambda_i$ for $U_i$ at $(z_i,r_i)$ in the sense of \noderef{IsCylinderFit}.
+First $P\ne0$ by \eqref{eq:ff-P}. Next let $Z$ belong to the cylinder
+$Z_{\lambda_i}(z_i,r_i;P)$ of \noderef{FitCylinder} and write $Z=z_i+h$,
+$N=P/|P|$. By that definition $|\langle N,h\rangle|\le r_i$ and
+$|h-\langle N,h\rangle N|\le\sqrt{\lambda_i}\,r_i$, and these two components of
+$h$ are orthogonal, so
+\[
+  |h|^2=|\langle N,h\rangle|^2+|h-\langle N,h\rangle N|^2
+   \le r_i^2+\lambda_ir_i^2\le2r_i^2 ,
+\]
+using $\lambda_i<1$; hence $|h|\le\sqrt2\,r_i\le2r_i$. Writing $H=h/r_i$, so
+$|H|\le2$, \eqref{eq:ff-final} gives
+\[
+  \bigl|U_i(Z)-U_i(z_i)-\langle P,Z-z_i\rangle\bigr|
+   =\bigl|U_i(z_i+r_iH)-U_i(z_i)-r_i\langle P,H\rangle\bigr|
+   <\delta r_i\le\lambda_ir_i ,
+\]
+the last step by $\delta<\lambda_i$ from \eqref{eq:ff-lam}. So $\lambda_i$ is
+good for $U_i$ at $(z_i,r_i)$, contradicting \eqref{eq:ff-lam}. Therefore the
+conclusion cannot fail.
+\end{proof}

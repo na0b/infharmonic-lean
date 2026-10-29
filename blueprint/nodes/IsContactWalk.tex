@@ -1,0 +1,52 @@
+\begin{definition}[The stopped contact walk]
+Let $F$ be a finite-dimensional real inner-product space, let $v$ be a real
+function on the space-time $\ell^2(F\times\R)$, let $\kappa,H\in\R$, let
+$T$ be a nonnegative integer, let $R\in\R$, let $N$ be a nonnegative integer
+and let $\epsilon\in\R$. Write $W$ for the contact envelope of
+\noderef{ContactEnv} formed from $v$ and $\kappa$,
+$\Penv_\epsilon W$ for the forward envelope of \noderef{QuadEnvP},
+$J_\epsilon$ for the quantity of \noderef{JGap}, $z_*=(0,1)$ and
+$\delta_N=2^{-N}$. Let $(\Omega,\mathcal M,\mu)$ be a measure space with a
+filtration $(\mathcal G_n)_{n\ge0}$ in $\mathcal M$, let
+$\xi_n:\Omega\to\R$, let $z_n,z^+_n,z^-_n:\Omega\to\ell^2(F\times\R)$, let
+$Q_0(n):\Omega\to F$ and let $\tau:\Omega\to\mathbb N$.
+
+We say that these data form a \emph{stopped contact walk} for
+$(\kappa,H,T,R,v,N,\epsilon)$ if all of the following hold.
+\begin{enumerate}
+\item $\mu(\Omega)=1$.
+\item $\epsilon=2^{-k}$ for some nonnegative integer $k$, and
+$0<\epsilon\le\delta_N/4$.
+\item $\xi_n(\omega)\in\{1,-1\}$ for every $n$ and $\omega$, each $\xi_n$ is
+$\mathcal G_{n+1}$-measurable, and each $\xi_n$ is fair given the past:
+$\mathbb E[\xi_n\mid\mathcal G_n]=0$ almost everywhere.
+\item Each of $z_n$, $z^+_n$, $z^-_n$ and $Q_0(n)$ is
+$\mathcal G_n$-measurable.
+\item $z_0=z_*$ identically.
+\item For every $n$ and every $\omega$ with $n<\tau(\omega)$, the pair
+$(z^+_n(\omega),z^-_n(\omega))$ is an optimizing step pair of size $\epsilon$
+at $z_n(\omega)$ for $v$ and $\kappa$, in the sense of \noderef{IsStepPair}.
+\item The walk follows the sign and freezes after stopping:
+\[
+  z_{n+1}(\omega)=
+  \begin{cases}
+    z^+_n(\omega)&n<\tau(\omega),\ \xi_n(\omega)=1,\\
+    z^-_n(\omega)&n<\tau(\omega),\ \xi_n(\omega)\ne1,\\
+    z_n(\omega)&n\ge\tau(\omega).
+  \end{cases}
+\]
+\item For every $n$ and $\omega$, writing $z_n(\omega)=(x_n,t_n)$, the function
+$x'\mapsto\Penv_\epsilon W(x',t_n)$ has gradient $Q_0(n)(\omega)$ at $x_n$.
+\item $\tau$ is a stopping time for $(\mathcal G_n)$ and the function
+$\omega\mapsto\tau(\omega)$ is $\mu$-integrable.
+\item Before stopping the walk is strictly inside the box: if
+$n<\tau(\omega)$ then $\delta_N<t_n<T$ and $|x_n|<R$.
+\item At the stop one of the three cutoffs is met:
+$t_{\tau(\omega)}=\delta_N$ or $t_{\tau(\omega)}=T$ or
+$|x_{\tau(\omega)}|\ge R$.
+\item Every position up to and including the stop satisfies
+$|x_n|\le R+1$ for $n\le\tau(\omega)$.
+\item The starting value of the propagation quantity is almost extremal:
+$H-1\le J_\epsilon(z_*)$.
+\end{enumerate}
+\end{definition}

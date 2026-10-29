@@ -1,0 +1,337 @@
+\begin{lemma}[Rigidity from constant envelope slopes]
+Let $F$ be a finite-dimensional real inner-product space, let $1\le C_0<\infty$
+and let $v\in\Aclass_{m,C_0}$ in the sense of \noderef{IsFitClass}. Suppose that
+for some $(b,t_0)\in F\times\R$ and some $B\in\R$
+\begin{equation}\label{eq:constant-envelope-slopes}
+  \Senv_\ell^+v(b,t_0)=\Senv_\ell^-v(b,t_0)=B
+       \qquad\text{for every }\ell>0,
+\end{equation}
+with the slopes of \noderef{EnvSlopeP} and \noderef{EnvSlopeM}. Then $v$ is
+affine in the sense of \noderef{IsSpaceTimeAffine}.
+\end{lemma}
+\begin{proof}
+Write $z_\star=(b,t_0)$ and, as in \noderef{CenteredGrowth},
+\[
+  L(K)=1+\log K,\qquad
+  \mathcal B_K=\bigl\{(x,t)\in F\times\R:|x|\le K,\ |t|\le K\bigr\}
+  \qquad(K\ge2),
+\]
+so that $L(K)\ge1+\log2>1$ and $KL(K)^2\ge2$ for $K\ge2$. Throughout,
+$\Penv_\ell$ and $\Menv_\ell$ are the quadratic envelopes of \noderef{QuadEnvP}
+and \noderef{QuadEnvM} and $\Senv^\pm_\ell$ are the envelope slopes of
+\noderef{EnvSlopeP} and \noderef{EnvSlopeM}. The steps are ordered so that the
+subquadratic growth of $V$ and of $v$ is in hand before any envelope is
+compared with a competitor and before any constant is moved through a
+supremum: by the convention of the preamble such a comparison is available only
+together with the boundedness hypothesis, and the node that supplies it is
+\noderef{EnvelopeCompetitorBounds}.
+
+\emph{Step 1: translation to the origin, and the reduction to $V$.}
+Apply \noderef{FrameInvariance} with $z_0=z_\star$, $R=1$, $p_0=0$ and $a_0=0$.
+By \noderef{FrameChange} the resulting function is
+\[
+  V(y,s)=\frac{v\bigl(b+1\cdot(y+0\cdot s),\,t_0+1\cdot s\bigr)-v(b,t_0)}{1}
+   -0\cdot y-\Bigl(0+\frac{|0|^2}{2}\Bigr)s=v(b+y,\,t_0+s)-v(b,t_0),
+\]
+and \noderef{FrameInvariance} gives $V\in\Aclass_{m,C_0}$. Note $V(0,0)=0$, and
+record the two forms of the relation between $v$ and $V$, each obtained from
+the other by the substitution $x=b+y$, $t=t_0+s$:
+\begin{equation}\label{eq:sr-frame}
+  V(y,s)=v(b+y,\,t_0+s)-v(z_\star),\qquad
+  v(x,t)=V(x-b,\,t-t_0)+v(z_\star)
+  \qquad\bigl((y,s),(x,t)\in F\times\R\bigr).
+\end{equation}
+
+If $V$ is affine then so is $v$: from the second form of \eqref{eq:sr-frame}
+and $V(y,s)=\langle q,y\rangle+\beta s+\gamma$ we get
+$v(x,t)=\langle q,x\rangle+\beta t+\bigl(\gamma-\langle q,b\rangle-\beta
+t_0+v(z_\star)\bigr)$, which is the form required by
+\noderef{IsSpaceTimeAffine}. So it suffices to prove that $V$ is affine, and
+that is what Steps 2--11 do. The hypothesis \eqref{eq:constant-envelope-slopes}
+is not used before Step 5.
+
+\emph{Steps 2--4: growth, and the hypotheses of the envelope lemmas.}
+By Step 1 the function $V$ lies in $\Aclass_{m,C_0}$, so
+\noderef{FitClassGrowth} applies to it and supplies a constant $C_V>0$ with
+$\bigl|V(\zeta)-V(0)\bigr|\le C_VKL(K)^2$ for $\zeta\in\mathcal B_K$ and
+$K\ge2$; since $V(0,0)=0$ that reads
+\begin{equation}\label{eq:sr-growth}
+  |V(\zeta)|\le C_V\,K\,L(K)^2\qquad(\zeta\in\mathcal B_K,\ K\ge2).
+\end{equation}
+The same node also gives that $V$ has subquadratic spatial growth on compact
+time subintervals of $I=\R$ in the sense of \noderef{SubquadraticGrowth}.
+Applying \noderef{FitClassGrowth} a second time, now to $v$ itself — which lies
+in the class by hypothesis — gives that $v$ too has subquadratic spatial growth
+on compact time subintervals of $\R$. No centering of either function is needed:
+that node is stated for an arbitrary member of the class, measuring growth from
+the value at the origin.
+
+By \noderef{IsFitClass} both $V$ and $v$ are continuous on all of space-time and
+are viscosity solutions of the limiting equation there. Hence the hypotheses of
+\noderef{QuadEnvAttained} and of \noderef{EnvHamiltonianSolution} hold for $V$
+with $I=\R$, for which every time and every shifted time is admissible, and the
+hypotheses of \noderef{EnvelopeCompetitorBounds} hold for $V$ and for $v$ with
+$I=\R$ as well: that lemma asks only that the function be continuous on
+$\Omega_I=\{(y,\tau):\tau\in I\}$, which for $I=\R$ is all of space-time, and
+have subquadratic spatial growth on compact time subintervals of $I$ in the
+sense of \noderef{SubquadraticGrowth}. Since $I=\R$, its admissibility
+conditions $t\in I$ and $t\pm\ell\in I$ are vacuous, so parts (1) and (2) are
+available at every center and every $\ell>0$. What they give is precisely what
+the preamble's supremum convention withholds from \noderef{QuadEnvP} and
+\noderef{QuadEnvM} on their own: part (1) says that the set of forward
+competitor values at a center is bounded above by the real number
+$\Penv_\ell V$, which is moreover its least upper bound, and part (2) says that
+the set of backward competitor values is bounded below by $\Menv_\ell V$, which
+is its greatest lower bound. Every comparison of an envelope with a chosen
+competitor below is an application of one of these two halves, and never of
+\noderef{QuadEnvP} or \noderef{QuadEnvM} alone, which are used only for the
+defining formulas.
+\emph{Step 5: the envelope slopes of $V$ at the origin equal $B$.}
+Fix $\ell>0$. By Steps 3 and 4, part (1) and part (2) of
+\noderef{EnvelopeCompetitorBounds} with $I=\R$ are available for $V$ at the
+center $(0,0)$ and for $v$ at the center $z_\star$, at this $\ell$.
+
+\emph{The forward envelopes.} Let $y\in F$ and put $y'=b+y$, so that
+$|y|=|y'-b|$ and, by the first form of \eqref{eq:sr-frame},
+$V(y,\ell)=v(y',t_0+\ell)-v(z_\star)$. The domination half of part (1) for $v$
+at $z_\star$ gives $v(y',t_0+\ell)-|y'-b|^2/(2\ell)\le\Penv_\ell v(z_\star)$,
+hence
+\[
+  V(y,\ell)-\frac{|y|^2}{2\ell}
+   =\Bigl(v(y',t_0+\ell)-\frac{|y'-b|^2}{2\ell}\Bigr)-v(z_\star)
+   \le\Penv_\ell v(z_\star)-v(z_\star).
+\]
+As $y\in F$ was arbitrary and $y\mapsto b+y$ is a bijection of $F$, the real
+number $\Penv_\ell v(z_\star)-v(z_\star)$ bounds every competitor for $V$ at
+$(0,0)$ at length $\ell$; the extremality half of part (1) for $V$ therefore
+gives $\Penv_\ell V(0,0)\le\Penv_\ell v(z_\star)-v(z_\star)$. Conversely, let
+$y'\in F$ and put $y=y'-b$; the domination half of part (1) for $V$ at $(0,0)$
+gives $V(y,\ell)-|y|^2/(2\ell)\le\Penv_\ell V(0,0)$, that is
+\[
+  v(y',t_0+\ell)-\frac{|y'-b|^2}{2\ell}\le\Penv_\ell V(0,0)+v(z_\star),
+\]
+and as $y'$ was arbitrary the extremality half of part (1) for $v$ gives
+$\Penv_\ell v(z_\star)\le\Penv_\ell V(0,0)+v(z_\star)$. The two inequalities
+together are
+\begin{equation}\label{eq:sr-penv-transfer}
+  \Penv_\ell V(0,0)=\Penv_\ell v(z_\star)-v(z_\star)\qquad(\ell>0).
+\end{equation}
+
+\emph{The backward envelopes.} Let $y\in F$, $y'=b+y$, so
+$V(y,-\ell)=v(y',t_0-\ell)-v(z_\star)$ by \eqref{eq:sr-frame} and
+$|y|=|y'-b|$. The domination half of part (2) for $v$ at $z_\star$ gives
+$\Menv_\ell v(z_\star)\le v(y',t_0-\ell)+|y'-b|^2/(2\ell)$, that is
+$\Menv_\ell v(z_\star)-v(z_\star)\le V(y,-\ell)+|y|^2/(2\ell)$; as $y$ was
+arbitrary, the extremality half of part (2) for $V$ gives
+$\Menv_\ell v(z_\star)-v(z_\star)\le\Menv_\ell V(0,0)$. Conversely, for
+$y'\in F$ and $y=y'-b$ the domination half of part (2) for $V$ gives
+$\Menv_\ell V(0,0)\le V(y,-\ell)+|y|^2/(2\ell)
+ =v(y',t_0-\ell)-v(z_\star)+|y'-b|^2/(2\ell)$, so
+$\Menv_\ell V(0,0)+v(z_\star)\le v(y',t_0-\ell)+|y'-b|^2/(2\ell)$ for every
+$y'$, and the extremality half of part (2) for $v$ gives
+$\Menv_\ell V(0,0)+v(z_\star)\le\Menv_\ell v(z_\star)$. Hence
+\begin{equation}\label{eq:sr-menv-transfer}
+  \Menv_\ell V(0,0)=\Menv_\ell v(z_\star)-v(z_\star)\qquad(\ell>0).
+\end{equation}
+
+Now use the hypothesis. By \noderef{EnvSlopeP}, $V(0,0)=0$ and
+\eqref{eq:sr-penv-transfer},
+\[
+  \Senv_\ell^+V(0,0)=\frac{\Penv_\ell V(0,0)-V(0,0)}{\ell}
+   =\frac{\Penv_\ell v(z_\star)-v(z_\star)}{\ell}=\Senv_\ell^+v(z_\star)=B,
+\]
+the last equality being \eqref{eq:constant-envelope-slopes}. By
+\noderef{EnvSlopeM}, $V(0,0)=0$ and \eqref{eq:sr-menv-transfer},
+\[
+  \Senv_\ell^-V(0,0)=\frac{V(0,0)-\Menv_\ell V(0,0)}{\ell}
+   =\frac{v(z_\star)-\Menv_\ell v(z_\star)}{\ell}=\Senv_\ell^-v(z_\star)=B .
+\]
+So
+\begin{equation}\label{eq:sr-slopes}
+  \Senv_\ell^+V(0,0)=\Senv_\ell^-V(0,0)=B\qquad(\ell>0).
+\end{equation}
+
+\emph{Step 6: the future paraboloid.}
+Let $t>0$. By \eqref{eq:sr-slopes}, \noderef{EnvSlopeP} and $V(0,0)=0$,
+$\Penv_tV(0,0)=Bt$. By the domination half of part (1) of
+\noderef{EnvelopeCompetitorBounds} for $V$ with $I=\R$, at the center $(0,0)$
+and the length $t>0$, whose hypotheses were checked in Step 3, every competitor
+is at most $\Penv_tV(0,0)=Bt$: for every $y\in F$,
+$V(y,t)-|y|^2/(2t)\le Bt$, so
+\begin{equation}\label{eq:future-paraboloid}
+  V(y,t)\le Bt+\frac{|y|^2}{2t}\qquad(t>0).
+\end{equation}
+
+\emph{Step 7: a bound for the far optimizers.}
+Fix $(x,t)$. For $\ell\ge1$, part (1) of \noderef{QuadEnvAttained} gives a
+maximizer $y_\ell$ with
+\begin{equation}\label{eq:sr-attain}
+  \Penv_\ell V(x,t)=V(y_\ell,t+\ell)-\frac{|y_\ell-x|^2}{2\ell}.
+\end{equation}
+The domination half of part (1) of \noderef{EnvelopeCompetitorBounds} for $V$
+with $I=\R$, at the center $(x,t)$ and the length $\ell>0$, applied to the
+competitor $y=x$, gives
+$V(x,t+\ell)=V(x,t+\ell)-|x-x|^2/(2\ell)\le\Penv_\ell V(x,t)$, so by
+\eqref{eq:sr-attain}
+\[
+  V(x,t+\ell)\le V(y_\ell,t+\ell)-\frac{|y_\ell-x|^2}{2\ell} .
+\]
+That is exactly the hypothesis of \noderef{FarOptimizerBound} for the function
+$V$, the constant $C_V$ of \eqref{eq:sr-growth}, the center $(x,t)$, the length
+$\ell$ and the position $y_\ell$; the box-bound hypothesis of that node is
+\eqref{eq:sr-growth} itself, with the same $C_V>0$. It therefore supplies a
+constant $C_{x,t}<\infty$ with
+\begin{equation}\label{eq:rigidity-optimizer-bound}
+  |y_\ell|\le C_{x,t}\,\ell\,(1+\log\ell)^2\qquad(\ell\ge1).
+\end{equation}
+\emph{Step 8: $\Senv_\ell^+V(x,t)\le B$ for every $\ell>0$.}
+Fix $(x,t)$ and let $\ell\ge\max\{1,\,2|t|+1\}$, so $t+\ell\ge\ell/2>0$. By
+\eqref{eq:future-paraboloid} applied at $(y_\ell,t+\ell)$ and
+\eqref{eq:sr-attain},
+\[
+  \Penv_\ell V(x,t)\le B(t+\ell)
+    +\frac{|y_\ell|^2}{2(t+\ell)}-\frac{|y_\ell-x|^2}{2\ell}.
+\]
+Expanding $|y_\ell-x|^2=|y_\ell|^2-2\langle x,y_\ell\rangle+|x|^2$,
+\[
+  \frac{|y_\ell|^2}{2(t+\ell)}-\frac{|y_\ell-x|^2}{2\ell}
+   =-\frac{t\,|y_\ell|^2}{2\ell(t+\ell)}
+     +\frac{\langle x,y_\ell\rangle}{\ell}-\frac{|x|^2}{2\ell},
+\]
+since $\tfrac1{2(t+\ell)}-\tfrac1{2\ell}=-\tfrac{t}{2\ell(t+\ell)}$. By
+\eqref{eq:rigidity-optimizer-bound} and $t+\ell\ge\ell/2$,
+\[
+  \frac{|t|\,|y_\ell|^2}{2\ell(t+\ell)}
+   \le\frac{|t|\,C_{x,t}^2\ell^2(1+\log\ell)^4}{2\ell\cdot(\ell/2)}
+   =|t|\,C_{x,t}^2(1+\log\ell)^4,
+  \qquad
+  \frac{|\langle x,y_\ell\rangle|}{\ell}\le|x|C_{x,t}(1+\log\ell)^2,
+\]
+and $|x|^2/(2\ell)\le|x|^2/2$. Hence
+\[
+  \Penv_\ell V(x,t)\le B(t+\ell)+O_{x,t}\bigl((1+\log\ell)^4\bigr),
+\]
+and by \noderef{EnvSlopeP}
+\[
+  \Senv_\ell^+V(x,t)=\frac{\Penv_\ell V(x,t)-V(x,t)}{\ell}
+   \le B\frac{t+\ell}{\ell}+\frac{O_{x,t}\bigl((1+\log\ell)^4\bigr)}{\ell}
+     -\frac{V(x,t)}{\ell}\longrightarrow B
+\]
+as $\ell\to\infty$, because $(1+\log\ell)^4/\ell\to0$. Therefore
+$\limsup_{\ell\to\infty}\Senv_\ell^+V(x,t)\le B$.
+
+By part (1) of \noderef{EnvHamiltonianSolution}, applied to $V$ with $I=\R$
+whose admissibility hypothesis is vacuous, $\ell\mapsto\Senv_\ell^+V(x,t)$ is
+nondecreasing. Hence for every fixed $\ell>0$ and every $\ell'\ge\ell$,
+$\Senv_\ell^+V(x,t)\le\Senv_{\ell'}^+V(x,t)$; letting $\ell'\to\infty$ and using
+the previous paragraph,
+\begin{equation}\label{eq:sr-slopeB}
+  \Senv_\ell^+V(x,t)\le B\qquad(x\in F,\ t\in\R,\ \ell>0).
+\end{equation}
+
+\emph{Step 9: the directed comparison.}
+Let $x,y\in F$, $t\in\R$ and $\ell>0$. By the domination half of part (1) of
+\noderef{EnvelopeCompetitorBounds} for $V$ with $I=\R$, at the center $(x,t)$
+and the length $\ell$, the competitor $y$
+gives $V(y,t+\ell)-|y-x|^2/(2\ell)\le\Penv_\ell V(x,t)$, and by
+\noderef{EnvSlopeP} and \eqref{eq:sr-slopeB},
+$\Penv_\ell V(x,t)=V(x,t)+\ell\,\Senv_\ell^+V(x,t)\le V(x,t)+B\ell$. Hence
+\begin{equation}\label{eq:directed-comparison}
+  V(y,t+\ell)-V(x,t)\le B\ell+\frac{|y-x|^2}{2\ell}
+       \qquad(x,y\in F,\ t\in\R,\ \ell>0).
+\end{equation}
+
+\emph{Step 10: equality points and a single velocity.}
+Let $\ell>0$. By \eqref{eq:sr-slopes} and $V(0,0)=0$ we have
+$\Penv_\ell V(0,0)=B\ell$, and part (1) of \noderef{QuadEnvAttained} gives a
+maximizer; writing it as $\ell q_+$ with $q_+\in F$,
+\begin{equation}\label{eq:sr-fwd}
+  V(\ell q_+,\ell)=B\ell+\frac{\ell|q_+|^2}{2}.
+\end{equation}
+Let $r>0$. By \eqref{eq:sr-slopes} and \noderef{EnvSlopeM},
+$\Menv_rV(0,0)=V(0,0)-Br=-Br$, and part (1) of \noderef{QuadEnvAttained} gives a
+minimizer; writing it as $-rq_-$,
+\begin{equation}\label{eq:sr-bwd}
+  V(-rq_-,-r)=-Br-\frac{r|q_-|^2}{2}.
+\end{equation}
+
+Apply \eqref{eq:directed-comparison} from the point $(-rq_-,-r)$ to
+$(\ell q_+,\ell)$, i.e. with $x=-rq_-$, $t=-r$, $y=\ell q_+$ and the length
+$\ell+r>0$, for which $t+(\ell+r)=\ell$:
+\[
+  V(\ell q_+,\ell)-V(-rq_-,-r)\le B(\ell+r)
+    +\frac{|\ell q_++rq_-|^2}{2(\ell+r)} .
+\]
+By \eqref{eq:sr-fwd} and \eqref{eq:sr-bwd} the left side equals
+$B(\ell+r)+\tfrac12\bigl(\ell|q_+|^2+r|q_-|^2\bigr)$, so after cancelling
+$B(\ell+r)$ and multiplying by $2(\ell+r)>0$,
+\[
+  (\ell+r)\bigl(\ell|q_+|^2+r|q_-|^2\bigr)-|\ell q_++rq_-|^2\le0 .
+\]
+Expanding, the terms $\ell^2|q_+|^2$ and $r^2|q_-|^2$ cancel and the left side
+becomes
+$\ell r\bigl(|q_+|^2+|q_-|^2-2\langle q_+,q_-\rangle\bigr)=\ell r|q_+-q_-|^2$.
+Since $\ell,r>0$ this forces $q_+=q_-$.
+
+Fix one backward equality point for $r=1$ and call the resulting vector $q$. The
+previous paragraph, applied with this $r=1$ and any $\ell>0$ and any choice of
+forward maximizer, shows that every forward velocity equals $q$; and applied
+with $\ell=1$, the forward velocity being $q$, it shows that every backward
+velocity equals $q$. Consequently \eqref{eq:sr-fwd} and \eqref{eq:sr-bwd} give,
+together with $V(0,0)=0$,
+\begin{equation}\label{eq:sr-line}
+  V(qs,s)=\Bigl(B+\frac{|q|^2}{2}\Bigr)s\qquad(s\in\R);
+\end{equation}
+for $s>0$ take $\ell=s$ in \eqref{eq:sr-fwd}, and for $s<0$ take $r=-s$ in
+\eqref{eq:sr-bwd}.
+
+\emph{Step 11: $V$ is affine.}
+Put $A(x,t)=\langle q,x\rangle+\bigl(B-\tfrac12|q|^2\bigr)t$ and fix $(x,t)$.
+
+Let $s<t$ and apply \eqref{eq:directed-comparison} from $(qs,s)$ to $(x,t)$ with
+the length $\tau=t-s>0$:
+\[
+  V(x,t)\le V(qs,s)+B\tau+\frac{|x-qs|^2}{2\tau}
+   =Bs+\frac{s|q|^2}{2}+B\tau+\frac{|x-qs|^2}{2\tau},
+\]
+using \eqref{eq:sr-line}. Now $x-qs=(x-qt)+\tau q$, so
+$|x-qs|^2=|x-qt|^2+2\tau\langle q,x-qt\rangle+\tau^2|q|^2$ and
+\[
+  \frac{|x-qs|^2}{2\tau}=\frac{|x-qt|^2}{2\tau}+\langle q,x\rangle-t|q|^2
+     +\frac{\tau|q|^2}{2}.
+\]
+Substituting and using $s+\tau=t$,
+\[
+  V(x,t)\le Bt+\frac{|x-qt|^2}{2\tau}+\langle q,x\rangle-t|q|^2
+     +\frac{(s+\tau)|q|^2}{2}
+   =A(x,t)+\frac{|x-qt|^2}{2(t-s)} .
+\]
+Letting $s\to-\infty$, so $\tau=t-s\to+\infty$, gives $V(x,t)\le A(x,t)$.
+
+Let $s>t$ and apply \eqref{eq:directed-comparison} from $(x,t)$ to $(qs,s)$ with
+the length $\tau'=s-t>0$:
+\[
+  V(qs,s)-V(x,t)\le B\tau'+\frac{|qs-x|^2}{2\tau'} ,
+\]
+so by \eqref{eq:sr-line}
+\[
+  V(x,t)\ge Bs+\frac{s|q|^2}{2}-B\tau'-\frac{|x-qs|^2}{2\tau'}
+   =Bt+\frac{s|q|^2}{2}-\frac{|x-qs|^2}{2\tau'} .
+\]
+Now $x-qs=(x-qt)-\tau'q$, so
+$|x-qs|^2=|x-qt|^2-2\tau'\langle q,x-qt\rangle+\tau'^2|q|^2$ and
+\[
+  \frac{|x-qs|^2}{2\tau'}=\frac{|x-qt|^2}{2\tau'}-\langle q,x\rangle+t|q|^2
+     +\frac{\tau'|q|^2}{2}.
+\]
+Substituting and using $s-\tau'=t$,
+\[
+  V(x,t)\ge Bt-\frac{|x-qt|^2}{2\tau'}+\langle q,x\rangle-t|q|^2
+     +\frac{(s-\tau')|q|^2}{2}
+   =A(x,t)-\frac{|x-qt|^2}{2(s-t)} .
+\]
+Letting $s\to+\infty$ gives $V(x,t)\ge A(x,t)$.
+
+Hence $V=A$, which is affine in the sense of \noderef{IsSpaceTimeAffine}, and by
+the reduction of Step 1 so is $v$.
+\end{proof}

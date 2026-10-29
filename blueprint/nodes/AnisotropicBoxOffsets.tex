@@ -1,0 +1,108 @@
+\begin{lemma}[Anisotropic box offsets relative to a nearly aligned direction]
+Let $F$ be a real inner-product space, let $\ell^2(F\times\R)$ be the associated
+space-time with added unit direction $e_b=(0,1)$, and let $\Phi$ be a linear isometry
+of $\ell^2(F\times\R)$ onto itself. Let $r>0$, $\theta\ge0$, $C\ge0$, $K\ge1$ and
+$0\le s\le1$ be reals with $s\sqrt{32}=\theta$, let $n\in\ell^2(F\times\R)$ satisfy
+$|n|=1$, and let $R$ be a real with
+\begin{equation}\label{eq:abo-R}
+  16K<R,\qquad K\bigl(32^{-1/2}+C\bigr)<R/4 .
+\end{equation}
+Assume the direction bound
+\begin{equation}\label{eq:abo-dir}
+  \bigl|\Phi(e_b)-n\bigr|\le C\theta .
+\end{equation}
+Then for every $x\in F$ and $t\in\R$ with $|x|\le K$ and $|t|\le K$, the vector
+$h=r\,\Phi(s\,x,\,t)$ satisfies
+\[
+  |\langle n,h\rangle|\le\frac{Rr}4,
+  \qquad
+  \bigl|h-\langle n,h\rangle\,n\bigr|\le\frac{\theta\,Rr}4 .
+\]
+\end{lemma}
+\begin{proof}
+Throughout, $h=r\,\Phi(s\,x,\,t)$, and $R>0$ because $16K<R$ and $K\ge1$.
+
+\emph{Step 1: the length of $h$.}
+Since $\Phi$ is a linear isometry and $r>0$,
+\[
+  |h|=r\,\bigl|(s\,x,\,t)\bigr| .
+\]
+By the definition of the $\ell^2$ product norm,
+$|(s\,x,t)|^2=|s\,x|^2+t^2=(s|x|)^2+|t|^2$, and since $s|x|\ge0$ and $|t|\ge0$ we have
+$(s|x|+|t|)^2=(s|x|)^2+|t|^2+2s|x|\,|t|\ge|(s\,x,t)|^2$; both sides being nonnegative,
+$|(s\,x,t)|\le s|x|+|t|$. As $0\le s\le1$ and $|x|\ge0$ we get $s|x|\le|x|$, so
+$s|x|+|t|\le|x|+|t|\le2K$. Hence
+\begin{equation}\label{eq:abo-len}
+  |h|\le2Kr .
+\end{equation}
+
+\emph{Step 2: the axial bound.}
+By Cauchy--Schwarz and $|n|=1$, $|\langle n,h\rangle|\le|n|\,|h|=|h|$. By
+\eqref{eq:abo-len} and $16K<R$ we have $2Kr\le Rr/8$, because multiplying $16K<R$ by
+$r>0$ gives $16Kr<Rr$. Since $Rr>0$, $Rr/8\le Rr/4$, and therefore
+$|\langle n,h\rangle|\le Rr/4$, which is the first assertion.
+
+\emph{Step 3: $\langle n,h\rangle n$ is the closest multiple of $n$ to $h$.}
+Let $u\in\R$ and put $\sigma=\langle n,h\rangle$. The vectors $h-\sigma n$ and
+$(\sigma-u)n$ are orthogonal: using $|n|=1$,
+\[
+  \langle h-\sigma n,\ (\sigma-u)n\rangle
+   =(\sigma-u)\bigl(\langle h,n\rangle-\sigma|n|^2\bigr)
+   =(\sigma-u)(\sigma-\sigma)=0 ,
+\]
+where $\langle h,n\rangle=\langle n,h\rangle=\sigma$ by symmetry of the real inner
+product. Since $h-u\,n=(h-\sigma n)+(\sigma-u)n$, the Pythagorean identity gives
+\[
+  |h-u\,n|^2=|h-\sigma n|^2+|(\sigma-u)n|^2\ge|h-\sigma n|^2 ,
+\]
+and as both norms are nonnegative,
+\begin{equation}\label{eq:abo-proj}
+  \bigl|h-\langle n,h\rangle\,n\bigr|\le|h-u\,n|
+  \qquad\text{for every }u\in\R .
+\end{equation}
+
+\emph{Step 4: the frame splitting of $h$.}
+In $F\times\R$ one has the identity $(s\,x,\,t)=s\,(x,0)+t\,(0,1)=s\,(x,0)+t\,e_b$,
+since both sides have first component $s\,x$ and second component $t$. Applying the
+linear map $\Phi$ and multiplying by $r$,
+\begin{equation}\label{eq:abo-split}
+  h=(rs)\,\Phi(x,0)+(rt)\,\Phi(e_b) .
+\end{equation}
+Subtracting $(rt)\,n$ from both sides of \eqref{eq:abo-split},
+\begin{equation}\label{eq:abo-shift}
+  h-(rt)\,n=(rs)\,\Phi(x,0)+(rt)\bigl(\Phi(e_b)-n\bigr).
+\end{equation}
+
+\emph{Step 5: the transverse bound.}
+Since $\Phi$ is a linear isometry and $|(x,0)|=|x|$ by the definition of the $\ell^2$
+product norm, $\bigl|(rs)\Phi(x,0)\bigr|=rs\,|x|$, using $r>0$ and $s\ge0$; and
+$\bigl|(rt)(\Phi(e_b)-n)\bigr|=r|t|\,\bigl|\Phi(e_b)-n\bigr|$, using $r>0$. So the
+triangle inequality applied to \eqref{eq:abo-shift} gives
+\[
+  \bigl|h-(rt)\,n\bigr|\le rs\,|x|+r|t|\,\bigl|\Phi(e_b)-n\bigr| .
+\]
+From $s\sqrt{32}=\theta$ and $\sqrt{32}>0$ we get $s=32^{-1/2}\theta$, so
+$rs\ge0$ and, by $|x|\le K$,
+\[
+  rs\,|x|=r\,32^{-1/2}\theta\,|x|\le r\,32^{-1/2}\theta\,K .
+\]
+By \eqref{eq:abo-dir}, $C\theta\ge0$ and $|t|\le K$,
+\[
+  r|t|\,\bigl|\Phi(e_b)-n\bigr|\le r|t|\,C\theta\le rK\,C\theta .
+\]
+Adding the two displays,
+\begin{equation}\label{eq:abo-sum}
+  \bigl|h-(rt)\,n\bigr|\le rK\bigl(32^{-1/2}+C\bigr)\theta .
+\end{equation}
+Finally, multiplying $K(32^{-1/2}+C)<R/4$ from \eqref{eq:abo-R} by $r\theta\ge0$ gives
+\[
+  rK\bigl(32^{-1/2}+C\bigr)\theta\le\frac{\theta\,Rr}4 ,
+\]
+and combining this with \eqref{eq:abo-sum} and with \eqref{eq:abo-proj} taken at
+$u=rt$ yields
+\[
+  \bigl|h-\langle n,h\rangle\,n\bigr|\le\bigl|h-(rt)\,n\bigr|
+    \le rK\bigl(32^{-1/2}+C\bigr)\theta\le\frac{\theta\,Rr}4 ,
+\]
+which is the second assertion.
+\end{proof}

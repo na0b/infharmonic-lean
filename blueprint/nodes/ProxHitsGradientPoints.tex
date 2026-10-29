@@ -1,0 +1,50 @@
+\begin{lemma}[The proximal map hits every differentiability point]
+Let $E$ be a finite-dimensional real inner-product space, let $\psi:E\to\R$ be
+convex on $E$, and let $u:E\to E$ be a proximal map for $\psi$ in the sense of
+\noderef{IsMoreauProx}. If $\psi$ is differentiable at $x\in E$ with gradient
+$q$, then
+\[
+  u(x+q)=x .
+\]
+\end{lemma}
+\begin{proof}
+\emph{The gradient is a subgradient.}
+Let $x'\in E$ and $t\in(0,1]$. Since $\psi$ is convex on $E$ and
+$x+t(x'-x)=(1-t)x+tx'$,
+\[
+  \psi\bigl(x+t(x'-x)\bigr)\le(1-t)\psi(x)+t\psi(x'),
+\]
+that is
+\[
+  \frac{\psi\bigl(x+t(x'-x)\bigr)-\psi(x)}{t}\le\psi(x')-\psi(x).
+\]
+As $t\downarrow0$ the left-hand side tends to $\langle q,x'-x\rangle$, because
+$q$ is the gradient of $\psi$ at $x$ and therefore
+$\psi(x+k)-\psi(x)-\langle q,k\rangle=o(|k|)$ as $k\to0$, applied with
+$k=t(x'-x)$. Passing to the limit in the displayed inequality gives
+\begin{equation}\label{eq:phgp-sub}
+  \psi(x)+\langle q,x'-x\rangle\le\psi(x')\qquad(x'\in E).
+\end{equation}
+
+\emph{Minty's characterization.}
+Put $y=x+q$, so that $y-x=q$. Then \eqref{eq:phgp-sub} states precisely that
+$\psi(x)+\langle y-x,x'-x\rangle\le\psi(x')$ for all $x'\in E$, which is the
+right-hand clause of \noderef{MoreauProxSubgradient} with this base point $y$
+and with $x_0=x$. By that equivalence the left-hand clause holds:
+\begin{equation}\label{eq:phgp-min}
+  \psi(x)+\frac{|x-y|^2}{2}\le\psi(x')+\frac{|x'-y|^2}{2}\qquad(x'\in E),
+\end{equation}
+i.e. $x$ minimizes $x'\mapsto\psi(x')+|x'-y|^2/2$ over $E$.
+
+\emph{Uniqueness of the minimizer.}
+By \noderef{IsMoreauProx} the point $u(y)$ also minimizes
+$x'\mapsto\psi(x')+|x'-y|^2/2$ over $E$. Apply
+\noderef{MoreauProxMonotone} with $y_1=y_2=y$, $x_1=x$ and $x_2=u(y)$: its two
+hypotheses are \eqref{eq:phgp-min} and the minimality of $u(y)$, and its
+conclusion reads
+\[
+  |x-u(y)|^2+\bigl|(y-x)-(y-u(y))\bigr|^2\le|y-y|^2=0 .
+\]
+Both terms on the left are nonnegative, so $|x-u(y)|^2=0$, that is $u(y)=x$.
+Since $y=x+q$, this is the assertion.
+\end{proof}

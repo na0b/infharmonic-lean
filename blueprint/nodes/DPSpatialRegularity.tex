@@ -1,0 +1,169 @@
+\begin{lemma}[Spatial regularity of the forward contact envelope]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$ and $0\le\kappa<\infty$, and let $v\in\Aclass_{m,C_0}$ in the
+sense of \noderef{IsFitClass} be centered at $(0,1)$ with constant $C_0$ in the
+sense of \noderef{IsCenteredAt} and satisfy the horizontal Jensen bound with
+constant $\kappa$ at every time in the sense of \noderef{HasJensenBound}. Let
+$f=W=\Cenv_tv-\kappa^2t/2$ be the contact envelope of \noderef{ContactEnv}, and
+write $f^\ell=\Penv_\ell f$ for the forward envelope of \noderef{QuadEnvP}. Then
+for every $t,\ell>0$ and every $x\in F$ the optimization defining
+$f^\ell(x,t)$ has a unique maximizer $y=y(x,t,\ell)$, the function
+$f^\ell(\cdot,t)$ is differentiable at $x$ with
+\begin{equation}\label{eq:dp-gradient}
+  \nabla_x f^\ell(x,t)=\frac{y-x}{\ell},
+\end{equation}
+and for every $h\in F$ the two supporting inequalities hold:
+\begin{equation}\label{eq:dp-supports}
+\begin{split}
+  f^\ell(x,t)+\nabla_x f^\ell(x,t)\cdot h-\frac{|h|^2}{2\ell}
+  &\le f^\ell(x+h,t)\\
+  &\le f^\ell(x,t)+\nabla_x f^\ell(x,t)\cdot h+\frac{|h|^2}{2t}.
+\end{split}
+\end{equation}
+In particular the spatial Hessian of $f^\ell(\cdot,t)$ is bounded below by
+$-\ell^{-1}I$ in the semiconvexity sense and above by $t^{-1}I$ in the
+semiconcavity sense.
+\end{lemma}
+\begin{proof}
+Write $f=W=\Cenv_tv-\kappa^2t/2$ for the contact envelope of
+\noderef{ContactEnv}, fix $t,l>0$ and $x\in F$, and put $s=t+l>0$.
+
+\emph{Step 0: regularity of the integrand on positive times.}
+The hypotheses of \noderef{ContactEnvPositiveTimeRegularity} are exactly those assumed
+here: $1\le C_0$, $0\le\kappa$, $v$ in the class $\Aclass_{m,C_0}$ of
+\noderef{IsFitClass}, centered at $(0,1)$ with constant $C_0$ in the sense of
+\noderef{IsCenteredAt}, and satisfying the horizontal Jensen bound with constant $\kappa$
+at every time in the sense of \noderef{HasJensenBound}. That lemma therefore gives three
+facts about $f$, which are the only properties of $f$ used below:
+\begin{enumerate}
+\item $f$ is continuous on $\{z:z_t>0\}$;
+\item $f$ has subquadratic spatial growth on compact subintervals of $(0,\infty)$ in the
+sense of \noderef{SubquadraticGrowth};
+\item for every $\sigma>0$ the function $y\mapsto f(y,\sigma)-|y|^2/(2\sigma)$ is concave
+on $F$.
+\end{enumerate}
+
+\emph{Step 1: $f(\cdot,s)-|\cdot|^2/(2s)$ is concave.}
+Apply part (3) of Step 0 with $\sigma=s=t+l>0$:
+\begin{equation}\label{eq:dpsr-concave}
+  y\longmapsto f(y,s)-\frac{|y|^2}{2s}
+\end{equation}
+is concave on $F$.
+
+\emph{Step 2: strict concavity of the objective, hence uniqueness.}
+Write, for $y\in F$,
+\[
+  \Xi(y)=f(y,s)-\frac{|y-x|^2}{2l}
+   =\Bigl(f(y,s)-\frac{|y|^2}{2s}\Bigr)
+     +\Bigl(\frac{|y|^2}{2s}-\frac{|y-x|^2}{2l}\Bigr).
+\]
+The first bracket is concave by \eqref{eq:dpsr-concave}. The second is a
+quadratic function of $y$ whose quadratic part is
+$\tfrac12\bigl(\tfrac1s-\tfrac1l\bigr)|y|^2=-\tfrac{t}{2ls}|y|^2$, strictly
+concave because $t,l,s>0$. Hence $\Xi$ is strictly concave: for $y_0\ne y_1$ and
+$\theta\in(0,1)$,
+$\Xi((1-\theta)y_0+\theta y_1)>(1-\theta)\Xi(y_0)+\theta\Xi(y_1)$. In
+particular $\Xi$ has at most one maximizer.
+
+\emph{Step 3: existence of the maximizer.}
+Apply \noderef{QuadEnvAttained} to $f$ with $I=(0,\infty)$: its hypotheses are parts (1)
+and (2) of Step 0. Part (1), at the center $(x,t)$ and the length $l>0$, whose time
+arguments $t$ and $t+l=s$ both lie in $(0,\infty)$, gives $y\in F$ with
+\begin{equation}\label{eq:dpsr-attain}
+  \Penv_lf(x,t)=f(y,s)-\frac{|y-x|^2}{2l}=\Xi(y)=\max_{y'\in F}\Xi(y') .
+\end{equation}
+By Step 2 this maximizer is unique, which is the first two assertions of the
+lemma.
+
+The hypotheses of part (1) just applied constrain only the two time arguments,
+namely $t$ and $t+l=s$, and both lie in $I=(0,\infty)$ independently of the
+spatial center. So the identical application of part (1) at the center
+$(x',t)$, for an arbitrary $x'\in F$ and the same length $l>0$, gives a point
+$y'\in F$ at which the supremum defining $\Penv_lf(x',t)$ in
+\noderef{QuadEnvP} is attained:
+\begin{equation}\label{eq:dpsr-attain-any}
+  \Penv_lf(x',t)=f(y',s)-\frac{|y'-x'|^2}{2l}
+   =\max_{w\in F}\Bigl\{f(w,s)-\frac{|w-x'|^2}{2l}\Bigr\}
+  \qquad(x'\in F).
+\end{equation}
+Two consequences are recorded here once and used below without further comment.
+First, $\Penv_lf(x',t)$ is a real number equal to a maximum at every center, so
+it is a genuine least upper bound of the competitor values there and not the
+junk value fixed by the preamble convention for a supremum over an empty or
+unbounded-above set. Second, it therefore dominates the value of each single
+competitor:
+\begin{equation}\label{eq:dpsr-competitor}
+  \Penv_lf(x',t)\ge f(w,s)-\frac{|w-x'|^2}{2l}\qquad(x',w\in F).
+\end{equation}
+
+\emph{Step 4: the lower supporting inequality.}
+Let $h\in F$. Keeping the maximizer $y$ of \eqref{eq:dpsr-attain} fixed and
+using it as a competitor at the center $x+h$, \eqref{eq:dpsr-competitor} with
+$x'=x+h$ and $w=y$ gives
+\[
+  \Penv_lf(x+h,t)\ge f(y,s)-\frac{|y-x-h|^2}{2l}
+   =\Penv_lf(x,t)+\frac{|y-x|^2-|y-x-h|^2}{2l},
+\]
+the equality by \eqref{eq:dpsr-attain}. Since
+$|y-x-h|^2=|y-x|^2-2\langle y-x,h\rangle+|h|^2$, the fraction equals
+$\langle(y-x)/l,h\rangle-|h|^2/(2l)$, so
+\begin{equation}\label{eq:dp-lower-support}
+  \Penv_lf(x+h,t)\ge\Penv_lf(x,t)
+    +\Bigl\langle\frac{y-x}{l},h\Bigr\rangle-\frac{|h|^2}{2l}.
+\end{equation}
+
+\emph{Step 5: the upper supporting inequality.}
+The three hypotheses of \noderef{QuadEnvPConcaveCorrection}, for this $f$ and these
+$t,l>0$, are available: its hypothesis (1) is \eqref{eq:dpsr-concave}; its hypothesis (2),
+attainment of the defining supremum at every center, is
+\eqref{eq:dpsr-attain-any}; and its hypothesis (3), domination of every competitor at
+every center, is \eqref{eq:dpsr-competitor}. That lemma therefore gives that
+\[
+  \Lambda(x'):=\Penv_lf(x',t)-\frac{|x'|^2}{2t}
+\]
+is concave on $F$. It is real-valued at every $x'\in F$ by
+\eqref{eq:dpsr-attain-any}, which exhibits $\Penv_lf(x',t)$ as a maximum of real
+numbers.
+
+Since $\Lambda$ is real-valued and concave on $F$, the function $\psi:=-\Lambda$
+is real-valued and convex on $F$; and $F$ is an open subset of $F$ containing
+$x$. So \noderef{ConvexSubgradientExists}, applied with the open set
+$\Omega=F$, the function $\psi=-\Lambda$ and the point $z=x\in F$, provides
+$q_0\in F$ with
+\[
+  -\Lambda(x)+\langle q_0,\chi-x\rangle\le-\Lambda(\chi)\qquad(\chi\in F).
+\]
+Multiplying by $-1$ and writing $q:=-q_0$ gives
+\[
+  \Lambda(\chi)\le\Lambda(x)+\langle q,\chi-x\rangle\qquad(\chi\in F).
+\]
+Taking $\chi=x+h$ and adding
+$|x+h|^2/(2t)=|x|^2/(2t)+\langle x,h\rangle/t+|h|^2/(2t)$ to both sides,
+\begin{equation}\label{eq:dpsr-upper}
+  \Penv_lf(x+h,t)\le\Penv_lf(x,t)+\langle q',h\rangle+\frac{|h|^2}{2t},
+  \qquad q':=q+\frac xt .
+\end{equation}
+
+\emph{Step 6: identification of $q'$ and differentiability.}
+Let $e\in F$ be a unit vector and $\rho>0$. Applying
+\eqref{eq:dp-lower-support} and \eqref{eq:dpsr-upper} with $h=\rho e$,
+\[
+  \rho\Bigl\langle\frac{y-x}{l},e\Bigr\rangle-\frac{\rho^2}{2l}
+   \le\Penv_lf(x+\rho e,t)-\Penv_lf(x,t)
+   \le\rho\langle q',e\rangle+\frac{\rho^2}{2t},
+\]
+so $\bigl\langle(y-x)/l-q',e\bigr\rangle\le\rho\bigl(\tfrac1{2t}+\tfrac1{2l}\bigr)$;
+letting $\rho\downarrow0$ gives
+$\bigl\langle(y-x)/l-q',e\bigr\rangle\le0$. As $e$ ranges over all unit
+vectors, this forces $q'=(y-x)/l$. Hence
+\eqref{eq:dp-lower-support} and \eqref{eq:dpsr-upper} read
+\[
+  -\frac{|h|^2}{2l}
+   \le\Penv_lf(x+h,t)-\Penv_lf(x,t)-\Bigl\langle\frac{y-x}{l},h\Bigr\rangle
+   \le\frac{|h|^2}{2t}\qquad(h\in F),
+\]
+which are the two supporting inequalities \eqref{eq:dp-supports}, and which show
+that $x'\mapsto\Penv_lf(x',t)$ is differentiable at $x$ with gradient
+$(y-x)/l$, since the middle term is $O(|h|^2)=o(|h|)$. This is
+\eqref{eq:dp-gradient}.
+\end{proof}

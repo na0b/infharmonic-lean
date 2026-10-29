@@ -1,0 +1,77 @@
+\begin{lemma}[The contact gap in the limit of small steps]
+Let $F$ be a finite-dimensional real inner-product space, let $1\le C_0<\infty$
+and $0\le\kappa<\infty$, and let $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass} be centered at $(0,1)$ with constant $C_0$ in the sense of
+\noderef{IsCenteredAt} and satisfy the horizontal Jensen bound with constant
+$\kappa$ at every time in the sense of \noderef{HasJensenBound}. Write
+$W=\Cenv_tv-\kappa^2t/2$ for the contact envelope of \noderef{ContactEnv} and
+$J_\epsilon$ for the propagation quantity of \noderef{JGap}. Then:
+\begin{enumerate}
+\item for every $\epsilon>0$ and every space-time point $z$,
+\begin{equation}\label{eq:dp-contact-gap}
+\begin{split}
+  2\epsilon J_\epsilon(z)
+  &=W(z)-v(z)+\bigl(\Penv_\epsilon W(z)-W(z)\bigr)\\
+  &\hspace{4em}+\bigl(v(z)-\Menv_\epsilon v(z)\bigr);
+\end{split}
+\end{equation}
+\item $2\epsilon J_\epsilon\to W-v$ uniformly on every compact subset of
+$F\times(0,\infty)$: for every such compact $K$ and every $\delta>0$ there is
+$\epsilon_0>0$ with
+\[
+  \bigl|2\epsilon J_\epsilon(z)-\bigl(W(z)-v(z)\bigr)\bigr|\le\delta
+  \qquad(0<\epsilon<\epsilon_0,\ z\in K).
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{(1).} By \noderef{JGap}, for $\epsilon>0$,
+\[
+  2\epsilon J_\epsilon(z)
+   =\Penv_\epsilon W(z)-\Menv_\epsilon v(z),
+\]
+and the right side of \eqref{eq:dp-contact-gap} is
+\[
+  \bigl(W(z)-v(z)\bigr)+\bigl(\Penv_\epsilon W(z)-W(z)\bigr)
+     +\bigl(v(z)-\Menv_\epsilon v(z)\bigr)
+  =\Penv_\epsilon W(z)-\Menv_\epsilon v(z),
+\]
+the terms $W(z)$, $v(z)$ cancelling in pairs. This proves the identity, for
+every $\epsilon>0$ and every $z$.
+
+\emph{(2).} Let $K\subseteq F\times(0,\infty)$ be compact and let $\delta>0$. By
+\eqref{eq:dp-contact-gap} it suffices to make both
+$|\Penv_\epsilon W(z)-W(z)|$ and $|v(z)-\Menv_\epsilon v(z)|$ at most
+$\delta/2$ uniformly on $K$ for all small $\epsilon>0$.
+
+For $v$ we apply part (3) of \noderef{QuadEnvAttained} with $I=\R$. Its
+hypotheses hold: $v$ is continuous on all of space-time and is a solution of
+the limiting equation by \noderef{IsFitClass}, and it has subquadratic spatial
+growth on compact time intervals by \noderef{UniformSubquadratic}, applied with
+the centering point $(0,1)$. Hence there is $\delta_1>0$ with
+$|\Menv_\epsilon v(z)-v(z)|\le\delta/2$ for all $0<\epsilon<\delta_1$ and all
+$z\in K$, the compact set $K$ having all its time coordinates in $\R$.
+
+For $W$ we apply part (3) of \noderef{QuadEnvAttained} with $I=(0,\infty)$, and
+its two hypotheses for $W$ are exactly the first two conclusions of
+\noderef{ContactEnvPositiveTimeRegularity}, which holds under the hypotheses on
+$C_0$, $\kappa$ and $v$ assumed here: that lemma states that $W$ is continuous on
+$\{(y,\sigma):\sigma>0\}$ and that $W$ has subquadratic spatial growth on compact
+time intervals of $(0,\infty)$ in the sense of \noderef{SubquadraticGrowth}.
+Neither is a verbatim transfer from $v$, which is why they are cited rather than
+rederived here. The growth statement is not: the sandwich of
+\noderef{BaryEnvSandwich} gives only $v(x,t)-\kappa^2t/2\le W(x,t)\le v(x,t)$, so
+$|W|$ is bounded by $|v|$ plus an additive constant on a compact time interval, and
+an additive constant is absorbed into $\varepsilon|y|^2$ only once $|y|$ is large,
+so the growth radius must be enlarged. The continuity statement is not either:
+$W(z)=\Cenv_{\sigma}v(z)-\kappa^2\sigma/2$ with $\sigma$ the time coordinate of $z$
+itself, so it is the continuity of $(s,z)\mapsto\Cenv_sv(z)$ from part (3) of
+\noderef{BaryEnvDuality} composed along $z\mapsto(\sigma,z)$, not a restriction of
+it to a fixed parameter. Since $K$ is a compact subset of $F\times(0,\infty)$, all
+its time coordinates lie in $(0,\infty)$, so there is $\delta_2>0$ with
+$|\Penv_\epsilon W(z)-W(z)|\le\delta/2$ for all $0<\epsilon<\delta_2$ and all
+$z\in K$.
+
+Taking $\epsilon_0=\min\{\delta_1,\delta_2\}>0$ and using
+\eqref{eq:dp-contact-gap} gives the claim.
+\end{proof}

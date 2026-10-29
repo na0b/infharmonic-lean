@@ -1,0 +1,486 @@
+\begin{lemma}[Barycentric envelope: attainment, duality, concavity, measures]
+Let $F$ be a finite-dimensional real inner-product space, equipped with its
+Borel $\sigma$-algebra, let $I\subseteq\R$ be
+open, let $\Omega=\{(x,t):t\in I\}$, and let $f$ be a real function on space-time
+which is continuous on $\Omega$ and has subquadratic spatial growth on compact
+time intervals of $I$ in the sense of \noderef{SubquadraticGrowth}. Let $s>0$
+and let $z=(x,t)$ with $t\in I$. Then, with $\Cenv$ the barycentric envelope of
+\noderef{BaryEnv}:
+\begin{enumerate}
+\item the supremum defining $\Cenv_sf(x,t)$ is attained by a finite horizontal
+probability configuration with mean $x$, in the sense of \noderef{IsBaryConfig}
+and \noderef{BaryRadius};
+\item the min-max duality
+\begin{equation}\label{eq:barycentric-duality}
+  \Cenv_s f(x,t)-\frac{|x|^2}{2s}
+   =\min_{A\in F}\ \sup_{y\in F}
+       \left\{f(y,t)-\frac{|y|^2}{2s}-A\cdot(y-x)\right\}
+\end{equation}
+holds, with the minimum attained at some $A_0\in F$: that is, the left side
+equals the supremum for $A=A_0$ and is at most the supremum for every $A\in F$;
+\item $(s,z)\mapsto\Cenv_sf(z)$ is continuous at every $(s,z)$ with $s>0$ and
+$t\in I$;
+\item for every $s>0$ and every $t\in I$ the function
+\begin{equation}\label{eq:barycentric-semiconcavity}
+  x\longmapsto\Cenv_s f(x,t)-\frac{|x|^2}{2s}
+\end{equation}
+is concave on $F$;
+\item allowing any Borel probability measure $\mu$ on $F$ with mean $x$ and
+finite second moment, and with $f(\cdot,t)$ integrable, does not increase the
+value:
+\[
+  \int f(y,t)\,d\mu(y)-\frac{\int|y-x|^2\,d\mu(y)}{2s}
+    \le\Cenv_s f(x,t).
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Throughout fix $s>0$ and $t\in I$, and abbreviate
+\[
+  g(y)=f(y,t)-\frac{|y|^2}{2s}\qquad(y\in F),
+  \qquad
+  \Gamma(A;x)=\sup_{y\in F}\bigl\{g(y)-A\cdot(y-x)\bigr\}\quad(A,x\in F).
+\]
+We write $\Omega=\{(y,\sigma):\sigma\in I\}$, an open set on which $f$ is
+continuous.
+
+\emph{Step 0: the left side of the duality is a supremum of $g$-averages.}
+Let $(\theta,y)$ be a finite horizontal probability configuration with mean $x$
+in the sense of \noderef{IsBaryConfig}. Expanding and using
+$\sum_i\theta_iy_i=x$ and $\sum_i\theta_i=1$,
+\[
+  \sum_i\theta_i|y_i-x|^2+|x|^2
+   =\sum_i\theta_i|y_i|^2-2x\cdot x+|x|^2+|x|^2
+   =\sum_i\theta_i|y_i|^2 .
+\]
+Hence, with $r(\theta,y)$ the radius of \noderef{BaryRadius},
+\[
+  \sum_i\theta_if(y_i,t)-\frac{r(\theta,y)^2}{2s}-\frac{|x|^2}{2s}
+   =\sum_i\theta_i\Bigl(f(y_i,t)-\frac{|y_i|^2}{2s}\Bigr)
+   =\sum_i\theta_ig(y_i).
+\]
+So the set of competitor values whose supremum defines $\Cenv_sf(x,t)$ in
+\noderef{BaryEnv} is, term by term, the translate by the constant $|x|^2/(2s)$
+of
+\[
+  \mathcal A(x)=\Bigl\{\sum_i\theta_ig(y_i):
+    (\theta,y)\text{ a configuration of mean }x\Bigr\},
+\]
+and $\mathcal A(x)$ is nonempty, the single-point configuration $y_1=x$ of
+\noderef{IsBaryConfig} contributing the element $g(x)$. We do not yet pass to
+suprema: \noderef{BaryEnv} says of its own supremum that it is meaningful only
+together with the hypothesis of boundedness above, which Step 1 supplies.
+
+\emph{Step 1: weak duality.}
+Both $\Lambda(x)$ and $\Gamma(A;x)$ are suprema, and by the convention of the
+preamble a supremum takes the value $0$ when its set is empty or unbounded
+above; so each of them has to be shown to be a genuine least upper bound before
+it is used as one. For $\Gamma$ this is \eqref{eq:bed-supfinite} in Step 2
+below, which does it for \emph{every} $A\in F$; the present step records what
+follows for $\Lambda$, and it is the only thing before Step 2 that the rest of
+the proof uses.
+
+For any $A\in F$ and any configuration of mean $x$, the inequality
+$g(y_i)-A\cdot(y_i-x)\le\Gamma(A;x)$ is the least-upper-bound property of
+$\Gamma(A;x)$, available by \eqref{eq:bed-supfinite}; multiplying
+$g(y_i)\le\Gamma(A;x)+A\cdot(y_i-x)$ by $\theta_i$ and summing, and using
+$\sum_i\theta_i(y_i-x)=0$,
+\begin{equation}\label{eq:bed-weak}
+  \sum_i\theta_ig(y_i)\le\Gamma(A;x)
+  \qquad\bigl((\theta,y)\text{ of mean }x,\ A\in F\bigr).
+\end{equation}
+This bounds the \emph{elements} of $\mathcal A(x)$; it is not yet a bound on a
+supremum. Taking $A=0$ in \eqref{eq:bed-weak} shows $\mathcal A(x)$ is bounded
+above by the real number $\Gamma(0;x)$, and Step 0 shows it is nonempty; so
+$\sup\mathcal A(x)$ is a genuine least upper bound and is
+finite, and the same holds for its translate by $|x|^2/(2s)$, whose supremum is
+therefore $\Cenv_sf(x,t)=\sup\mathcal A(x)+|x|^2/(2s)$. Writing
+\[
+  \Lambda(x):=\Cenv_sf(x,t)-\frac{|x|^2}{2s}=\sup\mathcal A(x),
+\]
+and taking the supremum over configurations in \eqref{eq:bed-weak},
+\begin{equation}\label{eq:bed-weak-sup}
+  \Lambda(x)\le\Gamma(A;x)\quad(A\in F),
+  \qquad\text{hence}\qquad
+  \Lambda(x)\le\inf_{A\in F}\Gamma(A;x).
+\end{equation}
+Every later step uses \eqref{eq:bed-weak-sup}, and \eqref{eq:bed-weak-sup}
+rests on \eqref{eq:bed-supfinite}; Step 2 proves the latter from
+\eqref{eq:bed-gfar} and \eqref{eq:bed-gnear} without using anything from this
+step, so the order is not circular.
+
+\emph{Step 2: uniform localization of slopes and positions.}
+Fix a nonempty compact set $S$ of triples $(x,t,s)$ with $s>0$ and $t\in I$ —
+the applications below take $S$ to be a singleton, in Steps 4 and 6, or the box
+of Step 5 — and let $R_0=\max\{|x|\}$, $s_{\max}=\max\{s\}$,
+$s_{\min}=\min\{s\}>0$ over $S$, these three maxima and minimum existing because
+$S$ is nonempty and compact and the three coordinate functions are continuous
+(preamble). Let $J$ be the image of $S$ under the continuous projection
+$(x,t,s)\mapsto t$, so $J$ is compact, and $J\subseteq I$ because every triple of
+$S$ has $t\in I$. We
+claim there are $\Lambda_0<\infty$ and $M<\infty$, depending only on $S$, such
+that for all $(x,t,s)\in S$:
+\begin{enumerate}
+\item[(a)] $\Gamma(0;x)$ is finite, and every $A$ with
+$\Gamma(A;x)\le\Gamma(0;x)+1$ satisfies $|A|\le\Lambda_0$;
+\item[(b)] for every $A$ with $|A|\le\Lambda_0+1$ the supremum defining
+$\Gamma(A;x)$ is attained, and every maximizer $y$ satisfies $|y|\le M$.
+\end{enumerate}
+
+Apply \noderef{SubquadraticGrowth} with the compact set $J\subseteq I$ and
+$\varepsilon=1/(4s_{\max})$: there is $M_0>0$ with
+$|f(y,\sigma)|\le|y|^2/(4s_{\max})$ for $|y|\ge M_0$, $\sigma\in J$. For such
+$y$ and $(x,t,s)\in S$, since $s\le s_{\max}$,
+\begin{equation}\label{eq:bed-gfar}
+  g(y)\le\frac{|y|^2}{4s}-\frac{|y|^2}{2s}=-\frac{|y|^2}{4s}
+    \le-\frac{|y|^2}{4s_{\max}} .
+\end{equation}
+The set $\{(y,\sigma):|y|\le M_0+R_0+1,\ \sigma\in J\}$ is a compact subset of
+$\Omega$, so $N_0:=\max|f|$ over it is finite, and therefore
+\begin{equation}\label{eq:bed-gnear}
+  |g(y)|\le N_0+\frac{(M_0+R_0+1)^2}{2s_{\min}}=:N_1
+  \qquad(|y|\le M_0+R_0+1,\ (x,t,s)\in S).
+\end{equation}
+Before using $\Gamma$ as a supremum at all, we record that it is one, for every
+slope and not only for the slopes localized in (a) and (b). Let $A\in F$ and
+$(x,t,s)\in S$, and consider the competitor set
+$\mathcal G(A;x)=\{g(y)-A\cdot(y-x):y\in F\}$, whose supremum is $\Gamma(A;x)$.
+It is nonempty, containing $g(x)$ at $y=x$. It is bounded above, by the two
+bounds just proved: for $|y|\le M_0+R_0+1$ we have $|y-x|\le|y|+|x|\le
+M_0+2R_0+1$, so by \eqref{eq:bed-gnear}
+\[
+  g(y)-A\cdot(y-x)\le N_1+|A|\,(M_0+2R_0+1),
+\]
+while for $|y|>M_0+R_0+1$, which gives $|y|\ge M_0$, \eqref{eq:bed-gfar} and
+$-A\cdot(y-x)\le|A|(|y|+R_0)$ give
+\[
+  g(y)-A\cdot(y-x)\le-\frac{|y|^2}{4s_{\max}}+|A|\,|y|+|A|R_0
+   \le s_{\max}|A|^2+|A|R_0 ,
+\]
+the last step by completing the square:
+$-r^2/(4s_{\max})+|A|r=-\bigl(r-2s_{\max}|A|\bigr)^2/(4s_{\max})
+ +s_{\max}|A|^2\le s_{\max}|A|^2$ for every real $r$. Hence
+\begin{equation}\label{eq:bed-supfinite}
+  \mathcal G(A;x)\ne\emptyset\quad\text{and}\quad
+  \sup\mathcal G(A;x)\le\max\bigl\{N_1+|A|(M_0+2R_0+1),\
+     s_{\max}|A|^2+|A|R_0\bigr\}<\infty
+  \qquad(A\in F,\ (x,t,s)\in S),
+\end{equation}
+so for every $A\in F$ the number $\Gamma(A;x)$ is a genuine finite least upper
+bound of $\mathcal G(A;x)$. In particular
+\[
+  g(y)-A\cdot(y-x)\le\Gamma(A;x)\qquad(y\in F,\ A\in F),
+\]
+which is both the bound used on the elements of $\mathcal G(A;x)$ and, read from
+right to left, the licence to bound $\Gamma(A;x)$ from below by inserting any
+competitor $y$.
+Note that the bound in \eqref{eq:bed-supfinite} is allowed to grow with $|A|$:
+only finiteness for each fixed $A$ is claimed here, and that is all that is
+needed below. The uniformity over $|A|\le\Lambda_0+1$ that (b) supplies is a
+separate and stronger statement, consumed by \eqref{eq:bed-maxform} and the
+continuity argument of Step 3, and nothing here replaces it.
+
+Four later steps use \eqref{eq:bed-supfinite} for arbitrary $A$: Step 1's
+\eqref{eq:bed-weak} and \eqref{eq:bed-weak-sup}; the competitor inequality of
+the next paragraph; Step 3's reduction of the infimum over all of $F$ to a
+minimum over a ball; and Step 6's identity $\Gamma(A;x)=c(A)+A\cdot x$.
+
+By \eqref{eq:bed-gfar}, \eqref{eq:bed-gnear} and \eqref{eq:bed-supfinite},
+$\Gamma(0;x)=\sup_yg(y)\le\max\{N_1,0\}$ and $\Gamma(0;x)\ge g(0)\ge-N_1$; so
+$\Gamma(0;x)$ is finite, with $|\Gamma(0;x)|\le N_1$. For $A\ne0$ the competitor
+$y=x-A/|A|$, which has $|y|\le R_0+1\le M_0+R_0+1$, gives, again by
+\eqref{eq:bed-supfinite},
+\[
+  \Gamma(A;x)\ge g\Bigl(x-\frac A{|A|}\Bigr)+|A|\ge|A|-N_1 ,
+\]
+so $\Gamma(A;x)\le\Gamma(0;x)+1\le N_1+1$ forces $|A|\le2N_1+1$. Thus (a) holds
+with $\Lambda_0=2N_1+1$.
+
+For (b), let $|A|\le\Lambda_0+1$. For $|y|\ge M_0$ we get from
+\eqref{eq:bed-gfar}
+\[
+  g(y)-A\cdot(y-x)\le-\frac{|y|^2}{4s_{\max}}+(\Lambda_0+1)\bigl(|y|+R_0\bigr),
+\]
+and the right-hand side tends to $-\infty$ as $|y|\to\infty$, uniformly over
+$S$ and over such $A$. Hence there is $M\ge M_0+R_0+1$, depending only on $S$,
+with
+\[
+  g(y)-A\cdot(y-x)<-N_1-1\le g(x)-A\cdot(x-x)
+  \qquad(|y|\ge M),
+\]
+the last inequality by \eqref{eq:bed-gnear}. Consequently the supremum over all
+$y$ equals the supremum over the compact ball $\{|y|\le M\}$. On that ball the
+function $y\mapsto g(y)-A\cdot(y-x)$ is continuous, because $(y,t)\in\Omega$
+and $f$ is continuous on $\Omega$; so the supremum is attained there, and by
+the displayed strict inequality no maximizer has $|y|\ge M$. This is (b).
+
+\emph{Step 3: $\Gamma$ is continuous and the infimum is attained.}
+By Step 2(a), $\inf_A\Gamma(A;x)=\min_{|A|\le\Lambda_0}\Gamma(A;x)$ for
+$(x,t,s)\in S$: any $A$ outside that ball has $\Gamma(A;x)>\Gamma(0;x)+1$, while
+the ball contains $A=0$. Both sides of that reduction are infima of real numbers
+over nonempty sets of slopes, since $\Gamma(A;x)$ is a real number for every
+$A\in F$ by \eqref{eq:bed-supfinite}. By Step 2(b),
+\begin{equation}\label{eq:bed-maxform}
+  \Gamma(A;x)=\max_{|y|\le M}\bigl\{f(y,t)-\tfrac{|y|^2}{2s}-A\cdot(y-x)\bigr\}
+  \qquad\bigl(|A|\le\Lambda_0+1,\ (x,t,s)\in S\bigr),
+\end{equation}
+the range being $|A|\le\Lambda_0+1$ because that is what Step 2(b) supplies and
+what Step 4 will need; the function inside the maximum is continuous in
+$(A,x,t,s,y)$ on the compact set
+$\{|A|\le\Lambda_0+1\}\times S\times\{|y|\le M\}$.
+
+The maximum of a continuous function over a fixed compact set is a continuous
+function of the remaining parameters. Indeed, let $H$ be continuous on
+$P\times Q$ with $P$ a metric space and $Q$ nonempty and compact, and let
+$\pi_k\to\pi$ in $P$. Testing against each fixed $q\in Q$ gives
+$\max_{q'}H(\pi_k,q')\ge H(\pi_k,q)\to H(\pi,q)$, so
+$\liminf_k\max_{q'}H(\pi_k,q')\ge\max_{q}H(\pi,q)$. Conversely, choose
+maximizers $q_k$, which exist because $Q$ is nonempty and compact and
+$H(\pi_k,\cdot)$ is continuous, and pass to a subsequence along which
+$q_k\to\bar q\in Q$, using the compactness of $Q$ again; then
+$(\pi_k,q_k)\to(\pi,\bar q)$, so by the continuity of $H$,
+$\max_{q'}H(\pi_k,q')=H(\pi_k,q_k)\to H(\pi,\bar q)\le\max_qH(\pi,q)$ along that
+subsequence. Every subsequence of the real sequence $\max_{q'}H(\pi_k,q')$ thus
+admits a further subsequence converging to a real number at most
+$\max_qH(\pi,q)$, and hence
+$\limsup_k\max_{q'}H(\pi_k,q')\le\max_qH(\pi,q)$. So
+$\pi\mapsto\max_qH(\pi,q)$ is continuous.
+
+Applied with $P=\{|A|\le\Lambda_0+1\}\times S$ and $Q=\{|y|\le M\}$, this and
+\eqref{eq:bed-maxform} show that $\Gamma$ is continuous on
+$\{|A|\le\Lambda_0+1\}\times S$. In particular, for fixed $(x,t,s)\in S$ the map
+$A\mapsto\Gamma(A;x)$ is continuous on the compact ball $\{|A|\le\Lambda_0\}$,
+so its minimum there is attained at some $A_0$, which by the first sentence of
+this step equals $\inf_{A\in F}\Gamma(A;x)$. Applying the recorded fact once
+more, now with $H=-\Gamma$, $P=S$ and $Q=\{|A|\le\Lambda_0\}$ — legitimate
+because a minimum is the negative of the maximum of the negated function, and
+the recorded fact is stated for maxima — gives
+\begin{equation}\label{eq:bed-cont}
+  (x,t,s)\longmapsto\inf_{A\in F}\Gamma(A;x)
+  \quad\text{is continuous on }S .
+\end{equation}
+
+\emph{Step 4: strong duality and finite attainment, i.e. (1) and (2).}
+Fix $(x,t,s)$ with $s>0$ and $t\in I$, and apply Steps 2--3 with
+$S=\{(x,t,s)\}$. Let $A_0$ be a minimizing slope and let
+\[
+  E=\Bigl\{y:|y|\le M,\ g(y)-A_0\cdot(y-x)=\Gamma(A_0;x)\Bigr\},
+\]
+which is nonempty by Step 2(b) and compact, being the level set of a continuous
+function on a compact ball.
+
+The argument that follows uses two facts about convexity in the
+finite-dimensional space $F$: strict separation of a point from a compact convex
+set, and the representation of a convex hull by finite combinations. Neither is
+a background item of the preamble, so both are proved here, from the preamble
+items \emph{Compactness, Weierstrass and uniform continuity} and
+\emph{Bolzano--Weierstrass} together with elementary linear algebra.
+
+\emph{Claim A: strict separation from a compact convex set.} Let
+$K\subseteq F$ be nonempty, compact and convex and let $w\in F\setminus K$.
+Then there are a unit vector $e\in F$ and $\delta>0$ with
+$e\cdot(y-w)\ge\delta$ for every $y\in K$.
+
+\emph{Proof of Claim A.} The function $y\mapsto|y-w|$ is continuous on the
+nonempty compact set $K$, so it attains its minimum there at some $p\in K$
+(preamble). Put $d=|p-w|$, so $d>0$ because $w\notin K$. Let $y\in K$ and
+$0<\tau\le1$. By convexity $(1-\tau)p+\tau y\in K$, so minimality of $p$ gives
+\[
+  d^2\le\bigl|p-w+\tau(y-p)\bigr|^2
+      =d^2+2\tau\,(p-w)\cdot(y-p)+\tau^2|y-p|^2 ,
+\]
+that is $0\le2(p-w)\cdot(y-p)+\tau|y-p|^2$ for every $\tau\in(0,1]$; letting
+$\tau\downarrow0$ gives $(p-w)\cdot(y-p)\ge0$. Hence
+\[
+  (p-w)\cdot(y-w)=(p-w)\cdot(y-p)+|p-w|^2\ge d^2 .
+\]
+Taking $e=(p-w)/d$, a unit vector, and $\delta=d>0$, and dividing by $d$, gives
+$e\cdot(y-w)\ge\delta$ for every $y\in K$. This proves Claim A.
+
+\emph{Claim B: finite convex combinations.} With $E$ the nonempty compact set
+just defined, put $m=\dim F$ and let $\operatorname{conv}E$ denote the set of all
+finite convex combinations $\sum_{i=1}^n\theta_iy_i$ with $n\ge1$, $y_i\in E$,
+$\theta_i>0$ and $\sum_i\theta_i=1$. Then $E\subseteq\operatorname{conv}E$, the
+set $\operatorname{conv}E$ is convex and compact, and each of its members is, by
+the definition just given, the mean of a finite horizontal probability
+configuration supported in $E$ in the sense of \noderef{IsBaryConfig}.
+
+\emph{Proof of Claim B.} Taking $n=1$ and $\theta_1=1$ gives
+$E\subseteq\operatorname{conv}E$. For convexity, let $u=\sum_i\theta_iy_i$ and
+$u'=\sum_j\theta'_jy'_j$ be two such combinations and $\tau\in[0,1]$; then
+$\tau u+(1-\tau)u'$ is the combination with weights $\tau\theta_i$ at $y_i$ and
+$(1-\tau)\theta'_j$ at $y'_j$, which are nonnegative and sum to $1$, and
+discarding the zero weights leaves at least one term, since the weights sum to
+$1$, and a combination of the required form.
+
+Next, every member of $\operatorname{conv}E$ is a combination of at most $m+1$
+points. Fix such a member $u$, choose among its representations one,
+$u=\sum_{i=1}^n\theta_iy_i$, with $n$ least, and suppose $n>m+1$. The $n-1$
+vectors $y_i-y_n$, $1\le i\le n-1$, lie in the $m$-dimensional space $F$ and
+$n-1>m$, so they are linearly dependent: there are reals
+$\lambda_1,\dots,\lambda_{n-1}$, not all zero, with
+$\sum_{i<n}\lambda_i(y_i-y_n)=0$. Put $\lambda_n=-\sum_{i<n}\lambda_i$, so that
+\[
+  \sum_{i=1}^n\lambda_iy_i=0,\qquad\sum_{i=1}^n\lambda_i=0,
+\]
+with not all $\lambda_i$ zero. Were every $\lambda_i\le0$ the second identity
+would force them all to vanish, so $\lambda_i>0$ for some $i$. Put
+$\tau=\min\{\theta_i/\lambda_i:\lambda_i>0\}$, which is positive because every
+$\theta_i>0$, and let $i_0$ attain it; put $\theta'_i=\theta_i-\tau\lambda_i$.
+Then $\theta'_i\ge0$ for every $i$ — for $\lambda_i>0$ by the choice of $\tau$,
+and for $\lambda_i\le0$ because $\theta_i>0$ and $-\tau\lambda_i\ge0$ — while
+$\sum_i\theta'_i=1$ and $\sum_i\theta'_iy_i=u$ by the two identities, and
+$\theta'_{i_0}=0$. Discarding the indices with $\theta'_i=0$ represents $u$ with
+fewer than $n$ terms, contradicting minimality. So $n\le m+1$.
+
+Consequently, fixing any $y_\ast\in E$ and padding a representation with
+$n\le m+1$ terms by the terms $\theta_i=0$, $y_i=y_\ast$ for $n<i\le m+1$,
+\begin{equation}\label{eq:bed-hull}
+  \operatorname{conv}E=\Bigl\{\sum_{i=1}^{m+1}\theta_iy_i:
+     \theta\in\Delta,\ y_1,\dots,y_{m+1}\in E\Bigr\},
+  \qquad
+  \Delta=\Bigl\{\theta\in\R^{m+1}:\theta_i\ge0,\ \sum_i\theta_i=1\Bigr\} ;
+\end{equation}
+the padding gives one inclusion, and for the other, discarding the zero weights
+of such a sum leaves a combination of the required form, with at least one term
+because the weights sum to $1$.
+
+Finally $\operatorname{conv}E$ is bounded, since $E$ is compact and hence
+bounded by some $M_E$ and $|\sum_i\theta_iy_i|\le\sum_i\theta_i|y_i|\le M_E$;
+and it is closed. For the latter, let $u_k\in\operatorname{conv}E$ with
+$u_k\to u$, and write $u_k=\sum_{i=1}^{m+1}\theta^k_iy^k_i$ as in
+\eqref{eq:bed-hull}. The sequence $(\theta^k)$ lies in the bounded set $\Delta$
+and each $(y^k_i)$ in the bounded set $E$, so by Bolzano--Weierstrass applied
+finitely many times in succession there is one subsequence along which
+$\theta^k\to\theta$ and $y^k_i\to y_i$ for every $i$; then $\theta\in\Delta$ and
+$y_i\in E$ because $\Delta$ and $E$ are closed, and
+$u=\lim_k\sum_i\theta^k_iy^k_i=\sum_i\theta_iy_i$, so
+$u\in\operatorname{conv}E$ by \eqref{eq:bed-hull}. Being closed and bounded in
+the finite-dimensional space $F$, the set $\operatorname{conv}E$ is compact
+(preamble). This proves Claim B.
+
+We claim $x\in\operatorname{conv}E$, with $\operatorname{conv}E$ as in Claim B.
+Suppose not. By Claim B that set is convex and compact, and it is nonempty
+because it contains the nonempty set $E$; so Claim A, applied with
+$K=\operatorname{conv}E$ and $w=x$, gives a unit vector $e\in F$ and $\delta>0$
+with
+\[
+  e\cdot(y-x)\ge\delta\qquad(y\in\operatorname{conv}E),
+\]
+in particular for $y\in E$. For $0<h\le1$ let $y_h$ be a maximizer for
+$\Gamma(A_0+he;x)$, which exists with $|y_h|\le M$ by Step 2(b), since
+$|A_0+he|\le\Lambda_0+1$. We claim $e\cdot(y_h-x)\ge\delta/2$ for all small
+$h>0$. If not, there are $h_k\downarrow0$ with $e\cdot(y_{h_k}-x)<\delta/2$;
+passing to a subsequence, $y_{h_k}\to\bar y$ with $|\bar y|\le M$, and then
+\[
+  \Gamma(A_0+h_ke;x)=g(y_{h_k})-(A_0+h_ke)\cdot(y_{h_k}-x)
+   \longrightarrow g(\bar y)-A_0\cdot(\bar y-x),
+\]
+using continuity of $g$ on $\{|y|\le M\}$, while
+$\Gamma(A_0+h_ke;x)\to\Gamma(A_0;x)$ by the continuity of $\Gamma$ in $A$ on
+$\{|A|\le\Lambda_0+1\}$ from Step 3, a range that contains every $A_0+he$ with
+$0<h\le1$ because $|A_0|\le\Lambda_0$ and $|e|=1$. Hence $g(\bar y)-A_0\cdot(\bar y-x)=\Gamma(A_0;x)$, i.e. $\bar y\in E$,
+so $e\cdot(\bar y-x)\ge\delta$, contradicting
+$e\cdot(y_{h_k}-x)<\delta/2$ in the limit.
+
+So for small $h>0$,
+\[
+  \Gamma(A_0+he;x)=g(y_h)-A_0\cdot(y_h-x)-h\,e\cdot(y_h-x)
+   \le\Gamma(A_0;x)-\frac{h\delta}{2}<\Gamma(A_0;x),
+\]
+contradicting the minimality of $A_0$. Therefore $x\in\operatorname{conv}E$.
+
+Since $x\in\operatorname{conv}E$, the definition of that set in Claim B gives
+$n\ge1$, points $y_1,\dots,y_n\in E$ and weights $\theta_i>0$ with
+$\sum_i\theta_i=1$ and $\sum_i\theta_iy_i=x$. No separate convex-hull theorem is
+invoked: membership in $\operatorname{conv}E$ is by definition the existence of
+such a combination, and Claim B was needed only for the compactness and
+convexity that Claim A consumed. So $(\theta,y)$ is a finite horizontal
+probability configuration with mean $x$ in the sense of \noderef{IsBaryConfig},
+and since each $y_i\in E$,
+\[
+  \sum_i\theta_ig(y_i)
+   =\sum_i\theta_i\bigl(\Gamma(A_0;x)+A_0\cdot(y_i-x)\bigr)
+   =\Gamma(A_0;x).
+\]
+Combining with Step 1 and \eqref{eq:bed-weak-sup},
+\[
+  \Gamma(A_0;x)=\sum_i\theta_ig(y_i)\le\Lambda(x)\le\inf_A\Gamma(A;x)
+   =\Gamma(A_0;x),
+\]
+so all are equal. This gives (2), with the minimizing slope $A_0$, and shows
+that the configuration $(\theta,y)$ attains the supremum in
+\noderef{BaryEnv}, which, by the set identity of Step 0 and the finiteness
+recorded in Step 1, is (1).
+
+\emph{Step 5: continuity, i.e. (3).}
+Let $s_0>0$ and $z_0=(x_0,t_0)$ with $t_0\in I$. Choose $\rho>0$ so small that
+$\rho<s_0$ and $[t_0-\rho,t_0+\rho]\subseteq I$, and let
+$S=\{(x,t,s):|x-x_0|\le\rho,\ |t-t_0|\le\rho,\ |s-s_0|\le\rho\}$, a compact set
+of admissible triples. By Steps 3 and 4, on $S$ we have
+$\Cenv_sf(x,t)=\inf_A\Gamma(A;x)+|x|^2/(2s)$, and the first term is continuous on
+$S$ by \eqref{eq:bed-cont} while the second is continuous there since $s>0$.
+Hence the restriction of $(s,z)\mapsto\Cenv_sf(z)$ to $S$ is continuous at
+$(s_0,z_0)$. And $S$ is a neighbourhood of that point, containing every
+$(x,t,s)$ whose three coordinate offsets from $(x_0,t_0,s_0)$ are at most
+$\rho$, so $(s_0,z_0)$ is an interior point of $S$ and continuity of the
+restriction there is continuity of $(s,z)\mapsto\Cenv_sf(z)$ at $(s_0,z_0)$,
+which is (3).
+
+\emph{Step 6: concavity, i.e. (4).}
+Fix $s>0$ and $t\in I$, and let $A\in F$. Apply Step 2 with the singleton
+$S=\{(0,t,s)\}$, which is compact and consists of one admissible triple: the
+case $x=0$ of \eqref{eq:bed-supfinite} says that
+$\{g(y)-A\cdot y:y\in F\}$ is nonempty and bounded above, so
+\[
+  c(A):=\sup_y\{g(y)-A\cdot y\}
+\]
+is a real number. For every $x\in F$ the set
+$\{g(y)-A\cdot(y-x):y\in F\}$ is the translate of that set by the constant
+$A\cdot x$, so it is nonempty and bounded above as well and its supremum is
+$c(A)+A\cdot x$; that is,
+\[
+  \Gamma(A;x)=c(A)+A\cdot x ,
+\]
+a real-valued affine function of $x$ for each fixed $A$. By Steps 2--4,
+$\Lambda(x)=\inf_A\Gamma(A;x)$ is finite for every $x$. An infimum of a family
+of real-valued affine functions of $x$ is concave wherever it is finite: for
+$x_0,x_1\in F$, $\tau\in[0,1]$ and any $A$,
+\[
+  c(A)+A\cdot\bigl((1-\tau)x_0+\tau x_1\bigr)
+   =(1-\tau)\bigl(c(A)+A\cdot x_0\bigr)+\tau\bigl(c(A)+A\cdot x_1\bigr)
+   \ge(1-\tau)\Lambda(x_0)+\tau\Lambda(x_1),
+\]
+and taking the infimum over $A$ gives
+$\Lambda((1-\tau)x_0+\tau x_1)\ge(1-\tau)\Lambda(x_0)+\tau\Lambda(x_1)$. Since
+$\Lambda(x)=\Cenv_sf(x,t)-|x|^2/(2s)$ by Step 1, this is (4).
+
+\emph{Step 7: measures, i.e. (5).}
+Fix $s>0$ and $z=(x,t)$ with $t\in I$, and let $A_0$ be as in Step 4, so that
+\begin{equation}\label{eq:bed-major}
+  g(y)\le\Gamma(A_0;x)+A_0\cdot(y-x)=\Lambda(x)+A_0\cdot(y-x)
+  \qquad(y\in F).
+\end{equation}
+Let $\mu$ be a Borel probability measure on $F$ with $y\mapsto|y-x|^2$ and
+$y\mapsto f(y,t)$ both $\mu$-integrable, with $y\mapsto y-x$ $\mu$-integrable,
+and with $\int(y-x)\,d\mu=0$. Then $y\mapsto|y|^2=|y-x|^2+2(y-x)\cdot x+|x|^2$
+is $\mu$-integrable, so $g$ is $\mu$-integrable and $\int A_0\cdot(y-x)\,d\mu
+=A_0\cdot\int(y-x)\,d\mu=0$ by linearity of the Bochner integral. Integrating
+\eqref{eq:bed-major},
+\[
+  \int g\,d\mu\le\Lambda(x).
+\]
+On the other hand, integrating the identity
+$|y|^2=|y-x|^2+2(y-x)\cdot x+|x|^2$ and using $\int(y-x)\,d\mu=0$ gives
+$\int|y|^2d\mu=\int|y-x|^2d\mu+|x|^2$, whence
+\[
+  \int g\,d\mu=\int f(y,t)\,d\mu-\frac{\int|y|^2\,d\mu}{2s}
+   =\int f(y,t)\,d\mu-\frac{\int|y-x|^2\,d\mu}{2s}-\frac{|x|^2}{2s}.
+\]
+Comparing the last two displays and using
+$\Lambda(x)=\Cenv_sf(x,t)-|x|^2/(2s)$ gives
+\[
+  \int f(y,t)\,d\mu-\frac{\int|y-x|^2\,d\mu}{2s}\le\Cenv_sf(x,t),
+\]
+which is (5).
+\end{proof}

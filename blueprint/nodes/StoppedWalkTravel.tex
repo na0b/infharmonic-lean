@@ -1,0 +1,427 @@
+\begin{lemma}[The travel inequality and the lower hitting probability]
+Let $F$ be a finite-dimensional real inner-product space, let
+$1\le C_0<\infty$, let $\kappa>0$ and $H\in\R$, and let $v\in\Aclass_{m,C_0}$
+in the sense of \noderef{IsFitClass} be centered at $z_*=(0,1)$ with constant
+$C_0$ in the sense of \noderef{IsCenteredAt} and satisfy the horizontal Jensen
+bound with constant $\kappa$ at every time in the sense of
+\noderef{HasJensenBound}. Let $W$ be the contact envelope of
+\noderef{ContactEnv} formed from $v$ and $\kappa$, and assume the six standing
+properties of the extremal contact pair: $W$ is continuous on $\{t>0\}$ with
+subquadratic spatial growth on compact subintervals of $(0,\infty)$ in the sense
+of \noderef{SubquadraticGrowth}; $W$ is a viscosity subsolution of the limiting
+equation there in the sense of \noderef{IsLimitSubOn};
+$v-\kappa^2t/2\le W\le v$ for $t>0$ and $W(z_*)=v(z_*)=0$;
+$x\mapsto W(x,t)-|x|^2/(2t)$ is concave for every $t>0$; the barycentric gap of
+\noderef{BaryEnv} is $\kappa^2t/2$ at every contact; and the envelope
+Hamiltonian of \noderef{EnvHamiltonian} satisfies $H_v(z_*)=H$ with
+$\Senv_\ell^+W(z_*)\to H$ as $\ell\downarrow0$, the forward envelope slope being
+that of \noderef{EnvSlopeP}. Let $C_*>0$. Write $\delta_j=2^{-j}$ and
+$L(K)=1+\log K$.
+
+Then there are an integer $T\ge8$ and a real $R\ge2$ with the following
+property. Let $N\ge1$, let $\epsilon>0$ and let
+$(\Omega,\mathcal M,\mu)$, $(\mathcal G_n)$, $\xi$, $z$, $z^+$, $z^-$, $Q_0$,
+$\tau$ be a stopped contact walk for $(\kappa,H,T,R,v,N,\epsilon)$ in the sense
+of \noderef{IsContactWalk}. Write $z_n=(x_n,t_n)$,
+\[
+  Q_+(n)=\frac{x^+_n-x_n}{\epsilon},\qquad
+  Q_-(n)=\frac{x_n-x^-_n}{\epsilon},\qquad
+  \mathcal E_n=|Q_+(n)-Q_0(n)|^2+|Q_-(n)-Q_0(n)|^2,
+\]
+and $B=R+T+2$, and assume the error budget
+\begin{equation}\label{eq:contact-error-budget-hyp}
+  \mathbb E\sum_{n<\tau}\mathcal E_n\le C_*L(B)^4 .
+\end{equation}
+Then:
+\begin{enumerate}
+\item[(i)] (travel inequality) for all stopping times $\rho\le\sigma$ for
+$(\mathcal G_n)$ with $\sigma\le\tau$ pointwise, every $r>0$ and every
+$p:\Omega\to F$ which is bounded, say $|p|\le C_p$, and satisfies that
+$\mathbf1_{\{\rho\le n\}}p$ is $\mathcal G_n$-measurable for every $n$, the four
+functions
+\[
+  \sup_{\rho\le n\le\sigma}\frac{|x_n-x_\rho-(t_n-t_\rho)p|}{r},\qquad
+  \sum_{\rho\le n<\sigma}\Bigl(\frac{\epsilon}{r}\Bigr)^2|Q_0(n)-p|^2,\qquad
+  \Bigl(\frac{\epsilon}{r}\Bigr)^2(\sigma-\rho),\qquad
+  \sum_{\rho\le n<\sigma}\mathcal E_n
+\]
+are all $\mu$-integrable, and
+\begin{equation}\label{eq:contact-travel-inequality}
+\begin{split}
+  \mathbb E\sup_{\rho\le n\le\sigma}
+     \frac{|x_n-x_\rho-(t_n-t_\rho)p|}{r}
+  &\le 2\left(\mathbb E\sum_{\rho\le n<\sigma}
+        \Bigl(\frac{\epsilon}{r}\Bigr)^2|Q_0(n)-p|^2\right)^{1/2}\\
+  &\quad+\left(\mathbb E\Bigl(\frac{\epsilon}{r}\Bigr)^2(\sigma-\rho)\right)^{1/2}
+     \left(\mathbb E\sum_{\rho\le n<\sigma}\mathcal E_n\right)^{1/2};
+\end{split}
+\end{equation}
+\item[(ii)] (lower hitting probability) the event $\{t_\tau=\delta_N\}$ belongs
+to $\mathcal M$ and the walk reaches the lower time level with probability at
+least $3/4$:
+\begin{equation}\label{eq:contact-lower-hit-probability}
+  \{t_\tau=\delta_N\}\in\mathcal M,\qquad
+  \mathbb P\bigl(t_\tau=\delta_N\bigr)\ge\frac34 .
+\end{equation}
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Throughout, $W$ is the contact envelope of \noderef{ContactEnv} and
+$\Penv_\epsilon W$ the forward envelope of \noderef{QuadEnvP}. By
+\noderef{IsFitClass} the function $v$ is continuous on all of space-time, and by
+\noderef{UniformSubquadratic} with the centering point $(0,1)$ it has
+subquadratic spatial growth on compact time intervals of $\R$ in the sense of
+\noderef{SubquadraticGrowth}.
+
+\emph{Step 0: the constants, and the choice of $T$ and $R$.}
+Let $C_2>0$ be the constant of \noderef{DPLogVelocity} for this $C_0$ and
+$\kappa$. Put
+\[
+  C_T=4C_2^2\Bigl(T+\frac{T}{2}\bigl(2+T(\log T)^2\bigr)\Bigr),\qquad
+  C'_T=2\sqrt{C_T}+\sqrt{T\,C_*},
+\]
+for an integer $T\ge2$; both depend only on $T$, $C_*$ and the fixed data
+$C_0,\kappa,\dim F$, and in particular not on $R$ or $N$. Take $T=8$. Since
+$L(R+10)^2/R\to0$ as $R\to\infty$, we may fix $R\ge2$ with
+\begin{equation}\label{eq:swt-choiceR}
+  \frac{C'_8\,L(R+10)^2}{R}\le\frac18 .
+\end{equation}
+Fix these $T=8$ and $R$ for the rest of the proof, and let $N\ge1$,
+$\epsilon$ and the walk be as in the statement, so $B=R+T+2=R+10\ge6$ and
+$L(B)\ge1$. By \noderef{IsContactWalk}, clause 2, $\epsilon=2^{-k}$ with
+$0<\epsilon\le\delta_N/4\le1/8$, and since $N\ge1$ forces $k\ge N+2\ge3$ the
+number $\epsilon$ divides $1$ and divides the integer $T$. Put
+\[
+  S_n=\frac{t_n}{\epsilon},\qquad q=\frac{T}{\epsilon}\in\mathbb N .
+\]
+
+\emph{Step 1: the time walk.}
+By \noderef{IsStepPair} the two steps at a live state $z_n=(x_n,t_n)$ have time
+coordinates $t_n+\epsilon$ and $t_n-\epsilon$, so by \noderef{IsContactWalk},
+clause 7, and $\xi_n\in\{1,-1\}$,
+\begin{equation}\label{eq:swt-timestep}
+  t_{n+1}=t_n+\epsilon\xi_n\ \ \text{on}\ \{n<\tau\},\qquad
+  t_{n+1}=t_n\ \ \text{on}\ \{n\ge\tau\}.
+\end{equation}
+Since $t_0=1$ and $\epsilon$ divides $1$, induction gives $S_n\in\mathbb Z$ for
+every $n$, and $S_{n+1}=S_n+\xi_n$ on $\{n<\tau\}$. By clauses 10 and 11,
+$\delta_N/\epsilon<S_n<q$ for $n<\tau$ and $S_\tau\in[\delta_N/\epsilon,q]$;
+hence
+\begin{equation}\label{eq:swt-range}
+  0<S_{n\wedge\tau}\le q\qquad(n\ge0).
+\end{equation}
+
+\emph{Claim T.} Let $h:\mathbb Z\to\R$ vanish outside $\{0,\ldots,q\}$, be
+nonnegative there, and let $u:\mathbb Z\to[0,\infty)$ satisfy
+\begin{equation}\label{eq:swt-poisson}
+  \tfrac12\bigl(h(j+1)+h(j-1)\bigr)-h(j)=-u(j)\qquad(0<j<q).
+\end{equation}
+Then
+\[
+  \mathbb E\sum_{n<\tau}u(S_n)\le h(S_0)=h(1/\epsilon).
+\]
+Moreover, if $\ell:\mathbb Z\to\R$ is bounded and satisfies
+$\tfrac12(\ell(j+1)+\ell(j-1))=\ell(j)$ for $0<j<q$, then
+$\mathbb E\,\ell(S_\tau)=\ell(1/\epsilon)$.
+
+\emph{Proof of Claim T.} Put
+$M_n=h(S_{n\wedge\tau})+\sum_{m<n\wedge\tau}u(S_m)$. Each $M_n$ is
+$\mathcal G_n$-measurable, because $\tau$ is a stopping time and each $z_m$ is
+$\mathcal G_m$-measurable by \noderef{IsContactWalk}, clauses 4 and 9; and each
+$M_n$ is bounded, by $\sup h$ and $n\sup u$ on the finite range
+$\{0,\ldots,q\}$, hence integrable. On $\{n\ge\tau\}$ we have
+$M_{n+1}=M_n$. On $\{n<\tau\}$ we have $S_{n+1}=S_n\pm1$ according to
+$\xi_n=\pm1$, and $0<S_n<q$, so writing
+\[
+  h(S_{n+1})=\frac{1+\xi_n}{2}h(S_n+1)+\frac{1-\xi_n}{2}h(S_n-1)
+   =\frac{h(S_n+1)+h(S_n-1)}{2}
+     +\frac{\xi_n}{2}\bigl(h(S_n+1)-h(S_n-1)\bigr),
+\]
+where the coefficient of $\xi_n$ is bounded and $\mathcal G_n$-measurable, the
+pull-out property of the conditional expectation and
+$\mathbb E[\xi_n\mid\mathcal G_n]=0$ (\noderef{IsContactWalk}, clause 3) give
+\[
+  \mathbb E[h(S_{n+1})\mid\mathcal G_n]
+   =\frac{h(S_n+1)+h(S_n-1)}{2}=h(S_n)-u(S_n)
+\]
+almost everywhere on $\{n<\tau\}$, by \eqref{eq:swt-poisson}. Adding
+$u(S_n)$ shows $\mathbb E[M_{n+1}\mid\mathcal G_n]=M_n$ there. Hence $(M_n)$ is
+a martingale, so $\mathbb E M_n=M_0=h(S_0)$ for every $n$, and since $h\ge0$ on
+the range \eqref{eq:swt-range},
+$\mathbb E\sum_{m<n\wedge\tau}u(S_m)\le h(S_0)$. The sums are nonnegative and
+nondecreasing in $n$ with pointwise limit $\sum_{m<\tau}u(S_m)$, because $\tau$
+is finite, so monotone convergence gives the first assertion. For the second,
+the same computation with $u=0$ shows that $\ell(S_{n\wedge\tau})$ is a
+martingale, so $\mathbb E\,\ell(S_{n\wedge\tau})=\ell(S_0)$ for every $n$; as
+$\tau$ is finite we have $\ell(S_{n\wedge\tau})\to\ell(S_\tau)$ pointwise, and
+$\ell$ is bounded while $\mu$ is a probability measure, so dominated convergence
+gives $\mathbb E\,\ell(S_\tau)=\ell(S_0)$. This proves Claim T.
+
+\emph{Step 2: three consequences of Claim T.}
+
+\emph{(a) The time budget.} Take $h_0(j)=j(q-j)$ on $\{0,\ldots,q\}$ and $0$
+outside, and $u\equiv1$ on $\{1,\dots,q-1\}$, $u=0$ elsewhere. Then $h_0\ge0$ on
+$\{0,\dots,q\}$, and for $0<j<q$
+\[
+  \tfrac12\bigl(h_0(j+1)+h_0(j-1)\bigr)-h_0(j)
+   =\tfrac12\bigl(2j(q-j)-2\bigr)-j(q-j)=-1,
+\]
+since $(j+1)(q-j-1)+(j-1)(q-j+1)=2j(q-j)-2$. Every $n<\tau$ has
+$0<S_n<q$ by Step 1, so $u(S_n)=1$ there and Claim T gives
+$\mathbb E\tau\le h_0(1/\epsilon)=(1/\epsilon)(q-1/\epsilon)\le T/\epsilon^2$,
+that is
+\begin{equation}\label{eq:swt-timebudget}
+  \mathbb E\bigl(\epsilon^2\tau\bigr)\le T .
+\end{equation}
+In particular $\tau$ is integrable, as also recorded in
+\noderef{IsContactWalk}, clause 9.
+
+\emph{(b) Visit counts.} Fix $0<k<q$ and put
+$G_k(j)=\dfrac{2\min(j,k)\,(q-\max(j,k))}{q}$ on $\{0,\ldots,q\}$ and $0$
+outside. Then $G_k\ge0$, $G_k(0)=G_k(q)=0$, $G_k$ is affine in $j$ on
+$\{0,\ldots,k\}$ and on $\{k,\ldots,q\}$, so
+$\tfrac12(G_k(j+1)+G_k(j-1))-G_k(j)=0$ for $0<j<q$ with $j\ne k$, while at
+$j=k$
+\[
+  \tfrac12\bigl(G_k(k-1)+G_k(k+1)\bigr)-G_k(k)
+  =\frac{(k-1)(q-k)+k(q-k-1)}{q}-\frac{2k(q-k)}{q}=-1 .
+\]
+So \eqref{eq:swt-poisson} holds with $u=\mathbf1_{\{k\}}$, and Claim T gives
+\begin{equation}\label{eq:swt-visits}
+  \mathbb E\,\#\{n<\tau:S_n=k\}\le G_k(1/\epsilon)\le\frac q2 ,
+\end{equation}
+the last step because
+$\min(j,k)(q-\max(j,k))\le k(q-k)\le q^2/4$ for every $j$.
+
+\emph{(c) The upper time level.} Take $\ell(j)=j/q$ for $0\le j\le q$,
+$\ell(j)=0$ for $j<0$ and $\ell(j)=1$ for $j>q$; it is bounded and affine on
+$\{0,\dots,q\}$, hence satisfies the mean-value identity for $0<j<q$. Claim T
+gives $\mathbb E\,\ell(S_\tau)=\ell(1/\epsilon)=1/T$. By \eqref{eq:swt-range}
+we have $0\le\ell(S_\tau)\le1$ with $\ell(S_\tau)=1$ exactly when $S_\tau=q$,
+i.e.\ when $t_\tau=T$; hence
+\begin{equation}\label{eq:swt-upper}
+  \mathbb P(t_\tau=T)\le\mathbb E\,\ell(S_\tau)=\frac1T .
+\end{equation}
+
+\emph{Step 3: the velocity budget.}
+Every $z_n$ with $n\le\tau$ satisfies $|x_n|\le R+1\le B$ and
+$\delta_N\le t_n\le T\le B$ by \noderef{IsContactWalk}, clauses 10--12, and the
+walk is frozen afterwards, so this holds for every $n$. Since $B\ge2$,
+$0<\epsilon\le1$ and $\epsilon<\delta_N\le t_n$, \noderef{DPLogVelocity}
+applies at each state with $K=B$ and gives, $Q_0(n)$ being the gradient of
+$\Penv_\epsilon W(\cdot,t_n)$ at $x_n$ by \noderef{IsContactWalk}, clause 8,
+\begin{equation}\label{eq:swt-Q0}
+  |Q_0(n)|\le C_2\bigl(L(B)+|\log t_n|\bigr)\qquad(n\ge0).
+\end{equation}
+In particular $|Q_0(n)|\le C_2(L(B)+N\log2+\log T)$ is bounded, uniformly in
+$n$, since $\delta_N\le t_n\le T$.
+
+By $|a+b|^2\le2|a|^2+2|b|^2$ and \eqref{eq:swt-Q0},
+$\epsilon^2|Q_0(n)|^2\le2C_2^2\epsilon^2L(B)^2+2C_2^2\epsilon^2|\log t_n|^2$.
+Summing over $n<\tau$ and taking expectations, the first part contributes
+$2C_2^2L(B)^2\mathbb E(\epsilon^2\tau)\le2C_2^2L(B)^2T$ by
+\eqref{eq:swt-timebudget}. For the second, $t_n=S_n\epsilon$ with $0<S_n<q$ for
+$n<\tau$, so, grouping the summands by the level $k=S_n$ and using
+\eqref{eq:swt-visits},
+\[
+  \mathbb E\sum_{n<\tau}\epsilon^2|\log t_n|^2
+   =\epsilon^2\sum_{k=1}^{q-1}|\log(k\epsilon)|^2\,
+      \mathbb E\,\#\{n<\tau:S_n=k\}
+   \le\frac{\epsilon^2q}{2}\sum_{k=1}^{q-1}|\log(k\epsilon)|^2
+   =\frac{T\epsilon}{2}\sum_{k=1}^{q-1}|\log(k\epsilon)|^2 .
+\]
+Split the last sum at $k\epsilon\le1$ and $k\epsilon>1$. On $(0,1]$ the function
+$s\mapsto|\log s|^2$ is nonnegative and decreasing, so its right-endpoint grid
+sum obeys
+$\epsilon\sum_{k:k\epsilon\le1}|\log(k\epsilon)|^2\le\int_0^1|\log s|^2\,ds=2$,
+the value of the integral following from the substitution $s=e^{-\upsilon}$,
+which turns it into $\int_0^\infty\upsilon^2e^{-\upsilon}\,d\upsilon=2$. For
+$1<k\epsilon\le T$ we have $|\log(k\epsilon)|^2\le(\log T)^2$ and there are at
+most $q=T/\epsilon$ such $k$, so
+$\epsilon\sum_{k:k\epsilon>1}|\log(k\epsilon)|^2\le T(\log T)^2$. Hence
+\[
+  \mathbb E\sum_{n<\tau}\epsilon^2|\log t_n|^2
+   \le\frac T2\bigl(2+T(\log T)^2\bigr),
+\]
+and altogether, using $L(B)\ge1$,
+\begin{equation}\label{eq:contact-velocity-budget}
+  \mathbb E\sum_{n<\tau}\epsilon^2|Q_0(n)|^2
+   \le2C_2^2\Bigl(TL(B)^2+\frac T2\bigl(2+T(\log T)^2\bigr)\Bigr)
+   \le\frac{C_T}{2}L(B)^2 ,
+\end{equation}
+with $C_T$ as in Step 0.
+
+\emph{Step 4: the travel inequality, i.e.\ (i).}
+Let $\rho\le\sigma\le\tau$, $r>0$ and $p$ be as in (i), and put
+$\epsilon'=\epsilon/r$. For $n\ge0$ set
+\[
+  y_n=\frac{x_n-x_\rho-(t_n-t_\rho)p}{r},
+\]
+so $y_\rho=0$ and the left side of \eqref{eq:contact-travel-inequality} is
+$\mathbb E\sup_{\rho\le n\le\sigma}|y_n|$. For $n<\tau$ we have, by
+\noderef{IsContactWalk}, clause 7, and the definitions of $Q_\pm$,
+\[
+  x_{n+1}-x_n=\epsilon\xi_nQ_{\xi_n}(n),\qquad
+  Q_{1}=Q_+,\quad Q_{-1}=Q_-,
+\]
+because $x_{n+1}=x^+_n$ when $\xi_n=1$ and $x_{n+1}=x^-_n$ when $\xi_n=-1$,
+while $x^+_n-x_n=\epsilon Q_+(n)$ and $x_n-x^-_n=\epsilon Q_-(n)$. With
+\eqref{eq:swt-timestep} this gives, for $\rho\le n<\sigma$,
+\[
+  y_{n+1}-y_n=\epsilon'\xi_n\bigl(Q_{\xi_n}(n)-p\bigr)=d_n+e_n,
+\]
+where
+\[
+  d_n=\mathbf1_{\{\rho\le n<\sigma\}}\epsilon'\xi_n\bigl(Q_0(n)-p\bigr),\qquad
+  e_n=\mathbf1_{\{\rho\le n<\sigma\}}\epsilon'\xi_n
+        \bigl(Q_{\xi_n}(n)-Q_0(n)\bigr),
+\]
+and we extend $d_n$, $e_n$ by these formulas for all $n$, so that both vanish
+outside $\{\rho\le n<\sigma\}$. Put $M_n=\sum_{k<n}d_k$, so $M_0=0$ and, for
+$\rho\le n\le\sigma$,
+\begin{equation}\label{eq:swt-split}
+  y_n=\sum_{k<n}(d_k+e_k),\qquad
+  |y_n|\le|M_n|+\sum_{\rho\le k<\sigma}|e_k| .
+\end{equation}
+
+\emph{$(M_n)$ is a square-integrable martingale.} The indicator
+$\mathbf1_{\{\rho\le k<\sigma\}}$ is $\mathcal G_k$-measurable, because $\rho$
+and $\sigma$ are stopping times, so $\{\rho\le k\}$ and $\{\sigma\le k\}$ lie in
+$\mathcal G_k$. The factor $\mathbf1_{\{\rho\le k<\sigma\}}(Q_0(k)-p)$ is
+therefore $\mathcal G_k$-measurable, by that observation, the
+$\mathcal G_k$-measurability of $Q_0(k)$ (\noderef{IsContactWalk}, clause 4) and
+the hypothesis that $\mathbf1_{\{\rho\le k\}}p$ is $\mathcal G_k$-measurable;
+and it is bounded, by Step 3 and $|p|\le C_p$. Hence $M_n$ is
+$\mathcal G_n$-measurable and bounded for each $n$, so $|M_n|^2$ is integrable,
+and the pull-out property of the conditional expectation together with
+$\mathbb E[\xi_k\mid\mathcal G_k]=0$ gives
+$\mathbb E[d_k\mid\mathcal G_k]=0$ almost everywhere, hence
+$\mathbb E[M_{k+1}\mid\mathcal G_k]=M_k$. So $(M_n)$ is a martingale.
+
+Apply \noderef{DoobL2Maximal} to $(M_n)$ at the index $h$: it gives
+\[
+  \mathbb E\sup_{0\le n\le h}|M_n|\le2\bigl(\mathbb E|M_h|^2\bigr)^{1/2},
+  \qquad
+  \mathbb E|M_h|^2=\mathbb E|M_0|^2+\sum_{k<h}\mathbb E|d_k|^2
+   =\sum_{k<h}\mathbb E|d_k|^2 .
+\]
+Since $|\xi_k|=1$ we have
+$|d_k|^2=\mathbf1_{\{\rho\le k<\sigma\}}(\epsilon')^2|Q_0(k)-p|^2$, so, the sum
+being finite and the terms nonnegative,
+\[
+  \sum_{k<h}\mathbb E|d_k|^2
+   =\mathbb E\sum_{\substack{k<h\\ \rho\le k<\sigma}}
+       (\epsilon')^2|Q_0(k)-p|^2
+   \le\mathbb E\sum_{\rho\le k<\sigma}(\epsilon')^2|Q_0(k)-p|^2 .
+\]
+The quantities $\sup_{0\le n\le h}|M_n|$ are nonnegative and nondecreasing in
+$h$, with pointwise limit $\sup_{n\ge0}|M_n|$, which is finite because $d_k=0$
+for $k\ge\sigma$ and $\sigma$ is finite. Monotone convergence therefore gives
+\begin{equation}\label{eq:swt-doob}
+  \mathbb E\sup_{n\ge0}|M_n|
+   \le2\left(\mathbb E\sum_{\rho\le k<\sigma}
+        (\epsilon')^2|Q_0(k)-p|^2\right)^{1/2}.
+\end{equation}
+
+\emph{The error part.} Pathwise, by the Cauchy--Schwarz inequality on the index
+set $\{\rho\le k<\sigma\}$, which has $\sigma-\rho$ elements, and
+$|Q_{\xi_k}(k)-Q_0(k)|^2\le\mathcal E_k$,
+\begin{equation}\label{eq:swt-errorpath}
+  \sum_{\rho\le k<\sigma}|e_k|
+   =\epsilon'\sum_{\rho\le k<\sigma}|Q_{\xi_k}(k)-Q_0(k)|
+   \le\bigl((\epsilon')^2(\sigma-\rho)\bigr)^{1/2}
+      \left(\sum_{\rho\le k<\sigma}\mathcal E_k\right)^{1/2}.
+\end{equation}
+Taking expectations and applying the Cauchy--Schwarz inequality in expectation
+to the two factors on the right,
+\begin{equation}\label{eq:swt-error}
+  \mathbb E\sum_{\rho\le k<\sigma}|e_k|
+   \le\Bigl(\mathbb E(\epsilon')^2(\sigma-\rho)\Bigr)^{1/2}
+      \left(\mathbb E\sum_{\rho\le k<\sigma}\mathcal E_k\right)^{1/2}.
+\end{equation}
+\emph{The four integrability assertions.} All four functions are nonnegative
+and measurable: each is built from the $\mathcal G_n$-measurable $z_n$,
+$z^\pm_n$, $Q_0(n)$ and $p$ and from the stopping times $\rho,\sigma$ through
+finitely many operations on each $\omega$, the index sets
+$\{\rho\le n<\sigma\}$ and $\{\rho\le n\le\sigma\}$ being determined by events
+of the filtration. For finiteness of their integrals:
+\begin{itemize}
+\item $(\epsilon/r)^2(\sigma-\rho)\le(\epsilon/r)^2\tau$ pointwise, and $\tau$
+is integrable by \eqref{eq:swt-timebudget} (equivalently by
+\noderef{IsContactWalk}, clause 9), so this function is integrable.
+\item $\sum_{\rho\le n<\sigma}\mathcal E_n\le\sum_{n<\tau}\mathcal E_n$
+pointwise, because the index set is a subset of $\{n<\tau\}$ and the summands
+are nonnegative, and the latter is integrable with integral at most
+$C_*L(B)^4$ by \eqref{eq:contact-error-budget-hyp}.
+\item $\sum_{\rho\le n<\sigma}(\epsilon/r)^2|Q_0(n)-p|^2
+  \le(\epsilon/r)^2\bigl(\Lambda_Q+C_p\bigr)^2(\sigma-\rho)$ pointwise, where
+$\Lambda_Q=C_2(L(B)+N\log2+\log T)$ is the uniform bound on $|Q_0(n)|$ from
+Step 3 and $|p|\le C_p$; the right side is an integrable function by the first
+item.
+\item For the supremum, \eqref{eq:swt-split} gives
+$\sup_{\rho\le n\le\sigma}|y_n|\le\sup_{n\ge0}|M_n|
+  +\sum_{\rho\le k<\sigma}|e_k|$ pointwise. The first term is integrable
+because \eqref{eq:swt-doob} bounds its integral by a finite number --- the
+right side there is finite by the previous item --- and it is nonnegative and
+measurable; the second is integrable by \eqref{eq:swt-errorpath} and the two
+previous items together with the pointwise Cauchy--Schwarz bound. A nonnegative
+measurable function dominated by a sum of integrable functions is integrable.
+\end{itemize}
+
+Taking the supremum in \eqref{eq:swt-split} over $\rho\le n\le\sigma$, then
+expectations, and inserting \eqref{eq:swt-doob} and \eqref{eq:swt-error}, yields
+\eqref{eq:contact-travel-inequality}. This proves (i).
+
+\emph{Step 5: the lower hitting probability, i.e.\ (ii).}
+Apply (i) with $\rho=0$, $\sigma=\tau$, $p=0$ (so $C_p=0$, and
+$\mathbf1_{\{0\le n\}}p=0$ is $\mathcal G_n$-measurable) and $r=1$. Since
+$x_0=0$ and $t_0-t_0=0$, the left side is
+$\mathbb E\sup_{0\le n\le\tau}|x_n|$, and by
+\eqref{eq:contact-velocity-budget}, \eqref{eq:swt-timebudget} and
+\eqref{eq:contact-error-budget-hyp},
+\begin{equation}\label{eq:contact-original-travel}
+  \mathbb E\sup_{0\le n\le\tau}|x_n|
+   \le2\Bigl(\frac{C_T}{2}L(B)^2\Bigr)^{1/2}
+      +T^{1/2}\bigl(C_*L(B)^4\bigr)^{1/2}
+   \le2\sqrt{C_T}\,L(B)+\sqrt{T C_*}\,L(B)^2
+   \le C'_TL(B)^2,
+\end{equation}
+using $L(B)\ge1$ and the definition of $C'_T$ in Step 0.
+
+By \noderef{IsContactWalk}, clause 11, at least one of $t_\tau=\delta_N$,
+$t_\tau=T$ and $|x_\tau|\ge R$ holds, so
+\[
+  \mathbb P(t_\tau\ne\delta_N)
+   \le\mathbb P(t_\tau=T)+\mathbb P\bigl(|x_\tau|\ge R\bigr).
+\]
+The first term is at most $1/T=1/8$ by \eqref{eq:swt-upper}. For the second,
+$|x_\tau|\le\sup_{0\le n\le\tau}|x_n|$, and for a nonnegative random variable
+$S$ and $R>0$ the pointwise inequality
+$R\mathbf1_{\{S\ge R\}}\le S$ integrates to
+$\mathbb P(S\ge R)\le\mathbb E S/R$; with $S=\sup_{0\le n\le\tau}|x_n|$,
+\eqref{eq:contact-original-travel} and $T=8$, $B=R+10$, this gives
+\[
+  \mathbb P\bigl(|x_\tau|\ge R\bigr)
+   \le\frac{C'_8L(R+10)^2}{R}\le\frac18
+\]
+by the choice \eqref{eq:swt-choiceR} of $R$. Hence
+$\mathbb P(t_\tau\ne\delta_N)\le1/4$ and, $\mu$ being a probability measure,
+$\mathbb P(t_\tau=\delta_N)\ge3/4$.
+
+The event is measurable. Indeed
+\[
+  \{t_\tau=\delta_N\}=\bigcup_{n\ge0}\bigl(\{\tau=n\}\cap\{t_n=\delta_N\}\bigr),
+\]
+because $\tau$ takes values in $\mathbb N$, and each term lies in $\mathcal M$:
+$\{\tau=n\}\in\mathcal G_n\subseteq\mathcal M$ because $\tau$ is a stopping time
+for $(\mathcal G_n)$ by clause 9 of \noderef{IsContactWalk}, and
+$\{t_n=\delta_N\}\in\mathcal G_n\subseteq\mathcal M$ because $z_n$ is
+$\mathcal G_n$-measurable by clause 4 of \noderef{IsContactWalk} and
+$z\mapsto t$ is continuous, hence Borel, on $\ell^2(F\times\R)$. A countable
+union of measurable sets is measurable. The same decomposition is what makes the
+probabilities written above meaningful, since the events
+$\{t_\tau=T\}$ and $\{|x_\tau|\ge R\}$ and the random variable
+$\sup_{0\le n\le\tau}|x_n|=\sup_{n\ge0}|x_{n\wedge\tau}|$ are measurable by the
+same argument. This is \eqref{eq:contact-lower-hit-probability} and completes
+the proof.
+\end{proof}

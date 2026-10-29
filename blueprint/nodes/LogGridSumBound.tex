@@ -1,0 +1,169 @@
+\begin{lemma}[Step 6(b,c): the logarithmic grid sum along a stopped portion]
+Let $(\Omega,\mathcal M,\mu)$ be a probability space, let
+$(\mathcal G_n)_{n\in\N}$ be a filtration of $\mathcal M$, let
+$S:\N\times\Omega\to\Z$, let $\sigma,\varsigma,\tau:\Omega\to\N$, let
+$a,b,q\in\N$, let $\epsilon',\Lambda\in\R$ --- we write $\epsilon'$ for the
+quotient $\epsilon/r$ throughout --- and let $w:\Z\to\R$. Assume:
+\begin{enumerate}
+\item\label{it:lgsb-eps} $\epsilon'>0$, $0<b$, $4\le a$, $0\le a$ as a real
+number, and $b-a>0$ as a real number;
+\item\label{it:lgsb-scale} $\epsilon'\,b=8$;
+\item\label{it:lgsb-Lam} $\Lambda=32\sqrt8+8(\log 8)^2$, and $\Lambda\ge0$;
+\item\label{it:lgsb-w} the lattice weight is
+\[
+  w(i)=\begin{cases}
+    (\epsilon')^2\bigl|\log(\epsilon' i)\bigr|^2, & a<i<b,\\
+    0, & \text{otherwise};
+  \end{cases}
+\]
+\item\label{it:lgsb-st} $\sigma$ is a $(\mathcal G_n)$-stopping time, and
+$\sigma$ and $\varsigma$ are both $\mathcal M$-measurable as maps
+$\Omega\to\N$;
+\item\label{it:lgsb-tau} $\varsigma\le\tau$ pointwise and
+$\omega\mapsto\tau(\omega)$ is $\mu$-integrable as a real-valued function;
+\item\label{it:lgsb-range} $a\le S_n(\omega)\le q$ for all $n$ and $\omega$;
+\item\label{it:lgsb-stG} for every $(\mathcal G_n)$-stopping time
+$\zeta:\Omega\to\N$ and every $n$, $\{\zeta\le n\}\in\mathcal G_n$;
+\item\label{it:lgsb-idx} evaluating a measurable family of real functions at a
+measurable random index is measurable, in both the one-index and the two-index
+form: if $\zeta,\eta:\Omega\to\N$ are measurable and each $G_m$, resp.\ each
+$G_{n,m}$, is measurable, then so are $\omega\mapsto G_{\zeta(\omega)}(\omega)$
+and $\omega\mapsto G_{\zeta(\omega),\eta(\omega)}(\omega)$;
+\item\label{it:lgsb-bdd} every $g:\Z\to\R$ is bounded on
+$\{i\in\Z:a\le i\le q\}$;
+\item\label{it:lgsb-gS} for every $g:\Z\to\R$ and every $k$, the function
+$\omega\mapsto g(S_k(\omega))$ is $\mathcal M$-measurable;
+\item\label{it:lgsb-claimT} the conclusion of Claim T$'$ holds for
+$\sigma,\varsigma$ on the window $(a,b)$: for all $h,u:\Z\to\R$ and every
+$A\in\mathcal M$ with $u\ge0$ everywhere, with
+$\tfrac12(h(i+1)+h(i-1))-h(i)\le-u(i)$ for $a<i<b$, and with
+$A\cap\{\sigma\le n\}\in\mathcal G_n$ for every $n$, one has for every $n$
+\[
+  \int\mathbf1_A\Bigl(h\bigl(S_{(\sigma\vee n)\wedge\varsigma}\bigr)
+    +\sum_{\sigma\le m<n\wedge\varsigma}u\bigl(S_m\bigr)\Bigr)d\mu
+  \le\int\mathbf1_A\,h\bigl(S_\sigma\bigr)\,d\mu .
+\]
+\end{enumerate}
+Then the function
+$\omega\mapsto\sum_{\sigma(\omega)\le m<\varsigma(\omega)}w(S_m(\omega))$ is
+$\mu$-integrable and
+\begin{equation}\label{eq:lgsb-bound}
+  \int\Bigl(\sum_{\sigma\le m<\varsigma}w\bigl(S_m\bigr)\Bigr)d\mu
+   \le4\Lambda .
+\end{equation}
+\end{lemma}
+\begin{proof}
+\emph{Step 1: the weight is nonnegative and supported in the window.} By
+\ref{it:lgsb-w}, $w(i)=(\epsilon')^2|\log(\epsilon'i)|^2\ge0$ when $a<i<b$,
+being a product of a square and a square, and $w(i)=0$ otherwise; so $w\ge0$
+everywhere and $w$ vanishes off the open window.
+
+\emph{Step 2: the total weight over the grid.} We claim
+\begin{equation}\label{eq:lgsb-total}
+  \sum_{m=0}^{b-1}w(m)\le\epsilon'\,\Lambda .
+\end{equation}
+Since $0<b$ by \ref{it:lgsb-eps} we may write $b=b'+1$. For each
+$m\in\{0,\dots,b-1\}$ we bound $w(m)$ by
+\[
+  w(m)\le\bigl((\epsilon')^2\cdot16\bigr)\frac1{\sqrt{\epsilon'm}}
+    +(\epsilon')^2(\log 8)^2 .
+\]
+Indeed, if $m$ is outside the window then $w(m)=0$ and the right side is
+nonnegative. If $a<m<b$ then $s:=\epsilon'm$ satisfies $s>0$, because
+$\epsilon'>0$ and $m>a\ge4>0$, and $s<\epsilon'b=8$ by \ref{it:lgsb-scale}, so
+$0<s\le8$; the second bound of \noderef{SqrtSumLogSquareBounds} gives
+$|\log s|^2\le16/\sqrt s+(\log 8)^2$, and multiplying by $(\epsilon')^2>0$ is
+exactly the displayed inequality.
+
+Summing over $m\in\{0,\dots,b-1\}$ and applying the first bound of
+\noderef{SqrtSumLogSquareBounds} with $a=\epsilon'$ and $M=b$ --- which states
+$\sum_{m<b}1/\sqrt{\epsilon'(m+1)}\le2\sqrt{\epsilon'b}/\epsilon'$ --- together
+with $\epsilon'b=8$ from \ref{it:lgsb-scale}, the first group contributes at
+most $(\epsilon')^2\cdot16\cdot2\sqrt8/\epsilon'=32\epsilon'\sqrt8$, while the
+second contributes $b\,(\epsilon')^2(\log 8)^2=\epsilon'(\epsilon'b)(\log 8)^2
+=8\epsilon'(\log 8)^2$. Adding and using \ref{it:lgsb-Lam},
+\[
+  \sum_{m=0}^{b-1}w(m)
+   \le32\epsilon'\sqrt8+8\epsilon'(\log 8)^2
+   =\epsilon'\bigl(32\sqrt8+8(\log 8)^2\bigr)=\epsilon'\Lambda ,
+\]
+which is \eqref{eq:lgsb-total}.
+
+\emph{Step 3: the Green function of the window.} For $i,m\in\Z$ put
+\[
+  K(i,m)=\begin{cases}
+    \dfrac{\bigl(\min(i,m)-a\bigr)\bigl(b-\max(i,m)\bigr)}{b-a},
+      & a\le i\le b,\\[2mm]
+    0, & \text{otherwise},
+  \end{cases}
+\]
+which is legitimate since $b-a>0$ by \ref{it:lgsb-eps}. For $a\le m\le b$ the
+function $K(\cdot,m)$ is nonnegative on $\{a,\dots,b\}$, because
+$\min(i,m)\ge a$ and $\max(i,m)\le b$ there; it is bounded there by
+$(b-a)/4$, since $(\min-a)(b-\max)\le\bigl((b-a)/2\bigr)^2$; and, being affine
+in $i$ on $\{a,\dots,m\}$ and on $\{m,\dots,b\}$ and vanishing at $i=a$ and
+$i=b$, its second difference in $i$ vanishes for $a<i<b$ with $i\ne m$ and
+equals $-1$ at $i=m$. Explicitly, with $Q=b-a$ and $\alpha=m-a$,
+\[
+  \tfrac12\bigl(K(m-1,m)+K(m+1,m)\bigr)-K(m,m)
+   =\frac{(\alpha-1)(Q-\alpha)+\alpha(Q-\alpha-1)}{2Q}
+     -\frac{\alpha(Q-\alpha)}{Q}=-\frac12 ,
+\]
+because $(\alpha-1)(Q-\alpha)+\alpha(Q-\alpha-1)=2\alpha(Q-\alpha)-Q$.
+
+Now set $H(i)=\sum_{m}w(m)\,K(i,m)$, the sum running over the finitely many
+$m$ with $a\le m\le b$. Then $H\ge0$ on the window, by Step 1 and the
+nonnegativity of $K$; $H$ is bounded by $4\Lambda$, because by Step 2 and the
+bound $K\le(b-a)/4\le b/4$ we get
+$H(i)\le\bigl(\sum_mw(m)\bigr)\cdot\frac b4\le\epsilon'\Lambda\cdot\frac b4
+=\frac{(\epsilon'b)\Lambda}4=2\Lambda\le4\Lambda$ using
+\ref{it:lgsb-scale} and $\Lambda\ge0$; and taking the second difference of $H$
+termwise, which is legitimate for a finite sum, the computation above gives
+\begin{equation}\label{eq:lgsb-super}
+  \tfrac12\bigl(H(i+1)+H(i-1)\bigr)-H(i)=-w(i)\qquad(a<i<b),
+\end{equation}
+since only the single term $m=i$ contributes $-\tfrac12w(i)\cdot 2$. In
+particular $H$ is a discrete supersolution for the defect $w$ on the window, in
+the sense required by \ref{it:lgsb-claimT}.
+
+\emph{Step 4: measurability and integrability.} By \ref{it:lgsb-bdd} fix $C$
+with $|w(i)|\le C$ for $a\le i\le q$; by \ref{it:lgsb-range} every value
+$S_m(\omega)$ lies in that range, so $|w(S_m(\omega))|\le C$ always. For each
+$n$ the partial sum $\omega\mapsto\sum_{\sigma\le m<n\wedge\varsigma}
+w(S_m(\omega))$ is measurable: each $\omega\mapsto w(S_m(\omega))$ is
+measurable by \ref{it:lgsb-gS}, the summation range is determined by the
+measurable $\sigma$ and $\varsigma$ of \ref{it:lgsb-st}, and the passage to the
+random range is measurable by \ref{it:lgsb-idx}. The full sum
+$\omega\mapsto\sum_{\sigma\le m<\varsigma}w(S_m(\omega))$ is measurable for the
+same reason. Pointwise it is bounded by $|C|\,\tau(\omega)$, since the index set
+$[\sigma,\varsigma)$ is contained in $[0,\tau)$ by \ref{it:lgsb-tau} and so has
+at most $\tau(\omega)$ elements, each contributing at most $|C|$. As
+$\tau$ is $\mu$-integrable by \ref{it:lgsb-tau}, a measurable function
+dominated in absolute value by the integrable $|C|\tau$ is integrable; this is
+the first assertion.
+
+\emph{Step 5: conclusion.} Apply \ref{it:lgsb-claimT} with $h=H$, $u=w$ and
+$A=\Omega$. Its hypotheses hold: $w\ge0$ by Step 1; the supersolution
+inequality is \eqref{eq:lgsb-super}, an equality and so in particular a
+$\le$; $\Omega\in\mathcal M$; and $\Omega\cap\{\sigma\le n\}=\{\sigma\le n\}
+\in\mathcal G_n$ by \ref{it:lgsb-stG}, $\sigma$ being a stopping time by
+\ref{it:lgsb-st}. Since $\mathbf1_\Omega\equiv1$, the conclusion reads, for
+every $n$,
+\[
+  \int\Bigl(H\bigl(S_{(\sigma\vee n)\wedge\varsigma}\bigr)
+    +\sum_{\sigma\le m<n\wedge\varsigma}w\bigl(S_m\bigr)\Bigr)d\mu
+  \le\int H\bigl(S_\sigma\bigr)\,d\mu\le4\Lambda ,
+\]
+the last step because $H\le4\Lambda$ pointwise by Step 3 and $\mu$ is a
+probability measure. Dropping the first summand, which is nonnegative because
+$H\ge0$ on the window and $H$ vanishes outside it, gives
+\[
+  \int\Bigl(\sum_{\sigma\le m<n\wedge\varsigma}w\bigl(S_m\bigr)\Bigr)d\mu
+   \le4\Lambda\qquad(n\in\N).
+\]
+The integrands are nonnegative and nondecreasing in $n$, and for
+$n\ge\varsigma(\omega)$ the range $[\sigma,n\wedge\varsigma)$ equals
+$[\sigma,\varsigma)$, so they are eventually constant at each $\omega$ with
+limit $\sum_{\sigma\le m<\varsigma}w(S_m)$. Monotone convergence therefore
+yields \eqref{eq:lgsb-bound}.
+\end{proof}

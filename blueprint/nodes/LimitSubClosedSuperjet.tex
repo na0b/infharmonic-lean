@@ -1,0 +1,116 @@
+\begin{lemma}[The limiting-equation subsolution inequality holds on closed superjets]
+Let $F$ be a finite-dimensional real inner-product space, let $\Omega$ be a
+subset of the space-time $\ell^2(F\times\R)$, and let $v$ be a viscosity
+subsolution of $F[v]=0$ on $\Omega$ in the sense of \noderef{IsLimitSubOn}. Let
+$z\in\Omega$, let $p\in\ell^2(F\times\R)$, let $X$ be a continuous bilinear form
+on $\ell^2(F\times\R)$, and assume $(p,X)\in\overline J^{2,+}v(z)$, the closed
+superjet of \noderef{ClosedSuperjet}. Write $p_x\in F$ for the spatial part of
+$p$ and $\zeta=(p_x,1)\in\ell^2(F\times\R)$. Then
+\[
+  X[\zeta]=X(\zeta,\zeta)\ge0 .
+\]
+\end{lemma}
+\begin{proof}
+\emph{Step 1: the inequality at a plain superjet.}
+We first prove the following claim. If $z'\in\Omega$, if
+$q\in\ell^2(F\times\R)$ and if $Y$ is a continuous bilinear form on
+$\ell^2(F\times\R)$ with $(q,Y)\in J^{2,+}v(z')$ in the sense of
+\noderef{Superjet}, then $Y(\xi,\xi)\ge0$, where $\xi=(q_x,1)$ and $q_x$ is the
+spatial part of $q$.
+
+Fix $\varepsilon>0$ and define $\phi_\varepsilon$ on $\ell^2(F\times\R)$ by
+\[
+  \phi_\varepsilon(w)=v(z')+\langle q,w-z'\rangle
+     +\tfrac12Y(w-z',w-z')+\varepsilon|w-z'|^2 .
+\]
+This is a sum of a constant, a continuous linear form in $w-z'$, the diagonal
+restriction of the continuous bilinear form $Y$, and $\varepsilon$ times the
+diagonal restriction of the inner product; each summand is a continuous
+polynomial of degree at most two and hence $C^\infty$. In particular
+$\phi_\varepsilon$ is $C^2$ near $z'$.
+
+Its derivatives at $z'$ are computed exactly as for a quadratic: writing
+$g(w)=\tfrac12Y(w-z',w-z')$, for all $h,k$
+\[
+  Dg(w)h=\tfrac12\bigl(Y(h,w-z')+Y(w-z',h)\bigr)=Y(w-z',h),
+  \qquad
+  D^2g(w)(h,k)=\tfrac12\bigl(Y(k,h)+Y(h,k)\bigr)=Y(h,k),
+\]
+both middle steps using the symmetry $Y(h,k)=Y(k,h)$ required of a superjet in
+\noderef{Superjet}; and $w\mapsto\varepsilon|w-z'|^2$ has second derivative
+$(h,k)\mapsto2\varepsilon\langle h,k\rangle$. Evaluating at $w=z'$,
+\[
+  \nabla\phi_\varepsilon(z')=q,
+  \qquad
+  D^2\phi_\varepsilon(z')(h,k)=Y(h,k)+2\varepsilon\langle h,k\rangle .
+\]
+The spatial part of $\nabla\phi_\varepsilon(z')$ is therefore $q_x$, so the
+direction used by the operator of \noderef{LimitOp} at $z'$ is exactly
+$\xi=(q_x,1)$, and
+\begin{equation}\label{eq:lscs-limitop}
+  F[\phi_\varepsilon](z')
+    =D^2\phi_\varepsilon(z')[\xi]
+    =Y(\xi,\xi)+2\varepsilon|\xi|^2 .
+\end{equation}
+
+Next, $\phi_\varepsilon$ is an upper test for $v$ at $z'$. Apply the defining
+property of $(q,Y)\in J^{2,+}v(z')$ from \noderef{Superjet} with the positive
+number $\varepsilon$: there is $\delta>0$ with
+\[
+  v(z'+h)\le v(z')+\langle q,h\rangle+\tfrac12Y(h,h)+\varepsilon|h|^2
+    =\phi_\varepsilon(z'+h)
+  \qquad(|h|<\delta).
+\]
+Since $\phi_\varepsilon(z')=v(z')$, this says
+$v(w)-\phi_\varepsilon(w)\le0=v(z')-\phi_\varepsilon(z')$ for all $w\in
+B(z',\delta)$, so $w\mapsto v(w)-\phi_\varepsilon(w)$ has a local maximum on
+$\Omega$ at $z'$.
+
+So $z'\in\Omega$, $\phi_\varepsilon$ is $C^2$ near $z'$, and
+$v-\phi_\varepsilon$ has a local maximum on $\Omega$ at $z'$. The defining
+property of \noderef{IsLimitSubOn} gives $F[\phi_\varepsilon](z')\ge0$, that is,
+by \eqref{eq:lscs-limitop},
+\[
+  0\le Y(\xi,\xi)+2\varepsilon|\xi|^2 .
+\]
+Neither $\xi$ nor $Y$ depends on $\varepsilon$, so letting
+$\varepsilon\downarrow0$ gives $Y(\xi,\xi)\ge0$, proving the claim.
+
+\emph{Step 2: passing to the closure.}
+By \noderef{ClosedSuperjet} there are sequences $z_k$, $p_k$ in
+$\ell^2(F\times\R)$ and symmetric continuous bilinear forms $X_k$ with
+\[
+  (p_k,X_k)\in J^{2,+}v(z_k)\quad\text{for all }k,
+  \qquad z_k\to z,\quad p_k\to p,\quad X_k\to X
+\]
+(the defining sequences also satisfy $v(z_k)\to v(z)$, which we do not need).
+
+By the first clause of \noderef{IsLimitSubOn} the set $\Omega$ is open, and
+$z\in\Omega$, so there is $\delta_0>0$ with $B(z,\delta_0)\subseteq\Omega$, and
+since $z_k\to z$ there is $K$ with $z_k\in\Omega$ for all $k\ge K$. Write
+$\zeta_k=((p_k)_x,1)$. Step 1, applied at $z_k$ to the superjet
+$(p_k,X_k)\in J^{2,+}v(z_k)$, gives
+\begin{equation}\label{eq:lscs-approx}
+  0\le X_k(\zeta_k,\zeta_k)\qquad(k\ge K).
+\end{equation}
+
+We pass to the limit. The map $w\mapsto w_x$ taking a space-time point to its
+spatial part is linear with norm one, so $(p_k)_x\to p_x$; the map
+$a\mapsto(a,1)$ is continuous from $F$ to $\ell^2(F\times\R)$, since
+$|(a,1)-(b,1)|=|a-b|$. Hence $\zeta_k\to\zeta$. In particular
+$M:=\sup_k|\zeta_k|<\infty$ and $|\zeta|\le M$. Now
+\[
+  X_k(\zeta_k,\zeta_k)-X(\zeta,\zeta)
+   =(X_k-X)(\zeta_k,\zeta_k)+\bigl(X(\zeta_k,\zeta_k)-X(\zeta,\zeta)\bigr).
+\]
+The first term has absolute value at most
+$\|X_k-X\|\,|\zeta_k|^2\le M^2\|X_k-X\|\to0$, because $X_k\to X$ in the operator
+norm. For the second, bilinearity gives
+\[
+  X(\zeta_k,\zeta_k)-X(\zeta,\zeta)
+    =X(\zeta_k-\zeta,\zeta_k)+X(\zeta,\zeta_k-\zeta),
+\]
+of absolute value at most $2M\|X\|\,|\zeta_k-\zeta|\to0$. Therefore
+$X_k(\zeta_k,\zeta_k)\to X(\zeta,\zeta)$, and \eqref{eq:lscs-approx} gives
+$X(\zeta,\zeta)\ge0$ in the limit.
+\end{proof}

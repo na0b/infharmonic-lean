@@ -1,0 +1,74 @@
+\begin{lemma}[The closed superjet at a point is local]
+Let $E$ be a finite-dimensional real inner-product space, let $f_1,f_2:E\to\R$,
+let $b>0$, and suppose that $f_1(w)=f_2(w)$ for every $w\in E$ with $|w|<b$.
+Then
+\[
+  \overline J^{2,+}f_1(0)=\overline J^{2,+}f_2(0),
+\]
+where $\overline J^{2,+}$ is the closed superjet of \noderef{ClosedSuperjet}.
+\end{lemma}
+\begin{proof}
+By symmetry of the hypothesis in $f_1$ and $f_2$ it suffices to prove the
+inclusion $\overline J^{2,+}f_1(0)\subseteq\overline J^{2,+}f_2(0)$; exchanging
+the names of $f_1$ and $f_2$ then gives the reverse inclusion and hence the
+equality.
+
+So let $(p,X)\in\overline J^{2,+}f_1(0)$. By \noderef{ClosedSuperjet} there are
+sequences $(z_k)_{k\ge0}$ in $E$, $(p_k)_{k\ge0}$ in $E$ and $(X_k)_{k\ge0}$ of
+continuous bilinear forms on $E$ with
+\begin{equation}\label{eq:csl-data}
+  (p_k,X_k)\in J^{2,+}f_1(z_k)\quad(k\ge0),\qquad
+  z_k\to0,\quad f_1(z_k)\to f_1(0),\quad p_k\to p,\quad X_k\to X,
+\end{equation}
+where $J^{2,+}$ is the superjet of \noderef{Superjet}.
+
+Since $z_k\to0$ and $b/4>0$, there is $k_0$ with
+\begin{equation}\label{eq:csl-k0}
+  |z_k|<b/4\qquad(k\ge k_0).
+\end{equation}
+
+\emph{Each jet is a superjet of $f_2$ as well, for $k\ge k_0$.}
+Fix $k\ge k_0$. The pair $(p_k,X_k)$ lies in $J^{2,+}f_1(z_k)$, so by
+\noderef{Superjet} the form $X_k$ is symmetric and for every $\varepsilon'>0$
+there is $\delta>0$ with
+\begin{equation}\label{eq:csl-jet1}
+  f_1(z_k+h)\le f_1(z_k)+\langle p_k,h\rangle+\tfrac12X_k(h,h)
+    +\varepsilon'|h|^2\qquad(|h|<\delta).
+\end{equation}
+Replacing $\delta$ by $\delta^\ast=\min(\delta,b/4)>0$ only shrinks the range of
+$h$, so \eqref{eq:csl-jet1} continues to hold for $|h|<\delta^\ast$. For such
+$h$ we have $|h|<b/4$ and hence, by \eqref{eq:csl-k0},
+\[
+  |z_k+h|\le|z_k|+|h|<b/4+b/4=b/2<b,
+\]
+and also $|z_k|<b/4<b$. Therefore the hypothesis applies at both points and
+gives $f_1(z_k)=f_2(z_k)$ and $f_1(z_k+h)=f_2(z_k+h)$. Substituting these two
+equalities into \eqref{eq:csl-jet1} yields
+\[
+  f_2(z_k+h)\le f_2(z_k)+\langle p_k,h\rangle+\tfrac12X_k(h,h)
+    +\varepsilon'|h|^2\qquad(|h|<\delta^\ast).
+\]
+As $\varepsilon'>0$ was arbitrary and $X_k$ is symmetric, the defining condition
+of \noderef{Superjet} holds, i.e.
+\begin{equation}\label{eq:csl-jet2}
+  (p_k,X_k)\in J^{2,+}f_2(z_k)\qquad(k\ge k_0).
+\end{equation}
+
+\emph{The function values converge to the right limit.}
+For $k\ge k_0$ we have $|z_k|<b/4<b$, so $f_2(z_k)=f_1(z_k)$; also $|0|=0<b$, so
+$f_2(0)=f_1(0)$. Since $f_1(z_k)\to f_1(0)$ by \eqref{eq:csl-data}, the shifted
+sequence satisfies $f_2(z_{k_0+m})=f_1(z_{k_0+m})\to f_1(0)=f_2(0)$ as
+$m\to\infty$.
+
+\emph{Conclusion.}
+Define the re-indexed sequences $z'_m=z_{k_0+m}$, $p'_m=p_{k_0+m}$ and
+$X'_m=X_{k_0+m}$ for $m\ge0$. Dropping finitely many initial terms changes none
+of the limits in \eqref{eq:csl-data}, so $z'_m\to0$, $p'_m\to p$ and
+$X'_m\to X$; by \eqref{eq:csl-jet2} we have $(p'_m,X'_m)\in J^{2,+}f_2(z'_m)$
+for every $m$; and by the previous paragraph $f_2(z'_m)\to f_2(0)$. Counted
+individually these are the five requirements in the definition of
+\noderef{ClosedSuperjet} --- the jet membership at every index, and the four
+convergences $z'_m\to0$, $f_2(z'_m)\to f_2(0)$, $p'_m\to p$ and $X'_m\to X$ ---
+for the pair $(p,X)$ relative to $f_2$ at $0$, so
+$(p,X)\in\overline J^{2,+}f_2(0)$.
+\end{proof}

@@ -1,0 +1,47 @@
+\begin{lemma}[Bolzano--Weierstrass for tuples of continuous bilinear forms]
+Let $E$ be a finite-dimensional real inner-product space, let $N$ be a natural
+number, let $\Lambda\in\R$, and let $\bigl(X^{(k)}\bigr)_{k\ge0}$ be a sequence
+of $N$-tuples $X^{(k)}=\bigl(X^{(k)}_j\bigr)_{j=1}^N$ of continuous bilinear
+forms on $E$ such that
+\[
+  \bigl\|X^{(k)}_j\bigr\|\le\Lambda\qquad(k\ge0,\ 1\le j\le N).
+\]
+Then there are an $N$-tuple $X=(X_j)_{j=1}^N$ of continuous bilinear forms on $E$
+and a strictly increasing map $\varphi:\N\to\N$ such that
+$X^{(\varphi(k))}_j\to X_j$ as $k\to\infty$ for every $j$.
+\end{lemma}
+\begin{proof}
+Write $\mathcal B(E)$ for the real vector space of continuous bilinear forms on
+$E$, normed by the operator norm $\|X\|=\sup\{|X(a,b)|:|a|\le1,|b|\le1\}$, and
+$\mathcal B(E)^N$ for the space of $N$-tuples, normed by
+$\|(X_j)_j\|_\infty=\max_{1\le j\le N}\|X_j\|$ (the maximum of the empty family
+being $0$ when $N=0$).
+
+\emph{The ambient space is finite-dimensional.}
+Fix a basis $e_1,\ldots,e_d$ of $E$, where $d=\dim E<\infty$. A bilinear form on
+$E$ is determined by its $d^2$ values $X(e_i,e_l)$, and every choice of these
+values defines a bilinear form, which is automatically continuous because $E$ is
+finite-dimensional; the resulting linear bijection $\mathcal B(E)\to\R^{d^2}$
+shows $\dim\mathcal B(E)=d^2<\infty$. Hence
+$\dim\mathcal B(E)^N=Nd^2<\infty$, so $\mathcal B(E)^N$ is a
+finite-dimensional real normed space.
+
+\emph{The sequence is bounded.}
+By hypothesis $\bigl\|X^{(k)}_j\bigr\|\le\Lambda$ for all $k$ and all $j$, so
+$\bigl\|X^{(k)}\bigr\|_\infty=\max_j\bigl\|X^{(k)}_j\bigr\|\le\max(\Lambda,0)$
+for every $k$. Thus $\bigl(X^{(k)}\bigr)_k$ is a bounded sequence in
+$\mathcal B(E)^N$.
+
+\emph{Extraction.}
+By Bolzano--Weierstrass in a finite-dimensional real normed space (preamble),
+the bounded sequence $\bigl(X^{(k)}\bigr)_k$ has a convergent subsequence: there
+are a strictly increasing $\varphi:\N\to\N$ and $X\in\mathcal B(E)^N$ with
+$X^{(\varphi(k))}\to X$ in $\mathcal B(E)^N$.
+
+\emph{Coordinatewise convergence.}
+Fix $j$. For every $k$,
+$\bigl\|X^{(\varphi(k))}_j-X_j\bigr\|\le
+\bigl\|X^{(\varphi(k))}-X\bigr\|_\infty$ by the definition of the maximum norm,
+and the right-hand side tends to $0$; hence $X^{(\varphi(k))}_j\to X_j$. This
+holds for every $j$, which is the assertion.
+\end{proof}

@@ -1,0 +1,75 @@
+\begin{lemma}[The concave radial profile $f(r)=r-\tfrac18r^{3/2}$]
+Put
+\[
+  f(r)=r-\tfrac18 r\sqrt r\qquad(r\ge0),
+\]
+so that $f(r)=r-\tfrac18r^{3/2}$, put $f_1(r)=1-\tfrac3{16}\sqrt r$ and put
+$\nu=1-\tfrac18\sqrt{3/2}$. Then
+\begin{enumerate}
+\item $\nu>0$;
+\item $f$ is of class $C^2$ at every $r>0$;
+\item for every $r>0$, $f$ is differentiable at $r$ with $f'(r)=f_1(r)$;
+\item for every $r>0$, $f_1$ is differentiable at $r$ with
+  $f_1'(r)=-\dfrac3{32\sqrt r}$ (so $f''(r)=-3/(32\sqrt r)$);
+\item for every $r$ with $0<r\le\tfrac32$,
+  \[
+    \nu r\le f(r)\le r,\qquad 0<f_1(r)\le1 .
+  \]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Throughout, $\sqrt{\cdot}$ denotes the nonnegative square root, and for $r>0$ we
+have $\sqrt r>0$ and $(\sqrt r)^2=r$.
+
+\emph{A numerical bound used twice.} Since $3/2<4$ and the square root is
+strictly increasing on $[0,\infty)$, $\sqrt{3/2}<\sqrt4=2$. In particular
+\begin{equation}\label{eq:crp-num}
+  0\le\sqrt{3/2}<2 .
+\end{equation}
+
+\emph{(1).} By \eqref{eq:crp-num}, $\tfrac18\sqrt{3/2}<\tfrac28=\tfrac14<1$, so
+$\nu=1-\tfrac18\sqrt{3/2}>0$.
+
+\emph{(2).} Fix $r>0$. The square root is $C^\infty$ on $(0,\infty)$, hence
+$C^2$ at $r$; the identity $s\mapsto s$ is $C^\infty$; a product of two
+functions that are $C^2$ at a point is $C^2$ there, and so are a constant
+multiple of such a function and a difference of two of them. Hence
+$f(s)=s-\tfrac18 s\sqrt s$ is $C^2$ at $r$.
+
+\emph{(3).} Fix $r>0$. The square root is differentiable at $r$ with derivative
+$1/(2\sqrt r)$. Hence, by the product rule applied to $s\mapsto s$ and
+$s\mapsto\sqrt s$, the function $s\mapsto s\sqrt s$ is differentiable at $r$
+with derivative
+\[
+  1\cdot\sqrt r+r\cdot\frac1{2\sqrt r}
+   =\sqrt r+\frac{(\sqrt r)^2}{2\sqrt r}
+   =\sqrt r+\frac{\sqrt r}{2}
+   =\frac32\sqrt r ,
+\]
+where $r=(\sqrt r)^2$ was used in the middle step. Dividing by the constant $8$
+and subtracting from the identity $s\mapsto s$, whose derivative is $1$, shows
+that $f$ is differentiable at $r$ with
+\[
+  f'(r)=1-\frac1 8\cdot\frac32\sqrt r=1-\frac3{16}\sqrt r=f_1(r).
+\]
+
+\emph{(4).} Fix $r>0$. Again the square root is differentiable at $r$ with
+derivative $1/(2\sqrt r)$; multiplying by the constant $3$, dividing by the
+constant $16$ and subtracting from the constant $1$ shows that $f_1$ is
+differentiable at $r$ with
+\[
+  f_1'(r)=-\frac{3}{16}\cdot\frac1{2\sqrt r}=-\frac3{32\sqrt r} .
+\]
+
+\emph{(5).} Fix $r$ with $0<r\le\tfrac32$. Monotonicity of the square root gives
+$0<\sqrt r\le\sqrt{3/2}$.
+
+First, $f(r)=r\bigl(1-\tfrac18\sqrt r\bigr)$. Since $\sqrt r\le\sqrt{3/2}$ we
+have $1-\tfrac18\sqrt r\ge1-\tfrac18\sqrt{3/2}=\nu$, and $r>0$, so
+$f(r)\ge\nu r$. Since $\sqrt r>0$ we have $1-\tfrac18\sqrt r\le1$, so
+$f(r)\le r$.
+
+Second, by \eqref{eq:crp-num}, $\sqrt r\le\sqrt{3/2}<2$, hence
+$\tfrac3{16}\sqrt r<\tfrac6{16}<1$ and so $f_1(r)=1-\tfrac3{16}\sqrt r>0$;
+and $\sqrt r>0$ gives $f_1(r)\le1$.
+\end{proof}

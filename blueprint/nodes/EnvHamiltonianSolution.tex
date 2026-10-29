@@ -1,0 +1,170 @@
+\begin{lemma}[The envelope Hamiltonian of a solution]
+Let $F$ be a finite-dimensional real inner-product space, let $I\subseteq\R$ be
+open, let $\Omega=\{(x,t):t\in I\}$, and let $f$ be a real function on space-time
+which is continuous on $\Omega$ and has subquadratic spatial growth on compact
+time intervals of $I$ in the sense of \noderef{SubquadraticGrowth},
+and assume in addition that $f$ is a viscosity solution of $F[f]=0$ on $\Omega$ in the sense
+of \noderef{IsLimitSolutionOn}. Then, with the slopes of \noderef{EnvSlopeP} and
+\noderef{EnvSlopeM} and the Hamiltonian $H_f$ of \noderef{EnvHamiltonian}:
+\begin{enumerate}
+\item for every $z=(x,t)$ and all $0<\ell\le\ell'$ with $t+\sigma\in I$ for all
+$\sigma\in[-\ell',\ell']$, both slopes are nondecreasing:
+\[
+  \Senv_\ell^+f(z)\le\Senv_{\ell'}^+f(z),\qquad
+  \Senv_\ell^-f(z)\le\Senv_{\ell'}^-f(z);
+\]
+\item for every $z=(x,t)$ with $t+\sigma\in I$ for every $\sigma\in\R$,
+\begin{equation}\label{eq:hamiltonian}
+  \inf_{\ell>0}\Senv_\ell^-f(z)=\inf_{\ell>0}\Senv_\ell^+f(z)=H_f(z),
+\end{equation}
+so that by (1) the two monotone small-length limits exist and agree:
+$\lim_{\ell\downarrow0}\Senv_\ell^+f(z)=
+ \lim_{\ell\downarrow0}\Senv_\ell^-f(z)=H_f(z)$;
+\item $H_f(z)\in[-\infty,\infty)$ for every $z$, that is, $H_f$ never takes the
+value $+\infty$;
+\item if moreover every length is admissible throughout the domain, in the sense
+that $t+\sigma\in I$ for every $t\in I$ and every $\sigma\in\R$ --- the
+domain-level form of the hypothesis carried pointwise in (2) --- then $H_f$ is
+upper semicontinuous on $\Omega$: the set $\{\zeta\in\Omega:H_f(\zeta)<c\}$ is
+open in $\Omega$ for every $c\in\overline\R$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+By \noderef{IsLimitSolutionOn}, $f$ is both a viscosity subsolution and a
+viscosity supersolution of $F[f]=0$ on $\Omega$.
+
+\emph{(1).} The bound for $\Senv^+$ is part (1) of \noderef{EnvelopeSlopeOrder},
+whose hypotheses hold with $[0,\ell']\subseteq[-\ell',\ell']$. For
+$\Senv^-$, let $\widetilde f$ be the time reversal of \noderef{TimeFlip}. By
+\noderef{TimeReversal}, $\widetilde f$ is a viscosity subsolution of
+$F[\widetilde f]=0$ on the reflected domain $\widetilde\Omega=\{(x,t):-t\in I\}$,
+it is continuous there, and it satisfies the growth condition of
+\noderef{SubquadraticGrowth} on $-I=\{-t:t\in I\}$, because that condition is
+invariant under reflecting the time variable and changing the sign of the
+function. The set $-I$ is open, being the image of the open set $I$ under the
+homeomorphism $s\mapsto-s$ of $\R$, and $\widetilde\Omega=\{(x,t):t\in-I\}$, so
+part (1) of \noderef{EnvelopeSlopeOrder} is applicable to $\widetilde f$ with
+$-I$ in place of $I$. Also by \noderef{TimeReversal},
+$\Penv_\ell\widetilde f(\widetilde z)=-\Menv_\ell f(z)$ and
+$\widetilde f(\widetilde z)=-f(z)$, so by \noderef{EnvSlopeP} and
+\noderef{EnvSlopeM}
+\[
+  \Senv_\ell^+\widetilde f(\widetilde z)
+   =\frac{\Penv_\ell\widetilde f(\widetilde z)-\widetilde f(\widetilde z)}{\ell}
+   =\frac{f(z)-\Menv_\ell f(z)}{\ell}=\Senv_\ell^-f(z).
+\]
+Applying part (1) of \noderef{EnvelopeSlopeOrder} to $\widetilde f$ at
+$\widetilde z=(x,-t)$ with the lengths $\ell\le\ell'$, whose hypothesis
+$-t+\sigma\in-I$ for $\sigma\in[0,\ell']$ follows from $t-\sigma\in I$, i.e.
+from the assumption with $-\sigma\in[-\ell',0]$, gives
+$\Senv_\ell^-f(z)\le\Senv_{\ell'}^-f(z)$.
+
+\emph{(2).} Fix $z$ with $t+\sigma\in I$ for every $\sigma$, so all the length
+hypotheses above are satisfied for every $\ell,\ell'>0$, and write
+$S^\pm(\ell)=\Senv_\ell^\pm f(z)$, nondecreasing in $\ell$ by (1). By
+\noderef{EnvHamiltonian}, $H_f(z)=\inf_{\ell>0}S^+(\ell)$, and by monotonicity
+this equals $\lim_{\ell\downarrow0}S^+(\ell)$ in $\overline\R$; similarly
+$\inf_{\ell>0}S^-(\ell)=\lim_{\ell\downarrow0}S^-(\ell)$.
+
+Part (2) of \noderef{EnvelopeSlopeOrder}, applied to $f$ as a subsolution, gives
+for every $h>0$ and every $\varepsilon>0$ a $\delta>0$ with
+$S^-(\ell)\le S^+(h)+\varepsilon$ for $0<\ell<\delta$. Hence
+$\inf_{\ell>0}S^-(\ell)\le S^+(h)+\varepsilon$ for all $h>0,\varepsilon>0$, so
+$\inf_{\ell>0}S^-\le\inf_{\ell>0}S^+=H_f(z)$.
+
+Applying the same part (2) of \noderef{EnvelopeSlopeOrder} to $\widetilde f$,
+which is a subsolution by \noderef{TimeReversal}, and translating back with the
+identities of (1) together with
+$\Senv_\ell^-\widetilde f(\widetilde z)=\Senv_\ell^+f(z)$ (which follows from
+$\Menv_\ell\widetilde f(\widetilde z)=-\Penv_\ell f(z)$ in
+\noderef{TimeReversal}), gives $\inf_{\ell>0}S^+\le\inf_{\ell>0}S^-$. The two
+infima are therefore equal, which is \eqref{eq:hamiltonian}.
+
+\emph{(3).} Let $z$ be arbitrary. By \noderef{QuadEnvP} and \noderef{EnvSlopeP},
+$\Senv_1^+f(z)=\Penv_1f(z)-f(z)$ is a real number: the supremum defining
+$\Penv_1f(z)$ is a real number whether or not the competitor set is bounded
+above, by the preamble convention assigning the value $0$ to the supremum of a
+set of reals that is empty or unbounded above (the time arguments $t$ and $t+1$
+of $z$ need not lie in $I$ here, so no attainment statement is invoked). By
+\noderef{EnvHamiltonian}, $H_f(z)$ is the infimum in $\overline\R$ of the real
+numbers $\Senv_\ell^+f(z)$ over the nonempty set $\ell>0$. The element
+$\Senv_1^+f(z)$ of that family is a real upper bound for the infimum, so
+$H_f(z)\le\Senv_1^+f(z)<+\infty$ and $H_f(z)\ne+\infty$.
+
+\emph{(4).} Assume in addition that $t+\sigma\in I$ for every $t\in I$ and every
+$\sigma\in\R$. Fix once and for all $c\in\overline\R$ and $z_0=(x_0,t_0)\in\Omega$
+with $H_f(z_0)<c$; it suffices to produce an open set $V$ with $z_0\in V$,
+$V\subseteq\Omega$ and $H_f(\zeta)<c$ for every $\zeta\in V$, since then every
+point of $\{\zeta\in\Omega:H_f(\zeta)<c\}$ is interior to it relative to
+$\Omega$, which is the assertion.
+
+\emph{Step 1: monotonicity at every point of $\Omega$, for every pair of
+lengths.} Let $\zeta=(\xi,\tau)$ with $\tau\in I$ and let $0<h\le h'$. The
+hypothesis of part (1) of \noderef{EnvelopeSlopeOrder} at the center $\zeta$
+with the lengths $h\le h'$ asks that $\tau+\sigma\in I$ for all
+$\sigma\in[0,h']$, and this is the added hypothesis applied at $\tau\in I$ with
+the values $\sigma\in[0,h']$. Its remaining hypotheses hold: $I$ is open, $f$ is
+continuous on $\Omega$ and satisfies \noderef{SubquadraticGrowth} on $I$ by
+assumption, and $f$ is a viscosity subsolution of $F[f]=0$ on $\Omega$ as
+recorded at the start of this proof. Hence
+\begin{equation}\label{eq:ehs-mono}
+  \Senv_h^+f(\zeta)\le\Senv_{h'}^+f(\zeta)
+  \qquad(\tau\in I,\ 0<h\le h').
+\end{equation}
+
+\emph{Step 2: the local length range and neighbourhood.} We have $t_0\in I$
+because $z_0\in\Omega$. Since $I$ is open there is $h_0>0$ with
+$(t_0-h_0,t_0+h_0)\subseteq I$. Put
+\[
+  N=\{\zeta=(\xi,\tau):\ |\tau-t_0|<h_0\},
+\]
+which is an open subset of space-time, because $\zeta\mapsto\tau$ is continuous,
+contains $z_0$, and is contained in $\Omega$, because $|\tau-t_0|<h_0$ forces
+$\tau\in(t_0-h_0,t_0+h_0)\subseteq I$.
+
+\emph{Step 3: each fixed forward slope is continuous on $N$.} Fix $h>0$ and let
+$\zeta_0=(\xi_0,\tau_0)\in N$. Then $\tau_0\in I$ by Step 2, and
+$\tau_0+h\in I$ by the added hypothesis. Part (2) of \noderef{QuadEnvAttained},
+whose hypotheses $h>0$, $\tau_0\in I$ and $\tau_0+h\in I$ therefore all hold,
+gives joint continuity of $(\ell,\zeta)\mapsto\Penv_\ell f(\zeta)$ at
+$(h,\zeta_0)$; composing with the continuous map
+$\zeta\mapsto(h,\zeta)$ gives continuity of $\zeta\mapsto\Penv_hf(\zeta)$ at
+$\zeta_0$. Also $f$ is continuous at $\zeta_0$, since $\zeta_0\in\Omega$, $f$ is
+continuous on $\Omega$ and $\Omega$ is open. Since $h>0$ is a fixed constant,
+$\Senv_h^+f=(\Penv_hf-f)/h$ by \noderef{EnvSlopeP} is continuous at $\zeta_0$.
+As $\zeta_0\in N$ was arbitrary, $\zeta\mapsto\Senv_h^+f(\zeta)$ is continuous
+on $N$ for every $h>0$.
+
+\emph{Step 4: the Hamiltonian is the infimum over the restricted range.} We
+claim
+\begin{equation}\label{eq:ehs-inf}
+  H_f(\zeta)=\inf_{0<h\le h_0}\Senv_h^+f(\zeta)\qquad(\zeta\in N).
+\end{equation}
+Fix $\zeta=(\xi,\tau)\in N$, so $\tau\in I$, and write
+$A=\{\Senv_h^+f(\zeta):h>0\}$ and $B=\{\Senv_h^+f(\zeta):0<h\le h_0\}$, so that
+$H_f(\zeta)=\inf A$ in $\overline\R$ by \noderef{EnvHamiltonian} and the right
+side of \eqref{eq:ehs-inf} is $\inf B$. Since $B\subseteq A$ we have
+$\inf A\le\inf B$. Conversely, let $h>0$. If $h\le h_0$ then
+$\Senv_h^+f(\zeta)\in B$, so $\inf B\le\Senv_h^+f(\zeta)$. If $h>h_0$ then
+\eqref{eq:ehs-mono} at $\zeta$ with the lengths $h_0\le h$ gives
+$\Senv_{h_0}^+f(\zeta)\le\Senv_h^+f(\zeta)$, and
+$\Senv_{h_0}^+f(\zeta)\in B$, so again $\inf B\le\Senv_h^+f(\zeta)$. Thus
+$\inf B$ is a lower bound for $A$, whence $\inf B\le\inf A$. This proves
+\eqref{eq:ehs-inf}.
+
+\emph{Step 5: the required neighbourhood.} Apply \eqref{eq:ehs-inf} at
+$\zeta=z_0$, which is legitimate because $z_0\in N$: the infimum in
+$\overline\R$ of the nonempty set $\{\Senv_h^+f(z_0):0<h\le h_0\}$ of real
+numbers equals $H_f(z_0)$ and is therefore $<c$. Hence $c$ is not a lower bound
+for that set, and there is $h_*\in(0,h_0]$ with $\Senv_{h_*}^+f(z_0)<c$. By
+Step 3 the real-valued function $\zeta\mapsto\Senv_{h_*}^+f(\zeta)$ is
+continuous on the open set $N$, so
+\[
+  V=\{\zeta\in N:\Senv_{h_*}^+f(\zeta)<c\}
+\]
+is open, and $z_0\in V$. For every $\zeta\in V$ we have $\zeta\in N$, so
+\eqref{eq:ehs-inf} applies at $\zeta$ and, $h_*$ being a member of the index set
+$(0,h_0]$, gives $H_f(\zeta)\le\Senv_{h_*}^+f(\zeta)<c$. Also
+$V\subseteq N\subseteq\Omega$ by Step 2. So $V$ has the three properties
+required at the start of (4), and $H_f$ is upper semicontinuous on $\Omega$.
+\end{proof}

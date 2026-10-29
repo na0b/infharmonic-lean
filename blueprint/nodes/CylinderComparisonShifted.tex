@@ -1,0 +1,122 @@
+\begin{lemma}[Comparison of cylinder fits: displaced centers]
+Let $E$ be a finite-dimensional real inner-product space and fix
+$0<c_*\le C_*<\infty$. There is $C>0$, depending only on $c_*$ and $C_*$, with
+the following property. Let $u:E\to\R$, let $z,z'\in E$, let $0<\theta<1$, let
+$H>0$, and let $P,P'\in E$ with
+\[
+  c_*\le|P|,|P'|\le C_* .
+\]
+Write $n=P/|P|$ and $n'=P'/|P'|$, and suppose that $z'$ lies in the first
+cylinder with axial and transverse offsets at most $H/4$ and $\theta H/4$:
+\[
+  |(z'-z)\cdot n|\le\frac H4,\qquad
+  \bigl|(z'-z)-\bigl((z'-z)\cdot n\bigr)n\bigr|\le\frac{\theta H}4 .
+\]
+Suppose $P$ realizes the cylinder fit of parameter $\theta^2$ for $u$ at
+$(z,H)$ and $P'$ realizes the cylinder fit of parameter $\theta^2$ for $u$ at
+$(z',H)$, both in the sense of \noderef{IsCylinderFit}. Then
+\[
+  |P-P'|+|n-n'|\le C\theta,\qquad
+  \bigl||P|-|P'|\bigr|\le C\theta^2 .
+\]
+\end{lemma}
+\begin{proof}
+All cylinders below are those of \noderef{FitCylinder}, with transverse radius
+$\theta R$ at axial radius $R$, since $\theta>0$. Write
+$\mathcal C=Z_{\theta^2}(z,H;P)$ and $\mathcal C'=Z_{\theta^2}(z',H;P')$.
+
+\emph{Step 1: $\overline B_{\theta H/2}(z')\subseteq\mathcal C\cap\mathcal C'$.}
+Let $|h|\le\theta H/2$ and put $Z=z'+h$. For $\mathcal C'$ the axial component
+is $|h\cdot n'|\le|h|\le\theta H/2\le H$ (using $\theta<1$) and the transverse
+component has length at most $|h|\le\theta H/2\le\theta H$; so
+$Z\in\mathcal C'$. For $\mathcal C$, write $w=z'-z$ and decompose
+$Z-z=w+h$. Its axial component satisfies
+\[
+  |(w+h)\cdot n|\le|w\cdot n|+|h|\le\frac H4+\frac{\theta H}2\le H,
+\]
+and, since orthogonal projection onto the orthogonal complement of $n$ is a
+contraction and is linear, its transverse component has length at most
+\[
+  \bigl|w-(w\cdot n)n\bigr|+|h|\le\frac{\theta H}4+\frac{\theta H}2\le\theta H .
+\]
+So $Z\in\mathcal C$ as well. In particular $z'\in\mathcal C$, by taking $h=0$.
+
+\emph{Step 2: the vector bound.}
+By \noderef{IsCylinderFit} the first fit gives
+$|u(Z)-u(z)-P\cdot(Z-z)|\le\theta^2H$ for $Z\in\mathcal C$. Applying this at
+$Z=z'+h$ and at $Z=z'$ (both in $\mathcal C$ by Step 1) and subtracting gives,
+for $|h|\le\theta H/2$,
+\[
+  |u(z'+h)-u(z')-P\cdot h|\le2\theta^2H .
+\]
+The second fit gives directly $|u(z'+h)-u(z')-P'\cdot h|\le\theta^2H$.
+Subtracting, $|(P-P')\cdot h|\le3\theta^2H$ for all $|h|\le\theta H/2$. If
+$P\ne P'$, take $h=(\theta H/2)(P-P')/|P-P'|$ to get
+\begin{equation}\label{eq:ccsh-vector}
+  |P-P'|\le6\theta,
+\end{equation}
+and the bound is trivial if $P=P'$. For nonzero vectors $a,b$ one has the
+elementary inequality
+\[
+  \left|\frac a{|a|}-\frac b{|b|}\right|
+   =\frac{\bigl|\,|b|a-|a|b\,\bigr|}{|a||b|}
+   \le\frac{\bigl|\,|b|(a-b)\,\bigr|+\bigl|(|b|-|a|)b\,\bigr|}{|a||b|}
+   \le\frac{2|a-b|}{|a|},
+\]
+using $\bigl||b|-|a|\bigr|\le|a-b|$. With $a=P$, $b=P'$ and $|P|\ge c_*$ this
+and \eqref{eq:ccsh-vector} give
+\begin{equation}\label{eq:ccsh-dir}
+  |n-n'|\le\frac{2|P-P'|}{c_*}\le\frac{12\theta}{c_*}.
+\end{equation}
+
+\emph{Step 3: a segment in both cylinders.}
+Put $\gamma=\min\{1/4,\ c_*/48\}$ and consider the points $z'+sn'$ for
+$|s|\le\gamma H$. In $\mathcal C'$ the axial component is $s$, with
+$|s|\le\gamma H\le H$, and the transverse component is $0$; so these points lie
+in $\mathcal C'$. In $\mathcal C$, with $w=z'-z$ as above, the increment from
+$z$ is $w+sn'$, whose axial component satisfies
+\[
+  |(w+sn')\cdot n|\le\frac H4+|s|\le\frac H4+\frac H4\le H,
+\]
+and whose transverse component has length at most
+\[
+  \bigl|w-(w\cdot n)n\bigr|+|s|\,\bigl|n'-(n'\cdot n)n\bigr|
+  \le\frac{\theta H}4+\gamma H|n-n'| ,
+\]
+because $n'-(n'\cdot n)n$ is the orthogonal projection of $n'-n$ onto the
+orthogonal complement of $n$, so its length is at most $|n-n'|$. By
+\eqref{eq:ccsh-dir},
+\[
+  \gamma H|n-n'|\le\frac{c_*}{48}\cdot\frac{12\theta H}{c_*}
+    =\frac{\theta H}4 ,
+\]
+so the transverse component has length at most $\theta H/2\le\theta H$. Hence
+$z'+sn'\in\mathcal C$ for $|s|\le\gamma H$.
+
+\emph{Step 4: the axial component of the slope difference.}
+Repeating the subtraction of Step 2 at the points $Z=z'+sn'$, which lie in both
+cylinders by Step 3, gives for $|s|\le\gamma H$
+\[
+  |s|\,\bigl|(P-P')\cdot n'\bigr|=\bigl|(P-P')\cdot(sn')\bigr|\le3\theta^2H .
+\]
+Taking $s=\gamma H$,
+\begin{equation}\label{eq:ccsh-axial}
+  \bigl|(P-P')\cdot n'\bigr|\le\frac{3\theta^2}{\gamma}.
+\end{equation}
+
+\emph{Step 5: the norm bound.}
+Since $P'\cdot n'=|P'|$ and $P\cdot n'=|P|(n\cdot n')$,
+\[
+  |P'|-|P|=(P'-P)\cdot n'+|P|(n\cdot n')-|P|
+    =(P'-P)\cdot n'-|P|\bigl(1-n\cdot n'\bigr),
+\]
+and $1-n\cdot n'=|n-n'|^2/2$ because $|n|=|n'|=1$. Hence, by
+\eqref{eq:ccsh-axial}, \eqref{eq:ccsh-dir} and $|P|\le C_*$,
+\[
+  \bigl||P|-|P'|\bigr|
+   \le\frac{3\theta^2}{\gamma}+C_*\frac{|n-n'|^2}2
+   \le\left(\frac3\gamma+\frac{72C_*}{c_*^2}\right)\theta^2 .
+\]
+Taking $C=\max\{6+12/c_*,\ 3/\gamma+72C_*/c_*^2\}$, which depends only on $c_*$
+and $C_*$ and is positive, gives both asserted bounds.
+\end{proof}

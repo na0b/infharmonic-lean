@@ -1,0 +1,114 @@
+\begin{lemma}[A lower bound for $J_\epsilon$ on a box, and the continuity of its time retract]
+Let $F$ be a finite-dimensional real inner-product space, let $1\le C_0<\infty$
+and $\kappa\in\R$, and let $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass} be centered at $(0,1)$ with constant $C_0$ in the sense of
+\noderef{IsCenteredAt}. Let $W$ be the contact envelope of \noderef{ContactEnv}
+formed from $v$ and $\kappa$, and assume that $W$ is continuous on
+$\{(x,t):t>0\}$ and has subquadratic spatial growth on compact subintervals of
+$(0,\infty)$ in the sense of \noderef{SubquadraticGrowth}. Write $J_\epsilon$
+for the quantity of \noderef{JGap}, formed from this $v$ and $\kappa$. Finally
+let $R_b,T_b,\delta,\epsilon$ be real numbers with
+\[
+  0\le R_b,\qquad 0\le T_b,\qquad 0<\delta\le\tfrac12,\qquad
+  0<\epsilon\le\tfrac\delta4 .
+\]
+Then there is a constant $\Lambda_0\ge0$ such that
+\begin{enumerate}
+\item[(i)] $J_\epsilon(w)\ge-\Lambda_0$ for every $w=(y,s)$ with $|y|\le R_b$
+and $\delta-\epsilon\le s\le T_b+\epsilon$; and
+\item[(ii)] the retracted gap
+\[
+  w=(y,s)\ \longmapsto\ J_\epsilon\bigl(y,\max\{s,\delta/2\}\bigr)
+\]
+is continuous on all of space-time.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\emph{The box.} Put $J=[\delta/2,\,T_b+1]$, a compact subset of $(0,\infty)$
+--- note $\delta/2>0$ --- and
+$\mathcal B=\{(y,s):|y|\le R_b,\ s\in J\}$, a compact set, being the image of
+the product of a closed ball of $F$ and $J$ under the (continuous)
+identification of $F\times\R$ with space-time. The ball is compact because $F$
+is finite-dimensional.
+
+Let $w=(y,s)$ be as in (i). Then
+\[
+  s\ \ge\ \delta-\epsilon\ \ge\ \delta-\frac\delta4\ =\ \frac{3\delta}{4}\ >\ 0 ,
+\]
+using $\epsilon\le\delta/4$ and $\delta>0$; so the time coordinate of $w$ is
+positive. Moreover both shifted times lie in $J$:
+\[
+  s+\epsilon\ \ge\ \delta\ \ge\ \frac\delta2,
+  \qquad
+  s+\epsilon\ \le\ T_b+2\epsilon\ \le\ T_b+\frac\delta2\ \le\ T_b+1 ,
+\]
+the first line from $\delta-\epsilon\le s$ and $\delta>0$, the second from
+$s\le T_b+\epsilon$, $2\epsilon\le\delta/2$ and $\delta\le1/2$; and
+\[
+  s-\epsilon\ \ge\ \delta-2\epsilon\ \ge\ \frac\delta2,
+  \qquad
+  s-\epsilon\ \le\ T_b\ \le\ T_b+1 ,
+\]
+again from $\epsilon\le\delta/4$ and from $s\le T_b+\epsilon$. So the two
+evaluation points $(y,s+\epsilon)$ and $(y,s-\epsilon)$ lie in $\mathcal B$.
+
+\emph{The constant.} The function $W$ is continuous on $\mathcal B$ by
+hypothesis, every point of that set having positive time coordinate, and $v$ is
+continuous on all of space-time by \noderef{IsFitClass}; a continuous function
+on a compact set is bounded, so there are $K_W,K_v$ with $|W|\le K_W$ and
+$|v|\le K_v$ on $\mathcal B$. Both are nonnegative, because $\mathcal B$ is not
+empty: it contains the point $(0,\delta/2)$, as $|0|=0\le R_b$ and
+$\delta/2\in J$ --- the latter because $\delta/2\le1/4\le T_b+1$, using
+$\delta\le1/2$ and $T_b\ge0$. Put
+\[
+  \Lambda_0=\frac{K_W+K_v}{2\epsilon}\ \ge\ 0 ,
+\]
+nonnegative since $K_W+K_v\ge0$ and $\epsilon>0$.
+
+\emph{(i) The lower bound.} Let $w=(y,s)$ be as in (i). By the domination half
+of part (1) of \noderef{EnvelopeCompetitorBounds} for $W$ with $I=(0,\infty)$,
+at the center $w$ and the length $\epsilon$ --- admissible because $s>0$ and
+$s+\epsilon>0$, its continuity and growth hypotheses being the standing ones
+for $W$ --- the competitor $y'=y$ gives
+\[
+  W(y,s+\epsilon)\ \le\ \Penv_\epsilon W(w),
+\]
+the quadratic penalty $|y'-y|^2/(2\epsilon)$ vanishing at $y'=y$. By the
+domination half of part (2) of \noderef{EnvelopeCompetitorBounds} for $v$ with
+$I=\R$ --- admissible, the two time conditions being vacuous, with the
+continuity of $v$ from \noderef{IsFitClass} and its subquadratic spatial growth
+on compact time intervals of $\R$ from \noderef{UniformSubquadratic} applied
+with the centering point $(0,1)$, which is where the fit class and the
+centering hypothesis are used --- the same competitor gives
+\[
+  \Menv_\epsilon v(w)\ \le\ v(y,s-\epsilon).
+\]
+Hence, by \noderef{JGap} and $\epsilon>0$,
+\[
+  J_\epsilon(w)=\frac{\Penv_\epsilon W(w)-\Menv_\epsilon v(w)}{2\epsilon}
+   \ \ge\ \frac{W(y,s+\epsilon)-v(y,s-\epsilon)}{2\epsilon}
+   \ \ge\ \frac{-K_W-K_v}{2\epsilon}
+   \ =\ -\Lambda_0 ,
+\]
+the last inequality because both evaluation points lie in $\mathcal B$, so
+$W(y,s+\epsilon)\ge-K_W$ and $v(y,s-\epsilon)\le K_v$. This is (i).
+
+\emph{(ii) The retract is continuous.} By parts (3) and (4) of
+\noderef{QuadEnvAttained}, applied to $W$ with $I=(0,\infty)$ --- an open set,
+with the standing continuity and growth hypotheses --- and to $v$ with $I=\R$
+--- where the admissibility conditions are vacuous, the continuity and growth
+of $v$ being as in the previous paragraph --- the maps
+$w\mapsto\Penv_\epsilon W(w)$ and $w\mapsto\Menv_\epsilon v(w)$ are continuous
+at every $w$ whose time coordinate is positive. By \noderef{JGap}, $J_\epsilon$
+is the difference of these two divided by the constant $2\epsilon$, so
+$J_\epsilon$ is continuous at every such $w$.
+
+Let $\rho(y,s)=(y,\max\{s,\delta/2\})$. It is continuous, being built from the
+two coordinate projections of space-time --- continuous for the $\ell^2$ norm
+--- the continuous map $r\mapsto\max\{r,\delta/2\}$ and the identification of
+$F\times\R$ with space-time. Every value of $\rho$ has time coordinate
+$\max\{s,\delta/2\}\ge\delta/2>0$. So at an arbitrary point $w$ of space-time,
+$J_\epsilon$ is continuous at $\rho(w)$ by the previous paragraph and $\rho$ is
+continuous at $w$, whence $J_\epsilon\circ\rho$ is continuous at $w$. As $w$ was
+arbitrary, $J_\epsilon\circ\rho$ is continuous, which is (ii).
+\end{proof}

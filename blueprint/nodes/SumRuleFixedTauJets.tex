@@ -1,0 +1,199 @@
+\begin{lemma}[The theorem of sums for the regularized form, with a regularization-free bound]
+Let $E$ be a finite-dimensional real inner-product space equipped with its Borel
+$\sigma$-algebra, let $N\ge1$ and write $V=\ell^2\bigl(\bigoplus_{j=1}^NE\bigr)$
+for the $\ell^2$-product of $N$ copies of $E$, whose elements are written
+$Y=(y_j)_{j=1}^N$ and whose norm satisfies $|Y|^2=\sum_j|y_j|^2$. For each $j$
+let $O_j\subseteq E$ be open and let $g_j:E\to\R$ be continuous on $O_j$. Let
+$\Psi:V\to\R$, let $\widehat Z\in V$ with $\widehat z_j\in O_j$ for every $j$,
+assume that $\Psi$ is $C^2$ near $\widehat Z$ and that
+$Y\mapsto\sum_jg_j(y_j)-\Psi(Y)$ has a local maximum at $\widehat Z$. Set
+$A=D^2\Psi(\widehat Z)$ and $\widehat p_j=D_j\Psi(\widehat Z)$, let
+$\bar A:V\to V$ be the self-adjoint operator with
+$\langle\bar A\xi,\zeta\rangle=A(\xi,\zeta)$, and let $\eta>0$. Then there is a
+constant $\Lambda\ge0$ such that for every $\tau\in(0,1]$ there are symmetric
+continuous bilinear forms $X_j^\tau$ on $E$ $(1\le j\le N)$ with
+\begin{enumerate}
+\item[(T1)] $\|X_j^\tau\|\le\Lambda$ for every $j$, with $\Lambda$ independent
+  of $\tau$;
+\item[(T2)] $\bigl(\widehat p_j,X_j^\tau\bigr)
+  \in\overline J^{2,+}g_j(\widehat z_j)$ for every $j$, where
+  $\overline J^{2,+}$ is the closed superjet of \noderef{ClosedSuperjet};
+\item[(T3)] writing $B_\tau=\bar A+\tau\,\mathrm{id}$,
+  \[
+    \sum_jX_j^\tau[\zeta_j]
+     \le\langle B_\tau\zeta,\zeta\rangle+\eta\,|B_\tau\zeta|^2
+     =A[\zeta]+\tau|\zeta|^2+\eta\,|B_\tau\zeta|^2\qquad(\zeta\in V),
+  \]
+  where $X[h]=X(h,h)$, $A[\zeta]=A(\zeta,\zeta)$ and $|B_\tau\zeta|$ is the
+  norm of the linear functional $\xi\mapsto A(\zeta,\xi)+\tau\langle\zeta,\xi\rangle$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+For $a\in E$ and $1\le j\le N$ let $\iota_ja\in V$ be the vector with $j$-th
+component $a$ and all other components $0$, so $|\iota_ja|=|a|$. Put
+\[
+  \widehat g_j(w)=g_j(\widehat z_j+w)-g_j(\widehat z_j)
+   -\langle\widehat p_j,w\rangle\qquad(w\in E),
+\]
+a function defined on all of $E$ with $\widehat g_j(0)=0$.
+
+\emph{Step 0: the constant $\Lambda$, chosen before $\tau$.}
+For $\tau\in(0,1]$ the operator $B_\tau=\bar A+\tau\,\mathrm{id}$ is
+self-adjoint with $\|B_\tau\|\le\|\bar A\|+\tau\le\|\bar A\|+1$. Put
+\[
+  \varepsilon(\tau)=\min\Bigl(\frac{\eta}{2},\
+    \frac1{2\|B_\tau\|+2}\Bigr)>0,
+  \qquad
+  \Lambda=\max\Bigl(\frac2\eta,\ 2\|\bar A\|+4\Bigr)+4\bigl(\|\bar A\|+1\bigr).
+\]
+Then $\Lambda\ge0$, and $\Lambda$ depends only on $\eta$ and $\|\bar A\|$, not on
+$\tau$. We record two consequences of the choice of $\varepsilon(\tau)$, writing
+$\varepsilon=\varepsilon(\tau)$ from now on:
+\begin{equation}\label{eq:srft-eps}
+  \varepsilon\|B_\tau\|\le\frac{\|B_\tau\|}{2\|B_\tau\|+2}\le\tfrac12,
+  \qquad
+  2\varepsilon\le\eta .
+\end{equation}
+Moreover $\varepsilon^{-1}=\max\bigl(2/\eta,\ 2\|B_\tau\|+2\bigr)
+\le\max\bigl(2/\eta,\ 2\|\bar A\|+4\bigr)$, so that
+\begin{equation}\label{eq:srft-Lambda}
+  \varepsilon^{-1}+2\cdot2\|B_\tau\|
+   \le\max\Bigl(\frac2\eta,\ 2\|\bar A\|+4\Bigr)+4\bigl(\|\bar A\|+1\bigr)
+   =\Lambda .
+\end{equation}
+
+Now fix $\tau\in(0,1]$.
+
+\emph{Step 1: the quadratic test.}
+By \noderef{SumRuleQuadraticTest}, applied with this $\tau$, there are $a>0$,
+$C\ge0$ and continuous functions $G_j:E\to\R$ with $G_j(w)\le C$ for all $w$,
+with $G_j(w)=\widehat g_j(w)-|w|^4$ for $|w|\le a$, and with
+\begin{equation}\label{eq:srft-G3}
+  \sum_jG_j(w_j)-\tfrac12\bigl(A[W]+\tau|W|^2\bigr)\le-\sum_j|w_j|^4
+  \qquad(W\ne0).
+\end{equation}
+Since $\langle B_\tau W,W\rangle=\langle\bar AW,W\rangle+\tau|W|^2
+=A[W]+\tau|W|^2$, the inequality \eqref{eq:srft-G3} is exactly
+$\sum_jG_j(w_j)-\tfrac12\langle B_\tau W,W\rangle\le-\sum_j|w_j|^4$ for
+$W\ne0$. Taking $w=0$ in the identity $G_j(w)=\widehat g_j(w)-|w|^4$ (legitimate
+since $|0|=0\le a$) gives $G_j(0)=\widehat g_j(0)-0=0$.
+
+\emph{Step 2: the resolvent.}
+By \eqref{eq:srft-eps} we have $\varepsilon>0$ and
+$\varepsilon\|B_\tau\|\le\tfrac12$, so \noderef{SumRuleResolvent}, applied in
+$V$ to the self-adjoint operator $B_\tau$ with this $\varepsilon$, supplies a
+self-adjoint continuous linear operator $A_\varepsilon:V\to V$ with the
+properties (R1)--(R6) listed there; in particular
+\begin{equation}\label{eq:srft-R}
+  \|A_\varepsilon\|\le2\|B_\tau\|,
+  \qquad
+  \langle A_\varepsilon\zeta,\zeta\rangle
+   \le\langle B_\tau\zeta,\zeta\rangle+\eta|B_\tau\zeta|^2\quad(\zeta\in V),
+\end{equation}
+the second inequality being (R6) with the present $\eta$, which is admissible
+because $2\varepsilon\le\eta$ by \eqref{eq:srft-eps}.
+
+\emph{Step 3: the duality test.}
+The data assembled so far --- the continuous $G_j$ with $G_j\le C$, $C\ge0$ and
+$G_j(0)=0$; the self-adjoint $B_\tau$ and $A_\varepsilon$; the parameter
+$\varepsilon>0$; the identities (R2), (R3) and the positivity (R4) from Step 2;
+and the strict inequality \eqref{eq:srft-G3} in the form of Step 1 --- are
+exactly the hypotheses of \noderef{SumRuleDualityTest}. That lemma gives the
+separability identity $\mathcal G^\varepsilon(Z)=\sum_jG_j^\varepsilon(z_j)$ for
+$\mathcal G(W)=\sum_jG_j(w_j)$, and shows that
+$\Upsilon(Z)=\mathcal G^\varepsilon(Z)
+-\tfrac12\langle A_\varepsilon Z,Z\rangle$ satisfies $\Upsilon(0)=0$,
+$\Upsilon(Z)<0$ for $Z\ne0$, is $\lambda$-semiconvex on $V$ with
+$\lambda=\varepsilon^{-1}+\|A_\varepsilon\|$ in the sense of
+\noderef{SemiconvexOn}, and is continuous.
+
+\emph{Step 4: jets at shrinking scales.}
+Fix $k\ge1$ and apply \noderef{SumRuleJetFromJensen} with the above
+$G_j,C,\varepsilon,A_\varepsilon,\Upsilon$ and with $R=\delta'=1/k$. It produces
+$\widehat Z'^{(k)}\in V$, $\Pi^{(k)}\in V$ and symmetric continuous bilinear
+forms $X_j^{(k)}$ on $E$ with
+\begin{align}
+  \bigl|\widehat Z'^{(k)}\bigr|<\tfrac1k,
+  &\qquad
+  \bigl|\Pi^{(k)}\bigr|\le\tfrac1k+\|A_\varepsilon\|\tfrac1k
+   =\frac{1+\|A_\varepsilon\|}{k},\label{eq:srft-small}\\
+  \bigl\|X_j^{(k)}\bigr\|&\le\varepsilon^{-1}+2\|A_\varepsilon\|,
+    \label{eq:srft-norm}\\
+  \bigl(\Pi_j^{(k)},X_j^{(k)}\bigr)
+   &\in J^{2,+}G_j\bigl(\widehat z'^{(k)}_j
+     +\varepsilon\Pi_j^{(k)}\bigr),\label{eq:srft-jet}\\
+  \sum_jX_j^{(k)}[\zeta_j]
+   &\le\langle A_\varepsilon\zeta,\zeta\rangle\qquad(\zeta\in V).
+    \label{eq:srft-form}
+\end{align}
+By \eqref{eq:srft-norm}, \eqref{eq:srft-R} and \eqref{eq:srft-Lambda},
+\begin{equation}\label{eq:srft-unif}
+  \bigl\|X_j^{(k)}\bigr\|\le\varepsilon^{-1}+2\|A_\varepsilon\|
+   \le\varepsilon^{-1}+4\|B_\tau\|\le\Lambda
+  \qquad(k\ge1,\ 1\le j\le N),
+\end{equation}
+a bound independent of both $k$ and $\tau$.
+
+\emph{Step 5: the limit $k\to\infty$.}
+By \eqref{eq:srft-unif} and \noderef{BilinearFormBolzanoWeierstrass} there are
+continuous bilinear forms $X_j^\tau$ on $E$ and a strictly increasing
+$\varphi:\N\to\N$ with $X_j^{(\varphi(k))}\to X_j^\tau$ for every $j$.
+
+Each $X_j^\tau$ is symmetric: evaluation at a fixed pair of vectors is a
+continuous linear functional on the space of continuous bilinear forms, so for
+fixed $a,b\in E$ the real sequences $X_j^{(\varphi(k))}(a,b)$ and
+$X_j^{(\varphi(k))}(b,a)$ converge to $X_j^\tau(a,b)$ and $X_j^\tau(b,a)$
+respectively; these two sequences are equal term by term because each
+$X_j^{(\varphi(k))}$ is symmetric, so their limits agree. Since the norm is
+continuous, \eqref{eq:srft-unif} likewise passes to the limit and gives (T1):
+$\|X_j^\tau\|\le\Lambda$.
+
+Fix $\zeta\in V$. Evaluation at $(\zeta_j,\zeta_j)$ is continuous, so
+$\sum_jX_j^{(\varphi(k))}[\zeta_j]\to\sum_jX_j^\tau[\zeta_j]$; passing to the
+limit in \eqref{eq:srft-form} along the subsequence gives
+\begin{equation}\label{eq:srft-limitform}
+  \sum_jX_j^\tau[\zeta_j]\le\langle A_\varepsilon\zeta,\zeta\rangle
+  \qquad(\zeta\in V).
+\end{equation}
+
+Next, put $z_k=\widehat z'^{(\varphi(k))}_j+\varepsilon\Pi_j^{(\varphi(k))}$,
+$p_k=\Pi_j^{(\varphi(k))}$ and $\Xi_k=X_j^{(\varphi(k))}$ for a fixed $j$. From
+\eqref{eq:srft-small} and $\varphi(k)\ge k$ we get
+$\bigl|\widehat z'^{(\varphi(k))}_j\bigr|
+\le\bigl|\widehat Z'^{(\varphi(k))}\bigr|<1/\varphi(k)\le1/k$ and
+$|p_k|\le\bigl|\Pi^{(\varphi(k))}\bigr|\le(1+\|A_\varepsilon\|)/k$, so
+$p_k\to0$ and $z_k\to0$. By \eqref{eq:srft-jet},
+$(p_k,\Xi_k)\in J^{2,+}G_j(z_k)$; by continuity of $G_j$, $G_j(z_k)\to G_j(0)$;
+and $\Xi_k\to X_j^\tau$. These are exactly the four requirements of
+\noderef{ClosedSuperjet}, so
+\begin{equation}\label{eq:srft-closed}
+  \bigl(0,X_j^\tau\bigr)\in\overline J^{2,+}G_j(0)\qquad(1\le j\le N).
+\end{equation}
+
+\emph{Step 6: back to $g_j$.}
+By Step 1, $G_j(w)=\widehat g_j(w)-|w|^4$ whenever $|w|\le a$, so in particular
+the two functions $G_j$ and $\widehat g_j-|\cdot|^4$ agree on the ball
+$\{|w|<a\}$ with $a>0$. By \noderef{ClosedSuperjetLocal},
+$\overline J^{2,+}G_j(0)=\overline J^{2,+}\bigl(\widehat g_j-|\cdot|^4\bigr)(0)$,
+and by \noderef{ClosedSuperjetQuartic} the latter equals
+$\overline J^{2,+}\widehat g_j(0)$. Hence \eqref{eq:srft-closed} gives
+$\bigl(0,X_j^\tau\bigr)\in\overline J^{2,+}\widehat g_j(0)$. Applying
+\noderef{ClosedSuperjetAffineShift} with $z=\widehat z_j$, $p=\widehat p_j$,
+$q=0$ and $X=X_j^\tau$ --- so that the normalized function there is exactly
+$\widehat g_j$ --- converts this into
+\[
+  \bigl(\widehat p_j,X_j^\tau\bigr)\in\overline J^{2,+}g_j(\widehat z_j),
+\]
+which is (T2).
+
+\emph{Step 7: the matrix inequality for $B_\tau$.}
+Combining \eqref{eq:srft-limitform} with the second inequality of
+\eqref{eq:srft-R} gives, for every $\zeta\in V$,
+\[
+  \sum_jX_j^\tau[\zeta_j]\le\langle A_\varepsilon\zeta,\zeta\rangle
+   \le\langle B_\tau\zeta,\zeta\rangle+\eta|B_\tau\zeta|^2
+   =A[\zeta]+\tau|\zeta|^2+\eta|B_\tau\zeta|^2,
+\]
+which is (T3). As $\tau\in(0,1]$ was arbitrary and $\Lambda$ was fixed in
+Step 0 before $\tau$, the proof is complete.
+\end{proof}

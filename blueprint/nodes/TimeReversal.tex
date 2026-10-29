@@ -1,0 +1,116 @@
+\begin{lemma}[Time reversal]
+Let $F$ be a finite-dimensional real inner-product space, let $C_0\in\R$ and let
+$f$ be a real function on the space-time $\ell^2(F\times\R)$. Let
+$\widetilde f$ be its time reversal of \noderef{TimeFlip}, and for a space-time
+point $z=(x,t)$ write $\widetilde z=(x,-t)$. Then:
+\begin{enumerate}
+\item for every $\Omega$, if $f$ is a viscosity subsolution of $F[f]=0$ on
+$\Omega$ in the sense of \noderef{IsLimitSubOn}, then $\widetilde f$ is a
+viscosity supersolution of $F[\widetilde f]=0$ on
+$\widetilde\Omega=\{z:\widetilde z\in\Omega\}$ in the sense of
+\noderef{IsLimitSuperOn}, and conversely with sub- and supersolutions
+exchanged;
+\item for every $\ell$ and every $z$,
+\[
+  \Penv_\ell\widetilde f(z)=-\Menv_\ell f(\widetilde z),
+  \qquad
+  \Menv_\ell\widetilde f(z)=-\Penv_\ell f(\widetilde z),
+\]
+with the envelopes of \noderef{QuadEnvP} and \noderef{QuadEnvM};
+\item if $(p,a)$ is a fit for $f$ at $z$ of radius $R$ with constant $C_0$ in the
+sense of \noderef{IsFit}, then $(-p,a)$ is a fit for $\widetilde f$ at
+$\widetilde z$ of radius $R$ with the same constant; consequently if
+$f\in\Aclass_{m,C_0}$ in the sense of \noderef{IsFitClass} then
+$\widetilde f\in\Aclass_{m,C_0}$;
+\item for every $\kappa$, the function $\widetilde f$ satisfies the horizontal
+Jensen bound with constant $\kappa$ on all times, in the sense of
+\noderef{HasJensenBound}, if and only if
+\[
+  f(x,t)-\sum_i\theta_if(y_i,t)\le\kappa r
+\]
+for every time $t$ and every finite horizontal probability configuration
+$(\theta,y)$ with mean $x$ and radius $r$, in the senses of
+\noderef{IsBaryConfig} and \noderef{BaryRadius}. Thus time reversal changes the
+sign of a horizontal Jensen defect.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Let $\Pi(x,t)=(x,-t)$, an involutive linear isometry of space-time with
+$\Pi^{-1}=\Pi$, so $\widetilde f=-f\circ\Pi$ and
+$\widetilde\Omega=\Pi^{-1}(\Omega)$ is open whenever $\Omega$ is.
+
+\emph{(1).} Let $\phi$ be $C^2$ near $z\in\widetilde\Omega$ with
+$w\mapsto\widetilde f(w)-\phi(w)$ having a local minimum on $\widetilde\Omega$ at
+$z$. Put $\psi=-\phi\circ\Pi$, which is $C^2$ near $\Pi z\in\Omega$. For
+$w'\in\Omega$ near $\Pi z$ we have $\Pi w'\in\widetilde\Omega$ near $z$ and
+\[
+  f(w')-\psi(w')=-\bigl(\widetilde f(\Pi w')-\phi(\Pi w')\bigr)
+    \le-\bigl(\widetilde f(z)-\phi(z)\bigr)=f(\Pi z)-\psi(\Pi z),
+\]
+so $f-\psi$ has a local maximum on $\Omega$ at $\Pi z$, and
+\noderef{IsLimitSubOn} gives $F[\psi](\Pi z)\ge0$.
+
+Now compute $F[\psi]$ at $\Pi z$ in terms of $F[\phi]$ at $z$. Since $\Pi$ is
+linear with $\Pi^2=\mathrm{Id}$ and $\psi=-\phi\circ\Pi$, the chain rule gives
+$\nabla\psi(\Pi z)=-\Pi\,\nabla\phi(z)$ and
+$D^2\psi(\Pi z)[\xi]=-D^2\phi(z)[\Pi\xi]$ for every $\xi$. Writing
+$\nabla\phi(z)=(\nabla_x\phi,\phi_t)$ we get
+$\nabla\psi(\Pi z)=(-\nabla_x\phi,\phi_t)$, so its spatial part is
+$-\nabla_x\phi$ and
+\[
+  F[\psi](\Pi z)=D^2\psi(\Pi z)\bigl[(-\nabla_x\phi,1)\bigr]
+   =-D^2\phi(z)\bigl[\Pi(-\nabla_x\phi,1)\bigr]
+   =-D^2\phi(z)\bigl[(-\nabla_x\phi,-1)\bigr]
+   =-F[\phi](z),
+\]
+the last step because $A[-\xi]=A[\xi]$ for a bilinear form $A$. Hence
+$F[\phi](z)\le0$, which is the supersolution inequality for $\widetilde f$ at
+$z$. Continuity of $\widetilde f$ on $\widetilde\Omega$ follows from continuity
+of $f$ on $\Omega$. The converse implication is the same computation with maxima
+and minima exchanged.
+
+\emph{(2).} Fix $\ell$ and $z=(x,t)$. By \noderef{TimeFlip} and
+\noderef{QuadEnvP},
+\[
+  \Penv_\ell\widetilde f(x,t)
+   =\sup_y\left\{-f(y,-t-\ell)-\frac{|y-x|^2}{2\ell}\right\}
+   =-\inf_y\left\{f(y,-t-\ell)+\frac{|y-x|^2}{2\ell}\right\}
+   =-\Menv_\ell f(x,-t),
+\]
+using $\sup(-A)=-\inf A$ for a set $A$ of reals, and the time argument
+$(-t)-\ell$ in \noderef{QuadEnvM} at the point $\widetilde z=(x,-t)$. The second
+identity is the same computation with the roles of $\sup$ and $\inf$ exchanged.
+
+\emph{(3).} Let $(p,a)$ be a fit for $f$ at $z=(x,t)$ of radius $R$. Let $h\in F$
+and $\ell\in\R$ with $|\ell|\le R$ and $|h-\ell(-p)|\le R$. Apply
+\noderef{IsFit} for $f$ with the increment $(h,-\ell)$: the conditions
+$|-\ell|\le R$ and $|h-(-\ell)p|\le R$ hold, so
+\[
+  \Bigl|f(x+h,t-\ell)-f(x,t)-p\cdot h-\Bigl(a-\frac{|p|^2}2\Bigr)(-\ell)\Bigr|
+   \le C_0R .
+\]
+Multiplying by $-1$ inside the absolute value and using
+$\widetilde f(x+h,-t+\ell)=-f(x+h,t-\ell)$, $\widetilde f(\widetilde z)=-f(z)$
+and $|-p|=|p|$,
+\[
+  \Bigl|\widetilde f\bigl(\widetilde z+(h,\ell)\bigr)-\widetilde f(\widetilde z)
+    -(-p)\cdot h-\Bigl(a-\frac{|-p|^2}2\Bigr)\ell\Bigr|\le C_0R,
+\]
+which is \noderef{IsFit} for $\widetilde f$ at $\widetilde z$ of radius $R$ with
+parameters $(-p,a)$. If $f\in\Aclass_{m,C_0}$, then by part (1) applied with
+$\Omega$ the whole space (whose reflection is the whole space) $\widetilde f$ is
+a viscosity solution everywhere, and the fit just constructed exists at every
+center and radius because $z\mapsto\widetilde z$ is a bijection; so
+$\widetilde f\in\Aclass_{m,C_0}$ by \noderef{IsFitClass}.
+
+\emph{(4).} Fix $\kappa$. By \noderef{TimeFlip}, for a configuration
+$(\theta,y)$ with mean $x$ and any time $t$,
+\[
+  \sum_i\theta_i\widetilde f(y_i,t)-\widetilde f(x,t)
+   =f(x,-t)-\sum_i\theta_if(y_i,-t).
+\]
+Since $t\mapsto-t$ is a bijection of $\R$ and the radius of
+\noderef{BaryRadius} does not involve $t$, the condition of
+\noderef{HasJensenBound} for $\widetilde f$ with $I=\R$ is equivalent to the
+displayed reversed-defect inequality for $f$ at every time and configuration.
+\end{proof}

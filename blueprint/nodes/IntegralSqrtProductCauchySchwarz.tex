@@ -1,0 +1,111 @@
+\begin{lemma}[Cauchy--Schwarz for the integral of a product of square roots]
+Let $\Omega$ be a measurable space, let $\mu$ be a measure on $\Omega$, and let
+$f,g:\Omega\to\R$ satisfy $f(\omega)\ge0$ and $g(\omega)\ge0$ for every
+$\omega\in\Omega$. Assume that $f$ and $g$ are both $\mu$-integrable. Then the
+function $\omega\mapsto\sqrt{f(\omega)}\,\sqrt{g(\omega)}$ is $\mu$-integrable
+and
+\begin{equation}\label{eq:iscs-bound}
+  \int\sqrt{f(\omega)}\,\sqrt{g(\omega)}\,d\mu(\omega)
+   \le\sqrt{\int f\,d\mu}\;\sqrt{\int g\,d\mu}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+\emph{Step 1: a pointwise bound with a free parameter.}
+We claim that for every real $l>0$ and every $\omega\in\Omega$,
+\begin{equation}\label{eq:iscs-pt}
+  \sqrt{f(\omega)}\,\sqrt{g(\omega)}
+   \le\frac{l\,f(\omega)+g(\omega)/l}{2}.
+\end{equation}
+Fix $l>0$ and $\omega$, and put $a=\sqrt{f(\omega)}$ and $b=\sqrt{g(\omega)}$.
+Then $a\ge0$ and $b\ge0$, and since $f(\omega)\ge0$ and $g(\omega)\ge0$ we have
+$a^2=f(\omega)$ and $b^2=g(\omega)$. Expanding the inequality
+$0\le(l\,a-b)^2=l^2a^2-2l\,ab+b^2$ gives
+\[
+  2l\,ab\le l^2a^2+b^2=l^2f(\omega)+g(\omega).
+\]
+Since $l\ne0$ we have $\bigl(g(\omega)/l\bigr)\cdot l=g(\omega)$, so dividing
+the last inequality by $2l>0$ gives
+$ab\le\bigl(l\,f(\omega)+g(\omega)/l\bigr)/2$, which is \eqref{eq:iscs-pt}.
+
+\emph{Step 2: integrability of the product.}
+Taking $l=1$ in \eqref{eq:iscs-pt} gives the pointwise domination
+\[
+  0\le\sqrt{f(\omega)}\,\sqrt{g(\omega)}
+   \le\frac{1\cdot f(\omega)+g(\omega)/1}{2}
+   \qquad(\omega\in\Omega),
+\]
+the left inequality because square roots are nonnegative. The dominating
+function $\bigl(1\cdot f+g/1\bigr)/2$ is $\mu$-integrable, being a constant
+multiple of the sum of the constant multiple $1\cdot f$ of the integrable $f$
+and the constant multiple $g/1$ of the integrable $g$. Moreover
+$\omega\mapsto\sqrt{f(\omega)}\,\sqrt{g(\omega)}$ is $\mu$-almost-everywhere
+strongly measurable: $f$ and $g$ are, being integrable; the square root is
+continuous on $\R$, so composing it with each of them preserves almost-everywhere
+strong measurability; and the product of two such functions is again one. A
+$\mu$-almost-everywhere strongly measurable function whose norm is dominated
+pointwise by an integrable function is integrable, and here the norm
+$\bigl|\sqrt{f(\omega)}\sqrt{g(\omega)}\bigr|$ equals
+$\sqrt{f(\omega)}\sqrt{g(\omega)}$ itself because that quantity is nonnegative.
+Hence $\sqrt f\,\sqrt g$ is $\mu$-integrable, which is the first assertion.
+
+\emph{Step 3: integrating the parametric bound.}
+Write
+\[
+  A=\int f\,d\mu,\qquad B=\int g\,d\mu .
+\]
+Monotonicity of the integral applied to $f\ge0$ and to $g\ge0$ gives $A\ge0$ and
+$B\ge0$. Fix $l>0$. Both sides of \eqref{eq:iscs-pt} are $\mu$-integrable --- the
+left-hand side by Step 2, the right-hand side because $l\,f$ and $g/l$ are
+constant multiples of integrable functions --- so monotonicity of the integral
+and then its linearity give
+\begin{equation}\label{eq:iscs-par}
+  \int\sqrt{f}\,\sqrt{g}\,d\mu
+   \le\int\frac{l\,f+g/l}{2}\,d\mu
+   =\frac{l\,A+B/l}{2}
+  \qquad(l>0).
+\end{equation}
+
+\emph{Step 4: optimizing in $l$.}
+We distinguish three cases according to the signs of $A$ and $B$.
+
+\emph{Case $A=0$.} Here $\sqrt A\,\sqrt B=0$, so \eqref{eq:iscs-bound} asserts
+$\int\sqrt f\sqrt g\,d\mu\le0$. It suffices to prove
+$\int\sqrt f\sqrt g\,d\mu\le0+\delta$ for every $\delta>0$. Given $\delta>0$,
+set $l=(B+1)/\delta$, which is positive because $B\ge0$ and $\delta>0$. Then
+\[
+  \frac{B/l}{2}=\frac{B\,\delta}{(B+1)\cdot2},
+\]
+and this is at most $\delta$: the inequality
+$B\,\delta\le\delta\,(B+1)\cdot 2$ holds because $B\ge0$ and $\delta>0$, and
+$(B+1)\cdot2>0$. With $A=0$, \eqref{eq:iscs-par} for this $l$ reads
+$\int\sqrt f\sqrt g\,d\mu\le(l\cdot0+B/l)/2=(B/l)/2\le\delta$. As $\delta>0$ was
+arbitrary, $\int\sqrt f\sqrt g\,d\mu\le0=\sqrt A\,\sqrt B$.
+
+\emph{Case $A>0$ and $B=0$.} Here again $\sqrt A\,\sqrt B=0$, and we argue
+symmetrically. Given $\delta>0$, set $l=\delta/(A+1)>0$. Then
+\[
+  \frac{l\,A}{2}=\frac{\delta\,A}{(A+1)\cdot2}\le\delta ,
+\]
+because $\delta A\le\delta(A+1)\cdot2$ (as $A>0$ and $\delta>0$) and
+$(A+1)\cdot2>0$. With $B=0$, \eqref{eq:iscs-par} for this $l$ reads
+$\int\sqrt f\sqrt g\,d\mu\le(l\,A+0)/2\le\delta$, and letting $\delta\downarrow0$
+gives $\int\sqrt f\sqrt g\,d\mu\le0=\sqrt A\,\sqrt B$.
+
+\emph{Case $A>0$ and $B>0$.} Then $\sqrt A>0$ and $\sqrt B>0$, so
+$l=\sqrt B/\sqrt A$ is a legitimate positive choice in \eqref{eq:iscs-par}.
+Using $\sqrt A\cdot\sqrt A=A$ and $\sqrt B\cdot\sqrt B=B$, which hold because
+$A\ge0$ and $B\ge0$,
+\[
+  l\,A=\frac{\sqrt B}{\sqrt A}\,A=\sqrt A\,\sqrt B,
+  \qquad
+  \frac{B}{l}=\frac{B\,\sqrt A}{\sqrt B}=\sqrt A\,\sqrt B .
+\]
+Substituting these two identities into \eqref{eq:iscs-par} gives
+\[
+  \int\sqrt f\,\sqrt g\,d\mu
+   \le\frac{\sqrt A\,\sqrt B+\sqrt A\,\sqrt B}{2}
+   =\sqrt A\,\sqrt B ,
+\]
+which is \eqref{eq:iscs-bound}. The three cases exhaust the possibilities, since
+$A\ge0$ and $B\ge0$, so the proof is complete.
+\end{proof}

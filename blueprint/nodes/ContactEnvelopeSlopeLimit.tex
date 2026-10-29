@@ -1,0 +1,182 @@
+\begin{lemma}[The forward slopes of the contact envelope converge to the envelope Hamiltonian]
+Let $F$ be a finite-dimensional real inner-product space --- the ambient
+convention of this development --- and work in the space-time
+$X=\ell^2(F\times\R)$, writing a point as $z=(x,t)$ and
+$P=\{z\in X:\ t>0\}$ for the positive-time half space. Put $z_*=(0,1)$. Let
+$C_0\ge1$, let $\kappa>0$ and let $v:X\to\R$. Assume:
+\begin{enumerate}
+\item\label{it:cesl-class} $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass}, with $m=\dim F$;
+\item\label{it:cesl-cent} $v$ is centered at $z_*$ with constant $C_0$ in the
+sense of \noderef{IsCenteredAt};
+\item\label{it:cesl-jensen} $v$ satisfies the horizontal Jensen bound with
+constant $\kappa$ on $I=\R$ in the sense of \noderef{HasJensenBound};
+\item\label{it:cesl-grow} $v$ has subquadratic spatial growth on compact time
+intervals of $I=\R$ in the sense of \noderef{SubquadraticGrowth};
+\item\label{it:cesl-contact} $W(z_*)=0$, where $W=\Cenv_tv-\kappa^2t/2$ is the
+contact envelope of \noderef{ContactEnv} formed from $v$ and $\kappa$;
+\item\label{it:cesl-Wcont} $W$ is continuous on $P$;
+\item\label{it:cesl-Wgrow} $W$ has subquadratic spatial growth on compact time
+intervals of $I=(0,\infty)$;
+\item\label{it:cesl-Wsub} $W$ is a viscosity subsolution of the limiting
+equation on $P$ in the sense of \noderef{IsLimitSubOn};
+\item\label{it:cesl-sand} $v(z)-\kappa^2t/2\le W(z)\le v(z)$ for every
+$z=(x,t)$ with $t>0$.
+\end{enumerate}
+Then there is a real number $H$ such that the envelope Hamiltonian of
+\noderef{EnvHamiltonian} satisfies
+\[
+  H_v(z_*)=H
+  \qquad\text{and}\qquad
+  \lim_{\ell\downarrow0}\ \Senv_\ell^+W(z_*)=H ,
+\]
+the limit being over $\ell\to0$ within $(0,\infty)$ and
+$\Senv_\ell^+$ the forward envelope slope of \noderef{EnvSlopeP}.
+\end{lemma}
+\begin{proof}
+Hypotheses \ref{it:cesl-contact}--\ref{it:cesl-sand} are the four properties of
+the contact envelope supplied by \noderef{ContactEnvelopeProperties} that this
+argument reads, together with the contact; the construction of such a $v$ in
+the application is not re-narrated. Both conclusions are returned together
+because $H$ is produced in the course of the proof.
+
+Write $t(z)$ for the time coordinate and note $t(z_*)=1$ and, more generally,
+$t\bigl((y,c)\bigr)=c$: these are the only facts about the coordinates used
+below. By \ref{it:cesl-cent} and \noderef{IsCenteredAt},
+\begin{equation}\label{eq:cesl-v0}
+  v(z_*)=0 ,
+\end{equation}
+and by \ref{it:cesl-class} and \noderef{IsFitClass} the function $v$ is
+continuous on all of space-time and is a viscosity solution of $F[v]=0$ there.
+Also, by \noderef{ContactEnv} at $t=1$, hypothesis \ref{it:cesl-contact} reads
+$\Cenv_1v(z_*)-\kappa^2/2=0$, so with \eqref{eq:cesl-v0}
+\begin{equation}\label{eq:cesl-bary}
+  \Cenv_1v(z_*)-v(z_*)=\frac{\kappa^2}{2} .
+\end{equation}
+
+\emph{Step A: $H_v(z_*)$ is a real number.} \noderef{EnvHamiltonianSolution}
+applies with $I=\R$ and $f=v$, its hypotheses being the continuity just
+recorded, \ref{it:cesl-grow} and the solution property, the open set being all
+of space-time. Its third clause gives $H_v(z_*)\ne+\infty$, and its second
+clause, whose hypothesis $1+\sigma\in\R$ is vacuous here, gives
+\begin{equation}\label{eq:cesl-ham}
+  \inf_{\ell>0}\ \Senv_\ell^-v(z_*)=H_v(z_*) ,
+\end{equation}
+with $\Senv_\ell^-$ the backward envelope slope of \noderef{EnvSlopeM}. By
+\ref{it:cesl-class}, \ref{it:cesl-cent}, \ref{it:cesl-jensen}, $\kappa>0$ and
+\eqref{eq:cesl-bary}, the hypotheses of \noderef{ContactFiniteSlope} hold, so
+$H_v(z_*)\ne-\infty$. A value of $\overline\R$ that is neither $+\infty$ nor
+$-\infty$ is a real number; let $H$ be its real value, so that
+\begin{equation}\label{eq:cesl-H}
+  H_v(z_*)=H .
+\end{equation}
+That is the first conclusion. \noderef{ContactFiniteSlope} carries the paper's
+whole lower-bound argument --- the $r=\kappa$ squeeze, the duality minimizing
+slope, the positive-weight attainment and the completed square --- so none of
+it is redone here.
+
+\emph{Step B: the two one-sided slope comparisons.} The function $v$ satisfies
+the hypotheses of \noderef{EnvelopeCompetitorBounds} with $I=\R$, and $W$
+satisfies them with $I=(0,\infty)$ by \ref{it:cesl-Wcont} and
+\ref{it:cesl-Wgrow}. The relevant times are $1+\ell>0$ for $\ell>0$ and
+$1-\ell>0$ for $0<\ell<1$, so all four envelopes below are at admissible
+parameters.
+
+Let $\ell>0$. The competitor set defining $\Penv_\ell$ at $z_*$ in
+\noderef{QuadEnvP} involves only values at the time $1+\ell>0$, where $W\le v$
+by \ref{it:cesl-sand}; so for each $y\in F$,
+\[
+  W(y,1+\ell)-\frac{|y|^2}{2\ell}\ \le\ v(y,1+\ell)-\frac{|y|^2}{2\ell}
+   \ \le\ \Penv_\ell v(z_*) ,
+\]
+the second inequality being the domination half of clause 1 of
+\noderef{EnvelopeCompetitorBounds} for $v$. The extremality half of that clause
+for $W$ then gives $\Penv_\ell W(z_*)\le\Penv_\ell v(z_*)$. Dividing by
+$\ell>0$ after subtracting the values, which are both $0$ by
+\ref{it:cesl-contact} and \eqref{eq:cesl-v0}, \noderef{EnvSlopeP} turns this
+into
+\begin{equation}\label{eq:cesl-plus}
+  \Senv_\ell^+W(z_*)\le\Senv_\ell^+v(z_*)\qquad(\ell>0).
+\end{equation}
+
+Let $0<\ell<1$. The competitor set defining $\Menv_\ell$ at $z_*$ in
+\noderef{QuadEnvM} involves only values at the time $1-\ell>0$, where again
+$W\le v$; so for each $y\in F$,
+\[
+  \Menv_\ell W(z_*)\ \le\ W(y,1-\ell)+\frac{|y|^2}{2\ell}
+   \ \le\ v(y,1-\ell)+\frac{|y|^2}{2\ell} ,
+\]
+the first inequality being the domination half of clause 2 of
+\noderef{EnvelopeCompetitorBounds} for $W$. The extremality half of that clause
+for $v$ then gives $\Menv_\ell W(z_*)\le\Menv_\ell v(z_*)$, and
+\noderef{EnvSlopeM} with the two vanishing values turns this into
+\begin{equation}\label{eq:cesl-minus}
+  \Senv_\ell^-v(z_*)\le\Senv_\ell^-W(z_*)\qquad(0<\ell<1).
+\end{equation}
+
+\emph{Step C: $H$ against the slopes of $v$.} From \eqref{eq:cesl-ham} and
+\eqref{eq:cesl-H}, $H$ is the infimum of the backward slopes, so
+\begin{equation}\label{eq:cesl-lowerM}
+  H\le\Senv_\ell^-v(z_*)\qquad(\ell>0).
+\end{equation}
+In the other direction, $H_v(z_*)$ is by \noderef{EnvHamiltonian} the infimum of
+the \emph{forward} slopes of $v$ at $z_*$, so for every $\varepsilon>0$ there is
+$\ell>0$ with
+\begin{equation}\label{eq:cesl-infP}
+  \Senv_\ell^+v(z_*)<H+\varepsilon .
+\end{equation}
+Indeed, were $H+\varepsilon\le\Senv_\ell^+v(z_*)$ for every $\ell>0$, then
+$H+\varepsilon$ would be a lower bound for that family and hence
+$H+\varepsilon\le H_v(z_*)=H$ by \eqref{eq:cesl-H}, contradicting
+$\varepsilon>0$.
+
+\emph{Step D: $H$ is a lower bound for the forward slopes of $W$.} By
+\ref{it:cesl-Wcont}, \ref{it:cesl-Wgrow} and \ref{it:cesl-Wsub} the hypotheses
+of \noderef{EnvelopeSlopeOrder} hold for $W$ on the open interval
+$I=(0,\infty)$. Its first clause, whose hypothesis $1+\sigma>0$ for
+$\sigma\in[0,\ell']$ is immediate, gives that
+\begin{equation}\label{eq:cesl-mono}
+  \Senv_\ell^+W(z_*)\le\Senv_{\ell'}^+W(z_*)\qquad(0<\ell\le\ell').
+\end{equation}
+
+Fix $h$ with $0<h<1$ and suppose, for contradiction, that
+$\Senv_h^+W(z_*)<H$. Apply the second clause of \noderef{EnvelopeSlopeOrder} at
+$z_*$ with this $h$ and with
+$\varepsilon=(H-\Senv_h^+W(z_*))/2>0$; its hypothesis $1+\sigma>0$ for
+$|\sigma|\le h$ holds because $h<1$. It supplies $\delta>0$ such that
+$\Senv_\ell^-W(z_*)\le\Senv_h^+W(z_*)+\varepsilon$ whenever $0<\ell<\delta$.
+Choose $\ell=\min\{\delta/2,1/2\}$, so $0<\ell<\delta$ and $\ell<1$. Then
+\eqref{eq:cesl-lowerM}, \eqref{eq:cesl-minus} and that bound give
+\[
+  H\ \le\ \Senv_\ell^-v(z_*)\ \le\ \Senv_\ell^-W(z_*)
+   \ \le\ \Senv_h^+W(z_*)+\frac{H-\Senv_h^+W(z_*)}{2}
+   =\frac{H+\Senv_h^+W(z_*)}{2}\ <\ H ,
+\]
+the last inequality because $\Senv_h^+W(z_*)<H$. This contradiction shows
+\begin{equation}\label{eq:cesl-low}
+  H\le\Senv_h^+W(z_*)\qquad(0<h<1).
+\end{equation}
+For $h\ge1$ the same bound follows from \eqref{eq:cesl-low} at $1/2$ together
+with the monotonicity \eqref{eq:cesl-mono} from $1/2$ to $h$. Hence
+\begin{equation}\label{eq:cesl-lowAll}
+  H\le\Senv_h^+W(z_*)\qquad(h>0).
+\end{equation}
+
+\emph{Step E: the limit.} We verify the two halves of the order
+characterization of a limit for the function $\ell\mapsto\Senv_\ell^+W(z_*)$
+along $\ell\downarrow0$.
+
+If $a<H$, then by \eqref{eq:cesl-lowAll} $a<\Senv_\ell^+W(z_*)$ for
+\emph{every} $\ell>0$, so this holds in particular for all $\ell$ near $0$ with
+$\ell>0$.
+
+If $a>H$, apply \eqref{eq:cesl-infP} with $\varepsilon=a-H>0$: there is
+$\ell_0>0$ with $\Senv_{\ell_0}^+v(z_*)<H+(a-H)=a$, and then
+\eqref{eq:cesl-plus} gives $\Senv_{\ell_0}^+W(z_*)<a$. For every $\ell$ with
+$0<\ell<\ell_0$, the monotonicity \eqref{eq:cesl-mono} gives
+$\Senv_\ell^+W(z_*)\le\Senv_{\ell_0}^+W(z_*)<a$; and the interval
+$(0,\ell_0)$ is a neighbourhood of $0$ within $(0,\infty)$.
+
+Therefore $\Senv_\ell^+W(z_*)\to H$ as $\ell\downarrow0$, which with
+\eqref{eq:cesl-H} is the second conclusion, for the same $H$.
+\end{proof}

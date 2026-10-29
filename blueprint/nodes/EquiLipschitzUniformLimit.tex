@@ -1,0 +1,104 @@
+\begin{lemma}[Uniform limit of an equi-bounded, equi-Lipschitz sequence on a ball]
+Let $\mathcal H$ be a finite-dimensional real inner-product space, let
+$a\in\mathcal H$, let $\rho>0$, and put $K=\overline B(a,\rho)$ for the closed
+ball of radius $\rho$ about $a$. Let $A,\Lambda\in\R$ and let
+$v_i:\mathcal H\to\R$, $i\in\N$, satisfy
+\[
+  |v_i(w)|\le A\qquad(w\in K,\ i\in\N)
+\]
+and
+\[
+  |v_i(w)-v_i(w')|\le\Lambda|w-w'|\qquad(w,w'\in K,\ i\in\N),
+\]
+the two constants being independent of $i$. Then there are a strictly increasing
+$\iota:\N\to\N$ and a function $V:\mathcal H\to\R$ such that
+$v_{\iota(k)}\to V$ uniformly on $K$ as $k\to\infty$. (Nothing is claimed about
+$V$ off $K$.)
+\end{lemma}
+\begin{proof}
+Since $\rho>0$ we have $a\in K$, so $K$ is nonempty; applying the bound at
+$w=a$ gives $0\le|v_0(a)|\le A$, so $A\ge0$.
+
+\emph{The Lipschitz constant may be taken nonnegative.} Put $M=\max(\Lambda,0)$,
+so $M\ge0$ and $\Lambda\le M$. Since $|w-w'|\ge0$, the hypothesis gives
+\begin{equation}\label{eq:elul-lip}
+  |v_i(w)-v_i(w')|\le\Lambda|w-w'|\le M|w-w'|\qquad(w,w'\in K,\ i\in\N).
+\end{equation}
+
+\emph{A countable dense subset of $K$.} A finite-dimensional real normed space is
+a separable metric space, and a subspace of a separable metric space is
+separable; $K$ is nonempty, so it carries a sequence $(Q_k)_{k\in\N}$ of points
+of $K$ whose range is dense in $K$. Density means precisely:
+\begin{equation}\label{eq:elul-dense}
+  \text{for every }x\in K\text{ and every }\delta>0
+  \text{ there is }k\text{ with }|x-Q_k|<\delta .
+\end{equation}
+
+\emph{A subsequence converging at every $Q_k$.} For every $i$ and $k$ we have
+$Q_k\in K$, hence $|v_i(Q_k)|\le A$, so the real sequence
+$\bigl(v_i(Q_k)\bigr)_i$ lies in $[-A,A]$ for each fixed $k$. Applying
+Bolzano--Weierstrass (preamble) to $k=1$ gives a subsequence along which the
+values at $Q_1$ converge; applying it again inside that subsequence for $k=2$,
+and continuing, produces nested subsequences, the $k$-th of which converges at
+$Q_1,\dots,Q_k$. Taking the diagonal --- the $j$-th term of the $j$-th nested
+subsequence --- yields a single strictly increasing $\varphi:\N\to\N$ and reals
+$c_k$ with
+\begin{equation}\label{eq:elul-pt}
+  v_{\varphi(j)}(Q_k)\longrightarrow c_k\qquad(j\to\infty)
+\end{equation}
+for every $k$: for each fixed $k$ the diagonal sequence is, from the index $k$
+onwards, a subsequence of the $k$-th nested subsequence, which converges at
+$Q_k$.
+
+\emph{The subsequence is uniformly Cauchy on $K$.} Let $\varepsilon>0$ and put
+\[
+  \delta=\frac{\varepsilon}{4(M+1)}>0,
+\]
+so that
+\begin{equation}\label{eq:elul-Md}
+  M\delta=\frac{\varepsilon}{4}\cdot\frac{M}{M+1}\le\frac\varepsilon4 ,
+\end{equation}
+using $M\ge0$. By \eqref{eq:elul-dense} the balls $B(Q_k,\delta)$, $k\in\N$,
+cover $K$; the set $K$ is closed and bounded in a finite-dimensional space,
+hence compact (preamble), so finitely many of them cover $K$, say those indexed
+by a finite set $t\subseteq\N$. By \eqref{eq:elul-pt} there is $N$ such that
+\begin{equation}\label{eq:elul-N}
+  \bigl|v_{\varphi(j)}(Q_k)-c_k\bigr|<\frac\varepsilon4
+  \qquad(j\ge N,\ k\in t),
+\end{equation}
+because each of the finitely many convergences in \eqref{eq:elul-pt} eventually
+puts its term within $\varepsilon/4$ of its limit, and the maximum of the
+finitely many thresholds works for all of them.
+
+Now let $m,n\ge N$ and $x\in K$. Choose $k\in t$ with $x\in B(Q_k,\delta)$, so
+$|x-Q_k|<\delta$. Writing
+\[
+  v_{\varphi(m)}(x)-v_{\varphi(n)}(x)
+  =\bigl(v_{\varphi(m)}(x)-v_{\varphi(m)}(Q_k)\bigr)
+   +\bigl(v_{\varphi(m)}(Q_k)-c_k\bigr)
+   -\bigl(v_{\varphi(n)}(Q_k)-c_k\bigr)
+   -\bigl(v_{\varphi(n)}(x)-v_{\varphi(n)}(Q_k)\bigr),
+\]
+and bounding the first and fourth brackets by $M\delta$ using
+\eqref{eq:elul-lip} with $w=x$, $w'=Q_k$ (both in $K$), and the second and third
+strictly by $\varepsilon/4$ using \eqref{eq:elul-N}, we get
+\[
+  \bigl|v_{\varphi(m)}(x)-v_{\varphi(n)}(x)\bigr|
+   <M\delta+\frac\varepsilon4+\frac\varepsilon4+M\delta
+   \le\frac\varepsilon4+\frac\varepsilon4+\frac\varepsilon4+\frac\varepsilon4
+   =\varepsilon,
+\]
+by \eqref{eq:elul-Md}. As $\varepsilon>0$ was arbitrary, the sequence
+$\bigl(v_{\varphi(j)}\bigr)_j$ is uniformly Cauchy on $K$.
+
+\emph{The limit.} Fix $z\in K$. Taking $x=z$ in the previous paragraph shows
+that $\bigl(v_{\varphi(j)}(z)\bigr)_j$ is a Cauchy sequence of reals, hence
+convergent; call its limit $V(z)$. For $z\notin K$ set $V(z)=0$. A sequence that
+is uniformly Cauchy on a set and converges pointwise on that set converges
+uniformly on it to the pointwise limit: given $\varepsilon>0$, choose $N$ as
+above for $\varepsilon/2$; for $j\ge N$ and $x\in K$, letting $n\to\infty$ in
+$|v_{\varphi(j)}(x)-v_{\varphi(n)}(x)|<\varepsilon/2$ gives
+$|v_{\varphi(j)}(x)-V(x)|\le\varepsilon/2<\varepsilon$. Hence
+$v_{\varphi(k)}\to V$ uniformly on $K$, and $\iota=\varphi$ is strictly
+increasing, which is the assertion.
+\end{proof}

@@ -1,0 +1,77 @@
+\begin{lemma}[Locally uniform extraction, normalized at a starting index and at the origin]
+Let $H$ be a finite-dimensional real inner-product space, let $g_j$, $j\ge0$, be
+real functions on $H$, and let $i_1$ be an index. Suppose:
+\begin{enumerate}
+\item[(i)] for every $\rho>0$ there are a real number $A$ and an index $j_0$ such
+that $|g_j(w)|\le A$ for every $j\ge j_0$ and every $w\in H$ with $|w|\le\rho$;
+\item[(ii)] for every $\rho>0$ and every $\varepsilon>0$ there are $\eta>0$ and
+an index $j_0$ such that $|g_j(w)-g_j(w')|\le\varepsilon$ whenever $j\ge j_0$ and
+$w,w'\in H$ satisfy $|w|\le\rho$, $|w'|\le\rho$ and $|w-w'|\le\eta$;
+\item[(iii)] $g_i(0)=0$ for every $i\ge i_1$.
+\end{enumerate}
+Then there are a strictly increasing sequence of indices $l\mapsto\psi(l)$ and a
+real function $w$ on $H$ such that $\psi(l)\ge i_1$ for every $l$, the function
+$w$ is continuous on $H$, $g_{\psi(l)}\to w$ uniformly on every compact subset of
+$H$, and $w(0)=0$.
+\end{lemma}
+\begin{proof}
+Apply \noderef{AsymptEquicontLocalUniformLimit} to the family $g$ with hypotheses
+(i) and (ii), which are verbatim that node's two hypotheses. It supplies a
+strictly increasing $l\mapsto\psi_0(l)$ and a real function $w$ on $H$ with
+\begin{equation}\label{eq:aeonl-conv}
+  g_{\psi_0(l)}\to w\quad\text{uniformly on every compact subset of }H .
+\end{equation}
+Define $\psi(l)=\psi_0(l+i_1)$.
+
+\emph{Step 1: $\psi$ is strictly increasing and starts past $i_1$.}
+If $l<l'$ then $l+i_1<l'+i_1$, so $\psi(l)=\psi_0(l+i_1)<\psi_0(l'+i_1)=\psi(l')$
+because $\psi_0$ is strictly increasing. A strictly increasing map of the indices
+satisfies $\psi_0(k)\ge k$ for every $k$ (induction on $k$: $\psi_0(0)\ge0$, and
+$\psi_0(k+1)>\psi_0(k)\ge k$ gives $\psi_0(k+1)\ge k+1$). Hence
+$\psi(l)=\psi_0(l+i_1)\ge l+i_1\ge i_1$.
+
+\emph{Step 2: the shifted subsequence still converges, and converges pointwise.}
+Let $C\subseteq H$ be compact. Uniform convergence on $C$ along $\psi_0$, which is
+\eqref{eq:aeonl-conv}, means:
+for every $\varepsilon>0$ there is $l_0$ with
+$\sup_{u\in C}|g_{\psi_0(l)}(u)-w(u)|\le\varepsilon$ for all $l\ge l_0$. For
+$l\ge l_0$ we have $l+i_1\ge l_0$, so the same bound holds along $\psi$; thus
+$g_{\psi(l)}\to w$ uniformly on $C$. Taking $C=\{u\}$, which is compact, gives for
+every $u\in H$
+\begin{equation}\label{eq:aeonl-pt}
+  g_{\psi(l)}(u)\to w(u)\qquad(l\to\infty).
+\end{equation}
+
+\emph{Step 3: $w$ is continuous.}
+Fix $x\in H$ and $\varepsilon>0$, and put $\rho=|x|+2>0$. Apply (ii) at this
+$\rho$ and at $\varepsilon/3>0$: there are $\eta>0$ and $j_0$ with
+\begin{equation}\label{eq:aeonl-mod}
+  |g_j(u)-g_j(u')|\le\varepsilon/3
+  \qquad\text{whenever } j\ge j_0,\ |u|\le\rho,\ |u'|\le\rho,\ |u-u'|\le\eta .
+\end{equation}
+Let $\delta=\min\{\eta,1\}>0$ and let $y\in H$ satisfy $|y-x|<\delta$. Then
+$|x|\le\rho$, and $|y|\le|x|+|y-x|\le|x|+1\le\rho$, so both $x$ and $y$ are
+admissible in \eqref{eq:aeonl-mod}; also $|x-y|<\delta\le\eta$. By Step 1,
+$\psi(l)\ge l+i_1$, so $\psi(l)\ge j_0$ for every $l\ge j_0$. Therefore
+\eqref{eq:aeonl-mod} applied at $j=\psi(l)$ gives
+\[
+  |g_{\psi(l)}(x)-g_{\psi(l)}(y)|\le\varepsilon/3\qquad\text{for all }l\ge j_0 .
+\]
+By \eqref{eq:aeonl-pt} at $x$ and at $y$, the left side converges to
+$|w(x)-w(y)|$ as $l\to\infty$; a limit of a sequence bounded by $\varepsilon/3$
+is bounded by $\varepsilon/3$, so
+\[
+  |w(x)-w(y)|\le\varepsilon/3<\varepsilon .
+\]
+Thus for every $x$ and every $\varepsilon>0$ there is $\delta>0$ with
+$|w(y)-w(x)|<\varepsilon$ whenever $|y-x|<\delta$, which is continuity of $w$
+at $x$. As $x$ was arbitrary, $w$ is continuous on $H$.
+
+\emph{Step 4: $w(0)=0$.}
+By Step 1, $\psi(l)\ge i_1$ for every $l$, so hypothesis (iii) gives
+$g_{\psi(l)}(0)=0$ for every $l$. By \eqref{eq:aeonl-pt} at $u=0$, the constant
+sequence $0$ converges to $w(0)$; limits in $\R$ are unique and the constant
+sequence $0$ converges to $0$, so $w(0)=0$.
+
+Steps 1 through 4 give the four asserted properties of $\psi$ and $w$.
+\end{proof}

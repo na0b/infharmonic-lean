@@ -1,0 +1,308 @@
+\begin{theorem}[Affine blow-ups at a fixed center]
+Let $E$ be a finite-dimensional real inner-product space, let $D\subseteq E$,
+let $w:E\to\R$ be infinity-harmonic on $D$ in the sense of
+\noderef{IsInfHarmonicOn}, and let $z\in D$. For a sequence of radii
+$\rho_i>0$ with $\rho_i\to0$ put
+\[
+  V_i(Y)=\frac{w(z+\rho_iY)-w(z)}{\rho_i}\qquad(Y\in E).
+\]
+Then:
+\begin{enumerate}
+\item every $V:E\to\R$ which is the limit of such a family $V_i$, uniformly on
+every compact subset of $E$, is a continuous linear function on $E$; and
+\item for every sequence of radii $\rho_i>0$ with $\rho_i\to0$ there are a
+strictly increasing sequence of indices $i\mapsto\iota(i)$ and a function
+$V:E\to\R$ such that $V_{\iota(i)}\to V$ uniformly on every compact subset of
+$E$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+By \noderef{IsInfHarmonicOn} the set $D$ is open and $w$ is continuous on $D$,
+so there is $\sigma>0$ with $\overline B_{2\sigma}(z)\subseteq D$.
+
+\emph{Step 1: $w$ is Lipschitz on $\overline B_\sigma(z)$.}
+The set $\overline B_{2\sigma}(z)$ is compact and contained in $D$, so
+$\operatorname{osc}=\max_{\overline B_{2\sigma}(z)}w
+ -\min_{\overline B_{2\sigma}(z)}w$ is finite; put
+$\Lambda=\operatorname{osc}/\sigma\ge0$. Then
+$|w(a)-w(b)|\le\operatorname{osc}=\Lambda\sigma$ for
+$a,b\in\overline B_{2\sigma}(z)$, so \noderef{InfHarmonicLocLipschitz}, applied
+with $z_0=z$, $\rho=\sigma$, the same $\sigma$ and this $\Lambda$ — its
+hypotheses $\overline B_{\rho+\sigma}(z)=\overline B_{2\sigma}(z)\subseteq D$ and
+the oscillation bound hold — gives
+\begin{equation}\label{eq:ab-lip}
+  |w(a)-w(b)|\le\Lambda|a-b|\qquad\bigl(a,b\in\overline B_\sigma(z)\bigr).
+\end{equation}
+
+\emph{Step 2: uniform bounds for the blow-ups.}
+Let $\rho_i>0$ with $\rho_i\to0$ and put
+$V_i(Y)=\bigl(w(z+\rho_iY)-w(z)\bigr)/\rho_i$. Fix $R>0$. For $|Y|\le R$ and all
+$i$ with $\rho_iR\le\sigma$ we have $z+\rho_iY\in\overline B_\sigma(z)$, so by
+\eqref{eq:ab-lip} with $a=z+\rho_iY$, $b=z$,
+\begin{equation}\label{eq:ab-unif}
+  |V_i(Y)|\le\Lambda|Y|\le\Lambda R,
+  \qquad
+  |V_i(Y)-V_i(Y')|\le\Lambda|Y-Y'|\qquad(|Y|,|Y'|\le R),
+\end{equation}
+the second bound by \eqref{eq:ab-lip} with $a=z+\rho_iY$, $b=z+\rho_iY'$. Since
+$\rho_i\to0$, all but finitely many $i$ satisfy $\rho_iR\le\sigma$. Note also
+$V_i(0)=0$ for every $i$.
+
+\emph{Step 3: proof of (2).}
+The selection of a locally uniformly convergent subsequence needs a compactness
+statement which is not among the background items of the preamble, so we prove
+the instance we use; the argument is the standard Arzel\`a--Ascoli one, and the
+only external inputs are the preamble items \emph{Compactness, Weierstrass and
+uniform continuity} (a closed bounded subset of a finite-dimensional space is
+compact) and \emph{Bolzano--Weierstrass}.
+
+\emph{Claim A.} Let $\mathcal K\subseteq E$ be closed and bounded, let $A\ge0$
+and $\Lambda\ge0$, let $S\subseteq\mathbb N$ be infinite and let $g_i:E\to\R$,
+$i\in S$, satisfy
+\[
+  |g_i(a)|\le A,\qquad|g_i(a)-g_i(b)|\le\Lambda|a-b|
+  \qquad(a,b\in\mathcal K,\ i\in S).
+\]
+Then there are an infinite set $S'\subseteq S$ and a function $g$ on
+$\mathcal K$ such that $\sup_{\mathcal K}|g_i-g|\to0$ as $i\to\infty$ along
+$S'$.
+
+\emph{Proof of Claim A.} If $\mathcal K=\emptyset$ take $S'=S$ and $g$ the empty
+function; so assume $\mathcal K\ne\emptyset$. Being closed and bounded in the
+finite-dimensional space $E$, the set $\mathcal K$ is compact. For each integer
+$k\ge1$ the balls $B_{1/k}(a)$, $a\in\mathcal K$, form an open cover of
+$\mathcal K$, so finitely many of them cover it; let $N_k\subseteq\mathcal K$ be
+a finite nonempty set with
+$\mathcal K\subseteq\bigcup_{b\in N_k}B_{1/k}(b)$, and put
+$Q=\bigcup_{k\ge1}N_k$. Then $Q\subseteq\mathcal K$ is countable and nonempty,
+and for every $\varsigma>0$ the balls $B_\varsigma(b)$, $b\in Q$, cover
+$\mathcal K$: choose $k$ with $1/k\le\varsigma$ and use $N_k$. Enumerate
+$Q=\{a_1,a_2,\dots\}$ (if $Q$ is finite the argument below is the same and
+shorter).
+
+For each $k$ the family $\bigl(g_i(a_k)\bigr)_{i\in S}$ is bounded by $A$, so by
+Bolzano--Weierstrass we may choose nested infinite sets
+$S\supseteq J_1\supseteq J_2\supseteq\cdots$ such that for every $k$ the values
+$g_i(a_k)$ converge as $i\to\infty$ along $J_k$: given $J_{k-1}$ (with
+$J_0=S$), pick a convergent subsequence of $\bigl(g_i(a_k)\bigr)_{i\in J_{k-1}}$
+and let $J_k$ be its set of indices. Choose $i_1<i_2<\cdots$ with $i_l\in J_l$,
+which is possible because each $J_l$ is infinite, and put
+$S'=\{i_l:l\ge1\}$, an infinite subset of $S$. Since
+$\{i_l:l\ge k\}\subseteq J_k$ for every $k$, the sequence
+$\bigl(g_{i_l}(a_k)\bigr)_l$ converges for every $k$.
+
+Fix $\varepsilon>0$ and put $\eta=\varepsilon/\bigl(3(\Lambda+1)\bigr)>0$. Cover
+$\mathcal K$ by finitely many balls $B_\eta(b_1),\dots,B_\eta(b_N)$ with
+$b_\nu\in Q$, as in the first paragraph, and choose $l_0$ with
+$|g_{i_l}(b_\nu)-g_{i_{l'}}(b_\nu)|\le\varepsilon/3$ for all $\nu\le N$ and all
+$l,l'\ge l_0$; this is possible because each of the finitely many sequences
+$\bigl(g_{i_l}(b_\nu)\bigr)_l$ converges, hence is Cauchy. Given
+$a\in\mathcal K$, pick $\nu$ with $|a-b_\nu|<\eta$; then for $l,l'\ge l_0$,
+\[
+  |g_{i_l}(a)-g_{i_{l'}}(a)|
+   \le|g_{i_l}(a)-g_{i_l}(b_\nu)|
+     +|g_{i_l}(b_\nu)-g_{i_{l'}}(b_\nu)|
+     +|g_{i_{l'}}(b_\nu)-g_{i_{l'}}(a)|
+   \le2\Lambda\eta+\frac\varepsilon3\le\varepsilon ,
+\]
+using $2\Lambda\eta\le2\varepsilon/3$. So $\bigl(g_{i_l}\bigr)_l$ is uniformly
+Cauchy on $\mathcal K$; for each $a\in\mathcal K$ the real sequence
+$\bigl(g_{i_l}(a)\bigr)_l$ is therefore Cauchy and has a limit $g(a)$, and
+letting $l'\to\infty$ in the display gives
+$\sup_{\mathcal K}|g_{i_l}-g|\le\varepsilon$ for every $l\ge l_0$. As
+$\varepsilon>0$ was arbitrary, $\sup_{\mathcal K}|g_i-g|\to0$ along $S'$. This
+proves Claim A.
+
+We now prove (2). Let $\rho_i>0$ with $\rho_i\to0$. For each integer $R\ge1$
+there is, since $\rho_i\to0$, an index $m_R$ with $\rho_iR\le\sigma$ for all
+$i\ge m_R$; for such $i$ the bounds \eqref{eq:ab-unif} give
+$|V_i|\le\Lambda R$ and $|V_i(Y)-V_i(Y')|\le\Lambda|Y-Y'|$ on
+$\overline B_R(0)$, a closed bounded set. Define infinite index sets
+$S_1\supseteq S_2\supseteq\cdots$ recursively: $S_R$ is the set $S'$ produced by
+Claim A applied with $\mathcal K=\overline B_R(0)$, $A=\Lambda R$, this
+$\Lambda$, and the index set $\{i\ge m_1\}$ when $R=1$ and
+$\{i\in S_{R-1}:i\ge m_R\}$ when $R\ge2$; these index sets are infinite and
+their elements $i$ all satisfy $\rho_iR\le\sigma$, so the hypotheses of Claim A
+hold. Claim A also supplies functions $V^{(R)}$ on $\overline B_R(0)$ with
+$\sup_{\overline B_R(0)}|V_i-V^{(R)}|\to0$ as $i\to\infty$ along $S_R$.
+
+Choose $\iota(1)<\iota(2)<\cdots$ with $\iota(j)\in S_j$ for every $j$, which is
+possible because each $S_j$ is infinite; thus $\iota:\mathbb N\to\mathbb N$ is
+strictly increasing. Fix an integer $R\ge1$. For $j\ge R$ we have
+$\iota(j)\in S_j\subseteq S_R$, and $\iota(j)\to\infty$, so
+\begin{equation}\label{eq:ab-diag}
+  \sup_{\overline B_R(0)}\bigl|V_{\iota(j)}-V^{(R)}\bigr|\longrightarrow0
+  \qquad(j\to\infty).
+\end{equation}
+In particular, for $R\le R'$ the functions $V^{(R)}$ and $V^{(R')}$ agree on
+$\overline B_R(0)$, both being the pointwise limit of $V_{\iota(j)}$ there.
+Hence a single function $V$ on $E$ is well defined by $V(Y)=V^{(R)}(Y)$ for any
+integer $R\ge\max\{1,|Y|\}$, and \eqref{eq:ab-diag} says that
+$V_{\iota(j)}\to V$ uniformly on $\overline B_R(0)$ for every integer $R\ge1$.
+Since every compact $K\subseteq E$ is bounded, hence contained in some
+$\overline B_R(0)$ with $R$ an integer, $R\ge1$, the convergence is uniform on
+every compact subset of $E$. This is (2).
+
+\emph{Step 4: $V$ is infinity-harmonic on $E$ and $\Lambda$-Lipschitz.}
+From now on let $\rho_i>0$, $\rho_i\to0$, and let $V$ be a function on $E$ such
+that $V_i\to V$ uniformly on every compact subset of $E$, as in the hypothesis
+of (1).
+
+By \noderef{InfHarmonicRescale}, applied with $x_0=z$ and $A=\rho_i>0$, the
+function $Y\mapsto w(z+\rho_iY)$ is infinity-harmonic on
+$D_i=\{Y:z+\rho_iY\in D\}$; and by \noderef{InfHarmonicNormalize}, applied with
+$c=w(z)$ and $M=\rho_i>0$ on the open set $D_i$, the function $V_i$ is
+infinity-harmonic on $D_i$. Moreover $\overline B_\sigma(z)\subseteq D$ gives
+$B_{\sigma/\rho_i}(0)\subseteq D_i$.
+
+Fix $R>0$ and choose $i_0$ with $\sigma/\rho_i>R$ for $i\ge i_0$; then each
+$V_{i_0+j}$, $j\ge0$, is infinity-harmonic on the open ball $B_R(0)$. Indeed
+$B_R(0)\subseteq D_i$ is open, and the restriction of the infinity-harmonicity
+of \noderef{IsInfHarmonicOn} to an open subset is legitimate: continuity
+restricts, and if $\Omega''\subseteq\Omega'$ is open, $\zeta\in\Omega''$ and
+$V_i-\phi$ has a local maximum on $\Omega''$ at $\zeta$, then it has one on
+$\Omega'$ at $\zeta$, because a neighbourhood $N$ of $\zeta$ with
+$(V_i-\phi)\le(V_i-\phi)(\zeta)$ on $N\cap\Omega''$ may be replaced by
+$N\cap\Omega''$, itself a neighbourhood of $\zeta$, on which
+$N\cap\Omega''\cap\Omega'=N\cap\Omega''$; the same applies to minima.
+
+The shifted sequence $j\mapsto V_{i_0+j}$ still converges to $V$ uniformly on
+every compact subset of $B_R(0)$, being a tail of the original one. Hence
+\noderef{InfHarmonicStability}, applied with $\Omega=B_R(0)$, shows that $V$ is
+infinity-harmonic on $B_R(0)$. As $R>0$ was arbitrary and a local extremum of
+$V-\phi$ on $E$ at a point $\zeta$ is in particular one on $B_R(0)$ for any
+$R>|\zeta|$, together with the continuity of $V$ on each $B_R(0)$, we conclude
+that $V$ is infinity-harmonic on $E$.
+
+Finally, letting $i\to\infty$ in \eqref{eq:ab-unif} gives
+\begin{equation}\label{eq:ab-Vlip}
+  |V(Y)-V(Y')|\le\Lambda|Y-Y'|\quad(Y,Y'\in E),\qquad V(0)=0 .
+\end{equation}
+
+\emph{Step 5: the slopes of $V$ at the origin.}
+By \noderef{ConeSlopeLimitEq}, applied to $w$ on $D$ at $z\in D$, there is
+$L_*\ge0$ with
+\begin{equation}\label{eq:ab-Lstar}
+  \lim_{s\downarrow0}L_s^+(w;z)=\lim_{s\downarrow0}L_s^-(w;z)=L_* .
+\end{equation}
+Fix $R>0$. By \noderef{ConeSlopeUpper}, for $\rho_iR\le\sigma$,
+\[
+  \sup_{|Y|\le R}\frac{V_i(Y)-V_i(0)}{R}
+   =\frac{1}{R\rho_i}\sup_{|h|\le\rho_iR}\bigl(w(z+h)-w(z)\bigr)
+   =L_{\rho_iR}^+(w;z),
+\]
+where we substituted $h=\rho_iY$, which is a bijection of $\{|Y|\le R\}$ onto
+$\{|h|\le\rho_iR\}$, and used $V_i(0)=0$. The left side is
+$L_R^+(V_i;0)$ by \noderef{ConeSlopeUpper}. Since $V_i\to V$ uniformly on
+$\overline B_R(0)$ and all these suprema are finite by \eqref{eq:ab-unif}, we
+get $L_R^+(V_i;0)\to L_R^+(V;0)$; and $\rho_iR\to0$, so by
+\eqref{eq:ab-Lstar} the right side tends to $L_*$. Hence, and by the identical
+computation with $-(w(z+h)-w(z))$ and \noderef{ConeSlopeLower},
+\begin{equation}\label{eq:ab-origin}
+  L_R^+(V;0)=L_R^-(V;0)=L_*\qquad(R>0).
+\end{equation}
+In particular, for $Y\ne0$ the competitor $Y$ at radius $R=|Y|$ in
+\noderef{ConeSlopeUpper} and \noderef{ConeSlopeLower} gives
+$V(Y)/|Y|\le L_*$ and $-V(Y)/|Y|\le L_*$, so
+\begin{equation}\label{eq:ab-cone}
+  |V(Y)|\le L_*|Y|\qquad(Y\in E),
+\end{equation}
+the case $Y=0$ being $V(0)=0$.
+
+\emph{Step 6: $V$ is globally $L_*$-Lipschitz.}
+Let $q\in E$ and $T>0$. By \noderef{ConeSlopeUpper} and \eqref{eq:ab-cone},
+\[
+  L_T^+(V;q)=\frac1T\sup_{|H|\le T}\bigl(V(q+H)-V(q)\bigr)
+   \le\frac{L_*(T+|q|)+|V(q)|}{T},
+\]
+and the same bound holds for $L_T^-(V;q)$ by \noderef{ConeSlopeLower}. Fix
+$T_0>0$. Since $V$ is infinity-harmonic on $E$ by Step 4 and
+$\overline B_T(q)\subseteq E$ for every $T$, the radial monotonicity assertion of \noderef{ConeComparison}, applied at the
+center $q$ with radius $T_0$ and comparison radius $T\ge T_0$, gives
+$L_{T_0}^\pm(V;q)\le L_T^\pm(V;q)$. Letting $T\to\infty$ in the displayed bound
+yields
+\begin{equation}\label{eq:ab-allslopes}
+  L_{T_0}^+(V;q)\le L_*,\qquad L_{T_0}^-(V;q)\le L_*
+  \qquad(q\in E,\ T_0>0).
+\end{equation}
+Now let $Q,q\in E$ with $Q\ne q$ and put $T_0=|Q-q|>0$. The two cone comparison
+inequalities of \noderef{ConeComparison} at the center $q$ with radius $T_0$
+give
+$V(Q)-V(q)\le L_{T_0}^+(V;q)|Q-q|$ and
+$-(V(Q)-V(q))\le L_{T_0}^-(V;q)|Q-q|$, so by \eqref{eq:ab-allslopes}
+\begin{equation}\label{eq:ab-globlip}
+  |V(Q)-V(q)|\le L_*|Q-q|\qquad(Q,q\in E).
+\end{equation}
+
+\emph{Step 7: the case $L_*=0$.}
+If $L_*=0$ then \eqref{eq:ab-cone} gives $V\equiv0$, which is the zero
+continuous linear functional, and (1) holds.
+
+\emph{Step 8: the case $L_*>0$: a distinguished direction.}
+Assume $L_*>0$. For $R>0$ the supremum in $L_R^+(V;0)$ is over the compact ball
+$\overline B_R(0)$ of the continuous function $Y\mapsto V(Y)/R$, so it is
+attained: by \eqref{eq:ab-origin} there is $x_R$ with $|x_R|\le R$ and
+$V(x_R)=L_*R$. Likewise there is $y_S$ with $|y_S|\le S$ and
+$-V(y_S)=L_*S$.
+
+For any $R,S>0$, using \eqref{eq:ab-globlip},
+\begin{equation}\label{eq:ab-equality}
+  L_*(R+S)=V(x_R)-V(y_S)\le L_*|x_R-y_S|\le L_*\bigl(|x_R|+|y_S|\bigr)
+   \le L_*(R+S).
+\end{equation}
+Since $L_*>0$, every inequality in \eqref{eq:ab-equality} is an equality;
+hence $|x_R|=R$, $|y_S|=S$ and $|x_R-y_S|=|x_R|+|y_S|$.
+
+Equality in $|a-b|\le|a|+|b|$ for nonzero $a,b$ forces $a$ and $-b$ to be
+positive multiples of a common unit vector. Indeed, squaring
+$|a-b|^2=(|a|+|b|)^2$ gives $-2\langle a,b\rangle=2|a||b|$, i.e.
+$\langle a,-b\rangle=|a||{-b}|$, which is equality in Cauchy--Schwarz and
+therefore means $-b=(|b|/|a|)\,a$.
+
+Fix $S=1$ and let $e=-y_1$, a unit vector since $|y_1|=1$. For each $R>0$,
+applying the previous paragraph with $a=x_R$ and $b=y_1$ gives
+$e=-y_1=(1/R)x_R$, i.e. $x_R=Re$, so
+\begin{equation}\label{eq:ab-ray-pos}
+  V(Re)=L_*R\qquad(R>0).
+\end{equation}
+Now fix $R=1$; the same paragraph with $a=x_1=e$ and $b=y_S$ gives
+$-y_S=S\,e$, i.e. $y_S=-Se$, so
+\begin{equation}\label{eq:ab-ray-neg}
+  V(-Se)=-L_*S\qquad(S>0).
+\end{equation}
+Together with $V(0)=0$, \eqref{eq:ab-ray-pos} and \eqref{eq:ab-ray-neg} give
+\begin{equation}\label{eq:ab-ray}
+  V(\tau e)=L_*\tau\qquad(\tau\in\R).
+\end{equation}
+
+\emph{Step 9: $V$ is linear.}
+Let $Y\in E$. By \eqref{eq:ab-globlip} and \eqref{eq:ab-ray}, for every
+$\tau\in\R$,
+\[
+  L_*\tau-L_*|Y-\tau e|\le V(Y)\le L_*\tau+L_*|Y-\tau e| .
+\]
+For $\tau>0$ we compute
+$|Y-\tau e|^2=\tau^2-2\tau\langle e,Y\rangle+|Y|^2$, so
+\[
+  |Y-\tau e|=\tau\sqrt{1-\frac{2\langle e,Y\rangle}{\tau}+\frac{|Y|^2}{\tau^2}}
+   =\tau-\langle e,Y\rangle+O\bigl(\tau^{-1}\bigr)
+   \qquad(\tau\to+\infty),
+\]
+by the expansion $\sqrt{1+u}=1+u/2+O(u^2)$ applied with
+$u=-2\langle e,Y\rangle/\tau+|Y|^2/\tau^2\to0$. Hence
+$L_*\tau-L_*|Y-\tau e|\to L_*\langle e,Y\rangle$ as $\tau\to+\infty$, and the
+lower bound gives $V(Y)\ge L_*\langle e,Y\rangle$. Taking instead
+$\tau=-\varsigma$ with $\varsigma\to+\infty$, the same expansion with $e$
+replaced by $-e$ gives
+$|Y+\varsigma e|=\varsigma+\langle e,Y\rangle+O(\varsigma^{-1})$, so
+\[
+  L_*\tau+L_*|Y-\tau e|=-L_*\varsigma+L_*|Y+\varsigma e|
+   \longrightarrow L_*\langle e,Y\rangle ,
+\]
+and the upper bound gives $V(Y)\le L_*\langle e,Y\rangle$. Therefore
+\[
+  V(Y)=L_*\langle e,Y\rangle\qquad(Y\in E),
+\]
+so $V$ is the continuous linear functional $L=L_*\langle e,\cdot\rangle$ on $E$.
+This proves (1).
+\end{proof}

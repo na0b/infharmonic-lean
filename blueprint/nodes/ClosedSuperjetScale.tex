@@ -1,0 +1,76 @@
+\begin{lemma}[Rescaling a closed superjet]
+Let $E$ be a finite-dimensional real inner-product space, let $\theta>0$, let
+$g:E\to\R$, let $z,p\in E$ and let $X$ be a continuous bilinear form on $E$.
+Then
+\[
+  (p,X)\in\overline J^{2,+}(\theta g)(z)
+  \quad\Longleftrightarrow\quad
+  \bigl(\theta^{-1}p,\ \theta^{-1}X\bigr)\in\overline J^{2,+}g(z),
+\]
+where $\theta g$ denotes the function $w\mapsto\theta\,g(w)$ and
+$\overline J^{2,+}$ is the closed superjet of \noderef{ClosedSuperjet}.
+\end{lemma}
+\begin{proof}
+It suffices to prove the single implication
+\begin{equation}\label{eq:cjs-key}
+  \text{for every }c>0,\ \text{every }h:E\to\R\ \text{and every }(p',X'):\qquad
+  (p',X')\in\overline J^{2,+}h(z)\ \Longrightarrow\
+  (cp',cX')\in\overline J^{2,+}(ch)(z),
+\end{equation}
+because the two directions of the lemma are both instances of it:
+
+\emph{Forward.} Suppose $(p,X)\in\overline J^{2,+}(\theta g)(z)$. Apply
+\eqref{eq:cjs-key} with $c=\theta^{-1}>0$ and $h=\theta g$: it gives
+$(\theta^{-1}p,\theta^{-1}X)\in\overline J^{2,+}\bigl(\theta^{-1}(\theta
+g)\bigr)(z)$, and $\theta^{-1}(\theta g)=g$ as functions, since
+$\theta^{-1}\theta=1$.
+
+\emph{Backward.} Suppose $(\theta^{-1}p,\theta^{-1}X)\in\overline J^{2,+}g(z)$.
+Apply \eqref{eq:cjs-key} with $c=\theta$ and $h=g$: it gives
+$\bigl(\theta(\theta^{-1}p),\theta(\theta^{-1}X)\bigr)
+\in\overline J^{2,+}(\theta g)(z)$, and $\theta(\theta^{-1}p)=p$,
+$\theta(\theta^{-1}X)=X$.
+
+\emph{Proof of \eqref{eq:cjs-key}.}
+We first record the corresponding statement for the superjet of
+\noderef{Superjet}: for every $c>0$, every $h$, every $z'$ and every $(p',X')$,
+\begin{equation}\label{eq:cjs-open}
+  (p',X')\in J^{2,+}h(z')\ \Longrightarrow\ (cp',cX')\in J^{2,+}(ch)(z').
+\end{equation}
+Indeed, $cX'$ is symmetric because $(cX')(a,b)=c\,X'(a,b)=c\,X'(b,a)=(cX')(b,a)$.
+And given $\varepsilon>0$, apply the defining condition of \noderef{Superjet}
+for $(p',X')$ at $z'$ with the parameter $\varepsilon/c>0$: it produces
+$\delta>0$ with
+\[
+  h(z'+u)\le h(z')+\langle p',u\rangle+\tfrac12X'(u,u)
+    +\frac{\varepsilon}{c}|u|^2\qquad(|u|<\delta).
+\]
+Multiplying through by $c>0$, which preserves the inequality, and using
+$c\langle p',u\rangle=\langle cp',u\rangle$ and $c\,X'(u,u)=(cX')(u,u)$ together
+with $c\cdot(\varepsilon/c)=\varepsilon$, gives
+\[
+  (ch)(z'+u)\le(ch)(z')+\langle cp',u\rangle+\tfrac12(cX')(u,u)
+    +\varepsilon|u|^2\qquad(|u|<\delta),
+\]
+which is the defining condition for $(cp',cX')$ at $z'$ with the parameter
+$\varepsilon$. As $\varepsilon>0$ was arbitrary, \eqref{eq:cjs-open} holds.
+
+Now let $(p',X')\in\overline J^{2,+}h(z)$. By \noderef{ClosedSuperjet} there are
+sequences $(z_k)$, $(p_k)$, $(X_k)$ with
+$(p_k,X_k)\in J^{2,+}h(z_k)$ for every $k$, and with $z_k\to z$,
+$h(z_k)\to h(z)$, $p_k\to p'$ and $X_k\to X'$. Consider the sequences $(z_k)$,
+$(cp_k)$, $(cX_k)$. Then:
+\begin{itemize}
+  \item $(cp_k,cX_k)\in J^{2,+}(ch)(z_k)$ for every $k$, by
+    \eqref{eq:cjs-open} applied at $z_k$;
+  \item $z_k\to z$, unchanged;
+  \item $(ch)(z_k)=c\,h(z_k)\to c\,h(z)=(ch)(z)$, multiplication by the constant
+    $c$ being continuous on $\R$;
+  \item $cp_k\to cp'$ and $cX_k\to cX'$, multiplication by the constant $c$
+    being continuous on $E$ and on the space of continuous bilinear forms.
+\end{itemize}
+These are exactly the four requirements of \noderef{ClosedSuperjet} for the pair
+$(cp',cX')$ relative to $ch$ at $z$, so
+$(cp',cX')\in\overline J^{2,+}(ch)(z)$. This proves \eqref{eq:cjs-key} and hence
+the lemma.
+\end{proof}

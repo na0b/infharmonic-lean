@@ -1,0 +1,153 @@
+\begin{lemma}[Doob's $L^2$ maximal inequality, vector valued]
+Let $F$ be a finite-dimensional real inner-product space, let
+$(\Omega,\mathcal M,\mu)$ be a probability space, let $(\mathcal G_n)_{n\ge0}$
+be a filtration in $\mathcal M$, and let $M=(M_n)_{n\ge0}$ be an $F$-valued
+martingale for $(\mathcal G_n)$ and $\mu$ such that $\|M_n\|^2$ is integrable
+for every $n$. Fix $N\ge0$ and put
+\[
+  S=\max_{0\le k\le N}\|M_k\| .
+\]
+Then $S$ is integrable,
+\begin{equation}\label{eq:doob-l2}
+  \mathbb E\,S\le2\bigl(\mathbb E\|M_N\|^2\bigr)^{1/2},
+\end{equation}
+and the second moment splits orthogonally over the increments:
+\begin{equation}\label{eq:doob-orthogonality}
+  \mathbb E\|M_N\|^2
+    =\mathbb E\|M_0\|^2
+       +\sum_{k=0}^{N-1}\mathbb E\|M_{k+1}-M_k\|^2 .
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $C=\mathbb E\|M_N\|^2$, which is a finite nonnegative real number by
+hypothesis, and $d_k=M_{k+1}-M_k$.
+
+\emph{Step 1: $(\|M_n\|^2)_n$ is a nonnegative submartingale.}
+Each $\|M_n\|^2$ is nonnegative, and it is $\mathcal G_n$-measurable because
+$M_n$ is (the family $M$ is adapted, being a martingale) and $a\mapsto\|a\|^2$
+is continuous. It is integrable by hypothesis. For the submartingale
+inequality it is enough to compare consecutive indices. Fix $n$. Since
+$\|M_{n+1}\|^2$ is integrable, conditional Jensen for the norm power, with
+$p=2$ and the sub-$\sigma$-algebra $\mathcal G_n$, gives
+\[
+  \bigl\|\mathbb E[M_{n+1}\mid\mathcal G_n]\bigr\|^2
+    \le\mathbb E\bigl[\|M_{n+1}\|^2\mid\mathcal G_n\bigr]
+  \qquad\text{a.e.},
+\]
+and the martingale property gives
+$\mathbb E[M_{n+1}\mid\mathcal G_n]=M_n$ a.e. Hence
+$\|M_n\|^2\le\mathbb E[\|M_{n+1}\|^2\mid\mathcal G_n]$ a.e., which is the
+required inequality.
+
+\emph{Step 2: the weak-type bound.}
+Let $\lambda>0$. Since $u\mapsto u^2$ is strictly increasing on $[0,\infty)$
+and all the quantities $\|M_k\|$ are nonnegative,
+\[
+  \{\lambda\le S\}
+   =\Bigl\{\lambda^2\le\max_{0\le k\le N}\|M_k\|^2\Bigr\}.
+\]
+Apply Doob's weak-type maximal inequality to the nonnegative submartingale
+$(\|M_k\|^2)$ of Step 1, at the level $\varepsilon=\lambda^2\ge0$ and the index
+$N$:
+\[
+  \lambda^2\,\mu\Bigl\{\lambda^2\le\max_{0\le k\le N}\|M_k\|^2\Bigr\}
+   \le\int_{\{\lambda^2\le\max_{k\le N}\|M_k\|^2\}}\|M_N\|^2\,d\mu
+   \le\mathbb E\|M_N\|^2=C,
+\]
+the last inequality because $\|M_N\|^2\ge0$, so that enlarging the domain of
+integration to $\Omega$ only increases the integral. Dividing by
+$\lambda^2>0$,
+\begin{equation}\label{eq:doob-weak}
+  \mu\{\lambda\le S\}\le\frac{C}{\lambda^2}\qquad(\lambda>0).
+\end{equation}
+
+\emph{Step 3: integrability of $S$ and the two-parameter bound.}
+$S$ is a maximum of finitely many nonnegative measurable functions, hence
+nonnegative and measurable. By the layer-cake identity,
+\[
+  \int_\Omega S\,d\mu=\int_0^\infty\mu\{S>\lambda\}\,d\lambda ,
+\]
+as an identity in $[0,\infty]$. Fix $a>0$ and split the right-hand integral at
+$a$. For $0<\lambda<a$ we use $\mu\{S>\lambda\}\le\mu(\Omega)=1$, so that part
+contributes at most $a$. For $\lambda>a$ we use
+$\{S>\lambda\}\subseteq\{\lambda\le S\}$ and \eqref{eq:doob-weak}, so that part
+contributes at most
+\[
+  \int_a^\infty\frac{C}{\lambda^2}\,d\lambda=\frac{C}{a}.
+\]
+Hence
+\begin{equation}\label{eq:doob-split}
+  \int_0^\infty\mu\{S>\lambda\}\,d\lambda\le a+\frac Ca<\infty
+  \qquad(a>0).
+\end{equation}
+In particular the right-hand side of the layer-cake identity is finite, so $S$
+is integrable and $\mathbb E\,S\le a+C/a$ for every $a>0$.
+
+\emph{Step 4: the optimal choice of $a$, giving \eqref{eq:doob-l2}.}
+If $C=0$ then \eqref{eq:doob-split} gives $\mathbb E\,S\le a$ for every $a>0$,
+hence $\mathbb E\,S\le0=2\sqrt C$. If $C>0$, take $a=\sqrt C>0$; then
+\[
+  \mathbb E\,S\le\sqrt C+\frac{C}{\sqrt C}=2\sqrt C,
+\]
+because $\sqrt C\cdot\sqrt C=C$. This is \eqref{eq:doob-l2}.
+
+\emph{Step 5: orthogonality of the increments, giving
+\eqref{eq:doob-orthogonality}.}
+Fix $k$ with $0\le k<N$. Expanding $M_{k+1}=M_k+d_k$ in the inner product,
+\begin{equation}\label{eq:doob-expand}
+  \|M_{k+1}\|^2=\|M_k\|^2+2\langle d_k,M_k\rangle+\|d_k\|^2
+  \qquad\text{pointwise on }\Omega.
+\end{equation}
+All four terms are integrable. Indeed $\|M_k\|^2$ and $\|M_{k+1}\|^2$ are so by
+hypothesis; from $\|a-b\|^2\le2\|a\|^2+2\|b\|^2$ we get
+$\|d_k\|^2\le2\|M_{k+1}\|^2+2\|M_k\|^2$, and $\|d_k\|^2$ is measurable and
+nonnegative, so it is integrable; and by Cauchy--Schwarz and
+$2uw\le u^2+w^2$,
+\[
+  |\langle d_k,M_k\rangle|\le\|d_k\|\,\|M_k\|
+    \le\tfrac12\bigl(\|d_k\|^2+\|M_k\|^2\bigr),
+\]
+so $\langle d_k,M_k\rangle$ is integrable as well; $d_k$ itself is integrable
+since $\|d_k\|\le\tfrac12(1+\|d_k\|^2)$.
+
+Next we check
+\begin{equation}\label{eq:doob-incr-mean}
+  \mathbb E[d_k\mid\mathcal G_k]=0\qquad\text{a.e.}
+\end{equation}
+The constant function $0$ is $\mathcal G_k$-measurable and integrable, and for
+every $A\in\mathcal G_k$
+\[
+  \int_Ad_k\,d\mu=\int_AM_{k+1}\,d\mu-\int_AM_k\,d\mu
+   =\int_A\mathbb E[M_{k+1}\mid\mathcal G_k]\,d\mu-\int_AM_k\,d\mu
+   =\int_AM_k\,d\mu-\int_AM_k\,d\mu=0=\int_A0\,d\mu,
+\]
+where the first equality is additivity of the integral (both $M_{k+1}$ and $M_k$
+are integrable), the second is the characterizing property of
+$\mathbb E[M_{k+1}\mid\mathcal G_k]$ applied to $A\in\mathcal G_k$, and the third
+is the martingale property
+$\mathbb E[M_{k+1}\mid\mathcal G_k]=M_k$ a.e. Since the conditional expectation
+is characterized a.e.\ by this family of identities, and $d_k$ is integrable,
+\eqref{eq:doob-incr-mean} follows.
+The inner product of $F$ is a continuous bilinear map $F\times F\to\R$, the
+function $M_k$ is $\mathcal G_k$-measurable, and $d_k$ and
+$\langle d_k,M_k\rangle$ are integrable; so the pull-out property of the
+conditional expectation applies and gives, with \eqref{eq:doob-incr-mean},
+\[
+  \mathbb E\bigl[\langle d_k,M_k\rangle\mid\mathcal G_k\bigr]
+    =\bigl\langle\mathbb E[d_k\mid\mathcal G_k],\,M_k\bigr\rangle=0
+  \qquad\text{a.e.}
+\]
+Integrating this over $\Omega$ and using the characterizing property of the
+conditional expectation with $A=\Omega\in\mathcal G_k$, which gives
+$\mathbb E\bigl[\mathbb E[X\mid\mathcal G_k]\bigr]=\mathbb E[X]$ for integrable
+$X$, we obtain $\mathbb E\langle d_k,M_k\rangle=0$. Taking expectations in
+\eqref{eq:doob-expand} therefore yields
+\[
+  \mathbb E\|M_{k+1}\|^2=\mathbb E\|M_k\|^2+\mathbb E\|d_k\|^2
+  \qquad(0\le k<N).
+\]
+Summing over $k=0,\dots,N-1$, the terms $\mathbb E\|M_k\|^2$ telescope and
+leave \eqref{eq:doob-orthogonality}. (For $N=0$ both sides of
+\eqref{eq:doob-orthogonality} are $\mathbb E\|M_0\|^2$ and the empty sum is
+zero.)
+\end{proof}

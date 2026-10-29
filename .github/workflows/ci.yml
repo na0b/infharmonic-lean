@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # The cache of .lake (with Mathlib) does not fit on the default runner disk.
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          df -h /
+      - uses: leanprover/lean-action@v1
+      - name: Check axioms of the main results
+        run: |
+          lake env lean Axioms.lean | tee axioms.txt
+          # The three Lean theorems covering the paper's main results:
+          # only the three standard axioms.
+          test "$(grep -c "depends on axioms: \[propext, Classical.choice, Quot.sound\]" axioms.txt)" -eq 3
+          ! grep -q sorryAx axioms.txt

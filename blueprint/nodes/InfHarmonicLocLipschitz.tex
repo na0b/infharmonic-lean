@@ -1,0 +1,64 @@
+\begin{lemma}[Local Lipschitz bound from one slope radius]
+Let $E$ be a finite-dimensional real inner-product space, let $D\subseteq E$ and
+let $w:E\to\R$ be infinity-harmonic on $D$ in the sense of
+\noderef{IsInfHarmonicOn}. Let $z_0\in E$, let $\rho\ge0$, let $\sigma>0$ and
+let $\Lambda\in\R$. Assume
+\[
+  \overline B_{\rho+\sigma}(z_0)\subseteq D,\qquad
+  |w(a)-w(b)|\le\Lambda\sigma
+  \quad\bigl(a,b\in\overline B_{\rho+\sigma}(z_0)\bigr).
+\]
+Then
+\[
+  |w(a)-w(b)|\le\Lambda|a-b|
+  \qquad\bigl(a,b\in\overline B_\rho(z_0)\bigr).
+\]
+\end{lemma}
+\begin{proof}
+Taking $a=b$ in the hypothesis gives $0\le\Lambda\sigma$, and $\sigma>0$, so
+$\Lambda\ge0$.
+
+\emph{Step 1: a Lipschitz estimate for nearby pairs.}
+Let $a\in\overline B_\rho(z_0)$. For $|h|\le\sigma$ we have
+$|a+h-z_0|\le\rho+\sigma$, so $\overline B_\sigma(a)\subseteq
+\overline B_{\rho+\sigma}(z_0)\subseteq D$. Hence \noderef{ConeComparison}
+applies at the center $a$ with radius $\sigma>0$, and gives
+\begin{equation}\label{eq:loclip-cone}
+  w(Z)-w(a)\le L_\sigma^+(w;a)|Z-a|,\qquad
+  -(w(Z)-w(a))\le L_\sigma^-(w;a)|Z-a|
+\end{equation}
+for all $Z\in\overline B_\sigma(a)$. Next we bound the two slopes. By the
+definition in \noderef{ConeSlopeUpper}, $L_\sigma^+(w;a)$ is the supremum of
+$\sigma^{-1}(w(a+h)-w(a))$ over $|h|\le\sigma$. For each such $h$, both $a+h$
+and $a$ lie in $\overline B_{\rho+\sigma}(z_0)$, so the oscillation hypothesis
+gives $w(a+h)-w(a)\le\Lambda\sigma$ and therefore
+$\sigma^{-1}(w(a+h)-w(a))\le\Lambda$. Taking the supremum,
+$L_\sigma^+(w;a)\le\Lambda$. The same argument with the definition in
+\noderef{ConeSlopeLower} gives $L_\sigma^-(w;a)\le\Lambda$. Combining with
+\eqref{eq:loclip-cone},
+\begin{equation}\label{eq:loclip-near}
+  |w(Z)-w(a)|\le\Lambda|Z-a|
+  \qquad\bigl(a\in\overline B_\rho(z_0),\ Z\in\overline B_\sigma(a)\bigr).
+\end{equation}
+
+\emph{Step 2: subdivision of a segment.}
+Let $a,b\in\overline B_\rho(z_0)$ and put $d=|a-b|$. If $d=0$ the claim is
+trivial. Otherwise choose an integer $N\ge1$ with $d/N\le\sigma$, for instance
+any $N\ge d/\sigma$, and set
+\[
+  a_k=a+\frac kN(b-a)\qquad(k=0,1,\ldots,N),
+\]
+so $a_0=a$ and $a_N=b$. The closed ball $\overline B_\rho(z_0)$ is convex, so
+every $a_k$ lies in it. Moreover $|a_{k+1}-a_k|=d/N\le\sigma$, so
+$a_{k+1}\in\overline B_\sigma(a_k)$ and \eqref{eq:loclip-near} applies at the
+center $a_k$:
+\[
+  |w(a_{k+1})-w(a_k)|\le\Lambda\frac dN\qquad(0\le k<N).
+\]
+Summing over $k$ and using the triangle inequality,
+\[
+  |w(b)-w(a)|\le\sum_{k=0}^{N-1}|w(a_{k+1})-w(a_k)|
+    \le N\cdot\Lambda\frac dN=\Lambda d=\Lambda|a-b|,
+\]
+as claimed.
+\end{proof}

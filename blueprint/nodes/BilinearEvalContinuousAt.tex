@@ -1,0 +1,36 @@
+\begin{lemma}[Joint continuity of evaluating a varying form on a varying direction]
+Let $Z$ be a topological space, let $E$ be a real normed space, let
+$B:Z\to\mathcal L\bigl(E,\mathcal L(E,\R)\bigr)$ assign to each $w\in Z$ a continuous
+bilinear form on $E$, and let $u:Z\to E$. If $B$ and $u$ are both continuous at
+$z\in Z$, then so is
+\[
+  w\longmapsto B(w)\bigl[u(w),\,u(w)\bigr].
+\]
+\end{lemma}
+\begin{proof}
+The evaluation map
+\[
+  \mathcal L(E,G)\times E\longrightarrow G,\qquad (C,x)\longmapsto C(x)
+\]
+is bilinear and bounded, since $\|C(x)\|\le\|C\|\,\|x\|$; hence it is continuous, for
+every real normed space $G$.
+
+\emph{Step 1.} Apply this with $G=\mathcal L(E,\R)$. The map $w\mapsto(B(w),u(w))$ is
+continuous at $z$, because a map into a product is continuous at a point exactly when
+both of its components are, and both $B$ and $u$ are continuous at $z$ by hypothesis.
+Composing with the evaluation map, which is continuous at the point $(B(z),u(z))$, shows
+that
+\[
+  w\longmapsto B(w)\bigl[u(w),\,\cdot\,\bigr]\in\mathcal L(E,\R)
+\]
+is continuous at $z$.
+
+\emph{Step 2.} Apply the same evaluation map with $G=\R$. By Step 1 the map
+$w\mapsto\bigl(B(w)[u(w),\cdot\,],\,u(w)\bigr)$ is continuous at $z$, again because each
+component is. Composing with the evaluation map, continuous at the point
+$\bigl(B(z)[u(z),\cdot\,],u(z)\bigr)$, gives the continuity at $z$ of
+\[
+  w\longmapsto B(w)\bigl[u(w),\,u(w)\bigr],
+\]
+which is the assertion.
+\end{proof}

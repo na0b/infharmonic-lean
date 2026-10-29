@@ -1,0 +1,110 @@
+\begin{lemma}[Second variation of the localizing product]
+Let $E$ be a real inner-product space, let $B:E\to\R$ be of class $C^2$ on $E$,
+let $f,f_1:\R\to\R$, let $c,u\in E$ and let $r,s,\gamma_2\in\R$. Assume that
+\[
+  f\ \text{is differentiable at }\rho\ \text{with}\ f'(\rho)=f_1(\rho)
+  \quad\text{for every }\rho\ \text{in some neighbourhood of }r,
+\]
+and that $f_1$ is differentiable at $r$ with $f_1'(r)=\gamma_2$. Then there is a
+function $G:\R\to\R$ such that
+\begin{enumerate}
+\item for every $\tau$ in some neighbourhood of $0$ the function
+  \[
+    t\longmapsto B(c+tu)\,f(r+ts)
+  \]
+  is differentiable at $\tau$ with derivative $G(\tau)$, and
+\item $G$ is differentiable at $0$ with
+  \[
+    G'(0)=D^2B(c)[u,u]\,f(r)+2\,DB(c)[u]\,f_1(r)\,s+B(c)\,\gamma_2\,s^2 .
+  \]
+\end{enumerate}
+In other words, along the motion in which the center moves from $c$ with
+velocity $u$ and the radius moves affinely from $r$ with velocity $s$, the
+product $B(c)f(r)$ has a second derivative at the base point, and that second
+derivative is the displayed Leibniz sum.
+\end{lemma}
+\begin{proof}
+Write $\beta(\tau)=B(c+\tau u)$ and $\gamma(\tau)=f(r+\tau s)$, so that the
+function in (1) is $\beta\gamma$.
+
+\emph{Step 1: the two straight motions.} The map $t\mapsto c+tu$ is affine, hence
+differentiable at every $\tau$ with derivative $u$; likewise $t\mapsto r+ts$ is
+differentiable at every $\tau$ with derivative $s$. Both maps send $0$ to $c$
+and to $r$ respectively.
+
+\emph{Step 2: $\beta$ is differentiable everywhere, with
+$\beta'(\tau)=DB(c+\tau u)[u]$.} Since $B$ is $C^2$ on $E$ it is in particular
+differentiable at every point, so $B$ is differentiable at $c+\tau u$ with
+derivative $DB(c+\tau u)$. Composing with the motion of Step 1, the chain rule
+gives
+\begin{equation}\label{eq:ppsv-beta1}
+  \beta'(\tau)=DB(c+\tau u)[u]\qquad(\tau\in\R);
+\end{equation}
+in particular $\beta(0)=B(c)$ and $\beta'(0)=DB(c)[u]$.
+
+\emph{Step 3: $\beta'$ is differentiable at $0$, with
+$\beta''(0)=D^2B(c)[u,u]$.} As $B$ is $C^2$, the map $x\mapsto DB(x)$ is $C^1$
+on $E$, hence differentiable at $c$, with derivative $D^2B(c)$, a continuous
+linear map from $E$ to the space of continuous linear functionals on $E$.
+Composing with the motion $t\mapsto c+tu$, which has derivative $u$ at $0$ and
+sends $0$ to $c$, gives that $\tau\mapsto DB(c+\tau u)$ is differentiable at $0$
+with derivative $D^2B(c)[u]$. Evaluation at $u$ is a continuous linear
+functional on the space of continuous linear functionals, so composing once more
+and using \eqref{eq:ppsv-beta1},
+\begin{equation}\label{eq:ppsv-beta2}
+  \beta''(0)=D^2B(c)[u,u].
+\end{equation}
+
+\emph{Step 4: $\gamma$ near $0$, and $\gamma'$ at $0$.} The map
+$\tau\mapsto r+\tau s$ is continuous and sends $0$ to $r$, so it maps some
+neighbourhood of $0$ into the neighbourhood of $r$ on which $f$ is
+differentiable with derivative $f_1$. For $\tau$ in that neighbourhood of $0$,
+$f$ is differentiable at $r+\tau s$ with derivative $f_1(r+\tau s)$, and the
+chain rule with Step 1 gives that $\gamma$ is differentiable at $\tau$ with
+\begin{equation}\label{eq:ppsv-gamma1}
+  \gamma'(\tau)=f_1(r+\tau s)\,s .
+\end{equation}
+Taking $\tau=0$: $\gamma(0)=f(r)$ and $\gamma'(0)=f_1(r)s$. Moreover $f_1$ is
+differentiable at $r$ with derivative $\gamma_2$, so composing with the motion
+once more,
+\begin{equation}\label{eq:ppsv-gamma2}
+  \tau\mapsto f_1(r+\tau s)s\ \text{is differentiable at }0
+  \ \text{with derivative }\gamma_2 s\cdot s=\gamma_2s^2 .
+\end{equation}
+
+\emph{Step 5: definition of $G$ and proof of (1).} Put
+\[
+  G(\tau)=DB(c+\tau u)[u]\,f(r+\tau s)+B(c+\tau u)\,f_1(r+\tau s)\,s
+   =\beta'(\tau)\gamma(\tau)+\beta(\tau)\gamma'(\tau)
+\]
+for $\tau$ in the neighbourhood of $0$ supplied by Step 4, extended arbitrarily
+(say by $0$) elsewhere. For such $\tau$, $\beta$ is differentiable at $\tau$ by
+Step 2 and $\gamma$ is differentiable at $\tau$ by Step 4, so the product rule
+gives that $\beta\gamma$ is differentiable at $\tau$ with derivative
+$\beta'(\tau)\gamma(\tau)+\beta(\tau)\gamma'(\tau)=G(\tau)$. This is (1).
+
+\emph{Step 6: proof of (2).} On that neighbourhood, $G=G_1+G_2$ with
+$G_1(\tau)=\beta'(\tau)\gamma(\tau)$ and $G_2(\tau)=\beta(\tau)\gamma'(\tau)$.
+By Step 3 the factor $\beta'$ is differentiable at $0$ with derivative
+$\beta''(0)$, and by Step 4 the factor $\gamma$ is differentiable at $0$ with
+derivative $\gamma'(0)$; the product rule gives that $G_1$ is differentiable at
+$0$ with
+\[
+  G_1'(0)=\beta''(0)\gamma(0)+\beta'(0)\gamma'(0).
+\]
+By Step 2 the factor $\beta$ is differentiable at $0$ with derivative
+$\beta'(0)$, and by \eqref{eq:ppsv-gamma2} the factor $\gamma'$ is
+differentiable at $0$ with derivative $\gamma_2s^2$; the product rule gives that
+$G_2$ is differentiable at $0$ with
+\[
+  G_2'(0)=\beta'(0)\gamma'(0)+\beta(0)\,\gamma_2s^2 .
+\]
+Adding, $G$ is differentiable at $0$ with
+\[
+  G'(0)=\beta''(0)\gamma(0)+2\beta'(0)\gamma'(0)+\beta(0)\,\gamma_2s^2
+   =D^2B(c)[u,u]\,f(r)+2\,DB(c)[u]\,f_1(r)\,s+B(c)\,\gamma_2\,s^2,
+\]
+where the values $\beta(0)=B(c)$, $\beta'(0)=DB(c)[u]$,
+$\beta''(0)=D^2B(c)[u,u]$, $\gamma(0)=f(r)$ and $\gamma'(0)=f_1(r)s$ were
+substituted from Steps 2, 3 and 4. This is (2).
+\end{proof}

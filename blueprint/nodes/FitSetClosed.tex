@@ -1,0 +1,58 @@
+\begin{helper}[Fits of a fixed radius form a closed set]
+Let $F$ be a finite-dimensional real inner-product space, let $C_0\in\R$, let
+$v$ be a continuous real function on space-time and let $r>0$. Then the set of
+triples $(z,p,a)$ in $(F\times\R)\times F\times\R$ such that $(p,a)$ is a fit
+for $v$ at $z$ of radius $r$ with constant $C_0$, in the sense of
+\noderef{IsFit}, is closed.
+\end{helper}
+\begin{proof}
+By \noderef{IsFit}, $(p,a)$ is a fit for $v$ at $z$ of radius $r$ with constant
+$C_0$ if and only if
+\begin{equation}\label{eq:fsc-fit}
+  \Bigl|v\bigl(z+(h,\ell)\bigr)-v(z)-\langle p,h\rangle
+     -\bigl(a-\tfrac12|p|^2\bigr)\ell\Bigr|\le C_0r
+\end{equation}
+for every increment $(h,\ell)$ with $|\ell|\le r$ and $|h-\ell p|\le r$. The
+constraint on the increments involves $p$, so the domain of the quantified
+condition varies with the point of the set under consideration. We remove that
+dependence by reparameterizing the increments: for $\theta\in\R$ and $\zeta\in F$
+put
+\[
+  \ell(\theta)=r\theta,\qquad h(\theta,\zeta,p)=r\theta\,p+r\zeta .
+\]
+
+\emph{The reparameterization is a bijection onto the admissible increments.}
+Fix $(z,p,a)$. If $|\theta|\le1$ and $|\zeta|\le1$ then
+$|\ell(\theta)|=r|\theta|\le r$ and
+$|h(\theta,\zeta,p)-\ell(\theta)p|=|r\zeta|=r|\zeta|\le r$, so
+$(h(\theta,\zeta,p),\ell(\theta))$ is an admissible increment. Conversely, if
+$(h,\ell)$ satisfies $|\ell|\le r$ and $|h-\ell p|\le r$, put
+$\theta=\ell/r$ and $\zeta=r^{-1}(h-\ell p)$, which is legitimate because
+$r>0$; then $|\theta|=|\ell|/r\le1$ and $|\zeta|=|h-\ell p|/r\le1$, while
+$\ell(\theta)=r(\ell/r)=\ell$ and
+$h(\theta,\zeta,p)=\ell p+(h-\ell p)=h$. Hence, for every $(z,p,a)$, the
+condition of \eqref{eq:fsc-fit} over all admissible increments is equivalent to
+the same condition over the increments $(h(\theta,\zeta,p),\ell(\theta))$ with
+$|\theta|\le1$ and $|\zeta|\le1$.
+
+\emph{Each reparameterized condition is closed.} Fix $\theta$ with
+$|\theta|\le1$ and $\zeta$ with $|\zeta|\le1$, and consider
+\[
+  S_{\theta,\zeta}=\Bigl\{(z,p,a):\bigl|v\bigl(z+(r\theta p+r\zeta,\,r\theta)\bigr)
+    -v(z)-\langle p,\,r\theta p+r\zeta\rangle
+    -\bigl(a-\tfrac12|p|^2\bigr)r\theta\bigr|\le C_0r\Bigr\}.
+\]
+The map
+$(z,p,a)\mapsto v(z+(r\theta p+r\zeta,r\theta))-v(z)-\langle p,r\theta p+r\zeta\rangle
+ -(a-\tfrac12|p|^2)r\theta$
+is continuous, being built from the continuous $v$, the continuous vector space
+operations, the continuous inner product and the continuous norm, with
+$\theta$, $\zeta$ and $r$ fixed; composing with the continuous absolute value
+and taking the preimage of the closed half-line $(-\infty,C_0r]$ shows that
+$S_{\theta,\zeta}$ is closed.
+
+\emph{Conclusion.} By the previous two paragraphs the set in question is
+\[
+  \bigcap_{|\theta|\le1}\ \bigcap_{|\zeta|\le1}S_{\theta,\zeta},
+\]
+an intersection of closed sets, hence closed. \end{proof}

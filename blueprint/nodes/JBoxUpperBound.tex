@@ -1,0 +1,68 @@
+\begin{helper}[A uniform upper bound for the propagation quantity on a compact set]
+Let $F$ be a finite-dimensional real inner-product space, let $1\le C_0<\infty$
+and $\kappa\ge0$, and let $v\in\Aclass_{m,C_0}$ in the sense of
+\noderef{IsFitClass} be centered at $z_*=(0,1)$ with constant $C_0$ in the
+sense of \noderef{IsCenteredAt} and satisfy the horizontal Jensen bound with
+constant $\kappa$ at every time in the sense of \noderef{HasJensenBound}. Let
+$J_\epsilon$ be the propagation quantity of \noderef{JGap} formed from $v$ and
+$\kappa$, and let $\mathcal B$ be a compact subset of space-time. Then there is
+a constant $U\in\R$ with
+\[
+  J_\epsilon(z)\le U\qquad
+  \text{for every }z=(x,t)\in\mathcal B\text{ with }t>0
+  \text{ and every }0<\epsilon\le1 .
+\]
+\end{helper}
+\begin{proof}
+Write $\Penv_\ell$, $\Menv_\ell$ for the quadratic envelopes and
+$\Senv^+_\ell$, $\Senv^-_\ell$ for the envelope slopes of \noderef{EnvSlopeP}
+and \noderef{EnvSlopeM}.
+
+\emph{The two standing facts about $v$.} By \noderef{IsFitClass} the function
+$v$ is a viscosity solution of the limiting equation on all of space-time, and
+in particular it is continuous there. By \noderef{UniformSubquadratic}, applied
+with the centering point $(0,1)$ and the constant $C_0$, for every compact
+$J\subseteq\R$ and every $\varepsilon>0$ there is $M>0$ such that
+$|v(x,t)|\le\varepsilon|x|^2$ whenever $|x|\ge M$ and $t\in J$; that is, $v$ has
+subquadratic spatial growth on compact time subintervals of $\R$ in the sense of
+\noderef{SubquadraticGrowth}. Hence \noderef{QuadEnvAttained} and
+\noderef{EnvHamiltonianSolution} are available for $v$ with $I=\R$, for which
+every time and every shifted time is admissible.
+
+\emph{The averaged slope at length one is continuous.} Put
+\[
+  \Phi(z)=\tfrac12\bigl(\Senv^+_1v(z)+\Senv^-_1v(z)\bigr).
+\]
+By \noderef{EnvSlopeP} and \noderef{EnvSlopeM} this equals
+$\bigl(\Penv_1v(z)-\Menv_1v(z)\bigr)/2$. By parts (3) and (4) of
+\noderef{QuadEnvAttained} for $v$ with $I=\R$, the maps
+$(\ell,z)\mapsto\Penv_\ell v(z)$ and $(\ell,z)\mapsto\Menv_\ell v(z)$ are
+continuous at $(1,z_0)$ for every $z_0$, the required admissibility of $t_0$ and
+$t_0\pm1$ being automatic for $I=\R$. Composing with the continuous map
+$z\mapsto(1,z)$ shows that $z\mapsto\Penv_1v(z)$ and $z\mapsto\Menv_1v(z)$ are
+continuous at every point, hence continuous; therefore $\Phi$ is continuous on
+all of space-time.
+
+\emph{The constant.} If $\mathcal B=\emptyset$ the assertion holds with $U=0$,
+there being no $z\in\mathcal B$. Otherwise $\mathcal B$ is a nonempty compact
+set and $\Phi$ is continuous on it, so $\Phi$ attains a maximum on $\mathcal B$:
+there is $z_m\in\mathcal B$ with $\Phi(z)\le\Phi(z_m)$ for every
+$z\in\mathcal B$. Put $U=\Phi(z_m)$.
+
+\emph{The bound.} Let $z=(x,t)\in\mathcal B$ with $t>0$ and let
+$0<\epsilon\le1$. By \noderef{JUpperBound},
+\[
+  J_\epsilon(z)\le\tfrac12\bigl(\Senv^+_\epsilon v(z)+\Senv^-_\epsilon v(z)\bigr),
+\]
+its hypotheses being the present $C_0\ge1$, $\kappa\ge0$, $v\in\Aclass_{m,C_0}$,
+the centering, the Jensen bound, $\epsilon>0$ and $t>0$. By part (1) of
+\noderef{EnvHamiltonianSolution} for $v$ with $I=\R$, applied with
+$\ell=\epsilon$ and $\ell'=1$ --- legitimate since $0<\epsilon\le1$ and every
+$t+\sigma$ lies in $I=\R$ ---
+\[
+  \Senv^+_\epsilon v(z)\le\Senv^+_1v(z),\qquad
+  \Senv^-_\epsilon v(z)\le\Senv^-_1v(z).
+\]
+Averaging the two inequalities and combining with the previous display gives
+$J_\epsilon(z)\le\Phi(z)$, and $\Phi(z)\le\Phi(z_m)=U$ because
+$z\in\mathcal B$. \end{proof}

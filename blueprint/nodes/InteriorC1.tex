@@ -1,0 +1,128 @@
+\begin{corollary}[Interior $C^1$ regularity]
+Fix an integer $d\ge3$, let $\Omega\subseteq\R^d$ be a nonempty connected set
+and let $u:\R^d\to\R$ be infinity-harmonic on $\Omega$ in the sense of
+\noderef{IsInfHarmonicOn}, which in particular makes $\Omega$ open and $u$
+continuous on $\Omega$. Then $u$ is continuously differentiable on $\Omega$:
+there is a map $g:\Omega\to\R^d$, continuous on $\Omega$, such that $u$ is
+differentiable at every $x\in\Omega$ with gradient $g(x)$. Equivalently, since
+$\Omega$ is open, $u\in C^1_{\mathrm{loc}}(\Omega)=C^1(\Omega)$.
+\end{corollary}
+\begin{proof}
+By \noderef{IsInfHarmonicOn} the set $\Omega$ is open and $u$ is continuous on
+$\Omega$. The gradient of $u$ at a point, when it exists, is unique, being the
+Riesz representative of the Fr\'echet derivative there; so it suffices to
+produce, for every $x_0\in\Omega$, an open ball $V\ni x_0$ with $V\subseteq
+\Omega$ such that $u$ is differentiable at every point of $V$ with a gradient
+depending continuously on that point. Indeed, the resulting gradient map is then
+well defined on all of $\Omega$ — any two of the local maps agree on the
+overlap, both being the gradient of $u$ — it is defined at every point of
+$\Omega$, and continuity is a local property, so it is continuous on $\Omega$.
+Note that the hypotheses that $\Omega$ is nonempty and connected are not used
+below; they are carried because the statement being formalized carries them.
+
+\emph{Step 1: a good ball and the rescaled function.}
+Fix $x_0\in\Omega$. Since $\Omega$ is open there is $R>0$ with
+$B_R(x_0)\subseteq\Omega$. Put $r=R/4>0$, so
+\[
+  \overline B_{2r}(x_0)\subseteq B_R(x_0)\subseteq\Omega ,
+\]
+because $|x-x_0|\le2r=R/2<R$. Let $A=2r>0$, let $T(y)=x_0+Ay$ and put
+\[
+  v=u\circ T,\qquad v(y)=u(x_0+2ry).
+\]
+By \noderef{InfHarmonicRescale}, applied with this $\Omega$, this $u$, the point
+$x_0$ and the factor $A>0$, the function $v$ is infinity-harmonic on
+$T^{-1}(\Omega)$.
+
+\emph{Step 2: $v$ is infinity-harmonic on the unit ball.}
+First, $B_1\subseteq T^{-1}(\Omega)$: if $|y|<1$ then
+$|T(y)-x_0|=2r|y|<2r$, so $T(y)\in\overline B_{2r}(x_0)\subseteq\Omega$.
+
+Next, infinity-harmonicity passes to open subsets. Let $W\subseteq\Omega'$ with
+$W$ open, $\Omega'$ open and $f$ an infinity subsolution on $\Omega'$ in the
+sense of \noderef{IsInfSubsolutionOn}. Let $z\in W$ and let $\phi$ be $C^2$ near
+$z$ with $f-\phi$ having a local maximum on $W$ at $z$, i.e.\ there is a
+neighbourhood $N$ of $z$ with $(f-\phi)(x)\le(f-\phi)(z)$ for all $x\in N\cap W$.
+Then $N\cap W$ is itself a neighbourhood of $z$, $W$ being open and containing
+$z$, and for every $x\in(N\cap W)\cap\Omega'$ we have $x\in N\cap W$ and hence
+$(f-\phi)(x)\le(f-\phi)(z)$; so $f-\phi$ has a local maximum on $\Omega'$ at
+$z$, and \noderef{IsInfSubsolutionOn} gives $\Dinf\phi(z)\ge0$. As $W$ is open
+and $f$ is continuous on $\Omega'\supseteq W$, hence on $W$, this shows that $f$
+is an infinity subsolution on $W$. The same argument with inequalities reversed,
+using \noderef{IsInfSupersolutionOn}, shows that an infinity supersolution on
+$\Omega'$ is one on $W$. By \noderef{IsInfHarmonicOn} — which is the conjunction
+of the two — infinity-harmonicity on $\Omega'$ implies infinity-harmonicity on
+every open $W\subseteq\Omega'$.
+
+Applying this with $\Omega'=T^{-1}(\Omega)$, which is open because $T$ is a
+homeomorphism of $\R^d$ and $\Omega$ is open, and $W=B_1$, we conclude that $v$
+is infinity-harmonic on $B_1$ in the sense of \noderef{IsInfHarmonicOn}.
+
+\emph{Step 3: $v$ is bounded on the unit ball.}
+By \noderef{IsInfHarmonicOn} the function $u$ is continuous on $\Omega$, so it is
+continuous on the compact set $\overline B_{2r}(x_0)\subseteq\Omega$, which is
+closed and bounded in $\R^d$ and hence compact. By the Weierstrass item of the
+preamble $u$ attains a maximum and a minimum on it; call them $m^+$ and $m^-$.
+Every point of $v(B_1)$ has the form $u(T(y))$ with $T(y)\in\overline
+B_{2r}(x_0)$, as in Step 2, so $m^-\le u(T(y))\le m^+$. Thus $v(B_1)$ is bounded
+above and bounded below.
+
+\emph{Step 4: the estimate for $v$ and the H\"older continuity of its gradient.}
+Let $\alpha$ and $C$ be the constants \noderef{MainEstimate} provides for this
+$d$, so $0<\alpha\le1/3$ and $0<C<\infty$. By Steps 2 and 3 the function $v$
+satisfies its hypotheses, so there is a map $g_v:\R^d\to\R^d$ such that $v$ is
+differentiable at every $y\in B_{1/2}$ with gradient $g_v(y)$, the set
+$Q_\alpha(g_v;B_{1/2})$ of H\"older quotients of \noderef{HolderQuotSet} is
+bounded above, and the two remaining conclusions hold as well; we use only
+these two.
+
+Put $K=[g_v]_{C^{0,\alpha}(B_{1/2})}$, the H\"older seminorm of
+\noderef{HolderSeminormOn}, which is the supremum of
+$Q_\alpha(g_v;B_{1/2})$. That set is nonempty, because $d\ge3\ge1$ makes
+$B_{1/2}\subseteq\R^d$ contain two distinct points, and bounded above, so $K$ is
+a real number and dominates every member of the set; also $K\ge0$, every member
+being a quotient of nonnegative numbers. By \noderef{HolderQuotSet}, for all
+$y,y'\in B_{1/2}$ with $y\ne y'$,
+\[
+  \frac{|g_v(y)-g_v(y')|}{|y-y'|^\alpha}\le K,
+  \qquad\text{hence}\qquad
+  |g_v(y)-g_v(y')|\le K|y-y'|^\alpha ,
+\]
+and the last inequality also holds trivially when $y=y'$. Since $\alpha>0$, the
+right-hand side tends to $0$ as $y'\to y$, so $g_v$ is continuous at every
+$y\in B_{1/2}$ relative to $B_{1/2}$; as $B_{1/2}$ is open, $g_v$ is continuous
+on $B_{1/2}$.
+
+\emph{Step 5: unscaling.}
+Put $V=B_r(x_0)$, an open ball with $x_0\in V$ and
+$V\subseteq\overline B_{2r}(x_0)\subseteq\Omega$, and define
+\[
+  S(x)=\frac{x-x_0}{2r},\qquad g(x)=\frac{1}{2r}\,g_v\bigl(S(x)\bigr)
+  \qquad(x\in V).
+\]
+For $x\in V$ we have $|S(x)|=|x-x_0|/(2r)<r/(2r)=1/2$, so $S(x)\in B_{1/2}$ and
+$g$ is defined on $V$. Note $T(S(x))=x_0+2r\cdot(x-x_0)/(2r)=x$, so
+$v(S(x))=u(x)$, and more generally $v\bigl(S(x)+k\bigr)=u(x+2rk)$ for every
+$k\in\R^d$, since $T(S(x)+k)=x+2rk$.
+
+Fix $x\in V$ and put $y=S(x)\in B_{1/2}$. For $h\in\R^d$ write $k=h/(2r)$, so
+$h=2rk$ and $|k|=|h|/(2r)$. Then
+\[
+  u(x+h)-u(x)-\Bigl\langle\frac{1}{2r}g_v(y),h\Bigr\rangle
+   =v(y+k)-v(y)-\bigl\langle g_v(y),k\bigr\rangle ,
+\]
+because $u(x+h)=v(y+k)$, $u(x)=v(y)$ and
+$\langle(2r)^{-1}g_v(y),2rk\rangle=\langle g_v(y),k\rangle$. By Step 4 the right
+side is $o(|k|)$ as $k\to0$, and $|k|=|h|/(2r)$ with $2r$ a fixed positive
+constant, so the left side is $o(|h|)$ as $h\to0$. Hence $u$ is differentiable at
+$x$ with gradient $g(x)=(2r)^{-1}g_v(S(x))$.
+
+Finally $g$ is continuous on $V$: it is the composition of the continuous affine
+map $S$, which carries $V$ into $B_{1/2}$, with the map $g_v$, continuous on
+$B_{1/2}$ by Step 4, followed by multiplication by the constant $(2r)^{-1}$.
+
+So $V=B_r(x_0)$ is an open ball containing $x_0$ and contained in $\Omega$ on
+which $u$ is differentiable with continuous gradient. Since $x_0\in\Omega$ was
+arbitrary, the reduction at the start of the proof applies and $u$ is
+continuously differentiable on $\Omega$.
+\end{proof}

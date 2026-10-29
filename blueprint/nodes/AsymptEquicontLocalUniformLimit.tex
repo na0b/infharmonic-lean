@@ -1,0 +1,116 @@
+\begin{lemma}[Locally uniform extraction under an asymptotic modulus of continuity]
+Let $H$ be a finite-dimensional real inner-product space and let $g_j$, $j\ge0$,
+be real functions on $H$. Suppose:
+\begin{enumerate}
+\item[(i)] for every $\rho>0$ there are a real number $A$ and an index $j_0$ such
+that $|g_j(w)|\le A$ for every $j\ge j_0$ and every $w\in H$ with $|w|\le\rho$;
+\item[(ii)] for every $\rho>0$ and every $\varepsilon>0$ there are $\eta>0$ and
+an index $j_0$ such that $|g_j(w)-g_j(w')|\le\varepsilon$ whenever $j\ge j_0$ and
+$w,w'\in H$ satisfy $|w|\le\rho$, $|w'|\le\rho$ and $|w-w'|\le\eta$.
+\end{enumerate}
+Then there are a strictly increasing sequence of indices $l\mapsto\psi(l)$ and a
+real function $w$ on $H$ such that $g_{\psi(l)}\to w$ uniformly on every compact
+subset of $H$.
+\end{lemma}
+\begin{proof}
+Throughout, $\overline B_\rho=\{u\in H:|u|\le\rho\}$ and
+$B_\sigma(b)=\{u\in H:|u-b|<\sigma\}$. Note that neither hypothesis is assumed
+for small $j$, and that the index $j_0$ in each is allowed to depend on $\rho$;
+this is why the extraction below is performed once, against a countable set
+dense in all of $H$, rather than ball by ball.
+
+\emph{Step 1: a countable dense subset of $H$.}
+Let $k\ge1$ be an integer. The set $\overline B_k$ is closed and bounded in a
+finite-dimensional normed space, hence compact. The balls $B_{1/k}(a)$ with
+$a\in\overline B_k$ cover $\overline B_k$, so finitely many of them do: there is
+a finite set $N_k\subseteq\overline B_k$ with
+$\overline B_k\subseteq\bigcup_{b\in N_k}B_{1/k}(b)$. Put
+$Q=\bigcup_{k\ge1}N_k$, a countable subset of $H$.
+
+$Q$ is dense in $H$: given $x\in H$ and $\sigma>0$, choose an integer
+$k\ge\max\{|x|,1/\sigma,1\}$. Then $x\in\overline B_k$, so some $b\in N_k$
+satisfies $|x-b|<1/k\le\sigma$. Enumerate $Q=\{a_1,a_2,\dots\}$; if $Q$ is
+finite the argument below is the same and shorter.
+
+\emph{Step 2: at each point of $Q$ the whole sequence of values is bounded.}
+Fix $k$. Apply (i) with $\rho=|a_k|+1>0$: there are $A$ and $j_0$ with
+$|g_j(a_k)|\le A$ for all $j\ge j_0$, since $|a_k|\le|a_k|+1$. The finitely many
+real numbers $|g_j(a_k)|$ with $j<j_0$ admit a common bound $B$ (take $B=0$ when
+$j_0=0$, and otherwise the maximum of that finite list). Hence, with
+$A_k=\max\{A,B\}$,
+\[
+  |g_j(a_k)|\le A_k\qquad\text{for \emph{every} }j\ge0 .
+\]
+
+\emph{Step 3: one subsequence converging at every point of $Q$.}
+By Step 2 the sequence $(g_j(a_k))_{j\ge0}$ is bounded for each fixed $k$, so by
+Bolzano--Weierstrass it has a convergent subsequence. Applying this successively
+we may choose nested infinite index sets
+$\mathbb N\supseteq J_1\supseteq J_2\supseteq\cdots$ such that $g_j(a_k)$
+converges as $j\to\infty$ along $J_k$, for every $k$: given $J_{k-1}$ (with
+$J_0=\mathbb N$), the sequence $(g_j(a_k))_{j\in J_{k-1}}$ is bounded, so it has
+a convergent subsequence, whose index set we take as $J_k$. Now choose indices
+$\psi(1)<\psi(2)<\cdots$ with $\psi(l)\in J_l$, which is possible because each
+$J_l$ is infinite. For each fixed $k$ we have
+$\{\psi(l):l\ge k\}\subseteq J_k$ and $\psi(l)\to\infty$, so
+$(g_{\psi(l)}(a_k))_{l\ge0}$ is a subsequence of a convergent sequence and
+therefore converges; call its limit $c_k$.
+
+\emph{Step 4: $(g_{\psi(l)})_l$ is uniformly Cauchy on every $\overline B_\rho$.}
+Fix $\rho>0$ and $\varepsilon>0$. Apply (ii) with radius $\rho+1$ and
+$\varepsilon/4$: there are $\eta>0$ and an index $j_1$ with
+\begin{equation}\label{eq:aelul-mod}
+  |g_j(u)-g_j(u')|\le\varepsilon/4\quad\text{whenever }j\ge j_1,\
+  |u|\le\rho+1,\ |u'|\le\rho+1,\ |u-u'|\le\eta .
+\end{equation}
+Put $\delta=\min\{\eta,1\}>0$. Since $Q$ is dense, the balls $B_\delta(b)$ with
+$b\in Q$ cover $H$ and in particular $\overline B_\rho$; as $\overline B_\rho$
+is compact, finitely many suffice:
+$\overline B_\rho\subseteq\bigcup_{\nu=1}^{N}B_\delta(b_\nu)$ with
+$b_\nu\in Q$, say $b_\nu=a_{k(\nu)}$.
+
+By Step 3, $g_{\psi(l)}(b_\nu)\to c_{k(\nu)}$ for each of the finitely many
+$\nu\le N$, and $\psi(l)\ge l\to\infty$ because $\psi$ is strictly increasing.
+So there is $l_0$ with
+\begin{equation}\label{eq:aelul-net}
+  \psi(l)\ge j_1\quad\text{and}\quad
+  |g_{\psi(l)}(b_\nu)-c_{k(\nu)}|<\varepsilon/4
+  \qquad(l\ge l_0,\ \nu\le N).
+\end{equation}
+Let $x\in\overline B_\rho$ and $l,l'\ge l_0$. Choose $\nu$ with
+$|x-b_\nu|<\delta$. Then $|x|\le\rho\le\rho+1$, and
+$|b_\nu|\le|x|+|x-b_\nu|\le\rho+\delta\le\rho+1$, and $|x-b_\nu|\le\delta\le\eta$;
+so \eqref{eq:aelul-mod} applies at $j=\psi(l)$ and at $j=\psi(l')$, both of
+which are $\ge j_1$ by \eqref{eq:aelul-net}, and gives
+$|g_{\psi(l)}(x)-g_{\psi(l)}(b_\nu)|\le\varepsilon/4$ and
+$|g_{\psi(l')}(x)-g_{\psi(l')}(b_\nu)|\le\varepsilon/4$. From the exact identity
+\[
+  g_{\psi(l)}(x)-g_{\psi(l')}(x)
+   =\bigl(g_{\psi(l)}(x)-g_{\psi(l)}(b_\nu)\bigr)
+    +\bigl(g_{\psi(l)}(b_\nu)-c_{k(\nu)}\bigr)
+    -\bigl(g_{\psi(l')}(b_\nu)-c_{k(\nu)}\bigr)
+    -\bigl(g_{\psi(l')}(x)-g_{\psi(l')}(b_\nu)\bigr)
+\]
+and \eqref{eq:aelul-net} we conclude
+$|g_{\psi(l)}(x)-g_{\psi(l')}(x)|<\varepsilon$. As $x\in\overline B_\rho$ was
+arbitrary, $(g_{\psi(l)})_l$ is uniformly Cauchy on $\overline B_\rho$.
+
+\emph{Step 5: the limit, and uniform convergence on compact sets.}
+Let $z\in H$ and apply Step 4 with $\rho=|z|+1>0$, noting $z\in\overline B_\rho$:
+the real sequence $(g_{\psi(l)}(z))_l$ is Cauchy, hence convergent by
+completeness of $\R$. Define $w(z)$ to be its limit; this defines $w$ on all of
+$H$.
+
+Fix $\rho>0$ and $\varepsilon>0$, and let $l_0$ be as in Step 4 for this $\rho$
+and for $\varepsilon/2$ in place of $\varepsilon$. For $l\ge l_0$ and
+$x\in\overline B_\rho$ we have $|g_{\psi(l)}(x)-g_{\psi(l')}(x)|<\varepsilon/2$
+for every $l'\ge l_0$; letting $l'\to\infty$ and using
+$g_{\psi(l')}(x)\to w(x)$ gives $|g_{\psi(l)}(x)-w(x)|\le\varepsilon/2
+<\varepsilon$. Hence $\sup_{\overline B_\rho}|g_{\psi(l)}-w|\le\varepsilon/2$
+for $l\ge l_0$, i.e.\ $g_{\psi(l)}\to w$ uniformly on $\overline B_\rho$.
+
+Finally let $C\subseteq H$ be compact. Then $C$ is bounded, so $C\subseteq
+\overline B_\rho$ for some $\rho>0$, and uniform convergence on
+$\overline B_\rho$ implies uniform convergence on $C$. Thus $\psi$ and $w$ have
+all the asserted properties.
+\end{proof}

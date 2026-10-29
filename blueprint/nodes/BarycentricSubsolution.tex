@@ -1,0 +1,175 @@
+\begin{corollary}[A barycentric subsolution]
+Let $F$ be a finite-dimensional real inner-product space, write $z=(z_x,z_t)$
+for a point of the space-time $\ell^2(F\times\R)$ and put
+$\Omega=\{z:z_t>0\}$. Let $f$ be a real function on the space-time which is a
+viscosity subsolution of $F[f]=0$ on $\Omega$ in the sense of
+\noderef{IsLimitSubOn} --- so in particular $\Omega$ is open and $f$ is
+continuous on $\Omega$ --- and which has subquadratic spatial growth on compact
+subintervals of $(0,\infty)$ in the sense of \noderef{SubquadraticGrowth}. Let
+$c\in\R$. Then
+\[
+  z\longmapsto\Cenv_{z_t}f(z)-c\,z_t,
+\]
+with $\Cenv$ the barycentric envelope of \noderef{BaryEnv}, is a viscosity
+subsolution of $F[\cdot]=0$ on $\Omega$ in the sense of \noderef{IsLimitSubOn}.
+\end{corollary}
+\begin{proof}
+Write $V(z)=\Cenv_{z_t}f(z)-c\,z_t$. We verify the three clauses of
+\noderef{IsLimitSubOn} for $V$ on $\Omega$. That $\Omega$ is open is the first
+clause of \noderef{IsLimitSubOn} for $f$, which is a hypothesis. Throughout, the
+hypotheses of \noderef{BaryEnvDuality} hold for $f$ with the open time set
+$I=(0,\infty)$: the slab $\Omega$ is exactly the preimage of $I$ under
+$z\mapsto z_t$, $f$ is continuous there, and the growth hypothesis is the one
+assumed.
+
+\emph{Step 1: the defining supremum is finite, and dominates every
+configuration.}
+\textsc{Claim.} \emph{Let $t>0$ and $x\in F$. Then the set of numbers
+\[
+  \sum_i\theta_if(y_i,t)-\frac{\sum_i\theta_i|y_i-x|^2}{2t},
+\]
+taken over all finite horizontal probability configurations $(\theta,y)$ with
+mean $x$ in the sense of \noderef{IsBaryConfig}, is nonempty and bounded above.
+Consequently $\Cenv_tf(x,t)$ is a genuine supremum and every such number is at
+most $\Cenv_tf(x,t)$.}
+
+\emph{Proof of the Claim.} Nonemptiness: the one-point configuration $n=1$,
+$\theta_1=1$, $y_1=x$ satisfies \noderef{IsBaryConfig} and contributes
+$f(x,t)$. For the upper bound, put
+$h(y)=f(y,t)-|y-x|^2/(2t)$. Since $\theta_i>0$ and $\sum_i\theta_i=1$, and since
+$\sum_i\theta_i|y_i-x|^2/(2t)=\sum_i\theta_i\bigl(|y_i-x|^2/(2t)\bigr)$, the
+displayed number equals $\sum_i\theta_ih(y_i)$, a convex combination of values of
+$h$, and is therefore at most $\sup_Fh$. It remains to bound $\sup_Fh$.
+
+Apply \noderef{SubquadraticGrowth} with the compact subinterval
+$J=\{t\}\subseteq(0,\infty)$ and $\varepsilon=1/(16t)>0$: there is $M>0$ with
+$|f(y,t)|\le|y|^2/(16t)$ whenever $|y|\ge M$. Put
+$M'=\max(M,2|x|)$. For $|y|\ge M'$ we have $|y-x|\ge|y|-|x|\ge|y|/2$, so
+\[
+  h(y)\le\frac{|y|^2}{16t}-\frac{(|y|/2)^2}{2t}
+       =\frac{|y|^2}{16t}-\frac{|y|^2}{8t}\le0 .
+\]
+For $|y|\le M'$ the point $(y,t)$ lies in $\Omega$, where $f$ is continuous, and
+$\overline B(0,M')$ is compact (preamble), so $h$ is bounded above on that ball
+by some $C_1$. Hence $\sup_Fh\le\max(0,C_1)<\infty$.
+
+Thus the set in \noderef{BaryEnv} defining $\Cenv_tf(x,t)$ is nonempty and
+bounded above, so its supremum is a real number which is an upper bound for all
+its elements. \hfill$\square$
+
+\emph{Step 2: continuity of $V$ on $\Omega$.}
+Let $z_0\in\Omega$ and put $s=(z_0)_t>0$. The third clause of
+\noderef{BaryEnvDuality} says that $(s,z)\mapsto\Cenv_sf(z)$ is continuous at
+$(s,z_0)$ whenever $s>0$ and $(z_0)_t\in I$, which holds here. The map
+$z\mapsto(z_t,z)$ is continuous and sends $z_0$ to $(s,z_0)$, so the composite
+$z\mapsto\Cenv_{z_t}f(z)$ is continuous at $z_0$; subtracting the continuous
+function $z\mapsto c\,z_t$ shows $V$ is continuous at $z_0$. As $z_0\in\Omega$
+was arbitrary and $\Omega$ is open, $V$ is continuous on $\Omega$.
+
+\emph{Step 3: the viscosity inequality.}
+Let $z_0=(x_0,t_0)\in\Omega$, so $t_0>0$, let $\varphi$ be $C^2$ near $z_0$, and
+suppose $w\mapsto V(w)-\varphi(w)$ has a local maximum on $\Omega$ at $z_0$. We
+must show $F[\varphi](z_0)\ge0$, with $F$ as in \noderef{LimitOp}.
+
+\emph{(3a) An attaining configuration.} The first clause of
+\noderef{BaryEnvDuality}, applied with $s=t_0>0$ and $z=z_0$ (whose time
+$t_0$ lies in $I$), gives $n$, weights $\theta:\{1,\dots,n\}\to\R$ and points
+$y^0=(y^0_i)$ with $(\theta,y^0)$ a finite horizontal probability configuration
+of mean $x_0$ in the sense of \noderef{IsBaryConfig} and
+\begin{equation}\label{eq:bsub-attain}
+  \Cenv_{t_0}f(z_0)=\sum_i\theta_if(y^0_i,t_0)-\frac{R^2}{2t_0},
+  \qquad R^2:=\sum_i\theta_i|y^0_i-x_0|^2 ,
+\end{equation}
+where we used that the radius of \noderef{BaryRadius} is the square root of the
+nonnegative number $R^2$, so that its square is $R^2$. By
+\noderef{IsBaryConfig} we have $\theta_i>0$, $\sum_i\theta_i=1$ and
+$\sum_i\theta_iy^0_i=x_0$; in particular the index set is nonempty, since an
+empty sum cannot equal $1$, so $n\ge1$. These weights are now held fixed.
+
+\emph{(3b) The test function on the product.} For $Y=(y_i)$ in the
+$\ell^2$-product $P$ of $n$ copies of $F$ put
+\[
+  X(Y)=\sum_i\theta_iy_i,\qquad
+  Q(Y)=\sum_i\theta_i|y_i-X(Y)|^2,\qquad
+  \Phi(Y,t)=\varphi(X(Y),t)+ct+\frac{Q(Y)}{2t}.
+\]
+This is exactly the lifted test of \noderef{BaryTestSecondVariation}, whose hypotheses
+hold here: $\sum_i\theta_i=1$ and $\sum_i\theta_iy^0_i=x_0$ by (3a), $t_0>0$,
+$\varphi$ is $C^2$ at $(x_0,t_0)=z_0$, and $\Phi$ is given by the displayed formula at
+every point of the product space-time. Its first conclusion is that $\Phi$ is $C^2$ at
+$(Y^0,t_0)$, where $Y^0=(y^0_i)_i$.
+
+\emph{(3c) The local maximum on the product.} Let $t>0$ and let $Y$ be
+arbitrary. The pair $(\theta,Y)$ is a finite horizontal probability
+configuration with mean $X(Y)$, since $\theta_i>0$, $\sum_i\theta_i=1$ and
+$\sum_i\theta_iy_i=X(Y)$ by definition. So by Step 1, applied at the point
+$(X(Y),t)$,
+\[
+  \sum_i\theta_if(y_i,t)-\frac{Q(Y)}{2t}\le\Cenv_tf(X(Y),t),
+\]
+and therefore
+\begin{equation}\label{eq:bsub-domination}
+  \sum_i\theta_if(y_i,t)-\Phi(Y,t)
+   \le\Cenv_tf(X(Y),t)-ct-\varphi(X(Y),t)
+   =V\bigl(X(Y),t\bigr)-\varphi\bigl(X(Y),t\bigr).
+\end{equation}
+By hypothesis there is a neighbourhood $\mathcal O$ of $z_0$ with
+$V-\varphi\le(V-\varphi)(z_0)$ on $\mathcal O\cap\Omega$. The map
+$(Y,t)\mapsto(X(Y),t)$ is linear and continuous, being built from coordinate
+projections and a finite linear combination, and it sends $(Y^0,t_0)$ to $z_0$
+because $\sum_i\theta_iy^0_i=x_0$; so there is a neighbourhood $\mathcal N$ of
+$(Y^0,t_0)$ whose image under that map lies in $\mathcal O$, and if moreover
+$t>0$ then $(X(Y),t)\in\Omega$. Hence by \eqref{eq:bsub-domination}
+\[
+  \sum_i\theta_if(y_i,t)-\Phi(Y,t)\le(V-\varphi)(z_0)
+  \qquad\bigl((Y,t)\in\mathcal N,\ t>0\bigr).
+\]
+At $(Y^0,t_0)$ there is equality: $X(Y^0)=x_0$ and $Q(Y^0)=R^2$, so by
+\eqref{eq:bsub-attain}
+\[
+  \sum_i\theta_if(y^0_i,t_0)-\Phi(Y^0,t_0)
+   =\Bigl(\sum_i\theta_if(y^0_i,t_0)-\frac{R^2}{2t_0}\Bigr)
+     -\varphi(z_0)-ct_0
+   =\Cenv_{t_0}f(z_0)-ct_0-\varphi(z_0)=(V-\varphi)(z_0).
+\]
+Therefore $(Y,t)\mapsto\sum_i\theta_if(y_i,t)-\Phi(Y,t)$ has a local maximum on
+$\{(Y,t):t\in I\}$ at $(Y^0,t_0)$.
+
+\emph{(3d) Applying the common-time rule.} All the hypotheses of
+\noderef{CommonTimeSubsolution} now hold, with this $n\ge1$, the open time set
+$I=(0,\infty)$, the subsolution $f$, the weights $\theta$, the test $\Phi$, the
+point $(Y^0,t_0)$ with $t_0\in I$, the $C^2$ property of (3b) and the local
+maximum of (3c). It gives
+\begin{equation}\label{eq:bsub-ct}
+  D^2\Phi(Y^0,t_0)\bigl[\zeta,\zeta\bigr]\ge0,
+  \qquad \zeta:=\bigl((q_i)_i,\,1\bigr),\quad
+  q_i:=\theta_i^{-1}\nabla_{y_i}\Phi(Y^0,t_0).
+\end{equation}
+
+\emph{(3e) The directions.} Write $p=\nabla_x\varphi(z_0)$ for the spatial part
+of $\nabla\varphi(z_0)$. The hypotheses of \noderef{BaryTestDirections} are the
+ones already checked in (3b), together with the positivity $\theta_i>0$ from
+(3a). That lemma therefore gives
+\begin{equation}\label{eq:bsub-qi}
+  q_i=p+\frac{y^0_i-x_0}{t_0}\qquad(1\le i\le n),
+\end{equation}
+so that the direction $\zeta$ of \eqref{eq:bsub-ct} is exactly the direction
+$\bigl(\bigl(p+(y^0_i-x_0)/t_0\bigr)_i,1\bigr)$ named in
+\noderef{BaryTestSecondVariation}.
+
+\emph{(3f) The second variation is the operator.} The second conclusion of
+\noderef{BaryTestSecondVariation}, whose hypotheses were checked in (3b), reads
+\[
+  D^2\Phi\bigl(Y^0,t_0\bigr)
+    \Bigl[\bigl(\bigl(p+\tfrac{y^0_i-x_0}{t_0}\bigr)_i,1\bigr),\
+          \bigl(\bigl(p+\tfrac{y^0_i-x_0}{t_0}\bigr)_i,1\bigr)\Bigr]
+   =F[\varphi](z_0).
+\]
+By \eqref{eq:bsub-qi} the left-hand side is $D^2\Phi(Y^0,t_0)[\zeta,\zeta]$, so
+\eqref{eq:bsub-ct} gives $F[\varphi](z_0)\ge0$.
+
+As $z_0\in\Omega$ and the test $\varphi$ were arbitrary, the third clause of
+\noderef{IsLimitSubOn} holds for $V$ on $\Omega$; with Steps 1 and 2 this
+completes the verification. The argument was carried out for an arbitrary
+$c\in\R$, and in particular covers $c=0$.
+\end{proof}

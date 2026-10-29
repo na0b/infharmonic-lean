@@ -1,0 +1,100 @@
+\begin{lemma}[Maximizers of a uniformly convergent sequence concentrate at a strict maximum point]
+Let $F$ be a finite-dimensional real inner-product space, let
+$z\in\ell^2(F\times\R)$, let $\varrho>0$, let $s\in\R$ with $|s|=1$, let
+$v_1,v_2,\ldots$ be real functions on $\ell^2(F\times\R)$ and let $v_0$ and
+$\psi$ be real functions on $\ell^2(F\times\R)$. Write
+$B=\overline B_\varrho(z)$ for the closed ball of radius $\varrho$ about $z$,
+and put
+\[
+  g(y)=s\bigl(v_0(y)-\psi(y)\bigr),\qquad
+  g_j(y)=s\bigl(v_j(y)-\psi(y)\bigr)\qquad(j\in\N).
+\]
+Assume:
+\begin{enumerate}
+\item $v_0$ is continuous on $B$ and $\psi$ is continuous on $B$;
+\item $v_j\to v_0$ uniformly on $B$;
+\item $g$ has a strict maximum at $z$ relative to $B$, in the sense that
+$g(w)<g(z)$ for every $w\in B$ with $w\ne z$;
+\item for every $j\in\N$ there is some $w\in B$ at which $g_j$ attains its
+maximum over $B$.
+\end{enumerate}
+Then there is a sequence $(\zeta_j)_{j\in\N}$ in $\ell^2(F\times\R)$ such that
+$\zeta_j\in B$ for every $j$, such that $g_j$ attains its maximum over $B$ at
+$\zeta_j$ for every $j$, and such that $\zeta_j\to z$.
+\end{lemma}
+\begin{proof}
+The ball $B$ is compact, being a closed ball in a finite-dimensional normed
+space, and $z\in B$ because $\mathrm{dist}(z,z)=0\le\varrho$.
+
+\emph{Choice of the sequence.}
+By hypothesis 4, for every $j$ the set of points of $B$ at which $g_j$ attains
+its maximum over $B$ is nonempty; choose one such point and call it $\zeta_j$.
+This gives a sequence with $\zeta_j\in B$ and with $g_j$ attaining its maximum
+over $B$ at $\zeta_j$ for every $j$, which are the first two assertions. It
+remains to prove $\zeta_j\to z$.
+
+\emph{Reduction.}
+By the metric characterization of convergence it suffices to show that for every
+$\varepsilon>0$ one has $\mathrm{dist}(\zeta_j,z)<\varepsilon$ for all
+sufficiently large $j$. Fix $\varepsilon>0$ and set
+$r=\min\{\varepsilon,\varrho\}$, so that $r>0$ (both $\varepsilon>0$ and
+$\varrho>0$) and $r\le\varepsilon$. We distinguish two cases.
+
+\emph{Case 1: every $w\in B$ satisfies $\mathrm{dist}(w,z)<r$.}
+Then for every $j$ we have $\zeta_j\in B$, hence
+$\mathrm{dist}(\zeta_j,z)<r\le\varepsilon$, and the required statement holds for
+all $j$.
+
+\emph{Case 2: some $w_0\in B$ satisfies $\mathrm{dist}(w_0,z)\ge r$.}
+Put
+\[
+  A=\{w\in B:\ r\le\mathrm{dist}(w,z)\}.
+\]
+Then $A\ne\emptyset$, since $w_0\in A$. Moreover $A$ is compact: the set
+$\{w:\ r\le\mathrm{dist}(w,z)\}$ is closed, because $w\mapsto\mathrm{dist}(w,z)$
+is continuous and the inequality $r\le\cdot$ defines a closed condition, and $A$
+is the intersection of the compact set $B$ with that closed set.
+
+By hypothesis 1 the function $v_0-\psi$ is continuous on $B$, hence so is its
+constant multiple $g$; since $A\subseteq B$, $g$ is continuous on $A$. A
+continuous real function on a nonempty compact set attains its maximum, so there
+is $m\in A$ with
+\begin{equation}\label{eq:mstm-mmax}
+  g(w)\le g(m)\qquad(w\in A).
+\end{equation}
+Because $m\in A$ we have $\mathrm{dist}(m,z)\ge r>0$, so $m\ne z$; as also
+$m\in B$, hypothesis 3 gives $g(m)<g(z)$. Write
+\[
+  M=g(z),\qquad \mu=g(m),\qquad \delta=\frac{M-\mu}{2}>0 .
+\]
+
+By hypothesis 2 and the definition of uniform convergence on $B$, there is $J$
+such that for every $j\ge J$,
+\begin{equation}\label{eq:mstm-unif}
+  |v_j(w)-v_0(w)|<\delta\qquad(w\in B).
+\end{equation}
+Fix $j\ge J$; we claim $\mathrm{dist}(\zeta_j,z)<r$, which gives
+$\mathrm{dist}(\zeta_j,z)<\varepsilon$ since $r\le\varepsilon$ and finishes the
+proof.
+
+Suppose instead that $\mathrm{dist}(\zeta_j,z)\ge r$. Since $\zeta_j\in B$, this
+means $\zeta_j\in A$. For any $w\in B$, using $|s|=1$ and
+\eqref{eq:mstm-unif},
+\begin{equation}\label{eq:mstm-close}
+  |g_j(w)-g(w)|
+   =\bigl|s\bigl(v_j(w)-\psi(w)\bigr)-s\bigl(v_0(w)-\psi(w)\bigr)\bigr|
+   =|s|\,|v_j(w)-v_0(w)|
+   =|v_j(w)-v_0(w)|<\delta .
+\end{equation}
+Applying \eqref{eq:mstm-close} at $w=z\in B$ gives $g_j(z)>g(z)-\delta=M-\delta$,
+and applying it at $w=\zeta_j\in B$ gives $g_j(\zeta_j)<g(\zeta_j)+\delta$. Since
+$\zeta_j\in A$, \eqref{eq:mstm-mmax} gives $g(\zeta_j)\le\mu$, whence
+$g_j(\zeta_j)<\mu+\delta$. Finally $\zeta_j$ maximizes $g_j$ over $B$ and
+$z\in B$, so $g_j(z)\le g_j(\zeta_j)$. Combining the three displayed
+inequalities,
+\[
+  M-\delta<g_j(z)\le g_j(\zeta_j)<\mu+\delta ,
+\]
+so $M-\mu<2\delta=M-\mu$, a contradiction. Therefore
+$\mathrm{dist}(\zeta_j,z)<r\le\varepsilon$ for every $j\ge J$, as required.
+\end{proof}

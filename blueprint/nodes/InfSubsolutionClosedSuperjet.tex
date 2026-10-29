@@ -1,0 +1,111 @@
+\begin{lemma}[The subsolution inequality holds on closed superjets]
+Let $E$ be a finite-dimensional real inner-product space, let $\Omega\subseteq E$
+and let $u:E\to\R$ be an infinity subsolution on $\Omega$ in the sense of
+\noderef{IsInfSubsolutionOn}. Let $z\in\Omega$, let $p\in E$, let $X$ be a
+continuous bilinear form on $E$, and assume
+$(p,X)\in\overline J^{2,+}u(z)$, the closed superjet of
+\noderef{ClosedSuperjet}. Then
+\[
+  X[p]=X(p,p)\ge0 .
+\]
+\end{lemma}
+\begin{proof}
+\emph{Step 1: the inequality at a plain superjet.}
+We first prove the following claim. If $z'\in\Omega$, if $q\in E$ and if $Y$ is a
+continuous bilinear form on $E$ with $(q,Y)\in J^{2,+}u(z')$ in the sense of
+\noderef{Superjet}, then $Y(q,q)\ge0$.
+
+Fix $\varepsilon>0$ and define $\phi_\varepsilon:E\to\R$ by
+\[
+  \phi_\varepsilon(x)=u(z')+\langle q,x-z'\rangle
+     +\tfrac12Y(x-z',x-z')+\varepsilon|x-z'|^2 .
+\]
+This function is a sum of a constant, a continuous linear form in $x-z'$, the
+diagonal restriction of the continuous bilinear form $Y$, and $\varepsilon$ times
+the diagonal restriction of the inner product. Each summand is a continuous
+polynomial of degree at most two on $E$ and hence is $C^\infty$; in particular
+$\phi_\varepsilon$ is $C^2$ near $z'$.
+
+We record its derivatives at $z'$. Writing $g(x)=\tfrac12Y(x-z',x-z')$ we have,
+for $h,k\in E$,
+\[
+  Dg(x)h=\tfrac12\bigl(Y(h,x-z')+Y(x-z',h)\bigr)=Y(x-z',h),
+  \qquad
+  D^2g(x)(h,k)=\tfrac12\bigl(Y(k,h)+Y(h,k)\bigr)=Y(h,k),
+\]
+where both middle steps use the symmetry $Y(h,k)=Y(k,h)$, which is part of the
+definition of a superjet in \noderef{Superjet}. Likewise the function
+$x\mapsto\varepsilon|x-z'|^2$ has derivative $h\mapsto2\varepsilon\langle
+x-z',h\rangle$ and second derivative $(h,k)\mapsto2\varepsilon\langle h,k\rangle$.
+Evaluating at $x=z'$, where $x-z'=0$, gives
+\[
+  \nabla\phi_\varepsilon(z')=q,
+  \qquad
+  D^2\phi_\varepsilon(z')(h,k)=Y(h,k)+2\varepsilon\langle h,k\rangle .
+\]
+Consequently, by the definition of the infinity Laplacian in \noderef{InfLap},
+\begin{equation}\label{eq:iscs-inflap}
+  \Dinf\phi_\varepsilon(z')
+    =D^2\phi_\varepsilon(z')\bigl[\nabla\phi_\varepsilon(z')\bigr]
+    =Y(q,q)+2\varepsilon|q|^2 .
+\end{equation}
+
+Next, $\phi_\varepsilon$ is an upper test for $u$ at $z'$. Indeed, apply the
+defining property of $(q,Y)\in J^{2,+}u(z')$ from \noderef{Superjet} with the
+positive number $\varepsilon$: there is $\delta>0$ such that
+\[
+  u(z'+h)\le u(z')+\langle q,h\rangle+\tfrac12Y(h,h)+\varepsilon|h|^2
+    =\phi_\varepsilon(z'+h)
+  \qquad(|h|<\delta).
+\]
+Since $\phi_\varepsilon(z')=u(z')$, this says
+$u(x)-\phi_\varepsilon(x)\le0=u(z')-\phi_\varepsilon(z')$ for every $x$ in the
+ball $B(z',\delta)$. Hence $x\mapsto u(x)-\phi_\varepsilon(x)$ has a local
+maximum on $\Omega$ at $z'$: the required inequality holds on the neighbourhood
+$B(z',\delta)$ of $z'$ intersected with $\Omega$.
+
+So $z'\in\Omega$, $\phi_\varepsilon$ is $C^2$ near $z'$, and
+$u-\phi_\varepsilon$ has a local maximum on $\Omega$ at $z'$. The defining
+property of \noderef{IsInfSubsolutionOn} therefore gives
+$\Dinf\phi_\varepsilon(z')\ge0$, that is, by \eqref{eq:iscs-inflap},
+\[
+  0\le Y(q,q)+2\varepsilon|q|^2 .
+\]
+The vector $q$ and the form $Y$ do not depend on $\varepsilon$, so letting
+$\varepsilon\downarrow0$ yields $Y(q,q)\ge0$. This proves the claim.
+
+\emph{Step 2: passing to the closure.}
+By \noderef{ClosedSuperjet} there are sequences $z_k\in E$, $p_k\in E$ and
+symmetric continuous bilinear forms $X_k$ on $E$ with
+\[
+  (p_k,X_k)\in J^{2,+}u(z_k)\quad\text{for all }k,
+  \qquad z_k\to z,\quad p_k\to p,\quad X_k\to X
+\]
+(the defining sequences also satisfy $u(z_k)\to u(z)$, which we do not need).
+
+By the first clause of \noderef{IsInfSubsolutionOn} the set $\Omega$ is open, and
+$z\in\Omega$, so there is $\delta_0>0$ with $B(z,\delta_0)\subseteq\Omega$.
+Since $z_k\to z$ there is $K$ with $|z_k-z|<\delta_0$, hence $z_k\in\Omega$, for
+every $k\ge K$. Step 1, applied at the point $z_k$ to the superjet
+$(p_k,X_k)\in J^{2,+}u(z_k)$, gives
+\begin{equation}\label{eq:iscs-approx}
+  0\le X_k(p_k,p_k)\qquad(k\ge K).
+\end{equation}
+
+It remains to pass to the limit in \eqref{eq:iscs-approx}. The sequences $(p_k)$
+and $(X_k)$ converge, so $M:=\sup_k|p_k|<\infty$ and $|p|\le M$. Decompose
+\[
+  X_k(p_k,p_k)-X(p,p)
+   =(X_k-X)(p_k,p_k)+\bigl(X(p_k,p_k)-X(p,p)\bigr).
+\]
+For the first term, $|(X_k-X)(p_k,p_k)|\le\|X_k-X\|\,|p_k|^2\le M^2\|X_k-X\|$,
+which tends to $0$ because $X_k\to X$ in the operator norm. For the second,
+bilinearity gives
+\[
+  X(p_k,p_k)-X(p,p)=X(p_k-p,p_k)+X(p,p_k-p),
+\]
+whence $|X(p_k,p_k)-X(p,p)|\le\|X\|\,|p_k-p|\,(|p_k|+|p|)\le2M\|X\|\,|p_k-p|$,
+which tends to $0$ because $p_k\to p$. Therefore
+$X_k(p_k,p_k)\to X(p,p)$, and \eqref{eq:iscs-approx} gives $X(p,p)\ge0$ in the
+limit.
+\end{proof}

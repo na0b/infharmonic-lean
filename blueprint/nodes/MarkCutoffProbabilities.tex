@@ -1,0 +1,152 @@
+\begin{lemma}[Step 8: the two cutoff probabilities at a mark]
+Let $F$ be a finite-dimensional real inner-product space, write
+$\mathcal H=\ell^2(F\times\R)$, let $(\Omega,\mathcal M,\mu)$ be a probability space
+and let $(\mathcal G_n)_{n\in\N}$ be a filtration of $\mathcal M$. Let
+$z:\N\times\Omega\to\mathcal H$, $S:\N\times\Omega\to\Z$,
+$\sigma:\N\times\Omega\to\N$,
+$p:\N\times\Omega\to F$, $j\in\N$, $\varsigma:\Omega\to\N$ and
+$T,Y:\N\times\Omega\to\R$. Let $a,b,c,k\in\N$ and
+$\epsilon,r,K,C',B_0,L_K\in\R$. Write $\sigma_j=\sigma(j,\cdot)$,
+$p_j=p(j,\cdot)$, and $\mathcal R_j=\{\omega:t_{\sigma_j(\omega)}=r\}$ for the
+event that the $j$-th mark sits at its own level, where $z_n=(x_n,t_n)$.
+Assume:
+\begin{enumerate}
+\item\label{it:mcp-eps} $\epsilon>0$ and $r>0$; $c=2^{k-j}$ and $b=8\cdot2^{k-j}$;
+$\epsilon c=r$ and $\epsilon b=8r$; $a\le c$; $0\le a$ as a real; and
+$b-a>0$ as a real;
+\item\label{it:mcp-K} $2\le K$ and the choice-of-$K$ inequality
+$8C'\bigl(L_K+\sqrt{B_0}\bigr)\le K$;
+\item\label{it:mcp-lat} $t_n=\epsilon\,S_n$ for all $n,\omega$, and each
+$\omega\mapsto t_n(\omega)$ is strongly measurable;
+\item\label{it:mcp-st} $\sigma_j$ is a $(\mathcal G_n)$-stopping time, both
+$\sigma_j$ and $\varsigma$ are $\mathcal M$-measurable, and
+$\sigma_j\le\varsigma$ pointwise;
+\item\label{it:mcp-tools} the measurability tools of the ambient argument: for
+every $(\mathcal G_n)$-stopping time $\zeta$ and every $n$,
+$\{\zeta\le n\}\in\mathcal G_n$; evaluating a measurable family of real
+functions at one or at two measurable random indices is measurable; and
+$\omega\mapsto g(S_k(\omega))$ is measurable for every $g:\Z\to\R$ and every
+$k$;
+\item\label{it:mcp-TY} $T_m$ is $\mathcal G_m$-measurable with
+$T_m=t_{\sigma_j}$ on $\{\sigma_j\le m\}$, and $Y_m$ is
+$\mathcal G_m$-measurable with
+\[
+  Y_m=r^{-1}\bigl|x_m-x_{\sigma_j}-(t_m-r)p_j\bigr|
+  \qquad\text{on }\{\sigma_j\le m\};
+\]
+\item\label{it:mcp-markov} Markov's inequality in the form: for every
+$A\in\mathcal M$, every $\mu$-integrable $f\ge0$ and every $\kappa>0$ with
+$f\ge\kappa$ on $A$, one has $\mu(A)\,\kappa\le\int f\,d\mu$;
+\item\label{it:mcp-trav} the travel bound of Step 7: the running supremum
+\[
+  \Upsilon(\omega)=\sup_{\sigma_j(\omega)\le n\le\varsigma(\omega)}
+    r^{-1}\bigl|x_n-x_{\sigma_j}-(t_n-t_{\sigma_j})p_j\bigr|
+\]
+is $\mu$-integrable and $\int\Upsilon\,d\mu\le C'(L_K+\sqrt{B_0})$;
+\item\label{it:mcp-claimT} the conclusion of Claim T$'$ for
+$\sigma_j,\varsigma$ on the window $(a,b)$, as stated in
+\noderef{StoppedLatticeSupersolutionBound}: for all $h,u:\Z\to\R$ and every
+$A\in\mathcal M$ with $u\ge0$, with
+$\tfrac12(h(i+1)+h(i-1))-h(i)\le-u(i)$ for $a<i<b$, and with
+$A\cap\{\sigma_j\le n\}\in\mathcal G_n$ for every $n$, one has for every $n$
+\[
+  \int\mathbf1_A\Bigl(h\bigl(S_{(\sigma_j\vee n)\wedge\varsigma}\bigr)
+    +\sum_{\sigma_j\le m<n\wedge\varsigma}u(S_m)\Bigr)d\mu
+  \le\int\mathbf1_A\,h\bigl(S_{\sigma_j}\bigr)\,d\mu .
+\]
+\end{enumerate}
+Then both cutoff probabilities are at most $\tfrac18$:
+\begin{equation}\label{eq:mcp-both}
+  \mu\bigl(\mathcal R_j\cap\{K\le Y_{\varsigma}\}\bigr)\le\frac18
+  \qquad\text{and}\qquad
+  \mu\bigl(\mathcal R_j\cap\{8r\le t_{\varsigma}\}\bigr)\le\frac18 ,
+\end{equation}
+both measures being read as real numbers.
+\end{lemma}
+\begin{proof}
+\emph{Measurability of the mark event.} The map
+$\omega\mapsto t_{\sigma_j(\omega)}(\omega)$ is measurable, by
+\ref{it:mcp-tools} applied to the measurable index $\sigma_j$ of
+\ref{it:mcp-st} and to the family $\omega\mapsto t_n(\omega)$, measurable by
+\ref{it:mcp-lat}; so $\mathcal R_j$, its preimage of the single point $r$, lies
+in $\mathcal M$. Moreover $\mathcal R_j$ is adapted at $\sigma_j$: for each $n$,
+\[
+  \mathcal R_j\cap\{\sigma_j\le n\}
+   =\bigl(T_n^{-1}\{r\}\bigr)\cap\{\sigma_j\le n\}\in\mathcal G_n ,
+\]
+because $T_n$ is $\mathcal G_n$-measurable and agrees with $t_{\sigma_j}$ on
+$\{\sigma_j\le n\}$ by \ref{it:mcp-TY}, and because
+$\{\sigma_j\le n\}\in\mathcal G_n$ by \ref{it:mcp-tools} and
+\ref{it:mcp-st}.
+
+\emph{The first cutoff.} Put
+$\mathcal B^1=\mathcal R_j\cap\{K\le Y_{\varsigma}\}$, a measurable set by the
+previous paragraph together with the measurability of
+$\omega\mapsto Y_{\varsigma(\omega)}(\omega)$, which is \ref{it:mcp-tools}
+applied to the measurable index $\varsigma$ and the family $Y_m$ of
+\ref{it:mcp-TY}. On $\mathcal B^1$ we have $K\le\Upsilon$: indeed
+$\sigma_j\le\varsigma$ by \ref{it:mcp-st}, so $\varsigma$ is one of the indices
+in the supremum, and at $m=\varsigma$ the summand equals $Y_\varsigma$ by
+\ref{it:mcp-TY} --- using $t_{\sigma_j}=r$ on $\mathcal R_j$, which is exactly
+what makes the two displayed expressions agree --- so
+$Y_\varsigma\le\Upsilon$, and $K\le Y_\varsigma$ on $\mathcal B^1$. The
+function $\Upsilon$ is nonnegative, being a supremum of absolute values, and
+$\mu$-integrable by \ref{it:mcp-trav}; and $K>0$ by \ref{it:mcp-K}. Markov's
+inequality \ref{it:mcp-markov} therefore gives
+$\mu(\mathcal B^1)\,K\le\int\Upsilon\,d\mu\le C'(L_K+\sqrt{B_0})$ by
+\ref{it:mcp-trav}. Dividing by $K>0$ and using the choice of $K$ from
+\ref{it:mcp-K}, which says $8C'\bigl((1+\log(K+10))+\sqrt{B_0}\bigr)\le K$ and
+hence a fortiori $8C'(L_K+\sqrt{B_0})\le K$ at the value $L_K$ the travel bound
+is stated with,
+\[
+  \mu(\mathcal B^1)\le\frac{C'(L_K+\sqrt{B_0})}{K}\le\frac18 .
+\]
+
+\emph{The second cutoff.} Let
+\[
+  \ell(i)=\begin{cases}0,&i<a,\\ \dfrac{i-a}{b-a},&a\le i\le b,\\ 1,&i>b,\end{cases}
+\]
+well defined since $b-a>0$ by \ref{it:mcp-eps}. Then $\ell\ge0$, $\ell$ is
+bounded by $1$, and $\ell$ is affine on $\{a,\dots,b\}$, so its second
+difference vanishes for $a<i<b$; hence
+$\tfrac12(\ell(i+1)+\ell(i-1))-\ell(i)=0\le-u(i)$ there with $u\equiv0$. Apply
+\ref{it:mcp-claimT} with $h=\ell$, $u\equiv0$ and $A=\mathcal R_j$, whose two
+hypotheses --- $\mathcal R_j\in\mathcal M$ and
+$\mathcal R_j\cap\{\sigma_j\le n\}\in\mathcal G_n$ --- were verified above. For
+each $n$ the empty-sum term drops and we get
+\begin{equation}\label{eq:mcp-claim}
+  \int\mathbf1_{\mathcal R_j}\,
+    \ell\bigl(S_{(\sigma_j\vee n)\wedge\varsigma}\bigr)d\mu
+  \le\int\mathbf1_{\mathcal R_j}\,\ell\bigl(S_{\sigma_j}\bigr)\,d\mu .
+\end{equation}
+
+We bound the right side. On $\mathcal R_j$ we have $t_{\sigma_j}=r$, so
+$\epsilon S_{\sigma_j}=r=\epsilon c$ by \ref{it:mcp-lat} and
+\ref{it:mcp-eps}; cancelling $\epsilon>0$ gives $S_{\sigma_j}=c$. Hence, on
+$\mathcal R_j$, using $a\le c\le b$ --- the first from \ref{it:mcp-eps}, the
+second because $c\le 8c=b$ in the reals by $\epsilon b=8r=8\epsilon c$ and
+$\epsilon>0$ ---
+\[
+  \ell\bigl(S_{\sigma_j}\bigr)=\frac{c-a}{b-a}\le\frac{c}{b}=\frac18 ,
+\]
+the inequality because $a\ge0$ makes $(c-a)/(b-a)\le c/b$ whenever
+$0\le a\le c\le b$ and $b>a$, and the last step by $b=8c$. Since
+$\mathbf1_{\mathcal R_j}\le1$ and the integrand is nonnegative, the right side
+of \eqref{eq:mcp-claim} is at most $\tfrac18$.
+
+For the left side, take $n$ large enough that
+$(\sigma_j\vee n)\wedge\varsigma=\varsigma$ --- which holds once $n\ge\varsigma$
+at the given $\omega$, since then $\sigma_j\vee n\ge n\ge\varsigma$ --- and
+observe that on $\mathcal R_j\cap\{8r\le t_{\varsigma}\}$ we have
+$\epsilon S_\varsigma=t_\varsigma\ge8r=\epsilon b$, so $S_\varsigma\ge b$ and
+$\ell(S_\varsigma)=1$. As $\ell\ge0$ everywhere, this gives the pointwise bound
+$\mathbf1_{\mathcal R_j\cap\{8r\le t_\varsigma\}}
+ \le\mathbf1_{\mathcal R_j}\,\ell(S_\varsigma)$. Integrating and using
+\eqref{eq:mcp-claim} at such $n$ together with the bound on its right side,
+\[
+  \mu\bigl(\mathcal R_j\cap\{8r\le t_{\varsigma}\}\bigr)
+   \le\int\mathbf1_{\mathcal R_j}\,\ell\bigl(S_\varsigma\bigr)\,d\mu
+   \le\frac18 .
+\]
+This is the second half of \eqref{eq:mcp-both}, and the proof is complete.
+\end{proof}

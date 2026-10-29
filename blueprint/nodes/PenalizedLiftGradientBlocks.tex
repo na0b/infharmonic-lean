@@ -1,0 +1,68 @@
+\begin{lemma}[Spatial blocks of the gradient of a penalised lift]
+Let $F$ be a finite-dimensional real inner product space and let $N\in\N$. Write
+$P=\bigl(F\times\R\bigr)^N$ and $Q=F^N\times\R$, each carried with its $\ell^2$ product
+inner product, and write a point of $P$ as $W=(y_i,s_i)_{i<N}$. Let
+\[
+  L:P\to Q,\qquad L(W)=\Bigl((y_i)_{i<N},\ \tfrac1N\sum_{i<N}s_i\Bigr),
+\]
+\[
+  M:P\to\R^N,\qquad M(W)=\Bigl(s_i-\tfrac1N\sum_{j<N}s_j\Bigr)_{i<N},
+\]
+both of which are continuous linear. Let $\lambda\in\R$, let $W\in P$, let $g:Q\to\R$ be
+$C^2$ near $L(W)$, and set
+\[
+  \Psi(U)=g\bigl(L(U)\bigr)+\lambda\,\frac{\|M(U)\|^2}{2}.
+\]
+Then for every $i<N$, writing $\nabla\Psi(W)=(\,p_j,\sigma_j\,)_{j<N}\in P$ and
+$\nabla g(L(W))=\bigl((q_j)_{j<N},\tau\bigr)\in Q$,
+\[
+  p_i=q_i .
+\]
+\end{lemma}
+\begin{proof}
+Fix $i<N$ and $a\in F$. Since the inner product on $F$ separates points, it suffices to
+show $\langle a,p_i\rangle=\langle a,q_i\rangle$.
+
+\emph{Step 1: the test direction.}
+Let $\xi\in P$ be the point whose $i$-th block is $(a,0)$ and whose every other block is
+$0$. Its time coordinates all vanish, so $\sum_{j<N}0=0$ and therefore
+\[
+  M\xi=\bigl(0-\tfrac1N\cdot 0\bigr)_{j<N}=0,
+  \qquad
+  L\xi=\bigl((\delta_{ji}a)_{j<N},\ \tfrac1N\cdot 0\bigr)=\bigl(\iota_i a,\ 0\bigr),
+\]
+where $\iota_i a\in F^N$ denotes the tuple with $a$ in slot $i$ and $0$ elsewhere.
+
+\emph{Step 2: the penalty does not see $\xi$.}
+The penalty $U\mapsto\lambda\|M(U)\|^2/2$ is the composition of the differentiable
+function $u\mapsto\lambda\|u\|^2/2$ with the continuous linear $M$, so by the chain rule
+its derivative at $W$ is a linear functional factoring through $M$. Since $M\xi=0$ and a
+linear map sends $0$ to $0$, that derivative annihilates $\xi$. By the sum rule, and
+because $g$ is differentiable at $L(W)$ so that $D(g\circ L)(W)=Dg(L(W))\circ L$,
+\begin{equation}\label{eq:plgb-deriv}
+  D\Psi(W)[\xi]=Dg\bigl(L(W)\bigr)\bigl[L\xi\bigr].
+\end{equation}
+
+\emph{Step 3: reading both sides as inner products.}
+By definition of the gradient, $D\Psi(W)[\xi]=\langle\nabla\Psi(W),\xi\rangle_P$. As the
+inner product of $P$ is the sum over blocks and all blocks of $\xi$ except the $i$-th
+vanish,
+\[
+  \langle\nabla\Psi(W),\xi\rangle_P
+    =\bigl\langle (p_i,\sigma_i),\ (a,0)\bigr\rangle_{F\times\R}
+    =\langle p_i,a\rangle .
+\]
+Likewise $Dg(L(W))[L\xi]=\langle\nabla g(L(W)),L\xi\rangle_Q$, and since
+$L\xi=(\iota_i a,0)$ the time component contributes nothing while the spatial component
+is again a sum over blocks of which only the $i$-th survives:
+\[
+  \bigl\langle\nabla g(L(W)),L\xi\bigr\rangle_Q
+    =\bigl\langle (q_j)_{j<N},\ \iota_i a\bigr\rangle_{F^N}+\langle\tau,0\rangle
+    =\langle q_i,a\rangle .
+\]
+
+\emph{Step 4: conclusion.}
+Combining Step 3 with \eqref{eq:plgb-deriv} gives $\langle p_i,a\rangle=\langle
+q_i,a\rangle$. As $a\in F$ was arbitrary and the inner product is symmetric, $p_i=q_i$,
+which is the assertion.
+\end{proof}

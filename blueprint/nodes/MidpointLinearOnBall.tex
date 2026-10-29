@@ -1,0 +1,128 @@
+\begin{lemma}[The exact midpoint identity on a ball forces linearity]
+Let $\mathcal H$ be a finite-dimensional real inner-product space, let $R>0$ and
+write $\overline B_R$ for the closed ball of radius $R$ about the origin of
+$\mathcal H$. Let $W:\mathcal H\to\R$ be continuous on $\overline B_R$, satisfy
+$W(0)=0$, and satisfy the exact midpoint identity
+\[
+  W(A)+W(B)=2W\bigl(\tfrac12(A+B)\bigr)\qquad\bigl(A,B\in\overline B_R\bigr).
+\]
+Then there is $P\in\mathcal H$ with
+\[
+  W(A)=\langle P,A\rangle\qquad\bigl(A\in\overline B_R\bigr).
+\]
+\end{lemma}
+\begin{proof}
+Put $c=R/2>0$, so $c\le R$.
+
+\emph{Step 1: halving.} Taking $B=0$ in the midpoint identity and using
+$W(0)=0$,
+\begin{equation}\label{eq:mlb-half}
+  W(A)=2W\bigl(\tfrac12A\bigr)\qquad\bigl(A\in\overline B_R\bigr).
+\end{equation}
+
+\emph{Step 2: additivity on the half-ball.} Let $A,B\in\overline B_c$. Then
+$|A+B|\le|A|+|B|\le2c=R$, so $A+B\in\overline B_R$, and $A,B\in\overline B_R$
+because $c\le R$. The midpoint identity gives
+$W(A)+W(B)=2W(\tfrac12(A+B))$, while \eqref{eq:mlb-half} applied to
+$A+B\in\overline B_R$ gives $W(A+B)=2W(\tfrac12(A+B))$. Hence
+\begin{equation}\label{eq:mlb-add}
+  W(A+B)=W(A)+W(B)\qquad\bigl(A,B\in\overline B_c\bigr).
+\end{equation}
+
+\emph{Step 3: halving iterated.} For every integer $n\ge0$ and every
+$A\in\overline B_R$,
+\begin{equation}\label{eq:mlb-pow}
+  W\bigl(2^{-n}A\bigr)=2^{-n}W(A).
+\end{equation}
+This is an induction on $n$. For $n=0$ there is nothing to prove. Assume it for
+$n$ and let $A\in\overline B_R$. Then $|\tfrac12A|=\tfrac12|A|\le R$, so
+$\tfrac12A\in\overline B_R$ and the inductive hypothesis applies to it:
+$W(2^{-n}(\tfrac12A))=2^{-n}W(\tfrac12A)$. Since
+$2^{-(n+1)}A=2^{-n}(\tfrac12A)$, and $W(\tfrac12A)=\tfrac12W(A)$ by
+\eqref{eq:mlb-half}, we get
+$W(2^{-(n+1)}A)=2^{-n}\cdot\tfrac12W(A)=2^{-(n+1)}W(A)$.
+
+\emph{Step 4: admissible exponents.} For $t>0$ and $A\in\mathcal H$ put
+$n_t(A)=\lceil|A|/t\rceil$. Then $|A|/t\le n_t(A)\le2^{n_t(A)}$, the second
+inequality because $m\le2^m$ for every integer $m\ge0$; multiplying by $t>0$,
+\begin{equation}\label{eq:mlb-adm}
+  |A|\le2^{n_t(A)}t .
+\end{equation}
+Moreover if $|A|\le2^nt$ and $n\le m$ then $|A|\le2^mt$, because $2^n\le2^m$ and
+$t\ge0$. Finally, if $|A|\le2^nt$ then
+$|2^{-n}A|=2^{-n}|A|\le t$.
+
+\emph{Step 5: the value $2^nW(2^{-n}A)$ does not depend on $n$.} First, for
+integers $n,k\ge0$ and $A$ with $|A|\le2^nc$, put $A'=2^{-n}A$; by Step 4,
+$|A'|\le c\le R$, so $A'\in\overline B_R$ and \eqref{eq:mlb-pow} applies to it:
+\[
+  2^{n+k}W\bigl(2^{-(n+k)}A\bigr)=2^{n+k}W\bigl(2^{-k}A'\bigr)
+   =2^{n+k}\cdot2^{-k}W(A')=2^nW\bigl(2^{-n}A\bigr),
+\]
+using $2^{-(n+k)}A=2^{-k}(2^{-n}A)$. Given now $n,m\ge0$ with $|A|\le2^nc$ and
+$|A|\le2^mc$, one of $n\le m$ and $m\le n$ holds; writing the larger as the
+smaller plus $k$ and applying the previous display gives
+\begin{equation}\label{eq:mlb-wd}
+  2^nW\bigl(2^{-n}A\bigr)=2^mW\bigl(2^{-m}A\bigr).
+\end{equation}
+
+\emph{Step 6: the extension.} Define $\Lambda:\mathcal H\to\R$ by
+\[
+  \Lambda(A)=2^{n_c(A)}W\bigl(2^{-n_c(A)}A\bigr),
+\]
+which makes sense by \eqref{eq:mlb-adm}. By \eqref{eq:mlb-wd},
+\begin{equation}\label{eq:mlb-any}
+  \Lambda(A)=2^nW\bigl(2^{-n}A\bigr)\qquad\text{whenever }|A|\le2^nc .
+\end{equation}
+Taking $n=0$ in \eqref{eq:mlb-any},
+\begin{equation}\label{eq:mlb-agree}
+  \Lambda(A)=W(A)\qquad\bigl(A\in\overline B_c\bigr),
+\end{equation}
+and in particular $\Lambda(0)=W(0)=0$.
+
+\emph{$\Lambda$ is additive.} Let $A,B\in\mathcal H$. By Step 4 applied with
+$t=c/2$ there are exponents admissible for $A$ and for $B$; taking $n$ to be the
+larger of the two, monotonicity gives $|A|\le2^n(c/2)$ and $|B|\le2^n(c/2)$.
+Then $|A|\le2^nc$, $|B|\le2^nc$ and
+$|A+B|\le|A|+|B|\le2^n(c/2)+2^n(c/2)=2^nc$, so \eqref{eq:mlb-any} applies to all
+three with the same $n$. Also $|2^{-n}A|\le c/2\le c$ and
+$|2^{-n}B|\le c/2\le c$ by Step 4, so \eqref{eq:mlb-add} applies to the pair
+$2^{-n}A,2^{-n}B$, whose sum is $2^{-n}(A+B)$. Therefore
+\[
+  \Lambda(A+B)=2^nW\bigl(2^{-n}(A+B)\bigr)
+   =2^n\bigl(W(2^{-n}A)+W(2^{-n}B)\bigr)=\Lambda(A)+\Lambda(B).
+\]
+
+\emph{$\Lambda$ is continuous.} Fix $A\in\mathcal H$. By \eqref{eq:mlb-adm} there
+is $n$ with $|A|\le2^nc$, and then $|A|<2^{n+1}c$ because $2^nc>0$; rename
+$n+1$ as $n$, so $|A|<2^nc$. The set $S=\{x:|x|<2^nc\}$ is open, being the
+preimage of an open half-line under the continuous norm, and it contains $A$. On
+$S$ we have $\Lambda(x)=2^nW(2^{-n}x)$ by \eqref{eq:mlb-any}; the map
+$x\mapsto2^{-n}x$ is continuous and sends $S$ into $\overline B_c\subseteq
+\overline B_R$ by Step 4, and $W$ is continuous on $\overline B_R$, so
+$x\mapsto2^nW(2^{-n}x)$ is continuous on $S$. Hence $\Lambda$ is continuous on
+the neighbourhood $S$ of $A$, so continuous at $A$. As $A$ was arbitrary,
+$\Lambda$ is continuous on $\mathcal H$.
+
+\emph{Step 7: $\Lambda$ is linear, and the representing vector.} An additive map
+between real normed spaces that is continuous is $\R$-linear: additivity gives
+$\Lambda(qx)=q\Lambda(x)$ for every rational $q$, and continuity extends this to
+every real scalar by density of $\Q$ in $\R$. So $\Lambda$ is a continuous linear
+functional on $\mathcal H$. By the Riesz representation of a continuous linear
+functional on a finite-dimensional inner-product space there is $P\in\mathcal H$
+with
+\begin{equation}\label{eq:mlb-riesz}
+  \Lambda(x)=\langle P,x\rangle\qquad(x\in\mathcal H).
+\end{equation}
+
+\emph{Step 8: conclusion on the full ball.} Let $A\in\overline B_R$. Then
+$|\tfrac12A|=\tfrac12|A|\le R/2=c$, so $\tfrac12A\in\overline B_c$ and
+\eqref{eq:mlb-agree} gives $W(\tfrac12A)=\Lambda(\tfrac12A)$. Using
+\eqref{eq:mlb-half}, then \eqref{eq:mlb-riesz} together with the linearity of
+$\Lambda$ and of the inner product in its second argument,
+\[
+  W(A)=2W\bigl(\tfrac12A\bigr)=2\Lambda\bigl(\tfrac12A\bigr)
+   =2\cdot\tfrac12\Lambda(A)=\Lambda(A)=\langle P,A\rangle .
+\]
+This is the assertion.
+\end{proof}

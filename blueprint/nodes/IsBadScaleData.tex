@@ -1,0 +1,23 @@
+\begin{definition}[Selected bad-scale data]
+Fix an integer $d\ge1$, put $n=d+1$, write $G=B_{3/4}^n$ and
+$D(z)=\operatorname{dist}(z,\partial G)$, and set $\Lambda=32$. Let
+$\gamma_i,s_i,r_i,\lambda_i$ be real sequences, let $U_i$ be real functions on
+$\R^n$ and let $z_i\in\R^n$. We say that
+$(\gamma_i,s_i,r_i,\lambda_i,U_i,z_i)_{i\ge0}$ is \emph{selected bad-scale data
+in dimension $d$} if:
+\begin{enumerate}
+\item $\gamma_i>0$ and $\gamma_i\to0$; $s_i>0$ and $s_i\to0$; $\lambda_i>0$ and
+$\lambda_i\to0$;
+\item each $U_i$ belongs to the normalized family $\mathcal U$ of
+\noderef{NormalizedInfFamily};
+\item $z_i\in G$ and $0<r_i\le s_iD(z_i)$;
+\item $\lambda_i$ is not good for $U_i$ at $(z_i,r_i)$, in the sense of
+\noderef{IsCylinderFit};
+\item for every fixed $M\ge2$ there is $i_0$ such that for all $i\ge i_0$, every
+center $w$ with $|w-z_i|\le Mr_i$ and every radius $0<\rho\le Mr_i$ are
+admissible, meaning $w\in G$ and $\rho\le D(w)/8$, and $\Lambda\lambda_i$ is good
+for $U_i$ at $(w,\rho)$.
+\end{enumerate}
+Monotonicity of the sequences $s_i$ and $\lambda_i$, which the selection of
+Lemma 3.4 also arranges, is not recorded here because it is not used below.
+\end{definition}
