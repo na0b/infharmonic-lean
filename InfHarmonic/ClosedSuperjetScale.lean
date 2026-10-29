@@ -1,4 +1,8 @@
-import InfHarmonic.ClosedSuperjet
+module
+
+public import InfHarmonic.ClosedSuperjet
+
+@[expose] public section
 set_option linter.unusedSectionVars false
 open Set Filter Topology
 

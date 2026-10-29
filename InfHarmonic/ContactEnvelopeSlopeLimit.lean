@@ -1,10 +1,14 @@
-import InfHarmonic.ContactEnvelopeProperties
-import InfHarmonic.ContactFiniteSlope
-import InfHarmonic.EnvHamiltonianSolution
-import InfHarmonic.EnvelopeSlopeOrder
-import InfHarmonic.EnvelopeCompetitorBounds
-import InfHarmonic.ContactEnv
-import InfHarmonic.IsLimitSubOn
+module
+
+public import InfHarmonic.ContactEnvelopeProperties
+public import InfHarmonic.ContactFiniteSlope
+public import InfHarmonic.EnvHamiltonianSolution
+public import InfHarmonic.EnvelopeSlopeOrder
+public import InfHarmonic.EnvelopeCompetitorBounds
+public import InfHarmonic.ContactEnv
+public import InfHarmonic.IsLimitSubOn
+
+@[expose] public section
 open Metric Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

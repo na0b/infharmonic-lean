@@ -1,6 +1,10 @@
-import InfHarmonic.SemiconvexOn
-import InfHarmonic.ConvexSubgradientExists
-import InfHarmonic.MaxMultiplierPinsSubgradient
+module
+
+public import InfHarmonic.SemiconvexOn
+public import InfHarmonic.ConvexSubgradientExists
+public import InfHarmonic.MaxMultiplierPinsSubgradient
+
+@[expose] public section
 open Set Metric
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

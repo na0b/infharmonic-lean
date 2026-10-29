@@ -1,7 +1,11 @@
-import InfHarmonic.IsStepPair
-import InfHarmonic.DPLogVelocity
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.EnvelopeCompetitorBounds
+module
+
+public import InfHarmonic.IsStepPair
+public import InfHarmonic.DPLogVelocity
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.EnvelopeCompetitorBounds
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Set Filter Topology WithLp MeasureTheory
 

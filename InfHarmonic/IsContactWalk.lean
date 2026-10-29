@@ -1,5 +1,9 @@
-import InfHarmonic.IsStepPair
-import InfHarmonic.JGap
+module
+
+public import InfHarmonic.IsStepPair
+public import InfHarmonic.JGap
+
+@[expose] public section
 open Set WithLp MeasureTheory
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

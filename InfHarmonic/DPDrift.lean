@@ -1,13 +1,17 @@
-import InfHarmonic.DPStepIdentities
-import InfHarmonic.DPSpatialRegularity
-import InfHarmonic.QuadEnvPathConvex
-import InfHarmonic.JGap
-import InfHarmonic.BarycentricSubsolution
-import InfHarmonic.BaryEnvSandwich
-import InfHarmonic.BaryEnvDuality
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.EnvelopeCompetitorBounds
-import InfHarmonic.ContactEnvPositiveTimeRegularity
+module
+
+public import InfHarmonic.DPStepIdentities
+public import InfHarmonic.DPSpatialRegularity
+public import InfHarmonic.QuadEnvPathConvex
+public import InfHarmonic.JGap
+public import InfHarmonic.BarycentricSubsolution
+public import InfHarmonic.BaryEnvSandwich
+public import InfHarmonic.BaryEnvDuality
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.EnvelopeCompetitorBounds
+public import InfHarmonic.ContactEnvPositiveTimeRegularity
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

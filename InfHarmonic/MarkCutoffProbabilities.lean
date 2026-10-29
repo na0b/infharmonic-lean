@@ -1,6 +1,10 @@
-import InfHarmonic.IsMarkData
-import InfHarmonic.StoppedWalkTravel
-import InfHarmonic.StoppedLatticeSupersolutionBound
+module
+
+public import InfHarmonic.IsMarkData
+public import InfHarmonic.StoppedWalkTravel
+public import InfHarmonic.StoppedLatticeSupersolutionBound
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Set Filter Topology WithLp MeasureTheory
 

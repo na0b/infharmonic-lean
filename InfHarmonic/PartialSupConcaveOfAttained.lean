@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Set
 
 /-- An attained partial supremum of a jointly concave function is concave.  Let `Φ` be

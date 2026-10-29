@@ -1,4 +1,8 @@
-import InfHarmonic.Superjet
+module
+
+public import InfHarmonic.Superjet
+
+@[expose] public section
 open Set Filter Topology
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

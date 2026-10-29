@@ -1,11 +1,15 @@
-import InfHarmonic.IsStepPair
-import InfHarmonic.JGap
-import InfHarmonic.DPSpatialRegularity
-import InfHarmonic.QuadEnvComposition
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.EnvelopeCompetitorBounds
-import InfHarmonic.ContactEnvPositiveTimeRegularity
-import InfHarmonic.UniformSubquadratic
+module
+
+public import InfHarmonic.IsStepPair
+public import InfHarmonic.JGap
+public import InfHarmonic.DPSpatialRegularity
+public import InfHarmonic.QuadEnvComposition
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.EnvelopeCompetitorBounds
+public import InfHarmonic.ContactEnvPositiveTimeRegularity
+public import InfHarmonic.UniformSubquadratic
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

@@ -1,6 +1,10 @@
-import InfHarmonic.ProfileProductSecondVariation
-import InfHarmonic.RadialQuotientSecondVariation
-import InfHarmonic.SecondVariationAlongLine
+module
+
+public import InfHarmonic.ProfileProductSecondVariation
+public import InfHarmonic.RadialQuotientSecondVariation
+public import InfHarmonic.SecondVariationAlongLine
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Set Metric
 

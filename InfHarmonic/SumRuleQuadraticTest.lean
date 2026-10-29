@@ -1,5 +1,9 @@
-import InfHarmonic.ContDiffAtSecondOrderPeano
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.ContDiffAtSecondOrderPeano
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Set Metric
 open scoped Gradient
 open WithLp

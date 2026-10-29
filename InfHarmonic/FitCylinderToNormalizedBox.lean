@@ -1,4 +1,8 @@
-import InfHarmonic.FitCylinder
+module
+
+public import InfHarmonic.FitCylinder
+
+@[expose] public section
 open Metric Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F]

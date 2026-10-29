@@ -1,4 +1,8 @@
-import InfHarmonic.FitParamBound
+module
+
+public import InfHarmonic.FitParamBound
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

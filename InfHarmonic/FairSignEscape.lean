@@ -1,6 +1,10 @@
-import InfHarmonic.Preamble
-import Mathlib.Probability.BorelCantelli
-import Mathlib.Probability.Independence.InfinitePi
+module
+
+public import InfHarmonic.Preamble
+public import Mathlib.Probability.BorelCantelli
+public import Mathlib.Probability.Independence.InfinitePi
+
+@[expose] public section
 open Set Filter Topology MeasureTheory ProbabilityTheory
 open scoped ENNReal NNReal
 

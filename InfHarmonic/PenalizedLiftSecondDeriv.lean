@@ -1,4 +1,8 @@
-import InfHarmonic.SecondFDerivCompLinear
+module
+
+public import InfHarmonic.SecondFDerivCompLinear
+
+@[expose] public section
 open Set Metric Filter Topology
 
 /-- The second derivative of a penalised lift, in a direction the penalty cannot see.

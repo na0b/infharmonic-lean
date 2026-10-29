@@ -1,5 +1,9 @@
-import InfHarmonic.IsFitClass
-import InfHarmonic.FrameChange
+module
+
+public import InfHarmonic.IsFitClass
+public import InfHarmonic.FrameChange
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

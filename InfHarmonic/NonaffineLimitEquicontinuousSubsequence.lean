@@ -1,4 +1,8 @@
-import InfHarmonic.AsymptEquicontOriginNormalizedLimit
+module
+
+public import InfHarmonic.AsymptEquicontOriginNormalizedLimit
+
+@[expose] public section
 set_option maxHeartbeats 500000
 open Metric Set Filter Topology WithLp
 

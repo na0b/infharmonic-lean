@@ -1,6 +1,10 @@
-import InfHarmonic.NormalizedInfFamily
-import InfHarmonic.LinearLift
-import InfHarmonic.InfHarmonicMono
+module
+
+public import InfHarmonic.NormalizedInfFamily
+public import InfHarmonic.LinearLift
+public import InfHarmonic.InfHarmonicMono
+
+@[expose] public section
 open Metric Set WithLp
 
 /-- Step 0 of the family-flatness argument: every member of the normalized lifted

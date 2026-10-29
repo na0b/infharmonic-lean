@@ -1,5 +1,9 @@
-import InfHarmonic.SupConvolutionSemiconvex
-import InfHarmonic.Superjet
+module
+
+public import InfHarmonic.SupConvolutionSemiconvex
+public import InfHarmonic.Superjet
+
+@[expose] public section
 open Set
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

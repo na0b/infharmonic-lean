@@ -1,10 +1,14 @@
-import InfHarmonic.PowerDecay
-import InfHarmonic.DyadicFitTaylorEstimate
-import InfHarmonic.NormalizedFamilyLipschitz
-import InfHarmonic.CylinderFitSlopeBounds
-import InfHarmonic.TaylorToHolderGradient
-import InfHarmonic.HolderSeminormOn
-import InfHarmonic.InfHarmonicNormalize
+module
+
+public import InfHarmonic.PowerDecay
+public import InfHarmonic.DyadicFitTaylorEstimate
+public import InfHarmonic.NormalizedFamilyLipschitz
+public import InfHarmonic.CylinderFitSlopeBounds
+public import InfHarmonic.TaylorToHolderGradient
+public import InfHarmonic.HolderSeminormOn
+public import InfHarmonic.InfHarmonicNormalize
+
+@[expose] public section
 open Metric Set WithLp
 
 /-- Theorem 1.1 (uniform interior estimate): for every `d ≥ 3` there are

@@ -1,18 +1,22 @@
-import InfHarmonic.IsInfHarmonicOn
-import InfHarmonic.SumRuleJets
-import InfHarmonic.InfSubsolutionClosedSuperjet
-import InfHarmonic.InfHarmonicNegScale
-import InfHarmonic.SmoothPlateau
-import InfHarmonic.ConcaveRadialProfile
-import InfHarmonic.RadialQuotientSecondVariation
-import InfHarmonic.RadialTestFirstDerivative
-import InfHarmonic.ProfileProductSecondVariation
-import InfHarmonic.SecondVariationAlongLine
-import InfHarmonic.SecondVariationAddAffineOnLine
-import InfHarmonic.ThreePointTestSecondVariation
-import InfHarmonic.ConstrainedThreePointMaximizer
-import InfHarmonic.ThreePointMaximizerGeometry
-import InfHarmonic.ThreePointJetsAndMatrixInequality
+module
+
+public import InfHarmonic.IsInfHarmonicOn
+public import InfHarmonic.SumRuleJets
+public import InfHarmonic.InfSubsolutionClosedSuperjet
+public import InfHarmonic.InfHarmonicNegScale
+public import InfHarmonic.SmoothPlateau
+public import InfHarmonic.ConcaveRadialProfile
+public import InfHarmonic.RadialQuotientSecondVariation
+public import InfHarmonic.RadialTestFirstDerivative
+public import InfHarmonic.ProfileProductSecondVariation
+public import InfHarmonic.SecondVariationAlongLine
+public import InfHarmonic.SecondVariationAddAffineOnLine
+public import InfHarmonic.ThreePointTestSecondVariation
+public import InfHarmonic.ConstrainedThreePointMaximizer
+public import InfHarmonic.ThreePointMaximizerGeometry
+public import InfHarmonic.ThreePointJetsAndMatrixInequality
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Set Metric
 

@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Filter Topology
 
 /-- The second derivative of a composition with a continuous linear map on the right:

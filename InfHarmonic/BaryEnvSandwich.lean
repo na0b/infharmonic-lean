@@ -1,6 +1,10 @@
-import InfHarmonic.BaryEnv
-import InfHarmonic.HasJensenBound
-import InfHarmonic.SubquadraticGrowth
+module
+
+public import InfHarmonic.BaryEnv
+public import InfHarmonic.HasJensenBound
+public import InfHarmonic.SubquadraticGrowth
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 
 /-- The three-block radial test is `C²` off the diagonal, and its first derivative there.
 The test is an affine functional plus a localizing factor `B` evaluated at one linear

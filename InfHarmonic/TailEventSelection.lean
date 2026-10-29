@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 -- The project's standing variable block is not used by this statement, which is
 -- about an abstract finite measure space, so the unused-section-variable linter
 -- is switched off here.

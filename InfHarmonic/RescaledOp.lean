@@ -1,4 +1,8 @@
-import InfHarmonic.LimitOp
+module
+
+public import InfHarmonic.LimitOp
+
+@[expose] public section
 open scoped Gradient
 open WithLp
 

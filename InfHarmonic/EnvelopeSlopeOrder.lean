@@ -1,8 +1,12 @@
-import InfHarmonic.EnvSlopeP
-import InfHarmonic.EnvSlopeM
-import InfHarmonic.QuadEnvPathConvex
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.EnvelopeCompetitorBounds
+module
+
+public import InfHarmonic.EnvSlopeP
+public import InfHarmonic.EnvSlopeM
+public import InfHarmonic.QuadEnvPathConvex
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.EnvelopeCompetitorBounds
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

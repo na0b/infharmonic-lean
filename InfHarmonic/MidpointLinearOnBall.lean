@@ -1,5 +1,9 @@
-import InfHarmonic.Preamble
-import Mathlib.Topology.Instances.RealVectorSpace
+module
+
+public import InfHarmonic.Preamble
+public import Mathlib.Topology.Instances.RealVectorSpace
+
+@[expose] public section
 open Metric Set
 
 /-- Step 9 of the family-flatness argument: a function on a closed ball of a

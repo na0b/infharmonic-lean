@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Set Filter Topology MeasureTheory
 

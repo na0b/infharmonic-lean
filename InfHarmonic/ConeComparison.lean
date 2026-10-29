@@ -1,6 +1,10 @@
-import InfHarmonic.IsInfHarmonicOn
-import InfHarmonic.ConeSlopeUpper
-import InfHarmonic.ConeSlopeLower
+module
+
+public import InfHarmonic.IsInfHarmonicOn
+public import InfHarmonic.ConeSlopeUpper
+public import InfHarmonic.ConeSlopeLower
+
+@[expose] public section
 open Metric Set
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

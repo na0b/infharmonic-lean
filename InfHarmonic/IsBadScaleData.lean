@@ -1,5 +1,9 @@
-import InfHarmonic.NormalizedInfFamily
-import InfHarmonic.IsCylinderFit
+module
+
+public import InfHarmonic.NormalizedInfFamily
+public import InfHarmonic.IsCylinderFit
+
+@[expose] public section
 set_option linter.unusedVariables false
 open Metric Set Filter Topology WithLp
 

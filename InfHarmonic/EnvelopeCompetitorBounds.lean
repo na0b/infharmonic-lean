@@ -1,7 +1,11 @@
-import InfHarmonic.QuadEnvP
-import InfHarmonic.QuadEnvM
-import InfHarmonic.BaryEnv
-import InfHarmonic.SubquadraticGrowth
+module
+
+public import InfHarmonic.QuadEnvP
+public import InfHarmonic.QuadEnvM
+public import InfHarmonic.BaryEnv
+public import InfHarmonic.SubquadraticGrowth
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

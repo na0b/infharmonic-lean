@@ -1,6 +1,10 @@
-import InfHarmonic.SumRuleJets
-import InfHarmonic.LimitSubClosedSuperjet
-import InfHarmonic.ClosedSuperjetScale
+module
+
+public import InfHarmonic.SumRuleJets
+public import InfHarmonic.LimitSubClosedSuperjet
+public import InfHarmonic.ClosedSuperjetScale
+
+@[expose] public section
 open Set Metric
 open scoped Gradient
 open WithLp

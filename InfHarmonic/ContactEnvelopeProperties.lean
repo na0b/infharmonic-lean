@@ -1,8 +1,12 @@
-import InfHarmonic.BaryEnvSandwich
-import InfHarmonic.BaryEnvDuality
-import InfHarmonic.BarycentricSubsolution
-import InfHarmonic.ContactEnv
-import InfHarmonic.IsFitClass
+module
+
+public import InfHarmonic.BaryEnvSandwich
+public import InfHarmonic.BaryEnvDuality
+public import InfHarmonic.BarycentricSubsolution
+public import InfHarmonic.ContactEnv
+public import InfHarmonic.IsFitClass
+
+@[expose] public section
 open Metric Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

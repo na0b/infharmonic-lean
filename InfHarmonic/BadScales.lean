@@ -1,5 +1,9 @@
-import InfHarmonic.IsBadScaleData
-import InfHarmonic.FamilyFlatness
+module
+
+public import InfHarmonic.IsBadScaleData
+public import InfHarmonic.FamilyFlatness
+
+@[expose] public section
 open Set Metric Filter Topology WithLp
 
 /-- Selection of bad scales (paper Lemma 3.4): if the uniform power bound on the

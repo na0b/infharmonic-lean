@@ -1,9 +1,13 @@
-import InfHarmonic.IsFitClass
-import InfHarmonic.IsCenteredAt
-import InfHarmonic.IsSpaceTimeAffine
-import InfHarmonic.QuadEnvPathConvex
-import InfHarmonic.CenteredGrowth
-import InfHarmonic.UniformSubquadratic
+module
+
+public import InfHarmonic.IsFitClass
+public import InfHarmonic.IsCenteredAt
+public import InfHarmonic.IsSpaceTimeAffine
+public import InfHarmonic.QuadEnvPathConvex
+public import InfHarmonic.CenteredGrowth
+public import InfHarmonic.UniformSubquadratic
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Set Filter Topology MeasureTheory
 
 /-- The optional-stopping half of paper Proposition 6.7, part 1, as a statement

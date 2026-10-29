@@ -1,7 +1,11 @@
-import InfHarmonic.IsRescaledSolutionOn
-import InfHarmonic.IsLimitSolutionOn
-import InfHarmonic.QuarticBumpJetAndRegularity
-import InfHarmonic.MaximizerSequenceTendsToStrictMax
+module
+
+public import InfHarmonic.IsRescaledSolutionOn
+public import InfHarmonic.IsLimitSolutionOn
+public import InfHarmonic.QuarticBumpJetAndRegularity
+public import InfHarmonic.MaximizerSequenceTendsToStrictMax
+
+@[expose] public section
 open Metric Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

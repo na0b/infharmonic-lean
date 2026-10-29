@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Filter Topology
 
 /-- Adding a term that is affine along one straight motion does not change the second

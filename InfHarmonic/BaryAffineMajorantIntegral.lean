@@ -1,5 +1,9 @@
-import InfHarmonic.Preamble
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
+module
+
+public import InfHarmonic.Preamble
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+
+@[expose] public section
 open Set WithLp MeasureTheory
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

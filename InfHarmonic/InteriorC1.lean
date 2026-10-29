@@ -1,5 +1,9 @@
-import InfHarmonic.MainEstimate
-import InfHarmonic.InfHarmonicRescale
+module
+
+public import InfHarmonic.MainEstimate
+public import InfHarmonic.InfHarmonicRescale
+
+@[expose] public section
 open Metric Set
 
 /-- Corollary 1.2 (interior `C¹` regularity): a continuous infinity-harmonic

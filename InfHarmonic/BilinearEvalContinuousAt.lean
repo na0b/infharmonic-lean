@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Filter Topology
 
 /-- Evaluating a varying symmetric-form-valued map on a varying direction is continuous

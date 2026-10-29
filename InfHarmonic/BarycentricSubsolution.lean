@@ -1,7 +1,11 @@
-import InfHarmonic.CommonTimeSubsolution
-import InfHarmonic.BaryEnvDuality
-import InfHarmonic.BaryTestDirections
-import InfHarmonic.BaryTestSecondVariation
+module
+
+public import InfHarmonic.CommonTimeSubsolution
+public import InfHarmonic.BaryEnvDuality
+public import InfHarmonic.BaryTestDirections
+public import InfHarmonic.BaryTestSecondVariation
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

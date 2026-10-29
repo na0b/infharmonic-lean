@@ -1,6 +1,10 @@
-import InfHarmonic.QuadEnvP
-import InfHarmonic.QuadShiftCompleteSquare
-import InfHarmonic.PartialSupConcaveOfAttained
+module
+
+public import InfHarmonic.QuadEnvP
+public import InfHarmonic.QuadShiftCompleteSquare
+public import InfHarmonic.PartialSupConcaveOfAttained
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

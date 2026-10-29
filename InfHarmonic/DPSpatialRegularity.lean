@@ -1,12 +1,16 @@
-import InfHarmonic.ContactEnv
-import InfHarmonic.QuadEnvP
-import InfHarmonic.IsFitClass
-import InfHarmonic.IsCenteredAt
-import InfHarmonic.HasJensenBound
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.ConvexSubgradientExists
-import InfHarmonic.ContactEnvPositiveTimeRegularity
-import InfHarmonic.QuadEnvPConcaveCorrection
+module
+
+public import InfHarmonic.ContactEnv
+public import InfHarmonic.QuadEnvP
+public import InfHarmonic.IsFitClass
+public import InfHarmonic.IsCenteredAt
+public import InfHarmonic.HasJensenBound
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.ConvexSubgradientExists
+public import InfHarmonic.ContactEnvPositiveTimeRegularity
+public import InfHarmonic.QuadEnvPConcaveCorrection
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

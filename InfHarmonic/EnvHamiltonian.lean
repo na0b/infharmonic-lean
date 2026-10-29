@@ -1,4 +1,8 @@
-import InfHarmonic.EnvSlopeP
+module
+
+public import InfHarmonic.EnvSlopeP
+
+@[expose] public section
 open Set
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

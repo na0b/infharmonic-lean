@@ -1,4 +1,8 @@
-import InfHarmonic.IsCylinderFit
+module
+
+public import InfHarmonic.IsCylinderFit
+
+@[expose] public section
 open Metric Set
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

@@ -1,4 +1,8 @@
+module
+
 -- Root module: the paper's main results.
-import InfHarmonic.MainEstimate
-import InfHarmonic.InteriorC1
-import InfHarmonic.Liouville
+public import InfHarmonic.MainEstimate
+public import InfHarmonic.InteriorC1
+public import InfHarmonic.Liouville
+
+@[expose] public section

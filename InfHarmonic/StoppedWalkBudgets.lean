@@ -1,8 +1,12 @@
-import InfHarmonic.IsContactWalk
-import InfHarmonic.IsMarkData
-import InfHarmonic.ContactWalkExists
-import InfHarmonic.ContactWalkBudgets
-import InfHarmonic.ContactWalkMarkData
+module
+
+public import InfHarmonic.IsContactWalk
+public import InfHarmonic.IsMarkData
+public import InfHarmonic.ContactWalkExists
+public import InfHarmonic.ContactWalkBudgets
+public import InfHarmonic.ContactWalkMarkData
+
+@[expose] public section
 -- The four standing hypotheses `hWsub`, `hsand`, `hconc` and `hgap` belong to the
 -- approved statement of this node but are not consumed by the assembly below, so the
 -- unused-variable linter is switched off for this declaration.

@@ -1,6 +1,10 @@
-import InfHarmonic.FrameEnvelopeCovariance
-import InfHarmonic.ContactEnv
-import InfHarmonic.BaryEnv
+module
+
+public import InfHarmonic.FrameEnvelopeCovariance
+public import InfHarmonic.ContactEnv
+public import InfHarmonic.BaryEnv
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

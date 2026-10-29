@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Filter Topology
 
 /-- Adding a function that is flat to second order at a point changes neither the first

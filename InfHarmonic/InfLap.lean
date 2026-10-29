@@ -1,8 +1,6 @@
-import InfHarmonic.Preamble
-open scoped Gradient
+module
 
-variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
+public import InfHarmonic.Preamble
+public import InfHarmonic.Defs
 
-/-- The unnormalized infinity Laplacian `InfLap φ z = D²φ(z)[∇φ(z)]`. -/
-noncomputable def InfLap (φ : E → ℝ) (z : E) : ℝ :=
-  iteratedFDeriv ℝ 2 φ z (fun _ => ∇ φ z)
+/-! `InfLap` is defined in `InfHarmonic.Defs`. -/

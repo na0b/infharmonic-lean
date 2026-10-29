@@ -1,4 +1,8 @@
-import InfHarmonic.IsFit
+module
+
+public import InfHarmonic.IsFit
+
+@[expose] public section
 open Set WithLp MeasureTheory
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

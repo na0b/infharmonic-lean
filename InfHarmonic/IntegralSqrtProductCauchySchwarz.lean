@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Set Filter Topology WithLp MeasureTheory
 
 /-- The Cauchy-Schwarz inequality for the integral of a product of square roots:

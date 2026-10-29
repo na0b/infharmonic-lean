@@ -1,6 +1,10 @@
-import InfHarmonic.IsFit
-import InfHarmonic.IsFitClass
-import InfHarmonic.AnisotropicBoxOffsets
+module
+
+public import InfHarmonic.IsFit
+public import InfHarmonic.IsFitClass
+public import InfHarmonic.AnisotropicBoxOffsets
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Metric Set Filter Topology WithLp
 

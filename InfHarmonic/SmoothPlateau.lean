@@ -1,5 +1,9 @@
-import InfHarmonic.Preamble
-import Mathlib.Analysis.Calculus.BumpFunction.InnerProduct
+module
+
+public import InfHarmonic.Preamble
+public import Mathlib.Analysis.Calculus.BumpFunction.InnerProduct
+
+@[expose] public section
 open Metric
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

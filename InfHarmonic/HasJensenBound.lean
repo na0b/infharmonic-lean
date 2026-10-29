@@ -1,5 +1,9 @@
-import InfHarmonic.IsBaryConfig
-import InfHarmonic.BaryRadius
+module
+
+public import InfHarmonic.IsBaryConfig
+public import InfHarmonic.BaryRadius
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

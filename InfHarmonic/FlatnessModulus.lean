@@ -1,5 +1,9 @@
-import InfHarmonic.BetaFlatness
-import InfHarmonic.NormalizedInfFamily
+module
+
+public import InfHarmonic.BetaFlatness
+public import InfHarmonic.NormalizedInfFamily
+
+@[expose] public section
 set_option linter.unusedVariables false
 open Metric Set WithLp
 

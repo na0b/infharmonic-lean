@@ -1,13 +1,17 @@
-import InfHarmonic.SumRuleJets
-import InfHarmonic.LimitSubClosedSuperjet
-import InfHarmonic.SumRuleCommonTimeDirection
-import InfHarmonic.PenalizedMaxConvergence
-import InfHarmonic.SecondFDerivCompLinear
-import InfHarmonic.QuarticFlatAtCentre
-import InfHarmonic.PenalizedLiftGradientBlocks
-import InfHarmonic.PenalizedLiftSecondDeriv
-import InfHarmonic.SecondDerivAddFlat
-import InfHarmonic.BilinearEvalContinuousAt
+module
+
+public import InfHarmonic.SumRuleJets
+public import InfHarmonic.LimitSubClosedSuperjet
+public import InfHarmonic.SumRuleCommonTimeDirection
+public import InfHarmonic.PenalizedMaxConvergence
+public import InfHarmonic.SecondFDerivCompLinear
+public import InfHarmonic.QuarticFlatAtCentre
+public import InfHarmonic.PenalizedLiftGradientBlocks
+public import InfHarmonic.PenalizedLiftSecondDeriv
+public import InfHarmonic.SecondDerivAddFlat
+public import InfHarmonic.BilinearEvalContinuousAt
+
+@[expose] public section
 set_option maxHeartbeats 1600000
 open Set Metric
 open scoped Gradient

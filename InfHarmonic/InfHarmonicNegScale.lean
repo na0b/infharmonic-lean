@@ -1,4 +1,8 @@
-import InfHarmonic.IsInfHarmonicOn
+module
+
+public import InfHarmonic.IsInfHarmonicOn
+
+@[expose] public section
 open Set
 open scoped Gradient
 

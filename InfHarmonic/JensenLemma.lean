@@ -1,9 +1,13 @@
-import InfHarmonic.SemiconvexOn
-import InfHarmonic.ConvexSubgradientExists
-import InfHarmonic.MaxMultiplierPinsSubgradient
-import InfHarmonic.SemiconvexMultiplierLipschitz
-import InfHarmonic.StrictMaxPerturbLocalization
-import InfHarmonic.LipschitzImageHaarBound
+module
+
+public import InfHarmonic.SemiconvexOn
+public import InfHarmonic.ConvexSubgradientExists
+public import InfHarmonic.MaxMultiplierPinsSubgradient
+public import InfHarmonic.SemiconvexMultiplierLipschitz
+public import InfHarmonic.StrictMaxPerturbLocalization
+public import InfHarmonic.LipschitzImageHaarBound
+
+@[expose] public section
 open Set MeasureTheory Metric
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

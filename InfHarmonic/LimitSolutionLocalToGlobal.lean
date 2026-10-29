@@ -1,4 +1,8 @@
-import InfHarmonic.IsLimitSolutionOn
+module
+
+public import InfHarmonic.IsLimitSolutionOn
+
+@[expose] public section
 open Set Filter Topology
 
 /-- Being a limit solution is a LOCAL property: if an open set is covered by

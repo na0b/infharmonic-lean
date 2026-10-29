@@ -1,4 +1,8 @@
-import InfHarmonic.IsInfHarmonicOn
+module
+
+public import InfHarmonic.IsInfHarmonicOn
+
+@[expose] public section
 open Metric Set Filter Topology
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

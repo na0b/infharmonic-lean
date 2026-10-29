@@ -1,9 +1,13 @@
-import InfHarmonic.IsContactWalk
-import InfHarmonic.DPDrift
-import InfHarmonic.JUpperBound
-import InfHarmonic.FittedEnvelopeBounds
-import InfHarmonic.OptionalStoppingErrorBudget
-import InfHarmonic.JGapLowerBoundAndContinuity
+module
+
+public import InfHarmonic.IsContactWalk
+public import InfHarmonic.DPDrift
+public import InfHarmonic.JUpperBound
+public import InfHarmonic.FittedEnvelopeBounds
+public import InfHarmonic.OptionalStoppingErrorBudget
+public import InfHarmonic.JGapLowerBoundAndContinuity
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Set Filter Topology WithLp MeasureTheory
 

@@ -1,4 +1,8 @@
-import InfHarmonic.SupConvolution
+module
+
+public import InfHarmonic.SupConvolution
+
+@[expose] public section
 open Set MeasureTheory
 open WithLp
 

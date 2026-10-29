@@ -1,6 +1,10 @@
-import InfHarmonic.MoreauCurveExpansion
-import InfHarmonic.ProxPreimageLocalization
-import InfHarmonic.ProxQuadraticFormComparison
+module
+
+public import InfHarmonic.MoreauCurveExpansion
+public import InfHarmonic.ProxPreimageLocalization
+public import InfHarmonic.ProxQuadraticFormComparison
+
+@[expose] public section
 open Set MeasureTheory
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

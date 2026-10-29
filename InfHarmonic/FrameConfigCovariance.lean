@@ -1,6 +1,10 @@
-import InfHarmonic.FrameChange
-import InfHarmonic.BaryRadius
-import InfHarmonic.IsBaryConfig
+module
+
+public import InfHarmonic.FrameChange
+public import InfHarmonic.BaryRadius
+public import InfHarmonic.IsBaryConfig
+
+@[expose] public section
 -- `FiniteDimensional ℝ F` is carried by the project's standing variable block but
 -- is not needed for this statement, so the unused-section-variable linter is
 -- switched off here.

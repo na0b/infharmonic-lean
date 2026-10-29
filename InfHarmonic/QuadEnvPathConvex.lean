@@ -1,10 +1,14 @@
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.IsLimitSolutionOn
-import InfHarmonic.TimeReversal
-import InfHarmonic.ViscosityConvexOnIcc
-import InfHarmonic.EnvelopeCompetitorBounds
-import InfHarmonic.SecondVariationAlongLine
-import Mathlib.Analysis.SpecialFunctions.Log.NegMulLog
+module
+
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.IsLimitSolutionOn
+public import InfHarmonic.TimeReversal
+public import InfHarmonic.ViscosityConvexOnIcc
+public import InfHarmonic.EnvelopeCompetitorBounds
+public import InfHarmonic.SecondVariationAlongLine
+public import Mathlib.Analysis.SpecialFunctions.Log.NegMulLog
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

@@ -1,5 +1,9 @@
-import InfHarmonic.ClosedSuperjet
-import InfHarmonic.IsLimitSubOn
+module
+
+public import InfHarmonic.ClosedSuperjet
+public import InfHarmonic.IsLimitSubOn
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

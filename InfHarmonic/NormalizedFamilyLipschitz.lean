@@ -1,6 +1,10 @@
-import InfHarmonic.NormalizedInfFamily
-import InfHarmonic.LinearLift
-import InfHarmonic.InfHarmonicLocLipschitz
+module
+
+public import InfHarmonic.NormalizedInfFamily
+public import InfHarmonic.LinearLift
+public import InfHarmonic.InfHarmonicLocLipschitz
+
+@[expose] public section
 open Metric Set WithLp
 
 /-- The normalized family `𝒰` is uniformly bounded and has one common

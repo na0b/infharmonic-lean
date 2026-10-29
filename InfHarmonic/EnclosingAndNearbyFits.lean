@@ -1,11 +1,15 @@
-import InfHarmonic.IsBadScaleData
-import InfHarmonic.CylinderFitSlopeBounds
-import InfHarmonic.CylinderComparisonSameCenter
-import InfHarmonic.CylinderComparisonShifted
-import InfHarmonic.CylinderFitDoublingChain
-import InfHarmonic.NormalizedSlopeCoefficients
-import InfHarmonic.AnisotropicBoxOffsets
-import InfHarmonic.ShearedBoxInFitCylinder
+module
+
+public import InfHarmonic.IsBadScaleData
+public import InfHarmonic.CylinderFitSlopeBounds
+public import InfHarmonic.CylinderComparisonSameCenter
+public import InfHarmonic.CylinderComparisonShifted
+public import InfHarmonic.CylinderFitDoublingChain
+public import InfHarmonic.NormalizedSlopeCoefficients
+public import InfHarmonic.AnisotropicBoxOffsets
+public import InfHarmonic.ShearedBoxInFitCylinder
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Metric Set Filter Topology WithLp
 

@@ -1,13 +1,17 @@
-import InfHarmonic.BaryEnvWeakDuality
-import InfHarmonic.BaryEnvSlopeLocalization
-import InfHarmonic.BaryGammaMinAttained
-import InfHarmonic.BaryEnvHullOfMinSlope
-import InfHarmonic.BaryConfigOfConvexHull
-import InfHarmonic.BaryGammaAffineInCenter
-import InfHarmonic.BaryAffineMajorantIntegral
-import InfHarmonic.BaryEnv
-import InfHarmonic.SubquadraticGrowth
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
+module
+
+public import InfHarmonic.BaryEnvWeakDuality
+public import InfHarmonic.BaryEnvSlopeLocalization
+public import InfHarmonic.BaryGammaMinAttained
+public import InfHarmonic.BaryEnvHullOfMinSlope
+public import InfHarmonic.BaryConfigOfConvexHull
+public import InfHarmonic.BaryGammaAffineInCenter
+public import InfHarmonic.BaryAffineMajorantIntegral
+public import InfHarmonic.BaryEnv
+public import InfHarmonic.SubquadraticGrowth
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+
+@[expose] public section
 open Metric Set Topology WithLp MeasureTheory
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

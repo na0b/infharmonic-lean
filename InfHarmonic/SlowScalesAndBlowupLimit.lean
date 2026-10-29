@@ -1,6 +1,10 @@
-import InfHarmonic.AffineBlowups
-import InfHarmonic.NormalizedFamilyLipschitz
-import InfHarmonic.EquiLipschitzUniformLimit
+module
+
+public import InfHarmonic.AffineBlowups
+public import InfHarmonic.NormalizedFamilyLipschitz
+public import InfHarmonic.EquiLipschitzUniformLimit
+
+@[expose] public section
 set_option maxHeartbeats 1000000
 open Set Metric
 

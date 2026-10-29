@@ -1,6 +1,10 @@
-import InfHarmonic.BadScales
-import InfHarmonic.NonaffineLimit
-import InfHarmonic.Liouville
+module
+
+public import InfHarmonic.BadScales
+public import InfHarmonic.NonaffineLimit
+public import InfHarmonic.Liouville
+
+@[expose] public section
 open Set Metric Filter Topology WithLp
 
 /-- Proposition 3.2 (uniform power decay): the family flatness modulus obeys a

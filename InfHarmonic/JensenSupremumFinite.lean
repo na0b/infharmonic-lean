@@ -1,9 +1,13 @@
-import InfHarmonic.NonaffineSliceExists
-import InfHarmonic.HasJensenBound
-import InfHarmonic.FrameInvariance
-import InfHarmonic.TimeReversal
-import InfHarmonic.CenteredGrowth
-import InfHarmonic.IsSpaceTimeAffine
+module
+
+public import InfHarmonic.NonaffineSliceExists
+public import InfHarmonic.HasJensenBound
+public import InfHarmonic.FrameInvariance
+public import InfHarmonic.TimeReversal
+public import InfHarmonic.CenteredGrowth
+public import InfHarmonic.IsSpaceTimeAffine
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

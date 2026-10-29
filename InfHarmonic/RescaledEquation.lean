@@ -1,5 +1,9 @@
-import InfHarmonic.IsInfHarmonicOn
-import InfHarmonic.IsRescaledSolutionOn
+module
+
+public import InfHarmonic.IsInfHarmonicOn
+public import InfHarmonic.IsRescaledSolutionOn
+
+@[expose] public section
 open Metric Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

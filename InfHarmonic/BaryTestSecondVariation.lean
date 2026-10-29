@@ -1,7 +1,11 @@
-import InfHarmonic.LimitOp
-import InfHarmonic.SecondFDerivCompLinear
-import InfHarmonic.SecondVariationAddAffineOnLine
-import InfHarmonic.BaryVarianceAffineAlongMotion
+module
+
+public import InfHarmonic.LimitOp
+public import InfHarmonic.SecondFDerivCompLinear
+public import InfHarmonic.SecondVariationAddAffineOnLine
+public import InfHarmonic.BaryVarianceAffineAlongMotion
+
+@[expose] public section
 open Filter Topology
 open scoped Gradient
 open WithLp

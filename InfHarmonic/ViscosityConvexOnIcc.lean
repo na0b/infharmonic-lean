@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Set
 
 /-- The one-dimensional viscosity criterion for convexity.  A continuous function on

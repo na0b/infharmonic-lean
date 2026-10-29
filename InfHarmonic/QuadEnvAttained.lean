@@ -1,11 +1,15 @@
-import InfHarmonic.QuadEnvP
-import InfHarmonic.QuadEnvM
-import InfHarmonic.SubquadraticGrowth
-import InfHarmonic.QuadEnvFarCompetitors
-import InfHarmonic.QuadEnvBallMax
-import InfHarmonic.QuadEnvBallMin
-import InfHarmonic.QuadEnvBoxRepresentation
-import InfHarmonic.QuadEnvOptimizerRate
+module
+
+public import InfHarmonic.QuadEnvP
+public import InfHarmonic.QuadEnvM
+public import InfHarmonic.SubquadraticGrowth
+public import InfHarmonic.QuadEnvFarCompetitors
+public import InfHarmonic.QuadEnvBallMax
+public import InfHarmonic.QuadEnvBallMin
+public import InfHarmonic.QuadEnvBoxRepresentation
+public import InfHarmonic.QuadEnvOptimizerRate
+
+@[expose] public section
 open Metric Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

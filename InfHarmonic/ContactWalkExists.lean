@@ -1,10 +1,14 @@
-import InfHarmonic.IsContactWalk
-import InfHarmonic.DPSpatialRegularity
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.EnvHamiltonianSolution
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.OptimizerLocalization
-import InfHarmonic.FairSignEscape
+module
+
+public import InfHarmonic.IsContactWalk
+public import InfHarmonic.DPSpatialRegularity
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.EnvHamiltonianSolution
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.OptimizerLocalization
+public import InfHarmonic.FairSignEscape
+
+@[expose] public section
 open Set Filter Topology WithLp MeasureTheory
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

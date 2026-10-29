@@ -1,5 +1,9 @@
-import InfHarmonic.EnvelopeCompetitorBounds
-import InfHarmonic.QuadEnvAttained
+module
+
+public import InfHarmonic.EnvelopeCompetitorBounds
+public import InfHarmonic.QuadEnvAttained
+
+@[expose] public section
 set_option maxHeartbeats 600000
 open Set WithLp
 

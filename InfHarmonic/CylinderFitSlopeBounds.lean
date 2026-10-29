@@ -1,5 +1,9 @@
-import InfHarmonic.NormalizedInfFamily
-import InfHarmonic.IsCylinderFit
+module
+
+public import InfHarmonic.NormalizedInfFamily
+public import InfHarmonic.IsCylinderFit
+
+@[expose] public section
 open Metric Set WithLp
 
 /-- Equation (3.3)'s slope bounds: every cylinder fit for a member of the

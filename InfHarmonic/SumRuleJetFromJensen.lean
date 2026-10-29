@@ -1,7 +1,11 @@
-import InfHarmonic.SupConvolutionMagic
-import InfHarmonic.JensenLemma
-import InfHarmonic.SemiconvexSecondOrderAe
-import InfHarmonic.SymmetricFormNormFromDiagonal
+module
+
+public import InfHarmonic.SupConvolutionMagic
+public import InfHarmonic.JensenLemma
+public import InfHarmonic.SemiconvexSecondOrderAe
+public import InfHarmonic.SymmetricFormNormFromDiagonal
+
+@[expose] public section
 set_option linter.unusedSectionVars false
 open Set MeasureTheory Metric
 open WithLp

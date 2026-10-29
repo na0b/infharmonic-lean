@@ -1,4 +1,8 @@
-import InfHarmonic.IsContactWalk
+module
+
+public import InfHarmonic.IsContactWalk
+
+@[expose] public section
 open Set Filter Topology WithLp MeasureTheory
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

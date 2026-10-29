@@ -1,0 +1,140 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Uniform interior C^{1,α} estimates for infinity-harmonic functions in dimensions d ≥ 3"
+  description: >-
+    A complete Lean 4 / Mathlib formalization of the main results of the preprint
+    "Uniform Interior C^{1,α} Estimates for Infinity-Harmonic Functions" (OpenAI, 2026).
+    For every dimension d ≥ 3 there are α ∈ (0, 1/3] and C < ∞ such that every bounded
+    viscosity solution u of the infinity-Laplace equation Δ_∞u = Σ u_i u_j u_ij = 0 on the
+    unit ball of ℝ^d is differentiable on the half ball, with
+    sup |∇u| + [∇u]_{C^{0,α}} ≤ C · osc u (Theorem 1.1). Consequently every
+    infinity-harmonic function on a connected open subset of ℝ^d, d ≥ 3, is C¹
+    (Corollary 1.2). The proof rests on a Liouville theorem for the degenerate limiting
+    equation D²v[(∇ₓv, 1)] = 0 on space-time, for entire solutions admitting uniform affine
+    fits at all scales (Theorem 3.1), which is also formalized. All three results are proved
+    from Mathlib with no sorry and no axioms beyond propext, Classical.choice and Quot.sound,
+    including the Crandall–Ishii–Lions theorem of sums and Alexandrov's theorem used along
+    the way.
+  authors:
+    - "Juan J. Manfredi"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Juan J. Manfredi"
+
+classification:
+  arxiv: [math.AP]
+  msc2020: [35J94, 35B65, 35D40, 35B53, 68V20]
+
+sources:
+  - title: "Uniform Interior C^{1,α} Estimates for Infinity-Harmonic Functions"
+    authors:
+      - "OpenAI"
+    id: "OpenAI Math Release preprint, October 4, 2026"
+    type: paper
+    location: "https://github.com/openai/math/blob/main/preprints/Uniform-Interior-C1alpha-Estimates-for-Infinity-Harmonic-Functions-October-4-2026/interior-c1-infinity-harmonic.pdf"
+    relationship: formalizes
+    note: >-
+      Unrefereed preprint. Theorem 1.1, Corollary 1.2 and Theorem 3.1 are formalized,
+      following the paper's argument; the LaTeX source as formalized is in paper/.
+    license: "Apache-2.0"
+    author_endorsement: not-contacted
+
+related_formalizations: []
+
+status:
+  scope: >-
+    Theorem 1.1 (uniform interior C^{1,α} estimate, d ≥ 3), Corollary 1.2 (interior C¹
+    regularity on connected open sets, d ≥ 3) and Theorem 3.1 (Liouville theorem for the
+    limiting equation) are formalized in full, together with every auxiliary result their
+    proofs use; nothing is assumed. The exponent α and constant C are proved to exist, as
+    in the paper; no explicit values are computed. Not formalized: the paper's remarks and
+    the expository material outside these three results.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+
+automation:
+  methods:
+    - method: agent
+      models: ["Claude Opus 5 (Anthropic)"]
+      framework: "Trellis (https://github.com/wpegden/trellis)"
+      tool_setup: >-
+        Trellis multi-agent formalization pipeline: planner, reviewer and worker agents
+        write a dependency graph of natural-language nodes (a blueprint) and their Lean
+        proofs; separate verifier agents check each node's natural-language proof for
+        soundness, its faithfulness to the paper, and agreement between its Lean and
+        natural-language statements; the Lean kernel checks every proof. A human approves
+        the phase gates (statement phase to proof phase) and answers escalations.
+      cost:
+        wall_time: "about 4.3 days of continuous running (2026-10-24 to 2026-10-29, 224 cycles)"
+        spend_usd: "subscription-based"
+        hardware: "local machine (Linux workstation) plus API/subscription model access"
+      prompting_notes: "Standard Trellis prompts; the input was the paper's LaTeX source and the choice of target theorems."
+    - method: agent
+      models: ["Claude Opus 5 (Anthropic)"]
+      framework: "Claude Code"
+      tool_setup: >-
+        Export from the Trellis workspace to this repository, the port to Lean v4.35.0-rc2
+        and the module system, and the Challenge/Solution/Comparator packaging for Palomar,
+        done by Claude Code under the maintainer's direction.
+      cost:
+        wall_time: "a few hours"
+        spend_usd: "subscription-based"
+        hardware: "local machine"
+      prompting_notes: "n/a"
+  spend_usd: "subscription-based"
+  notes: >-
+    The Lean proofs and the blueprint were written by AI agents under the Trellis protocol.
+    Juan J. Manfredi chose the paper and the target theorems, supervised the run, approved
+    the gate from statement formalization to proof formalization, and is responsible for
+    the repository.
+
+fidelity:
+  divergences: >-
+    None in substance; the formalization follows the paper's argument. Representation
+    choices: (1) C^{1,α}(B_{1/2}) membership of u is expressed as the existence of a
+    gradient field g = ∇u at every point of B_{1/2} whose norms and α-Hölder quotients are
+    bounded above; the paper's norm is then sSup of the norms plus sSup of the quotients.
+    (2) The boundedness of u is stated as BddAbove/BddBelow of u on B₁. (3) C^1_loc(Ω) is
+    stated as ContDiffOn ℝ 1 u Ω, which is equivalent on an open set. (4) Theorem 3.1 is
+    stated for an arbitrary finite-dimensional real inner product space F in place of ℝ^m
+    (so it also covers m = 0); space-time is WithLp 2 (F × ℝ). (5) Infinity-harmonicity
+    is the viscosity definition with all C² test functions, as in the paper's §1.1;
+    openness of Ω and continuity of u are part of the definition.
+
+review:
+  status: "agent-reviewed"
+  reviewers:
+    - "Trellis verifier agents (soundness, paper-faithfulness and statement-correspondence checks on every node)"
+  notes: >-
+    Every node of the development passed Trellis's automated soundness, paper-faithfulness
+    and Lean/natural-language correspondence reviews, and Cleanup ran four further audit
+    rounds. No human line-by-line review of the Lean statements against the paper has been
+    recorded; readers should compare Challenge.lean with the paper themselves.
+
+alignment:
+  namespace: "InfHarmonic"
+  statements:
+    - source: "Theorem 1.1 (Uniform interior estimate)"
+      lean: "InfHarmonic.main_estimate"
+      module: "Challenge"
+      status: "proved"
+      note: "Proved in Solution.lean from MainEstimate (InfHarmonic/MainEstimate.lean)."
+    - source: "Corollary 1.2 (Interior C¹ regularity)"
+      lean: "InfHarmonic.interior_C1"
+      module: "Challenge"
+      status: "proved"
+      note: "Proved in Solution.lean from InteriorC1 (InfHarmonic/InteriorC1.lean)."
+    - source: "Theorem 3.1 (Liouville Theorem)"
+      lean: "InfHarmonic.liouville"
+      module: "Challenge"
+      status: "proved"
+      note: >-
+        Proved in Solution.lean from Liouville (InfHarmonic/Liouville.lean); stated for any
+        finite-dimensional real inner product space in place of ℝ^m.
+
+acknowledgements: >-
+  Built on Mathlib. Produced with Trellis (github.com/wpegden/trellis) and Claude (Anthropic). The paper
+  is by OpenAI and is distributed under the Apache License 2.0.

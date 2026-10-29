@@ -1,5 +1,9 @@
-import InfHarmonic.SumRuleJets
-import InfHarmonic.InfSubsolutionClosedSuperjet
+module
+
+public import InfHarmonic.SumRuleJets
+public import InfHarmonic.InfSubsolutionClosedSuperjet
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Set Metric WithLp
 

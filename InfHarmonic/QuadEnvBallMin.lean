@@ -1,4 +1,8 @@
-import InfHarmonic.QuadEnvM
+module
+
+public import InfHarmonic.QuadEnvM
+
+@[expose] public section
 open Metric Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

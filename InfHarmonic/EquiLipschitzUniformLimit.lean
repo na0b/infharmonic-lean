@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Metric Set Filter Topology
 
 /-- Claim C of the family-flatness argument, an Arzelà--Ascoli extraction: a

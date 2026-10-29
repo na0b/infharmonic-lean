@@ -1,5 +1,9 @@
-import InfHarmonic.DoobL2Maximal
-import InfHarmonic.IntegralSqrtProductCauchySchwarz
+module
+
+public import InfHarmonic.DoobL2Maximal
+public import InfHarmonic.IntegralSqrtProductCauchySchwarz
+
+@[expose] public section
 set_option maxHeartbeats 600000
 open Set Filter Topology WithLp MeasureTheory
 

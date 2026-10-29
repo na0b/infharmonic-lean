@@ -1,14 +1,18 @@
-import InfHarmonic.EnvelopeContact
-import InfHarmonic.ContactPropagation
-import InfHarmonic.FrameEnvelopeCovariance
-import InfHarmonic.FrameGapCovariance
-import InfHarmonic.ClassCompactness
-import InfHarmonic.QuadEnvStability
-import InfHarmonic.BaryEnvStability
-import InfHarmonic.SlopeRigidity
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.EnvHamiltonianSolution
+module
+
+public import InfHarmonic.EnvelopeContact
+public import InfHarmonic.ContactPropagation
+public import InfHarmonic.FrameEnvelopeCovariance
+public import InfHarmonic.FrameGapCovariance
+public import InfHarmonic.ClassCompactness
+public import InfHarmonic.QuadEnvStability
+public import InfHarmonic.BaryEnvStability
+public import InfHarmonic.SlopeRigidity
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.EnvHamiltonianSolution
+
+@[expose] public section
 open Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

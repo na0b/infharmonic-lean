@@ -1,14 +1,18 @@
-import InfHarmonic.IsFitClass
-import InfHarmonic.FitClassGrowth
-import InfHarmonic.FarOptimizerBound
-import InfHarmonic.IsSpaceTimeAffine
-import InfHarmonic.EnvSlopeP
-import InfHarmonic.EnvSlopeM
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.EnvHamiltonianSolution
-import InfHarmonic.FrameInvariance
-import InfHarmonic.CenteredGrowth
-import InfHarmonic.EnvelopeCompetitorBounds
+module
+
+public import InfHarmonic.IsFitClass
+public import InfHarmonic.FitClassGrowth
+public import InfHarmonic.FarOptimizerBound
+public import InfHarmonic.IsSpaceTimeAffine
+public import InfHarmonic.EnvSlopeP
+public import InfHarmonic.EnvSlopeM
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.EnvHamiltonianSolution
+public import InfHarmonic.FrameInvariance
+public import InfHarmonic.CenteredGrowth
+public import InfHarmonic.EnvelopeCompetitorBounds
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Set WithLp
 

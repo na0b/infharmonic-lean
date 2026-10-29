@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 
 /-- The first and second variations of a `C²` function along a straight line are computed
 by any one-variable function that agrees with the restriction near the base point.  This is

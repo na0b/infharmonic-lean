@@ -1,4 +1,8 @@
-import InfHarmonic.LimitOp
+module
+
+public import InfHarmonic.LimitOp
+
+@[expose] public section
 open Metric Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

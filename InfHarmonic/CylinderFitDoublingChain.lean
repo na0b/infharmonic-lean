@@ -1,4 +1,8 @@
-import InfHarmonic.CylinderComparisonSameCenter
+module
+
+public import InfHarmonic.CylinderComparisonSameCenter
+
+@[expose] public section
 open Metric Set
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

@@ -1,5 +1,9 @@
-import InfHarmonic.SqrtSumLogSquareBounds
-import InfHarmonic.StoppedLatticeSupersolutionBound
+module
+
+public import InfHarmonic.SqrtSumLogSquareBounds
+public import InfHarmonic.StoppedLatticeSupersolutionBound
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Metric Set Filter Topology MeasureTheory
 

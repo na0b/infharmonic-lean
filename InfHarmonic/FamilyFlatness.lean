@@ -1,13 +1,17 @@
-import InfHarmonic.FlatnessModulus
-import InfHarmonic.ThreePointFlatness
-import InfHarmonic.AffineBlowups
-import InfHarmonic.NormalizedFamilyLipschitz
-import InfHarmonic.InfHarmonicMono
-import InfHarmonic.NormalizedFamilyInfHarmonic
-import InfHarmonic.EquiLipschitzUniformLimit
-import InfHarmonic.MidpointLinearOnBall
-import InfHarmonic.SlowScalesAndBlowupLimit
-import InfHarmonic.BlowupLimitVanishingMidpointDefect
+module
+
+public import InfHarmonic.FlatnessModulus
+public import InfHarmonic.ThreePointFlatness
+public import InfHarmonic.AffineBlowups
+public import InfHarmonic.NormalizedFamilyLipschitz
+public import InfHarmonic.InfHarmonicMono
+public import InfHarmonic.NormalizedFamilyInfHarmonic
+public import InfHarmonic.EquiLipschitzUniformLimit
+public import InfHarmonic.MidpointLinearOnBall
+public import InfHarmonic.SlowScalesAndBlowupLimit
+public import InfHarmonic.BlowupLimitVanishingMidpointDefect
+
+@[expose] public section
 open Set Metric
 
 /-- Uniform qualitative flatness (paper Lemma 3.2, the `b(s) → 0` display): the

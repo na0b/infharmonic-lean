@@ -1,8 +1,12 @@
-import InfHarmonic.MoreauProxExists
-import InfHarmonic.MoreauProxMonotone
-import InfHarmonic.MoreauEnvelopeGradient
-import InfHarmonic.MoreauProxImageFullMeasure
-import InfHarmonic.ProxEnvelopeExpansionAt
+module
+
+public import InfHarmonic.MoreauProxExists
+public import InfHarmonic.MoreauProxMonotone
+public import InfHarmonic.MoreauEnvelopeGradient
+public import InfHarmonic.MoreauProxImageFullMeasure
+public import InfHarmonic.ProxEnvelopeExpansionAt
+
+@[expose] public section
 open Set MeasureTheory
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 
 /-- Two elementary real-analytic bounds used by the logarithmic grid sums of
 Section 6.2. First, a telescoping comparison bounds the harmonic-type sum of

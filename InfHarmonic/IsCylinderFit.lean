@@ -1,4 +1,8 @@
-import InfHarmonic.FitCylinder
+module
+
+public import InfHarmonic.FitCylinder
+
+@[expose] public section
 open Set
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

@@ -15,9 +15,9 @@ Theorem 1.1, Corollary 1.2 and Theorem 3.1 of the paper are stated and proved, t
 
 | Paper | Lean declaration | File |
 |---|---|---|
-| Theorem 1.1, the uniform interior estimate | `MainEstimate` | [`MainEstimate.lean`](InfHarmonic/MainEstimate.lean) |
-| Corollary 1.2, interior C<sup>1</sup> regularity | `InteriorC1` | [`InteriorC1.lean`](InfHarmonic/InteriorC1.lean) |
-| Theorem 3.1, the Liouville theorem | `Liouville` | [`Liouville.lean`](InfHarmonic/Liouville.lean) |
+| Theorem 1.1, the uniform interior estimate | `MainEstimate` (`InfHarmonic.main_estimate` in `Challenge.lean`) | [`MainEstimate.lean`](InfHarmonic/MainEstimate.lean) |
+| Corollary 1.2, interior C<sup>1</sup> regularity | `InteriorC1` (`InfHarmonic.interior_C1`) | [`InteriorC1.lean`](InfHarmonic/InteriorC1.lean) |
+| Theorem 3.1, the Liouville theorem | `Liouville` (`InfHarmonic.liouville`) | [`Liouville.lean`](InfHarmonic/Liouville.lean) |
 
 ## The main theorem
 
@@ -73,13 +73,29 @@ lake build
 lake env lean Axioms.lean # print the axioms used by each main result
 ```
 
-The project is pinned to Lean `v4.33.0` and Mathlib commit `db584cd6d46c92f209a44c0f1c829460d327499d`. Continuous integration rebuilds the project and checks the axioms on every push.
+The project is pinned to Lean `v4.35.0-rc2` and the matching Mathlib release `v4.35.0-rc2`, and every file uses Lean's module system. Continuous integration rebuilds the project and checks the axioms on every push.
+
+## Palomar
+
+The repository is laid out for the [Palomar](https://palomar-registry.org/) registry. [`Challenge.lean`](Challenge.lean) is the statement of record: it imports only Mathlib, restates the definitions the main results use, and states the three results with `sorry`. [`Solution.lean`](Solution.lean) proves the same three statements from the development. [`comparator.json`](comparator.json) tells [Comparator](https://github.com/leanprover/comparator) to check that the two agree and that only the three standard axioms are used, and [`formalization.yaml`](formalization.yaml) records provenance, authorship, automation and review. To run the check locally (Linux, needs `bwrap`):
+
+```sh
+./scripts/verify-comparator.sh
+ruby scripts/validate-formalization.rb
+```
+
+The definitions in `Challenge.lean` are copied verbatim into [`InfHarmonic/Defs.lean`](InfHarmonic/Defs.lean), which the development uses; keeping the two textually identical is what makes them elaborate to the same terms.
 
 ## Layout
 
 ```
 InfHarmonic.lean           root module, imports the main results
-InfHarmonic/               one file per definition, lemma or theorem (247 files)
+InfHarmonic/               one file per lemma or theorem; the definitions used in the main
+                           statements are in InfHarmonic/Defs.lean
+Challenge.lean             Palomar statement of record (Mathlib imports only)
+Solution.lean              proofs of the Challenge statements
+comparator.json            Comparator configuration
+formalization.yaml         Palomar metadata
 Axioms.lean                #print axioms for the main results
 blueprint/blueprint.tex    natural-language companion (inputs blueprint/nodes/*.tex)
 paper/paper.tex            the paper, as formalized

@@ -1,8 +1,12 @@
-import InfHarmonic.EnvelopeSlopeOrder
-import InfHarmonic.EnvHamiltonian
-import InfHarmonic.TimeReversal
-import InfHarmonic.QuadEnvAttained
-import Mathlib.Topology.Instances.EReal.Lemmas
+module
+
+public import InfHarmonic.EnvelopeSlopeOrder
+public import InfHarmonic.EnvHamiltonian
+public import InfHarmonic.TimeReversal
+public import InfHarmonic.QuadEnvAttained
+public import Mathlib.Topology.Instances.EReal.Lemmas
+
+@[expose] public section
 open Set WithLp Topology
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

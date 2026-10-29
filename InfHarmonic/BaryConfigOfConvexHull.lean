@@ -1,5 +1,9 @@
-import InfHarmonic.IsBaryConfig
-import Mathlib.Analysis.Convex.Caratheodory
+module
+
+public import InfHarmonic.IsBaryConfig
+public import Mathlib.Analysis.Convex.Caratheodory
+
+@[expose] public section
 open Set
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

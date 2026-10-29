@@ -1,10 +1,14 @@
-import InfHarmonic.FrameInvariance
-import InfHarmonic.EnvSlopeP
-import InfHarmonic.EnvSlopeM
-import InfHarmonic.HasJensenBound
-import InfHarmonic.IsCenteredAt
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.EnvelopeCompetitorBounds
+module
+
+public import InfHarmonic.FrameInvariance
+public import InfHarmonic.EnvSlopeP
+public import InfHarmonic.EnvSlopeM
+public import InfHarmonic.HasJensenBound
+public import InfHarmonic.IsCenteredAt
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.EnvelopeCompetitorBounds
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

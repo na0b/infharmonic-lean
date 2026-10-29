@@ -1,5 +1,9 @@
-import InfHarmonic.SupConvolutionSeparable
-import InfHarmonic.SupConvolutionSemiconvex
+module
+
+public import InfHarmonic.SupConvolutionSeparable
+public import InfHarmonic.SupConvolutionSemiconvex
+
+@[expose] public section
 open Set
 open WithLp
 

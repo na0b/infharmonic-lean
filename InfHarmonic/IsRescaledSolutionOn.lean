@@ -1,4 +1,8 @@
-import InfHarmonic.RescaledOp
+module
+
+public import InfHarmonic.RescaledOp
+
+@[expose] public section
 open Set
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

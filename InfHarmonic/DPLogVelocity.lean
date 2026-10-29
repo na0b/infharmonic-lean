@@ -1,10 +1,14 @@
-import InfHarmonic.DPSpatialRegularity
-import InfHarmonic.SpatialFitModulus
-import InfHarmonic.BaryEnvSandwich
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.BaryEnvDuality
-import InfHarmonic.ContactEnvPositiveTimeRegularity
-import InfHarmonic.ConvexSubgradientExists
+module
+
+public import InfHarmonic.DPSpatialRegularity
+public import InfHarmonic.SpatialFitModulus
+public import InfHarmonic.BaryEnvSandwich
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.BaryEnvDuality
+public import InfHarmonic.ContactEnvPositiveTimeRegularity
+public import InfHarmonic.ConvexSubgradientExists
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

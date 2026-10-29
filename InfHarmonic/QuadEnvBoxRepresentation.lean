@@ -1,6 +1,10 @@
-import InfHarmonic.QuadEnvFarCompetitors
-import InfHarmonic.QuadEnvBallMax
-import InfHarmonic.QuadEnvBallMin
+module
+
+public import InfHarmonic.QuadEnvFarCompetitors
+public import InfHarmonic.QuadEnvBallMax
+public import InfHarmonic.QuadEnvBallMin
+
+@[expose] public section
 open Metric Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

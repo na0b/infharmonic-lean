@@ -1,15 +1,19 @@
-import InfHarmonic.IsContactWalk
-import InfHarmonic.DPLogVelocity
-import InfHarmonic.WalkPathwiseBounds
-import InfHarmonic.DoobL2Maximal
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.EnvHamiltonian
-import InfHarmonic.EnvelopeCompetitorBounds
-import InfHarmonic.LatticeLogGreenFunction
-import InfHarmonic.IntegralSqrtProductCauchySchwarz
-import InfHarmonic.StoppedPortionTravelBound
-import InfHarmonic.StoppedLatticeSupersolutionBound
-import InfHarmonic.StoppedWalkLowerExitProbability
+module
+
+public import InfHarmonic.IsContactWalk
+public import InfHarmonic.DPLogVelocity
+public import InfHarmonic.WalkPathwiseBounds
+public import InfHarmonic.DoobL2Maximal
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.EnvHamiltonian
+public import InfHarmonic.EnvelopeCompetitorBounds
+public import InfHarmonic.LatticeLogGreenFunction
+public import InfHarmonic.IntegralSqrtProductCauchySchwarz
+public import InfHarmonic.StoppedPortionTravelBound
+public import InfHarmonic.StoppedLatticeSupersolutionBound
+public import InfHarmonic.StoppedWalkLowerExitProbability
+
+@[expose] public section
 set_option maxHeartbeats 600000
 open Set Filter Topology WithLp MeasureTheory
 

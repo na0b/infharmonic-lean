@@ -1,6 +1,10 @@
-import InfHarmonic.ClosedSuperjetClosed
-import InfHarmonic.BilinearFormBolzanoWeierstrass
-import InfHarmonic.SumRuleFixedTauJets
+module
+
+public import InfHarmonic.ClosedSuperjetClosed
+public import InfHarmonic.BilinearFormBolzanoWeierstrass
+public import InfHarmonic.SumRuleFixedTauJets
+
+@[expose] public section
 open Set MeasureTheory Metric
 open scoped Gradient
 open WithLp

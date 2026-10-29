@@ -1,6 +1,10 @@
-import InfHarmonic.IsBadScaleData
-import InfHarmonic.IsSpaceTimeAffine
-import InfHarmonic.FitCylinderToNormalizedBox
+module
+
+public import InfHarmonic.IsBadScaleData
+public import InfHarmonic.IsSpaceTimeAffine
+public import InfHarmonic.FitCylinderToNormalizedBox
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Metric Set Filter Topology WithLp
 

@@ -1,5 +1,9 @@
-import InfHarmonic.Preamble
-import Mathlib.Analysis.SpecialFunctions.Sqrt
+module
+
+public import InfHarmonic.Preamble
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+
+@[expose] public section
 
 /-- The concave radial profile `f r = r - r √r / 8 = r - r^{3/2}/8` of the
 three-point estimate, together with its `C²` regularity away from the origin, its

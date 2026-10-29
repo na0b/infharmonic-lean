@@ -1,4 +1,8 @@
-import InfHarmonic.ConvexSubgradientExists
+module
+
+public import InfHarmonic.ConvexSubgradientExists
+
+@[expose] public section
 open Set Metric
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

@@ -1,11 +1,15 @@
-import InfHarmonic.BilinearFormBolzanoWeierstrass
-import InfHarmonic.ClosedSuperjetLocal
-import InfHarmonic.ClosedSuperjetQuartic
-import InfHarmonic.ClosedSuperjetAffineShift
-import InfHarmonic.SumRuleQuadraticTest
-import InfHarmonic.SumRuleResolvent
-import InfHarmonic.SumRuleDualityTest
-import InfHarmonic.SumRuleJetFromJensen
+module
+
+public import InfHarmonic.BilinearFormBolzanoWeierstrass
+public import InfHarmonic.ClosedSuperjetLocal
+public import InfHarmonic.ClosedSuperjetQuartic
+public import InfHarmonic.ClosedSuperjetAffineShift
+public import InfHarmonic.SumRuleQuadraticTest
+public import InfHarmonic.SumRuleResolvent
+public import InfHarmonic.SumRuleDualityTest
+public import InfHarmonic.SumRuleJetFromJensen
+
+@[expose] public section
 open Set MeasureTheory Metric
 open scoped Gradient
 open WithLp

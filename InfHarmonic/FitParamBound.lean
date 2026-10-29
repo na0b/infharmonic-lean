@@ -1,6 +1,10 @@
-import InfHarmonic.IsFitClass
-import InfHarmonic.IsCenteredAt
-import InfHarmonic.FitComparisonSameCenter
+module
+
+public import InfHarmonic.IsFitClass
+public import InfHarmonic.IsCenteredAt
+public import InfHarmonic.FitComparisonSameCenter
+
+@[expose] public section
 set_option maxHeartbeats 800000
 open Set WithLp
 

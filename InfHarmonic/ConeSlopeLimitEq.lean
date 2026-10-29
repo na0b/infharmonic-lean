@@ -1,5 +1,9 @@
-import InfHarmonic.ConeComparison
-import InfHarmonic.ConeSlopeContinuousInCenter
+module
+
+public import InfHarmonic.ConeComparison
+public import InfHarmonic.ConeSlopeContinuousInCenter
+
+@[expose] public section
 open Metric Set Filter Topology
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

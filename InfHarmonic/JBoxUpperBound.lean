@@ -1,7 +1,11 @@
-import InfHarmonic.JUpperBound
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.EnvHamiltonianSolution
-import InfHarmonic.UniformSubquadratic
+module
+
+public import InfHarmonic.JUpperBound
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.EnvHamiltonianSolution
+public import InfHarmonic.UniformSubquadratic
+
+@[expose] public section
 open Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

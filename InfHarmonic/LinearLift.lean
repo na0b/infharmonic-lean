@@ -1,4 +1,8 @@
-import InfHarmonic.IsInfHarmonicOn
+module
+
+public import InfHarmonic.IsInfHarmonicOn
+
+@[expose] public section
 open Set WithLp
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

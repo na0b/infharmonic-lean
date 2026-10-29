@@ -1,5 +1,9 @@
-import InfHarmonic.IsInfHarmonicOn
-import InfHarmonic.OscOn
+module
+
+public import InfHarmonic.IsInfHarmonicOn
+public import InfHarmonic.OscOn
+
+@[expose] public section
 open Metric Set WithLp
 
 /-- Membership in the normalized lifted family `𝒰` in dimension `d`:

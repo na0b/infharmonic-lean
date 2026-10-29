@@ -1,10 +1,14 @@
-import InfHarmonic.CenteredGrowth
-import InfHarmonic.EnvSlopeP
-import InfHarmonic.EnvSlopeM
-import InfHarmonic.EnvHamiltonianSolution
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.EnvelopeCompetitorBounds
+module
+
+public import InfHarmonic.CenteredGrowth
+public import InfHarmonic.EnvSlopeP
+public import InfHarmonic.EnvSlopeM
+public import InfHarmonic.EnvHamiltonianSolution
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.EnvelopeCompetitorBounds
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

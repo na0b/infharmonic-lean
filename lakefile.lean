@@ -10,4 +10,10 @@ package «infharmonic» where
 lean_lib «InfHarmonic» where
 
 require mathlib from git
-  "https://github.com/leanprover-community/mathlib4" @ "db584cd6d46c92f209a44c0f1c829460d327499d"
+  "https://github.com/leanprover-community/mathlib4" @ "v4.35.0-rc2"
+
+lean_lib «Challenge» where
+  roots := #[`Challenge]
+
+lean_lib «Solution» where
+  roots := #[`Solution]

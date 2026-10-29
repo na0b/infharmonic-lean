@@ -1,5 +1,9 @@
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.UnifSubquadraticGrowth
+module
+
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.UnifSubquadraticGrowth
+
+@[expose] public section
 open Metric Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

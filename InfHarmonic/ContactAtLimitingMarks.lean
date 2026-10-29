@@ -1,4 +1,8 @@
-import InfHarmonic.JGap
+module
+
+public import InfHarmonic.JGap
+
+@[expose] public section
 set_option maxHeartbeats 500000
 open Set Filter Topology WithLp MeasureTheory
 

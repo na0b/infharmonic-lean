@@ -1,7 +1,11 @@
-import InfHarmonic.FitComparisonSameCenter
-import InfHarmonic.FrameInvariance
-import InfHarmonic.IsFitClass
-import InfHarmonic.IsCenteredAt
+module
+
+public import InfHarmonic.FitComparisonSameCenter
+public import InfHarmonic.FrameInvariance
+public import InfHarmonic.IsFitClass
+public import InfHarmonic.IsCenteredAt
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

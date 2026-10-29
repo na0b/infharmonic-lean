@@ -1,9 +1,13 @@
-import InfHarmonic.ConeComparison
-import InfHarmonic.ConeSlopeLimitEq
-import InfHarmonic.InfHarmonicLocLipschitz
-import InfHarmonic.InfHarmonicRescale
-import InfHarmonic.InfHarmonicNormalize
-import InfHarmonic.InfHarmonicStability
+module
+
+public import InfHarmonic.ConeComparison
+public import InfHarmonic.ConeSlopeLimitEq
+public import InfHarmonic.InfHarmonicLocLipschitz
+public import InfHarmonic.InfHarmonicRescale
+public import InfHarmonic.InfHarmonicNormalize
+public import InfHarmonic.InfHarmonicStability
+
+@[expose] public section
 open Metric Set Filter Topology
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

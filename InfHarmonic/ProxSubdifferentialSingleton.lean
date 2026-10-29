@@ -1,5 +1,9 @@
-import InfHarmonic.IsMoreauProx
-import InfHarmonic.MoreauProxMonotone
+module
+
+public import InfHarmonic.IsMoreauProx
+public import InfHarmonic.MoreauProxMonotone
+
+@[expose] public section
 open Set MeasureTheory
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

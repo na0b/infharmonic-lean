@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Metric Set Filter Topology
 
 /-- An Arzelà--Ascoli extraction with an ASYMPTOTIC modulus of continuity and a

@@ -1,4 +1,8 @@
-import InfHarmonic.AsymptEquicontLocalUniformLimit
+module
+
+public import InfHarmonic.AsymptEquicontLocalUniformLimit
+
+@[expose] public section
 open Metric Set Filter Topology
 
 /-- The locally uniform limit of an asymptotically bounded, asymptotically

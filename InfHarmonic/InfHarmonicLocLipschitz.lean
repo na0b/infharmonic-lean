@@ -1,4 +1,8 @@
-import InfHarmonic.ConeComparison
+module
+
+public import InfHarmonic.ConeComparison
+
+@[expose] public section
 open Metric Set
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

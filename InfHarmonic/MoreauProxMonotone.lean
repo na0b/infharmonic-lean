@@ -1,4 +1,8 @@
-import InfHarmonic.MoreauProxSubgradient
+module
+
+public import InfHarmonic.MoreauProxSubgradient
+
+@[expose] public section
 open Set
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

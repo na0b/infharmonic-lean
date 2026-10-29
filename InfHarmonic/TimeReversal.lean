@@ -1,8 +1,12 @@
-import InfHarmonic.TimeFlip
-import InfHarmonic.IsFitClass
-import InfHarmonic.QuadEnvP
-import InfHarmonic.QuadEnvM
-import InfHarmonic.HasJensenBound
+module
+
+public import InfHarmonic.TimeFlip
+public import InfHarmonic.IsFitClass
+public import InfHarmonic.QuadEnvP
+public import InfHarmonic.QuadEnvM
+public import InfHarmonic.HasJensenBound
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

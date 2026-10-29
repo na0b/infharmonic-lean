@@ -1,7 +1,11 @@
-import InfHarmonic.CenteredGrowth
-import InfHarmonic.SubquadraticGrowth
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.FrameInvariance
+module
+
+public import InfHarmonic.CenteredGrowth
+public import InfHarmonic.SubquadraticGrowth
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.FrameInvariance
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Set WithLp
 

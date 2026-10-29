@@ -1,4 +1,8 @@
-import InfHarmonic.SqrtSumLogSquareBounds
+module
+
+public import InfHarmonic.SqrtSumLogSquareBounds
+
+@[expose] public section
 set_option maxHeartbeats 600000
 open Set
 

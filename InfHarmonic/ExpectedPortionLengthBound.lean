@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Set Filter Topology MeasureTheory
 
 /-- Step 6(a) of paper Proposition 6.7: the expected number of steps in a

@@ -1,15 +1,19 @@
-import InfHarmonic.IsMarkData
-import InfHarmonic.StoppedWalkTravel
-import InfHarmonic.FrameEnvelopeCovariance
-import InfHarmonic.FrameVelocityCovariance
-import InfHarmonic.FitParamBound
-import InfHarmonic.DPLogVelocity
-import InfHarmonic.SqrtSumLogSquareBounds
-import InfHarmonic.StoppedLatticeSupersolutionBound
-import InfHarmonic.ExpectedPortionLengthBound
-import InfHarmonic.MarkCutoffProbabilities
-import InfHarmonic.LogGridSumBound
-import InfHarmonic.MarkFrameTravelBound
+module
+
+public import InfHarmonic.IsMarkData
+public import InfHarmonic.StoppedWalkTravel
+public import InfHarmonic.FrameEnvelopeCovariance
+public import InfHarmonic.FrameVelocityCovariance
+public import InfHarmonic.FitParamBound
+public import InfHarmonic.DPLogVelocity
+public import InfHarmonic.SqrtSumLogSquareBounds
+public import InfHarmonic.StoppedLatticeSupersolutionBound
+public import InfHarmonic.ExpectedPortionLengthBound
+public import InfHarmonic.MarkCutoffProbabilities
+public import InfHarmonic.LogGridSumBound
+public import InfHarmonic.MarkFrameTravelBound
+
+@[expose] public section
 set_option maxHeartbeats 400000
 open Set Filter Topology WithLp MeasureTheory
 

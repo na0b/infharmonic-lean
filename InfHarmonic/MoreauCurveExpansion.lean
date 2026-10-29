@@ -1,5 +1,9 @@
-import InfHarmonic.GradientDiffSecondOrder
-import InfHarmonic.MoreauEnvelopeGradient
+module
+
+public import InfHarmonic.GradientDiffSecondOrder
+public import InfHarmonic.MoreauEnvelopeGradient
+
+@[expose] public section
 open Set MeasureTheory
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

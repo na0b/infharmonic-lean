@@ -1,13 +1,17 @@
-import InfHarmonic.FrameConfigCovariance
-import InfHarmonic.EnvelopeCompetitorBounds
-import InfHarmonic.JensenSupremumFinite
-import InfHarmonic.FrameInvariance
-import InfHarmonic.ClassCompactness
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.BaryEnvSandwich
-import InfHarmonic.ContactEnv
-import InfHarmonic.ContactEnvelopeProperties
-import InfHarmonic.ContactEnvelopeSlopeLimit
+module
+
+public import InfHarmonic.FrameConfigCovariance
+public import InfHarmonic.EnvelopeCompetitorBounds
+public import InfHarmonic.JensenSupremumFinite
+public import InfHarmonic.FrameInvariance
+public import InfHarmonic.ClassCompactness
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.BaryEnvSandwich
+public import InfHarmonic.ContactEnv
+public import InfHarmonic.ContactEnvelopeProperties
+public import InfHarmonic.ContactEnvelopeSlopeLimit
+
+@[expose] public section
 open Metric Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

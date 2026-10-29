@@ -1,4 +1,8 @@
-import InfHarmonic.IsMoreauProx
+module
+
+public import InfHarmonic.IsMoreauProx
+
+@[expose] public section
 open Set
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

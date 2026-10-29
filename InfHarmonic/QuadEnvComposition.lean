@@ -1,4 +1,8 @@
-import InfHarmonic.QuadEnvAttained
+module
+
+public import InfHarmonic.QuadEnvAttained
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

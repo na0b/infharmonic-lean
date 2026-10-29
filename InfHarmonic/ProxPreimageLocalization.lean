@@ -1,4 +1,8 @@
-import InfHarmonic.ProxSubdifferentialSingleton
+module
+
+public import InfHarmonic.ProxSubdifferentialSingleton
+
+@[expose] public section
 open Set MeasureTheory
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

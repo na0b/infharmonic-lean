@@ -1,4 +1,8 @@
-import InfHarmonic.Preamble
+module
+
+public import InfHarmonic.Preamble
+
+@[expose] public section
 open Set Filter Topology
 
 /-- Penalization converges to the strict constrained maximum: if `Θ` has a strict

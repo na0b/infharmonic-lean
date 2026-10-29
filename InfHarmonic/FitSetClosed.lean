@@ -1,4 +1,8 @@
-import InfHarmonic.IsFit
+module
+
+public import InfHarmonic.IsFit
+
+@[expose] public section
 -- `FiniteDimensional ℝ F` is carried by the project's standing variable block but is not
 -- needed for this statement, so the unused-section-variable linter is switched off here.
 set_option linter.unusedSectionVars false

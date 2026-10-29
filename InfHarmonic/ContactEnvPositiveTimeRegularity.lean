@@ -1,10 +1,14 @@
-import InfHarmonic.ContactEnv
-import InfHarmonic.IsFitClass
-import InfHarmonic.IsCenteredAt
-import InfHarmonic.HasJensenBound
-import InfHarmonic.BaryEnvDuality
-import InfHarmonic.BaryEnvSandwich
-import InfHarmonic.UniformSubquadratic
+module
+
+public import InfHarmonic.ContactEnv
+public import InfHarmonic.IsFitClass
+public import InfHarmonic.IsCenteredAt
+public import InfHarmonic.HasJensenBound
+public import InfHarmonic.BaryEnvDuality
+public import InfHarmonic.BaryEnvSandwich
+public import InfHarmonic.UniformSubquadratic
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

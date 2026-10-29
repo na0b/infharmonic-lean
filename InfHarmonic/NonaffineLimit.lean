@@ -1,21 +1,25 @@
-import InfHarmonic.IsBadScaleData
-import InfHarmonic.CylinderFitSlopeBounds
-import InfHarmonic.CylinderComparisonSameCenter
-import InfHarmonic.CylinderComparisonShifted
-import InfHarmonic.NormalizedFamilyLipschitz
-import InfHarmonic.IsFitClass
-import InfHarmonic.IsSpaceTimeAffine
-import InfHarmonic.AsymptEquicontLocalUniformLimit
-import InfHarmonic.CylinderFitDoublingChain
-import InfHarmonic.NormalizedSlopeCoefficients
-import InfHarmonic.AnisotropicBoxOffsets
-import InfHarmonic.NonaffineLimitEquicontinuousSubsequence
-import InfHarmonic.ShearedBoxInFitCylinder
-import InfHarmonic.EnclosingAndNearbyFits
-import InfHarmonic.LimitIsFitAtEveryScale
-import InfHarmonic.FitCylinderToNormalizedBox
-import InfHarmonic.NormalizedLimitNotAffine
-import InfHarmonic.NonaffineLimitIsLimitSolution
+module
+
+public import InfHarmonic.IsBadScaleData
+public import InfHarmonic.CylinderFitSlopeBounds
+public import InfHarmonic.CylinderComparisonSameCenter
+public import InfHarmonic.CylinderComparisonShifted
+public import InfHarmonic.NormalizedFamilyLipschitz
+public import InfHarmonic.IsFitClass
+public import InfHarmonic.IsSpaceTimeAffine
+public import InfHarmonic.AsymptEquicontLocalUniformLimit
+public import InfHarmonic.CylinderFitDoublingChain
+public import InfHarmonic.NormalizedSlopeCoefficients
+public import InfHarmonic.AnisotropicBoxOffsets
+public import InfHarmonic.NonaffineLimitEquicontinuousSubsequence
+public import InfHarmonic.ShearedBoxInFitCylinder
+public import InfHarmonic.EnclosingAndNearbyFits
+public import InfHarmonic.LimitIsFitAtEveryScale
+public import InfHarmonic.FitCylinderToNormalizedBox
+public import InfHarmonic.NormalizedLimitNotAffine
+public import InfHarmonic.NonaffineLimitIsLimitSolution
+
+@[expose] public section
 set_option maxHeartbeats 500000
 open Metric Set Filter Topology WithLp
 

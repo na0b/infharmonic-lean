@@ -1,5 +1,9 @@
-import InfHarmonic.ClosedSuperjet
-import InfHarmonic.IsInfSubsolutionOn
+module
+
+public import InfHarmonic.ClosedSuperjet
+public import InfHarmonic.IsInfSubsolutionOn
+
+@[expose] public section
 open Set
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

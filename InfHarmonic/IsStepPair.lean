@@ -1,6 +1,10 @@
-import InfHarmonic.QuadEnvP
-import InfHarmonic.QuadEnvM
-import InfHarmonic.ContactEnv
+module
+
+public import InfHarmonic.QuadEnvP
+public import InfHarmonic.QuadEnvM
+public import InfHarmonic.ContactEnv
+
+@[expose] public section
 open WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

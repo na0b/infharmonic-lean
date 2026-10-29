@@ -1,6 +1,10 @@
-import InfHarmonic.BaryEnvDuality
-import InfHarmonic.SubquadraticGrowth
-import InfHarmonic.UnifSubquadraticGrowth
+module
+
+public import InfHarmonic.BaryEnvDuality
+public import InfHarmonic.SubquadraticGrowth
+public import InfHarmonic.UnifSubquadraticGrowth
+
+@[expose] public section
 open Metric Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

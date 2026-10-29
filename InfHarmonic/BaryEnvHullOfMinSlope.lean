@@ -1,4 +1,8 @@
-import InfHarmonic.BaryConfigOfConvexHull
+module
+
+public import InfHarmonic.BaryConfigOfConvexHull
+
+@[expose] public section
 open Metric Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

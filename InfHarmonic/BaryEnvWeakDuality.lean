@@ -1,4 +1,8 @@
-import InfHarmonic.BaryEnv
+module
+
+public import InfHarmonic.BaryEnv
+
+@[expose] public section
 open Metric Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

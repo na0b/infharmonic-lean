@@ -1,8 +1,12 @@
-import InfHarmonic.EnvelopeCompetitorBounds
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.JGap
-import InfHarmonic.ContactEnv
+module
+
+public import InfHarmonic.EnvelopeCompetitorBounds
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.JGap
+public import InfHarmonic.ContactEnv
+
+@[expose] public section
 open Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

@@ -1,8 +1,12 @@
-import InfHarmonic.RescaledEquation
-import InfHarmonic.LinearLift
-import InfHarmonic.RescaledLimitStability
-import InfHarmonic.LimitSolutionLocalToGlobal
-import InfHarmonic.NormalizedInfFamily
+module
+
+public import InfHarmonic.RescaledEquation
+public import InfHarmonic.LinearLift
+public import InfHarmonic.RescaledLimitStability
+public import InfHarmonic.LimitSolutionLocalToGlobal
+public import InfHarmonic.NormalizedInfFamily
+
+@[expose] public section
 set_option maxHeartbeats 500000
 open Metric Set Filter Topology WithLp
 

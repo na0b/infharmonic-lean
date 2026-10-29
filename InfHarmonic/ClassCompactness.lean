@@ -1,8 +1,12 @@
-import InfHarmonic.SpatialFitModulus
-import InfHarmonic.CenteredGrowth
-import InfHarmonic.FitParamBound
-import InfHarmonic.LimitStability
-import InfHarmonic.TimeFitModulus
+module
+
+public import InfHarmonic.SpatialFitModulus
+public import InfHarmonic.CenteredGrowth
+public import InfHarmonic.FitParamBound
+public import InfHarmonic.LimitStability
+public import InfHarmonic.TimeFitModulus
+
+@[expose] public section
 open Metric Set Filter Topology WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]

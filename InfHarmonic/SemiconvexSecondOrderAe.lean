@@ -1,6 +1,10 @@
-import InfHarmonic.SemiconvexOn
-import InfHarmonic.ConvexSecondOrderAe
-import InfHarmonic.ConvexLocalExtension
+module
+
+public import InfHarmonic.SemiconvexOn
+public import InfHarmonic.ConvexSecondOrderAe
+public import InfHarmonic.ConvexLocalExtension
+
+@[expose] public section
 open Set MeasureTheory
 
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]

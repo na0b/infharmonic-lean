@@ -1,17 +1,22 @@
-import InfHarmonic.ContactWalkTimeRange
-import InfHarmonic.TailEventSelection
-import InfHarmonic.MonotoneLimitFiniteAE
-import InfHarmonic.JBoxUpperBound
-import InfHarmonic.ContactWalkMarkLevels
-import InfHarmonic.FitSetClosed
-import InfHarmonic.StoppedWalkBudgets
-import InfHarmonic.MarkLocalization
-import InfHarmonic.JUpperBound
-import InfHarmonic.ContactGapLimit
-import InfHarmonic.ContactAtLimitingMarks
-import InfHarmonic.EnvHamiltonianSolution
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.UniformSubquadratic
+module
+
+public import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
+public import InfHarmonic.ContactWalkTimeRange
+public import InfHarmonic.TailEventSelection
+public import InfHarmonic.MonotoneLimitFiniteAE
+public import InfHarmonic.JBoxUpperBound
+public import InfHarmonic.ContactWalkMarkLevels
+public import InfHarmonic.FitSetClosed
+public import InfHarmonic.StoppedWalkBudgets
+public import InfHarmonic.MarkLocalization
+public import InfHarmonic.JUpperBound
+public import InfHarmonic.ContactGapLimit
+public import InfHarmonic.ContactAtLimitingMarks
+public import InfHarmonic.EnvHamiltonianSolution
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.UniformSubquadratic
+
+@[expose] public section
 set_option maxHeartbeats 500000
 open Set Filter Topology WithLp MeasureTheory
 
@@ -313,7 +318,7 @@ theorem ContactPropagation (C₀ κ H : ℝ) (hC₀ : 1 ≤ C₀) (hκ : 0 < κ)
         rw [heq]
         exact measurable_const
     rw [hstp]
-    exact hzτ.prodMk (hflag.prodMk (measurable_pi_lambda _ hwmkm))
+    exact hzτ.prodMk (hflag.prodMk (Measurable.of_eval hwmkm))
   -- The laws of Step 3 and the pushforward identity.
   obtain ⟨Ψ, hΨ⟩ : ∃ P : (k : ℕ) → Ωf k → St, P = fun k ω => ⟨stp k ω, hstpmem k ω⟩ :=
     ⟨_, rfl⟩
@@ -326,7 +331,7 @@ theorem ContactPropagation (C₀ κ H : ℝ) (hC₀ : 1 ≤ C₀) (hκ : 0 < κ)
       ∀ k, (L k : Measure St) = (μf k).map (Ψ k) := by
     refine ⟨fun k => ⟨(μf k).map (Ψ k), ?_⟩, fun k => rfl⟩
     have := hprob k
-    exact Measure.isProbabilityMeasure_map (hΨm k).aemeasurable
+    exact (Measure.isProbabilityMeasure_map_iff (hΨm k).aemeasurable).mpr this
   have hpush : ∀ (k : ℕ) (A : Set St), MeasurableSet A →
       (lam k : Measure St) A = μf k (Ψ k ⁻¹' A) := by
     intro k A hA

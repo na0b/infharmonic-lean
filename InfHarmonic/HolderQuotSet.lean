@@ -1,9 +1,6 @@
-import InfHarmonic.Preamble
-open Set
+module
 
-variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
-variable {V : Type*} [NormedAddCommGroup V]
+public import InfHarmonic.Preamble
+public import InfHarmonic.Defs
 
-/-- The set of Hölder difference quotients of `g` on `S` at exponent `α`. -/
-def HolderQuotSet (g : E → V) (α : ℝ) (S : Set E) : Set ℝ :=
-  {q | ∃ x ∈ S, ∃ y ∈ S, x ≠ y ∧ q = ‖g x - g y‖ / dist x y ^ α}
+/-! `HolderQuotSet` is defined in `InfHarmonic.Defs`. -/

@@ -1,15 +1,19 @@
-import InfHarmonic.JGap
-import InfHarmonic.EnvSlopeP
-import InfHarmonic.EnvSlopeM
-import InfHarmonic.IsFitClass
-import InfHarmonic.IsCenteredAt
-import InfHarmonic.HasJensenBound
-import InfHarmonic.BaryEnvSandwich
-import InfHarmonic.UniformSubquadratic
-import InfHarmonic.BaryEnvDuality
-import InfHarmonic.QuadEnvAttained
-import InfHarmonic.EnvelopeCompetitorBounds
-import InfHarmonic.ContactEnv
+module
+
+public import InfHarmonic.JGap
+public import InfHarmonic.EnvSlopeP
+public import InfHarmonic.EnvSlopeM
+public import InfHarmonic.IsFitClass
+public import InfHarmonic.IsCenteredAt
+public import InfHarmonic.HasJensenBound
+public import InfHarmonic.BaryEnvSandwich
+public import InfHarmonic.UniformSubquadratic
+public import InfHarmonic.BaryEnvDuality
+public import InfHarmonic.QuadEnvAttained
+public import InfHarmonic.EnvelopeCompetitorBounds
+public import InfHarmonic.ContactEnv
+
+@[expose] public section
 open Set WithLp
 
 variable {F : Type*} [NormedAddCommGroup F] [InnerProductSpace ℝ F] [FiniteDimensional ℝ F]
